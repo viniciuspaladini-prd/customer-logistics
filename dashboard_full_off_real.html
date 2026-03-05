@@ -122,9 +122,9 @@
 
 <div class="tabs">
   <div class="tab active" onclick="show(0)">📌 Aba 1 — Contexto &amp; Objetivo</div>
-  <div class="tab" onclick="show(1)">📅 Aba 2 — Comparativo Mensal</div>
-  <div class="tab" onclick="show(2)">📊 Aba 3 — Comparativo Semanal</div>
-  <div class="tab" onclick="show(3)">🏆 Aba 4 — Impacto Executivo</div>
+  <div class="tab" onclick="show(1)">🏆 Aba 2 — Impacto Executivo</div>
+  <div class="tab" onclick="show(2)">📅 Aba 3 — Comparativo Mensal</div>
+  <div class="tab" onclick="show(3)">📊 Aba 4 — Comparativo Semanal</div>
   <div class="tab" onclick="show(4)">📍 Aba 5 — Análise por Estado</div>
 </div>
 
@@ -655,7 +655,6 @@ new Chart(document.getElementById('cLT'),  {type:'line',data:{labels:D.labels,da
 new Chart(document.getElementById('cDelta'),{type:'bar', data:{labels:D.labels,datasets:[bar('Dias ganhos',delta,GRN)]},options:opts(' d')});
 new Chart(document.getElementById('cAtiv'), {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.atFULL,FULL),line('Outros',D.atOthers,OTH,[5,3])]},options:optsLeg('%')});
 new Chart(document.getElementById('cTPV'),  {type:'bar', data:{labels:D.labels,datasets:[bar('FULL',D.tpvFULL,FULL),bar('Outros',D.tpvOthers,OTH)]},options:optsLeg('')});
-new Chart(document.getElementById('cTpvMedio'),{type:'bar', data:{labels:D.labels,datasets:[bar('FULL',D.tpvMedioFULL,FULL),bar('Outros',D.tpvMedioOthers,OTH)]},options:optsLeg('')});
 new Chart(document.getElementById('cTPVInc'), {type:'bar', data:{labels:D.labels,datasets:[bar('Realizado',D.incSem,'#7B5EF8')]},options:opts('')});
 new Chart(document.getElementById('cTPVPot'), {type:'bar', data:{labels:D.labels,datasets:[bar('Potencial',D.incPotSem,'#D97706')]},options:opts('')});
 new Chart(document.getElementById('cExLT'),{type:'line',data:{labels:D.labels,datasets:[line('FULL',D.ltFULL,FULL),line('Outros',D.ltOthers,OTH,[5,3])]},options:optsLeg(' d')});
@@ -679,7 +678,6 @@ if(D.mesLabels && D.mesLabels.length>0){
   new Chart(document.getElementById('cMesDelta'),{type:'line',data:{labels:D.mesLabels,datasets:[line('Dias ganhos',mesDelta,GRN)]},options:opts(' d')});
   new Chart(document.getElementById('cMesAtiv'), {type:'line',data:{labels:D.mesLabels,datasets:[line('FULL',D.mesAtFULL,FULL),line('Outros',D.mesAtOthers,OTH,[5,3])]},options:optsLeg('%')});
   new Chart(document.getElementById('cMesTPV'),      {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesTpvFULL,FULL),bar('Outros',D.mesTpvOthers,OTH)]},options:optsLeg('')});
-  new Chart(document.getElementById('cMesTpvMedio'),{type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesTpvMedioFULL,FULL),bar('Outros',D.mesTpvMedioOthers,OTH)]},options:optsLeg('')});
   new Chart(document.getElementById('cMesTPVInc'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('Realizado',D.incMes,'#7B5EF8')]},options:opts('')});
   new Chart(document.getElementById('cMesTPVPot'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('Potencial',D.incPotMes,'#D97706')]},options:opts('')});
   new Chart(document.getElementById('cMesPed'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesPedFULL,FULL),bar('Outros',D.mesPedOthers,OTH)]},options:optsLeg('')});
@@ -687,9 +685,11 @@ if(D.mesLabels && D.mesLabels.length>0){
 }
 
 // ── Tabela por Estado com filtro de mês ───────────────────────────────────
-(function(){
-  const mesLabels = D.estMesLabels;   // ["Todos", "Fev/26", ...]
-  const mesData   = D.estMesData;     // {mes_label: {estado: {FULL:{...}, Outros:{...}}}}
+function initEstadoTable(){
+  if(initEstadoTable._done) return;
+  initEstadoTable._done = true;
+  const mesLabels = D.estMesLabels;
+  const mesData   = D.estMesData;
 
   // Botões de filtro
   const btnContainer = document.getElementById('estMesBtns');
@@ -750,12 +750,17 @@ if(D.mesLabels && D.mesLabels.length>0){
   }
 
   renderEstado('Todos');
-})();
+}
 
+// Mapeamento: índice do tab → índice do pane no DOM
+// Tab 0=Contexto→pane0, Tab 1=Executiva→pane3, Tab 2=Mensal→pane1,
+// Tab 3=Semanal→pane2, Tab 4=Estado→pane4
 function show(n){
+  const pMap=[0,3,1,2,4];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===pMap[n]));
   setTimeout(()=>window.dispatchEvent(new Event('resize')),50);
+  if(n===4) initEstadoTable();
 }
 </script>
 </body>
