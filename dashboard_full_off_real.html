@@ -732,6 +732,7 @@ if(D.mesLabels && D.mesLabels.length>0){
 function show(n){
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
   document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===n));
+  setTimeout(()=>window.dispatchEvent(new Event('resize')),50);
 }
 </script>
 </body>
