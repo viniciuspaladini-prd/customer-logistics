@@ -587,20 +587,6 @@
 
 <!-- ═══ ABA 5 ═══ -->
 <div class="pane" id="p4">
-  <div class="sec">📍 Leadtime por Estado <span class="badge">FULL vs Outros</span></div>
-  <div class="cg2">
-    <div class="cw" style="overflow-x:auto">
-      <div class="ct">Leadtime Médio por Estado (dias úteis)</div>
-      <div class="cs">FULL vs Outros — ordenado pelo leadtime FULL</div>
-      <canvas id="cEstLT" style="max-height:360px"></canvas>
-    </div>
-    <div class="cw" style="overflow-x:auto">
-      <div class="ct">% Ativação por Estado</div>
-      <div class="cs">FULL vs Outros — devices ativados / total pedidos</div>
-      <canvas id="cEstAt" style="max-height:360px"></canvas>
-    </div>
-  </div>
-  <hr/>
   <div class="sec">📋 Tabela por Estado</div>
   <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap">
     <span style="font-size:12px;font-weight:600;color:#6B7280">Filtrar por mês:</span>
@@ -664,12 +650,6 @@ new Chart(document.getElementById('cExAt'),{type:'line',data:{labels:D.labels,da
 new Chart(document.getElementById('cD1a'),{type:'bar',data:{labels:D.labels,datasets:[bar('FULL',D.d1aFULL,FULL),bar('Outros',D.d1aOthers,OTH)]},options:optsLeg(' d')});
 new Chart(document.getElementById('cD1aTotal'),{type:'bar',data:{labels:D.labels,datasets:[bar('LT Entrega FULL',D.ltFULL,FULL),bar('LT Entrega Outros',D.ltOthers,OTH)]},options:optsLeg(' d')});
 
-// Aba 4 — Análise por Estado
-if(D.estLabels && D.estLabels.length>0){
-  const hOpts=(u='')=>{const o=opts(u);o.indexAxis='y';o.plugins.legend={display:true,position:'bottom'};o.scales.x.grid={color:'#F3F4F6'};o.scales.y.grid={display:false};return o;};
-  new Chart(document.getElementById('cEstLT'),{type:'bar',data:{labels:D.estLabels,datasets:[bar('FULL',D.estLtFULL,FULL),bar('Outros',D.estLtOthers,OTH)]},options:hOpts(' d')});
-  new Chart(document.getElementById('cEstAt'),{type:'bar',data:{labels:D.estLabels,datasets:[bar('FULL',D.estAtFULL,FULL),bar('Outros',D.estAtOthers,OTH)]},options:hOpts('%')});
-}
 
 // Aba 5 — Comparativo Mensal
 if(D.mesLabels && D.mesLabels.length>0){
