@@ -66,6 +66,7 @@
                       background:var(--bg);border-radius:0 8px 8px 0;
                       margin-bottom:10px;font-size:14px;line-height:1.6;}
     .insight-list li strong{color:var(--blue);}
+    /* Contexto */
     .hero{background:linear-gradient(135deg,#1A1A2E,#0F3460);border-radius:16px;
            padding:36px;color:#fff;margin-bottom:24px;}
     .hero h1{font-size:22px;font-weight:800;margin-bottom:8px;}
@@ -105,9 +106,6 @@
     .dc ul{list-style:none;padding:0;}
     .dc ul li{font-size:12px;padding:4px 0;display:flex;align-items:center;gap:6px;}
     .dc ul li::before{content:'→';color:var(--blue);font-weight:700;}
-    .filter-btn{padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;
-                 cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--muted);transition:all .2s;}
-    .filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
   </style>
 </head>
 <body>
@@ -116,10 +114,10 @@
     <div class="header-logo">MERCADO PAGO</div>
     <div style="margin-left:16px">
       <div class="header-title">Integração FULL × OFF — Impacto em Logística &amp; Performance</div>
-      <div class="header-sub">Point · Canais OFF · Dados reais BigQuery</div>
+      <div class="header-sub">Point · Canais OFF · Comparativo semanal · Dados reais BigQuery</div>
     </div>
   </div>
-  <div class="header-badge">📅 Atualizado: 23/03/2026</div>
+  <div class="header-badge">📅 Atualizado: 05/03/2026</div>
 </div>
 
 <div class="tabs">
@@ -132,11 +130,11 @@
 
 <div class="content">
 
-<!-- ═══ ABA 1 — Contexto ═══ -->
+<!-- ═══ ABA 1 ═══ -->
 <div class="pane active" id="p0">
   <div class="hero">
-    <h1>🎯 Integração OFF (Mercado Pago) com FULL</h1>
-    <p>Avaliação do impacto da integração dos canais de venda OFF ao Mercado Envios FULL sobre leadtime de entrega e taxa de ativação de maquininhas Point.</p>
+    <h1>🎯 Integração OFF (Mercado Pago) com FULL <span style="font-size:14px;font-weight:500;opacity:.75">(CHOP &amp; Telesales Hunting)</span></h1>
+    <p>Avaliação do impacto da integração dos <span style="color:#FCD34D;font-weight:600">canais de venda OFF (CHOP &amp; Telesales Hunting)</span> ao Mercado Envios FULL sobre leadtime de entrega e taxa de ativação de maquininhas Point.</p>
     <div class="hero-tags">
       <span class="hero-tag">📦 Logística</span>
       <span class="hero-tag">💳 Mercado Pago</span>
@@ -145,37 +143,43 @@
       <span class="hero-tag">🖥 Point</span>
     </div>
   </div>
-  <div class="sec">1️⃣ Cenário Atual <span class="badge">Contexto</span></div>
-  <div class="sg">
-    <div class="sc cur">
-      <h3>⚠️ Modelos Atuais — Limitações</h3>
-      <ul>
-        <li><span class="dot r"></span><strong>Crossdocking</strong> — baixo controle logístico</li>
-        <li><span class="dot r"></span><strong>Dropshipping</strong> — dependência do seller</li>
-        <li><span class="dot r"></span>Menor visibilidade de entrega</li>
-        <li><span class="dot r"></span>Baixa previsibilidade de prazo</li>
-        <li><span class="dot r"></span>Leadtime médio elevado</li>
-        <li><span class="dot r"></span>Ativação mais lenta do seller</li>
-      </ul>
+  <div class="sec">1️⃣ Contexto <span class="badge">Cenário Atual</span></div>
+  <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:8px">
+    <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:10px;overflow:hidden">
+      <div style="background:#FFE600;padding:8px 18px;display:inline-block;font-size:13px;font-weight:700;color:#1A1A1A">
+        Como funciona hoje?
+      </div>
+      <div style="padding:16px 18px;font-size:13px;color:#374151;line-height:1.7">
+        Atualmente, os produtos de Mercado Pago no Brasil são enviados por dois métodos: <strong>crossdocking ou dropshipping</strong>. Esses modelos funcionam, mas têm limitações em controle, rastreamento e tempo de entrega. O <strong>modelo FULL</strong>, com produtos armazenados nos centros logísticos do Mercado Livre, permite envios mais rápidos, confiáveis e com muito mais visibilidade.
+      </div>
     </div>
-    <div class="sc ful">
-      <h3>✅ Modelo FULL — Vantagens</h3>
-      <ul>
-        <li><span class="dot g"></span>Produtos nos CDs do Mercado Livre</li>
-        <li><span class="dot g"></span>Menor leadtime de entrega</li>
-        <li><span class="dot g"></span>Maior confiabilidade e tracking</li>
-        <li><span class="dot g"></span>Melhor experiência seller e cliente final</li>
-        <li><span class="dot g"></span>Ativação mais rápida da maquininha</li>
-        <li><span class="dot g"></span>Unificação de serviços dentro do grupo MELI</li>
-      </ul>
+    <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:10px;overflow:hidden">
+      <div style="background:#FFE600;padding:8px 18px;display:inline-block;font-size:13px;font-weight:700;color:#1A1A1A">
+        Qual é a oportunidade?
+      </div>
+      <div style="padding:16px 18px;font-size:13px;color:#374151;line-height:1.7">
+        <strong>Integrar o Mercado Pago ao Mercado Envios para enviar maquininhas Point via FULL</strong> — automatizando e agilizando todo o processo, tanto para o seller quanto para o usuário final.
+      </div>
     </div>
   </div>
   <hr/>
-  <div class="sec">2️⃣ Oportunidade <span class="badge">Proposta</span></div>
-  <div class="og">
-    <div class="oc"><div class="oi">⚡</div><div class="ot">Reduzir Leadtime</div><div class="od">Diminuir o tempo médio de entrega das maquininhas, acelerando a ativação do seller.</div></div>
-    <div class="oc"><div class="oi">💰</div><div class="ot">Aumentar TPV</div><div class="od">Capturar TPV incremental nas maquininhas pela aceleração da ativação nos primeiros dias.</div></div>
-    <div class="oc"><div class="oi">🎯</div><div class="ot">Melhorar Ativação</div><div class="od">Aumentar a taxa de sellers que transacionam, unificando serviços dentro do grupo MELI.</div></div>
+  <div class="sec">2️⃣ O que esperamos com FULL <span class="badge">Hipóteses</span></div>
+  <div class="sg" style="grid-template-columns:1fr 1fr 1fr">
+    <div class="sc ful" style="text-align:center">
+      <div style="font-size:36px;margin-bottom:12px">⚡</div>
+      <h3>Menor Leadtime de Entrega</h3>
+      <p style="font-size:13px;color:#374151;margin-top:8px;line-height:1.6">Com estoque nos CDs do Mercado Livre, a maquininha chega mais rápido ao seller — reduzindo dias úteis de espera.</p>
+    </div>
+    <div class="sc ful" style="text-align:center">
+      <div style="font-size:36px;margin-bottom:12px">🔑</div>
+      <h3>Ativação mais Rápida</h3>
+      <p style="font-size:13px;color:#374151;margin-top:8px;line-height:1.6">Seller que recebe mais rápido ativa a maquininha antes — gerando transações nos primeiros dias pós-entrega.</p>
+    </div>
+    <div class="sc ful" style="text-align:center">
+      <div style="font-size:36px;margin-bottom:12px">💰</div>
+      <h3>Mais Engajamento do Seller</h3>
+      <p style="font-size:13px;color:#374151;margin-top:8px;line-height:1.6">Maior taxa de ativação e TPV capturado nos primeiros dias — seller engajado desde o início da jornada.</p>
+    </div>
   </div>
   <hr/>
   <div class="sec">3️⃣ Hipótese Estratégica <span class="badge">Core</span></div>
@@ -190,71 +194,80 @@
     </div>
   </div>
   <hr/>
-  <div class="sec">🔍 Filtros Aplicados <span class="badge">Dados Reais</span></div>
-  <div class="dg">
-    <div class="dc"><h4>📦 Produto</h4><ul><li>MODELO = 'Point'</li><li>OPERATION_TYPE = 'PURCHASE ORDER'</li><li>SIT_SITE_ID = 'MLB'</li></ul></div>
-    <div class="dc"><h4>📡 Canal CHOP (FULL)</h4><ul><li>CHANNEL = 'CAMPAIGN'</li><li>ORDER_GATEWAY = 'CAMPAIGN'</li><li>OP_LOGISTICO = 'Fulfillment'</li></ul></div>
-    <div class="dc"><h4>📡 Canais OFF (Outros)</h4><ul><li>TELESALES_FARMING</li><li>CONSULTOR CERTIFICADO</li><li>RESELLERS</li><li>TELESALES_HUNTING</li><li>FDV PROPIA</li></ul></div>
-  </div>
-</div>
-
-<!-- ═══ ABA 2 — Executivo ═══ -->
-<div class="pane" id="p1">
-  <div class="kpi-grid">
-    <div class="kpi blue">
-      <div class="kpi-label">🔵 Redução Média de Leadtime</div>
-      <div class="kpi-value" style="color:#2D73F5">0.9 dias</div>
-      <div class="kpi-delta">▼ 30.0% menos tempo de entrega</div>
-      <div class="kpi-sub">FULL: 2.1d vs Outros: 3.0d (dias úteis)</div>
+  <div class="sec">4️⃣ Expansão da Iniciativa — Rollout <span class="badge">Cronograma</span></div>
+  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;margin-bottom:8px">
+    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-left:4px solid #2D73F5;border-radius:10px;padding:14px">
+      <div style="font-size:10px;font-weight:700;color:#2D73F5;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 1 — 19/02/2026</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Mini NFC 2</div>
+      <div style="font-size:12px;color:#374151;line-height:1.5">
+        <strong>Estados:</strong> Minas Gerais (MG) e Maranhão (MA)<br/>
+        Início do piloto.
+      </div>
     </div>
-    <div class="kpi green">
-      <div class="kpi-label">🟢 Delta de Ativação</div>
-      <div class="kpi-value" style="color:#00C48C">-22.0 pp</div>
-      <div class="kpi-delta">▲ FULL: 71.3% vs Outros: 93.3%</div>
-      <div class="kpi-sub">Sellers ativados / entregues</div>
+    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-left:4px solid #7B5EF8;border-radius:10px;padding:14px">
+      <div style="font-size:10px;font-weight:700;color:#7B5EF8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 2 — 02/03/2026</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Mini NFC 2 + Pro 3</div>
+      <div style="font-size:12px;color:#374151;line-height:1.5">
+        <strong>Mini NFC 2:</strong> todo o Brasil<br/>
+        <strong>Pro 3:</strong> MG e MA
+      </div>
     </div>
-    <div class="kpi orange">
-      <div class="kpi-label">🟡 Total Pedidos FULL</div>
-      <div class="kpi-value" style="color:#FF7A00">15,839.0</div>
-      <div class="kpi-delta">▲ vs 4,533.0 via Outros</div>
-      <div class="kpi-sub">Canais CHOP · Produto Point · MLB</div>
+    <div style="background:#FFF7ED;border:1px solid #FED7AA;border-left:4px solid #F97316;border-radius:10px;padding:14px">
+      <div style="font-size:10px;font-weight:700;color:#F97316;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 3 — 05/03/2026</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Expansão Pro 3</div>
+      <div style="font-size:12px;color:#374151;line-height:1.5">
+        <strong>Pro 3:</strong> +4 estados<br/>
+        BA, MT, RO e PA
+      </div>
     </div>
-    <div class="kpi purple">
-      <div class="kpi-label">🟣 Sellers Ativados (FULL)</div>
-      <div class="kpi-value" style="color:#7B5EF8">9,251.0</div>
-      <div class="kpi-delta">vs 3,838.0 via Outros</div>
-      <div class="kpi-sub">Total no período analisado</div>
-    </div>
-  </div>
-  <div class="cg2">
-    <div class="cw">
-      <div class="ct">Evolução do Leadtime — FULL vs Outros</div>
-      <div class="cs">Tendência semanal (dias úteis)</div>
-      <canvas id="cExLT"></canvas>
-    </div>
-    <div class="cw">
-      <div class="ct">Evolução da Ativação — FULL vs Outros</div>
-      <div class="cs">% sellers que transacionaram</div>
-      <canvas id="cExAt"></canvas>
+    <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-left:4px solid #16A34A;border-radius:10px;padding:14px">
+      <div style="font-size:10px;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 4 — 10/03/2026</div>
+      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Go Live Completo</div>
+      <div style="font-size:12px;color:#374151;line-height:1.5">
+        <strong>AIR 2 + SMART 2:</strong> todo o Brasil<br/>
+        Cobertura total da linha Point.
+      </div>
     </div>
   </div>
   <hr/>
-  <div class="sec">💡 Insights Estratégicos</div>
-  <ul class="insight-list">
-    <li>📦 <strong>FULL reduz o leadtime em 0.9 dias úteis</strong> em média — 30.0% de redução frente ao modelo atual.</li>
-    <li>🎯 <strong>Delta de ativação: -22.0 pp</strong> — FULL: 71.3% vs Outros: 93.3%.</li>
-    <li>📈 <strong>FULL representa 77.7% dos pedidos</strong> via canais OFF no período — há espaço para crescimento.</li>
-    <li>🚀 <strong>Hipótese validada:</strong> menor leadtime → ativação mais rápida → maior captura de TPV nos primeiros dias do seller.</li>
-  </ul>
+  <div class="sec">🗺️ Mapa do Rollout <span class="badge">Expansão por Estado</span></div>
+  <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;margin-bottom:8px">
+    <svg viewBox="0 0 520 520" style="width:100%;max-width:390px;height:auto;display:block;flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
+      <rect width="520" height="520" fill="#EFF6FF" rx="10"/>
+      <path d="M 90,208 L 96,164 L 115,118 L 148,92 L 192,68 L 242,60 L 290,65 L 332,62
+               L 388,75 L 422,88 L 455,118 L 483,158 L 502,218 L 500,270 L 488,318
+               L 478,350 L 460,400 L 444,444 L 418,480 L 398,505 L 376,518 L 344,518
+               L 314,516 L 284,504 L 252,482 L 244,454 L 255,434 L 270,418 L 267,394
+               L 252,374 L 237,347 L 220,324 L 188,300 L 158,277 L 138,251 L 108,231 Z"
+            fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>
+      <circle cx="188" cy="90" r="15" fill="#7B5EF8" opacity="0.92"/><text x="188" y="94" text-anchor="middle" fill="white" font-size="8" font-weight="700">RR</text><circle cx="330" cy="82" r="15" fill="#7B5EF8" opacity="0.92"/><text x="330" y="86" text-anchor="middle" fill="white" font-size="8" font-weight="700">AP</text><circle cx="190" cy="188" r="15" fill="#7B5EF8" opacity="0.92"/><text x="190" y="192" text-anchor="middle" fill="white" font-size="8" font-weight="700">AM</text><circle cx="325" cy="165" r="18" fill="#F97316" opacity="0.92"/><text x="325" y="169" text-anchor="middle" fill="white" font-size="8" font-weight="700">PA</text><circle cx="100" cy="235" r="15" fill="#7B5EF8" opacity="0.92"/><text x="100" y="239" text-anchor="middle" fill="white" font-size="8" font-weight="700">AC</text><circle cx="152" cy="280" r="18" fill="#F97316" opacity="0.92"/><text x="152" y="284" text-anchor="middle" fill="white" font-size="8" font-weight="700">RO</text><circle cx="348" cy="252" r="15" fill="#7B5EF8" opacity="0.92"/><text x="348" y="256" text-anchor="middle" fill="white" font-size="8" font-weight="700">TO</text><circle cx="242" cy="305" r="18" fill="#F97316" opacity="0.92"/><text x="242" y="309" text-anchor="middle" fill="white" font-size="8" font-weight="700">MT</text><circle cx="390" cy="172" r="18" fill="#2D73F5" opacity="0.92"/><text x="390" y="176" text-anchor="middle" fill="white" font-size="8" font-weight="700">MA</text><circle cx="432" cy="215" r="15" fill="#7B5EF8" opacity="0.92"/><text x="432" y="219" text-anchor="middle" fill="white" font-size="8" font-weight="700">PI</text><circle cx="462" cy="202" r="15" fill="#7B5EF8" opacity="0.92"/><text x="462" y="206" text-anchor="middle" fill="white" font-size="8" font-weight="700">CE</text><circle cx="492" cy="215" r="15" fill="#7B5EF8" opacity="0.92"/><text x="492" y="219" text-anchor="middle" fill="white" font-size="8" font-weight="700">RN</text><circle cx="498" cy="245" r="15" fill="#7B5EF8" opacity="0.92"/><text x="498" y="249" text-anchor="middle" fill="white" font-size="8" font-weight="700">PB</text><circle cx="480" cy="270" r="15" fill="#7B5EF8" opacity="0.92"/><text x="480" y="274" text-anchor="middle" fill="white" font-size="8" font-weight="700">PE</text><circle cx="484" cy="296" r="15" fill="#7B5EF8" opacity="0.92"/><text x="484" y="300" text-anchor="middle" fill="white" font-size="8" font-weight="700">AL</text><circle cx="478" cy="318" r="15" fill="#7B5EF8" opacity="0.92"/><text x="478" y="322" text-anchor="middle" fill="white" font-size="8" font-weight="700">SE</text><circle cx="425" cy="340" r="18" fill="#F97316" opacity="0.92"/><text x="425" y="344" text-anchor="middle" fill="white" font-size="8" font-weight="700">BA</text><circle cx="340" cy="348" r="15" fill="#7B5EF8" opacity="0.92"/><text x="340" y="352" text-anchor="middle" fill="white" font-size="8" font-weight="700">GO</text><circle cx="355" cy="372" r="15" fill="#7B5EF8" opacity="0.92"/><text x="355" y="376" text-anchor="middle" fill="white" font-size="8" font-weight="700">DF</text><circle cx="282" cy="408" r="15" fill="#7B5EF8" opacity="0.92"/><text x="282" y="412" text-anchor="middle" fill="white" font-size="8" font-weight="700">MS</text><circle cx="395" cy="380" r="18" fill="#2D73F5" opacity="0.92"/><text x="395" y="384" text-anchor="middle" fill="white" font-size="8" font-weight="700">MG</text><circle cx="448" cy="388" r="15" fill="#7B5EF8" opacity="0.92"/><text x="448" y="392" text-anchor="middle" fill="white" font-size="8" font-weight="700">ES</text><circle cx="420" cy="412" r="15" fill="#7B5EF8" opacity="0.92"/><text x="420" y="416" text-anchor="middle" fill="white" font-size="8" font-weight="700">RJ</text><circle cx="365" cy="418" r="15" fill="#7B5EF8" opacity="0.92"/><text x="365" y="422" text-anchor="middle" fill="white" font-size="8" font-weight="700">SP</text><circle cx="328" cy="450" r="15" fill="#7B5EF8" opacity="0.92"/><text x="328" y="454" text-anchor="middle" fill="white" font-size="8" font-weight="700">PR</text><circle cx="352" cy="474" r="15" fill="#7B5EF8" opacity="0.92"/><text x="352" y="478" text-anchor="middle" fill="white" font-size="8" font-weight="700">SC</text><circle cx="320" cy="504" r="15" fill="#7B5EF8" opacity="0.92"/><text x="320" y="508" text-anchor="middle" fill="white" font-size="8" font-weight="700">RS</text>
+    </svg>
+    <div style="display:flex;flex-direction:column;gap:8px;flex:1;min-width:220px">
+      <div style="font-size:11px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px">Legenda</div>
+      <div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#2D73F5;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 1 — 19/02</div><div style="font-size:11px;color:#6B7280">Mini NFC 2 · Piloto: MG e MA</div></div></div><div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#7B5EF8;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 2 — 02/03</div><div style="font-size:11px;color:#6B7280">Mini NFC 2 · Todo o Brasil</div></div></div><div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#F97316;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 3 — 05/03</div><div style="font-size:11px;color:#6B7280">Pro 3 · BA, MT, RO e PA</div></div></div><div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#16A34A;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 4 — 10/03</div><div style="font-size:11px;color:#6B7280">AIR 2 + SMART 2 · Todo o Brasil</div></div></div>
+      <div style="margin-top:6px;padding:12px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;font-size:12px;color:#166534;line-height:1.8">
+        ✅ <strong>Mini NFC 2</strong> já disponível em todo o Brasil desde 02/03<br/>
+        🔄 <strong>Pro 3</strong> em expansão progressiva por estado<br/>
+        🚀 <strong>AIR 2 + SMART 2</strong> chegam em 10/03 para todo Brasil
+      </div>
+    </div>
+  </div>
+  <hr/>
+  <div class="sec">🔍 Filtros Aplicados <span class="badge">Dados Reais</span></div>
+  <div class="dg">
+    <div class="dc"><h4>📦 Produto</h4><ul><li>MODELO = 'Point'</li><li>OPERATION_TYPE = 'PURCHASE ORDER'</li><li>SIT_SITE_ID = 'MLB'</li></ul></div>
+    <div class="dc"><h4>✅ FULL (OFF via FULL)</h4><ul><li>OP_LOGISTICO = 'Fulfillment'</li><li>ORDER_GATEWAY = 'CAMPAIGN'</li></ul></div>
+    <div class="dc"><h4>🔄 Outros (OFF não FULL)</h4><ul><li>OP_LOGISTICO &lt;&gt; 'Fulfillment'</li></ul></div>
+  </div>
 </div>
 
-<!-- ═══ ABA 3 — Mensal ═══ -->
-<div class="pane" id="p2">
+<!-- ═══ ABA 2 ═══ -->
+<div class="pane" id="p1">
   <div class="sec">1️⃣ Leadtime Mensal <span class="badge">Dias Úteis</span></div>
   <div class="cg2">
     <div class="cw">
       <div class="ct">Leadtime Médio por Mês</div>
-      <div class="cs">Média mensal — FULL vs Outros</div>
+      <div class="cs">FULL vs Outros (dias úteis)</div>
       <div class="leg">
         <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
         <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
@@ -268,7 +281,7 @@
     </div>
   </div>
   <hr/>
-  <div class="sec">2️⃣ Ativação Mensal <span class="badge">% Sellers ativados / Entregues</span></div>
+  <div class="sec">2️⃣ Ativação &amp; TPV Mensal <span class="badge">% Ativados · R$ TPV</span></div>
   <div class="cg2">
     <div class="cw">
       <div class="ct">% Ativação por Mês</div>
@@ -280,6 +293,19 @@
       <canvas id="cMesAtiv"></canvas>
     </div>
     <div class="cw">
+      <div class="ct">TPV por Mês (R$)</div>
+      <div class="cs">Valor total processado pelos devices — FULL vs Outros</div>
+      <div class="leg">
+        <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
+        <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
+      </div>
+      <canvas id="cMesTPV"></canvas>
+    </div>
+  </div>
+  <hr/>
+  <div class="sec">3️⃣ Pedidos &amp; Dias até 1ª Trx por Mês</div>
+  <div class="cg2">
+    <div class="cw">
       <div class="ct">Pedidos por Mês</div>
       <div class="cs">FULL vs Outros</div>
       <div class="leg">
@@ -288,10 +314,6 @@
       </div>
       <canvas id="cMesPed"></canvas>
     </div>
-  </div>
-  <hr/>
-  <div class="sec">3️⃣ Dias até 1ª Transação por Mês</div>
-  <div class="cg2">
     <div class="cw">
       <div class="ct">Dias do Pedido até 1ª Transação</div>
       <div class="cs">Média mensal — FULL vs Outros</div>
@@ -301,14 +323,19 @@
       </div>
       <canvas id="cMesD1a"></canvas>
     </div>
+  </div>
+  <hr/>
+  <div class="sec">💡 TPV Incremental por Mês <span class="badge">Realizado · Potencial</span></div>
+  <div class="cg2">
     <div class="cw">
-      <div class="ct">Entregues por Mês</div>
-      <div class="cs">FULL vs Outros</div>
-      <div class="leg">
-        <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
-        <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
-      </div>
-      <canvas id="cMesEnt"></canvas>
+      <div class="ct">⚡ Realizado — TPV gerado pelo delta de LT</div>
+      <div class="cs">(Δ LT corridos / 30) × TPV FULL</div>
+      <canvas id="cMesTPVInc"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">🎯 Potencial — Se Outros fossem FULL</div>
+      <div class="cs">(Δ LT corridos / 30) × TPV Outros</div>
+      <canvas id="cMesTPVPot"></canvas>
     </div>
   </div>
   <hr/>
@@ -317,39 +344,43 @@
     <table>
       <thead><tr>
         <th>Mês</th><th>Método</th><th>Pedidos</th><th>Entregues</th>
-        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>Delta Leadtime</th>
+        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>TPV (R$)</th><th>Delta Leadtime</th>
       </tr></thead>
       <tbody>
         <tr>
           <td rowspan="2" style="font-weight:700">Fev/26</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>83.0</td><td>73.0</td>
-          <td>2.5 d</td><td>83.6%</td><td>0.4 d</td>
-          <td rowspan="2" class="positive">−0.8d</td>
+          <td>343.0</td><td>296.0</td>
+          <td>1.7 d</td><td>52.2%</td>
+          <td>3.3 d</td><td>R$ 183,070</td>
+          <td rowspan="2" class="positive">−1.0d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>1,726.0</td><td>1,650.0</td>
-          <td>3.3 d</td><td>119.8%</td><td>0.8 d</td>
+          <td>24,999.0</td><td>22,103.0</td>
+          <td>2.7 d</td><td>53.0%</td>
+          <td>4.4 d</td><td>R$ 18,851,762</td>
         </tr>
         <tr>
           <td rowspan="2" style="font-weight:700">Mar/26</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>15,756.0</td><td>13,079.0</td>
-          <td>1.9 d</td><td>70.3%</td><td>0.9 d</td>
-          <td rowspan="2" class="positive">−1.1d</td>
+          <td>1,047.0</td><td>393.0</td>
+          <td>1.2 d</td><td>10.0%</td>
+          <td>1.1 d</td><td>R$ 22,964</td>
+          <td rowspan="2" class="positive">−1.0d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>2,807.0</td><td>2,239.0</td>
-          <td>3.0 d</td><td>83.1%</td><td>1.0 d</td>
+          <td>8,770.0</td><td>1,836.0</td>
+          <td>2.2 d</td><td>7.9%</td>
+          <td>2.1 d</td><td>R$ 214,104</td>
         </tr></tbody>
     </table>
   </div>
 </div>
 
-<!-- ═══ ABA 4 — Semanal ═══ -->
-<div class="pane" id="p3">
+<!-- ═══ ABA 3 ═══ -->
+<div class="pane" id="p2">
   <div class="sec">1️⃣ Leadtime de Entrega <span class="badge">Dias Úteis</span></div>
   <div class="cg2">
     <div class="cw">
@@ -380,21 +411,35 @@
       <canvas id="cAtiv"></canvas>
     </div>
     <div class="cw">
-      <div class="ct">% Ativação em 7 dias</div>
-      <div class="cs">Sellers que ativaram em até 7 dias após entrega</div>
+      <div class="ct">TPV Gerado por Semana</div>
+      <div class="cs">Valor total processado pelos devices (R$) — FULL vs Outros</div>
       <div class="leg">
         <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
         <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
       </div>
-      <canvas id="cAtiv7d"></canvas>
+      <canvas id="cTPV"></canvas>
     </div>
   </div>
   <hr/>
-  <div class="sec">3️⃣ Dias até 1ª Transação <span class="badge">Seller recebeu → usou pela 1ª vez</span></div>
+  <div class="sec">💡 TPV Incremental por Semana <span class="badge">Realizado · Potencial</span></div>
   <div class="cg2">
     <div class="cw">
-      <div class="ct">Dias entre Entrega e 1ª Transação</div>
-      <div class="cs">Média por semana — FULL vs Outros</div>
+      <div class="ct">⚡ Realizado — TPV gerado pelo delta de LT</div>
+      <div class="cs">(Δ LT corridos / 7) × TPV FULL</div>
+      <canvas id="cTPVInc"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">🎯 Potencial — Se Outros fossem FULL</div>
+      <div class="cs">(Δ LT corridos / 7) × TPV Outros</div>
+      <canvas id="cTPVPot"></canvas>
+    </div>
+  </div>
+  <hr/>
+  <div class="sec">3️⃣ Dias até 1ª Transação <span class="badge">Pedido → usou pela 1ª vez (nível device)</span></div>
+  <div class="cg2">
+    <div class="cw">
+      <div class="ct">Dias do Pedido até 1ª Transação</div>
+      <div class="cs">Média por semana — FULL vs Outros (fonte: BT_MP_IC_ATIVACAO_VENDAS_DEVICES, nível device)</div>
       <div class="leg">
         <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
         <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
@@ -402,85 +447,145 @@
       <canvas id="cD1a"></canvas>
     </div>
     <div class="cw">
-      <div class="ct">Tempo Total até Ativação (Leadtime + Dias → 1ª Trx)</div>
-      <div class="cs">LT entrega + dias até usar pela 1ª vez</div>
+      <div class="ct">Leadtime de Entrega vs Dias até 1ª Trx</div>
+      <div class="cs">Comparativo direto FULL × Outros — componentes do tempo até ativação</div>
       <canvas id="cD1aTotal"></canvas>
     </div>
   </div>
   <hr/>
-  <div class="sec">📋 Tabela Semanal Detalhada</div>
+  <div class="sec">📋 Tabela Detalhada</div>
   <div class="card">
     <table>
       <thead><tr>
         <th>Semana</th><th>Método</th><th>Pedidos</th><th>Entregues</th>
-        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>Delta Leadtime</th>
+        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>TPV (R$)</th><th>Delta Leadtime</th>
       </tr></thead>
       <tbody>
         <tr>
           <td rowspan="2" style="font-weight:700">Sem 16/02</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>0</td><td>0</td>
-          <td>— d</td><td>—%</td><td>— d</td>
-          <td rowspan="2" class="positive">—</td>
+          <td>144.0</td><td>131.0</td>
+          <td>1.7 d</td><td>60.4%</td>
+          <td>3.8 d</td><td>R$ 110,013</td>
+          <td rowspan="2" class="positive">−1.1d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>495.0</td><td>477.0</td>
-          <td>3.3 d</td><td>135.6%</td><td>1.3 d</td>
+          <td>10,165.0</td><td>9,645.0</td>
+          <td>2.8 d</td><td>62.6%</td>
+          <td>5.0 d</td><td>R$ 10,259,301</td>
         </tr>
         <tr>
           <td rowspan="2" style="font-weight:700">Sem 23/02</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>104.0</td><td>91.0</td>
-          <td>2.4 d</td><td>78.0%</td><td>0.4 d</td>
-          <td rowspan="2" class="positive">−1.0d</td>
-        </tr>
-        <tr>
-          <td><span class="tag-outros">Outros</span></td>
-          <td>1,312.0</td><td>1,251.0</td>
-          <td>3.4 d</td><td>112.6%</td><td>0.5 d</td>
-        </tr>
-        <tr>
-          <td rowspan="2" style="font-weight:700">Sem 02/03</td>
-          <td><span class="tag-full">FULL</span></td>
-          <td>2,689.0</td><td>2,496.0</td>
-          <td>2.3 d</td><td>70.2%</td><td>0.9 d</td>
-          <td rowspan="2" class="positive">−0.9d</td>
-        </tr>
-        <tr>
-          <td><span class="tag-outros">Outros</span></td>
-          <td>1,102.0</td><td>1,033.0</td>
-          <td>3.2 d</td><td>100.2%</td><td>1.0 d</td>
-        </tr>
-        <tr>
-          <td rowspan="2" style="font-weight:700">Sem 09/03</td>
-          <td><span class="tag-full">FULL</span></td>
-          <td>7,149.0</td><td>6,471.0</td>
-          <td>2.0 d</td><td>76.2%</td><td>— d</td>
-          <td rowspan="2" class="positive">−0.9d</td>
-        </tr>
-        <tr>
-          <td><span class="tag-outros">Outros</span></td>
-          <td>900.0</td><td>804.0</td>
-          <td>2.9 d</td><td>75.9%</td><td>— d</td>
-        </tr>
-        <tr>
-          <td rowspan="2" style="font-weight:700">Sem 16/03</td>
-          <td><span class="tag-full">FULL</span></td>
-          <td>5,897.0</td><td>4,094.0</td>
-          <td>1.6 d</td><td>61.0%</td><td>— d</td>
+          <td>220.0</td><td>180.0</td>
+          <td>1.7 d</td><td>43.6%</td>
+          <td>2.9 d</td><td>R$ 73,088</td>
           <td rowspan="2" class="positive">−0.8d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>724.0</td><td>324.0</td>
-          <td>2.4 d</td><td>42.3%</td><td>— d</td>
+          <td>16,523.0</td><td>13,291.0</td>
+          <td>2.5 d</td><td>43.6%</td>
+          <td>3.8 d</td><td>R$ 8,700,769</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 02/03</td>
+          <td><span class="tag-full">FULL</span></td>
+          <td>1,026.0</td><td>378.0</td>
+          <td>1.2 d</td><td>9.8%</td>
+          <td>1.1 d</td><td>R$ 22,934</td>
+          <td rowspan="2" class="positive">−0.6d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Outros</span></td>
+          <td>7,081.0</td><td>1,003.0</td>
+          <td>1.8 d</td><td>5.3%</td>
+          <td>1.7 d</td><td>R$ 105,795</td>
         </tr></tbody>
     </table>
   </div>
 </div>
 
-<!-- ═══ ABA 5 — Por Estado ═══ -->
+<!-- ═══ ABA 4 ═══ -->
+<div class="pane" id="p3">
+  <div class="kpi-grid">
+    <div class="kpi blue">
+      <div class="kpi-label">🔵 Redução Média de Leadtime</div>
+      <div class="kpi-value" style="color:#2D73F5">0.9 dias</div>
+      <div class="kpi-delta">▼ 37.5% menos tempo de entrega</div>
+      <div class="kpi-sub">FULL: 1.5d vs Outros: 2.4d (dias úteis)</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">🟢 Aumento na Taxa de Ativação</div>
+      <div class="kpi-value" style="color:#00C48C">+0.7 pp</div>
+      <div class="kpi-delta">▲ FULL: 37.9% vs Outros: 37.2%</div>
+      <div class="kpi-sub">Mais sellers ativando após entrega</div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-label">🟡 Total Pedidos FULL</div>
+      <div class="kpi-value" style="color:#FF7A00">1,390.0</div>
+      <div class="kpi-delta">▲ vs 33,769.0 via Outros</div>
+      <div class="kpi-sub">Canais OFF · Produto Point · MLB</div>
+    </div>
+    <div class="kpi purple">
+      <div class="kpi-label">🟣 Sellers Ativados (FULL)</div>
+      <div class="kpi-value" style="color:#7B5EF8">284.0</div>
+      <div class="kpi-delta">vs 13,946.0 via Outros</div>
+      <div class="kpi-sub">Total no período analisado</div>
+    </div>
+  </div>
+  <div class="kpi-grid">
+    <div class="kpi blue">
+      <div class="kpi-label">💰 TPV Total FULL</div>
+      <div class="kpi-value" style="color:#2D73F5">R$ 206,035</div>
+      <div class="kpi-delta">▲ vs R$ 19,065,865 via Outros</div>
+      <div class="kpi-sub">Valor processado pelos devices no período</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">📊 TPV Médio por Device (FULL)</div>
+      <div class="kpi-value" style="color:#00C48C">R$ 725</div>
+      <div class="kpi-delta">vs R$ 1,367 via Outros</div>
+      <div class="kpi-sub">Por device ativado</div>
+    </div>
+    <div class="kpi purple">
+      <div class="kpi-label">⚡ TPV Incremental Realizado</div>
+      <div class="kpi-value" style="color:#7B5EF8">R$ 39,113</div>
+      <div class="kpi-delta">Delta entre FULL e Outros aplicado ao TPV FULL</div>
+      <div class="kpi-sub">(LT Outros − LT FULL) corridos / 7d × TPV FULL</div>
+    </div>
+    <div class="kpi" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7);border:1px solid #FDE68A">
+      <div class="kpi-label">🎯 TPV Incremental Potencial</div>
+      <div class="kpi-value" style="color:#D97706">R$ 3,823,347</div>
+      <div class="kpi-delta">Se volume Outros tivesse o LT do FULL</div>
+      <div class="kpi-sub">(LT Outros − LT FULL) corridos / 7d × TPV Outros</div>
+    </div>
+  </div>
+  <div class="cg2">
+    <div class="cw">
+      <div class="ct">Evolução do Leadtime — FULL vs Outros</div>
+      <div class="cs">Tendência semanal (dias úteis)</div>
+      <canvas id="cExLT"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">Evolução da Ativação — FULL vs Outros</div>
+      <div class="cs">% sellers que transacionaram</div>
+      <canvas id="cExAt"></canvas>
+    </div>
+  </div>
+  <hr/>
+  <div class="sec">💡 Insights Estratégicos</div>
+  <ul class="insight-list">
+    <li>📦 <strong>FULL reduz o leadtime em 0.9 dias úteis</strong> em média — 37.5% de redução frente ao modelo atual.</li>
+    <li>🎯 <strong>Taxa de ativação 0.7 pp maior</strong> no FULL, indicando que sellers que recebem mais rápido ativam a maquininha mais rapidamente.</li>
+    <li>💰 <strong>TPV FULL: R$ 206,035</strong> gerado pelos devices no período (R$ 725/device ativado).</li>
+    <li>💡 <strong>TPV incremental realizado: R$ 39,113</strong> — TPV gerado pelo delta de leadtime FULL, calculado como (Δ LT corridos / 7) × TPV FULL.</li>
+    <li>📈 <strong>FULL representa 4.0% dos pedidos</strong> via canais OFF no período — há espaço para crescimento e captura do benefício.</li>
+    <li>🚀 <strong>Hipótese validada:</strong> menor leadtime → ativação mais rápida → maior captura de TPV nos primeiros dias do seller.</li>
+  </ul>
+</div>
+
+<!-- ═══ ABA 5 ═══ -->
 <div class="pane" id="p4">
   <div class="sec">📋 Tabela por Estado</div>
   <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px;flex-wrap:wrap">
@@ -493,7 +598,7 @@
         <th>Estado</th>
         <th>Ped FULL</th><th>% País (FULL)</th><th>LT FULL</th>
         <th>Ped Outros</th><th>% País (Outros)</th><th>LT Outros</th>
-        <th>% Ativ FULL</th><th>% Ativ Outros</th><th>Delta LT</th>
+        <th>Delta LT</th>
       </tr></thead>
       <tbody id="estTbody"></tbody>
     </table>
@@ -503,7 +608,7 @@
 </div><!-- /content -->
 
 <script>
-const D = {"labels": ["Sem 16/02", "Sem 23/02", "Sem 02/03", "Sem 09/03", "Sem 16/03"], "ltFULL": [null, 2.4, 2.3, 2.0, 1.6], "ltOthers": [3.3, 3.4, 3.2, 2.9, 2.4], "ltCorrFULL": [null, 3.4, 2.9, 2.5, 1.8], "ltCorrOthers": [4.7, 4.6, 4.4, 3.9, 2.9], "atFULL": [null, 78.0, 70.2, 76.2, 61.0], "atOthers": [135.6, 112.6, 100.2, 75.9, 42.3], "at7dFULL": [null, 56.0, 56.0, 70.5, 61.0], "at7dOthers": [58.5, 50.9, 51.2, 57.3, 42.0], "pedFULL": [0, 104.0, 2689.0, 7149.0, 5897.0], "pedOthers": [495.0, 1312.0, 1102.0, 900.0, 724.0], "entFULL": [0, 91.0, 2496.0, 6471.0, 4094.0], "entOthers": [477.0, 1251.0, 1033.0, 804.0, 324.0], "ativFULL": [0, 71.0, 1753.0, 4930.0, 2497.0], "ativOthers": [647.0, 1409.0, 1035.0, 610.0, 137.0], "d1aFULL": [null, 0.4, 0.9, 0.0, null], "d1aOthers": [1.3, 0.5, 1.0, null, null], "mesLabels": ["Fev/26", "Mar/26"], "mesLtFULL": [2.5, 1.9], "mesLtOthers": [3.3, 3.0], "mesLtCorrFULL": [3.6, 2.4], "mesLtCorrOthers": [4.6, 4.0], "mesAtFULL": [83.6, 70.3], "mesAtOthers": [119.8, 83.1], "mesPedFULL": [83.0, 15756.0], "mesPedOthers": [1726.0, 2807.0], "mesEntFULL": [73.0, 13079.0], "mesEntOthers": [1650.0, 2239.0], "mesAtivFULL": [61.0, 9190.0], "mesAtivOthers": [1977.0, 1861.0], "mesD1aFULL": [0.4, 0.9], "mesD1aOthers": [0.8, 1.0], "estMesLabels": ["Todos", "Fev/26", "Mar/26"], "estMesData": {"Todos": {"Acre": {"Outros": {"pedidos": 22, "lt_uteis": 7.6, "pct_ativ": 64.7}, "FULL": {"pedidos": 27, "lt_uteis": 6.9, "pct_ativ": 66.7}}, "Alagoas": {"Outros": {"pedidos": 48, "lt_uteis": 4.4, "pct_ativ": 86.7}, "FULL": {"pedidos": 210, "lt_uteis": 1.8, "pct_ativ": 66.7}}, "Amapá": {"Outros": {"pedidos": 41, "lt_uteis": 12.4, "pct_ativ": 37.5}}, "Amazonas": {"Outros": {"pedidos": 92, "lt_uteis": 15.4, "pct_ativ": 58.0}, "FULL": {"pedidos": 258, "lt_uteis": 4.4, "pct_ativ": 60.7}}, "Bahia": {"Outros": {"pedidos": 233, "lt_uteis": 3.2, "pct_ativ": 89.7}, "FULL": {"pedidos": 1207, "lt_uteis": 2.0, "pct_ativ": 67.6}}, "Ceará": {"Outros": {"pedidos": 105, "lt_uteis": 4.3, "pct_ativ": 118.7}, "FULL": {"pedidos": 509, "lt_uteis": 2.2, "pct_ativ": 70.1}}, "Distrito Federal": {"Outros": {"pedidos": 90, "lt_uteis": 2.3, "pct_ativ": 83.7}, "FULL": {"pedidos": 227, "lt_uteis": 1.5, "pct_ativ": 71.2}}, "Espírito Santo": {"Outros": {"pedidos": 106, "lt_uteis": 3.0, "pct_ativ": 130.2}, "FULL": {"pedidos": 229, "lt_uteis": 2.0, "pct_ativ": 71.1}}, "Goiás": {"FULL": {"pedidos": 664, "lt_uteis": 2.1, "pct_ativ": 72.7}, "Outros": {"pedidos": 458, "lt_uteis": 2.7, "pct_ativ": 94.6}}, "Maranhão": {"FULL": {"pedidos": 415, "lt_uteis": 3.4, "pct_ativ": 69.8}, "Outros": {"pedidos": 143, "lt_uteis": 4.4, "pct_ativ": 79.0}}, "Mato Grosso": {"Outros": {"pedidos": 137, "lt_uteis": 4.1, "pct_ativ": 81.6}, "FULL": {"pedidos": 363, "lt_uteis": 3.9, "pct_ativ": 66.4}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 59, "lt_uteis": 2.4, "pct_ativ": 106.1}, "FULL": {"pedidos": 267, "lt_uteis": 2.1, "pct_ativ": 64.5}}, "Minas Gerais": {"FULL": {"pedidos": 1848, "lt_uteis": 1.9, "pct_ativ": 70.8}, "Outros": {"pedidos": 326, "lt_uteis": 2.4, "pct_ativ": 86.4}}, "Paraná": {"Outros": {"pedidos": 185, "lt_uteis": 2.2, "pct_ativ": 87.0}, "FULL": {"pedidos": 701, "lt_uteis": 1.6, "pct_ativ": 72.3}}, "Paraíba": {"Outros": {"pedidos": 76, "lt_uteis": 4.4, "pct_ativ": 66.2}, "FULL": {"pedidos": 205, "lt_uteis": 1.8, "pct_ativ": 70.9}}, "Pará": {"Outros": {"pedidos": 289, "lt_uteis": 5.2, "pct_ativ": 135.7}, "FULL": {"pedidos": 634, "lt_uteis": 5.1, "pct_ativ": 60.7}}, "Pernambuco": {"Outros": {"pedidos": 148, "lt_uteis": 3.8, "pct_ativ": 89.8}, "FULL": {"pedidos": 599, "lt_uteis": 1.9, "pct_ativ": 69.3}}, "Piauí": {"Outros": {"pedidos": 76, "lt_uteis": 4.6, "pct_ativ": 72.3}, "FULL": {"pedidos": 190, "lt_uteis": 2.4, "pct_ativ": 69.9}}, "Rio Grande do Norte": {"Outros": {"pedidos": 62, "lt_uteis": 4.3, "pct_ativ": 114.6}, "FULL": {"pedidos": 116, "lt_uteis": 2.3, "pct_ativ": 82.5}}, "Rio Grande do Sul": {"Outros": {"pedidos": 83, "lt_uteis": 3.0, "pct_ativ": 85.9}, "FULL": {"pedidos": 413, "lt_uteis": 1.6, "pct_ativ": 71.3}}, "Rio de Janeiro": {"Outros": {"pedidos": 399, "lt_uteis": 1.9, "pct_ativ": 104.2}, "FULL": {"pedidos": 1886, "lt_uteis": 1.3, "pct_ativ": 71.9}}, "Rondônia": {"Outros": {"pedidos": 46, "lt_uteis": 5.8, "pct_ativ": 100.0}, "FULL": {"pedidos": 146, "lt_uteis": 6.1, "pct_ativ": 61.4}}, "Roraima": {"Outros": {"pedidos": 16, "lt_uteis": 15.3, "pct_ativ": NaN}, "FULL": {"pedidos": 36, "lt_uteis": 3.2, "pct_ativ": 73.7}}, "Santa Catarina": {"Outros": {"pedidos": 105, "lt_uteis": 2.6, "pct_ativ": 92.8}, "FULL": {"pedidos": 475, "lt_uteis": 1.5, "pct_ativ": 71.6}}, "Sergipe": {"Outros": {"pedidos": 69, "lt_uteis": 3.4, "pct_ativ": 125.0}, "FULL": {"pedidos": 173, "lt_uteis": 1.7, "pct_ativ": 69.8}}, "São Paulo": {"Outros": {"pedidos": 1041, "lt_uteis": 2.0, "pct_ativ": 103.5}, "FULL": {"pedidos": 3940, "lt_uteis": 1.3, "pct_ativ": 71.7}}, "Tocantins": {"Outros": {"pedidos": 78, "lt_uteis": 4.4, "pct_ativ": 120.3}, "FULL": {"pedidos": 101, "lt_uteis": 3.3, "pct_ativ": 58.7}}}, "Fev/26": {"Acre": {"Outros": {"pedidos": 9, "lt_uteis": 8.1, "pct_ativ": 77.8}}, "Alagoas": {"Outros": {"pedidos": 22, "lt_uteis": 4.8, "pct_ativ": 95.5}}, "Amapá": {"Outros": {"pedidos": 13, "lt_uteis": 13.0, "pct_ativ": 50.0}}, "Amazonas": {"Outros": {"pedidos": 35, "lt_uteis": 15.6, "pct_ativ": 57.1}}, "Bahia": {"Outros": {"pedidos": 104, "lt_uteis": 3.1, "pct_ativ": 89.2}}, "Ceará": {"Outros": {"pedidos": 44, "lt_uteis": 4.4, "pct_ativ": 109.5}}, "Distrito Federal": {"Outros": {"pedidos": 34, "lt_uteis": 2.3, "pct_ativ": 100.0}}, "Espírito Santo": {"Outros": {"pedidos": 29, "lt_uteis": 3.1, "pct_ativ": 172.4}}, "Goiás": {"FULL": {"pedidos": 1, "lt_uteis": 2.0, "pct_ativ": 100.0}, "Outros": {"pedidos": 130, "lt_uteis": 2.8, "pct_ativ": 164.0}}, "Maranhão": {"FULL": {"pedidos": 8, "lt_uteis": 3.9, "pct_ativ": 71.4}, "Outros": {"pedidos": 48, "lt_uteis": 4.5, "pct_ativ": 93.3}}, "Mato Grosso": {"Outros": {"pedidos": 40, "lt_uteis": 4.5, "pct_ativ": 100.0}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 25, "lt_uteis": 2.2, "pct_ativ": 121.7}}, "Minas Gerais": {"FULL": {"pedidos": 74, "lt_uteis": 2.3, "pct_ativ": 84.6}, "Outros": {"pedidos": 133, "lt_uteis": 2.3, "pct_ativ": 109.2}}, "Paraná": {"Outros": {"pedidos": 68, "lt_uteis": 2.2, "pct_ativ": 101.5}}, "Paraíba": {"Outros": {"pedidos": 18, "lt_uteis": 4.4, "pct_ativ": 64.7}}, "Pará": {"Outros": {"pedidos": 105, "lt_uteis": 5.4, "pct_ativ": 194.1}}, "Pernambuco": {"Outros": {"pedidos": 73, "lt_uteis": 3.8, "pct_ativ": 105.7}}, "Piauí": {"Outros": {"pedidos": 31, "lt_uteis": 4.6, "pct_ativ": 71.0}}, "Rio Grande do Norte": {"Outros": {"pedidos": 28, "lt_uteis": 4.3, "pct_ativ": 126.9}}, "Rio Grande do Sul": {"Outros": {"pedidos": 41, "lt_uteis": 2.9, "pct_ativ": 85.7}}, "Rio de Janeiro": {"Outros": {"pedidos": 172, "lt_uteis": 1.9, "pct_ativ": 113.2}}, "Rondônia": {"Outros": {"pedidos": 16, "lt_uteis": 5.6, "pct_ativ": 200.0}}, "Roraima": {"Outros": {"pedidos": 7, "lt_uteis": 15.3, "pct_ativ": 66.7}}, "Santa Catarina": {"Outros": {"pedidos": 44, "lt_uteis": 2.6, "pct_ativ": 100.0}}, "Sergipe": {"Outros": {"pedidos": 21, "lt_uteis": 3.7, "pct_ativ": 195.2}}, "São Paulo": {"Outros": {"pedidos": 407, "lt_uteis": 1.8, "pct_ativ": 119.1}}, "Tocantins": {"Outros": {"pedidos": 29, "lt_uteis": 4.5, "pct_ativ": 179.3}}}, "Mar/26": {"Acre": {"FULL": {"pedidos": 27, "lt_uteis": 6.9, "pct_ativ": 66.7}, "Outros": {"pedidos": 13, "lt_uteis": 7.0, "pct_ativ": 50.0}}, "Alagoas": {"FULL": {"pedidos": 210, "lt_uteis": 1.8, "pct_ativ": 66.7}, "Outros": {"pedidos": 26, "lt_uteis": 4.1, "pct_ativ": 78.3}}, "Amapá": {"Outros": {"pedidos": 28, "lt_uteis": 10.5, "pct_ativ": 0.0}}, "Amazonas": {"FULL": {"pedidos": 258, "lt_uteis": 4.4, "pct_ativ": 60.7}, "Outros": {"pedidos": 57, "lt_uteis": 13.3, "pct_ativ": 66.7}}, "Bahia": {"FULL": {"pedidos": 1207, "lt_uteis": 2.0, "pct_ativ": 67.6}, "Outros": {"pedidos": 129, "lt_uteis": 3.3, "pct_ativ": 90.2}}, "Ceará": {"FULL": {"pedidos": 509, "lt_uteis": 2.2, "pct_ativ": 70.1}, "Outros": {"pedidos": 61, "lt_uteis": 4.3, "pct_ativ": 126.5}}, "Distrito Federal": {"FULL": {"pedidos": 227, "lt_uteis": 1.5, "pct_ativ": 71.2}, "Outros": {"pedidos": 56, "lt_uteis": 2.3, "pct_ativ": 73.6}}, "Espírito Santo": {"FULL": {"pedidos": 229, "lt_uteis": 2.0, "pct_ativ": 71.1}, "Outros": {"pedidos": 77, "lt_uteis": 3.0, "pct_ativ": 111.9}}, "Goiás": {"FULL": {"pedidos": 663, "lt_uteis": 2.1, "pct_ativ": 72.6}, "Outros": {"pedidos": 328, "lt_uteis": 2.7, "pct_ativ": 62.3}}, "Maranhão": {"FULL": {"pedidos": 407, "lt_uteis": 3.4, "pct_ativ": 69.8}, "Outros": {"pedidos": 95, "lt_uteis": 4.4, "pct_ativ": 70.3}}, "Mato Grosso": {"FULL": {"pedidos": 363, "lt_uteis": 3.9, "pct_ativ": 66.4}, "Outros": {"pedidos": 97, "lt_uteis": 3.9, "pct_ativ": 72.4}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 267, "lt_uteis": 2.1, "pct_ativ": 64.5}, "Outros": {"pedidos": 34, "lt_uteis": 2.5, "pct_ativ": 92.3}}, "Minas Gerais": {"FULL": {"pedidos": 1774, "lt_uteis": 1.9, "pct_ativ": 70.2}, "Outros": {"pedidos": 193, "lt_uteis": 2.4, "pct_ativ": 68.1}}, "Paraná": {"FULL": {"pedidos": 701, "lt_uteis": 1.6, "pct_ativ": 72.3}, "Outros": {"pedidos": 117, "lt_uteis": 2.2, "pct_ativ": 77.1}}, "Paraíba": {"FULL": {"pedidos": 205, "lt_uteis": 1.8, "pct_ativ": 70.9}, "Outros": {"pedidos": 58, "lt_uteis": 4.4, "pct_ativ": 66.7}}, "Pará": {"FULL": {"pedidos": 634, "lt_uteis": 5.1, "pct_ativ": 60.7}, "Outros": {"pedidos": 184, "lt_uteis": 5.0, "pct_ativ": 93.6}}, "Pernambuco": {"FULL": {"pedidos": 599, "lt_uteis": 1.9, "pct_ativ": 69.3}, "Outros": {"pedidos": 75, "lt_uteis": 3.9, "pct_ativ": 70.7}}, "Piauí": {"FULL": {"pedidos": 190, "lt_uteis": 2.4, "pct_ativ": 69.9}, "Outros": {"pedidos": 45, "lt_uteis": 4.6, "pct_ativ": 73.5}}, "Rio Grande do Norte": {"FULL": {"pedidos": 116, "lt_uteis": 2.3, "pct_ativ": 82.5}, "Outros": {"pedidos": 34, "lt_uteis": 4.3, "pct_ativ": 93.3}}, "Rio Grande do Sul": {"FULL": {"pedidos": 413, "lt_uteis": 1.6, "pct_ativ": 71.3}, "Outros": {"pedidos": 42, "lt_uteis": 3.0, "pct_ativ": 86.1}}, "Rio de Janeiro": {"FULL": {"pedidos": 1886, "lt_uteis": 1.3, "pct_ativ": 71.9}, "Outros": {"pedidos": 227, "lt_uteis": 1.9, "pct_ativ": 96.4}}, "Rondônia": {"FULL": {"pedidos": 146, "lt_uteis": 6.1, "pct_ativ": 61.4}, "Outros": {"pedidos": 30, "lt_uteis": 6.0, "pct_ativ": 40.0}}, "Roraima": {"FULL": {"pedidos": 36, "lt_uteis": 3.2, "pct_ativ": 73.7}, "Outros": {"pedidos": 9, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 475, "lt_uteis": 1.5, "pct_ativ": 71.6}, "Outros": {"pedidos": 61, "lt_uteis": 2.6, "pct_ativ": 87.3}}, "Sergipe": {"FULL": {"pedidos": 173, "lt_uteis": 1.7, "pct_ativ": 69.8}, "Outros": {"pedidos": 48, "lt_uteis": 3.3, "pct_ativ": 87.2}}, "São Paulo": {"FULL": {"pedidos": 3940, "lt_uteis": 1.3, "pct_ativ": 71.7}, "Outros": {"pedidos": 634, "lt_uteis": 2.1, "pct_ativ": 92.4}}, "Tocantins": {"FULL": {"pedidos": 101, "lt_uteis": 3.3, "pct_ativ": 58.7}, "Outros": {"pedidos": 49, "lt_uteis": 4.4, "pct_ativ": 77.5}}}}};
+const D = {"labels": ["Sem 16/02", "Sem 23/02", "Sem 02/03"], "ltFULL": [1.7, 1.7, 1.2], "ltOthers": [2.8, 2.5, 1.8], "ltCorrFULL": [2.5, 2.1, 1.2], "ltCorrOthers": [4.0, 3.4, 1.8], "atFULL": [60.4, 43.6, 9.8], "atOthers": [62.6, 43.6, 5.3], "pedFULL": [144.0, 220.0, 1026.0], "pedOthers": [10165.0, 16523.0, 7081.0], "entFULL": [131.0, 180.0, 378.0], "entOthers": [9645.0, 13291.0, 1003.0], "ativFULL": [87.0, 96.0, 101.0], "ativOthers": [6366.0, 7206.0, 374.0], "d1aFULL": [3.8, 2.9, 1.1], "d1aOthers": [5.0, 3.8, 1.7], "tpvFULL": [110013.0, 73088.0, 22934.0], "tpvOthers": [10259301.0, 8700769.0, 105795.0], "estLabels": ["Minas Gerais", "São Paulo", "Maranhão", "Rio de Janeiro", "Bahia", "Paraná", "Santa Catarina", "Pernambuco", "Ceará", "Rio Grande do Sul", "Goiás", "Rio Grande do Norte", "Mato Grosso do Sul", "Alagoas", "Espírito Santo", "Paraíba", "Distrito Federal", "Sergipe"], "estLtFULL": [1.6, 1.0, 2.3, 1.1, 1.2, 1.3, 1.1, 1.2, 2.0, 1.2, 2.0, 1.0, 2.0, 1.9, 1.0, 1.0, 1.0, 1.4], "estLtOthers": [2.4, 1.8, 4.2, 1.8, 3.2, 2.1, 2.3, 3.5, 4.2, 2.7, 2.7, 4.1, 2.4, 4.3, 2.6, 4.3, 2.1, 3.7], "estAtFULL": [52.4, 14.6, 50.0, 14.9, 9.2, 5.7, 8.8, 3.0, 0.0, 17.9, 100.0, 5.6, 6.3, 0.0, 16.7, 0.0, 10.0, 11.1], "estAtOthers": [59.0, 64.2, 37.7, 62.4, 50.9, 61.7, 60.5, 42.2, 44.3, 53.8, 49.8, 43.5, 59.4, 45.7, 53.8, 43.1, 58.3, 48.8], "mesLabels": ["Fev/26", "Mar/26"], "mesLtFULL": [1.7, 1.2], "mesLtOthers": [2.7, 2.2], "mesAtFULL": [52.2, 10.0], "mesAtOthers": [53.0, 7.9], "mesPedFULL": [343.0, 1047.0], "mesPedOthers": [24999.0, 8770.0], "mesEntFULL": [296.0, 393.0], "mesEntOthers": [22103.0, 1836.0], "mesAtivFULL": [179.0, 105.0], "mesAtivOthers": [13251.0, 695.0], "mesTpvFULL": [183070.0, 22964.0], "mesTpvOthers": [18851762.0, 214104.0], "mesTpvMedioFULL": [534.0, 22.0], "mesTpvMedioOthers": [754.0, 24.0], "mesLtCorrFULL": [2.3, 1.2], "mesLtCorrOthers": [3.7, 2.2], "mesD1aFULL": [3.3, 1.1], "mesD1aOthers": [4.4, 2.1], "tpvMedioFULL": [764.0, 332.0, 22.0], "tpvMedioOthers": [1009.0, 527.0, 15.0], "estMesLabels": ["Todos", "Fev/26", "Mar/26"], "estMesData": {"Fev/26": {"Acre": {"Outros": {"pedidos": 83, "lt_uteis": 6.7, "pct_ativ": 10.8}}, "Alagoas": {"Outros": {"pedidos": 346, "lt_uteis": 4.3, "pct_ativ": 45.7}}, "Amapá": {"Outros": {"pedidos": 155, "lt_uteis": null, "pct_ativ": 0.0}}, "Amazonas": {"Outros": {"pedidos": 458, "lt_uteis": 6.2, "pct_ativ": 0.0}}, "Bahia": {"Outros": {"pedidos": 1744, "lt_uteis": 3.2, "pct_ativ": 50.9}}, "Ceará": {"Outros": {"pedidos": 772, "lt_uteis": 4.2, "pct_ativ": 44.3}}, "Distrito Federal": {"Outros": {"pedidos": 472, "lt_uteis": 2.1, "pct_ativ": 58.3}}, "Espírito Santo": {"Outros": {"pedidos": 433, "lt_uteis": 2.6, "pct_ativ": 53.8}}, "Goiás": {"FULL": {"pedidos": 1, "lt_uteis": 2.0, "pct_ativ": 100.0}, "Outros": {"pedidos": 1212, "lt_uteis": 2.7, "pct_ativ": 49.8}}, "Maranhão": {"FULL": {"pedidos": 52, "lt_uteis": 2.3, "pct_ativ": 50.0}, "Outros": {"pedidos": 709, "lt_uteis": 4.2, "pct_ativ": 37.7}}, "Mato Grosso": {"Outros": {"pedidos": 530, "lt_uteis": 4.0, "pct_ativ": 47.9}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 377, "lt_uteis": 2.4, "pct_ativ": 59.4}}, "Minas Gerais": {"FULL": {"pedidos": 290, "lt_uteis": 1.6, "pct_ativ": 52.4}, "Outros": {"pedidos": 1868, "lt_uteis": 2.4, "pct_ativ": 59.0}}, "Paraná": {"Outros": {"pedidos": 1184, "lt_uteis": 2.1, "pct_ativ": 61.7}}, "Paraíba": {"Outros": {"pedidos": 332, "lt_uteis": 4.3, "pct_ativ": 43.1}}, "Pará": {"Outros": {"pedidos": 1288, "lt_uteis": 4.3, "pct_ativ": 33.8}}, "Pernambuco": {"Outros": {"pedidos": 1047, "lt_uteis": 3.5, "pct_ativ": 42.2}}, "Piauí": {"Outros": {"pedidos": 323, "lt_uteis": 3.9, "pct_ativ": 43.3}}, "Rio Grande do Norte": {"Outros": {"pedidos": 313, "lt_uteis": 4.1, "pct_ativ": 43.5}}, "Rio Grande do Sul": {"Outros": {"pedidos": 533, "lt_uteis": 2.7, "pct_ativ": 53.8}}, "Rio de Janeiro": {"Outros": {"pedidos": 2934, "lt_uteis": 1.8, "pct_ativ": 62.4}}, "Rondônia": {"Outros": {"pedidos": 240, "lt_uteis": 5.4, "pct_ativ": 27.1}}, "Roraima": {"Outros": {"pedidos": 81, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"Outros": {"pedidos": 656, "lt_uteis": 2.3, "pct_ativ": 60.5}}, "Sergipe": {"Outros": {"pedidos": 320, "lt_uteis": 3.7, "pct_ativ": 48.8}}, "São Paulo": {"Outros": {"pedidos": 6280, "lt_uteis": 1.8, "pct_ativ": 64.2}}, "Tocantins": {"Outros": {"pedidos": 309, "lt_uteis": 3.8, "pct_ativ": 32.7}}}, "Mar/26": {"Acre": {"FULL": {"pedidos": 2, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 20, "lt_uteis": null, "pct_ativ": 0.0}}, "Alagoas": {"FULL": {"pedidos": 15, "lt_uteis": 1.9, "pct_ativ": 0.0}, "Outros": {"pedidos": 113, "lt_uteis": null, "pct_ativ": 0.0}}, "Amapá": {"Outros": {"pedidos": 54, "lt_uteis": null, "pct_ativ": 0.0}}, "Amazonas": {"FULL": {"pedidos": 8, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 130, "lt_uteis": null, "pct_ativ": 0.0}}, "Bahia": {"FULL": {"pedidos": 76, "lt_uteis": 1.2, "pct_ativ": 9.2}, "Outros": {"pedidos": 613, "lt_uteis": 2.1, "pct_ativ": 1.3}}, "Ceará": {"FULL": {"pedidos": 29, "lt_uteis": 2.0, "pct_ativ": 0.0}, "Outros": {"pedidos": 254, "lt_uteis": 2.8, "pct_ativ": 0.8}}, "Distrito Federal": {"FULL": {"pedidos": 10, "lt_uteis": 1.0, "pct_ativ": 10.0}, "Outros": {"pedidos": 163, "lt_uteis": 2.9, "pct_ativ": 5.5}}, "Espírito Santo": {"FULL": {"pedidos": 12, "lt_uteis": 1.0, "pct_ativ": 16.7}, "Outros": {"pedidos": 185, "lt_uteis": 3.0, "pct_ativ": 1.6}}, "Goiás": {"FULL": {"pedidos": 26, "lt_uteis": 1.0, "pct_ativ": 7.7}, "Outros": {"pedidos": 439, "lt_uteis": 2.8, "pct_ativ": 3.4}}, "Maranhão": {"FULL": {"pedidos": 54, "lt_uteis": 2.0, "pct_ativ": 3.7}, "Outros": {"pedidos": 159, "lt_uteis": null, "pct_ativ": 0.0}}, "Mato Grosso": {"FULL": {"pedidos": 18, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 229, "lt_uteis": null, "pct_ativ": 0.0}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 16, "lt_uteis": 2.0, "pct_ativ": 6.3}, "Outros": {"pedidos": 138, "lt_uteis": 3.0, "pct_ativ": 5.8}}, "Minas Gerais": {"FULL": {"pedidos": 252, "lt_uteis": 1.3, "pct_ativ": 12.3}, "Outros": {"pedidos": 519, "lt_uteis": 2.5, "pct_ativ": 5.2}}, "N/D": {"Outros": {"pedidos": 46, "lt_uteis": null, "pct_ativ": 0.0}}, "Paraná": {"FULL": {"pedidos": 35, "lt_uteis": 1.3, "pct_ativ": 5.7}, "Outros": {"pedidos": 416, "lt_uteis": 2.5, "pct_ativ": 7.5}}, "Paraíba": {"FULL": {"pedidos": 12, "lt_uteis": 1.0, "pct_ativ": 0.0}, "Outros": {"pedidos": 120, "lt_uteis": null, "pct_ativ": 0.0}}, "Pará": {"FULL": {"pedidos": 14, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 384, "lt_uteis": null, "pct_ativ": 0.0}}, "Pernambuco": {"FULL": {"pedidos": 33, "lt_uteis": 1.2, "pct_ativ": 3.0}, "Outros": {"pedidos": 366, "lt_uteis": 2.7, "pct_ativ": 1.4}}, "Piauí": {"FULL": {"pedidos": 12, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 104, "lt_uteis": 3.0, "pct_ativ": 1.0}}, "Rio Grande do Norte": {"FULL": {"pedidos": 18, "lt_uteis": 1.0, "pct_ativ": 5.6}, "Outros": {"pedidos": 124, "lt_uteis": 2.5, "pct_ativ": 1.6}}, "Rio Grande do Sul": {"FULL": {"pedidos": 28, "lt_uteis": 1.2, "pct_ativ": 17.9}, "Outros": {"pedidos": 197, "lt_uteis": 3.0, "pct_ativ": 0.0}}, "Rio de Janeiro": {"FULL": {"pedidos": 94, "lt_uteis": 1.1, "pct_ativ": 14.9}, "Outros": {"pedidos": 1063, "lt_uteis": 2.2, "pct_ativ": 11.9}}, "Rondônia": {"FULL": {"pedidos": 16, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 56, "lt_uteis": null, "pct_ativ": 0.0}}, "Roraima": {"Outros": {"pedidos": 25, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 34, "lt_uteis": 1.1, "pct_ativ": 8.8}, "Outros": {"pedidos": 258, "lt_uteis": 2.7, "pct_ativ": 3.5}}, "Sergipe": {"FULL": {"pedidos": 9, "lt_uteis": 1.4, "pct_ativ": 11.1}, "Outros": {"pedidos": 101, "lt_uteis": 2.3, "pct_ativ": 0.0}}, "São Paulo": {"FULL": {"pedidos": 219, "lt_uteis": 1.0, "pct_ativ": 14.6}, "Outros": {"pedidos": 2406, "lt_uteis": 2.0, "pct_ativ": 18.6}}, "Tocantins": {"FULL": {"pedidos": 5, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 88, "lt_uteis": null, "pct_ativ": 0.0}}}, "Todos": {"Acre": {"FULL": {"pedidos": 2, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 103, "lt_uteis": 6.7, "pct_ativ": 8.7}}, "Alagoas": {"FULL": {"pedidos": 15, "lt_uteis": 1.9, "pct_ativ": 0.0}, "Outros": {"pedidos": 459, "lt_uteis": 4.3, "pct_ativ": 34.4}}, "Amapá": {"Outros": {"pedidos": 209, "lt_uteis": null, "pct_ativ": 0.0}}, "Amazonas": {"FULL": {"pedidos": 8, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 588, "lt_uteis": 6.2, "pct_ativ": 0.0}}, "Bahia": {"FULL": {"pedidos": 76, "lt_uteis": 1.2, "pct_ativ": 9.2}, "Outros": {"pedidos": 2357, "lt_uteis": 3.2, "pct_ativ": 38.0}}, "Ceará": {"FULL": {"pedidos": 29, "lt_uteis": 2.0, "pct_ativ": 0.0}, "Outros": {"pedidos": 1026, "lt_uteis": 4.2, "pct_ativ": 33.5}}, "Distrito Federal": {"FULL": {"pedidos": 10, "lt_uteis": 1.0, "pct_ativ": 10.0}, "Outros": {"pedidos": 635, "lt_uteis": 2.2, "pct_ativ": 44.7}}, "Espírito Santo": {"FULL": {"pedidos": 12, "lt_uteis": 1.0, "pct_ativ": 16.7}, "Outros": {"pedidos": 618, "lt_uteis": 2.6, "pct_ativ": 38.2}}, "Goiás": {"FULL": {"pedidos": 27, "lt_uteis": 1.1, "pct_ativ": 11.1}, "Outros": {"pedidos": 1651, "lt_uteis": 2.7, "pct_ativ": 37.4}}, "Maranhão": {"FULL": {"pedidos": 106, "lt_uteis": 2.3, "pct_ativ": 26.4}, "Outros": {"pedidos": 868, "lt_uteis": 4.2, "pct_ativ": 30.8}}, "Mato Grosso": {"FULL": {"pedidos": 18, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 759, "lt_uteis": 4.0, "pct_ativ": 33.5}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 16, "lt_uteis": 2.0, "pct_ativ": 6.2}, "Outros": {"pedidos": 515, "lt_uteis": 2.4, "pct_ativ": 45.0}}, "Minas Gerais": {"FULL": {"pedidos": 542, "lt_uteis": 1.5, "pct_ativ": 33.8}, "Outros": {"pedidos": 2387, "lt_uteis": 2.4, "pct_ativ": 47.3}}, "N/D": {"Outros": {"pedidos": 46, "lt_uteis": null, "pct_ativ": 0.0}}, "Paraná": {"FULL": {"pedidos": 35, "lt_uteis": 1.3, "pct_ativ": 5.7}, "Outros": {"pedidos": 1600, "lt_uteis": 2.1, "pct_ativ": 47.6}}, "Paraíba": {"FULL": {"pedidos": 12, "lt_uteis": 1.0, "pct_ativ": 0.0}, "Outros": {"pedidos": 452, "lt_uteis": 4.3, "pct_ativ": 31.6}}, "Pará": {"FULL": {"pedidos": 14, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 1672, "lt_uteis": 4.3, "pct_ativ": 26.0}}, "Pernambuco": {"FULL": {"pedidos": 33, "lt_uteis": 1.2, "pct_ativ": 3.0}, "Outros": {"pedidos": 1413, "lt_uteis": 3.5, "pct_ativ": 31.6}}, "Piauí": {"FULL": {"pedidos": 12, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 427, "lt_uteis": 3.9, "pct_ativ": 33.0}}, "Rio Grande do Norte": {"FULL": {"pedidos": 18, "lt_uteis": 1.0, "pct_ativ": 5.6}, "Outros": {"pedidos": 437, "lt_uteis": 4.1, "pct_ativ": 31.6}}, "Rio Grande do Sul": {"FULL": {"pedidos": 28, "lt_uteis": 1.2, "pct_ativ": 17.9}, "Outros": {"pedidos": 730, "lt_uteis": 2.7, "pct_ativ": 39.3}}, "Rio de Janeiro": {"FULL": {"pedidos": 94, "lt_uteis": 1.1, "pct_ativ": 14.9}, "Outros": {"pedidos": 3997, "lt_uteis": 1.8, "pct_ativ": 49.0}}, "Rondônia": {"FULL": {"pedidos": 16, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 296, "lt_uteis": 5.4, "pct_ativ": 22.0}}, "Roraima": {"Outros": {"pedidos": 106, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 34, "lt_uteis": 1.1, "pct_ativ": 8.8}, "Outros": {"pedidos": 914, "lt_uteis": 2.3, "pct_ativ": 44.4}}, "Sergipe": {"FULL": {"pedidos": 9, "lt_uteis": 1.4, "pct_ativ": 11.1}, "Outros": {"pedidos": 421, "lt_uteis": 3.7, "pct_ativ": 37.1}}, "São Paulo": {"FULL": {"pedidos": 219, "lt_uteis": 1.0, "pct_ativ": 14.6}, "Outros": {"pedidos": 8686, "lt_uteis": 1.8, "pct_ativ": 51.6}}, "Tocantins": {"FULL": {"pedidos": 5, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 397, "lt_uteis": 3.8, "pct_ativ": 25.4}}}}, "incSem": [23574, 13573, 1966], "incMes": [8543, 765], "incPotSem": [2198422, 1615857, 9068], "incPotMes": [879749, 7137]};
 
 Chart.defaults.font.family = "'Segoe UI',Arial,sans-serif";
 Chart.defaults.font.size   = 11;
@@ -529,88 +634,114 @@ const optsLeg=(u='')=>{
   const o=opts(u); o.plugins.legend={display:true,position:'bottom'}; return o;
 };
 
-// ── Aba 2 — Executivo ──────────────────────────────────────────────────────
+// Delta (Outros - FULL)
+const delta=D.ltOthers.map((v,i)=>v&&D.ltFULL[i]?+(v-D.ltFULL[i]).toFixed(1):null);
+
+new Chart(document.getElementById('cLT'),  {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.ltFULL,FULL),line('Outros',D.ltOthers,OTH,[5,3])]},options:optsLeg(' d')});
+new Chart(document.getElementById('cDelta'),{type:'bar', data:{labels:D.labels,datasets:[bar('Dias ganhos',delta,GRN)]},options:opts(' d')});
+new Chart(document.getElementById('cAtiv'), {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.atFULL,FULL),line('Outros',D.atOthers,OTH,[5,3])]},options:optsLeg('%')});
+new Chart(document.getElementById('cTPV'),  {type:'bar', data:{labels:D.labels,datasets:[bar('FULL',D.tpvFULL,FULL),bar('Outros',D.tpvOthers,OTH)]},options:optsLeg('')});
+new Chart(document.getElementById('cTPVInc'), {type:'bar', data:{labels:D.labels,datasets:[bar('Realizado',D.incSem,'#7B5EF8')]},options:opts('')});
+new Chart(document.getElementById('cTPVPot'), {type:'bar', data:{labels:D.labels,datasets:[bar('Potencial',D.incPotSem,'#D97706')]},options:opts('')});
 new Chart(document.getElementById('cExLT'),{type:'line',data:{labels:D.labels,datasets:[line('FULL',D.ltFULL,FULL),line('Outros',D.ltOthers,OTH,[5,3])]},options:optsLeg(' d')});
 new Chart(document.getElementById('cExAt'),{type:'line',data:{labels:D.labels,datasets:[line('FULL',D.atFULL,FULL),line('Outros',D.atOthers,OTH,[5,3])]},options:optsLeg('%')});
 
-// ── Aba 3 — Mensal ─────────────────────────────────────────────────────────
+// Dias até 1ª transação
+new Chart(document.getElementById('cD1a'),{type:'bar',data:{labels:D.labels,datasets:[bar('FULL',D.d1aFULL,FULL),bar('Outros',D.d1aOthers,OTH)]},options:optsLeg(' d')});
+new Chart(document.getElementById('cD1aTotal'),{type:'bar',data:{labels:D.labels,datasets:[bar('LT Entrega FULL',D.ltFULL,FULL),bar('LT Entrega Outros',D.ltOthers,OTH)]},options:optsLeg(' d')});
+
+
+// Aba 5 — Comparativo Mensal
 if(D.mesLabels && D.mesLabels.length>0){
   const mesDelta=D.mesLtOthers.map((v,i)=>v&&D.mesLtFULL[i]?+(v-D.mesLtFULL[i]).toFixed(1):null);
   new Chart(document.getElementById('cMesLT'),   {type:'line',data:{labels:D.mesLabels,datasets:[line('FULL',D.mesLtFULL,FULL),line('Outros',D.mesLtOthers,OTH,[5,3])]},options:optsLeg(' d')});
-  new Chart(document.getElementById('cMesDelta'),{type:'bar', data:{labels:D.mesLabels,datasets:[bar('Dias ganhos',mesDelta,GRN)]},options:opts(' d')});
+  new Chart(document.getElementById('cMesDelta'),{type:'line',data:{labels:D.mesLabels,datasets:[line('Dias ganhos',mesDelta,GRN)]},options:opts(' d')});
   new Chart(document.getElementById('cMesAtiv'), {type:'line',data:{labels:D.mesLabels,datasets:[line('FULL',D.mesAtFULL,FULL),line('Outros',D.mesAtOthers,OTH,[5,3])]},options:optsLeg('%')});
+  new Chart(document.getElementById('cMesTPV'),      {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesTpvFULL,FULL),bar('Outros',D.mesTpvOthers,OTH)]},options:optsLeg('')});
+  new Chart(document.getElementById('cMesTPVInc'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('Realizado',D.incMes,'#7B5EF8')]},options:opts('')});
+  new Chart(document.getElementById('cMesTPVPot'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('Potencial',D.incPotMes,'#D97706')]},options:opts('')});
   new Chart(document.getElementById('cMesPed'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesPedFULL,FULL),bar('Outros',D.mesPedOthers,OTH)]},options:optsLeg('')});
   new Chart(document.getElementById('cMesD1a'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesD1aFULL,FULL),bar('Outros',D.mesD1aOthers,OTH)]},options:optsLeg(' d')});
-  new Chart(document.getElementById('cMesEnt'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesEntFULL,FULL),bar('Outros',D.mesEntOthers,OTH)]},options:optsLeg('')});
 }
 
-// ── Aba 4 — Semanal ────────────────────────────────────────────────────────
-const delta=D.ltOthers.map((v,i)=>v&&D.ltFULL[i]?+(v-D.ltFULL[i]).toFixed(1):null);
-new Chart(document.getElementById('cLT'),    {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.ltFULL,FULL),line('Outros',D.ltOthers,OTH,[5,3])]},options:optsLeg(' d')});
-new Chart(document.getElementById('cDelta'), {type:'bar', data:{labels:D.labels,datasets:[bar('Dias ganhos',delta,GRN)]},options:opts(' d')});
-new Chart(document.getElementById('cAtiv'),  {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.atFULL,FULL),line('Outros',D.atOthers,OTH,[5,3])]},options:optsLeg('%')});
-new Chart(document.getElementById('cAtiv7d'),{type:'line',data:{labels:D.labels,datasets:[line('FULL',D.at7dFULL,FULL),line('Outros',D.at7dOthers,OTH,[5,3])]},options:optsLeg('%')});
-const totalFULL  = D.ltFULL.map((v,i)=>v&&D.d1aFULL[i]  ? +(v+D.d1aFULL[i]).toFixed(1)  : null);
-const totalOth   = D.ltOthers.map((v,i)=>v&&D.d1aOthers[i]? +(v+D.d1aOthers[i]).toFixed(1): null);
-new Chart(document.getElementById('cD1a'),      {type:'bar',data:{labels:D.labels,datasets:[bar('FULL',D.d1aFULL,FULL),bar('Outros',D.d1aOthers,OTH)]},options:optsLeg(' d')});
-new Chart(document.getElementById('cD1aTotal'), {type:'bar',data:{labels:D.labels,datasets:[bar('FULL (LT+1ªTrx)',totalFULL,FULL),bar('Outros (LT+1ªTrx)',totalOth,OTH)]},options:optsLeg(' d')});
+// ── Tabela por Estado com filtro de mês ───────────────────────────────────
+function initEstadoTable(){
+  if(initEstadoTable._done) return;
+  initEstadoTable._done = true;
+  const mesLabels = D.estMesLabels;
+  const mesData   = D.estMesData;
 
-// ── Aba 5 — Por Estado ─────────────────────────────────────────────────────
-const mesLabels = D.estMesLabels;
-const mesData   = D.estMesData;
-const btnsEl    = document.getElementById('estMesBtns');
-const tbody     = document.getElementById('estTbody');
-
-mesLabels.forEach((m, i) => {
-  const btn = document.createElement('button');
-  btn.className = 'filter-btn' + (i === mesLabels.length - 1 ? ' active' : '');
-  btn.textContent = m;
-  btn.onclick = () => {
-    btnsEl.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
-    btn.classList.add('active');
-    renderEstado(m);
-  };
-  btnsEl.appendChild(btn);
-});
-
-function renderEstado(mesLabel) {
-  const d = mesData[mesLabel] || {};
-  const estados = Object.keys(d).sort((a,b) => {
-    const pa = (d[a]?.FULL?.pedidos || 0) + (d[a]?.Outros?.pedidos || 0);
-    const pb = (d[b]?.FULL?.pedidos || 0) + (d[b]?.Outros?.pedidos || 0);
-    return pb - pa;
+  // Botões de filtro
+  const btnContainer = document.getElementById('estMesBtns');
+  mesLabels.forEach((m, i) => {
+    const btn = document.createElement('button');
+    btn.textContent = m;
+    const isLast = i === mesLabels.length - 1;
+    btn.style.cssText = `padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;
+      cursor:pointer;border:1px solid #D1D5DB;background:${isLast?'#2D73F5':'#fff'};
+      color:${isLast?'#fff':'#374151'};transition:all .15s`;
+    btn.onclick = () => {
+      btnContainer.querySelectorAll('button').forEach(b => {
+        b.style.background='#fff'; b.style.color='#374151';
+      });
+      btn.style.background='#2D73F5'; btn.style.color='#fff';
+      renderEstado(m);
+    };
+    btnContainer.appendChild(btn);
   });
-  const totFull   = estados.reduce((s,e) => s + ((d[e]?.FULL?.pedidos) || 0), 0);
-  const totOutros = estados.reduce((s,e) => s + ((d[e]?.Outros?.pedidos) || 0), 0);
 
-  tbody.innerHTML = estados.map(e => {
-    const f  = d[e]?.FULL   || {};
-    const o  = d[e]?.Outros || {};
-    const pf = f.pedidos || 0;
-    const po = o.pedidos || 0;
-    const lf = f.lt_uteis != null ? f.lt_uteis + ' d' : '—';
-    const lo = o.lt_uteis != null ? o.lt_uteis + ' d' : '—';
-    const af = f.pct_ativ != null ? f.pct_ativ + '%' : '—';
-    const ao = o.pct_ativ != null ? o.pct_ativ + '%' : '—';
-    const pctF = totFull   > 0 ? (pf/totFull*100).toFixed(1)+'%'   : '—';
-    const pctO = totOutros > 0 ? (po/totOutros*100).toFixed(1)+'%' : '—';
-    const dlt  = (f.lt_uteis != null && o.lt_uteis != null)
-                 ? '<span class="positive">−'+(o.lt_uteis-f.lt_uteis).toFixed(1)+'d</span>'
-                 : '—';
-    return `<tr>
-      <td style="font-weight:600">${e}</td>
-      <td>${pf.toLocaleString('pt-BR')}</td><td>${pctF}</td><td>${lf}</td>
-      <td>${po.toLocaleString('pt-BR')}</td><td>${pctO}</td><td>${lo}</td>
-      <td>${af}</td><td>${ao}</td><td>${dlt}</td>
-    </tr>`;
-  }).join('');
+  function renderEstado(mesLabel) {
+    const d = mesData[mesLabel] || {};
+    const estados = Object.keys(d).sort((a,b) => {
+      const pf = v => (d[v] && d[v]['FULL'] && d[v]['FULL'].pedidos) || 0;
+      const hasFull = v => d[v] && d[v]['FULL'];
+      if(hasFull(a) && !hasFull(b)) return -1;
+      if(!hasFull(a) && hasFull(b)) return 1;
+      return pf(b) - pf(a);
+    });
+
+    const totFull   = estados.reduce((s,e) => s + ((d[e]?.FULL?.pedidos) || 0), 0);
+    const totOutros = estados.reduce((s,e) => s + ((d[e]?.Outros?.pedidos) || 0), 0);
+
+    const fmt = v => v != null ? v : '—';
+    const fmtLt = v => v != null ? v + ' d' : '—';
+    const fmtPct = (n, tot) => tot > 0 ? (n/tot*100).toFixed(1)+'%' : '—';
+
+    const rows = estados.map(e => {
+      const f = d[e]?.FULL   || {};
+      const o = d[e]?.Outros || {};
+      const pf = f.pedidos || 0, po = o.pedidos || 0;
+      const lf = f.lt_uteis, lo = o.lt_uteis;
+      const dlt = (lf != null && lo != null) ? (lo - lf).toFixed(1) : null;
+      const dltStr = dlt != null ? `−${dlt}d` : '—';
+      const dltCls = dlt > 0 ? 'style="color:#00C48C;font-weight:700"' : '';
+      return `<tr>
+        <td style="font-weight:700">${e}</td>
+        <td>${pf.toLocaleString('pt-BR')}</td>
+        <td>${fmtPct(pf, totFull)}</td>
+        <td>${fmtLt(lf)}</td>
+        <td>${po.toLocaleString('pt-BR')}</td>
+        <td>${fmtPct(po, totOutros)}</td>
+        <td>${fmtLt(lo)}</td>
+        <td ${dltCls}>${dltStr}</td>
+      </tr>`;
+    }).join('');
+
+    document.getElementById('estTbody').innerHTML = rows;
+  }
+
+  renderEstado(mesLabels[mesLabels.length - 1]);
 }
 
-renderEstado(mesLabels[mesLabels.length - 1]);
-
+// Mapeamento: índice do tab → índice do pane no DOM
+// Tab 0=Contexto→pane0, Tab 1=Executiva→pane3, Tab 2=Mensal→pane1,
+// Tab 3=Semanal→pane2, Tab 4=Estado→pane4
 function show(n){
+  const pMap=[0,3,1,2,4];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===n));
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===pMap[n]));
+  setTimeout(()=>window.dispatchEvent(new Event('resize')),50);
+  if(n===4) initEstadoTable();
 }
 </script>
 </body>
