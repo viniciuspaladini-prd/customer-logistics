@@ -66,7 +66,6 @@
                       background:var(--bg);border-radius:0 8px 8px 0;
                       margin-bottom:10px;font-size:14px;line-height:1.6;}
     .insight-list li strong{color:var(--blue);}
-    /* Contexto */
     .hero{background:linear-gradient(135deg,#1A1A2E,#0F3460);border-radius:16px;
            padding:36px;color:#fff;margin-bottom:24px;}
     .hero h1{font-size:22px;font-weight:800;margin-bottom:8px;}
@@ -106,6 +105,9 @@
     .dc ul{list-style:none;padding:0;}
     .dc ul li{font-size:12px;padding:4px 0;display:flex;align-items:center;gap:6px;}
     .dc ul li::before{content:'→';color:var(--blue);font-weight:700;}
+    .filter-btn{padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;
+                 cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--muted);transition:all .2s;}
+    .filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
   </style>
 </head>
 <body>
@@ -114,10 +116,10 @@
     <div class="header-logo">MERCADO PAGO</div>
     <div style="margin-left:16px">
       <div class="header-title">Integração FULL × OFF — Impacto em Logística &amp; Performance</div>
-      <div class="header-sub">Point · Canais OFF · Comparativo semanal · Dados reais BigQuery</div>
+      <div class="header-sub">Point · Canais OFF · Dados reais BigQuery</div>
     </div>
   </div>
-  <div class="header-badge">📅 Atualizado: 19/03/2026</div>
+  <div class="header-badge">📅 Atualizado: 23/03/2026</div>
 </div>
 
 <div class="tabs">
@@ -130,11 +132,11 @@
 
 <div class="content">
 
-<!-- ═══ ABA 1 ═══ -->
+<!-- ═══ ABA 1 — Contexto ═══ -->
 <div class="pane active" id="p0">
   <div class="hero">
-    <h1>🎯 Integração OFF (Mercado Pago) com FULL <span style="font-size:14px;font-weight:500;opacity:.75">(CHOP &amp; Telesales Hunting)</span></h1>
-    <p>Avaliação do impacto da integração dos <span style="color:#FCD34D;font-weight:600">canais de venda OFF (CHOP &amp; Telesales Hunting)</span> ao Mercado Envios FULL sobre leadtime de entrega e taxa de ativação de maquininhas Point.</p>
+    <h1>🎯 Integração OFF (Mercado Pago) com FULL</h1>
+    <p>Avaliação do impacto da integração dos canais de venda OFF ao Mercado Envios FULL sobre leadtime de entrega e taxa de ativação de maquininhas Point.</p>
     <div class="hero-tags">
       <span class="hero-tag">📦 Logística</span>
       <span class="hero-tag">💳 Mercado Pago</span>
@@ -143,43 +145,37 @@
       <span class="hero-tag">🖥 Point</span>
     </div>
   </div>
-  <div class="sec">1️⃣ Contexto <span class="badge">Cenário Atual</span></div>
-  <div style="display:flex;flex-direction:column;gap:16px;margin-bottom:8px">
-    <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:10px;overflow:hidden">
-      <div style="background:#FFE600;padding:8px 18px;display:inline-block;font-size:13px;font-weight:700;color:#1A1A1A">
-        Como funciona hoje?
-      </div>
-      <div style="padding:16px 18px;font-size:13px;color:#374151;line-height:1.7">
-        Atualmente, os produtos de Mercado Pago no Brasil são enviados por dois métodos: <strong>crossdocking ou dropshipping</strong>. Esses modelos funcionam, mas têm limitações em controle, rastreamento e tempo de entrega. O <strong>modelo FULL</strong>, com produtos armazenados nos centros logísticos do Mercado Livre, permite envios mais rápidos, confiáveis e com muito mais visibilidade.
-      </div>
+  <div class="sec">1️⃣ Cenário Atual <span class="badge">Contexto</span></div>
+  <div class="sg">
+    <div class="sc cur">
+      <h3>⚠️ Modelos Atuais — Limitações</h3>
+      <ul>
+        <li><span class="dot r"></span><strong>Crossdocking</strong> — baixo controle logístico</li>
+        <li><span class="dot r"></span><strong>Dropshipping</strong> — dependência do seller</li>
+        <li><span class="dot r"></span>Menor visibilidade de entrega</li>
+        <li><span class="dot r"></span>Baixa previsibilidade de prazo</li>
+        <li><span class="dot r"></span>Leadtime médio elevado</li>
+        <li><span class="dot r"></span>Ativação mais lenta do seller</li>
+      </ul>
     </div>
-    <div style="background:#F9FAFB;border:1px solid #E5E7EB;border-radius:10px;overflow:hidden">
-      <div style="background:#FFE600;padding:8px 18px;display:inline-block;font-size:13px;font-weight:700;color:#1A1A1A">
-        Qual é a oportunidade?
-      </div>
-      <div style="padding:16px 18px;font-size:13px;color:#374151;line-height:1.7">
-        <strong>Integrar o Mercado Pago ao Mercado Envios para enviar maquininhas Point via FULL</strong> — automatizando e agilizando todo o processo, tanto para o seller quanto para o usuário final.
-      </div>
+    <div class="sc ful">
+      <h3>✅ Modelo FULL — Vantagens</h3>
+      <ul>
+        <li><span class="dot g"></span>Produtos nos CDs do Mercado Livre</li>
+        <li><span class="dot g"></span>Menor leadtime de entrega</li>
+        <li><span class="dot g"></span>Maior confiabilidade e tracking</li>
+        <li><span class="dot g"></span>Melhor experiência seller e cliente final</li>
+        <li><span class="dot g"></span>Ativação mais rápida da maquininha</li>
+        <li><span class="dot g"></span>Unificação de serviços dentro do grupo MELI</li>
+      </ul>
     </div>
   </div>
   <hr/>
-  <div class="sec">2️⃣ O que esperamos com FULL <span class="badge">Hipóteses</span></div>
-  <div class="sg" style="grid-template-columns:1fr 1fr 1fr">
-    <div class="sc ful" style="text-align:center">
-      <div style="font-size:36px;margin-bottom:12px">⚡</div>
-      <h3>Menor Leadtime de Entrega</h3>
-      <p style="font-size:13px;color:#374151;margin-top:8px;line-height:1.6">Com estoque nos CDs do Mercado Livre, a maquininha chega mais rápido ao seller — reduzindo dias úteis de espera.</p>
-    </div>
-    <div class="sc ful" style="text-align:center">
-      <div style="font-size:36px;margin-bottom:12px">🔑</div>
-      <h3>Ativação mais Rápida</h3>
-      <p style="font-size:13px;color:#374151;margin-top:8px;line-height:1.6">Seller que recebe mais rápido ativa a maquininha antes — gerando transações nos primeiros dias pós-entrega.</p>
-    </div>
-    <div class="sc ful" style="text-align:center">
-      <div style="font-size:36px;margin-bottom:12px">💰</div>
-      <h3>Mais Engajamento do Seller</h3>
-      <p style="font-size:13px;color:#374151;margin-top:8px;line-height:1.6">Maior taxa de ativação e TPV capturado nos primeiros dias — seller engajado desde o início da jornada.</p>
-    </div>
+  <div class="sec">2️⃣ Oportunidade <span class="badge">Proposta</span></div>
+  <div class="og">
+    <div class="oc"><div class="oi">⚡</div><div class="ot">Reduzir Leadtime</div><div class="od">Diminuir o tempo médio de entrega das maquininhas, acelerando a ativação do seller.</div></div>
+    <div class="oc"><div class="oi">💰</div><div class="ot">Aumentar TPV</div><div class="od">Capturar TPV incremental nas maquininhas pela aceleração da ativação nos primeiros dias.</div></div>
+    <div class="oc"><div class="oi">🎯</div><div class="ot">Melhorar Ativação</div><div class="od">Aumentar a taxa de sellers que transacionam, unificando serviços dentro do grupo MELI.</div></div>
   </div>
   <hr/>
   <div class="sec">3️⃣ Hipótese Estratégica <span class="badge">Core</span></div>
@@ -194,88 +190,71 @@
     </div>
   </div>
   <hr/>
-  <div class="sec">4️⃣ Expansão da Iniciativa — Rollout <span class="badge">Cronograma</span></div>
-  <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr 1fr;gap:10px;margin-bottom:8px">
-    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-left:4px solid #2D73F5;border-radius:10px;padding:12px">
-      <div style="font-size:10px;font-weight:700;color:#2D73F5;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 1 — 19/02/2026</div>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Mini NFC 2</div>
-      <div style="font-size:12px;color:#374151;line-height:1.5">
-        <strong>Estados:</strong> MG e MA<br/>
-        Início do piloto.
-      </div>
-    </div>
-    <div style="background:#EFF6FF;border:1px solid #BFDBFE;border-left:4px solid #7B5EF8;border-radius:10px;padding:12px">
-      <div style="font-size:10px;font-weight:700;color:#7B5EF8;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 2 — 02/03/2026</div>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Mini NFC 2 + Pro 3</div>
-      <div style="font-size:12px;color:#374151;line-height:1.5">
-        <strong>Mini NFC 2:</strong> todo o Brasil<br/>
-        <strong>Pro 3:</strong> MG e MA
-      </div>
-    </div>
-    <div style="background:#FFF7ED;border:1px solid #FED7AA;border-left:4px solid #F97316;border-radius:10px;padding:12px">
-      <div style="font-size:10px;font-weight:700;color:#F97316;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 3 — 05/03/2026</div>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Expansão Pro 3</div>
-      <div style="font-size:12px;color:#374151;line-height:1.5">
-        <strong>Pro 3:</strong> +4 estados<br/>
-        BA, MT, RO e PA
-      </div>
-    </div>
-    <div style="background:#FEF3C7;border:1px solid #FDE68A;border-left:4px solid #D97706;border-radius:10px;padding:12px">
-      <div style="font-size:10px;font-weight:700;color:#D97706;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 4 — 09/03/2026</div>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Pro 3 — 100% MLB</div>
-      <div style="font-size:12px;color:#374151;line-height:1.5">
-        <strong>Pro 3:</strong> todo o Brasil<br/>
-        Cobertura nacional completa.
-      </div>
-    </div>
-    <div style="background:#F0FDF4;border:1px solid #BBF7D0;border-left:4px solid #16A34A;border-radius:10px;padding:12px">
-      <div style="font-size:10px;font-weight:700;color:#16A34A;text-transform:uppercase;letter-spacing:.5px;margin-bottom:5px">📅 Fase 5 — 10/03/2026</div>
-      <div style="font-size:13px;font-weight:800;margin-bottom:6px">Go Live Completo</div>
-      <div style="font-size:12px;color:#374151;line-height:1.5">
-        <strong>AIR 2 + SMART 2:</strong> todo o Brasil<br/>
-        Cobertura total da linha Point.
-      </div>
-    </div>
-  </div>
-  <hr/>
-  <div class="sec">🗺️ Mapa do Rollout <span class="badge">Expansão por Estado</span></div>
-  <div style="display:flex;gap:28px;align-items:flex-start;flex-wrap:wrap;margin-bottom:8px">
-    <svg viewBox="0 0 520 520" style="width:100%;max-width:390px;height:auto;display:block;flex-shrink:0" xmlns="http://www.w3.org/2000/svg">
-      <rect width="520" height="520" fill="#EFF6FF" rx="10"/>
-      <path d="M 90,208 L 96,164 L 115,118 L 148,92 L 192,68 L 242,60 L 290,65 L 332,62
-               L 388,75 L 422,88 L 455,118 L 483,158 L 502,218 L 500,270 L 488,318
-               L 478,350 L 460,400 L 444,444 L 418,480 L 398,505 L 376,518 L 344,518
-               L 314,516 L 284,504 L 252,482 L 244,454 L 255,434 L 270,418 L 267,394
-               L 252,374 L 237,347 L 220,324 L 188,300 L 158,277 L 138,251 L 108,231 Z"
-            fill="#E2E8F0" stroke="#94A3B8" stroke-width="1.5"/>
-      <circle cx="188" cy="90" r="15" fill="#7B5EF8" opacity="0.92"/><text x="188" y="94" text-anchor="middle" fill="white" font-size="8" font-weight="700">RR</text><circle cx="330" cy="82" r="15" fill="#7B5EF8" opacity="0.92"/><text x="330" y="86" text-anchor="middle" fill="white" font-size="8" font-weight="700">AP</text><circle cx="190" cy="188" r="15" fill="#7B5EF8" opacity="0.92"/><text x="190" y="192" text-anchor="middle" fill="white" font-size="8" font-weight="700">AM</text><circle cx="325" cy="165" r="18" fill="#F97316" opacity="0.92"/><text x="325" y="169" text-anchor="middle" fill="white" font-size="8" font-weight="700">PA</text><circle cx="100" cy="235" r="15" fill="#7B5EF8" opacity="0.92"/><text x="100" y="239" text-anchor="middle" fill="white" font-size="8" font-weight="700">AC</text><circle cx="152" cy="280" r="18" fill="#F97316" opacity="0.92"/><text x="152" y="284" text-anchor="middle" fill="white" font-size="8" font-weight="700">RO</text><circle cx="348" cy="252" r="15" fill="#7B5EF8" opacity="0.92"/><text x="348" y="256" text-anchor="middle" fill="white" font-size="8" font-weight="700">TO</text><circle cx="242" cy="305" r="18" fill="#F97316" opacity="0.92"/><text x="242" y="309" text-anchor="middle" fill="white" font-size="8" font-weight="700">MT</text><circle cx="390" cy="172" r="18" fill="#2D73F5" opacity="0.92"/><text x="390" y="176" text-anchor="middle" fill="white" font-size="8" font-weight="700">MA</text><circle cx="432" cy="215" r="15" fill="#7B5EF8" opacity="0.92"/><text x="432" y="219" text-anchor="middle" fill="white" font-size="8" font-weight="700">PI</text><circle cx="462" cy="202" r="15" fill="#7B5EF8" opacity="0.92"/><text x="462" y="206" text-anchor="middle" fill="white" font-size="8" font-weight="700">CE</text><circle cx="492" cy="215" r="15" fill="#7B5EF8" opacity="0.92"/><text x="492" y="219" text-anchor="middle" fill="white" font-size="8" font-weight="700">RN</text><circle cx="498" cy="245" r="15" fill="#7B5EF8" opacity="0.92"/><text x="498" y="249" text-anchor="middle" fill="white" font-size="8" font-weight="700">PB</text><circle cx="480" cy="270" r="15" fill="#7B5EF8" opacity="0.92"/><text x="480" y="274" text-anchor="middle" fill="white" font-size="8" font-weight="700">PE</text><circle cx="484" cy="296" r="15" fill="#7B5EF8" opacity="0.92"/><text x="484" y="300" text-anchor="middle" fill="white" font-size="8" font-weight="700">AL</text><circle cx="478" cy="318" r="15" fill="#7B5EF8" opacity="0.92"/><text x="478" y="322" text-anchor="middle" fill="white" font-size="8" font-weight="700">SE</text><circle cx="425" cy="340" r="18" fill="#F97316" opacity="0.92"/><text x="425" y="344" text-anchor="middle" fill="white" font-size="8" font-weight="700">BA</text><circle cx="340" cy="348" r="15" fill="#7B5EF8" opacity="0.92"/><text x="340" y="352" text-anchor="middle" fill="white" font-size="8" font-weight="700">GO</text><circle cx="355" cy="372" r="15" fill="#7B5EF8" opacity="0.92"/><text x="355" y="376" text-anchor="middle" fill="white" font-size="8" font-weight="700">DF</text><circle cx="282" cy="408" r="15" fill="#7B5EF8" opacity="0.92"/><text x="282" y="412" text-anchor="middle" fill="white" font-size="8" font-weight="700">MS</text><circle cx="395" cy="380" r="18" fill="#2D73F5" opacity="0.92"/><text x="395" y="384" text-anchor="middle" fill="white" font-size="8" font-weight="700">MG</text><circle cx="448" cy="388" r="15" fill="#7B5EF8" opacity="0.92"/><text x="448" y="392" text-anchor="middle" fill="white" font-size="8" font-weight="700">ES</text><circle cx="420" cy="412" r="15" fill="#7B5EF8" opacity="0.92"/><text x="420" y="416" text-anchor="middle" fill="white" font-size="8" font-weight="700">RJ</text><circle cx="365" cy="418" r="15" fill="#7B5EF8" opacity="0.92"/><text x="365" y="422" text-anchor="middle" fill="white" font-size="8" font-weight="700">SP</text><circle cx="328" cy="450" r="15" fill="#7B5EF8" opacity="0.92"/><text x="328" y="454" text-anchor="middle" fill="white" font-size="8" font-weight="700">PR</text><circle cx="352" cy="474" r="15" fill="#7B5EF8" opacity="0.92"/><text x="352" y="478" text-anchor="middle" fill="white" font-size="8" font-weight="700">SC</text><circle cx="320" cy="504" r="15" fill="#7B5EF8" opacity="0.92"/><text x="320" y="508" text-anchor="middle" fill="white" font-size="8" font-weight="700">RS</text>
-    </svg>
-    <div style="display:flex;flex-direction:column;gap:8px;flex:1;min-width:220px">
-      <div style="font-size:11px;font-weight:700;color:#6B7280;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px">Legenda</div>
-      <div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#2D73F5;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 1 — 19/02</div><div style="font-size:11px;color:#6B7280">Mini NFC 2 · Piloto: MG e MA</div></div></div><div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#7B5EF8;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 2 — 02/03</div><div style="font-size:11px;color:#6B7280">Mini NFC 2 · Todo o Brasil</div></div></div><div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#F97316;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 3 — 05/03</div><div style="font-size:11px;color:#6B7280">Pro 3 · BA, MT, RO e PA</div></div></div><div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#D97706;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 4 — 09/03</div><div style="font-size:11px;color:#6B7280">Pro 3 · 100% MLB</div></div></div><div style="display:flex;align-items:center;gap:10px;padding:8px 14px;border-radius:8px;background:#F9FAFB;border:1px solid #E5E7EB"><div style="width:14px;height:14px;border-radius:50%;background:#16A34A;flex-shrink:0"></div><div><div style="font-size:12px;font-weight:700;color:#1A1A2E">Fase 5 — 10/03</div><div style="font-size:11px;color:#6B7280">AIR 2 + SMART 2 · Todo o Brasil</div></div></div>
-      <div style="margin-top:6px;padding:12px;background:#F0FDF4;border:1px solid #BBF7D0;border-radius:8px;font-size:12px;color:#166534;line-height:1.8">
-        ✅ <strong>Mini NFC 2</strong> disponível em todo o Brasil desde 02/03<br/>
-        ✅ <strong>Pro 3</strong> disponível em todo o Brasil desde 09/03<br/>
-        🚀 <strong>AIR 2 + SMART 2</strong> chegam em 10/03 para todo Brasil
-      </div>
-    </div>
-  </div>
-  <hr/>
   <div class="sec">🔍 Filtros Aplicados <span class="badge">Dados Reais</span></div>
   <div class="dg">
     <div class="dc"><h4>📦 Produto</h4><ul><li>MODELO = 'Point'</li><li>OPERATION_TYPE = 'PURCHASE ORDER'</li><li>SIT_SITE_ID = 'MLB'</li></ul></div>
-    <div class="dc"><h4>✅ FULL (OFF via FULL)</h4><ul><li>OP_LOGISTICO = 'Fulfillment'</li><li>ORDER_GATEWAY = 'CAMPAIGN'</li></ul></div>
-    <div class="dc"><h4>🔄 Outros (OFF não FULL)</h4><ul><li>OP_LOGISTICO &lt;&gt; 'Fulfillment'</li></ul></div>
+    <div class="dc"><h4>📡 Canal CHOP (FULL)</h4><ul><li>CHANNEL = 'CAMPAIGN'</li><li>ORDER_GATEWAY = 'CAMPAIGN'</li><li>OP_LOGISTICO = 'Fulfillment'</li></ul></div>
+    <div class="dc"><h4>📡 Canais OFF (Outros)</h4><ul><li>TELESALES_FARMING</li><li>CONSULTOR CERTIFICADO</li><li>RESELLERS</li><li>TELESALES_HUNTING</li><li>FDV PROPIA</li></ul></div>
   </div>
 </div>
 
-<!-- ═══ ABA 2 ═══ -->
+<!-- ═══ ABA 2 — Executivo ═══ -->
 <div class="pane" id="p1">
+  <div class="kpi-grid">
+    <div class="kpi blue">
+      <div class="kpi-label">🔵 Redução Média de Leadtime</div>
+      <div class="kpi-value" style="color:#2D73F5">0.9 dias</div>
+      <div class="kpi-delta">▼ 30.0% menos tempo de entrega</div>
+      <div class="kpi-sub">FULL: 2.1d vs Outros: 3.0d (dias úteis)</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">🟢 Delta de Ativação</div>
+      <div class="kpi-value" style="color:#00C48C">-22.0 pp</div>
+      <div class="kpi-delta">▲ FULL: 71.3% vs Outros: 93.3%</div>
+      <div class="kpi-sub">Sellers ativados / entregues</div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-label">🟡 Total Pedidos FULL</div>
+      <div class="kpi-value" style="color:#FF7A00">15,839.0</div>
+      <div class="kpi-delta">▲ vs 4,533.0 via Outros</div>
+      <div class="kpi-sub">Canais CHOP · Produto Point · MLB</div>
+    </div>
+    <div class="kpi purple">
+      <div class="kpi-label">🟣 Sellers Ativados (FULL)</div>
+      <div class="kpi-value" style="color:#7B5EF8">9,251.0</div>
+      <div class="kpi-delta">vs 3,838.0 via Outros</div>
+      <div class="kpi-sub">Total no período analisado</div>
+    </div>
+  </div>
+  <div class="cg2">
+    <div class="cw">
+      <div class="ct">Evolução do Leadtime — FULL vs Outros</div>
+      <div class="cs">Tendência semanal (dias úteis)</div>
+      <canvas id="cExLT"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">Evolução da Ativação — FULL vs Outros</div>
+      <div class="cs">% sellers que transacionaram</div>
+      <canvas id="cExAt"></canvas>
+    </div>
+  </div>
+  <hr/>
+  <div class="sec">💡 Insights Estratégicos</div>
+  <ul class="insight-list">
+    <li>📦 <strong>FULL reduz o leadtime em 0.9 dias úteis</strong> em média — 30.0% de redução frente ao modelo atual.</li>
+    <li>🎯 <strong>Delta de ativação: -22.0 pp</strong> — FULL: 71.3% vs Outros: 93.3%.</li>
+    <li>📈 <strong>FULL representa 77.7% dos pedidos</strong> via canais OFF no período — há espaço para crescimento.</li>
+    <li>🚀 <strong>Hipótese validada:</strong> menor leadtime → ativação mais rápida → maior captura de TPV nos primeiros dias do seller.</li>
+  </ul>
+</div>
+
+<!-- ═══ ABA 3 — Mensal ═══ -->
+<div class="pane" id="p2">
   <div class="sec">1️⃣ Leadtime Mensal <span class="badge">Dias Úteis</span></div>
   <div class="cg2">
     <div class="cw">
       <div class="ct">Leadtime Médio por Mês</div>
-      <div class="cs">FULL vs Outros (dias úteis)</div>
+      <div class="cs">Média mensal — FULL vs Outros</div>
       <div class="leg">
         <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
         <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
@@ -289,7 +268,7 @@
     </div>
   </div>
   <hr/>
-  <div class="sec">2️⃣ Ativação &amp; TPV Mensal <span class="badge">% Ativados · R$ TPV</span></div>
+  <div class="sec">2️⃣ Ativação Mensal <span class="badge">% Sellers ativados / Entregues</span></div>
   <div class="cg2">
     <div class="cw">
       <div class="ct">% Ativação por Mês</div>
@@ -301,19 +280,6 @@
       <canvas id="cMesAtiv"></canvas>
     </div>
     <div class="cw">
-      <div class="ct">TPV por Mês (R$)</div>
-      <div class="cs">Valor total processado pelos devices — FULL vs Outros</div>
-      <div class="leg">
-        <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
-        <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
-      </div>
-      <canvas id="cMesTPV"></canvas>
-    </div>
-  </div>
-  <hr/>
-  <div class="sec">3️⃣ Pedidos &amp; Dias até 1ª Trx por Mês</div>
-  <div class="cg2">
-    <div class="cw">
       <div class="ct">Pedidos por Mês</div>
       <div class="cs">FULL vs Outros</div>
       <div class="leg">
@@ -322,6 +288,10 @@
       </div>
       <canvas id="cMesPed"></canvas>
     </div>
+  </div>
+  <hr/>
+  <div class="sec">3️⃣ Dias até 1ª Transação por Mês</div>
+  <div class="cg2">
     <div class="cw">
       <div class="ct">Dias do Pedido até 1ª Transação</div>
       <div class="cs">Média mensal — FULL vs Outros</div>
@@ -331,19 +301,14 @@
       </div>
       <canvas id="cMesD1a"></canvas>
     </div>
-  </div>
-  <hr/>
-  <div class="sec">💡 TPV Incremental por Mês <span class="badge">Realizado · Potencial</span></div>
-  <div class="cg2">
     <div class="cw">
-      <div class="ct">⚡ Realizado — TPV gerado pelo delta de LT</div>
-      <div class="cs">(Δ LT corridos / 30) × TPV FULL</div>
-      <canvas id="cMesTPVInc"></canvas>
-    </div>
-    <div class="cw">
-      <div class="ct">🎯 Potencial — Se Outros fossem FULL</div>
-      <div class="cs">(Δ LT corridos / 30) × TPV Outros</div>
-      <canvas id="cMesTPVPot"></canvas>
+      <div class="ct">Entregues por Mês</div>
+      <div class="cs">FULL vs Outros</div>
+      <div class="leg">
+        <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
+        <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
+      </div>
+      <canvas id="cMesEnt"></canvas>
     </div>
   </div>
   <hr/>
@@ -352,43 +317,39 @@
     <table>
       <thead><tr>
         <th>Mês</th><th>Método</th><th>Pedidos</th><th>Entregues</th>
-        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>TPV (R$)</th><th>Delta Leadtime</th>
+        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>Delta Leadtime</th>
       </tr></thead>
       <tbody>
         <tr>
           <td rowspan="2" style="font-weight:700">Fev/26</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>343.0</td><td>313.0</td>
-          <td>2.1 d</td><td>66.8%</td>
-          <td>5.2 d</td><td>R$ 358,559</td>
-          <td rowspan="2" class="positive">−1.0d</td>
+          <td>83.0</td><td>73.0</td>
+          <td>2.5 d</td><td>83.6%</td><td>0.4 d</td>
+          <td rowspan="2" class="positive">−0.8d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>25,659.0</td><td>24,746.0</td>
-          <td>3.1 d</td><td>71.2%</td>
-          <td>6.6 d</td><td>R$ 59,650,170</td>
+          <td>1,726.0</td><td>1,650.0</td>
+          <td>3.3 d</td><td>119.8%</td><td>0.8 d</td>
         </tr>
         <tr>
           <td rowspan="2" style="font-weight:700">Mar/26</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>13,168.0</td><td>9,953.0</td>
-          <td>1.8 d</td><td>42.3%</td>
-          <td>2.7 d</td><td>R$ 5,885,992</td>
-          <td rowspan="2" class="positive">−1.0d</td>
+          <td>15,756.0</td><td>13,079.0</td>
+          <td>1.9 d</td><td>70.3%</td><td>0.9 d</td>
+          <td rowspan="2" class="positive">−1.1d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>34,064.0</td><td>26,923.0</td>
-          <td>2.8 d</td><td>47.2%</td>
-          <td>4.7 d</td><td>R$ 30,242,338</td>
+          <td>2,807.0</td><td>2,239.0</td>
+          <td>3.0 d</td><td>83.1%</td><td>1.0 d</td>
         </tr></tbody>
     </table>
   </div>
 </div>
 
-<!-- ═══ ABA 3 ═══ -->
-<div class="pane" id="p2">
+<!-- ═══ ABA 4 — Semanal ═══ -->
+<div class="pane" id="p3">
   <div class="sec">1️⃣ Leadtime de Entrega <span class="badge">Dias Úteis</span></div>
   <div class="cg2">
     <div class="cw">
@@ -419,35 +380,21 @@
       <canvas id="cAtiv"></canvas>
     </div>
     <div class="cw">
-      <div class="ct">TPV Gerado por Semana</div>
-      <div class="cs">Valor total processado pelos devices (R$) — FULL vs Outros</div>
+      <div class="ct">% Ativação em 7 dias</div>
+      <div class="cs">Sellers que ativaram em até 7 dias após entrega</div>
       <div class="leg">
         <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
         <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
       </div>
-      <canvas id="cTPV"></canvas>
+      <canvas id="cAtiv7d"></canvas>
     </div>
   </div>
   <hr/>
-  <div class="sec">💡 TPV Incremental por Semana <span class="badge">Realizado · Potencial</span></div>
+  <div class="sec">3️⃣ Dias até 1ª Transação <span class="badge">Seller recebeu → usou pela 1ª vez</span></div>
   <div class="cg2">
     <div class="cw">
-      <div class="ct">⚡ Realizado — TPV gerado pelo delta de LT</div>
-      <div class="cs">(Δ LT corridos / 7) × TPV FULL</div>
-      <canvas id="cTPVInc"></canvas>
-    </div>
-    <div class="cw">
-      <div class="ct">🎯 Potencial — Se Outros fossem FULL</div>
-      <div class="cs">(Δ LT corridos / 7) × TPV Outros</div>
-      <canvas id="cTPVPot"></canvas>
-    </div>
-  </div>
-  <hr/>
-  <div class="sec">3️⃣ Dias até 1ª Transação <span class="badge">Pedido → usou pela 1ª vez (nível device)</span></div>
-  <div class="cg2">
-    <div class="cw">
-      <div class="ct">Dias do Pedido até 1ª Transação</div>
-      <div class="cs">Média por semana — FULL vs Outros (fonte: BT_MP_IC_ATIVACAO_VENDAS_DEVICES, nível device)</div>
+      <div class="ct">Dias entre Entrega e 1ª Transação</div>
+      <div class="cs">Média por semana — FULL vs Outros</div>
       <div class="leg">
         <div class="li"><div class="ld" style="background:#2D73F5"></div> FULL</div>
         <div class="li"><div class="ld" style="background:#FF7A00"></div> Outros</div>
@@ -455,173 +402,85 @@
       <canvas id="cD1a"></canvas>
     </div>
     <div class="cw">
-      <div class="ct">Leadtime de Entrega vs Dias até 1ª Trx</div>
-      <div class="cs">Comparativo direto FULL × Outros — componentes do tempo até ativação</div>
+      <div class="ct">Tempo Total até Ativação (Leadtime + Dias → 1ª Trx)</div>
+      <div class="cs">LT entrega + dias até usar pela 1ª vez</div>
       <canvas id="cD1aTotal"></canvas>
     </div>
   </div>
   <hr/>
-  <div class="sec">📋 Tabela Detalhada</div>
+  <div class="sec">📋 Tabela Semanal Detalhada</div>
   <div class="card">
     <table>
       <thead><tr>
         <th>Semana</th><th>Método</th><th>Pedidos</th><th>Entregues</th>
-        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>TPV (R$)</th><th>Delta Leadtime</th>
+        <th>Leadtime Médio</th><th>% Ativação</th><th>Dias → 1ª Trx</th><th>Delta Leadtime</th>
       </tr></thead>
       <tbody>
         <tr>
           <td rowspan="2" style="font-weight:700">Sem 16/02</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>144.0</td><td>132.0</td>
-          <td>1.8 d</td><td>64.6%</td>
-          <td>4.7 d</td><td>R$ 172,972</td>
-          <td rowspan="2" class="positive">−1.4d</td>
+          <td>0</td><td>0</td>
+          <td>— d</td><td>—%</td><td>— d</td>
+          <td rowspan="2" class="positive">—</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>10,394.0</td><td>10,120.0</td>
-          <td>3.2 d</td><td>74.1%</td>
-          <td>7.1 d</td><td>R$ 25,090,990</td>
+          <td>495.0</td><td>477.0</td>
+          <td>3.3 d</td><td>135.6%</td><td>1.3 d</td>
         </tr>
         <tr>
           <td rowspan="2" style="font-weight:700">Sem 23/02</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>220.0</td><td>199.0</td>
-          <td>2.3 d</td><td>66.4%</td>
-          <td>5.6 d</td><td>R$ 189,712</td>
-          <td rowspan="2" class="positive">−0.8d</td>
+          <td>104.0</td><td>91.0</td>
+          <td>2.4 d</td><td>78.0%</td><td>0.4 d</td>
+          <td rowspan="2" class="positive">−1.0d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>17,020.0</td><td>16,305.0</td>
-          <td>3.1 d</td><td>69.3%</td>
-          <td>6.2 d</td><td>R$ 36,993,003</td>
+          <td>1,312.0</td><td>1,251.0</td>
+          <td>3.4 d</td><td>112.6%</td><td>0.5 d</td>
         </tr>
         <tr>
           <td rowspan="2" style="font-weight:700">Sem 02/03</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>2,736.0</td><td>2,515.0</td>
-          <td>2.2 d</td><td>59.5%</td>
-          <td>3.8 d</td><td>R$ 1,959,111</td>
-          <td rowspan="2" class="positive">−0.7d</td>
+          <td>2,689.0</td><td>2,496.0</td>
+          <td>2.3 d</td><td>70.2%</td><td>0.9 d</td>
+          <td rowspan="2" class="positive">−0.9d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>16,759.0</td><td>15,782.0</td>
-          <td>2.9 d</td><td>65.6%</td>
-          <td>5.0 d</td><td>R$ 21,039,722</td>
+          <td>1,102.0</td><td>1,033.0</td>
+          <td>3.2 d</td><td>100.2%</td><td>1.0 d</td>
         </tr>
         <tr>
           <td rowspan="2" style="font-weight:700">Sem 09/03</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>7,245.0</td><td>6,182.0</td>
-          <td>1.7 d</td><td>52.4%</td>
-          <td>2.3 d</td><td>R$ 3,873,232</td>
-          <td rowspan="2" class="positive">−0.8d</td>
+          <td>7,149.0</td><td>6,471.0</td>
+          <td>2.0 d</td><td>76.2%</td><td>— d</td>
+          <td rowspan="2" class="positive">−0.9d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>11,167.0</td><td>8,669.0</td>
-          <td>2.5 d</td><td>34.2%</td>
-          <td>3.5 d</td><td>R$ 6,756,113</td>
+          <td>900.0</td><td>804.0</td>
+          <td>2.9 d</td><td>75.9%</td><td>— d</td>
         </tr>
         <tr>
           <td rowspan="2" style="font-weight:700">Sem 16/03</td>
           <td><span class="tag-full">FULL</span></td>
-          <td>3,166.0</td><td>1,238.0</td>
-          <td>1.2 d</td><td>4.3%</td>
-          <td>0.9 d</td><td>R$ 49,523</td>
-          <td rowspan="2" class="positive">−0.5d</td>
+          <td>5,897.0</td><td>4,094.0</td>
+          <td>1.6 d</td><td>61.0%</td><td>— d</td>
+          <td rowspan="2" class="positive">−0.8d</td>
         </tr>
         <tr>
           <td><span class="tag-outros">Outros</span></td>
-          <td>4,383.0</td><td>793.0</td>
-          <td>1.7 d</td><td>1.1%</td>
-          <td>1.0 d</td><td>R$ 12,681</td>
+          <td>724.0</td><td>324.0</td>
+          <td>2.4 d</td><td>42.3%</td><td>— d</td>
         </tr></tbody>
     </table>
   </div>
 </div>
 
-<!-- ═══ ABA 4 ═══ -->
-<div class="pane" id="p3">
-  <div class="kpi-grid">
-    <div class="kpi blue">
-      <div class="kpi-label">🔵 Redução Média de Leadtime</div>
-      <div class="kpi-value" style="color:#2D73F5">0.9 dias</div>
-      <div class="kpi-delta">▼ 33.3% menos tempo de entrega</div>
-      <div class="kpi-sub">FULL: 1.8d vs Outros: 2.7d (dias úteis)</div>
-    </div>
-    <div class="kpi green">
-      <div class="kpi-label">🟢 Aumento na Taxa de Ativação</div>
-      <div class="kpi-value" style="color:#00C48C">+0.5 pp</div>
-      <div class="kpi-delta">▲ FULL: 49.4% vs Outros: 48.9%</div>
-      <div class="kpi-sub">Mais sellers ativando após entrega</div>
-    </div>
-    <div class="kpi orange">
-      <div class="kpi-label">🟡 Total Pedidos FULL</div>
-      <div class="kpi-value" style="color:#FF7A00">13,511.0</div>
-      <div class="kpi-delta">▲ vs 59,723.0 via Outros</div>
-      <div class="kpi-sub">Canais OFF · Produto Point · MLB</div>
-    </div>
-    <div class="kpi purple">
-      <div class="kpi-label">🟣 Sellers Ativados (FULL)</div>
-      <div class="kpi-value" style="color:#7B5EF8">5,799.0</div>
-      <div class="kpi-delta">vs 34,351.0 via Outros</div>
-      <div class="kpi-sub">Total no período analisado</div>
-    </div>
-  </div>
-  <div class="kpi-grid">
-    <div class="kpi blue">
-      <div class="kpi-label">💰 TPV Total FULL</div>
-      <div class="kpi-value" style="color:#2D73F5">R$ 6,244,550</div>
-      <div class="kpi-delta">▲ vs R$ 89,892,509 via Outros</div>
-      <div class="kpi-sub">Valor processado pelos devices no período</div>
-    </div>
-    <div class="kpi green">
-      <div class="kpi-label">📊 TPV Médio por Device (FULL)</div>
-      <div class="kpi-value" style="color:#00C48C">R$ 1,077</div>
-      <div class="kpi-delta">vs R$ 2,617 via Outros</div>
-      <div class="kpi-sub">Por device ativado</div>
-    </div>
-    <div class="kpi purple">
-      <div class="kpi-label">⚡ TPV Incremental Realizado</div>
-      <div class="kpi-value" style="color:#7B5EF8">R$ 1,054,145</div>
-      <div class="kpi-delta">Delta entre FULL e Outros aplicado ao TPV FULL</div>
-      <div class="kpi-sub">(LT Outros − LT FULL) corridos / 7d × TPV FULL</div>
-    </div>
-    <div class="kpi" style="background:linear-gradient(135deg,#FFF7ED,#FEF3C7);border:1px solid #FDE68A">
-      <div class="kpi-label">🎯 TPV Incremental Potencial</div>
-      <div class="kpi-value" style="color:#D97706">R$ 17,617,228</div>
-      <div class="kpi-delta">Se volume Outros tivesse o LT do FULL</div>
-      <div class="kpi-sub">(LT Outros − LT FULL) corridos / 7d × TPV Outros</div>
-    </div>
-  </div>
-  <div class="cg2">
-    <div class="cw">
-      <div class="ct">Evolução do Leadtime — FULL vs Outros</div>
-      <div class="cs">Tendência semanal (dias úteis)</div>
-      <canvas id="cExLT"></canvas>
-    </div>
-    <div class="cw">
-      <div class="ct">Evolução da Ativação — FULL vs Outros</div>
-      <div class="cs">% sellers que transacionaram</div>
-      <canvas id="cExAt"></canvas>
-    </div>
-  </div>
-  <hr/>
-  <div class="sec">💡 Insights Estratégicos</div>
-  <ul class="insight-list">
-    <li>📦 <strong>FULL reduz o leadtime em 0.9 dias úteis</strong> em média — 33.3% de redução frente ao modelo atual.</li>
-    <li>🎯 <strong>Taxa de ativação 0.5 pp maior</strong> no FULL, indicando que sellers que recebem mais rápido ativam a maquininha mais rapidamente.</li>
-    <li>💰 <strong>TPV FULL: R$ 6,244,550</strong> gerado pelos devices no período (R$ 1,077/device ativado).</li>
-    <li>💡 <strong>TPV incremental realizado: R$ 1,054,145</strong> — TPV gerado pelo delta de leadtime FULL, calculado como (Δ LT corridos / 7) × TPV FULL.</li>
-    <li>📈 <strong>FULL representa 18.4% dos pedidos</strong> via canais OFF no período — há espaço para crescimento e captura do benefício.</li>
-    <li>🚀 <strong>Hipótese validada:</strong> menor leadtime → ativação mais rápida → maior captura de TPV nos primeiros dias do seller.</li>
-  </ul>
-</div>
-
-<!-- ═══ ABA 5 ═══ -->
+<!-- ═══ ABA 5 — Por Estado ═══ -->
 <div class="pane" id="p4">
   <div class="sec">📋 Tabela por Estado</div>
   <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap">
@@ -638,7 +497,7 @@
         <th>Estado</th>
         <th>Ped FULL</th><th>% País (FULL)</th><th>LT FULL</th>
         <th>Ped Outros</th><th>% País (Outros)</th><th>LT Outros</th>
-        <th>Delta LT</th>
+        <th>% Ativ FULL</th><th>% Ativ Outros</th><th>Delta LT</th>
       </tr></thead>
       <tbody id="estTbody"></tbody>
     </table>
@@ -648,7 +507,7 @@
 </div><!-- /content -->
 
 <script>
-const D = {"labels": ["Sem 16/02", "Sem 23/02", "Sem 02/03", "Sem 09/03", "Sem 16/03"], "ltFULL": [1.8, 2.3, 2.2, 1.7, 1.2], "ltOthers": [3.2, 3.1, 2.9, 2.5, 1.7], "ltCorrFULL": [2.6, 2.9, 2.8, 2.1, 1.2], "ltCorrOthers": [4.5, 4.1, 3.9, 3.3, 1.6], "atFULL": [64.6, 66.4, 59.5, 52.4, 4.3], "atOthers": [74.1, 69.3, 65.6, 34.2, 1.1], "pedFULL": [144.0, 220.0, 2736.0, 7245.0, 3166.0], "pedOthers": [10394.0, 17020.0, 16759.0, 11167.0, 4383.0], "entFULL": [132.0, 199.0, 2515.0, 6182.0, 1238.0], "entOthers": [10120.0, 16305.0, 15782.0, 8669.0, 793.0], "ativFULL": [93.0, 146.0, 1627.0, 3796.0, 137.0], "ativOthers": [7701.0, 11789.0, 10991.0, 3823.0, 47.0], "d1aFULL": [4.7, 5.6, 3.8, 2.3, 0.9], "d1aOthers": [7.1, 6.2, 5.0, 3.5, 1.0], "tpvFULL": [172972.0, 189712.0, 1959111.0, 3873232.0, 49523.0], "tpvOthers": [25090990.0, 36993003.0, 21039722.0, 6756113.0, 12681.0], "estLabels": ["São Paulo", "Minas Gerais", "Rio de Janeiro", "Paraná", "Goiás", "Pará", "Pernambuco", "Ceará", "Maranhão", "Rio Grande do Sul", "Mato Grosso", "Mato Grosso do Sul", "Distrito Federal", "Alagoas", "Espírito Santo", "Paraíba", "Piauí", "Sergipe", "Roraima", "Acre"], "estLtFULL": [1.0, 1.0, 1.7, 1.0, 2.0, 5.3, 1.8, 3.0, 3.0, 3.0, 3.5, 1.0, 1.5, 1.9, 2.0, 4.0, 1.0, 1.4, 3.0, 6.7], "estLtOthers": [2.0, 3.0, 2.2, 1.0, 2.6, 4.7, 3.6, 5.0, 5.0, 3.0, 4.8, 3.0, 2.2, 4.5, 3.6, 5.0, 4.5, 3.8, 16.2, 12.0], "estAtFULL": [0.0, 100.0, 13.6, 100.0, 100.0, 10.5, 57.1, 0.0, 0.0, 100.0, 25.0, 0.0, 48.4, 18.8, 0.0, 0.0, 100.0, 34.4, 30.0, 10.0], "estAtOthers": [100.0, 100.0, 75.0, 0.0, 44.4, 71.4, 77.8, 100.0, 50.0, 60.0, 66.7, 80.0, 72.7, 100.0, 100.0, 100.0, 100.0, 75.0, 5.3, 100.0], "mesLabels": ["Fev/26", "Mar/26"], "mesLtFULL": [2.1, 1.8], "mesLtOthers": [3.1, 2.8], "mesAtFULL": [66.8, 42.3], "mesAtOthers": [71.2, 47.2], "mesPedFULL": [343.0, 13168.0], "mesPedOthers": [25659.0, 34064.0], "mesEntFULL": [313.0, 9953.0], "mesEntOthers": [24746.0, 26923.0], "mesAtivFULL": [229.0, 5570.0], "mesAtivOthers": [18260.0, 16091.0], "mesTpvFULL": [358559.0, 5885992.0], "mesTpvOthers": [59650170.0, 30242338.0], "mesTpvMedioFULL": [1045.0, 447.0], "mesTpvMedioOthers": [2325.0, 888.0], "mesLtCorrFULL": [2.8, 2.2], "mesLtCorrOthers": [4.3, 3.7], "mesD1aFULL": [5.2, 2.7], "mesD1aOthers": [6.6, 4.7], "tpvMedioFULL": [1201.0, 862.0, 716.0, 535.0, 16.0], "tpvMedioOthers": [2414.0, 2174.0, 1255.0, 605.0, 3.0], "estMesLabels": ["Todos", "Fev/26", "Mar/26"], "estMesData": {"Fev/26": {"Acre": {"Outros": {"pedidos": 90, "lt_uteis": 7.9, "pct_ativ": 53.3}}, "Alagoas": {"Outros": {"pedidos": 355, "lt_uteis": 4.4, "pct_ativ": 72.7}}, "Amapá": {"Outros": {"pedidos": 156, "lt_uteis": 11.8, "pct_ativ": 27.6}}, "Amazonas": {"Outros": {"pedidos": 458, "lt_uteis": 15.7, "pct_ativ": 8.7}}, "Bahia": {"Outros": {"pedidos": 1775, "lt_uteis": 3.3, "pct_ativ": 71.5}}, "Ceará": {"Outros": {"pedidos": 795, "lt_uteis": 4.3, "pct_ativ": 69.8}}, "Distrito Federal": {"Outros": {"pedidos": 483, "lt_uteis": 2.2, "pct_ativ": 72.7}}, "Espírito Santo": {"Outros": {"pedidos": 486, "lt_uteis": 2.9, "pct_ativ": 65.2}}, "Goiás": {"FULL": {"pedidos": 1, "lt_uteis": 2.0, "pct_ativ": 100.0}, "Outros": {"pedidos": 1228, "lt_uteis": 2.8, "pct_ativ": 70.0}}, "Maranhão": {"FULL": {"pedidos": 52, "lt_uteis": 3.0, "pct_ativ": 57.7}, "Outros": {"pedidos": 739, "lt_uteis": 4.5, "pct_ativ": 64.5}}, "Mato Grosso": {"Outros": {"pedidos": 552, "lt_uteis": 4.3, "pct_ativ": 73.7}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 384, "lt_uteis": 2.4, "pct_ativ": 78.4}}, "Minas Gerais": {"FULL": {"pedidos": 290, "lt_uteis": 1.9, "pct_ativ": 68.3}, "Outros": {"pedidos": 1912, "lt_uteis": 2.4, "pct_ativ": 74.7}}, "Paraná": {"Outros": {"pedidos": 1216, "lt_uteis": 2.1, "pct_ativ": 77.3}}, "Paraíba": {"Outros": {"pedidos": 343, "lt_uteis": 4.5, "pct_ativ": 70.0}}, "Pará": {"Outros": {"pedidos": 1346, "lt_uteis": 5.0, "pct_ativ": 63.9}}, "Pernambuco": {"Outros": {"pedidos": 1081, "lt_uteis": 3.7, "pct_ativ": 67.4}}, "Piauí": {"Outros": {"pedidos": 337, "lt_uteis": 4.4, "pct_ativ": 71.2}}, "Rio Grande do Norte": {"Outros": {"pedidos": 328, "lt_uteis": 4.2, "pct_ativ": 71.0}}, "Rio Grande do Sul": {"Outros": {"pedidos": 543, "lt_uteis": 2.8, "pct_ativ": 71.6}}, "Rio de Janeiro": {"Outros": {"pedidos": 3003, "lt_uteis": 1.8, "pct_ativ": 76.4}}, "Rondônia": {"Outros": {"pedidos": 255, "lt_uteis": 5.8, "pct_ativ": 61.2}}, "Roraima": {"Outros": {"pedidos": 81, "lt_uteis": 16.3, "pct_ativ": 4.9}}, "Santa Catarina": {"Outros": {"pedidos": 672, "lt_uteis": 2.3, "pct_ativ": 75.3}}, "Sergipe": {"Outros": {"pedidos": 323, "lt_uteis": 3.8, "pct_ativ": 73.7}}, "São Paulo": {"Outros": {"pedidos": 6400, "lt_uteis": 1.8, "pct_ativ": 76.3}}, "Tocantins": {"Outros": {"pedidos": 318, "lt_uteis": 4.2, "pct_ativ": 60.7}}}, "Mar/26": {"Acre": {"FULL": {"pedidos": 21, "lt_uteis": 6.7, "pct_ativ": 9.5}, "Outros": {"pedidos": 144, "lt_uteis": 6.8, "pct_ativ": 20.1}}, "Alagoas": {"FULL": {"pedidos": 180, "lt_uteis": 1.5, "pct_ativ": 37.2}, "Outros": {"pedidos": 468, "lt_uteis": 4.2, "pct_ativ": 41.2}}, "Amapá": {"Outros": {"pedidos": 325, "lt_uteis": 9.9, "pct_ativ": 1.2}}, "Amazonas": {"FULL": {"pedidos": 206, "lt_uteis": 3.6, "pct_ativ": 10.7}, "Outros": {"pedidos": 681, "lt_uteis": 8.5, "pct_ativ": 0.1}}, "Bahia": {"FULL": {"pedidos": 1025, "lt_uteis": 1.8, "pct_ativ": 43.0}, "Outros": {"pedidos": 2076, "lt_uteis": 3.4, "pct_ativ": 41.9}}, "Ceará": {"FULL": {"pedidos": 422, "lt_uteis": 2.1, "pct_ativ": 34.8}, "Outros": {"pedidos": 1060, "lt_uteis": 4.3, "pct_ativ": 40.1}}, "Distrito Federal": {"FULL": {"pedidos": 182, "lt_uteis": 1.5, "pct_ativ": 48.4}, "Outros": {"pedidos": 558, "lt_uteis": 2.4, "pct_ativ": 53.9}}, "Espírito Santo": {"FULL": {"pedidos": 180, "lt_uteis": 2.0, "pct_ativ": 41.7}, "Outros": {"pedidos": 677, "lt_uteis": 2.8, "pct_ativ": 44.5}}, "Goiás": {"FULL": {"pedidos": 542, "lt_uteis": 2.0, "pct_ativ": 42.1}, "Outros": {"pedidos": 1895, "lt_uteis": 2.7, "pct_ativ": 42.7}}, "Maranhão": {"FULL": {"pedidos": 353, "lt_uteis": 3.0, "pct_ativ": 33.1}, "Outros": {"pedidos": 828, "lt_uteis": 4.5, "pct_ativ": 28.3}}, "Mato Grosso": {"FULL": {"pedidos": 310, "lt_uteis": 3.9, "pct_ativ": 30.0}, "Outros": {"pedidos": 741, "lt_uteis": 4.0, "pct_ativ": 42.5}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 212, "lt_uteis": 2.1, "pct_ativ": 40.6}, "Outros": {"pedidos": 588, "lt_uteis": 2.5, "pct_ativ": 53.2}}, "Minas Gerais": {"FULL": {"pedidos": 1534, "lt_uteis": 1.8, "pct_ativ": 48.0}, "Outros": {"pedidos": 2319, "lt_uteis": 2.4, "pct_ativ": 47.3}}, "N/D": {"FULL": {"pedidos": 3, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 77, "lt_uteis": null, "pct_ativ": 0.0}}, "Paraná": {"FULL": {"pedidos": 581, "lt_uteis": 1.5, "pct_ativ": 50.3}, "Outros": {"pedidos": 1536, "lt_uteis": 2.2, "pct_ativ": 57.9}}, "Paraíba": {"FULL": {"pedidos": 173, "lt_uteis": 1.7, "pct_ativ": 43.9}, "Outros": {"pedidos": 506, "lt_uteis": 4.4, "pct_ativ": 34.6}}, "Pará": {"FULL": {"pedidos": 521, "lt_uteis": 4.7, "pct_ativ": 14.6}, "Outros": {"pedidos": 1674, "lt_uteis": 4.8, "pct_ativ": 29.4}}, "Pernambuco": {"FULL": {"pedidos": 502, "lt_uteis": 1.9, "pct_ativ": 38.6}, "Outros": {"pedidos": 1403, "lt_uteis": 3.7, "pct_ativ": 41.3}}, "Piauí": {"FULL": {"pedidos": 156, "lt_uteis": 2.2, "pct_ativ": 35.3}, "Outros": {"pedidos": 463, "lt_uteis": 4.3, "pct_ativ": 37.6}}, "Rio Grande do Norte": {"FULL": {"pedidos": 89, "lt_uteis": 1.5, "pct_ativ": 25.8}, "Outros": {"pedidos": 638, "lt_uteis": 4.2, "pct_ativ": 30.6}}, "Rio Grande do Sul": {"FULL": {"pedidos": 338, "lt_uteis": 1.5, "pct_ativ": 47.9}, "Outros": {"pedidos": 728, "lt_uteis": 2.8, "pct_ativ": 51.0}}, "Rio de Janeiro": {"FULL": {"pedidos": 1559, "lt_uteis": 1.3, "pct_ativ": 47.4}, "Outros": {"pedidos": 3916, "lt_uteis": 2.0, "pct_ativ": 57.8}}, "Rondônia": {"FULL": {"pedidos": 120, "lt_uteis": 6.0, "pct_ativ": 17.5}, "Outros": {"pedidos": 256, "lt_uteis": 5.8, "pct_ativ": 36.7}}, "Roraima": {"FULL": {"pedidos": 30, "lt_uteis": 3.0, "pct_ativ": 30.0}, "Outros": {"pedidos": 88, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 407, "lt_uteis": 1.4, "pct_ativ": 47.7}, "Outros": {"pedidos": 936, "lt_uteis": 2.5, "pct_ativ": 54.2}}, "Sergipe": {"FULL": {"pedidos": 146, "lt_uteis": 1.4, "pct_ativ": 34.9}, "Outros": {"pedidos": 416, "lt_uteis": 3.6, "pct_ativ": 41.1}}, "São Paulo": {"FULL": {"pedidos": 3290, "lt_uteis": 1.3, "pct_ativ": 47.2}, "Outros": {"pedidos": 8680, "lt_uteis": 1.9, "pct_ativ": 59.2}}, "Tocantins": {"FULL": {"pedidos": 86, "lt_uteis": 3.0, "pct_ativ": 27.9}, "Outros": {"pedidos": 387, "lt_uteis": 4.5, "pct_ativ": 38.5}}}, "Todos": {"Acre": {"FULL": {"pedidos": 21, "lt_uteis": 6.7, "pct_ativ": 9.5}, "Outros": {"pedidos": 234, "lt_uteis": 7.4, "pct_ativ": 32.9}}, "Alagoas": {"FULL": {"pedidos": 180, "lt_uteis": 1.5, "pct_ativ": 37.2}, "Outros": {"pedidos": 823, "lt_uteis": 4.3, "pct_ativ": 54.8}}, "Amapá": {"Outros": {"pedidos": 481, "lt_uteis": 11.2, "pct_ativ": 9.8}}, "Amazonas": {"FULL": {"pedidos": 206, "lt_uteis": 3.6, "pct_ativ": 10.7}, "Outros": {"pedidos": 1139, "lt_uteis": 15.7, "pct_ativ": 3.6}}, "Bahia": {"FULL": {"pedidos": 1025, "lt_uteis": 1.8, "pct_ativ": 43.0}, "Outros": {"pedidos": 3851, "lt_uteis": 3.3, "pct_ativ": 55.5}}, "Ceará": {"FULL": {"pedidos": 422, "lt_uteis": 2.1, "pct_ativ": 34.8}, "Outros": {"pedidos": 1855, "lt_uteis": 4.3, "pct_ativ": 52.8}}, "Distrito Federal": {"FULL": {"pedidos": 182, "lt_uteis": 1.5, "pct_ativ": 48.4}, "Outros": {"pedidos": 1041, "lt_uteis": 2.3, "pct_ativ": 62.6}}, "Espírito Santo": {"FULL": {"pedidos": 180, "lt_uteis": 2.0, "pct_ativ": 41.7}, "Outros": {"pedidos": 1163, "lt_uteis": 2.9, "pct_ativ": 53.1}}, "Goiás": {"FULL": {"pedidos": 543, "lt_uteis": 2.0, "pct_ativ": 42.2}, "Outros": {"pedidos": 3123, "lt_uteis": 2.7, "pct_ativ": 53.4}}, "Maranhão": {"FULL": {"pedidos": 405, "lt_uteis": 3.0, "pct_ativ": 36.3}, "Outros": {"pedidos": 1567, "lt_uteis": 4.5, "pct_ativ": 45.4}}, "Mato Grosso": {"FULL": {"pedidos": 310, "lt_uteis": 3.9, "pct_ativ": 30.0}, "Outros": {"pedidos": 1293, "lt_uteis": 4.1, "pct_ativ": 55.8}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 212, "lt_uteis": 2.1, "pct_ativ": 40.6}, "Outros": {"pedidos": 972, "lt_uteis": 2.5, "pct_ativ": 63.2}}, "Minas Gerais": {"FULL": {"pedidos": 1824, "lt_uteis": 1.8, "pct_ativ": 51.2}, "Outros": {"pedidos": 4231, "lt_uteis": 2.4, "pct_ativ": 59.7}}, "N/D": {"FULL": {"pedidos": 3, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 77, "lt_uteis": null, "pct_ativ": 0.0}}, "Paraná": {"FULL": {"pedidos": 581, "lt_uteis": 1.5, "pct_ativ": 50.3}, "Outros": {"pedidos": 2752, "lt_uteis": 2.2, "pct_ativ": 66.5}}, "Paraíba": {"FULL": {"pedidos": 173, "lt_uteis": 1.7, "pct_ativ": 43.9}, "Outros": {"pedidos": 849, "lt_uteis": 4.4, "pct_ativ": 48.9}}, "Pará": {"FULL": {"pedidos": 521, "lt_uteis": 4.7, "pct_ativ": 14.6}, "Outros": {"pedidos": 3020, "lt_uteis": 4.9, "pct_ativ": 44.8}}, "Pernambuco": {"FULL": {"pedidos": 502, "lt_uteis": 1.9, "pct_ativ": 38.6}, "Outros": {"pedidos": 2484, "lt_uteis": 3.7, "pct_ativ": 52.7}}, "Piauí": {"FULL": {"pedidos": 156, "lt_uteis": 2.2, "pct_ativ": 35.3}, "Outros": {"pedidos": 800, "lt_uteis": 4.4, "pct_ativ": 51.7}}, "Rio Grande do Norte": {"FULL": {"pedidos": 89, "lt_uteis": 1.5, "pct_ativ": 25.8}, "Outros": {"pedidos": 966, "lt_uteis": 4.2, "pct_ativ": 44.3}}, "Rio Grande do Sul": {"FULL": {"pedidos": 338, "lt_uteis": 1.5, "pct_ativ": 47.9}, "Outros": {"pedidos": 1271, "lt_uteis": 2.8, "pct_ativ": 59.8}}, "Rio de Janeiro": {"FULL": {"pedidos": 1559, "lt_uteis": 1.3, "pct_ativ": 47.4}, "Outros": {"pedidos": 6919, "lt_uteis": 1.9, "pct_ativ": 65.9}}, "Rondônia": {"FULL": {"pedidos": 120, "lt_uteis": 6.0, "pct_ativ": 17.5}, "Outros": {"pedidos": 511, "lt_uteis": 5.8, "pct_ativ": 48.9}}, "Roraima": {"FULL": {"pedidos": 30, "lt_uteis": 3.0, "pct_ativ": 30.0}, "Outros": {"pedidos": 169, "lt_uteis": 16.3, "pct_ativ": 2.4}}, "Santa Catarina": {"FULL": {"pedidos": 407, "lt_uteis": 1.4, "pct_ativ": 47.7}, "Outros": {"pedidos": 1608, "lt_uteis": 2.4, "pct_ativ": 63.0}}, "Sergipe": {"FULL": {"pedidos": 146, "lt_uteis": 1.4, "pct_ativ": 34.9}, "Outros": {"pedidos": 739, "lt_uteis": 3.7, "pct_ativ": 55.3}}, "São Paulo": {"FULL": {"pedidos": 3290, "lt_uteis": 1.3, "pct_ativ": 47.2}, "Outros": {"pedidos": 15080, "lt_uteis": 1.9, "pct_ativ": 66.5}}, "Tocantins": {"FULL": {"pedidos": 86, "lt_uteis": 3.0, "pct_ativ": 27.9}, "Outros": {"pedidos": 705, "lt_uteis": 4.4, "pct_ativ": 48.5}}}}, "estMesDataCapRM": {"Fev/26": {"Acre": {"Outros": {"pedidos": 74, "lt_uteis": 7.4, "pct_ativ": 54.1}}, "Alagoas": {"Outros": {"pedidos": 167, "lt_uteis": 4.3, "pct_ativ": 72.5}}, "Amapá": {"Outros": {"pedidos": 131, "lt_uteis": 11.6, "pct_ativ": 28.2}}, "Amazonas": {"Outros": {"pedidos": 359, "lt_uteis": 15.9, "pct_ativ": 9.5}}, "Bahia": {"Outros": {"pedidos": 674, "lt_uteis": 3.2, "pct_ativ": 67.5}}, "Ceará": {"Outros": {"pedidos": 508, "lt_uteis": 4.3, "pct_ativ": 69.7}}, "Distrito Federal": {"Outros": {"pedidos": 483, "lt_uteis": 2.2, "pct_ativ": 72.7}}, "Espírito Santo": {"Outros": {"pedidos": 322, "lt_uteis": 2.8, "pct_ativ": 65.2}}, "Goiás": {"Outros": {"pedidos": 651, "lt_uteis": 2.7, "pct_ativ": 64.5}}, "Maranhão": {"FULL": {"pedidos": 21, "lt_uteis": 2.6, "pct_ativ": 66.7}, "Outros": {"pedidos": 330, "lt_uteis": 4.4, "pct_ativ": 56.4}}, "Mato Grosso": {"Outros": {"pedidos": 175, "lt_uteis": 3.5, "pct_ativ": 74.3}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 148, "lt_uteis": 2.2, "pct_ativ": 77.7}}, "Minas Gerais": {"FULL": {"pedidos": 88, "lt_uteis": 1.3, "pct_ativ": 68.2}, "Outros": {"pedidos": 608, "lt_uteis": 2.2, "pct_ativ": 76.5}}, "Paraná": {"Outros": {"pedidos": 401, "lt_uteis": 1.9, "pct_ativ": 76.1}}, "Paraíba": {"Outros": {"pedidos": 163, "lt_uteis": 4.4, "pct_ativ": 71.2}}, "Pará": {"Outros": {"pedidos": 640, "lt_uteis": 4.4, "pct_ativ": 62.5}}, "Pernambuco": {"Outros": {"pedidos": 635, "lt_uteis": 3.6, "pct_ativ": 63.9}}, "Piauí": {"Outros": {"pedidos": 130, "lt_uteis": 3.9, "pct_ativ": 70.8}}, "Rio Grande do Norte": {"Outros": {"pedidos": 133, "lt_uteis": 4.2, "pct_ativ": 73.7}}, "Rio Grande do Sul": {"Outros": {"pedidos": 234, "lt_uteis": 2.4, "pct_ativ": 74.8}}, "Rio de Janeiro": {"Outros": {"pedidos": 2389, "lt_uteis": 1.8, "pct_ativ": 76.7}}, "Rondônia": {"Outros": {"pedidos": 158, "lt_uteis": 5.8, "pct_ativ": 53.8}}, "Roraima": {"Outros": {"pedidos": 75, "lt_uteis": 16.2, "pct_ativ": 5.3}}, "Santa Catarina": {"Outros": {"pedidos": 126, "lt_uteis": 2.1, "pct_ativ": 66.7}}, "Sergipe": {"Outros": {"pedidos": 206, "lt_uteis": 3.7, "pct_ativ": 73.8}}, "São Paulo": {"Outros": {"pedidos": 4005, "lt_uteis": 1.9, "pct_ativ": 76.4}}, "Tocantins": {"Outros": {"pedidos": 71, "lt_uteis": 3.7, "pct_ativ": 73.2}}}, "Mar/26": {"Acre": {"FULL": {"pedidos": 21, "lt_uteis": 6.7, "pct_ativ": 9.5}, "Outros": {"pedidos": 97, "lt_uteis": 6.7, "pct_ativ": 25.8}}, "Alagoas": {"FULL": {"pedidos": 105, "lt_uteis": 1.2, "pct_ativ": 37.1}, "Outros": {"pedidos": 279, "lt_uteis": 4.2, "pct_ativ": 40.5}}, "Amapá": {"Outros": {"pedidos": 264, "lt_uteis": 9.8, "pct_ativ": 1.5}}, "Amazonas": {"FULL": {"pedidos": 201, "lt_uteis": 3.6, "pct_ativ": 10.9}, "Outros": {"pedidos": 531, "lt_uteis": null, "pct_ativ": 0.0}}, "Bahia": {"FULL": {"pedidos": 407, "lt_uteis": 1.5, "pct_ativ": 49.1}, "Outros": {"pedidos": 744, "lt_uteis": 3.4, "pct_ativ": 43.1}}, "Ceará": {"FULL": {"pedidos": 275, "lt_uteis": 2.0, "pct_ativ": 38.5}, "Outros": {"pedidos": 648, "lt_uteis": 4.2, "pct_ativ": 40.6}}, "Distrito Federal": {"FULL": {"pedidos": 182, "lt_uteis": 1.5, "pct_ativ": 48.4}, "Outros": {"pedidos": 558, "lt_uteis": 2.4, "pct_ativ": 53.9}}, "Espírito Santo": {"FULL": {"pedidos": 106, "lt_uteis": 1.8, "pct_ativ": 36.8}, "Outros": {"pedidos": 464, "lt_uteis": 2.8, "pct_ativ": 42.7}}, "Goiás": {"FULL": {"pedidos": 245, "lt_uteis": 1.7, "pct_ativ": 44.9}, "Outros": {"pedidos": 1057, "lt_uteis": 2.5, "pct_ativ": 37.5}}, "Maranhão": {"FULL": {"pedidos": 142, "lt_uteis": 2.5, "pct_ativ": 40.1}, "Outros": {"pedidos": 310, "lt_uteis": 4.2, "pct_ativ": 31.0}}, "Mato Grosso": {"FULL": {"pedidos": 108, "lt_uteis": 3.9, "pct_ativ": 29.6}, "Outros": {"pedidos": 283, "lt_uteis": 3.5, "pct_ativ": 40.3}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 77, "lt_uteis": 2.3, "pct_ativ": 40.3}, "Outros": {"pedidos": 228, "lt_uteis": 2.2, "pct_ativ": 49.1}}, "Minas Gerais": {"FULL": {"pedidos": 445, "lt_uteis": 1.4, "pct_ativ": 48.1}, "Outros": {"pedidos": 677, "lt_uteis": 2.4, "pct_ativ": 46.4}}, "Paraná": {"FULL": {"pedidos": 195, "lt_uteis": 1.2, "pct_ativ": 52.8}, "Outros": {"pedidos": 521, "lt_uteis": 2.0, "pct_ativ": 57.0}}, "Paraíba": {"FULL": {"pedidos": 90, "lt_uteis": 1.5, "pct_ativ": 52.2}, "Outros": {"pedidos": 257, "lt_uteis": 4.3, "pct_ativ": 29.6}}, "Pará": {"FULL": {"pedidos": 262, "lt_uteis": 5.0, "pct_ativ": 10.3}, "Outros": {"pedidos": 643, "lt_uteis": 4.2, "pct_ativ": 35.3}}, "Pernambuco": {"FULL": {"pedidos": 278, "lt_uteis": 1.7, "pct_ativ": 42.4}, "Outros": {"pedidos": 770, "lt_uteis": 3.6, "pct_ativ": 40.4}}, "Piauí": {"FULL": {"pedidos": 85, "lt_uteis": 2.0, "pct_ativ": 37.6}, "Outros": {"pedidos": 185, "lt_uteis": 3.9, "pct_ativ": 44.9}}, "Rio Grande do Norte": {"FULL": {"pedidos": 43, "lt_uteis": 1.2, "pct_ativ": 20.9}, "Outros": {"pedidos": 308, "lt_uteis": 4.2, "pct_ativ": 31.2}}, "Rio Grande do Sul": {"FULL": {"pedidos": 148, "lt_uteis": 1.3, "pct_ativ": 46.6}, "Outros": {"pedidos": 326, "lt_uteis": 2.6, "pct_ativ": 51.2}}, "Rio de Janeiro": {"FULL": {"pedidos": 1207, "lt_uteis": 1.3, "pct_ativ": 48.7}, "Outros": {"pedidos": 3079, "lt_uteis": 1.9, "pct_ativ": 58.4}}, "Rondônia": {"FULL": {"pedidos": 63, "lt_uteis": 6.1, "pct_ativ": 15.9}, "Outros": {"pedidos": 114, "lt_uteis": 5.7, "pct_ativ": 38.6}}, "Roraima": {"FULL": {"pedidos": 30, "lt_uteis": 3.0, "pct_ativ": 30.0}, "Outros": {"pedidos": 74, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 72, "lt_uteis": 1.3, "pct_ativ": 51.4}, "Outros": {"pedidos": 197, "lt_uteis": 2.3, "pct_ativ": 54.3}}, "Sergipe": {"FULL": {"pedidos": 93, "lt_uteis": 1.3, "pct_ativ": 35.5}, "Outros": {"pedidos": 263, "lt_uteis": 3.5, "pct_ativ": 40.7}}, "São Paulo": {"FULL": {"pedidos": 2024, "lt_uteis": 1.3, "pct_ativ": 46.0}, "Outros": {"pedidos": 5602, "lt_uteis": 1.9, "pct_ativ": 59.7}}, "Tocantins": {"FULL": {"pedidos": 35, "lt_uteis": 2.6, "pct_ativ": 25.7}, "Outros": {"pedidos": 117, "lt_uteis": 3.7, "pct_ativ": 41.0}}}, "Todos": {"Acre": {"FULL": {"pedidos": 21, "lt_uteis": 6.7, "pct_ativ": 9.5}, "Outros": {"pedidos": 171, "lt_uteis": 7.1, "pct_ativ": 38.0}}, "Alagoas": {"FULL": {"pedidos": 105, "lt_uteis": 1.2, "pct_ativ": 37.1}, "Outros": {"pedidos": 446, "lt_uteis": 4.2, "pct_ativ": 52.5}}, "Amapá": {"Outros": {"pedidos": 395, "lt_uteis": 11.1, "pct_ativ": 10.4}}, "Amazonas": {"FULL": {"pedidos": 201, "lt_uteis": 3.6, "pct_ativ": 10.9}, "Outros": {"pedidos": 890, "lt_uteis": 15.9, "pct_ativ": 3.8}}, "Bahia": {"FULL": {"pedidos": 407, "lt_uteis": 1.5, "pct_ativ": 49.1}, "Outros": {"pedidos": 1418, "lt_uteis": 3.3, "pct_ativ": 54.7}}, "Ceará": {"FULL": {"pedidos": 275, "lt_uteis": 2.0, "pct_ativ": 38.5}, "Outros": {"pedidos": 1156, "lt_uteis": 4.2, "pct_ativ": 53.4}}, "Distrito Federal": {"FULL": {"pedidos": 182, "lt_uteis": 1.5, "pct_ativ": 48.4}, "Outros": {"pedidos": 1041, "lt_uteis": 2.3, "pct_ativ": 62.6}}, "Espírito Santo": {"FULL": {"pedidos": 106, "lt_uteis": 1.8, "pct_ativ": 36.8}, "Outros": {"pedidos": 786, "lt_uteis": 2.8, "pct_ativ": 51.9}}, "Goiás": {"FULL": {"pedidos": 245, "lt_uteis": 1.7, "pct_ativ": 44.9}, "Outros": {"pedidos": 1708, "lt_uteis": 2.6, "pct_ativ": 47.8}}, "Maranhão": {"FULL": {"pedidos": 163, "lt_uteis": 2.5, "pct_ativ": 43.6}, "Outros": {"pedidos": 640, "lt_uteis": 4.3, "pct_ativ": 44.1}}, "Mato Grosso": {"FULL": {"pedidos": 108, "lt_uteis": 3.9, "pct_ativ": 29.6}, "Outros": {"pedidos": 458, "lt_uteis": 3.5, "pct_ativ": 53.3}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 77, "lt_uteis": 2.3, "pct_ativ": 40.3}, "Outros": {"pedidos": 376, "lt_uteis": 2.2, "pct_ativ": 60.4}}, "Minas Gerais": {"FULL": {"pedidos": 533, "lt_uteis": 1.4, "pct_ativ": 51.4}, "Outros": {"pedidos": 1285, "lt_uteis": 2.3, "pct_ativ": 60.6}}, "Paraná": {"FULL": {"pedidos": 195, "lt_uteis": 1.2, "pct_ativ": 52.8}, "Outros": {"pedidos": 922, "lt_uteis": 2.0, "pct_ativ": 65.3}}, "Paraíba": {"FULL": {"pedidos": 90, "lt_uteis": 1.5, "pct_ativ": 52.2}, "Outros": {"pedidos": 420, "lt_uteis": 4.4, "pct_ativ": 45.7}}, "Pará": {"FULL": {"pedidos": 262, "lt_uteis": 5.0, "pct_ativ": 10.3}, "Outros": {"pedidos": 1283, "lt_uteis": 4.3, "pct_ativ": 48.9}}, "Pernambuco": {"FULL": {"pedidos": 278, "lt_uteis": 1.7, "pct_ativ": 42.4}, "Outros": {"pedidos": 1405, "lt_uteis": 3.6, "pct_ativ": 51.0}}, "Piauí": {"FULL": {"pedidos": 85, "lt_uteis": 2.0, "pct_ativ": 37.6}, "Outros": {"pedidos": 315, "lt_uteis": 3.9, "pct_ativ": 55.6}}, "Rio Grande do Norte": {"FULL": {"pedidos": 43, "lt_uteis": 1.2, "pct_ativ": 20.9}, "Outros": {"pedidos": 441, "lt_uteis": 4.2, "pct_ativ": 44.0}}, "Rio Grande do Sul": {"FULL": {"pedidos": 148, "lt_uteis": 1.3, "pct_ativ": 46.6}, "Outros": {"pedidos": 560, "lt_uteis": 2.5, "pct_ativ": 61.1}}, "Rio de Janeiro": {"FULL": {"pedidos": 1207, "lt_uteis": 1.3, "pct_ativ": 48.7}, "Outros": {"pedidos": 5468, "lt_uteis": 1.9, "pct_ativ": 66.4}}, "Rondônia": {"FULL": {"pedidos": 63, "lt_uteis": 6.1, "pct_ativ": 15.9}, "Outros": {"pedidos": 272, "lt_uteis": 5.8, "pct_ativ": 47.4}}, "Roraima": {"FULL": {"pedidos": 30, "lt_uteis": 3.0, "pct_ativ": 30.0}, "Outros": {"pedidos": 149, "lt_uteis": 16.2, "pct_ativ": 2.7}}, "Santa Catarina": {"FULL": {"pedidos": 72, "lt_uteis": 1.3, "pct_ativ": 51.4}, "Outros": {"pedidos": 323, "lt_uteis": 2.2, "pct_ativ": 59.1}}, "Sergipe": {"FULL": {"pedidos": 93, "lt_uteis": 1.3, "pct_ativ": 35.5}, "Outros": {"pedidos": 469, "lt_uteis": 3.6, "pct_ativ": 55.2}}, "São Paulo": {"FULL": {"pedidos": 2024, "lt_uteis": 1.3, "pct_ativ": 46.0}, "Outros": {"pedidos": 9607, "lt_uteis": 1.9, "pct_ativ": 66.7}}, "Tocantins": {"FULL": {"pedidos": 35, "lt_uteis": 2.6, "pct_ativ": 25.7}, "Outros": {"pedidos": 188, "lt_uteis": 3.7, "pct_ativ": 53.2}}}}, "estMesDataInt": {"Fev/26": {"Acre": {"Outros": {"pedidos": 16, "lt_uteis": 10.2, "pct_ativ": 50.0}}, "Alagoas": {"Outros": {"pedidos": 188, "lt_uteis": 4.4, "pct_ativ": 72.9}}, "Amapá": {"Outros": {"pedidos": 25, "lt_uteis": 12.5, "pct_ativ": 24.0}}, "Amazonas": {"Outros": {"pedidos": 99, "lt_uteis": 11.9, "pct_ativ": 6.1}}, "Bahia": {"Outros": {"pedidos": 1101, "lt_uteis": 3.3, "pct_ativ": 73.9}}, "Ceará": {"Outros": {"pedidos": 287, "lt_uteis": 4.5, "pct_ativ": 70.0}}, "Espírito Santo": {"Outros": {"pedidos": 164, "lt_uteis": 3.2, "pct_ativ": 65.2}}, "Goiás": {"FULL": {"pedidos": 1, "lt_uteis": 2.0, "pct_ativ": 100.0}, "Outros": {"pedidos": 577, "lt_uteis": 3.0, "pct_ativ": 76.1}}, "Maranhão": {"FULL": {"pedidos": 31, "lt_uteis": 3.4, "pct_ativ": 51.6}, "Outros": {"pedidos": 409, "lt_uteis": 4.6, "pct_ativ": 71.1}}, "Mato Grosso": {"Outros": {"pedidos": 377, "lt_uteis": 4.7, "pct_ativ": 73.5}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 236, "lt_uteis": 2.6, "pct_ativ": 78.8}}, "Minas Gerais": {"FULL": {"pedidos": 202, "lt_uteis": 2.2, "pct_ativ": 68.3}, "Outros": {"pedidos": 1304, "lt_uteis": 2.5, "pct_ativ": 73.9}}, "Paraná": {"Outros": {"pedidos": 815, "lt_uteis": 2.3, "pct_ativ": 77.9}}, "Paraíba": {"Outros": {"pedidos": 180, "lt_uteis": 4.6, "pct_ativ": 68.9}}, "Pará": {"Outros": {"pedidos": 706, "lt_uteis": 5.6, "pct_ativ": 65.2}}, "Pernambuco": {"Outros": {"pedidos": 446, "lt_uteis": 3.8, "pct_ativ": 72.4}}, "Piauí": {"Outros": {"pedidos": 207, "lt_uteis": 4.7, "pct_ativ": 71.5}}, "Rio Grande do Norte": {"Outros": {"pedidos": 195, "lt_uteis": 4.3, "pct_ativ": 69.2}}, "Rio Grande do Sul": {"Outros": {"pedidos": 309, "lt_uteis": 3.0, "pct_ativ": 69.3}}, "Rio de Janeiro": {"Outros": {"pedidos": 614, "lt_uteis": 2.1, "pct_ativ": 75.1}}, "Rondônia": {"Outros": {"pedidos": 97, "lt_uteis": 5.9, "pct_ativ": 73.2}}, "Roraima": {"Outros": {"pedidos": 6, "lt_uteis": 17.5, "pct_ativ": 0.0}}, "Santa Catarina": {"Outros": {"pedidos": 546, "lt_uteis": 2.4, "pct_ativ": 77.3}}, "Sergipe": {"Outros": {"pedidos": 117, "lt_uteis": 3.9, "pct_ativ": 73.5}}, "São Paulo": {"Outros": {"pedidos": 2395, "lt_uteis": 1.8, "pct_ativ": 76.2}}, "Tocantins": {"Outros": {"pedidos": 247, "lt_uteis": 4.4, "pct_ativ": 57.1}}}, "Mar/26": {"Acre": {"Outros": {"pedidos": 47, "lt_uteis": 7.4, "pct_ativ": 8.5}}, "Alagoas": {"FULL": {"pedidos": 75, "lt_uteis": 2.0, "pct_ativ": 37.3}, "Outros": {"pedidos": 189, "lt_uteis": 4.2, "pct_ativ": 42.3}}, "Amapá": {"Outros": {"pedidos": 61, "lt_uteis": 10.2, "pct_ativ": 0.0}}, "Amazonas": {"FULL": {"pedidos": 5, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 150, "lt_uteis": 8.5, "pct_ativ": 0.7}}, "Bahia": {"FULL": {"pedidos": 618, "lt_uteis": 2.1, "pct_ativ": 39.0}, "Outros": {"pedidos": 1332, "lt_uteis": 3.4, "pct_ativ": 41.1}}, "Ceará": {"FULL": {"pedidos": 147, "lt_uteis": 2.3, "pct_ativ": 27.9}, "Outros": {"pedidos": 412, "lt_uteis": 4.4, "pct_ativ": 39.3}}, "Espírito Santo": {"FULL": {"pedidos": 74, "lt_uteis": 2.1, "pct_ativ": 48.6}, "Outros": {"pedidos": 213, "lt_uteis": 3.0, "pct_ativ": 48.4}}, "Goiás": {"FULL": {"pedidos": 297, "lt_uteis": 2.2, "pct_ativ": 39.7}, "Outros": {"pedidos": 838, "lt_uteis": 2.9, "pct_ativ": 49.3}}, "Maranhão": {"FULL": {"pedidos": 211, "lt_uteis": 3.4, "pct_ativ": 28.4}, "Outros": {"pedidos": 518, "lt_uteis": 4.7, "pct_ativ": 26.6}}, "Mato Grosso": {"FULL": {"pedidos": 202, "lt_uteis": 3.9, "pct_ativ": 30.2}, "Outros": {"pedidos": 458, "lt_uteis": 4.3, "pct_ativ": 43.9}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 135, "lt_uteis": 2.0, "pct_ativ": 40.7}, "Outros": {"pedidos": 360, "lt_uteis": 2.7, "pct_ativ": 55.8}}, "Minas Gerais": {"FULL": {"pedidos": 1089, "lt_uteis": 1.9, "pct_ativ": 47.9}, "Outros": {"pedidos": 1642, "lt_uteis": 2.5, "pct_ativ": 47.7}}, "N/D": {"FULL": {"pedidos": 3, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 77, "lt_uteis": null, "pct_ativ": 0.0}}, "Paraná": {"FULL": {"pedidos": 386, "lt_uteis": 1.6, "pct_ativ": 49.0}, "Outros": {"pedidos": 1015, "lt_uteis": 2.3, "pct_ativ": 58.3}}, "Paraíba": {"FULL": {"pedidos": 83, "lt_uteis": 2.1, "pct_ativ": 34.9}, "Outros": {"pedidos": 249, "lt_uteis": 4.4, "pct_ativ": 39.8}}, "Pará": {"FULL": {"pedidos": 259, "lt_uteis": 4.5, "pct_ativ": 18.9}, "Outros": {"pedidos": 1031, "lt_uteis": 5.2, "pct_ativ": 25.7}}, "Pernambuco": {"FULL": {"pedidos": 224, "lt_uteis": 2.1, "pct_ativ": 33.9}, "Outros": {"pedidos": 633, "lt_uteis": 3.9, "pct_ativ": 42.5}}, "Piauí": {"FULL": {"pedidos": 71, "lt_uteis": 2.4, "pct_ativ": 32.4}, "Outros": {"pedidos": 278, "lt_uteis": 4.6, "pct_ativ": 32.7}}, "Rio Grande do Norte": {"FULL": {"pedidos": 46, "lt_uteis": 1.8, "pct_ativ": 30.4}, "Outros": {"pedidos": 330, "lt_uteis": 4.2, "pct_ativ": 30.0}}, "Rio Grande do Sul": {"FULL": {"pedidos": 190, "lt_uteis": 1.8, "pct_ativ": 48.9}, "Outros": {"pedidos": 402, "lt_uteis": 2.9, "pct_ativ": 50.7}}, "Rio de Janeiro": {"FULL": {"pedidos": 352, "lt_uteis": 1.4, "pct_ativ": 42.9}, "Outros": {"pedidos": 837, "lt_uteis": 2.2, "pct_ativ": 55.7}}, "Rondônia": {"FULL": {"pedidos": 57, "lt_uteis": 5.8, "pct_ativ": 19.3}, "Outros": {"pedidos": 142, "lt_uteis": 6.0, "pct_ativ": 35.2}}, "Roraima": {"Outros": {"pedidos": 14, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 335, "lt_uteis": 1.5, "pct_ativ": 46.9}, "Outros": {"pedidos": 739, "lt_uteis": 2.6, "pct_ativ": 54.1}}, "Sergipe": {"FULL": {"pedidos": 53, "lt_uteis": 1.5, "pct_ativ": 34.0}, "Outros": {"pedidos": 153, "lt_uteis": 3.7, "pct_ativ": 41.8}}, "São Paulo": {"FULL": {"pedidos": 1266, "lt_uteis": 1.3, "pct_ativ": 49.0}, "Outros": {"pedidos": 3078, "lt_uteis": 2.0, "pct_ativ": 58.3}}, "Tocantins": {"FULL": {"pedidos": 51, "lt_uteis": 3.3, "pct_ativ": 29.4}, "Outros": {"pedidos": 270, "lt_uteis": 4.8, "pct_ativ": 37.4}}}, "Todos": {"Acre": {"Outros": {"pedidos": 63, "lt_uteis": 9.1, "pct_ativ": 19.0}}, "Alagoas": {"FULL": {"pedidos": 75, "lt_uteis": 2.0, "pct_ativ": 37.3}, "Outros": {"pedidos": 377, "lt_uteis": 4.3, "pct_ativ": 57.6}}, "Amapá": {"Outros": {"pedidos": 86, "lt_uteis": 12.0, "pct_ativ": 7.0}}, "Amazonas": {"FULL": {"pedidos": 5, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 249, "lt_uteis": 11.3, "pct_ativ": 2.8}}, "Bahia": {"FULL": {"pedidos": 618, "lt_uteis": 2.1, "pct_ativ": 39.0}, "Outros": {"pedidos": 2433, "lt_uteis": 3.3, "pct_ativ": 56.0}}, "Ceará": {"FULL": {"pedidos": 147, "lt_uteis": 2.3, "pct_ativ": 27.9}, "Outros": {"pedidos": 699, "lt_uteis": 4.5, "pct_ativ": 51.9}}, "Espírito Santo": {"FULL": {"pedidos": 74, "lt_uteis": 2.1, "pct_ativ": 48.6}, "Outros": {"pedidos": 377, "lt_uteis": 3.1, "pct_ativ": 55.7}}, "Goiás": {"FULL": {"pedidos": 298, "lt_uteis": 2.2, "pct_ativ": 39.9}, "Outros": {"pedidos": 1415, "lt_uteis": 2.9, "pct_ativ": 60.2}}, "Maranhão": {"FULL": {"pedidos": 242, "lt_uteis": 3.4, "pct_ativ": 31.4}, "Outros": {"pedidos": 927, "lt_uteis": 4.7, "pct_ativ": 46.3}}, "Mato Grosso": {"FULL": {"pedidos": 202, "lt_uteis": 3.9, "pct_ativ": 30.2}, "Outros": {"pedidos": 835, "lt_uteis": 4.5, "pct_ativ": 57.2}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 135, "lt_uteis": 2.0, "pct_ativ": 40.7}, "Outros": {"pedidos": 596, "lt_uteis": 2.7, "pct_ativ": 64.9}}, "Minas Gerais": {"FULL": {"pedidos": 1291, "lt_uteis": 2.0, "pct_ativ": 51.1}, "Outros": {"pedidos": 2946, "lt_uteis": 2.5, "pct_ativ": 59.3}}, "N/D": {"FULL": {"pedidos": 3, "lt_uteis": null, "pct_ativ": 0.0}, "Outros": {"pedidos": 77, "lt_uteis": null, "pct_ativ": 0.0}}, "Paraná": {"FULL": {"pedidos": 386, "lt_uteis": 1.6, "pct_ativ": 49.0}, "Outros": {"pedidos": 1830, "lt_uteis": 2.3, "pct_ativ": 67.0}}, "Paraíba": {"FULL": {"pedidos": 83, "lt_uteis": 2.1, "pct_ativ": 34.9}, "Outros": {"pedidos": 429, "lt_uteis": 4.5, "pct_ativ": 52.0}}, "Pará": {"FULL": {"pedidos": 259, "lt_uteis": 4.5, "pct_ativ": 18.9}, "Outros": {"pedidos": 1737, "lt_uteis": 5.4, "pct_ativ": 41.7}}, "Pernambuco": {"FULL": {"pedidos": 224, "lt_uteis": 2.1, "pct_ativ": 33.9}, "Outros": {"pedidos": 1079, "lt_uteis": 3.8, "pct_ativ": 54.9}}, "Piauí": {"FULL": {"pedidos": 71, "lt_uteis": 2.4, "pct_ativ": 32.4}, "Outros": {"pedidos": 485, "lt_uteis": 4.7, "pct_ativ": 49.3}}, "Rio Grande do Norte": {"FULL": {"pedidos": 46, "lt_uteis": 1.8, "pct_ativ": 30.4}, "Outros": {"pedidos": 525, "lt_uteis": 4.2, "pct_ativ": 44.6}}, "Rio Grande do Sul": {"FULL": {"pedidos": 190, "lt_uteis": 1.8, "pct_ativ": 48.9}, "Outros": {"pedidos": 711, "lt_uteis": 3.0, "pct_ativ": 58.8}}, "Rio de Janeiro": {"FULL": {"pedidos": 352, "lt_uteis": 1.4, "pct_ativ": 42.9}, "Outros": {"pedidos": 1451, "lt_uteis": 2.1, "pct_ativ": 63.9}}, "Rondônia": {"FULL": {"pedidos": 57, "lt_uteis": 5.8, "pct_ativ": 19.3}, "Outros": {"pedidos": 239, "lt_uteis": 5.9, "pct_ativ": 50.6}}, "Roraima": {"Outros": {"pedidos": 20, "lt_uteis": 17.5, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 335, "lt_uteis": 1.5, "pct_ativ": 46.9}, "Outros": {"pedidos": 1285, "lt_uteis": 2.5, "pct_ativ": 64.0}}, "Sergipe": {"FULL": {"pedidos": 53, "lt_uteis": 1.5, "pct_ativ": 34.0}, "Outros": {"pedidos": 270, "lt_uteis": 3.8, "pct_ativ": 55.6}}, "São Paulo": {"FULL": {"pedidos": 1266, "lt_uteis": 1.3, "pct_ativ": 49.0}, "Outros": {"pedidos": 5473, "lt_uteis": 1.9, "pct_ativ": 66.1}}, "Tocantins": {"FULL": {"pedidos": 51, "lt_uteis": 3.3, "pct_ativ": 29.4}, "Outros": {"pedidos": 517, "lt_uteis": 4.6, "pct_ativ": 46.8}}}}, "incSem": [46950, 32522, 307860, 663983, 2830], "incMes": [17928, 294300], "incPotSem": [6810412, 6341658, 3306242, 1158191, 725], "incPotMes": [2982508, 1512117]};
+const D = {"labels": ["Sem 16/02", "Sem 23/02", "Sem 02/03", "Sem 09/03", "Sem 16/03"], "ltFULL": [null, 2.4, 2.3, 2.0, 1.6], "ltOthers": [3.3, 3.4, 3.2, 2.9, 2.4], "ltCorrFULL": [null, 3.4, 2.9, 2.5, 1.8], "ltCorrOthers": [4.7, 4.6, 4.4, 3.9, 2.9], "atFULL": [null, 78.0, 70.2, 76.2, 61.0], "atOthers": [135.6, 112.6, 100.2, 75.9, 42.3], "at7dFULL": [null, 56.0, 56.0, 70.5, 61.0], "at7dOthers": [58.5, 50.9, 51.2, 57.3, 42.0], "pedFULL": [0, 104.0, 2689.0, 7149.0, 5897.0], "pedOthers": [495.0, 1312.0, 1102.0, 900.0, 724.0], "entFULL": [0, 91.0, 2496.0, 6471.0, 4094.0], "entOthers": [477.0, 1251.0, 1033.0, 804.0, 324.0], "ativFULL": [0, 71.0, 1753.0, 4930.0, 2497.0], "ativOthers": [647.0, 1409.0, 1035.0, 610.0, 137.0], "d1aFULL": [null, 0.4, 0.9, 0.0, null], "d1aOthers": [1.3, 0.5, 1.0, null, null], "mesLabels": ["Fev/26", "Mar/26"], "mesLtFULL": [2.5, 1.9], "mesLtOthers": [3.3, 3.0], "mesLtCorrFULL": [3.6, 2.4], "mesLtCorrOthers": [4.6, 4.0], "mesAtFULL": [83.6, 70.3], "mesAtOthers": [119.8, 83.1], "mesPedFULL": [83.0, 15756.0], "mesPedOthers": [1726.0, 2807.0], "mesEntFULL": [73.0, 13079.0], "mesEntOthers": [1650.0, 2239.0], "mesAtivFULL": [61.0, 9190.0], "mesAtivOthers": [1977.0, 1861.0], "mesD1aFULL": [0.4, 0.9], "mesD1aOthers": [0.8, 1.0], "estMesLabels": ["Todos", "Fev/26", "Mar/26"], "estMesData": {"Todos": {"Acre": {"Outros": {"pedidos": 22, "lt_uteis": 7.6, "pct_ativ": NaN}, "FULL": {"pedidos": 27, "lt_uteis": 6.9, "pct_ativ": 66.7}}, "Alagoas": {"Outros": {"pedidos": 48, "lt_uteis": 4.4, "pct_ativ": 86.7}, "FULL": {"pedidos": 210, "lt_uteis": 1.8, "pct_ativ": NaN}}, "Amapá": {"Outros": {"pedidos": 41, "lt_uteis": 12.4, "pct_ativ": NaN}}, "Amazonas": {"Outros": {"pedidos": 92, "lt_uteis": 15.4, "pct_ativ": NaN}, "FULL": {"pedidos": 258, "lt_uteis": 4.4, "pct_ativ": NaN}}, "Bahia": {"Outros": {"pedidos": 233, "lt_uteis": 3.2, "pct_ativ": NaN}, "FULL": {"pedidos": 1207, "lt_uteis": 2.0, "pct_ativ": NaN}}, "Ceará": {"Outros": {"pedidos": 105, "lt_uteis": 4.3, "pct_ativ": NaN}, "FULL": {"pedidos": 509, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Distrito Federal": {"Outros": {"pedidos": 90, "lt_uteis": 2.3, "pct_ativ": 83.7}, "FULL": {"pedidos": 227, "lt_uteis": 1.5, "pct_ativ": 71.2}}, "Espírito Santo": {"Outros": {"pedidos": 106, "lt_uteis": 3.0, "pct_ativ": NaN}, "FULL": {"pedidos": 229, "lt_uteis": 2.0, "pct_ativ": NaN}}, "Goiás": {"Outros": {"pedidos": 458, "lt_uteis": 2.7, "pct_ativ": NaN}, "FULL": {"pedidos": 664, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Maranhão": {"Outros": {"pedidos": 143, "lt_uteis": 4.4, "pct_ativ": NaN}, "FULL": {"pedidos": 415, "lt_uteis": 3.4, "pct_ativ": NaN}}, "Mato Grosso": {"Outros": {"pedidos": 137, "lt_uteis": 4.1, "pct_ativ": NaN}, "FULL": {"pedidos": 363, "lt_uteis": 4.0, "pct_ativ": NaN}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 59, "lt_uteis": 2.3, "pct_ativ": NaN}, "FULL": {"pedidos": 267, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Minas Gerais": {"Outros": {"pedidos": 326, "lt_uteis": 2.4, "pct_ativ": NaN}, "FULL": {"pedidos": 1848, "lt_uteis": 1.9, "pct_ativ": NaN}}, "Paraná": {"Outros": {"pedidos": 185, "lt_uteis": 2.2, "pct_ativ": NaN}, "FULL": {"pedidos": 701, "lt_uteis": 1.5, "pct_ativ": NaN}}, "Paraíba": {"Outros": {"pedidos": 76, "lt_uteis": 4.4, "pct_ativ": NaN}, "FULL": {"pedidos": 205, "lt_uteis": 1.8, "pct_ativ": NaN}}, "Pará": {"Outros": {"pedidos": 289, "lt_uteis": 5.2, "pct_ativ": NaN}, "FULL": {"pedidos": 634, "lt_uteis": 5.1, "pct_ativ": NaN}}, "Pernambuco": {"Outros": {"pedidos": 148, "lt_uteis": 3.8, "pct_ativ": NaN}, "FULL": {"pedidos": 599, "lt_uteis": 1.9, "pct_ativ": NaN}}, "Piauí": {"Outros": {"pedidos": 76, "lt_uteis": 4.6, "pct_ativ": NaN}, "FULL": {"pedidos": 190, "lt_uteis": 2.4, "pct_ativ": NaN}}, "Rio Grande do Norte": {"Outros": {"pedidos": 62, "lt_uteis": 4.3, "pct_ativ": NaN}, "FULL": {"pedidos": 116, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Rio Grande do Sul": {"Outros": {"pedidos": 83, "lt_uteis": 3.0, "pct_ativ": NaN}, "FULL": {"pedidos": 413, "lt_uteis": 1.6, "pct_ativ": NaN}}, "Rio de Janeiro": {"Outros": {"pedidos": 399, "lt_uteis": 1.9, "pct_ativ": NaN}, "FULL": {"pedidos": 1886, "lt_uteis": 1.3, "pct_ativ": NaN}}, "Rondônia": {"Outros": {"pedidos": 46, "lt_uteis": 5.8, "pct_ativ": NaN}, "FULL": {"pedidos": 146, "lt_uteis": 6.1, "pct_ativ": NaN}}, "Roraima": {"Outros": {"pedidos": 16, "lt_uteis": 15.3, "pct_ativ": NaN}, "FULL": {"pedidos": 36, "lt_uteis": 3.2, "pct_ativ": 73.7}}, "Santa Catarina": {"Outros": {"pedidos": 105, "lt_uteis": 2.6, "pct_ativ": NaN}, "FULL": {"pedidos": 475, "lt_uteis": 1.5, "pct_ativ": NaN}}, "Sergipe": {"Outros": {"pedidos": 69, "lt_uteis": 3.5, "pct_ativ": NaN}, "FULL": {"pedidos": 173, "lt_uteis": 1.7, "pct_ativ": NaN}}, "São Paulo": {"Outros": {"pedidos": 1041, "lt_uteis": 1.9, "pct_ativ": NaN}, "FULL": {"pedidos": 3940, "lt_uteis": 1.3, "pct_ativ": NaN}}, "Tocantins": {"Outros": {"pedidos": 78, "lt_uteis": 4.4, "pct_ativ": NaN}, "FULL": {"pedidos": 101, "lt_uteis": 3.3, "pct_ativ": NaN}}}, "Fev/26": {"Acre": {"Outros": {"pedidos": 9, "lt_uteis": 8.1, "pct_ativ": 77.8}}, "Alagoas": {"Outros": {"pedidos": 22, "lt_uteis": 4.8, "pct_ativ": 95.4}}, "Amapá": {"Outros": {"pedidos": 13, "lt_uteis": 13.0, "pct_ativ": 50.0}}, "Amazonas": {"Outros": {"pedidos": 35, "lt_uteis": 15.6, "pct_ativ": NaN}}, "Bahia": {"Outros": {"pedidos": 104, "lt_uteis": 3.1, "pct_ativ": NaN}}, "Ceará": {"Outros": {"pedidos": 44, "lt_uteis": 4.4, "pct_ativ": NaN}}, "Distrito Federal": {"Outros": {"pedidos": 34, "lt_uteis": 2.3, "pct_ativ": 100.0}}, "Espírito Santo": {"Outros": {"pedidos": 29, "lt_uteis": 3.1, "pct_ativ": 172.4}}, "Goiás": {"Outros": {"pedidos": 130, "lt_uteis": 2.8, "pct_ativ": NaN}, "FULL": {"pedidos": 1, "lt_uteis": 2.0, "pct_ativ": 100.0}}, "Maranhão": {"Outros": {"pedidos": 48, "lt_uteis": 4.5, "pct_ativ": NaN}, "FULL": {"pedidos": 8, "lt_uteis": 3.8, "pct_ativ": 71.4}}, "Mato Grosso": {"Outros": {"pedidos": 40, "lt_uteis": 4.5, "pct_ativ": NaN}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 25, "lt_uteis": 2.2, "pct_ativ": 121.8}}, "Minas Gerais": {"Outros": {"pedidos": 133, "lt_uteis": 2.3, "pct_ativ": NaN}, "FULL": {"pedidos": 74, "lt_uteis": 2.3, "pct_ativ": NaN}}, "Paraná": {"Outros": {"pedidos": 68, "lt_uteis": 2.3, "pct_ativ": NaN}}, "Paraíba": {"Outros": {"pedidos": 18, "lt_uteis": 4.4, "pct_ativ": 64.7}}, "Pará": {"Outros": {"pedidos": 105, "lt_uteis": 5.4, "pct_ativ": 194.1}}, "Pernambuco": {"Outros": {"pedidos": 73, "lt_uteis": 3.8, "pct_ativ": NaN}}, "Piauí": {"Outros": {"pedidos": 31, "lt_uteis": 4.6, "pct_ativ": 71.0}}, "Rio Grande do Norte": {"Outros": {"pedidos": 28, "lt_uteis": 4.3, "pct_ativ": 126.9}}, "Rio Grande do Sul": {"Outros": {"pedidos": 41, "lt_uteis": 2.9, "pct_ativ": NaN}}, "Rio de Janeiro": {"Outros": {"pedidos": 172, "lt_uteis": 1.9, "pct_ativ": 113.2}}, "Rondônia": {"Outros": {"pedidos": 16, "lt_uteis": 5.6, "pct_ativ": NaN}}, "Roraima": {"Outros": {"pedidos": 7, "lt_uteis": 15.3, "pct_ativ": NaN}}, "Santa Catarina": {"Outros": {"pedidos": 44, "lt_uteis": 2.6, "pct_ativ": NaN}}, "Sergipe": {"Outros": {"pedidos": 21, "lt_uteis": 3.7, "pct_ativ": 195.2}}, "São Paulo": {"Outros": {"pedidos": 407, "lt_uteis": 1.8, "pct_ativ": NaN}}, "Tocantins": {"Outros": {"pedidos": 29, "lt_uteis": 4.5, "pct_ativ": 179.3}}}, "Mar/26": {"Acre": {"Outros": {"pedidos": 13, "lt_uteis": 7.0, "pct_ativ": NaN}, "FULL": {"pedidos": 27, "lt_uteis": 6.9, "pct_ativ": 66.7}}, "Alagoas": {"FULL": {"pedidos": 210, "lt_uteis": 1.8, "pct_ativ": NaN}, "Outros": {"pedidos": 26, "lt_uteis": 4.1, "pct_ativ": 78.3}}, "Amapá": {"Outros": {"pedidos": 28, "lt_uteis": 10.5, "pct_ativ": NaN}}, "Amazonas": {"Outros": {"pedidos": 57, "lt_uteis": 13.3, "pct_ativ": NaN}, "FULL": {"pedidos": 258, "lt_uteis": 4.4, "pct_ativ": NaN}}, "Bahia": {"FULL": {"pedidos": 1207, "lt_uteis": 2.0, "pct_ativ": NaN}, "Outros": {"pedidos": 129, "lt_uteis": 3.3, "pct_ativ": NaN}}, "Ceará": {"FULL": {"pedidos": 509, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 61, "lt_uteis": 4.2, "pct_ativ": NaN}}, "Distrito Federal": {"FULL": {"pedidos": 227, "lt_uteis": 1.5, "pct_ativ": 71.2}, "Outros": {"pedidos": 56, "lt_uteis": 2.3, "pct_ativ": 73.6}}, "Espírito Santo": {"FULL": {"pedidos": 229, "lt_uteis": 2.0, "pct_ativ": NaN}, "Outros": {"pedidos": 77, "lt_uteis": 3.0, "pct_ativ": NaN}}, "Goiás": {"FULL": {"pedidos": 663, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 328, "lt_uteis": 2.6, "pct_ativ": NaN}}, "Maranhão": {"FULL": {"pedidos": 407, "lt_uteis": 3.4, "pct_ativ": NaN}, "Outros": {"pedidos": 95, "lt_uteis": 4.4, "pct_ativ": NaN}}, "Mato Grosso": {"FULL": {"pedidos": 363, "lt_uteis": 4.0, "pct_ativ": NaN}, "Outros": {"pedidos": 97, "lt_uteis": 3.9, "pct_ativ": NaN}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 267, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 34, "lt_uteis": 2.5, "pct_ativ": NaN}}, "Minas Gerais": {"FULL": {"pedidos": 1774, "lt_uteis": 1.8, "pct_ativ": NaN}, "Outros": {"pedidos": 193, "lt_uteis": 2.4, "pct_ativ": NaN}}, "Paraná": {"Outros": {"pedidos": 117, "lt_uteis": 2.2, "pct_ativ": NaN}, "FULL": {"pedidos": 701, "lt_uteis": 1.5, "pct_ativ": NaN}}, "Paraíba": {"FULL": {"pedidos": 205, "lt_uteis": 1.8, "pct_ativ": NaN}, "Outros": {"pedidos": 58, "lt_uteis": 4.4, "pct_ativ": NaN}}, "Pará": {"FULL": {"pedidos": 634, "lt_uteis": 5.1, "pct_ativ": NaN}, "Outros": {"pedidos": 184, "lt_uteis": 5.0, "pct_ativ": NaN}}, "Pernambuco": {"FULL": {"pedidos": 599, "lt_uteis": 1.9, "pct_ativ": NaN}, "Outros": {"pedidos": 75, "lt_uteis": 3.9, "pct_ativ": NaN}}, "Piauí": {"FULL": {"pedidos": 190, "lt_uteis": 2.4, "pct_ativ": NaN}, "Outros": {"pedidos": 45, "lt_uteis": 4.6, "pct_ativ": NaN}}, "Rio Grande do Norte": {"FULL": {"pedidos": 116, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 34, "lt_uteis": 4.3, "pct_ativ": NaN}}, "Rio Grande do Sul": {"FULL": {"pedidos": 413, "lt_uteis": 1.6, "pct_ativ": NaN}, "Outros": {"pedidos": 42, "lt_uteis": 3.0, "pct_ativ": NaN}}, "Rio de Janeiro": {"FULL": {"pedidos": 1886, "lt_uteis": 1.3, "pct_ativ": NaN}, "Outros": {"pedidos": 227, "lt_uteis": 1.9, "pct_ativ": NaN}}, "Rondônia": {"FULL": {"pedidos": 146, "lt_uteis": 6.1, "pct_ativ": NaN}, "Outros": {"pedidos": 30, "lt_uteis": 6.0, "pct_ativ": NaN}}, "Roraima": {"FULL": {"pedidos": 36, "lt_uteis": 3.2, "pct_ativ": 73.7}, "Outros": {"pedidos": 9, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 475, "lt_uteis": 1.5, "pct_ativ": NaN}, "Outros": {"pedidos": 61, "lt_uteis": 2.6, "pct_ativ": NaN}}, "Sergipe": {"Outros": {"pedidos": 48, "lt_uteis": 3.3, "pct_ativ": NaN}, "FULL": {"pedidos": 173, "lt_uteis": 1.7, "pct_ativ": NaN}}, "São Paulo": {"FULL": {"pedidos": 3940, "lt_uteis": 1.3, "pct_ativ": NaN}, "Outros": {"pedidos": 634, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Tocantins": {"FULL": {"pedidos": 101, "lt_uteis": 3.3, "pct_ativ": NaN}, "Outros": {"pedidos": 49, "lt_uteis": 4.4, "pct_ativ": NaN}}}}, "estMesDataCapRM": {"Todos": {"Acre": {"Outros": {"pedidos": 16, "lt_uteis": 7.2, "pct_ativ": 66.7}, "FULL": {"pedidos": 25, "lt_uteis": 6.9, "pct_ativ": 64.3}}, "Alagoas": {"Outros": {"pedidos": 33, "lt_uteis": 4.4, "pct_ativ": 90.0}, "FULL": {"pedidos": 127, "lt_uteis": 1.6, "pct_ativ": 71.5}}, "Amapá": {"Outros": {"pedidos": 36, "lt_uteis": 12.0, "pct_ativ": NaN}}, "Amazonas": {"Outros": {"pedidos": 76, "lt_uteis": 15.4, "pct_ativ": NaN}, "FULL": {"pedidos": 247, "lt_uteis": 4.5, "pct_ativ": NaN}}, "Bahia": {"Outros": {"pedidos": 100, "lt_uteis": 3.1, "pct_ativ": 104.5}, "FULL": {"pedidos": 499, "lt_uteis": 1.7, "pct_ativ": 68.4}}, "Ceará": {"Outros": {"pedidos": 79, "lt_uteis": 4.3, "pct_ativ": NaN}, "FULL": {"pedidos": 369, "lt_uteis": 2.0, "pct_ativ": 70.3}}, "Distrito Federal": {"Outros": {"pedidos": 90, "lt_uteis": 2.3, "pct_ativ": 83.7}, "FULL": {"pedidos": 227, "lt_uteis": 1.5, "pct_ativ": 71.2}}, "Espírito Santo": {"Outros": {"pedidos": 90, "lt_uteis": 3.0, "pct_ativ": NaN}, "FULL": {"pedidos": 155, "lt_uteis": 1.9, "pct_ativ": 67.6}}, "Goiás": {"Outros": {"pedidos": 258, "lt_uteis": 2.6, "pct_ativ": 121.4}, "FULL": {"pedidos": 358, "lt_uteis": 1.8, "pct_ativ": 77.1}}, "Maranhão": {"Outros": {"pedidos": 81, "lt_uteis": 4.3, "pct_ativ": NaN}, "FULL": {"pedidos": 222, "lt_uteis": 3.2, "pct_ativ": NaN}}, "Mato Grosso": {"Outros": {"pedidos": 86, "lt_uteis": 3.6, "pct_ativ": 86.7}, "FULL": {"pedidos": 208, "lt_uteis": 4.1, "pct_ativ": 63.3}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 39, "lt_uteis": 2.2, "pct_ativ": 106.5}, "FULL": {"pedidos": 166, "lt_uteis": 2.2, "pct_ativ": 68.4}}, "Minas Gerais": {"FULL": {"pedidos": 743, "lt_uteis": 1.7, "pct_ativ": 71.5}, "Outros": {"pedidos": 185, "lt_uteis": 2.2, "pct_ativ": 79.4}}, "Paraná": {"Outros": {"pedidos": 113, "lt_uteis": 2.2, "pct_ativ": NaN}, "FULL": {"pedidos": 386, "lt_uteis": 1.4, "pct_ativ": 70.4}}, "Paraíba": {"Outros": {"pedidos": 60, "lt_uteis": 4.3, "pct_ativ": 65.4}, "FULL": {"pedidos": 129, "lt_uteis": 1.7, "pct_ativ": 75.2}}, "Pará": {"Outros": {"pedidos": 172, "lt_uteis": 5.0, "pct_ativ": 171.6}, "FULL": {"pedidos": 413, "lt_uteis": 5.3, "pct_ativ": 62.8}}, "Pernambuco": {"Outros": {"pedidos": 95, "lt_uteis": 3.8, "pct_ativ": 84.1}, "FULL": {"pedidos": 366, "lt_uteis": 1.7, "pct_ativ": NaN}}, "Piauí": {"Outros": {"pedidos": 42, "lt_uteis": 4.2, "pct_ativ": 83.4}, "FULL": {"pedidos": 120, "lt_uteis": 2.3, "pct_ativ": 70.2}}, "Rio Grande do Norte": {"Outros": {"pedidos": 36, "lt_uteis": 4.2, "pct_ativ": 87.0}, "FULL": {"pedidos": 69, "lt_uteis": 2.2, "pct_ativ": 81.8}}, "Rio Grande do Sul": {"Outros": {"pedidos": 48, "lt_uteis": 2.8, "pct_ativ": NaN}, "FULL": {"pedidos": 211, "lt_uteis": 1.4, "pct_ativ": 73.5}}, "Rio de Janeiro": {"Outros": {"pedidos": 308, "lt_uteis": 1.8, "pct_ativ": NaN}, "FULL": {"pedidos": 1470, "lt_uteis": 1.3, "pct_ativ": 72.0}}, "Rondônia": {"Outros": {"pedidos": 32, "lt_uteis": 5.9, "pct_ativ": 122.6}, "FULL": {"pedidos": 112, "lt_uteis": 6.1, "pct_ativ": 60.0}}, "Roraima": {"Outros": {"pedidos": 15, "lt_uteis": 15.3, "pct_ativ": NaN}, "FULL": {"pedidos": 36, "lt_uteis": 3.2, "pct_ativ": 73.7}}, "Santa Catarina": {"Outros": {"pedidos": 56, "lt_uteis": 2.5, "pct_ativ": 105.7}, "FULL": {"pedidos": 250, "lt_uteis": 1.3, "pct_ativ": 74.4}}, "Sergipe": {"Outros": {"pedidos": 54, "lt_uteis": 3.4, "pct_ativ": 133.3}, "FULL": {"pedidos": 115, "lt_uteis": 1.5, "pct_ativ": 70.8}}, "São Paulo": {"Outros": {"pedidos": 635, "lt_uteis": 1.9, "pct_ativ": 107.6}, "FULL": {"pedidos": 2070, "lt_uteis": 1.3, "pct_ativ": 71.1}}, "Tocantins": {"Outros": {"pedidos": 50, "lt_uteis": 4.2, "pct_ativ": 130.4}, "FULL": {"pedidos": 61, "lt_uteis": 3.2, "pct_ativ": NaN}}}, "Fev/26": {"Acre": {"Outros": {"pedidos": 8, "lt_uteis": 7.7, "pct_ativ": 87.5}}, "Alagoas": {"Outros": {"pedidos": 12, "lt_uteis": 4.8, "pct_ativ": 100.0}}, "Amapá": {"Outros": {"pedidos": 11, "lt_uteis": 12.6, "pct_ativ": 60.0}}, "Amazonas": {"Outros": {"pedidos": 28, "lt_uteis": 15.7, "pct_ativ": NaN}}, "Bahia": {"Outros": {"pedidos": 43, "lt_uteis": 3.0, "pct_ativ": 104.7}}, "Ceará": {"Outros": {"pedidos": 34, "lt_uteis": 4.5, "pct_ativ": NaN}}, "Distrito Federal": {"Outros": {"pedidos": 34, "lt_uteis": 2.3, "pct_ativ": 100.0}}, "Espírito Santo": {"Outros": {"pedidos": 24, "lt_uteis": 2.9, "pct_ativ": 195.8}}, "Goiás": {"Outros": {"pedidos": 69, "lt_uteis": 2.5, "pct_ativ": 219.7}}, "Maranhão": {"Outros": {"pedidos": 27, "lt_uteis": 4.4, "pct_ativ": NaN}, "FULL": {"pedidos": 4, "lt_uteis": 6.3, "pct_ativ": 66.7}}, "Mato Grosso": {"Outros": {"pedidos": 22, "lt_uteis": 3.9, "pct_ativ": 104.5}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 18, "lt_uteis": 2.2, "pct_ativ": 131.3}}, "Minas Gerais": {"FULL": {"pedidos": 25, "lt_uteis": 1.9, "pct_ativ": 77.3}, "Outros": {"pedidos": 70, "lt_uteis": 2.2, "pct_ativ": 100.0}}, "Paraná": {"Outros": {"pedidos": 44, "lt_uteis": 2.3, "pct_ativ": 111.6}}, "Paraíba": {"Outros": {"pedidos": 16, "lt_uteis": 4.4, "pct_ativ": 66.6}}, "Pará": {"Outros": {"pedidos": 60, "lt_uteis": 5.2, "pct_ativ": 262.5}}, "Pernambuco": {"Outros": {"pedidos": 50, "lt_uteis": 3.8, "pct_ativ": 95.9}}, "Piauí": {"Outros": {"pedidos": 17, "lt_uteis": 4.2, "pct_ativ": 82.4}}, "Rio Grande do Norte": {"Outros": {"pedidos": 16, "lt_uteis": 4.3, "pct_ativ": 100.0}}, "Rio Grande do Sul": {"Outros": {"pedidos": 23, "lt_uteis": 2.8, "pct_ativ": NaN}}, "Rio de Janeiro": {"Outros": {"pedidos": 131, "lt_uteis": 1.8, "pct_ativ": 121.4}}, "Rondônia": {"Outros": {"pedidos": 14, "lt_uteis": 5.6, "pct_ativ": 214.3}}, "Roraima": {"Outros": {"pedidos": 6, "lt_uteis": 15.3, "pct_ativ": 66.7}}, "Santa Catarina": {"Outros": {"pedidos": 22, "lt_uteis": 2.2, "pct_ativ": 123.8}}, "Sergipe": {"Outros": {"pedidos": 18, "lt_uteis": 3.7, "pct_ativ": 216.7}}, "São Paulo": {"Outros": {"pedidos": 227, "lt_uteis": 1.8, "pct_ativ": 129.0}}, "Tocantins": {"Outros": {"pedidos": 16, "lt_uteis": 3.9, "pct_ativ": 225.0}}}, "Mar/26": {"Acre": {"FULL": {"pedidos": 25, "lt_uteis": 6.9, "pct_ativ": 64.3}, "Outros": {"pedidos": 8, "lt_uteis": 6.6, "pct_ativ": 42.9}}, "Alagoas": {"FULL": {"pedidos": 127, "lt_uteis": 1.6, "pct_ativ": 71.5}, "Outros": {"pedidos": 21, "lt_uteis": 4.1, "pct_ativ": 83.4}}, "Amapá": {"Outros": {"pedidos": 25, "lt_uteis": 10.5, "pct_ativ": NaN}}, "Amazonas": {"FULL": {"pedidos": 247, "lt_uteis": 4.5, "pct_ativ": NaN}, "Outros": {"pedidos": 48, "lt_uteis": 13.3, "pct_ativ": NaN}}, "Bahia": {"FULL": {"pedidos": 499, "lt_uteis": 1.7, "pct_ativ": 68.4}, "Outros": {"pedidos": 57, "lt_uteis": 3.2, "pct_ativ": 104.3}}, "Ceará": {"FULL": {"pedidos": 369, "lt_uteis": 2.0, "pct_ativ": 70.3}, "Outros": {"pedidos": 45, "lt_uteis": 4.2, "pct_ativ": NaN}}, "Distrito Federal": {"FULL": {"pedidos": 227, "lt_uteis": 1.5, "pct_ativ": 71.2}, "Outros": {"pedidos": 56, "lt_uteis": 2.3, "pct_ativ": 73.6}}, "Espírito Santo": {"FULL": {"pedidos": 155, "lt_uteis": 1.9, "pct_ativ": 67.6}, "Outros": {"pedidos": 66, "lt_uteis": 3.0, "pct_ativ": NaN}}, "Goiás": {"FULL": {"pedidos": 358, "lt_uteis": 1.8, "pct_ativ": 77.1}, "Outros": {"pedidos": 189, "lt_uteis": 2.6, "pct_ativ": 79.2}}, "Maranhão": {"FULL": {"pedidos": 218, "lt_uteis": 3.2, "pct_ativ": NaN}, "Outros": {"pedidos": 54, "lt_uteis": 4.2, "pct_ativ": 68.1}}, "Mato Grosso": {"FULL": {"pedidos": 208, "lt_uteis": 4.1, "pct_ativ": 63.3}, "Outros": {"pedidos": 64, "lt_uteis": 3.5, "pct_ativ": 79.2}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 166, "lt_uteis": 2.2, "pct_ativ": 68.4}, "Outros": {"pedidos": 21, "lt_uteis": 2.3, "pct_ativ": 80.0}}, "Minas Gerais": {"FULL": {"pedidos": 718, "lt_uteis": 1.7, "pct_ativ": 71.3}, "Outros": {"pedidos": 115, "lt_uteis": 2.3, "pct_ativ": 65.0}}, "Paraná": {"FULL": {"pedidos": 386, "lt_uteis": 1.4, "pct_ativ": 70.4}, "Outros": {"pedidos": 69, "lt_uteis": 2.2, "pct_ativ": NaN}}, "Paraíba": {"FULL": {"pedidos": 129, "lt_uteis": 1.7, "pct_ativ": 75.2}, "Outros": {"pedidos": 44, "lt_uteis": 4.3, "pct_ativ": 64.9}}, "Pará": {"FULL": {"pedidos": 413, "lt_uteis": 5.3, "pct_ativ": 62.8}, "Outros": {"pedidos": 112, "lt_uteis": 4.8, "pct_ativ": 111.8}}, "Pernambuco": {"FULL": {"pedidos": 366, "lt_uteis": 1.7, "pct_ativ": NaN}, "Outros": {"pedidos": 45, "lt_uteis": 3.8, "pct_ativ": 67.6}}, "Piauí": {"FULL": {"pedidos": 120, "lt_uteis": 2.3, "pct_ativ": 70.2}, "Outros": {"pedidos": 25, "lt_uteis": 4.1, "pct_ativ": 84.3}}, "Rio Grande do Norte": {"FULL": {"pedidos": 69, "lt_uteis": 2.2, "pct_ativ": 81.8}, "Outros": {"pedidos": 20, "lt_uteis": 4.0, "pct_ativ": 66.7}}, "Rio Grande do Sul": {"FULL": {"pedidos": 211, "lt_uteis": 1.4, "pct_ativ": 73.5}, "Outros": {"pedidos": 25, "lt_uteis": 2.8, "pct_ativ": 87.0}}, "Rio de Janeiro": {"FULL": {"pedidos": 1470, "lt_uteis": 1.3, "pct_ativ": 72.0}, "Outros": {"pedidos": 177, "lt_uteis": 1.8, "pct_ativ": NaN}}, "Rondônia": {"FULL": {"pedidos": 112, "lt_uteis": 6.1, "pct_ativ": 60.0}, "Outros": {"pedidos": 18, "lt_uteis": 6.2, "pct_ativ": 47.0}}, "Roraima": {"FULL": {"pedidos": 36, "lt_uteis": 3.2, "pct_ativ": 73.7}, "Outros": {"pedidos": 9, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"FULL": {"pedidos": 250, "lt_uteis": 1.3, "pct_ativ": 74.4}, "Outros": {"pedidos": 34, "lt_uteis": 2.7, "pct_ativ": 93.7}}, "Sergipe": {"FULL": {"pedidos": 115, "lt_uteis": 1.5, "pct_ativ": 70.8}, "Outros": {"pedidos": 36, "lt_uteis": 3.3, "pct_ativ": 83.4}}, "São Paulo": {"FULL": {"pedidos": 2070, "lt_uteis": 1.3, "pct_ativ": 71.1}, "Outros": {"pedidos": 408, "lt_uteis": 2.0, "pct_ativ": 94.2}}, "Tocantins": {"FULL": {"pedidos": 61, "lt_uteis": 3.2, "pct_ativ": NaN}, "Outros": {"pedidos": 34, "lt_uteis": 4.3, "pct_ativ": 80.0}}}}, "estMesDataInt": {"Todos": {"Acre": {"Outros": {"pedidos": 6, "lt_uteis": 10.5, "pct_ativ": NaN}, "FULL": {"pedidos": 2, "lt_uteis": 7.0, "pct_ativ": 100.0}}, "Alagoas": {"Outros": {"pedidos": 15, "lt_uteis": 4.5, "pct_ativ": 80.0}, "FULL": {"pedidos": 83, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Amapá": {"Outros": {"pedidos": 5, "lt_uteis": 15.0, "pct_ativ": NaN}}, "Amazonas": {"Outros": {"pedidos": 16, "lt_uteis": 15.0, "pct_ativ": NaN}, "FULL": {"pedidos": 11, "lt_uteis": 2.8, "pct_ativ": NaN}}, "Bahia": {"Outros": {"pedidos": 133, "lt_uteis": 3.3, "pct_ativ": NaN}, "FULL": {"pedidos": 708, "lt_uteis": 2.2, "pct_ativ": NaN}}, "Ceará": {"Outros": {"pedidos": 26, "lt_uteis": 4.3, "pct_ativ": 142.3}, "FULL": {"pedidos": 140, "lt_uteis": 2.4, "pct_ativ": NaN}}, "Espírito Santo": {"Outros": {"pedidos": 16, "lt_uteis": 3.4, "pct_ativ": 61.5}, "FULL": {"pedidos": 74, "lt_uteis": 2.2, "pct_ativ": NaN}}, "Goiás": {"Outros": {"pedidos": 200, "lt_uteis": 2.9, "pct_ativ": NaN}, "FULL": {"pedidos": 306, "lt_uteis": 2.5, "pct_ativ": NaN}}, "Maranhão": {"Outros": {"pedidos": 62, "lt_uteis": 4.7, "pct_ativ": NaN}, "FULL": {"pedidos": 193, "lt_uteis": 3.5, "pct_ativ": NaN}}, "Mato Grosso": {"Outros": {"pedidos": 51, "lt_uteis": 5.0, "pct_ativ": NaN}, "FULL": {"pedidos": 155, "lt_uteis": 3.8, "pct_ativ": NaN}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 20, "lt_uteis": 2.4, "pct_ativ": NaN}, "FULL": {"pedidos": 101, "lt_uteis": 2.0, "pct_ativ": NaN}}, "Minas Gerais": {"Outros": {"pedidos": 141, "lt_uteis": 2.5, "pct_ativ": NaN}, "FULL": {"pedidos": 1105, "lt_uteis": 2.0, "pct_ativ": NaN}}, "Paraná": {"Outros": {"pedidos": 72, "lt_uteis": 2.2, "pct_ativ": NaN}, "FULL": {"pedidos": 315, "lt_uteis": 1.7, "pct_ativ": NaN}}, "Paraíba": {"Outros": {"pedidos": 16, "lt_uteis": 4.5, "pct_ativ": NaN}, "FULL": {"pedidos": 76, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Pará": {"Outros": {"pedidos": 117, "lt_uteis": 5.4, "pct_ativ": NaN}, "FULL": {"pedidos": 221, "lt_uteis": 4.7, "pct_ativ": NaN}}, "Pernambuco": {"Outros": {"pedidos": 53, "lt_uteis": 3.8, "pct_ativ": NaN}, "FULL": {"pedidos": 233, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Piauí": {"Outros": {"pedidos": 34, "lt_uteis": 5.1, "pct_ativ": NaN}, "FULL": {"pedidos": 70, "lt_uteis": 2.6, "pct_ativ": NaN}}, "Rio Grande do Norte": {"Outros": {"pedidos": 26, "lt_uteis": 4.5, "pct_ativ": NaN}, "FULL": {"pedidos": 47, "lt_uteis": 2.1, "pct_ativ": NaN}}, "Rio Grande do Sul": {"Outros": {"pedidos": 35, "lt_uteis": 3.2, "pct_ativ": NaN}, "FULL": {"pedidos": 202, "lt_uteis": 1.9, "pct_ativ": NaN}}, "Rio de Janeiro": {"Outros": {"pedidos": 91, "lt_uteis": 2.2, "pct_ativ": NaN}, "FULL": {"pedidos": 416, "lt_uteis": 1.5, "pct_ativ": NaN}}, "Rondônia": {"Outros": {"pedidos": 14, "lt_uteis": 5.4, "pct_ativ": NaN}, "FULL": {"pedidos": 34, "lt_uteis": 5.9, "pct_ativ": NaN}}, "Roraima": {"Outros": {"pedidos": 1, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"Outros": {"pedidos": 49, "lt_uteis": 2.7, "pct_ativ": NaN}, "FULL": {"pedidos": 225, "lt_uteis": 1.7, "pct_ativ": NaN}}, "Sergipe": {"Outros": {"pedidos": 15, "lt_uteis": 3.7, "pct_ativ": NaN}, "FULL": {"pedidos": 58, "lt_uteis": 2.0, "pct_ativ": NaN}}, "São Paulo": {"Outros": {"pedidos": 406, "lt_uteis": 2.0, "pct_ativ": NaN}, "FULL": {"pedidos": 1870, "lt_uteis": 1.3, "pct_ativ": NaN}}, "Tocantins": {"Outros": {"pedidos": 28, "lt_uteis": 5.0, "pct_ativ": NaN}, "FULL": {"pedidos": 40, "lt_uteis": 3.5, "pct_ativ": NaN}}}, "Fev/26": {"Acre": {"Outros": {"pedidos": 1, "lt_uteis": 11.0, "pct_ativ": 0.0}}, "Alagoas": {"Outros": {"pedidos": 10, "lt_uteis": 4.7, "pct_ativ": 90.0}}, "Amapá": {"Outros": {"pedidos": 2, "lt_uteis": 15.0, "pct_ativ": 0.0}}, "Amazonas": {"Outros": {"pedidos": 7, "lt_uteis": 15.0, "pct_ativ": NaN}}, "Bahia": {"Outros": {"pedidos": 61, "lt_uteis": 3.2, "pct_ativ": NaN}}, "Ceará": {"Outros": {"pedidos": 10, "lt_uteis": 4.2, "pct_ativ": 90.0}}, "Espírito Santo": {"Outros": {"pedidos": 5, "lt_uteis": 4.2, "pct_ativ": 60.0}}, "Goiás": {"Outros": {"pedidos": 61, "lt_uteis": 3.1, "pct_ativ": NaN}, "FULL": {"pedidos": 1, "lt_uteis": 2.0, "pct_ativ": 100.0}}, "Maranhão": {"Outros": {"pedidos": 21, "lt_uteis": 4.6, "pct_ativ": NaN}, "FULL": {"pedidos": 4, "lt_uteis": 2.0, "pct_ativ": 75.0}}, "Mato Grosso": {"Outros": {"pedidos": 18, "lt_uteis": 5.3, "pct_ativ": NaN}}, "Mato Grosso do Sul": {"Outros": {"pedidos": 7, "lt_uteis": 2.1, "pct_ativ": 100.0}}, "Minas Gerais": {"Outros": {"pedidos": 63, "lt_uteis": 2.5, "pct_ativ": NaN}, "FULL": {"pedidos": 49, "lt_uteis": 2.4, "pct_ativ": NaN}}, "Paraná": {"Outros": {"pedidos": 24, "lt_uteis": 2.2, "pct_ativ": NaN}}, "Paraíba": {"Outros": {"pedidos": 2, "lt_uteis": 4.5, "pct_ativ": 50.0}}, "Pará": {"Outros": {"pedidos": 45, "lt_uteis": 5.6, "pct_ativ": 108.9}}, "Pernambuco": {"Outros": {"pedidos": 23, "lt_uteis": 3.6, "pct_ativ": NaN}}, "Piauí": {"Outros": {"pedidos": 14, "lt_uteis": 5.0, "pct_ativ": 57.1}}, "Rio Grande do Norte": {"Outros": {"pedidos": 12, "lt_uteis": 4.3, "pct_ativ": 158.3}}, "Rio Grande do Sul": {"Outros": {"pedidos": 18, "lt_uteis": 3.2, "pct_ativ": NaN}}, "Rio de Janeiro": {"Outros": {"pedidos": 41, "lt_uteis": 2.2, "pct_ativ": 87.8}}, "Rondônia": {"Outros": {"pedidos": 2, "lt_uteis": 5.0, "pct_ativ": NaN}}, "Roraima": {"Outros": {"pedidos": 1, "lt_uteis": null, "pct_ativ": 0.0}}, "Santa Catarina": {"Outros": {"pedidos": 22, "lt_uteis": 3.1, "pct_ativ": NaN}}, "Sergipe": {"Outros": {"pedidos": 3, "lt_uteis": 4.0, "pct_ativ": 66.7}}, "São Paulo": {"Outros": {"pedidos": 180, "lt_uteis": 1.7, "pct_ativ": NaN}}, "Tocantins": {"Outros": {"pedidos": 13, "lt_uteis": 5.3, "pct_ativ": 123.1}}}, "Mar/26": {"Acre": {"Outros": {"pedidos": 5, "lt_uteis": 10.0, "pct_ativ": NaN}, "FULL": {"pedidos": 2, "lt_uteis": 7.0, "pct_ativ": 100.0}}, "Alagoas": {"FULL": {"pedidos": 83, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 5, "lt_uteis": 4.2, "pct_ativ": 60.0}}, "Amapá": {"Outros": {"pedidos": 3, "lt_uteis": null, "pct_ativ": 0.0}}, "Amazonas": {"Outros": {"pedidos": 9, "lt_uteis": null, "pct_ativ": 0.0}, "FULL": {"pedidos": 11, "lt_uteis": 2.8, "pct_ativ": NaN}}, "Bahia": {"FULL": {"pedidos": 708, "lt_uteis": 2.2, "pct_ativ": NaN}, "Outros": {"pedidos": 72, "lt_uteis": 3.4, "pct_ativ": NaN}}, "Ceará": {"FULL": {"pedidos": 140, "lt_uteis": 2.4, "pct_ativ": NaN}, "Outros": {"pedidos": 16, "lt_uteis": 4.4, "pct_ativ": 175.0}}, "Espírito Santo": {"FULL": {"pedidos": 74, "lt_uteis": 2.2, "pct_ativ": NaN}, "Outros": {"pedidos": 11, "lt_uteis": 2.9, "pct_ativ": 62.5}}, "Goiás": {"FULL": {"pedidos": 305, "lt_uteis": 2.5, "pct_ativ": NaN}, "Outros": {"pedidos": 139, "lt_uteis": 2.7, "pct_ativ": NaN}}, "Maranhão": {"FULL": {"pedidos": 189, "lt_uteis": 3.5, "pct_ativ": NaN}, "Outros": {"pedidos": 41, "lt_uteis": 4.7, "pct_ativ": NaN}}, "Mato Grosso": {"FULL": {"pedidos": 155, "lt_uteis": 3.8, "pct_ativ": NaN}, "Outros": {"pedidos": 33, "lt_uteis": 4.8, "pct_ativ": NaN}}, "Mato Grosso do Sul": {"FULL": {"pedidos": 101, "lt_uteis": 2.0, "pct_ativ": NaN}, "Outros": {"pedidos": 13, "lt_uteis": 2.6, "pct_ativ": NaN}}, "Minas Gerais": {"FULL": {"pedidos": 1056, "lt_uteis": 1.9, "pct_ativ": NaN}, "Outros": {"pedidos": 78, "lt_uteis": 2.5, "pct_ativ": NaN}}, "Paraná": {"Outros": {"pedidos": 48, "lt_uteis": 2.2, "pct_ativ": NaN}, "FULL": {"pedidos": 315, "lt_uteis": 1.7, "pct_ativ": NaN}}, "Paraíba": {"FULL": {"pedidos": 76, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 14, "lt_uteis": 4.5, "pct_ativ": NaN}}, "Pará": {"FULL": {"pedidos": 221, "lt_uteis": 4.7, "pct_ativ": NaN}, "Outros": {"pedidos": 72, "lt_uteis": 5.3, "pct_ativ": NaN}}, "Pernambuco": {"FULL": {"pedidos": 233, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 30, "lt_uteis": 4.0, "pct_ativ": NaN}}, "Piauí": {"FULL": {"pedidos": 70, "lt_uteis": 2.6, "pct_ativ": NaN}, "Outros": {"pedidos": 20, "lt_uteis": 5.3, "pct_ativ": NaN}}, "Rio Grande do Norte": {"FULL": {"pedidos": 47, "lt_uteis": 2.1, "pct_ativ": NaN}, "Outros": {"pedidos": 14, "lt_uteis": 4.8, "pct_ativ": NaN}}, "Rio Grande do Sul": {"FULL": {"pedidos": 202, "lt_uteis": 1.9, "pct_ativ": NaN}, "Outros": {"pedidos": 17, "lt_uteis": 3.3, "pct_ativ": NaN}}, "Rio de Janeiro": {"FULL": {"pedidos": 416, "lt_uteis": 1.5, "pct_ativ": NaN}, "Outros": {"pedidos": 50, "lt_uteis": 2.3, "pct_ativ": NaN}}, "Rondônia": {"FULL": {"pedidos": 34, "lt_uteis": 5.9, "pct_ativ": NaN}, "Outros": {"pedidos": 12, "lt_uteis": 5.5, "pct_ativ": NaN}}, "Santa Catarina": {"FULL": {"pedidos": 225, "lt_uteis": 1.7, "pct_ativ": NaN}, "Outros": {"pedidos": 27, "lt_uteis": 2.5, "pct_ativ": NaN}}, "Sergipe": {"Outros": {"pedidos": 12, "lt_uteis": 3.6, "pct_ativ": NaN}, "FULL": {"pedidos": 58, "lt_uteis": 2.0, "pct_ativ": NaN}}, "São Paulo": {"FULL": {"pedidos": 1870, "lt_uteis": 1.3, "pct_ativ": NaN}, "Outros": {"pedidos": 226, "lt_uteis": 2.2, "pct_ativ": NaN}}, "Tocantins": {"FULL": {"pedidos": 40, "lt_uteis": 3.5, "pct_ativ": NaN}, "Outros": {"pedidos": 15, "lt_uteis": 4.5, "pct_ativ": NaN}}}}};
 
 Chart.defaults.font.family = "'Segoe UI',Arial,sans-serif";
 Chart.defaults.font.size   = 11;
@@ -674,79 +533,68 @@ const optsLeg=(u='')=>{
   const o=opts(u); o.plugins.legend={display:true,position:'bottom'}; return o;
 };
 
-// Delta (Outros - FULL)
-const delta=D.ltOthers.map((v,i)=>v&&D.ltFULL[i]?+(v-D.ltFULL[i]).toFixed(1):null);
-
-new Chart(document.getElementById('cLT'),  {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.ltFULL,FULL),line('Outros',D.ltOthers,OTH,[5,3])]},options:optsLeg(' d')});
-new Chart(document.getElementById('cDelta'),{type:'bar', data:{labels:D.labels,datasets:[bar('Dias ganhos',delta,GRN)]},options:opts(' d')});
-new Chart(document.getElementById('cAtiv'), {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.atFULL,FULL),line('Outros',D.atOthers,OTH,[5,3])]},options:optsLeg('%')});
-new Chart(document.getElementById('cTPV'),  {type:'bar', data:{labels:D.labels,datasets:[bar('FULL',D.tpvFULL,FULL),bar('Outros',D.tpvOthers,OTH)]},options:optsLeg('')});
-new Chart(document.getElementById('cTPVInc'), {type:'bar', data:{labels:D.labels,datasets:[bar('Realizado',D.incSem,'#7B5EF8')]},options:opts('')});
-new Chart(document.getElementById('cTPVPot'), {type:'bar', data:{labels:D.labels,datasets:[bar('Potencial',D.incPotSem,'#D97706')]},options:opts('')});
+// ── Aba 2 — Executivo ──────────────────────────────────────────────────────
 new Chart(document.getElementById('cExLT'),{type:'line',data:{labels:D.labels,datasets:[line('FULL',D.ltFULL,FULL),line('Outros',D.ltOthers,OTH,[5,3])]},options:optsLeg(' d')});
 new Chart(document.getElementById('cExAt'),{type:'line',data:{labels:D.labels,datasets:[line('FULL',D.atFULL,FULL),line('Outros',D.atOthers,OTH,[5,3])]},options:optsLeg('%')});
 
-// Dias até 1ª transação
-new Chart(document.getElementById('cD1a'),{type:'bar',data:{labels:D.labels,datasets:[bar('FULL',D.d1aFULL,FULL),bar('Outros',D.d1aOthers,OTH)]},options:optsLeg(' d')});
-new Chart(document.getElementById('cD1aTotal'),{type:'bar',data:{labels:D.labels,datasets:[bar('LT Entrega FULL',D.ltFULL,FULL),bar('LT Entrega Outros',D.ltOthers,OTH)]},options:optsLeg(' d')});
-
-
-// Aba 5 — Comparativo Mensal
+// ── Aba 3 — Mensal ─────────────────────────────────────────────────────────
 if(D.mesLabels && D.mesLabels.length>0){
   const mesDelta=D.mesLtOthers.map((v,i)=>v&&D.mesLtFULL[i]?+(v-D.mesLtFULL[i]).toFixed(1):null);
   new Chart(document.getElementById('cMesLT'),   {type:'line',data:{labels:D.mesLabels,datasets:[line('FULL',D.mesLtFULL,FULL),line('Outros',D.mesLtOthers,OTH,[5,3])]},options:optsLeg(' d')});
-  new Chart(document.getElementById('cMesDelta'),{type:'line',data:{labels:D.mesLabels,datasets:[line('Dias ganhos',mesDelta,GRN)]},options:opts(' d')});
+  new Chart(document.getElementById('cMesDelta'),{type:'bar', data:{labels:D.mesLabels,datasets:[bar('Dias ganhos',mesDelta,GRN)]},options:opts(' d')});
   new Chart(document.getElementById('cMesAtiv'), {type:'line',data:{labels:D.mesLabels,datasets:[line('FULL',D.mesAtFULL,FULL),line('Outros',D.mesAtOthers,OTH,[5,3])]},options:optsLeg('%')});
-  new Chart(document.getElementById('cMesTPV'),      {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesTpvFULL,FULL),bar('Outros',D.mesTpvOthers,OTH)]},options:optsLeg('')});
-  new Chart(document.getElementById('cMesTPVInc'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('Realizado',D.incMes,'#7B5EF8')]},options:opts('')});
-  new Chart(document.getElementById('cMesTPVPot'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('Potencial',D.incPotMes,'#D97706')]},options:opts('')});
   new Chart(document.getElementById('cMesPed'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesPedFULL,FULL),bar('Outros',D.mesPedOthers,OTH)]},options:optsLeg('')});
   new Chart(document.getElementById('cMesD1a'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesD1aFULL,FULL),bar('Outros',D.mesD1aOthers,OTH)]},options:optsLeg(' d')});
+  new Chart(document.getElementById('cMesEnt'),  {type:'bar', data:{labels:D.mesLabels,datasets:[bar('FULL',D.mesEntFULL,FULL),bar('Outros',D.mesEntOthers,OTH)]},options:optsLeg('')});
 }
 
-// ── Tabela por Estado com filtro de mês ───────────────────────────────────
-function initEstadoTable(){
-  if(initEstadoTable._done) return;
-  initEstadoTable._done = true;
+// ── Aba 4 — Semanal ────────────────────────────────────────────────────────
+const delta=D.ltOthers.map((v,i)=>v&&D.ltFULL[i]?+(v-D.ltFULL[i]).toFixed(1):null);
+new Chart(document.getElementById('cLT'),    {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.ltFULL,FULL),line('Outros',D.ltOthers,OTH,[5,3])]},options:optsLeg(' d')});
+new Chart(document.getElementById('cDelta'), {type:'bar', data:{labels:D.labels,datasets:[bar('Dias ganhos',delta,GRN)]},options:opts(' d')});
+new Chart(document.getElementById('cAtiv'),  {type:'line',data:{labels:D.labels,datasets:[line('FULL',D.atFULL,FULL),line('Outros',D.atOthers,OTH,[5,3])]},options:optsLeg('%')});
+new Chart(document.getElementById('cAtiv7d'),{type:'line',data:{labels:D.labels,datasets:[line('FULL',D.at7dFULL,FULL),line('Outros',D.at7dOthers,OTH,[5,3])]},options:optsLeg('%')});
+const totalFULL  = D.ltFULL.map((v,i)=>v&&D.d1aFULL[i]  ? +(v+D.d1aFULL[i]).toFixed(1)  : null);
+const totalOth   = D.ltOthers.map((v,i)=>v&&D.d1aOthers[i]? +(v+D.d1aOthers[i]).toFixed(1): null);
+new Chart(document.getElementById('cD1a'),      {type:'bar',data:{labels:D.labels,datasets:[bar('FULL',D.d1aFULL,FULL),bar('Outros',D.d1aOthers,OTH)]},options:optsLeg(' d')});
+new Chart(document.getElementById('cD1aTotal'), {type:'bar',data:{labels:D.labels,datasets:[bar('FULL (LT+1ªTrx)',totalFULL,FULL),bar('Outros (LT+1ªTrx)',totalOth,OTH)]},options:optsLeg(' d')});
 
-  const mesLabels = D.estMesLabels;
+// ── Aba 5 — Por Estado ─────────────────────────────────────────────────────
+(function(){
   const dataMap = {
     'Todos':        D.estMesData,
     'Capital + RM': D.estMesDataCapRM,
     'Interior':     D.estMesDataInt,
   };
   let curRegiao = 'Todos';
-  let curMes    = mesLabels[mesLabels.length - 1];
+  let curMes    = D.estMesLabels[D.estMesLabels.length - 1];
+  const tbody   = document.getElementById('estTbody');
 
-  // Botões de região
+  // Botões de Região
   const regiaoBtns = document.getElementById('estRegiaoBtns');
   ['Todos','Capital + RM','Interior'].forEach((r, i) => {
     const btn = document.createElement('button');
+    btn.className = 'filter-btn' + (i === 0 ? ' active' : '');
     btn.textContent = r;
-    btn.style.cssText = `padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;
-      cursor:pointer;border:1px solid #D1D5DB;background:${i===0?'#374151':'#fff'};
-      color:${i===0?'#fff':'#374151'};transition:all .15s`;
     btn.onclick = () => {
-      regiaoBtns.querySelectorAll('button').forEach(b=>{b.style.background='#fff';b.style.color='#374151';});
-      btn.style.background='#374151'; btn.style.color='#fff';
+      regiaoBtns.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
       curRegiao = r;
       renderEstado(curMes);
     };
     regiaoBtns.appendChild(btn);
   });
 
-  // Botões de mês
+  // Botões de Mês
   const mesBtns = document.getElementById('estMesBtns');
-  mesLabels.forEach((m, i) => {
+  D.estMesLabels.forEach((m, i) => {
     const btn = document.createElement('button');
+    const isLast = i === D.estMesLabels.length - 1;
+    btn.className = 'filter-btn' + (isLast ? ' active' : '');
     btn.textContent = m;
-    const isLast = i === mesLabels.length - 1;
-    btn.style.cssText = `padding:4px 12px;border-radius:20px;font-size:12px;font-weight:600;
-      cursor:pointer;border:1px solid #D1D5DB;background:${isLast?'#2D73F5':'#fff'};
-      color:${isLast?'#fff':'#374151'};transition:all .15s`;
     btn.onclick = () => {
-      mesBtns.querySelectorAll('button').forEach(b=>{b.style.background='#fff';b.style.color='#374151';});
-      btn.style.background='#2D73F5'; btn.style.color='#fff';
+      mesBtns.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
       curMes = m;
       renderEstado(curMes);
     };
@@ -757,54 +605,43 @@ function initEstadoTable(){
     const mesData = dataMap[curRegiao] || D.estMesData;
     const d = mesData[mesLabel] || {};
     const estados = Object.keys(d).sort((a,b) => {
-      const pf = v => (d[v] && d[v]['FULL'] && d[v]['FULL'].pedidos) || 0;
       const hasFull = v => d[v] && d[v]['FULL'];
       if(hasFull(a) && !hasFull(b)) return -1;
-      if(!hasFull(a) && hasFull(b)) return 1;
-      return pf(b) - pf(a);
+      if(!hasFull(a) && hasFull(b)) return  1;
+      return ((d[b]?.FULL?.pedidos||0)+(d[b]?.Outros?.pedidos||0))
+           - ((d[a]?.FULL?.pedidos||0)+(d[a]?.Outros?.pedidos||0));
     });
+    const totFull   = estados.reduce((s,e) => s + (d[e]?.FULL?.pedidos   || 0), 0);
+    const totOutros = estados.reduce((s,e) => s + (d[e]?.Outros?.pedidos || 0), 0);
 
-    const totFull   = estados.reduce((s,e) => s + ((d[e]?.FULL?.pedidos)   || 0), 0);
-    const totOutros = estados.reduce((s,e) => s + ((d[e]?.Outros?.pedidos) || 0), 0);
-
-    const fmtLt  = v => v != null ? v + ' d' : '—';
-    const fmtPct = (n, tot) => tot > 0 ? (n/tot*100).toFixed(1)+'%' : '—';
-
-    const rows = estados.map(e => {
-      const f = d[e]?.FULL   || {};
-      const o = d[e]?.Outros || {};
+    tbody.innerHTML = estados.map(e => {
+      const f  = d[e]?.FULL   || {};
+      const o  = d[e]?.Outros || {};
       const pf = f.pedidos || 0, po = o.pedidos || 0;
-      const lf = f.lt_uteis, lo = o.lt_uteis;
-      const dlt = (lf != null && lo != null) ? (lo - lf).toFixed(1) : null;
-      const dltStr = dlt != null ? `−${dlt}d` : '—';
-      const dltCls = dlt > 0 ? 'style="color:#00C48C;font-weight:700"' : '';
+      const lf = f.lt_uteis != null ? f.lt_uteis + ' d' : '—';
+      const lo = o.lt_uteis != null ? o.lt_uteis + ' d' : '—';
+      const af = f.pct_ativ != null ? f.pct_ativ + '%' : '—';
+      const ao = o.pct_ativ != null ? o.pct_ativ + '%' : '—';
+      const pctF = totFull   > 0 ? (pf/totFull*100).toFixed(1)+'%'   : '—';
+      const pctO = totOutros > 0 ? (po/totOutros*100).toFixed(1)+'%' : '—';
+      const dlt  = (f.lt_uteis != null && o.lt_uteis != null && (o.lt_uteis - f.lt_uteis) > 0)
+                   ? `<span class="positive">−${(o.lt_uteis-f.lt_uteis).toFixed(1)}d</span>`
+                   : '—';
       return `<tr>
         <td style="font-weight:700">${e}</td>
-        <td>${pf.toLocaleString('pt-BR')}</td>
-        <td>${fmtPct(pf, totFull)}</td>
-        <td>${fmtLt(lf)}</td>
-        <td>${po.toLocaleString('pt-BR')}</td>
-        <td>${fmtPct(po, totOutros)}</td>
-        <td>${fmtLt(lo)}</td>
-        <td ${dltCls}>${dltStr}</td>
+        <td>${pf.toLocaleString('pt-BR')}</td><td>${pctF}</td><td>${lf}</td>
+        <td>${po.toLocaleString('pt-BR')}</td><td>${pctO}</td><td>${lo}</td>
+        <td>${af}</td><td>${ao}</td><td>${dlt}</td>
       </tr>`;
-    }).join('');
-
-    document.getElementById('estTbody').innerHTML = rows || '<tr><td colspan="8" style="text-align:center;color:#9CA3AF;padding:20px">Sem dados para esta seleção</td></tr>';
+    }).join('') || '<tr><td colspan="10" style="text-align:center;color:#9CA3AF;padding:20px">Sem dados</td></tr>';
   }
 
   renderEstado(curMes);
-}
+})();
 
-// Mapeamento: índice do tab → índice do pane no DOM
-// Tab 0=Contexto→pane0, Tab 1=Executiva→pane3, Tab 2=Mensal→pane1,
-// Tab 3=Semanal→pane2, Tab 4=Estado→pane4
 function show(n){
-  const pMap=[0,3,1,2,4];
   document.querySelectorAll('.tab').forEach((t,i)=>t.classList.toggle('active',i===n));
-  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===pMap[n]));
-  setTimeout(()=>window.dispatchEvent(new Event('resize')),50);
-  if(n===4) initEstadoTable();
+  document.querySelectorAll('.pane').forEach((p,i)=>p.classList.toggle('active',i===n));
 }
 </script>
 </body>
