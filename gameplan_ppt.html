@@ -1274,91 +1274,199 @@ html, body {
      SLIDE 6 — Políticas
      ============================================================ -->
 <div class="slide content-slide" id="s7">
+  <style>
+  #s7 { background:#F8FAFC; }
+  #s7 .s7-body { flex:1; display:grid; grid-template-columns:58% 1fr; gap:14px; padding:6px 20px 10px; min-height:0; overflow:hidden; }
+
+  /* ── Left panel ── */
+  #s7 .s7-results { display:flex; flex-direction:column; gap:8px; min-height:0; }
+  #s7 .s7-panel-hdr { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.7px; color:#fff; background:#1a4a8a; border-radius:8px 8px 0 0; padding:6px 14px; display:flex; align-items:center; gap:7px; flex-shrink:0; }
+  #s7 .s7-policy-strip { background:#fff; border:1px solid #E2E8F0; border-radius:0 0 8px 8px; padding:7px 14px; display:grid; grid-template-columns:1fr 1fr; gap:6px; font-size:9.5px; color:#64748B; flex-shrink:0; }
+  #s7 .s7-policy-site-name { font-size:11px; font-weight:800; color:#1a1a2e; margin-bottom:1px; }
+  #s7 .s7-kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; flex:1; min-height:0; }
+  #s7 .s7-site-card { background:#fff; border-radius:10px; border:1px solid #E2E8F0; padding:11px 13px; display:flex; flex-direction:column; gap:7px; box-shadow:0 1px 6px rgba(0,0,0,.05); overflow:hidden; }
+  #s7 .s7-card-hdr { display:flex; align-items:center; gap:8px; padding-bottom:7px; border-bottom:2px solid #F1F5F9; flex-shrink:0; }
+  #s7 .s7-card-site { font-size:17px; font-weight:900; color:#1a1a2e; }
+  #s7 .s7-card-badge { font-size:8px; font-weight:800; background:#DBEAFE; color:#1D4ED8; padding:2px 8px; border-radius:8px; text-transform:uppercase; margin-left:auto; }
+  #s7 .s7-big-kpi { display:grid; grid-template-columns:1fr 1fr; gap:6px; flex-shrink:0; }
+  #s7 .s7-kpi-block { background:#F8FAFC; border-radius:8px; padding:7px 9px; }
+  #s7 .s7-kpi-lbl { font-size:8px; font-weight:700; color:#94A3B8; text-transform:uppercase; letter-spacing:.04em; margin-bottom:1px; }
+  #s7 .s7-kpi-num { font-size:22px; font-weight:900; line-height:1; }
+  #s7 .s7-kpi-sub { font-size:8px; color:#94A3B8; margin-top:1px; }
+  #s7 .s7-metrics { display:flex; flex-direction:column; gap:0; flex-shrink:0; }
+  #s7 .s7-metric-row { display:flex; align-items:center; justify-content:space-between; font-size:10.5px; padding:4px 0; border-bottom:1px solid #F1F5F9; }
+  #s7 .s7-metric-lbl { color:#64748B; font-weight:600; }
+  #s7 .s7-metric-val { font-weight:800; color:#1a4a8a; display:flex; align-items:center; gap:4px; }
+  #s7 .s7-metric-mom { font-size:8.5px; font-weight:600; }
+  #s7 .s7-post { background:#FFFBEB; border-radius:7px; padding:6px 9px; flex-shrink:0; }
+  #s7 .s7-post-lbl { font-size:7.5px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#92400E; margin-bottom:3px; }
+  #s7 .s7-post-row { display:flex; justify-content:space-between; font-size:10px; color:#78350F; font-weight:700; line-height:1.6; }
+
+  /* ── Right panel ── */
+  #s7 .s7-opp { display:flex; flex-direction:column; gap:0; min-height:0; }
+  #s7 .s7-opp-hdr { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.7px; color:#fff; background:#276749; border-radius:8px 8px 0 0; padding:6px 14px; display:flex; align-items:center; gap:7px; flex-shrink:0; }
+  #s7 .s7-opp-inner { background:#fff; border:1px solid #E2E8F0; border-radius:0 0 10px 10px; padding:12px 14px; display:flex; flex-direction:column; gap:9px; flex:1; overflow:hidden; }
+  #s7 .s7-opp-site { background:#F8FAFC; border-radius:9px; padding:10px 12px; display:flex; flex-direction:column; gap:5px; }
+  #s7 .s7-opp-site-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:3px; }
+  #s7 .s7-opp-site-name { font-size:15px; font-weight:900; color:#1a1a2e; }
+  #s7 .s7-opp-badge { font-size:8px; font-weight:800; background:#FEE2E2; color:#991B1B; padding:2px 8px; border-radius:8px; text-transform:uppercase; }
+  #s7 .s7-opp-rules { font-size:9.5px; color:#475569; line-height:1.65; }
+  #s7 .s7-opp-rules b { color:#1a1a2e; }
+  #s7 .s7-opp-impact { background:#F0FFF4; border:1px solid #9AE6B4; border-radius:9px; padding:9px 12px; }
+  #s7 .s7-opp-impact-ttl { font-size:8px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:#276749; margin-bottom:5px; }
+  #s7 .s7-opp-impact-row { display:flex; justify-content:space-between; font-size:10px; color:#064E3B; margin-bottom:2px; line-height:1.5; }
+  #s7 .s7-opp-impact-row b { font-weight:800; }
+  #s7 .s7-cta { background:#1a1a2e; border-radius:9px; padding:10px 14px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  #s7 .s7-cta-lbl { font-size:8.5px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,255,255,.5); margin-bottom:2px; }
+  #s7 .s7-cta-val { font-size:15px; font-weight:900; color:#FFD000; }
+  </style>
+
   <div class="slide-header">
     <span class="breadcrumb-pill bp-red">Solicitudes de recambio</span>
     <span class="breadcrumb-sep">|</span>
     <span class="breadcrumb-page">Políticas de recambios</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">Bloqueos activos en MLB y MLA; MLM y MLC todavía sin barrera</div>
-    <div style="flex:1;min-height:0;display:flex;flex-direction:column;">
-      <table class="policy-table">
-        <thead>
-          <tr>
-            <th></th>
-            <th>MLA 🇦🇷</th>
-            <th>MLB 🇧🇷</th>
-            <th>MLC 🇨🇱</th>
-            <th>MLM 🇲🇽</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="row-label">Reglas de Política</td>
-            <td>BS &amp; SMB: garantizado<br><span style="color:var(--muted);font-size:11px;">LT: TPV ≥ AR$1.8M/3m</span></td>
-            <td>BS &amp; SMB: garantizado<br><span style="color:var(--muted);font-size:11px;">LT: TPV ≥ R$1.5k/3m</span></td>
-            <td>BS, SMB &amp; HILO: garantizado</td>
-            <td>BS, SMB &amp; HILO: garantizado<br><span style="color:var(--muted);font-size:11px;">MILO Y LOLO: TPV ≥ MXN$5k/3m</span></td>
-          </tr>
-          <tr>
-            <td class="row-label">Garantía del device</td>
-            <td>Device age ≤ 12 meses</td>
-            <td>Device age ≤ 3 meses</td>
-            <td>Device age ≤ 12 meses</td>
-            <td>Device age ≤ 12 meses</td>
-          </tr>
-          <tr>
-            <td class="row-label">Sellers bloqueados</td>
-            <td><span class="blocked-num">2.122</span></td>
-            <td><span class="blocked-num">7.529</span></td>
-            <td><span class="no-data">—</span></td>
-            <td><span class="no-data">—</span></td>
-          </tr>
-          <tr>
-            <td class="row-label">Ahorro del costo</td>
-            <td><span class="saving">USD 192k</span></td>
-            <td><span class="saving">USD 90.3k</span></td>
-            <td><span class="no-data">—</span></td>
-            <td><span class="no-data">—</span></td>
-          </tr>
-          <tr>
-            <td class="row-label">NPS CS</td>
-            <td><span class="nps-val">33%</span></td>
-            <td><span class="nps-val">37,9%</span> <span class="mom-pos">(+5pp MoM)</span></td>
-            <td><span class="no-data">—</span></td>
-            <td><span class="no-data">—</span></td>
-          </tr>
-          <tr>
-            <td class="row-label">CSAT</td>
-            <td><span class="nps-val">45,5%</span></td>
-            <td><span class="nps-val">43,3%</span> <span class="mom-neg">(-2,5pp MoM)</span></td>
-            <td><span class="no-data">—</span></td>
-            <td><span class="no-data">—</span></td>
-          </tr>
-          <tr class="row-highlight">
-            <td class="row-label">Uso de Point TAP<br><span style="font-size:11px;font-weight:400;color:var(--muted);">post bloqueo</span></td>
-            <td><span class="tap-val">6%</span></td>
-            <td><span class="tap-val">8,8%</span> <span class="mom-neg">(-0,5pp MoM)</span></td>
-            <td><span class="no-data">—</span></td>
-            <td><span class="no-data">—</span></td>
-          </tr>
-          <tr class="row-highlight">
-            <td class="row-label">Compra de device<br><span style="font-size:11px;font-weight:400;color:var(--muted);">post bloqueo</span></td>
-            <td><span class="tap-val">27,9%</span></td>
-            <td><span class="tap-val">16,8%</span> <span class="mom-neu">(0pp MoM)</span></td>
-            <td><span class="no-data">—</span></td>
-            <td><span class="no-data">—</span></td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <div style="margin-top:8px; display:flex; gap:12px; flex-shrink:0;">
-      <div style="flex:1; background:#FFFBEB; border:1px solid #F6E05E; border-radius:8px; padding:10px 14px; font-size:11px; color:#92400E;">
-        <b>MLB &amp; MLA:</b> política activa con bloqueos ejecutados. Ahorro total estimado: <b>USD 282k/mes</b>. NPS CS sin impacto negativo significativo.
+    <div class="slide-title">Política activa genera <b>USD 282k/mes</b> de ahorro — MLM &amp; MLC listos para activar</div>
+
+    <div class="s7-body">
+
+      <!-- ── LEFT: Resultados ── -->
+      <div class="s7-results">
+        <div>
+          <div class="s7-panel-hdr">✅ Política Activa — Resultados</div>
+          <div class="s7-policy-strip">
+            <div>
+              <div class="s7-policy-site-name">MLA 🇦🇷</div>
+              BS &amp; SMB: garantizado · LT: TPV ≥ AR$1.8M/3m · Device ≤ 12m
+            </div>
+            <div>
+              <div class="s7-policy-site-name">MLB 🇧🇷</div>
+              BS &amp; SMB: garantizado · LT: TPV ≥ R$1.5k/3m · Device ≤ 3m
+            </div>
+          </div>
+        </div>
+
+        <div class="s7-kpi-grid">
+          <!-- MLA -->
+          <div class="s7-site-card">
+            <div class="s7-card-hdr">
+              <img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷">
+              <span class="s7-card-site">MLA</span>
+              <span class="s7-card-badge">Política activa</span>
+            </div>
+            <div class="s7-big-kpi">
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Sellers bloqueados</div>
+                <div class="s7-kpi-num" style="color:#E53E3E;">2.122</div>
+                <div class="s7-kpi-sub">inelegibles/mes</div>
+              </div>
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Ahorro estimado</div>
+                <div class="s7-kpi-num" style="color:#276749;">192k</div>
+                <div class="s7-kpi-sub">USD/mes</div>
+              </div>
+            </div>
+            <div class="s7-metrics">
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">NPS CS</span>
+                <span class="s7-metric-val">33%</span>
+              </div>
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">CSAT</span>
+                <span class="s7-metric-val">45,5%</span>
+              </div>
+            </div>
+            <div class="s7-post">
+              <div class="s7-post-lbl">Post bloqueo</div>
+              <div class="s7-post-row"><span>Uso Point TAP</span><span>6%</span></div>
+              <div class="s7-post-row"><span>Compra de device</span><span>27,9%</span></div>
+            </div>
+          </div>
+
+          <!-- MLB -->
+          <div class="s7-site-card">
+            <div class="s7-card-hdr">
+              <img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷">
+              <span class="s7-card-site">MLB</span>
+              <span class="s7-card-badge">Política activa</span>
+            </div>
+            <div class="s7-big-kpi">
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Sellers bloqueados</div>
+                <div class="s7-kpi-num" style="color:#E53E3E;">7.529</div>
+                <div class="s7-kpi-sub">inelegibles/mes</div>
+              </div>
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Ahorro estimado</div>
+                <div class="s7-kpi-num" style="color:#276749;">90,3k</div>
+                <div class="s7-kpi-sub">USD/mes</div>
+              </div>
+            </div>
+            <div class="s7-metrics">
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">NPS CS</span>
+                <span class="s7-metric-val">37,9% <span class="s7-metric-mom" style="color:#276749;">(+5pp MoM)</span></span>
+              </div>
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">CSAT</span>
+                <span class="s7-metric-val">43,3% <span class="s7-metric-mom" style="color:#C53030;">(-2,5pp MoM)</span></span>
+              </div>
+            </div>
+            <div class="s7-post">
+              <div class="s7-post-lbl">Post bloqueo</div>
+              <div class="s7-post-row"><span>Uso Point TAP</span><span>8,8% <span style="font-size:8.5px;color:#C53030;">(-0,5pp)</span></span></div>
+              <div class="s7-post-row"><span>Compra de device</span><span>16,8% <span style="font-size:8.5px;color:#94A3B8;">(0pp)</span></span></div>
+            </div>
+          </div>
+        </div>
       </div>
-      <div style="flex:1; background:#F0FFF4; border:1px solid #9AE6B4; border-radius:8px; padding:10px 14px; font-size:11px; color:#276749;">
-        <b>MLM &amp; MLC:</b> política definida, sin barrera activa. Oportunidad de implementar bloqueos para reducir recambios indebidos en Q2/26. <b>Fecha de implementación: hasta 30/04.</b>
+
+      <!-- ── RIGHT: Oportunidad ── -->
+      <div class="s7-opp">
+        <div class="s7-opp-hdr">🎯 Oportunidad — MLM &amp; MLC</div>
+        <div class="s7-opp-inner">
+          <div class="s7-opp-site">
+            <div class="s7-opp-site-hdr">
+              <span class="s7-opp-site-name">MLM 🇲🇽</span>
+              <span class="s7-opp-badge">Sin barrera</span>
+            </div>
+            <div class="s7-opp-rules">
+              <b>Regla:</b> BS, SMB &amp; HILO garantizado · MILO/LOLO: TPV ≥ MXN$5k/3m<br>
+              <b>Device:</b> age ≤ 12 meses<br>
+              <b>Vol. actual:</b> ~9.5K recambios/mes · 87% vía Maxwell
+            </div>
+          </div>
+          <div class="s7-opp-site">
+            <div class="s7-opp-site-hdr">
+              <span class="s7-opp-site-name">MLC 🇨🇱</span>
+              <span class="s7-opp-badge">Sin barrera</span>
+            </div>
+            <div class="s7-opp-rules">
+              <b>Regla:</b> BS, SMB &amp; HILO garantizado<br>
+              <b>Device:</b> age ≤ 12 meses<br>
+              <b>Vol. actual:</b> ~1.5K recambios/mes · Autogestión 37%
+            </div>
+          </div>
+          <div class="s7-opp-impact">
+            <div class="s7-opp-impact-ttl">Potencial estimado al activar política</div>
+            <div class="s7-opp-impact-row"><span>Sellers a bloquear (est.)</span><b>~30% del volumen</b></div>
+            <div class="s7-opp-impact-row"><span>Ahorro potencial</span><b>~USD 120k/mes</b></div>
+            <div class="s7-opp-impact-row"><span>Referencia</span><b>MLA: 192k · MLB: 90k/mes</b></div>
+          </div>
+          <div class="s7-cta">
+            <div>
+              <div class="s7-cta-lbl">Fecha de implementación</div>
+              <div class="s7-cta-val">hasta 30/04 🚀</div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">Ahorro total activado</div>
+              <div style="font-size:18px;font-weight:900;color:#fff;">USD 282k<span style="font-size:11px;color:rgba(255,255,255,.5);">/mes</span></div>
+            </div>
+          </div>
+        </div>
       </div>
+
     </div>
   </div>
 </div>
