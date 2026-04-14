@@ -1374,7 +1374,7 @@ html, body {
   #s8 .mx-page { flex:1; }
   #s8 .mx-page{flex:1;display:flex;flex-direction:column;gap:0;padding:12px 28px 6px;overflow:hidden;}
   #s8 .mx-sec-lbl{font-size:9px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px;}
-  #s8 .mx-kpis{display:grid;grid-template-columns:repeat(4,1fr);gap:10px;margin-bottom:10px;}
+  #s8 .mx-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;}
   #s8 .mx-kpi{background:#fff;border-radius:9px;padding:9px 14px;border:1px solid #E2E8F0;box-shadow:0 1px 5px rgba(0,0,0,.05);}
   #s8 .mx-kpi-lbl{font-size:9px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;}
   #s8 .mx-kpi-val{font-size:22px;font-weight:800;color:#1a4a8a;line-height:1.1;}
@@ -1382,7 +1382,19 @@ html, body {
   #s8 .mx-kpi-breakdown{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap;}
   #s8 .mx-kpi-br-item{font-size:9px;color:#64748B;background:#F1F5F9;border-radius:4px;padding:2px 6px;white-space:nowrap;}
   #s8 .mx-kpi-br-item b{color:#1a1a2e;}
-  #s8 .mx-cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-bottom:10px;}
+  #s8 .mx-cards{display:grid;grid-template-columns:36% 1fr;gap:14px;margin-bottom:14px;}
+  #s8 .mx-wip-card{background:#fff;border-radius:10px;border:1.5px dashed #1a4a8a;box-shadow:0 1px 6px rgba(0,0,0,.04);display:flex;flex-direction:column;overflow:hidden;}
+  #s8 .mx-wip-hdr{padding:9px 14px 8px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#EFF6FF,#F8FAFC);}
+  #s8 .mx-wip-ttl{font-size:12px;font-weight:800;color:#1a4a8a;}
+  #s8 .mx-wip-badge{font-size:8px;font-weight:700;background:#DBEAFE;color:#1D4ED8;border-radius:10px;padding:2px 8px;white-space:nowrap;}
+  #s8 .mx-wip-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px;}
+  #s8 .mx-wip-col{display:flex;flex-direction:column;gap:6px;}
+  #s8 .mx-wip-col-lbl{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#64748B;padding-bottom:4px;border-bottom:1px solid #E2E8F0;}
+  #s8 .mx-wip-item{display:flex;gap:7px;align-items:flex-start;}
+  #s8 .mx-wip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+  #s8 .mx-wip-txt{font-size:10px;color:#374151;line-height:1.35;}
+  #s8 .mx-wip-date{font-size:8.5px;font-weight:700;color:#1a4a8a;background:#EFF6FF;border-radius:3px;padding:1px 5px;margin-top:2px;display:inline-block;}
+  #s8 .mx-wip-foot{padding:7px 14px 9px;border-top:1px solid #E2E8F0;background:#FAFCFF;font-size:9px;color:#64748B;}
   #s8 .mx-card{background:#fff;border-radius:10px;border:1px solid #E2E8F0;box-shadow:0 1px 6px rgba(0,0,0,.05);display:flex;flex-direction:column;overflow:hidden;}
   #s8 .mx-card-hdr{padding:9px 13px 8px;border-bottom:1px solid #E2E8F0;display:flex;align-items:flex-start;gap:8px;}
   #s8 .mx-pnum{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
@@ -1476,19 +1488,15 @@ html, body {
         <div class="mx-kpi-sub">del total de solicitudes · mar/26</div>
       </div>
       <div class="mx-kpi">
-        <div class="mx-kpi-lbl">Bloqueos activos MLB</div>
-        <div class="mx-kpi-val">9.538</div>
-        <div class="mx-kpi-sub">solicitudes bloqueadas/mes · mar/26</div>
-      </div>
-      <div class="mx-kpi">
-        <div class="mx-kpi-lbl">Potencial de las 2 acciones</div>
+        <div class="mx-kpi-lbl">Potencial — Diagnóstico guiado</div>
         <div class="mx-kpi-val">−2.200</div>
-        <div class="mx-kpi-sub">solicitudes/mes estimadas</div>
+        <div class="mx-kpi-sub">solicitudes/mes estimadas · OPP1</div>
       </div>
     </div>
 
     <div class="mx-sec-lbl">Oportunidades prioritarias</div>
     <div class="mx-cards">
+      <!-- OPP 1 — Diagnóstico guiado -->
       <div class="mx-card">
         <div class="mx-card-hdr">
           <div class="mx-pnum p1">1</div>
@@ -1503,37 +1511,62 @@ html, body {
             <div class="mx-bigstat-lbl">solicitudes/mes · estable hace 6 meses</div>
           </div>
           <div class="mx-sstat">Promedio ene–mar/26: <b>11.177 · 11.506 · 11.024</b></div>
-          <div class="mx-insight alert">Agregar paso de diagnóstico (reinicio, carga) <b>antes de habilitar la solicitud</b>. Estimación: 20% de los casos resolubles sin cambio.</div>
+          <div class="mx-insight alert">Diagnóstico (reinicio, carga) <b>antes de habilitar la solicitud</b>. Est.: 20% de los casos resolubles sin cambio.</div>
         </div>
         <div class="mx-card-foot">
           <div><div class="mx-impact-val">−2.200/mes</div><div class="mx-impact-lbl">estimación de reducción</div></div>
           <div class="mx-pill danger">Fricción en el flujo</div>
         </div>
       </div>
-      <div class="mx-card">
-        <div class="mx-card-hdr">
-          <div class="mx-pnum p2">2</div>
-          <div>
-            <div class="mx-card-ttl">Foto obligatoria — "Ped Tampered"</div>
-            <div class="mx-card-site">MLB · pico anómalo dic/25 · brecha sin barrera activa</div>
+
+      <!-- Bloco "Em construção com PTM" -->
+      <div class="mx-wip-card">
+        <div class="mx-wip-hdr">
+          <span style="font-size:16px;">🔧</span>
+          <div class="mx-wip-ttl">Em construção com PTM</div>
+          <span class="mx-wip-badge">Em desenvolvimento · abr/26</span>
+        </div>
+        <div class="mx-wip-body">
+          <div class="mx-wip-col">
+            <div class="mx-wip-col-lbl">Desvio pre-solicitud (PTM)</div>
+            <div class="mx-wip-item">
+              <div class="mx-wip-dot" style="background:#1a4a8a;"></div>
+              <div>
+                <div class="mx-wip-txt"><b>PTM: WiFi → SIM card</b><br>Redirige al usuario para resolver conectividad antes de abrir cambio</div>
+                <span class="mx-wip-date">Previsto 23/04</span>
+              </div>
+            </div>
+            <div class="mx-wip-item">
+              <div class="mx-wip-dot" style="background:#1a4a8a;"></div>
+              <div>
+                <div class="mx-wip-txt"><b>PTM: registro para vouchers</b><br>Desvío hacia activación de voucher antes de solicitar cambio</div>
+                <span class="mx-wip-date">Previsto 23/04</span>
+              </div>
+            </div>
+          </div>
+          <div class="mx-wip-col">
+            <div class="mx-wip-col-lbl">Segmentación + árbol de decisión</div>
+            <div class="mx-wip-item">
+              <div class="mx-wip-dot" style="background:#16A34A;"></div>
+              <div>
+                <div class="mx-wip-txt"><b>Tool de segmentación por perfil</b><br>Filtra inelegibles antes de iniciar el flujo de solicitud</div>
+                <span class="mx-wip-date">16/04 — Esta semana</span>
+              </div>
+            </div>
+            <div class="mx-wip-item">
+              <div class="mx-wip-dot" style="background:#9CA3AF;border:1px dashed #9CA3AF;"></div>
+              <div>
+                <div class="mx-wip-txt"><b>Árbol de decisión PTM</b><br>Diagnóstico estructurado para "Funcionamiento" — resolve sin cambio</div>
+                <span class="mx-wip-date" style="background:#F3F4F6;color:#6B7280;">Q2 · En discusión</span>
+              </div>
+            </div>
           </div>
         </div>
-        <div class="mx-card-body">
-          <div class="mx-bigstat">
-            <div class="mx-bigstat-val gray">5.441</div>
-            <div class="mx-bigstat-lbl">solicitudes en dic/25 · vol. normal ~1.100/mes</div>
-          </div>
-          <div class="mx-sstat">Normalizado tras el pico — pero <b>sin barrera para el próximo evento</b></div>
-          <div class="mx-insight alert"><b>No avanzar sin foto del dispositivo.</b> Cierra la brecha usada en el pico e inhibe comportamiento recurrente.</div>
-        </div>
-        <div class="mx-card-foot">
-          <div><div class="mx-impact-val">Cierre</div><div class="mx-impact-lbl">de brecha de abuso</div></div>
-          <div class="mx-pill neutral">Foto obligatoria</div>
-        </div>
+        <div class="mx-wip-foot">Objetivo: desviar pedidos antes da abertura no Maxwell · Ações integradas com equipe PTM · est. −500 pedidos/mes</div>
       </div>
     </div>
 
-    <div class="mx-sec-lbl">Roadmap de entregas</div>
+    <div class="mx-sec-lbl" style="margin-top:16px;">Roadmap de entregas</div>
     <div class="mx-tl-wrap">
       <div class="mx-tl-row">
         <div class="mx-tl-item">
@@ -1569,8 +1602,8 @@ html, body {
         <div class="mx-tl-item">
           <div class="mx-tl-dot next">→</div>
           <div class="mx-tl-card next">
-            <div class="mx-tl-date next">14 Abr 2026</div>
-            <span class="mx-tl-tag next">Esta semana</span>
+            <div class="mx-tl-date next">16 Abr 2026</div>
+            <span class="mx-tl-tag next">16/04</span>
             <ul class="mx-tl-items">
               <li>Cambio de dirección por el chat</li>
               <li>Tool de segmentación por perfil</li>
@@ -1584,8 +1617,8 @@ html, body {
         <div class="mx-tl-item">
           <div class="mx-tl-dot next">→</div>
           <div class="mx-tl-card next">
-            <div class="mx-tl-date next">21 Abr 2026</div>
-            <span class="mx-tl-tag next">Próxima semana</span>
+            <div class="mx-tl-date next">23 Abr 2026</div>
+            <span class="mx-tl-tag next">Previsto 23/04</span>
             <ul class="mx-tl-items">
               <li>PTM: WiFi → SIM card</li>
               <li>PTM: registro para vouchers</li>
