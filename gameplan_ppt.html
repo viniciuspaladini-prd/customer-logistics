@@ -1821,6 +1821,15 @@ html, body {
   #s12 .alya-box{border:1.5px solid #FFD000;background:#FFFBEB;border-radius:8px;padding:8px 12px;flex-shrink:0;display:flex;gap:8px;align-items:flex-start;}
   #s12 .alya-pill{background:#1A56A0;color:#fff;font-size:8.5px;font-weight:800;border-radius:4px;padding:2px 8px;white-space:nowrap;flex-shrink:0;margin-top:1px;}
   #s12 .alya-txt{font-size:9.5px;color:#374151;line-height:1.45;}
+  #s12 .exp-card{border:1.5px solid #C7D2FE;background:#EEF2FF;border-radius:8px;padding:7px 11px;flex-shrink:0;display:flex;flex-direction:column;gap:5px;}
+  #s12 .exp-head{display:flex;align-items:center;gap:6px;}
+  #s12 .exp-pill{background:#4F46E5;color:#fff;font-size:8px;font-weight:800;border-radius:4px;padding:2px 7px;white-space:nowrap;}
+  #s12 .exp-title-txt{font-size:9.5px;font-weight:700;color:#312E81;}
+  #s12 .exp-metrics{display:flex;gap:8px;}
+  #s12 .exp-metric{display:flex;align-items:center;gap:4px;font-size:9px;}
+  #s12 .exp-delta{font-weight:800;font-size:10px;}
+  #s12 .exp-ns{background:#E5E7EB;color:#6B7280;font-size:7.5px;font-weight:700;border-radius:3px;padding:1px 4px;white-space:nowrap;}
+  #s12 .exp-footer{font-size:8.5px;color:#4338CA;border-top:1px solid #C7D2FE;padding-top:4px;}
   </style>
   <div class="slide-header">
     <span class="breadcrumb-pill bp-red">Leadtimes</span>
@@ -1980,6 +1989,29 @@ html, body {
       <div class="alya-box">
         <span class="alya-pill">⚠ Alya · Carrier 2 · Piloto</span>
         <div class="alya-txt"><b>69 pedidos em mar/26</b> (MG, PE e DF) — <b style="color:#DC2626;">80%</b> com atrasos. Normalização esperada em <b>abril/26</b> com ajuste de SLA do carrier.</div>
+      </div>
+      <!-- Experimento: Lembrete de Troca -->
+      <div class="exp-card">
+        <div class="exp-head">
+          <span class="exp-pill">🔔 A/B Test · Ini. 32317</span>
+          <span class="exp-title-txt">Lembrete de troca via push MP (D−4h) · 5.085 pedidos · 25/02–13/04</span>
+        </div>
+        <div class="exp-metrics">
+          <div class="exp-metric">
+            <span style="color:#16A34A;">▲</span>
+            <span class="exp-delta" style="color:#16A34A;">+0,87pp</span>
+            <span style="color:#6B7280;font-size:9px;">taxa de entrega</span>
+            <span class="exp-ns">n.s. p=0,52</span>
+          </div>
+          <div style="color:#D1D5DB;font-size:10px;">·</div>
+          <div class="exp-metric">
+            <span style="color:#16A34A;">▼</span>
+            <span class="exp-delta" style="color:#16A34A;">−1,23pp</span>
+            <span style="color:#6B7280;font-size:9px;">insucesso 1ª visita</span>
+            <span class="exp-ns">n.s. p=0,56</span>
+          </div>
+        </div>
+        <div class="exp-footer">Direção positiva · controle pequeno (n=473) · continuar rodando ~3–4 meses para atingir poder estatístico</div>
       </div>
     </div>
 
