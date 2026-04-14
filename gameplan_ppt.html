@@ -3004,13 +3004,13 @@ function initSlide12() {
       meta.data.forEach(function(bar, i) {
         c.save(); c.textAlign = 'center'; c.textBaseline = 'bottom';
         if (pcts[i]) {
-          c.font = '800 10px "Segoe UI",system-ui,sans-serif'; c.fillStyle = '#1a1a2e';
-          c.fillText(values[i].toLocaleString('pt-BR'), bar.x, bar.y - 13);
-          c.font = '700 9px "Segoe UI",system-ui,sans-serif'; c.fillStyle = colors[i];
+          c.font = '800 13px "Segoe UI",system-ui,sans-serif'; c.fillStyle = '#1a1a2e';
+          c.fillText(values[i].toLocaleString('pt-BR'), bar.x, bar.y - 16);
+          c.font = '700 11.5px "Segoe UI",system-ui,sans-serif'; c.fillStyle = colors[i];
           c.fillText(pcts[i], bar.x, bar.y - 2);
         } else {
-          c.font = '800 10px "Segoe UI",system-ui,sans-serif'; c.fillStyle = '#1a1a2e';
-          c.fillText(values[i].toLocaleString('pt-BR'), bar.x, bar.y - 3);
+          c.font = '800 13px "Segoe UI",system-ui,sans-serif'; c.fillStyle = '#1a1a2e';
+          c.fillText(values[i].toLocaleString('pt-BR'), bar.x, bar.y - 4);
         }
         c.restore();
       });
@@ -3024,10 +3024,10 @@ function initSlide12() {
       responsive: true, maintainAspectRatio: false,
       plugins: { legend: { display: false }, tooltip: { enabled: false } },
       scales: {
-        x: { grid: { display: false }, ticks: { font: { size: 8.5, weight: '700' }, color: '#374151', callback: function(val, i) { return labels[i].split('\n'); } } },
+        x: { grid: { display: false }, ticks: { font: { size: 11, weight: '700' }, color: '#374151', callback: function(val, i) { return labels[i].split('\n'); } } },
         y: { display: false, max: 4800, grid: { display: false } }
       },
-      layout: { padding: { top: 32, bottom: 5, left: 4, right: 4 } }
+      layout: { padding: { top: 38, bottom: 5, left: 4, right: 4 } }
     },
     plugins: [wfLines, wfLabels]
   });
