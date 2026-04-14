@@ -1288,12 +1288,12 @@ html, body {
   #s7 .s7-card-hdr { display:flex; align-items:center; gap:8px; padding-bottom:10px; border-bottom:2px solid #F1F5F9; flex-shrink:0; }
   #s7 .s7-card-site { font-size:20px; font-weight:900; color:#1a1a2e; }
   #s7 .s7-card-badge { font-size:9px; font-weight:800; background:#DBEAFE; color:#1D4ED8; padding:3px 9px; border-radius:8px; text-transform:uppercase; margin-left:auto; }
-  #s7 .s7-big-kpi { display:grid; grid-template-columns:1fr 1fr; gap:8px; flex-shrink:0; margin-top:10px; }
-  #s7 .s7-kpi-block { background:#F8FAFC; border-radius:9px; padding:9px 11px; }
+  #s7 .s7-big-kpi { display:grid; grid-template-columns:1fr 1fr; gap:8px; flex:1; margin-top:10px; min-height:0; }
+  #s7 .s7-kpi-block { background:#F8FAFC; border-radius:9px; padding:9px 11px; display:flex; flex-direction:column; justify-content:center; }
   #s7 .s7-kpi-lbl { font-size:9.5px; font-weight:700; color:#94A3B8; text-transform:uppercase; letter-spacing:.04em; margin-bottom:2px; }
   #s7 .s7-kpi-num { font-size:28px; font-weight:900; line-height:1; }
   #s7 .s7-kpi-sub { font-size:9.5px; color:#94A3B8; margin-top:2px; }
-  #s7 .s7-metrics { display:flex; flex-direction:column; gap:0; flex:1; justify-content:center; margin-top:8px; }
+  #s7 .s7-metrics { display:flex; flex-direction:column; gap:0; flex-shrink:0; margin-top:8px; }
   #s7 .s7-metric-row { display:flex; align-items:center; justify-content:space-between; font-size:13px; padding:7px 0; border-bottom:1px solid #F1F5F9; }
   #s7 .s7-metric-lbl { color:#64748B; font-weight:600; }
   #s7 .s7-metric-val { font-weight:800; color:#1a4a8a; display:flex; align-items:center; gap:5px; }
@@ -1455,9 +1455,15 @@ html, body {
             <div class="s7-opp-impact-row"><span>Referencia</span><b>MLA: 192k · MLB: 90k/mes</b></div>
           </div>
           <div class="s7-cta">
-            <div>
-              <div class="s7-cta-lbl">Activación MLM &amp; MLC</div>
-              <div class="s7-cta-val">hasta 30/04 🚀</div>
+            <div style="display:flex;flex-direction:column;gap:6px;">
+              <div>
+                <div class="s7-cta-lbl">Activado — MLA</div>
+                <div class="s7-cta-val" style="font-size:14px;">05/03/2026 ✓</div>
+              </div>
+              <div>
+                <div class="s7-cta-lbl">Activación MLM &amp; MLC</div>
+                <div class="s7-cta-val" style="font-size:14px;">hasta 30/04 🚀</div>
+              </div>
             </div>
             <div style="text-align:right;">
               <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">Ahorro total activado</div>
@@ -1833,7 +1839,7 @@ html, body {
         </div>
         <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-smb-mlm"></canvas></div>
         <div class="site-conclusion">
-          G1: <b>32%</b> — G4: <b>21%</b>. Mejora de +11pp vs feb/26. <span class="warn">Integración IBM en curso.</span> <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
+          G1: <b>32%</b> — G4: <b>21%</b>. Mejora de +11pp vs feb/26. <span class="warn">Integración IBM: finalización prevista fin de Q2.</span> <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
         </div>
       </div>
     </div>
@@ -1903,7 +1909,7 @@ html, body {
         </div>
         <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-longtail-mlm"></canvas></div>
         <div class="site-conclusion">
-          G1: <b>68%</b> — G4: <b>31%</b>. <span class="warn">Integración IBM en curso</span> — mejora de +10pp vs oct/25. <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
+          G1: <b>68%</b> — G4: <b>31%</b>. Mejora de +10pp vs oct/25. <span class="warn">Integración IBM: finalización prevista fin de Q2.</span> <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
         </div>
       </div>
     </div>
@@ -2497,10 +2503,10 @@ html, body {
           </tr>
           <tr>
             <td><span class="kpi-pill kpi-pill-teal">Leadtime</span></td>
-            <td><b>Integración MP con IBM — MLM</b><br><span style="font-size:10px;color:var(--muted);">Integración Mercado Pago con IBM para mejorar G1 en México</span></td>
-            <td><span class="status-badge-planned">Planeado</span></td>
+            <td><b>Integración MP con IBM — MLM</b><br><span style="font-size:10px;color:var(--muted);">Integración Mercado Pago con IBM para mejorar G1 en México — finalización prevista fin de Q2</span></td>
+            <td><span class="status-badge">En curso</span></td>
             <td style="font-size:10px;">Vini Paladini, Icaro Florencio e Olivia Martinez</td>
-            <td style="white-space:nowrap;font-weight:700;">R3-Q2'26</td>
+            <td style="white-space:nowrap;font-weight:700;">fin Q2'26</td>
             <td style="font-size:10px;color:#0F766E;font-weight:700;">G1 MLM ↑ hacia meta 83%</td>
             <td><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
           </tr>
