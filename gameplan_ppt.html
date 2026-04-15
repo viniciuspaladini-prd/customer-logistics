@@ -1669,21 +1669,11 @@ html, body {
                 <span class="mx-wip-date">16/04 — Hoy</span>
               </div>
             </div>
-            <div class="mx-wip-item" style="align-items:flex-start;">
-              <div class="mx-wip-dot" style="background:#9CA3AF;border:1px dashed #9CA3AF;margin-top:5px;"></div>
-              <div style="flex:1;">
-                <div class="mx-wip-txt"><b>Árbol de decisión PTM — "No enciende"</b></div>
-                <div style="margin-top:5px;background:#F8FAFC;border-radius:7px;padding:7px 9px;border:1px solid #E2E8F0;font-size:9px;color:#374151;line-height:1.6;">
-                  <div style="font-weight:800;color:#1a1a2e;margin-bottom:4px;">Árbol 1 · Dispositivo no enciende</div>
-                  <div>① <b>PTM: Deep Discharge Tag</b> → ¿Tag activo?</div>
-                  <div style="padding-left:10px;color:#64748B;">→ <b>Sí:</b> PTM Battery REBT_FLAG → carga progresiva 30min</div>
-                  <div style="padding-left:10px;color:#64748B;">→ <b>No:</b> ¿Enciende tras carga? → Diagnóstico profundo</div>
-                  <div>② <b>Carga 4h+ sin interrupciones</b></div>
-                  <div style="padding-left:10px;color:#64748B;">→ ¿Enciende? → <span style="color:#276749;font-weight:700;">Deflected</span></div>
-                  <div style="padding-left:10px;color:#64748B;">→ No enciende → <span style="color:#C53030;font-weight:700;">Habilitar TROCA</span> (según reglas site)</div>
-                  <div style="margin-top:4px;padding-top:4px;border-top:1px solid #E2E8F0;color:#9CA3AF;font-style:italic;">MLB: Reglas Estáticas + Longtail · MLA: idem · MLC/MLM: pendiente</div>
-                </div>
-                <span class="mx-wip-date" style="background:#F3F4F6;color:#6B7280;margin-top:4px;">Q2 · En discusión</span>
+            <div class="mx-wip-item">
+              <div class="mx-wip-dot" style="background:#9CA3AF;border:1px dashed #9CA3AF;"></div>
+              <div>
+                <div class="mx-wip-txt"><b>Árbol de decisión PTM — "No enciende"</b><br>Diagnóstico guiado vía PTM: batería, descarga profunda, carga progresiva → resolve sin cambio o habilita TROCA según reglas por site</div>
+                <span class="mx-wip-date" style="background:#F3F4F6;color:#6B7280;">Q2 · En discusión</span>
               </div>
             </div>
           </div>
