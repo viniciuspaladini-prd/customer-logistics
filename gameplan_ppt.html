@@ -1993,12 +1993,23 @@ html, body {
   #s12 .box-pill{font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:4px;white-space:nowrap;}
   #s12 .box-alya-txt{font-size:10.5px;color:#374151;line-height:1.45;}
   #s12 .box-exp{border-left:3px solid #818CF8;background:#EEF2FF;border-radius:0 7px 7px 0;padding:9px 12px;flex-shrink:0;}
-  #s12 .box-exp-head{display:flex;align-items:center;gap:7px;margin-bottom:6px;}
+  #s12 .box-exp-head{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+  #s12 .exp-mech{font-size:9.5px;color:#3730A3;font-weight:700;background:#C7D2FE;border-radius:5px;padding:3px 8px;margin-bottom:6px;flex-shrink:0;}
+  #s12 .exp-inner{display:flex;gap:9px;align-items:flex-start;}
+  #s12 .exp-results{flex:1;min-width:0;}
   #s12 .exp-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
   #s12 .exp-delta{font-size:15px;font-weight:900;}
   #s12 .exp-lbl{font-size:10.5px;color:#6B7280;}
   #s12 .exp-ns{background:#E5E7EB;color:#6B7280;font-size:9px;font-weight:700;border-radius:3px;padding:1px 5px;}
-  #s12 .exp-note{font-size:9.5px;color:#4338CA;border-top:1px solid #C7D2FE;padding-top:5px;margin-top:4px;}
+  #s12 .exp-note{font-size:9px;color:#4338CA;border-top:1px solid #C7D2FE;padding-top:4px;margin-top:3px;}
+  #s12 .push-phone{width:92px;flex-shrink:0;background:#e8e8e8;border-radius:14px;padding:7px 5px 8px;border:2px solid #c8c8c8;display:flex;flex-direction:column;align-items:center;gap:4px;}
+  #s12 .push-time{font-size:10px;font-weight:800;color:#1a1a2e;letter-spacing:.02em;}
+  #s12 .push-card{background:#fff;border-radius:9px;padding:6px 7px;box-shadow:0 1px 5px rgba(0,0,0,.12);width:100%;}
+  #s12 .push-card-head{display:flex;align-items:center;gap:3px;margin-bottom:3px;}
+  #s12 .push-logo{width:12px;height:12px;background:#FFD000;border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:6.5px;font-weight:900;color:#1a1a2e;}
+  #s12 .push-brand{font-size:7.5px;font-weight:700;color:#6B7280;}
+  #s12 .push-notif-title{font-size:8px;font-weight:800;color:#111827;line-height:1.25;margin-bottom:2px;}
+  #s12 .push-notif-body{font-size:7px;color:#4B5563;line-height:1.35;}
   </style>
   <div class="slide-header">
     <span class="breadcrumb-pill bp-red">Leadtimes</span>
@@ -2143,19 +2154,35 @@ html, body {
       <div class="box-exp">
         <div class="box-exp-head">
           <span class="box-pill" style="background:#4F46E5;color:#fff;">🔔 A/B Test · Ini. 32317</span>
-          <span style="font-size:10px;color:#4338CA;font-weight:600;">alcance Unitac · 5.085 solicitudes · 25/02–13/04</span>
+          <span style="font-size:10px;color:#4338CA;font-weight:600;">alcance Unitac · 5.085 sol. · 25/02–13/04</span>
         </div>
-        <div class="exp-row">
-          <span class="exp-delta" style="color:#16A34A;">+0,87pp</span>
-          <span class="exp-lbl">tasa de entrega</span>
-          <span class="exp-ns">n.s. p=0,52</span>
+        <div class="exp-mech">📲 Push enviado +4h após o pedido · grupo controle sem push</div>
+        <div class="exp-inner">
+          <div class="exp-results">
+            <div class="exp-row">
+              <span class="exp-delta" style="color:#16A34A;">+0,87pp</span>
+              <span class="exp-lbl">tasa de entrega</span>
+              <span class="exp-ns">n.s. p=0,52</span>
+            </div>
+            <div class="exp-row">
+              <span class="exp-delta" style="color:#16A34A;">−1,23pp</span>
+              <span class="exp-lbl">sin éxito 1ª visita</span>
+              <span class="exp-ns">n.s. p=0,56</span>
+            </div>
+            <div class="exp-note">Dirección positiva · control pequeño (n=473) · continuar ~3–4 meses para poder estadístico</div>
+          </div>
+          <div class="push-phone">
+            <div class="push-time">09:41</div>
+            <div class="push-card">
+              <div class="push-card-head">
+                <div class="push-logo">MP</div>
+                <span class="push-brand">Mercado Pago</span>
+              </div>
+              <div class="push-notif-title">Sua nova maquininha chega em breve</div>
+              <div class="push-notif-body">Em algumas horas será entregue. Separe a maquininha antiga para devolução.</div>
+            </div>
+          </div>
         </div>
-        <div class="exp-row">
-          <span class="exp-delta" style="color:#16A34A;">−1,23pp</span>
-          <span class="exp-lbl">sin éxito 1ª visita</span>
-          <span class="exp-ns">n.s. p=0,56</span>
-        </div>
-        <div class="exp-note">Dirección positiva · control pequeño (n=473) · continuar ~3–4 meses para poder estadístico</div>
       </div>
     </div>
 
