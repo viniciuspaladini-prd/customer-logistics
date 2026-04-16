@@ -1,6 +1,6 @@
 // ============================================================
 // DATA.JS — Fonte de dados do dashboard
-// Atualizado: 2026-04-16 14:27 via BigQuery (google-cloud-bigquery)
+// Atualizado: 2026-04-16 14:30 via BigQuery (google-cloud-bigquery)
 // MLB: REPAIR | BUCKET IS NULL | excl. cust 75554443 jan/26
 // MLA/MLM: REPAIR | sem filtro bucket (não aplicável)
 // Mapeamento MAD corrigido (POINT_DEVICE_TYPE ≠ CURRENT_DEVICE_NAME)
