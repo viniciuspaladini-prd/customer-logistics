@@ -1,6 +1,6 @@
 // ============================================================
 // DATA.JS — Fonte de dados do dashboard
-// Atualizado: 2026-04-10 18:18 via BigQuery (google-cloud-bigquery)
+// Atualizado: 2026-04-16 14:27 via BigQuery (google-cloud-bigquery)
 // MLB: REPAIR | BUCKET IS NULL | excl. cust 75554443 jan/26
 // MLA/MLM: REPAIR | sem filtro bucket (não aplicável)
 // Mapeamento MAD corrigido (POINT_DEVICE_TYPE ≠ CURRENT_DEVICE_NAME)
@@ -15,7 +15,7 @@ const DATA = {
   // Projeção do mês em aberto
   projecao: {
     mes:      '2026-04',
-    dias_base: 10,  // dias de dados disponíveis (extração 2026-04-10)
+    dias_base: 16,  // dias de dados disponíveis (extração 2026-04-16)
     dias_mes:  30,  // total de dias em março/26
   },
 
@@ -27,8 +27,8 @@ const DATA = {
     "site": "MLA",
     "mes": "2025-09",
     "qtd_trocas": 4125,
-    "mad": 585632,
-    "trocas_mad_pct": 0.7044,
+    "mad": 572187,
+    "trocas_mad_pct": 0.7209,
     "delta_trocas": null,
     "delta_mad": null,
     "delta_pp": null
@@ -37,79 +37,79 @@ const DATA = {
     "site": "MLA",
     "mes": "2025-10",
     "qtd_trocas": 4444,
-    "mad": 601139,
-    "trocas_mad_pct": 0.7393,
+    "mad": 586929,
+    "trocas_mad_pct": 0.7572,
     "delta_trocas": 319,
-    "delta_mad": 15507,
-    "delta_pp": 0.0349
+    "delta_mad": 14742,
+    "delta_pp": 0.0363
   },
   {
     "site": "MLA",
     "mes": "2025-11",
     "qtd_trocas": 5178,
-    "mad": 596840,
-    "trocas_mad_pct": 0.8676,
+    "mad": 582961,
+    "trocas_mad_pct": 0.8882,
     "delta_trocas": 734,
-    "delta_mad": -4299,
-    "delta_pp": 0.1283
+    "delta_mad": -3968,
+    "delta_pp": 0.131
   },
   {
     "site": "MLA",
     "mes": "2025-12",
     "qtd_trocas": 5582,
-    "mad": 617263,
-    "trocas_mad_pct": 0.9043,
+    "mad": 603557,
+    "trocas_mad_pct": 0.9249,
     "delta_trocas": 404,
-    "delta_mad": 20423,
+    "delta_mad": 20596,
     "delta_pp": 0.0367
   },
   {
     "site": "MLA",
     "mes": "2026-01",
     "qtd_trocas": 7773,
-    "mad": 590570,
-    "trocas_mad_pct": 1.3162,
+    "mad": 577952,
+    "trocas_mad_pct": 1.3449,
     "delta_trocas": 2191,
-    "delta_mad": -26693,
-    "delta_pp": 0.4119
+    "delta_mad": -25605,
+    "delta_pp": 0.42
   },
   {
     "site": "MLA",
     "mes": "2026-02",
     "qtd_trocas": 17280,
-    "mad": 601142,
-    "trocas_mad_pct": 2.8745,
+    "mad": 588964,
+    "trocas_mad_pct": 2.934,
     "delta_trocas": 9507,
-    "delta_mad": 10572,
-    "delta_pp": 1.5583
+    "delta_mad": 11012,
+    "delta_pp": 1.5891
   },
   {
     "site": "MLA",
     "mes": "2026-03",
     "qtd_trocas": 9452,
-    "mad": 524055,
-    "trocas_mad_pct": 1.8036,
+    "mad": 587970,
+    "trocas_mad_pct": 1.6076,
     "delta_trocas": -7828,
-    "delta_mad": -77087,
-    "delta_pp": -1.0709
+    "delta_mad": -994,
+    "delta_pp": -1.3264
   },
   {
     "site": "MLA",
     "mes": "2026-04",
-    "qtd_trocas": 1879,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "delta_trocas": -7573,
-    "delta_mad": null,
-    "delta_pp": null,
+    "qtd_trocas": 2983,
+    "mad": 499266,
+    "trocas_mad_pct": 0.5975,
+    "delta_trocas": -6469,
+    "delta_mad": -88704,
+    "delta_pp": -1.0101,
     "parcial": true
   },
   {
     "site": "MLB",
     "mes": "2025-09",
     "qtd_trocas": 30221,
-    "mad": 2779021,
-    "trocas_mad_pct": 1.0875,
+    "mad": 2769069,
+    "trocas_mad_pct": 1.0914,
     "delta_trocas": null,
     "delta_mad": null,
     "delta_pp": null
@@ -118,79 +118,79 @@ const DATA = {
     "site": "MLB",
     "mes": "2025-10",
     "qtd_trocas": 31390,
-    "mad": 2782565,
-    "trocas_mad_pct": 1.1281,
+    "mad": 2772726,
+    "trocas_mad_pct": 1.1321,
     "delta_trocas": 1169,
-    "delta_mad": 3544,
-    "delta_pp": 0.0406
+    "delta_mad": 3657,
+    "delta_pp": 0.0407
   },
   {
     "site": "MLB",
     "mes": "2025-11",
     "qtd_trocas": 24237,
-    "mad": 2729381,
-    "trocas_mad_pct": 0.888,
+    "mad": 2720015,
+    "trocas_mad_pct": 0.8911,
     "delta_trocas": -7153,
-    "delta_mad": -53184,
-    "delta_pp": -0.2401
+    "delta_mad": -52711,
+    "delta_pp": -0.241
   },
   {
     "site": "MLB",
     "mes": "2025-12",
     "qtd_trocas": 28431,
-    "mad": 2690341,
-    "trocas_mad_pct": 1.0568,
+    "mad": 2681127,
+    "trocas_mad_pct": 1.0604,
     "delta_trocas": 4194,
-    "delta_mad": -39040,
-    "delta_pp": 0.1688
+    "delta_mad": -38888,
+    "delta_pp": 0.1693
   },
   {
     "site": "MLB",
     "mes": "2026-01",
     "qtd_trocas": 29763,
-    "mad": 2607538,
-    "trocas_mad_pct": 1.1414,
+    "mad": 2598753,
+    "trocas_mad_pct": 1.1453,
     "delta_trocas": 1332,
-    "delta_mad": -82803,
-    "delta_pp": 0.0846
+    "delta_mad": -82374,
+    "delta_pp": 0.0849
   },
   {
     "site": "MLB",
     "mes": "2026-02",
     "qtd_trocas": 26408,
-    "mad": 2587550,
-    "trocas_mad_pct": 1.0206,
+    "mad": 2578875,
+    "trocas_mad_pct": 1.024,
     "delta_trocas": -3355,
-    "delta_mad": -19988,
-    "delta_pp": -0.1208
+    "delta_mad": -19878,
+    "delta_pp": -0.1213
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "qtd_trocas": 25670,
-    "mad": 2237382,
-    "trocas_mad_pct": 1.1473,
+    "mad": 2617539,
+    "trocas_mad_pct": 0.9807,
     "delta_trocas": -738,
-    "delta_mad": -350168,
-    "delta_pp": 0.1267
+    "delta_mad": 38664,
+    "delta_pp": -0.0433
   },
   {
     "site": "MLB",
     "mes": "2026-04",
-    "qtd_trocas": 7081,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "delta_trocas": -18589,
-    "delta_mad": null,
-    "delta_pp": null,
+    "qtd_trocas": 11687,
+    "mad": 2178188,
+    "trocas_mad_pct": 0.5365,
+    "delta_trocas": -13983,
+    "delta_mad": -439351,
+    "delta_pp": -0.4442,
     "parcial": true
   },
   {
     "site": "MLC",
     "mes": "2025-09",
     "qtd_trocas": 933,
-    "mad": 138585,
-    "trocas_mad_pct": 0.6732,
+    "mad": 135651,
+    "trocas_mad_pct": 0.6878,
     "delta_trocas": null,
     "delta_mad": null,
     "delta_pp": null
@@ -199,79 +199,79 @@ const DATA = {
     "site": "MLC",
     "mes": "2025-10",
     "qtd_trocas": 1246,
-    "mad": 147643,
-    "trocas_mad_pct": 0.8439,
+    "mad": 144250,
+    "trocas_mad_pct": 0.8638,
     "delta_trocas": 313,
-    "delta_mad": 9058,
-    "delta_pp": 0.1707
+    "delta_mad": 8599,
+    "delta_pp": 0.176
   },
   {
     "site": "MLC",
     "mes": "2025-11",
     "qtd_trocas": 1376,
-    "mad": 149295,
-    "trocas_mad_pct": 0.9217,
+    "mad": 147445,
+    "trocas_mad_pct": 0.9332,
     "delta_trocas": 130,
-    "delta_mad": 1652,
-    "delta_pp": 0.0778
+    "delta_mad": 3195,
+    "delta_pp": 0.0694
   },
   {
     "site": "MLC",
     "mes": "2025-12",
     "qtd_trocas": 1511,
-    "mad": 159936,
-    "trocas_mad_pct": 0.9448,
+    "mad": 157948,
+    "trocas_mad_pct": 0.9566,
     "delta_trocas": 135,
-    "delta_mad": 10641,
-    "delta_pp": 0.0231
+    "delta_mad": 10503,
+    "delta_pp": 0.0234
   },
   {
     "site": "MLC",
     "mes": "2026-01",
     "qtd_trocas": 1928,
-    "mad": 160306,
-    "trocas_mad_pct": 1.2027,
+    "mad": 158325,
+    "trocas_mad_pct": 1.2177,
     "delta_trocas": 417,
-    "delta_mad": 370,
-    "delta_pp": 0.2579
+    "delta_mad": 377,
+    "delta_pp": 0.2611
   },
   {
     "site": "MLC",
     "mes": "2026-02",
     "qtd_trocas": 1548,
-    "mad": 164417,
-    "trocas_mad_pct": 0.9415,
+    "mad": 162409,
+    "trocas_mad_pct": 0.9531,
     "delta_trocas": -380,
-    "delta_mad": 4111,
-    "delta_pp": -0.2612
+    "delta_mad": 4084,
+    "delta_pp": -0.2646
   },
   {
     "site": "MLC",
     "mes": "2026-03",
     "qtd_trocas": 1571,
-    "mad": 156844,
-    "trocas_mad_pct": 1.0016,
+    "mad": 169920,
+    "trocas_mad_pct": 0.9246,
     "delta_trocas": 23,
-    "delta_mad": -7573,
-    "delta_pp": 0.0601
+    "delta_mad": 7511,
+    "delta_pp": -0.0285
   },
   {
     "site": "MLC",
     "mes": "2026-04",
-    "qtd_trocas": 500,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "delta_trocas": -1071,
-    "delta_mad": null,
-    "delta_pp": null,
+    "qtd_trocas": 812,
+    "mad": 158194,
+    "trocas_mad_pct": 0.5133,
+    "delta_trocas": -759,
+    "delta_mad": -11726,
+    "delta_pp": -0.4113,
     "parcial": true
   },
   {
     "site": "MLM",
     "mes": "2025-09",
     "qtd_trocas": 6505,
-    "mad": 1003860,
-    "trocas_mad_pct": 0.648,
+    "mad": 959191,
+    "trocas_mad_pct": 0.6782,
     "delta_trocas": null,
     "delta_mad": null,
     "delta_pp": null
@@ -280,71 +280,71 @@ const DATA = {
     "site": "MLM",
     "mes": "2025-10",
     "qtd_trocas": 7406,
-    "mad": 1061546,
-    "trocas_mad_pct": 0.6977,
+    "mad": 1016303,
+    "trocas_mad_pct": 0.7287,
     "delta_trocas": 901,
-    "delta_mad": 57686,
-    "delta_pp": 0.0497
+    "delta_mad": 57112,
+    "delta_pp": 0.0505
   },
   {
     "site": "MLM",
     "mes": "2025-11",
     "qtd_trocas": 7507,
-    "mad": 1126451,
-    "trocas_mad_pct": 0.6664,
+    "mad": 1082144,
+    "trocas_mad_pct": 0.6937,
     "delta_trocas": 101,
-    "delta_mad": 64905,
-    "delta_pp": -0.0313
+    "delta_mad": 65841,
+    "delta_pp": -0.035
   },
   {
     "site": "MLM",
     "mes": "2025-12",
     "qtd_trocas": 7160,
-    "mad": 1172367,
-    "trocas_mad_pct": 0.6107,
+    "mad": 1128173,
+    "trocas_mad_pct": 0.6347,
     "delta_trocas": -347,
-    "delta_mad": 45916,
-    "delta_pp": -0.0557
+    "delta_mad": 46029,
+    "delta_pp": -0.059
   },
   {
     "site": "MLM",
     "mes": "2026-01",
     "qtd_trocas": 10794,
-    "mad": 1186377,
-    "trocas_mad_pct": 0.9098,
+    "mad": 1141953,
+    "trocas_mad_pct": 0.9452,
     "delta_trocas": 3634,
-    "delta_mad": 14010,
-    "delta_pp": 0.2991
+    "delta_mad": 13780,
+    "delta_pp": 0.3105
   },
   {
     "site": "MLM",
     "mes": "2026-02",
     "qtd_trocas": 12407,
-    "mad": 1236011,
-    "trocas_mad_pct": 1.0038,
+    "mad": 1189468,
+    "trocas_mad_pct": 1.0431,
     "delta_trocas": 1613,
-    "delta_mad": 49634,
-    "delta_pp": 0.094
+    "delta_mad": 47515,
+    "delta_pp": 0.0979
   },
   {
     "site": "MLM",
     "mes": "2026-03",
     "qtd_trocas": 9544,
-    "mad": 1120762,
-    "trocas_mad_pct": 0.8516,
+    "mad": 1259713,
+    "trocas_mad_pct": 0.7576,
     "delta_trocas": -2863,
-    "delta_mad": -115249,
-    "delta_pp": -0.1522
+    "delta_mad": 70245,
+    "delta_pp": -0.2855
   },
   {
     "site": "MLM",
     "mes": "2026-04",
-    "qtd_trocas": 2963,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "delta_trocas": -6581,
-    "delta_mad": null,
-    "delta_pp": null,
+    "qtd_trocas": 4879,
+    "mad": 1067613,
+    "trocas_mad_pct": 0.457,
+    "delta_trocas": -4665,
+    "delta_mad": -192100,
+    "delta_pp": -0.3006,
     "parcial": true
   }
 ],
@@ -384,37 +384,37 @@ const DATA = {
   {
     "site": "MLA",
     "mes": "2026-01",
-    "qtd_delivered": 5690,
+    "qtd_delivered": 5691,
     "mad": 590570,
-    "delivered_mad_pct": 0.9635
+    "delivered_mad_pct": 0.9636
   },
   {
     "site": "MLA",
     "mes": "2026-02",
-    "qtd_delivered": 13342,
+    "qtd_delivered": 13346,
     "mad": 601142,
-    "delivered_mad_pct": 2.2194
+    "delivered_mad_pct": 2.2201
   },
   {
     "site": "MLA",
     "mes": "2026-03",
-    "qtd_delivered": 6573,
+    "qtd_delivered": 6589,
     "mad": 524055,
-    "delivered_mad_pct": 1.2543
+    "delivered_mad_pct": 1.2573
   },
   {
     "site": "MLA",
     "mes": "2026-04",
-    "qtd_delivered": 1009,
+    "qtd_delivered": 1776,
     "mad": null,
     "delivered_mad_pct": null
   },
   {
     "site": "MLB",
     "mes": "2025-09",
-    "qtd_delivered": 20016,
+    "qtd_delivered": 20015,
     "mad": 2779021,
-    "delivered_mad_pct": 0.7203
+    "delivered_mad_pct": 0.7202
   },
   {
     "site": "MLB",
@@ -433,35 +433,35 @@ const DATA = {
   {
     "site": "MLB",
     "mes": "2025-12",
-    "qtd_delivered": 17462,
+    "qtd_delivered": 17464,
     "mad": 2690341,
     "delivered_mad_pct": 0.6491
   },
   {
     "site": "MLB",
     "mes": "2026-01",
-    "qtd_delivered": 20465,
+    "qtd_delivered": 20472,
     "mad": 2607538,
-    "delivered_mad_pct": 0.7848
+    "delivered_mad_pct": 0.7851
   },
   {
     "site": "MLB",
     "mes": "2026-02",
-    "qtd_delivered": 18190,
+    "qtd_delivered": 18215,
     "mad": 2587550,
-    "delivered_mad_pct": 0.703
+    "delivered_mad_pct": 0.7039
   },
   {
     "site": "MLB",
     "mes": "2026-03",
-    "qtd_delivered": 15465,
+    "qtd_delivered": 15924,
     "mad": 2237382,
-    "delivered_mad_pct": 0.6912
+    "delivered_mad_pct": 0.7117
   },
   {
     "site": "MLB",
     "mes": "2026-04",
-    "qtd_delivered": 2052,
+    "qtd_delivered": 4379,
     "mad": null,
     "delivered_mad_pct": null
   },
@@ -482,9 +482,9 @@ const DATA = {
   {
     "site": "MLC",
     "mes": "2025-11",
-    "qtd_delivered": 917,
+    "qtd_delivered": 918,
     "mad": 149295,
-    "delivered_mad_pct": 0.6142
+    "delivered_mad_pct": 0.6149
   },
   {
     "site": "MLC",
@@ -510,14 +510,14 @@ const DATA = {
   {
     "site": "MLC",
     "mes": "2026-03",
-    "qtd_delivered": 1207,
+    "qtd_delivered": 1209,
     "mad": 156844,
-    "delivered_mad_pct": 0.7696
+    "delivered_mad_pct": 0.7708
   },
   {
     "site": "MLC",
     "mes": "2026-04",
-    "qtd_delivered": 340,
+    "qtd_delivered": 562,
     "mad": null,
     "delivered_mad_pct": null
   },
@@ -552,28 +552,28 @@ const DATA = {
   {
     "site": "MLM",
     "mes": "2026-01",
-    "qtd_delivered": 6819,
+    "qtd_delivered": 6820,
     "mad": 1186377,
-    "delivered_mad_pct": 0.5748
+    "delivered_mad_pct": 0.5749
   },
   {
     "site": "MLM",
     "mes": "2026-02",
-    "qtd_delivered": 8845,
+    "qtd_delivered": 8849,
     "mad": 1236011,
-    "delivered_mad_pct": 0.7156
+    "delivered_mad_pct": 0.7159
   },
   {
     "site": "MLM",
     "mes": "2026-03",
-    "qtd_delivered": 6886,
+    "qtd_delivered": 6907,
     "mad": 1120762,
-    "delivered_mad_pct": 0.6144
+    "delivered_mad_pct": 0.6163
   },
   {
     "site": "MLM",
     "mes": "2026-04",
-    "qtd_delivered": 1209,
+    "qtd_delivered": 2412,
     "mad": null,
     "delivered_mad_pct": null
   }
@@ -588,29 +588,29 @@ const DATA = {
     "mes": "2025-09",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 17430,
+    "qtd_trocas": 17193,
     "mad": null,
     "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 57.6
+    "pct_trocas_no_mes": 56.9
   },
   {
     "site": "MLB",
     "mes": "2025-09",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 8392,
+    "qtd_trocas": 8612,
     "mad": 762864,
-    "trocas_mad_pct": 1.1001,
-    "pct_trocas_no_mes": 27.8
+    "trocas_mad_pct": 1.1289,
+    "pct_trocas_no_mes": 28.5
   },
   {
     "site": "MLB",
     "mes": "2025-09",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 2816,
-    "mad": 332037,
-    "trocas_mad_pct": 0.8481,
+    "qtd_trocas": 2823,
+    "mad": 332069,
+    "trocas_mad_pct": 0.8501,
     "pct_trocas_no_mes": 9.3
   },
   {
@@ -618,10 +618,10 @@ const DATA = {
     "mes": "2025-09",
     "device_canonical": "Point Pro 3",
     "familia": "OUTRO",
-    "qtd_trocas": 1040,
+    "qtd_trocas": 1049,
     "mad": 231439,
-    "trocas_mad_pct": 0.4494,
-    "pct_trocas_no_mes": 3.4
+    "trocas_mad_pct": 0.4533,
+    "pct_trocas_no_mes": 3.5
   },
   {
     "site": "MLB",
@@ -629,7 +629,7 @@ const DATA = {
     "device_canonical": "Point MINI",
     "familia": "MINI",
     "qtd_trocas": 322,
-    "mad": 274601,
+    "mad": 274600,
     "trocas_mad_pct": 0.1173,
     "pct_trocas_no_mes": 1.1
   },
@@ -639,8 +639,8 @@ const DATA = {
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
     "qtd_trocas": 93,
-    "mad": 121915,
-    "trocas_mad_pct": 0.0763,
+    "mad": 121982,
+    "trocas_mad_pct": 0.0762,
     "pct_trocas_no_mes": 0.3
   },
   {
@@ -649,7 +649,7 @@ const DATA = {
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
     "qtd_trocas": 67,
-    "mad": 284874,
+    "mad": 284808,
     "trocas_mad_pct": 0.0235,
     "pct_trocas_no_mes": 0.2
   },
@@ -668,9 +668,9 @@ const DATA = {
     "mes": "2025-09",
     "device_canonical": "Undefined",
     "familia": "OUTRO",
-    "qtd_trocas": 19,
-    "mad": 7859,
-    "trocas_mad_pct": 0.2418,
+    "qtd_trocas": 17,
+    "mad": 7850,
+    "trocas_mad_pct": 0.2166,
     "pct_trocas_no_mes": 0.1
   },
   {
@@ -699,8 +699,18 @@ const DATA = {
     "device_canonical": "Point Smart 2 N950",
     "familia": "OUTRO",
     "qtd_trocas": 2,
-    "mad": 1275,
-    "trocas_mad_pct": 0.1569,
+    "mad": 1243,
+    "trocas_mad_pct": 0.1609,
+    "pct_trocas_no_mes": null
+  },
+  {
+    "site": "MLB",
+    "mes": "2025-09",
+    "device_canonical": "Point Smart",
+    "familia": "OUTRO",
+    "qtd_trocas": 2,
+    "mad": 274568,
+    "trocas_mad_pct": 0.0007,
     "pct_trocas_no_mes": null
   },
   {
@@ -708,29 +718,29 @@ const DATA = {
     "mes": "2025-10",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 17307,
+    "qtd_trocas": 17204,
     "mad": null,
     "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 55.1
+    "pct_trocas_no_mes": 54.8
   },
   {
     "site": "MLB",
     "mes": "2025-10",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 7848,
+    "qtd_trocas": 7947,
     "mad": 731907,
-    "trocas_mad_pct": 1.0723,
-    "pct_trocas_no_mes": 25.0
+    "trocas_mad_pct": 1.0858,
+    "pct_trocas_no_mes": 25.3
   },
   {
     "site": "MLB",
     "mes": "2025-10",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 4456,
-    "mad": 362022,
-    "trocas_mad_pct": 1.2309,
+    "qtd_trocas": 4458,
+    "mad": 362035,
+    "trocas_mad_pct": 1.2314,
     "pct_trocas_no_mes": 14.2
   },
   {
@@ -738,9 +748,9 @@ const DATA = {
     "mes": "2025-10",
     "device_canonical": "Point Pro 3",
     "familia": "OUTRO",
-    "qtd_trocas": 1038,
+    "qtd_trocas": 1039,
     "mad": 282922,
-    "trocas_mad_pct": 0.3669,
+    "trocas_mad_pct": 0.3672,
     "pct_trocas_no_mes": 3.3
   },
   {
@@ -758,10 +768,10 @@ const DATA = {
     "mes": "2025-10",
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
-    "qtd_trocas": 141,
-    "mad": 116848,
-    "trocas_mad_pct": 0.1207,
-    "pct_trocas_no_mes": 0.4
+    "qtd_trocas": 142,
+    "mad": 116869,
+    "trocas_mad_pct": 0.1215,
+    "pct_trocas_no_mes": 0.5
   },
   {
     "site": "MLB",
@@ -779,7 +789,7 @@ const DATA = {
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
     "qtd_trocas": 78,
-    "mad": 274642,
+    "mad": 274621,
     "trocas_mad_pct": 0.0284,
     "pct_trocas_no_mes": 0.2
   },
@@ -806,6 +816,16 @@ const DATA = {
   {
     "site": "MLB",
     "mes": "2025-10",
+    "device_canonical": "Point Smart 2 N950",
+    "familia": "OUTRO",
+    "qtd_trocas": 3,
+    "mad": 1196,
+    "trocas_mad_pct": 0.2508,
+    "pct_trocas_no_mes": null
+  },
+  {
+    "site": "MLB",
+    "mes": "2025-10",
     "device_canonical": "Point Mini ME30NFC",
     "familia": "OUTRO",
     "qtd_trocas": 3,
@@ -816,11 +836,11 @@ const DATA = {
   {
     "site": "MLB",
     "mes": "2025-10",
-    "device_canonical": "Point Smart 2 N950",
+    "device_canonical": "Point Smart",
     "familia": "OUTRO",
-    "qtd_trocas": 3,
-    "mad": 1209,
-    "trocas_mad_pct": 0.2481,
+    "qtd_trocas": 1,
+    "mad": 260589,
+    "trocas_mad_pct": 0.0004,
     "pct_trocas_no_mes": null
   },
   {
@@ -848,39 +868,39 @@ const DATA = {
     "mes": "2025-11",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 11970,
+    "qtd_trocas": 11882,
     "mad": null,
     "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 49.4
+    "pct_trocas_no_mes": 49.0
   },
   {
     "site": "MLB",
     "mes": "2025-11",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 6988,
+    "qtd_trocas": 7053,
     "mad": 694524,
-    "trocas_mad_pct": 1.0062,
-    "pct_trocas_no_mes": 28.8
+    "trocas_mad_pct": 1.0155,
+    "pct_trocas_no_mes": 29.1
   },
   {
     "site": "MLB",
     "mes": "2025-11",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 3490,
+    "qtd_trocas": 3509,
     "mad": 389121,
-    "trocas_mad_pct": 0.8969,
-    "pct_trocas_no_mes": 14.4
+    "trocas_mad_pct": 0.9018,
+    "pct_trocas_no_mes": 14.5
   },
   {
     "site": "MLB",
     "mes": "2025-11",
     "device_canonical": "Point Pro 3",
     "familia": "OUTRO",
-    "qtd_trocas": 1024,
+    "qtd_trocas": 1025,
     "mad": 313829,
-    "trocas_mad_pct": 0.3263,
+    "trocas_mad_pct": 0.3266,
     "pct_trocas_no_mes": 4.2
   },
   {
@@ -888,9 +908,9 @@ const DATA = {
     "mes": "2025-11",
     "device_canonical": "Point MINI",
     "familia": "MINI",
-    "qtd_trocas": 364,
+    "qtd_trocas": 366,
     "mad": 242666,
-    "trocas_mad_pct": 0.15,
+    "trocas_mad_pct": 0.1508,
     "pct_trocas_no_mes": 1.5
   },
   {
@@ -908,9 +928,9 @@ const DATA = {
     "mes": "2025-11",
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
-    "qtd_trocas": 114,
+    "qtd_trocas": 115,
     "mad": 108609,
-    "trocas_mad_pct": 0.105,
+    "trocas_mad_pct": 0.1059,
     "pct_trocas_no_mes": 0.5
   },
   {
@@ -918,9 +938,9 @@ const DATA = {
     "mes": "2025-11",
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
-    "qtd_trocas": 81,
+    "qtd_trocas": 80,
     "mad": 259404,
-    "trocas_mad_pct": 0.0312,
+    "trocas_mad_pct": 0.0308,
     "pct_trocas_no_mes": 0.3
   },
   {
@@ -968,39 +988,39 @@ const DATA = {
     "mes": "2025-12",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 16088,
+    "qtd_trocas": 15997,
     "mad": null,
     "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 56.6
+    "pct_trocas_no_mes": 56.2
   },
   {
     "site": "MLB",
     "mes": "2025-12",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 6983,
+    "qtd_trocas": 7016,
     "mad": 666568,
-    "trocas_mad_pct": 1.0476,
-    "pct_trocas_no_mes": 24.5
+    "trocas_mad_pct": 1.0526,
+    "pct_trocas_no_mes": 24.7
   },
   {
     "site": "MLB",
     "mes": "2025-12",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 3735,
-    "mad": 413754,
-    "trocas_mad_pct": 0.9027,
-    "pct_trocas_no_mes": 13.1
+    "qtd_trocas": 3791,
+    "mad": 413761,
+    "trocas_mad_pct": 0.9162,
+    "pct_trocas_no_mes": 13.3
   },
   {
     "site": "MLB",
     "mes": "2025-12",
     "device_canonical": "Point Pro 3",
     "familia": "OUTRO",
-    "qtd_trocas": 991,
+    "qtd_trocas": 993,
     "mad": 335134,
-    "trocas_mad_pct": 0.2957,
+    "trocas_mad_pct": 0.2963,
     "pct_trocas_no_mes": 3.5
   },
   {
@@ -1029,8 +1049,8 @@ const DATA = {
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
     "qtd_trocas": 101,
-    "mad": 102986,
-    "trocas_mad_pct": 0.0981,
+    "mad": 103016,
+    "trocas_mad_pct": 0.098,
     "pct_trocas_no_mes": 0.4
   },
   {
@@ -1038,10 +1058,10 @@ const DATA = {
     "mes": "2025-12",
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
-    "qtd_trocas": 73,
-    "mad": 247573,
-    "trocas_mad_pct": 0.0295,
-    "pct_trocas_no_mes": 0.3
+    "qtd_trocas": 67,
+    "mad": 247543,
+    "trocas_mad_pct": 0.0271,
+    "pct_trocas_no_mes": 0.2
   },
   {
     "site": "MLB",
@@ -1049,8 +1069,8 @@ const DATA = {
     "device_canonical": "Undefined",
     "familia": "OUTRO",
     "qtd_trocas": 20,
-    "mad": 7342,
-    "trocas_mad_pct": 0.2724,
+    "mad": 5852,
+    "trocas_mad_pct": 0.3418,
     "pct_trocas_no_mes": 0.1
   },
   {
@@ -1061,6 +1081,16 @@ const DATA = {
     "qtd_trocas": 6,
     "mad": 14321,
     "trocas_mad_pct": 0.0419,
+    "pct_trocas_no_mes": null
+  },
+  {
+    "site": "MLB",
+    "mes": "2025-12",
+    "device_canonical": "Point Smart",
+    "familia": "OUTRO",
+    "qtd_trocas": 6,
+    "mad": 234496,
+    "trocas_mad_pct": 0.0026,
     "pct_trocas_no_mes": null
   },
   {
@@ -1079,8 +1109,8 @@ const DATA = {
     "device_canonical": "Point Smart 2 N950",
     "familia": "OUTRO",
     "qtd_trocas": 1,
-    "mad": 1123,
-    "trocas_mad_pct": 0.089,
+    "mad": 1116,
+    "trocas_mad_pct": 0.0896,
     "pct_trocas_no_mes": null
   },
   {
@@ -1088,7 +1118,7 @@ const DATA = {
     "mes": "2026-01",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 15092,
+    "qtd_trocas": 15072,
     "mad": null,
     "trocas_mad_pct": null,
     "pct_trocas_no_mes": 50.6
@@ -1098,20 +1128,20 @@ const DATA = {
     "mes": "2026-01",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 7960,
+    "qtd_trocas": 7969,
     "mad": 624296,
-    "trocas_mad_pct": 1.275,
-    "pct_trocas_no_mes": 26.7
+    "trocas_mad_pct": 1.2765,
+    "pct_trocas_no_mes": 26.8
   },
   {
     "site": "MLB",
     "mes": "2026-01",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 4713,
-    "mad": 437399,
-    "trocas_mad_pct": 1.0775,
-    "pct_trocas_no_mes": 15.8
+    "qtd_trocas": 4724,
+    "mad": 437408,
+    "trocas_mad_pct": 1.08,
+    "pct_trocas_no_mes": 15.9
   },
   {
     "site": "MLB",
@@ -1148,9 +1178,9 @@ const DATA = {
     "mes": "2026-01",
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
-    "qtd_trocas": 136,
-    "mad": 92851,
-    "trocas_mad_pct": 0.1465,
+    "qtd_trocas": 137,
+    "mad": 92895,
+    "trocas_mad_pct": 0.1475,
     "pct_trocas_no_mes": 0.5
   },
   {
@@ -1158,30 +1188,30 @@ const DATA = {
     "mes": "2026-01",
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
-    "qtd_trocas": 101,
-    "mad": 225170,
-    "trocas_mad_pct": 0.0449,
-    "pct_trocas_no_mes": 0.3
-  },
-  {
-    "site": "MLB",
-    "mes": "2026-01",
-    "device_canonical": "Point Smart 2 N950",
-    "familia": "OUTRO",
-    "qtd_trocas": 23,
-    "mad": 1084,
-    "trocas_mad_pct": 2.1218,
-    "pct_trocas_no_mes": 0.1
+    "qtd_trocas": 62,
+    "mad": 225126,
+    "trocas_mad_pct": 0.0275,
+    "pct_trocas_no_mes": 0.2
   },
   {
     "site": "MLB",
     "mes": "2026-01",
     "device_canonical": "Undefined",
     "familia": "OUTRO",
-    "qtd_trocas": 19,
-    "mad": 7044,
-    "trocas_mad_pct": 0.2697,
+    "qtd_trocas": 18,
+    "mad": 5606,
+    "trocas_mad_pct": 0.3211,
     "pct_trocas_no_mes": 0.1
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-01",
+    "device_canonical": "Point Smart",
+    "familia": "OUTRO",
+    "qtd_trocas": 9,
+    "mad": 218493,
+    "trocas_mad_pct": 0.0041,
+    "pct_trocas_no_mes": null
   },
   {
     "site": "MLB",
@@ -1206,6 +1236,16 @@ const DATA = {
   {
     "site": "MLB",
     "mes": "2026-01",
+    "device_canonical": "Point Smart 2 N950",
+    "familia": "OUTRO",
+    "qtd_trocas": 4,
+    "mad": 1076,
+    "trocas_mad_pct": 0.3717,
+    "pct_trocas_no_mes": null
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-01",
     "device_canonical": "Point Air",
     "familia": "OUTRO",
     "qtd_trocas": 3,
@@ -1225,20 +1265,10 @@ const DATA = {
   },
   {
     "site": "MLB",
-    "mes": "2026-01",
-    "device_canonical": "Point Smart",
-    "familia": "OUTRO",
-    "qtd_trocas": 1,
-    "mad": 217057,
-    "trocas_mad_pct": 0.0005,
-    "pct_trocas_no_mes": null
-  },
-  {
-    "site": "MLB",
     "mes": "2026-02",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 13767,
+    "qtd_trocas": 13750,
     "mad": null,
     "trocas_mad_pct": null,
     "pct_trocas_no_mes": 52.0
@@ -1248,9 +1278,9 @@ const DATA = {
     "mes": "2026-02",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 6553,
+    "qtd_trocas": 6562,
     "mad": 598312,
-    "trocas_mad_pct": 1.0952,
+    "trocas_mad_pct": 1.0968,
     "pct_trocas_no_mes": 24.8
   },
   {
@@ -1258,9 +1288,9 @@ const DATA = {
     "mes": "2026-02",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 4212,
-    "mad": 460250,
-    "trocas_mad_pct": 0.9152,
+    "qtd_trocas": 4218,
+    "mad": 460257,
+    "trocas_mad_pct": 0.9164,
     "pct_trocas_no_mes": 15.9
   },
   {
@@ -1269,18 +1299,18 @@ const DATA = {
     "device_canonical": "Point Pro 3",
     "familia": "OUTRO",
     "qtd_trocas": 992,
-    "mad": 392497,
+    "mad": 392498,
     "trocas_mad_pct": 0.2527,
-    "pct_trocas_no_mes": 3.7
+    "pct_trocas_no_mes": 3.8
   },
   {
     "site": "MLB",
     "mes": "2026-02",
     "device_canonical": "Point AIR 2",
     "familia": "AIR",
-    "qtd_trocas": 367,
+    "qtd_trocas": 369,
     "mad": 53678,
-    "trocas_mad_pct": 0.6837,
+    "trocas_mad_pct": 0.6874,
     "pct_trocas_no_mes": 1.4
   },
   {
@@ -1298,9 +1328,9 @@ const DATA = {
     "mes": "2026-02",
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
-    "qtd_trocas": 121,
-    "mad": 86654,
-    "trocas_mad_pct": 0.1396,
+    "qtd_trocas": 128,
+    "mad": 86699,
+    "trocas_mad_pct": 0.1476,
     "pct_trocas_no_mes": 0.5
   },
   {
@@ -1308,30 +1338,40 @@ const DATA = {
     "mes": "2026-02",
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
-    "qtd_trocas": 113,
-    "mad": 213310,
-    "trocas_mad_pct": 0.053,
-    "pct_trocas_no_mes": 0.4
-  },
-  {
-    "site": "MLB",
-    "mes": "2026-02",
-    "device_canonical": "Point Smart 2 N950",
-    "familia": "OUTRO",
-    "qtd_trocas": 23,
-    "mad": 1045,
-    "trocas_mad_pct": 2.201,
-    "pct_trocas_no_mes": 0.1
+    "qtd_trocas": 92,
+    "mad": 213265,
+    "trocas_mad_pct": 0.0431,
+    "pct_trocas_no_mes": 0.3
   },
   {
     "site": "MLB",
     "mes": "2026-02",
     "device_canonical": "Undefined",
     "familia": "OUTRO",
-    "qtd_trocas": 18,
-    "mad": 6980,
-    "trocas_mad_pct": 0.2579,
+    "qtd_trocas": 15,
+    "mad": 5524,
+    "trocas_mad_pct": 0.2715,
     "pct_trocas_no_mes": 0.1
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-02",
+    "device_canonical": "Point Smart 2 N950",
+    "familia": "OUTRO",
+    "qtd_trocas": 10,
+    "mad": 1038,
+    "trocas_mad_pct": 0.9634,
+    "pct_trocas_no_mes": null
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-02",
+    "device_canonical": "Point Smart",
+    "familia": "OUTRO",
+    "qtd_trocas": 7,
+    "mad": 206980,
+    "trocas_mad_pct": 0.0034,
+    "pct_trocas_no_mes": null
   },
   {
     "site": "MLB",
@@ -1341,16 +1381,6 @@ const DATA = {
     "qtd_trocas": 4,
     "mad": 11962,
     "trocas_mad_pct": 0.0334,
-    "pct_trocas_no_mes": null
-  },
-  {
-    "site": "MLB",
-    "mes": "2026-02",
-    "device_canonical": "Point Air",
-    "familia": "OUTRO",
-    "qtd_trocas": 3,
-    "mad": 188308,
-    "trocas_mad_pct": 0.0016,
     "pct_trocas_no_mes": null
   },
   {
@@ -1366,11 +1396,11 @@ const DATA = {
   {
     "site": "MLB",
     "mes": "2026-02",
-    "device_canonical": "Point Smart",
+    "device_canonical": "Point Air",
     "familia": "OUTRO",
-    "qtd_trocas": 1,
-    "mad": 205534,
-    "trocas_mad_pct": 0.0005,
+    "qtd_trocas": 3,
+    "mad": 188308,
+    "trocas_mad_pct": 0.0016,
     "pct_trocas_no_mes": null
   },
   {
@@ -1378,39 +1408,39 @@ const DATA = {
     "mes": "2026-03",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 12967,
+    "qtd_trocas": 12700,
     "mad": null,
     "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 50.5
+    "pct_trocas_no_mes": 49.4
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 6608,
-    "mad": 515759,
-    "trocas_mad_pct": 1.2812,
-    "pct_trocas_no_mes": 25.7
+    "qtd_trocas": 6659,
+    "mad": 579916,
+    "trocas_mad_pct": 1.1483,
+    "pct_trocas_no_mes": 25.9
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 4089,
-    "mad": 440851,
-    "trocas_mad_pct": 0.9275,
-    "pct_trocas_no_mes": 15.9
+    "qtd_trocas": 4275,
+    "mad": 485298,
+    "trocas_mad_pct": 0.8809,
+    "pct_trocas_no_mes": 16.6
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "device_canonical": "Point Pro 3",
     "familia": "OUTRO",
-    "qtd_trocas": 1106,
-    "mad": 375926,
-    "trocas_mad_pct": 0.2942,
+    "qtd_trocas": 1107,
+    "mad": 428588,
+    "trocas_mad_pct": 0.2583,
     "pct_trocas_no_mes": 4.3
   },
   {
@@ -1418,19 +1448,19 @@ const DATA = {
     "mes": "2026-03",
     "device_canonical": "Point AIR 2",
     "familia": "AIR",
-    "qtd_trocas": 354,
-    "mad": 48893,
-    "trocas_mad_pct": 0.724,
-    "pct_trocas_no_mes": 1.4
+    "qtd_trocas": 378,
+    "mad": 61141,
+    "trocas_mad_pct": 0.6182,
+    "pct_trocas_no_mes": 1.5
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "device_canonical": "Point MINI",
     "familia": "MINI",
-    "qtd_trocas": 310,
-    "mad": 142844,
-    "trocas_mad_pct": 0.217,
+    "qtd_trocas": 316,
+    "mad": 186444,
+    "trocas_mad_pct": 0.1695,
     "pct_trocas_no_mes": 1.2
   },
   {
@@ -1438,9 +1468,9 @@ const DATA = {
     "mes": "2026-03",
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
-    "qtd_trocas": 135,
-    "mad": 161747,
-    "trocas_mad_pct": 0.0835,
+    "qtd_trocas": 133,
+    "mad": 212700,
+    "trocas_mad_pct": 0.0625,
     "pct_trocas_no_mes": 0.5
   },
   {
@@ -1448,19 +1478,19 @@ const DATA = {
     "mes": "2026-03",
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
-    "qtd_trocas": 76,
-    "mad": 65797,
-    "trocas_mad_pct": 0.1155,
-    "pct_trocas_no_mes": 0.3
+    "qtd_trocas": 115,
+    "mad": 85592,
+    "trocas_mad_pct": 0.1344,
+    "pct_trocas_no_mes": 0.4
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "device_canonical": "Undefined",
     "familia": "OUTRO",
-    "qtd_trocas": 25,
-    "mad": 5957,
-    "trocas_mad_pct": 0.4197,
+    "qtd_trocas": 24,
+    "mad": 5613,
+    "trocas_mad_pct": 0.4276,
     "pct_trocas_no_mes": 0.1
   },
   {
@@ -1469,8 +1499,18 @@ const DATA = {
     "device_canonical": "Point Smart 2 N950",
     "familia": "OUTRO",
     "qtd_trocas": 12,
-    "mad": 965,
-    "trocas_mad_pct": 1.2435,
+    "mad": 1030,
+    "trocas_mad_pct": 1.165,
+    "pct_trocas_no_mes": null
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-03",
+    "device_canonical": "Point Smart",
+    "familia": "OUTRO",
+    "qtd_trocas": 6,
+    "mad": 199746,
+    "trocas_mad_pct": 0.003,
     "pct_trocas_no_mes": null
   },
   {
@@ -1479,8 +1519,8 @@ const DATA = {
     "device_canonical": "Point Mini (ME30S)",
     "familia": "OUTRO",
     "qtd_trocas": 5,
-    "mad": 8572,
-    "trocas_mad_pct": 0.0583,
+    "mad": 11906,
+    "trocas_mad_pct": 0.042,
     "pct_trocas_no_mes": null
   },
   {
@@ -1489,8 +1529,8 @@ const DATA = {
     "device_canonical": "Point Mini ME30NFC",
     "familia": "OUTRO",
     "qtd_trocas": 2,
-    "mad": 3957,
-    "trocas_mad_pct": 0.0505,
+    "mad": 5366,
+    "trocas_mad_pct": 0.0373,
     "pct_trocas_no_mes": null
   },
   {
@@ -1499,8 +1539,8 @@ const DATA = {
     "device_canonical": "Point Air",
     "familia": "OUTRO",
     "qtd_trocas": 1,
-    "mad": 151179,
-    "trocas_mad_pct": 0.0007,
+    "mad": 184677,
+    "trocas_mad_pct": 0.0005,
     "pct_trocas_no_mes": null
   },
   {
@@ -1508,109 +1548,129 @@ const DATA = {
     "mes": "2026-04",
     "device_canonical": null,
     "familia": "OUTRO",
-    "qtd_trocas": 3834,
+    "qtd_trocas": 5837,
     "mad": null,
     "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 54.1
+    "pct_trocas_no_mes": 49.9
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point Pro 2",
     "familia": "OUTRO",
-    "qtd_trocas": 1709,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 24.1
+    "qtd_trocas": 2899,
+    "mad": 487273,
+    "trocas_mad_pct": 0.5949,
+    "pct_trocas_no_mes": 24.8
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point Smart 2",
     "familia": "OUTRO",
-    "qtd_trocas": 999,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 14.1
+    "qtd_trocas": 1999,
+    "mad": 454207,
+    "trocas_mad_pct": 0.4401,
+    "pct_trocas_no_mes": 17.1
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point Pro 3",
     "familia": "OUTRO",
-    "qtd_trocas": 265,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 3.7
+    "qtd_trocas": 450,
+    "mad": 397289,
+    "trocas_mad_pct": 0.1133,
+    "pct_trocas_no_mes": 3.8
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point AIR 2",
     "familia": "AIR",
-    "qtd_trocas": 101,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 1.4
+    "qtd_trocas": 196,
+    "mad": 52958,
+    "trocas_mad_pct": 0.3701,
+    "pct_trocas_no_mes": 1.7
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point MINI",
     "familia": "MINI",
-    "qtd_trocas": 88,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 1.2
+    "qtd_trocas": 175,
+    "mad": 129879,
+    "trocas_mad_pct": 0.1347,
+    "pct_trocas_no_mes": 1.5
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point Mini NFC 1",
     "familia": "OUTRO",
-    "qtd_trocas": 47,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 0.7
+    "qtd_trocas": 75,
+    "mad": 148519,
+    "trocas_mad_pct": 0.0505,
+    "pct_trocas_no_mes": 0.6
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point Mini NFC",
     "familia": "OUTRO",
-    "qtd_trocas": 26,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 0.4
-  },
-  {
-    "site": "MLB",
-    "mes": "2026-04",
-    "device_canonical": "Point Mini (ME30S)",
-    "familia": "OUTRO",
-    "qtd_trocas": 5,
-    "mad": null,
-    "trocas_mad_pct": null,
-    "pct_trocas_no_mes": 0.1
+    "qtd_trocas": 57,
+    "mad": 60247,
+    "trocas_mad_pct": 0.0946,
+    "pct_trocas_no_mes": 0.5
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Undefined",
     "familia": "OUTRO",
-    "qtd_trocas": 5,
-    "mad": null,
-    "trocas_mad_pct": null,
+    "qtd_trocas": 6,
+    "mad": 4529,
+    "trocas_mad_pct": 0.1325,
     "pct_trocas_no_mes": 0.1
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-04",
+    "device_canonical": "Point Mini (ME30S)",
+    "familia": "OUTRO",
+    "qtd_trocas": 6,
+    "mad": 7722,
+    "trocas_mad_pct": 0.0777,
+    "pct_trocas_no_mes": 0.1
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-04",
+    "device_canonical": "Point Smart",
+    "familia": "OUTRO",
+    "qtd_trocas": 2,
+    "mad": 170888,
+    "trocas_mad_pct": 0.0012,
+    "pct_trocas_no_mes": null
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "device_canonical": "Point Mini ME30NFC",
     "familia": "OUTRO",
+    "qtd_trocas": 2,
+    "mad": 3532,
+    "trocas_mad_pct": 0.0566,
+    "pct_trocas_no_mes": null
+  },
+  {
+    "site": "MLB",
+    "mes": "2026-04",
+    "device_canonical": "UNKNOWN",
+    "familia": "OUTRO",
     "qtd_trocas": 1,
-    "mad": null,
-    "trocas_mad_pct": null,
+    "mad": 325,
+    "trocas_mad_pct": 0.3077,
     "pct_trocas_no_mes": null
   },
   {
@@ -1619,8 +1679,8 @@ const DATA = {
     "device_canonical": "Point Smart 2 N950",
     "familia": "OUTRO",
     "qtd_trocas": 1,
-    "mad": null,
-    "trocas_mad_pct": null,
+    "mad": 914,
+    "trocas_mad_pct": 0.1094,
     "pct_trocas_no_mes": null
   }
 ],
@@ -2131,63 +2191,63 @@ const DATA = {
     "mes": "2026-04",
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
-    "qtd": 4271
+    "qtd": 7023
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "CX",
     "n2": "CX",
-    "qtd": 1043
+    "qtd": 1691
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "qtd": 615
+    "qtd": 942
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "qtd": 516
+    "qtd": 787
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "qtd": 436
+    "qtd": 742
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "FDV",
     "n2": "FDV",
-    "qtd": 142
+    "qtd": 413
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "FAQ",
     "n2": "VERDI_FORM",
-    "qtd": 24
+    "qtd": 33
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "FAQ",
     "n2": "POINT",
-    "qtd": 19
+    "qtd": 32
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
-    "qtd": 14
+    "qtd": 23
   },
   {
     "site": "MLB",
@@ -2487,31 +2547,31 @@ const DATA = {
     "site": "MLB",
     "mes": "2026-04",
     "canal": "FAQ",
-    "qtd_trocas": 5445
+    "qtd_trocas": 8817
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "canal": "CX",
-    "qtd_trocas": 1043
+    "qtd_trocas": 1691
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "canal": "CERTIFIED_CONSULTANT",
-    "qtd_trocas": 436
+    "qtd_trocas": 742
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "canal": "FDV",
-    "qtd_trocas": 142
+    "qtd_trocas": 413
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "canal": "CX_NIVEL_2",
-    "qtd_trocas": 14
+    "qtd_trocas": 23
   },
   {
     "site": "MLB",
@@ -2721,31 +2781,31 @@ const DATA = {
     "site": "MLA",
     "mes": "2026-04",
     "canal": "FAQ",
-    "qtd_trocas": 1328
+    "qtd_trocas": 2092
   },
   {
     "site": "MLA",
     "mes": "2026-04",
     "canal": "CERTIFIED_CONSULTANT",
-    "qtd_trocas": 363
+    "qtd_trocas": 595
   },
   {
     "site": "MLA",
     "mes": "2026-04",
     "canal": "CX",
-    "qtd_trocas": 158
+    "qtd_trocas": 250
   },
   {
     "site": "MLA",
     "mes": "2026-04",
     "canal": "CX_NIVEL_2",
-    "qtd_trocas": 17
+    "qtd_trocas": 29
   },
   {
     "site": "MLA",
     "mes": "2026-04",
     "canal": "CC_VIRTUAL",
-    "qtd_trocas": 13
+    "qtd_trocas": 17
   },
   {
     "site": "MLC",
@@ -2877,19 +2937,19 @@ const DATA = {
     "site": "MLC",
     "mes": "2026-04",
     "canal": "CX",
-    "qtd_trocas": 272
+    "qtd_trocas": 423
   },
   {
     "site": "MLC",
     "mes": "2026-04",
     "canal": "FAQ",
-    "qtd_trocas": 219
+    "qtd_trocas": 361
   },
   {
     "site": "MLC",
     "mes": "2026-04",
     "canal": "CX_NIVEL_2",
-    "qtd_trocas": 9
+    "qtd_trocas": 28
   },
   {
     "site": "MLM",
@@ -3105,31 +3165,31 @@ const DATA = {
     "site": "MLM",
     "mes": "2026-04",
     "canal": "FAQ",
-    "qtd_trocas": 2654
+    "qtd_trocas": 4384
   },
   {
     "site": "MLM",
     "mes": "2026-04",
     "canal": "CX",
-    "qtd_trocas": 215
+    "qtd_trocas": 326
   },
   {
     "site": "MLM",
     "mes": "2026-04",
     "canal": "CERTIFIED_CONSULTANT",
-    "qtd_trocas": 82
+    "qtd_trocas": 143
   },
   {
     "site": "MLM",
     "mes": "2026-04",
     "canal": "CX_NIVEL_2",
-    "qtd_trocas": 9
+    "qtd_trocas": 18
   },
   {
     "site": "MLM",
     "mes": "2026-04",
     "canal": "FDV",
-    "qtd_trocas": 3
+    "qtd_trocas": 8
   }
 ],
 
@@ -3476,43 +3536,43 @@ const DATA = {
     "site": "MLB",
     "mes": "2026-04",
     "motivo": "El lector no se prende o no se carga",
-    "qtd_trocas": 3047
+    "qtd_trocas": 4968
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd_trocas": 1080
+    "qtd_trocas": 1625
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "motivo": "Defeito no Leitor de Cartões",
-    "qtd_trocas": 818
+    "qtd_trocas": 1345
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd_trocas": 517
+    "qtd_trocas": 980
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "motivo": "Otros Problemas",
-    "qtd_trocas": 489
+    "qtd_trocas": 829
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "motivo": "No es posible imprimir el comprobante",
-    "qtd_trocas": 366
+    "qtd_trocas": 641
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd_trocas": 190
+    "qtd_trocas": 289
   }
 ],
 
@@ -3522,12 +3582,3260 @@ const DATA = {
   // Estrutura: { site, dia:'YYYY-MM-DD', n1, n2, motivo, qtd }
 daily: [
   {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 156
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 70
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 53
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 41
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 36
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 23
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 18
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 15
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 10
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 9
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
+    "qtd": 9
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Otros Problemas",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Waiting for clearing security\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Não conecta com MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 249
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 121
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 95
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 73
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 59
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 41
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Otros Problemas",
+    "qtd": 32
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 27
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 26
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 26
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 16
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
+    "qtd": 14
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
+    "qtd": 11
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 9
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 9
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Otros Problemas",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El dispositivo emite ruido",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 242
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 97
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 89
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 77
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 67
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 46
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 45
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Otros Problemas",
+    "qtd": 36
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 35
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Otros Problemas",
+    "qtd": 21
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 16
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 15
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
+    "qtd": 11
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Irruption\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Welcome\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Reboot & Authority\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 251
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 122
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 83
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 77
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 72
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 36
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 34
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 31
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 31
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Otros Problemas",
+    "qtd": 27
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 24
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
+    "qtd": 23
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 13
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 9
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Otros Problemas",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"No conecta con MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sticker de seguridad de la caja roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 102
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 57
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 44
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 39
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 18
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
+    "qtd": 12
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 10
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Otros Problemas",
+    "qtd": 10
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 10
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Otros Problemas",
+    "qtd": 9
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Reboot & Authority\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 141
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 75
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 57
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 55
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 26
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 24
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 23
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 19
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Otros Problemas",
+    "qtd": 18
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
+    "qtd": 18
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Otros Problemas",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "Mensaje \"HW ATTACK. Sua Point não funciona. Peça a troca em mercadopago\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Mem Fault\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
+    "qtd": 1
+  },
+  {
     "dia": "2026-04-10",
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 212
+    "qtd": 226
   },
   {
     "dia": "2026-04-10",
@@ -3535,7 +6843,7 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "El lector no se prende o no se carga",
-    "qtd": 144
+    "qtd": 190
   },
   {
     "dia": "2026-04-10",
@@ -3543,7 +6851,7 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 66
+    "qtd": 82
   },
   {
     "dia": "2026-04-10",
@@ -3551,7 +6859,7 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 52
+    "qtd": 67
   },
   {
     "dia": "2026-04-10",
@@ -3559,7 +6867,7 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "El lector no se prende o no se carga",
-    "qtd": 49
+    "qtd": 54
   },
   {
     "dia": "2026-04-10",
@@ -3567,7 +6875,7 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Otros Problemas",
-    "qtd": 44
+    "qtd": 48
   },
   {
     "dia": "2026-04-10",
@@ -3575,7 +6883,7 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El lector no se prende o no se carga",
-    "qtd": 32
+    "qtd": 37
   },
   {
     "dia": "2026-04-10",
@@ -3583,7 +6891,7 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "No es posible imprimir el comprobante",
-    "qtd": 25
+    "qtd": 28
   },
   {
     "dia": "2026-04-10",
@@ -3591,7 +6899,7 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El lector no se prende o no se carga",
-    "qtd": 25
+    "qtd": 27
   },
   {
     "dia": "2026-04-10",
@@ -3599,7 +6907,7 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 22
+    "qtd": 25
   },
   {
     "dia": "2026-04-10",
@@ -3607,7 +6915,7 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "El lector no se prende o no se carga",
-    "qtd": 18
+    "qtd": 19
   },
   {
     "dia": "2026-04-10",
@@ -3615,7 +6923,7 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 16
+    "qtd": 17
   },
   {
     "dia": "2026-04-10",
@@ -3623,7 +6931,23 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Otros Problemas",
+    "qtd": 16
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
     "qtd": 15
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 12
   },
   {
     "dia": "2026-04-10",
@@ -3631,7 +6955,7 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 10
+    "qtd": 11
   },
   {
     "dia": "2026-04-10",
@@ -3644,10 +6968,10 @@ daily: [
   {
     "dia": "2026-04-10",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 7
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 8
   },
   {
     "dia": "2026-04-10",
@@ -3662,15 +6986,7 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
+    "motivo": "Otros Problemas",
     "qtd": 7
   },
   {
@@ -3687,6 +7003,22 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Teclado/botón roto",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
     "qtd": 4
   },
   {
@@ -3694,14 +7026,6 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Pantalla rota",
     "qtd": 4
   },
@@ -3716,41 +7040,25 @@ daily: [
   {
     "dia": "2026-04-10",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
     "qtd": 3
   },
   {
@@ -3765,8 +7073,32 @@ daily: [
     "dia": "2026-04-10",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 3
   },
   {
@@ -3783,70 +7115,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"HW attack\"",
     "qtd": 2
   },
   {
@@ -3868,9 +7136,73 @@ daily: [
   {
     "dia": "2026-04-10",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 2
   },
   {
@@ -3879,14 +7211,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 2
   },
   {
@@ -3908,50 +7232,10 @@ daily: [
   {
     "dia": "2026-04-10",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 2
   },
   {
     "dia": "2026-04-10",
@@ -3966,7 +7250,47 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensaje \"No conecta con MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -3989,23 +7313,7 @@ daily: [
     "dia": "2026-04-10",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
+    "n2": "MAXWELL_FORM",
     "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
@@ -4014,71 +7322,23 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Reboot & Authority\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
     "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -4100,9 +7360,57 @@ daily: [
   {
     "dia": "2026-04-10",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
     "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "El lector no se prende o no se carga",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 1
   },
   {
@@ -4110,7 +7418,87 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
+    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Reboot & Authority\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
     "qtd": 1
   },
   {
@@ -4126,31 +7514,15 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mi dispositivo no reconoce el lector",
+    "motivo": "Mensaje \"Smartpos Paró\"",
     "qtd": 1
   },
   {
     "dia": "2026-04-10",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -4159,30 +7531,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -4276,16 +7624,16 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
     "motivo": "Otros Problemas",
     "qtd": 15
   },
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Otros Problemas",
     "qtd": 15
   },
@@ -4332,6 +7680,14 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Ped Tampered\"",
@@ -4342,14 +7698,6 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 5
   },
@@ -4412,9 +7760,9 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
     "qtd": 3
   },
   {
@@ -4428,9 +7776,9 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 3
   },
   {
@@ -4444,41 +7792,17 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
     "qtd": 2
   },
   {
     "dia": "2026-04-09",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 2
   },
   {
@@ -4500,17 +7824,41 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 2
   },
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 2
   },
   {
@@ -4542,15 +7890,15 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "Visor tactil no funciona",
     "qtd": 1
   },
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Pantalla rota",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -4564,16 +7912,8 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
     "motivo": "Pantalla rota",
     "qtd": 1
   },
@@ -4581,16 +7921,8 @@ daily: [
     "dia": "2026-04-09",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -4598,71 +7930,7 @@ daily: [
     "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Não conecta com MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Irruption\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -4684,9 +7952,9 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
     "qtd": 1
   },
   {
@@ -4701,6 +7969,14 @@ daily: [
     "dia": "2026-04-09",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
@@ -4708,9 +7984,17 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -4718,7 +8002,71 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Não conecta com MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No conecta con MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-09",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Irruption\"",
     "qtd": 1
   },
   {
@@ -4732,17 +8080,17 @@ daily: [
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
     "dia": "2026-04-09",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
     "qtd": 1
   },
   {
@@ -4813,7 +8161,7 @@ daily: [
     "dia": "2026-04-08",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
+    "n2": "MAXWELL_FORM",
     "motivo": "El lector no se prende o no se carga",
     "qtd": 19
   },
@@ -4821,7 +8169,7 @@ daily: [
     "dia": "2026-04-08",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
+    "n2": "HELP_PORTAL",
     "motivo": "El lector no se prende o no se carga",
     "qtd": 19
   },
@@ -4853,7 +8201,7 @@ daily: [
     "dia": "2026-04-08",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
+    "n2": "MAXWELL_FORM",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 8
   },
@@ -4861,7 +8209,7 @@ daily: [
     "dia": "2026-04-08",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
+    "n2": "HELP_PORTAL",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 8
   },
@@ -4884,14 +8232,6 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "El chip y wifi no funcionan",
@@ -4900,17 +8240,17 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 5
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 6
   },
   {
     "dia": "2026-04-08",
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 5
   },
   {
@@ -4926,8 +8266,8 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 4
+    "motivo": "Otros Problemas",
+    "qtd": 5
   },
   {
     "dia": "2026-04-08",
@@ -4950,8 +8290,8 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
+    "motivo": "Lector funciona lento",
+    "qtd": 4
   },
   {
     "dia": "2026-04-08",
@@ -4959,6 +8299,14 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 3
   },
   {
@@ -4996,6 +8344,22 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
@@ -5020,17 +8384,9 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Pantalla rota",
+    "motivo": "Lector funciona lento",
     "qtd": 2
   },
   {
@@ -5039,14 +8395,6 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Sólo el wifi no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
     "qtd": 2
   },
   {
@@ -5068,9 +8416,9 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
     "qtd": 1
   },
   {
@@ -5078,7 +8426,23 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el wifi no funciona",
     "qtd": 1
   },
   {
@@ -5086,7 +8450,31 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
+    "motivo": "Mensaje \"HW ATTACK. Sua Point não funciona. Peça a troca em mercadopago\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   },
   {
@@ -5100,6 +8488,38 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-08",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
@@ -5108,9 +8528,9 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -5132,81 +8552,9 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"HW ATTACK. Sua Point não funciona. Peça a troca em mercadopago\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
   },
   {
@@ -5220,9 +8568,9 @@ daily: [
   {
     "dia": "2026-04-08",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
     "qtd": 1
   },
   {
@@ -5244,17 +8592,17 @@ daily: [
   {
     "dia": "2026-04-07",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no se prende o no se carga",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 89
   },
   {
     "dia": "2026-04-07",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 89
   },
   {
@@ -5324,17 +8672,17 @@ daily: [
   {
     "dia": "2026-04-07",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Otros Problemas",
     "qtd": 10
   },
   {
     "dia": "2026-04-07",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 10
   },
   {
@@ -5358,7 +8706,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 7
   },
   {
@@ -5366,7 +8714,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 7
   },
   {
@@ -5398,7 +8746,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 5
   },
   {
@@ -5406,7 +8754,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 5
   },
   {
@@ -5549,14 +8897,6 @@ daily: [
     "dia": "2026-04-07",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-07",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "POINT",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
@@ -5573,32 +8913,16 @@ daily: [
     "dia": "2026-04-07",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   },
   {
     "dia": "2026-04-07",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Reboot & Authority\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 1
   },
   {
@@ -5621,14 +8945,6 @@ daily: [
     "dia": "2026-04-07",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-07",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "POINT",
     "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
@@ -5637,16 +8953,32 @@ daily: [
     "dia": "2026-04-07",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
     "dia": "2026-04-07",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Reboot & Authority\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-07",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-07",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Visor tactil no funciona",
     "qtd": 1
   },
   {
@@ -5670,7 +9002,23 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-07",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-07",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 1
   },
   {
@@ -5742,7 +9090,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 14
   },
   {
@@ -5750,7 +9098,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
+    "motivo": "Otros Problemas",
     "qtd": 14
   },
   {
@@ -5797,16 +9145,16 @@ daily: [
     "dia": "2026-04-06",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 7
   },
   {
     "dia": "2026-04-06",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 7
   },
   {
@@ -5823,6 +9171,14 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "El chip y wifi no funcionan",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 4
   },
   {
@@ -5845,9 +9201,9 @@ daily: [
     "dia": "2026-04-06",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 4
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 3
   },
   {
     "dia": "2026-04-06",
@@ -5868,9 +9224,9 @@ daily: [
   {
     "dia": "2026-04-06",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 3
   },
   {
@@ -5892,10 +9248,10 @@ daily: [
   {
     "dia": "2026-04-06",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 2
   },
   {
     "dia": "2026-04-06",
@@ -5903,14 +9259,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 2
   },
   {
@@ -5934,15 +9282,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
+    "motivo": "Teclado/botón roto",
     "qtd": 2
   },
   {
@@ -5958,6 +9298,14 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
     "motivo": "Teclado/botón roto",
     "qtd": 2
   },
@@ -5972,18 +9320,10 @@ daily: [
   {
     "dia": "2026-04-06",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
     "qtd": 2
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
   },
   {
     "dia": "2026-04-06",
@@ -5991,14 +9331,6 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -6014,7 +9346,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -6022,79 +9354,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "El dispositivo emite ruido",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 1
   },
   {
@@ -6126,7 +9386,95 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
+    "motivo": "El dispositivo emite ruido",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
     "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-06",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Smartpos Paró\"",
     "qtd": 1
   },
   {
@@ -6141,8 +9489,8 @@ daily: [
     "dia": "2026-04-06",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Smartpos Paró\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -6254,14 +9602,6 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 3
   },
@@ -6271,6 +9611,14 @@ daily: [
     "n1": "FAQ",
     "n2": "VERDI_FORM",
     "motivo": "El lector no se prende o no se carga",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 3
   },
   {
@@ -6300,17 +9648,9 @@ daily: [
   {
     "dia": "2026-04-05",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 1
   },
   {
@@ -6334,6 +9674,14 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
   },
@@ -6348,97 +9696,17 @@ daily: [
   {
     "dia": "2026-04-05",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
     "dia": "2026-04-05",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 1
   },
   {
@@ -6462,7 +9730,95 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-05",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
@@ -6471,14 +9827,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-05",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -6493,8 +9841,8 @@ daily: [
     "dia": "2026-04-05",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -6541,16 +9889,16 @@ daily: [
     "dia": "2026-04-04",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "No es posible imprimir el comprobante",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 18
   },
   {
     "dia": "2026-04-04",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no se prende o no se carga",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 18
   },
   {
@@ -6597,16 +9945,16 @@ daily: [
     "dia": "2026-04-04",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n2": "VERDI_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 5
   },
   {
     "dia": "2026-04-04",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 5
   },
   {
@@ -6636,17 +9984,17 @@ daily: [
   {
     "dia": "2026-04-04",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 3
   },
   {
     "dia": "2026-04-04",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 3
   },
   {
@@ -6660,41 +10008,9 @@ daily: [
   {
     "dia": "2026-04-04",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 2
   },
   {
@@ -6716,9 +10032,41 @@ daily: [
   {
     "dia": "2026-04-04",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Otros Problemas",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 2
   },
   {
@@ -6728,6 +10076,22 @@ daily: [
     "n2": "MAXWELL_FORM",
     "motivo": "No es posible imprimir el comprobante",
     "qtd": 2
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
   },
   {
     "dia": "2026-04-04",
@@ -6748,14 +10112,6 @@ daily: [
   {
     "dia": "2026-04-04",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Sólo el wifi no funciona",
@@ -6766,22 +10122,54 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El chip y wifi no funcionan",
     "qtd": 1
   },
   {
     "dia": "2026-04-04",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
     "motivo": "Otros Problemas",
     "qtd": 1
   },
@@ -6804,17 +10192,25 @@ daily: [
   {
     "dia": "2026-04-04",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 1
   },
   {
     "dia": "2026-04-04",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 1
   },
   {
@@ -6830,63 +10226,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "VERDI_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-04",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "motivo": "Mensaje \"Smartpos Paró\"",
     "qtd": 1
   },
   {
@@ -6908,9 +10248,9 @@ daily: [
   {
     "dia": "2026-04-04",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Mensaje \"Smartpos Paró\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 1
   },
   {
@@ -6919,6 +10259,14 @@ daily: [
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
     "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-04",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -7004,17 +10352,17 @@ daily: [
   {
     "dia": "2026-04-03",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 5
   },
   {
     "dia": "2026-04-03",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 5
   },
   {
@@ -7044,6 +10392,14 @@ daily: [
   {
     "dia": "2026-04-03",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
@@ -7062,8 +10418,8 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
+    "motivo": "Pantalla rota",
+    "qtd": 2
   },
   {
     "dia": "2026-04-03",
@@ -7079,14 +10435,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
     "qtd": 2
   },
   {
@@ -7116,9 +10464,41 @@ daily: [
   {
     "dia": "2026-04-03",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -7140,46 +10520,6 @@ daily: [
   {
     "dia": "2026-04-03",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Lector funciona lento",
@@ -7196,6 +10536,30 @@ daily: [
   {
     "dia": "2026-04-03",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-03",
+    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "El lector no se prende o no se carga",
@@ -7205,16 +10569,8 @@ daily: [
     "dia": "2026-04-03",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 1
   },
   {
@@ -7222,7 +10578,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Sólo el wifi no funciona",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
@@ -7247,14 +10603,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-03",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
@@ -7372,17 +10720,17 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
     "qtd": 9
   },
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 9
   },
   {
@@ -7404,14 +10752,6 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
@@ -7420,10 +10760,10 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 5
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 6
   },
   {
     "dia": "2026-04-02",
@@ -7431,6 +10771,14 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
     "qtd": 5
   },
   {
@@ -7461,6 +10809,14 @@ daily: [
     "dia": "2026-04-02",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Defeito no Leitor de Cartões",
     "qtd": 3
@@ -7476,9 +10832,17 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
     "qtd": 3
   },
   {
@@ -7500,34 +10864,10 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "No es posible imprimir el comprobante",
     "qtd": 3
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
   },
   {
     "dia": "2026-04-02",
@@ -7548,6 +10888,46 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Teclado/botón roto",
@@ -7557,8 +10937,8 @@ daily: [
     "dia": "2026-04-02",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 2
   },
   {
@@ -7575,38 +10955,6 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
   {
@@ -7636,17 +10984,49 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
+    "n2": "HELP_PORTAL",
     "motivo": "El chip y wifi no funcionan",
     "qtd": 1
   },
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"HW attack\"",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Irruption\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 1
   },
   {
@@ -7655,6 +11035,38 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 1
   },
   {
@@ -7676,65 +11088,9 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
     "qtd": 1
   },
   {
@@ -7748,9 +11104,33 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
@@ -7765,40 +11145,16 @@ daily: [
     "dia": "2026-04-02",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   },
   {
     "dia": "2026-04-02",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Irruption\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Visor tactil no funciona",
     "qtd": 1
   },
   {
@@ -7807,14 +11163,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
     "qtd": 1
   },
   {
@@ -7823,14 +11171,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-02",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -7844,9 +11184,9 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -7860,9 +11200,17 @@ daily: [
   {
     "dia": "2026-04-02",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-02",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
     "qtd": 1
   },
   {
@@ -8052,6 +11400,14 @@ daily: [
   {
     "dia": "2026-04-01",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Otros Problemas",
@@ -8062,7 +11418,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
+    "motivo": "Otros Problemas",
     "qtd": 4
   },
   {
@@ -8071,14 +11427,6 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "No es posible imprimir el comprobante",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
     "qtd": 4
   },
   {
@@ -8102,6 +11450,30 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
     "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 3
   },
@@ -8117,25 +11489,9 @@ daily: [
     "dia": "2026-04-01",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 3
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
   },
   {
     "dia": "2026-04-01",
@@ -8156,17 +11512,9 @@ daily: [
   {
     "dia": "2026-04-01",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
   {
@@ -8180,9 +11528,9 @@ daily: [
   {
     "dia": "2026-04-01",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
     "qtd": 2
   },
   {
@@ -8212,8 +11560,8 @@ daily: [
   {
     "dia": "2026-04-01",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
     "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
@@ -8228,14 +11576,6 @@ daily: [
   {
     "dia": "2026-04-01",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Defeito no Leitor de Cartões",
@@ -8244,41 +11584,17 @@ daily: [
   {
     "dia": "2026-04-01",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Pantalla rota",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
     "dia": "2026-04-01",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
   },
   {
@@ -8293,24 +11609,48 @@ daily: [
     "dia": "2026-04-01",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "El lector no se prende o no se carga",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
     "dia": "2026-04-01",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Defeito no leitor do chip",
     "qtd": 1
   },
   {
     "dia": "2026-04-01",
     "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
+    "n2": "VERDI_FORM",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -8349,16 +11689,8 @@ daily: [
     "dia": "2026-04-01",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-04-01",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no leitor do chip",
     "qtd": 1
   },
   {
@@ -8366,7 +11698,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "Teclado/botón roto",
     "qtd": 1
   },
   {
@@ -8383,6 +11715,22 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-04-01",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -8508,14 +11856,6 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Otros Problemas",
@@ -8526,8 +11866,8 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 7
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 8
   },
   {
     "dia": "2026-03-31",
@@ -8540,6 +11880,22 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 7
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
@@ -8556,25 +11912,9 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
     "qtd": 5
   },
   {
@@ -8590,6 +11930,14 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 5
   },
@@ -8604,6 +11952,14 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Pantalla rota",
@@ -8613,8 +11969,8 @@ daily: [
     "dia": "2026-03-31",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 4
   },
   {
@@ -8638,14 +11994,6 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
     "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 4
   },
@@ -8676,17 +12024,17 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
     "qtd": 3
   },
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 3
   },
   {
@@ -8700,17 +12048,17 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 2
   },
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
     "qtd": 2
   },
   {
@@ -8724,9 +12072,25 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
     "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 2
   },
   {
@@ -8735,6 +12099,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
     "qtd": 2
   },
   {
@@ -8752,38 +12124,6 @@ daily: [
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 2
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
   },
   {
     "dia": "2026-03-31",
@@ -8804,73 +12144,9 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -8892,9 +12168,89 @@ daily: [
   {
     "dia": "2026-03-31",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-31",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 1
   },
   {
@@ -8911,14 +12267,6 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-31",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
     "qtd": 1
   },
   {
@@ -9052,17 +12400,17 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 7
   },
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 7
   },
   {
@@ -9084,17 +12432,17 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 5
   },
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 5
   },
   {
@@ -9108,17 +12456,17 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
     "qtd": 5
   },
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 5
   },
   {
@@ -9140,9 +12488,9 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 3
   },
   {
@@ -9156,14 +12504,6 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Teclado/botón roto",
@@ -9172,9 +12512,17 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 3
   },
   {
@@ -9190,7 +12538,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 3
   },
   {
@@ -9208,6 +12556,14 @@ daily: [
     "n2": "MAXWELL_FORM",
     "motivo": "El chip y wifi no funcionan",
     "qtd": 3
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
   },
   {
     "dia": "2026-03-30",
@@ -9228,65 +12584,9 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Lector funciona lento",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
     "qtd": 2
   },
   {
@@ -9310,7 +12610,47 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Lector funciona lento",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
     "qtd": 2
   },
   {
@@ -9318,7 +12658,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no leitor do chip",
+    "motivo": "Teclado/botón roto",
     "qtd": 2
   },
   {
@@ -9332,34 +12672,10 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 2
   },
   {
     "dia": "2026-03-30",
@@ -9374,7 +12690,39 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Mensaje \"No conecta con MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -9396,6 +12744,62 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El dispositivo emite ruido",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Defeito no Leitor de Cartões",
@@ -9412,24 +12816,8 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Pantalla rota",
     "qtd": 1
   },
@@ -9438,63 +12826,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El dispositivo emite ruido",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
     "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
@@ -9503,14 +12835,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-30",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
@@ -9532,9 +12856,17 @@ daily: [
   {
     "dia": "2026-03-30",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Otros Problemas",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No conecta con MP\"",
     "qtd": 1
   },
   {
@@ -9543,6 +12875,22 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-30",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
@@ -9684,9 +13032,9 @@ daily: [
   {
     "dia": "2026-03-29",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Visor tactil no funciona",
     "qtd": 2
   },
   {
@@ -9702,6 +13050,14 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-29",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 2
   },
@@ -9716,14 +13072,6 @@ daily: [
   {
     "dia": "2026-03-29",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-29",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El chip y wifi no funcionan",
@@ -9732,9 +13080,9 @@ daily: [
   {
     "dia": "2026-03-29",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 2
   },
   {
@@ -9749,16 +13097,8 @@ daily: [
     "dia": "2026-03-29",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-29",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -9766,7 +13106,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   },
   {
@@ -9780,6 +13120,22 @@ daily: [
   {
     "dia": "2026-03-29",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-29",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-29",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
@@ -9788,9 +13144,9 @@ daily: [
   {
     "dia": "2026-03-29",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -9799,6 +13155,14 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-29",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -9814,15 +13178,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-29",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "motivo": "Mensaje \"No conecta con MP\"",
     "qtd": 1
   },
   {
@@ -9831,22 +13187,6 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-29",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-29",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Visor tactil no funciona",
     "qtd": 1
   },
   {
@@ -9866,6 +13206,14 @@ daily: [
     "qtd": 1
   },
   {
+    "dia": "2026-03-29",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
     "dia": "2026-03-28",
     "site": "MLB",
     "n1": "FAQ",
@@ -9878,7 +13226,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 64
   },
   {
@@ -9886,7 +13234,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 64
   },
   {
@@ -9996,6 +13344,14 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
@@ -10020,14 +13376,6 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El chip y wifi no funcionan",
@@ -10044,14 +13392,6 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Pantalla rota",
@@ -10063,6 +13403,22 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
     "qtd": 2
   },
   {
@@ -10084,10 +13440,42 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 2
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
+    "qtd": 1
   },
   {
     "dia": "2026-03-28",
@@ -10108,41 +13496,17 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
     "motivo": "Otros Problemas",
     "qtd": 1
   },
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Sólo el chip no funciona",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
     "qtd": 1
   },
   {
@@ -10150,7 +13514,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "motivo": "Lector funciona lento",
     "qtd": 1
   },
   {
@@ -10174,15 +13538,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Reboot in progress\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Lector funciona lento",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 1
   },
   {
@@ -10190,7 +13546,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "Mensaje \"Reboot in progress\"",
     "qtd": 1
   },
   {
@@ -10204,9 +13560,9 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
     "qtd": 1
   },
   {
@@ -10220,6 +13576,14 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Mensaje \"Ped Tampered\"",
@@ -10228,17 +13592,33 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
   },
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Otros Problemas",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
     "qtd": 1
   },
   {
@@ -10260,9 +13640,9 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no leitor do chip",
     "qtd": 1
   },
   {
@@ -10271,30 +13651,6 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sticker de seguridad de la caja roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 1
   },
   {
@@ -10308,25 +13664,17 @@ daily: [
   {
     "dia": "2026-03-28",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sticker de seguridad de la caja roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-28",
+    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-28",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
     "qtd": 1
   },
   {
@@ -10428,16 +13776,16 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
+    "n1": "FDV",
+    "n2": "FDV",
     "motivo": "Otros Problemas",
     "qtd": 9
   },
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
     "motivo": "Otros Problemas",
     "qtd": 9
   },
@@ -10460,9 +13808,9 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 6
   },
   {
@@ -10478,15 +13826,15 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 6
   },
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
     "qtd": 6
   },
   {
@@ -10500,17 +13848,17 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
     "qtd": 5
   },
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
     "qtd": 5
   },
   {
@@ -10524,14 +13872,6 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
@@ -10540,9 +13880,9 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
     "qtd": 4
   },
   {
@@ -10551,14 +13891,6 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Pantalla rota",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 4
   },
   {
@@ -10580,9 +13912,17 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 4
   },
   {
@@ -10591,6 +13931,14 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "No es posible imprimir el comprobante",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 4
   },
   {
@@ -10605,8 +13953,8 @@ daily: [
     "dia": "2026-03-27",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 3
   },
   {
@@ -10620,17 +13968,17 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 3
   },
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
     "qtd": 3
   },
   {
@@ -10640,6 +13988,22 @@ daily: [
     "n2": "CX",
     "motivo": "Pantalla rota",
     "qtd": 3
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
   },
   {
     "dia": "2026-03-27",
@@ -10670,15 +14034,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 2
   },
   {
@@ -10695,14 +14051,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
     "qtd": 2
   },
   {
@@ -10732,9 +14080,41 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
@@ -10748,9 +14128,9 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 1
   },
   {
@@ -10772,25 +14152,33 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
     "dia": "2026-03-27",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Tamper detected\"",
     "qtd": 1
   },
   {
@@ -10813,22 +14201,6 @@ daily: [
     "dia": "2026-03-27",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Sticker de seguridad de la caja roto",
     "qtd": 1
@@ -10844,41 +14216,9 @@ daily: [
   {
     "dia": "2026-03-27",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-27",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "motivo": "Teclado/botón roto",
     "qtd": 1
   },
   {
@@ -10903,6 +14243,14 @@ daily: [
     "n1": "FAQ",
     "n2": "POINT",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-27",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
     "qtd": 1
   },
   {
@@ -10996,17 +14344,17 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 9
   },
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 9
   },
   {
@@ -11029,7 +14377,7 @@ daily: [
     "dia": "2026-03-26",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
+    "n2": "HELP_PORTAL",
     "motivo": "Otros Problemas",
     "qtd": 6
   },
@@ -11037,7 +14385,7 @@ daily: [
     "dia": "2026-03-26",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
+    "n2": "MAXWELL_FORM",
     "motivo": "Otros Problemas",
     "qtd": 6
   },
@@ -11055,6 +14403,22 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Sólo el chip no funciona",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 5
   },
   {
@@ -11068,22 +14432,6 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "El chip y wifi no funcionan",
@@ -11092,9 +14440,9 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 5
   },
   {
@@ -11111,6 +14459,22 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Visor tactil no funciona",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 4
   },
   {
@@ -11132,26 +14496,18 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
     "motivo": "El lector no se prende o no se carga",
     "qtd": 4
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
   },
   {
     "dia": "2026-03-26",
@@ -11180,18 +14536,26 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 2
   },
   {
     "dia": "2026-03-26",
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 3
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 2
   },
   {
     "dia": "2026-03-26",
@@ -11204,57 +14568,9 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Sólo el wifi no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
   {
@@ -11284,9 +14600,33 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 2
   },
   {
@@ -11300,26 +14640,18 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 2
   },
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
   },
   {
     "dia": "2026-03-26",
@@ -11333,6 +14665,22 @@ daily: [
     "dia": "2026-03-26",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
@@ -11340,9 +14688,17 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
     "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"HW attack\"",
     "qtd": 1
   },
   {
@@ -11350,7 +14706,39 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -11380,25 +14768,25 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Sólo el chip no funciona",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 1
   },
   {
     "dia": "2026-03-26",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   },
   {
@@ -11412,9 +14800,41 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-26",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
     "qtd": 1
   },
   {
@@ -11428,9 +14848,9 @@ daily: [
   {
     "dia": "2026-03-26",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Defeito no leitor do chip",
     "qtd": 1
   },
   {
@@ -11446,39 +14866,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -11486,30 +14874,6 @@ daily: [
     "site": "MLB",
     "n1": "CC_VIRTUAL",
     "n2": "CC_VIRTUAL",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
     "motivo": "El chip y wifi no funcionan",
     "qtd": 1
   },
@@ -11519,22 +14883,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Sticker de seguridad de la caja roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-26",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -11676,14 +15024,6 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 10
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "No es posible imprimir el comprobante",
@@ -11692,9 +15032,9 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 10
   },
   {
@@ -11703,6 +15043,14 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "El lector no se prende o no se carga",
+    "qtd": 10
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
     "qtd": 10
   },
   {
@@ -11812,6 +15160,14 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Lector funciona lento",
@@ -11823,14 +15179,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 4
   },
   {
@@ -11854,7 +15202,15 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no leitor do chip",
     "qtd": 3
   },
   {
@@ -11868,24 +15224,8 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
     "motivo": "Sólo el chip no funciona",
     "qtd": 3
   },
@@ -11900,6 +15240,14 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Sólo el chip no funciona",
@@ -11908,17 +15256,17 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 2
   },
   {
@@ -11940,9 +15288,9 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 2
   },
   {
@@ -11952,6 +15300,22 @@ daily: [
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Teclado/botón roto",
     "qtd": 2
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
   },
   {
     "dia": "2026-03-25",
@@ -11967,86 +15331,6 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Unauthorized\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-25",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   },
   {
@@ -12076,6 +15360,70 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Unauthorized\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-25",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
@@ -12084,9 +15432,9 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Reboot & Authority\"",
     "qtd": 1
   },
   {
@@ -12100,9 +15448,9 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 1
   },
   {
@@ -12116,9 +15464,9 @@ daily: [
   {
     "dia": "2026-03-25",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -12134,7 +15482,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Reboot & Authority\"",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -12142,7 +15490,7 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Pantalla rota",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
     "qtd": 1
   },
   {
@@ -12236,16 +15584,16 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
+    "n1": "FDV",
+    "n2": "FDV",
     "motivo": "El lector no se prende o no se carga",
     "qtd": 17
   },
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
     "motivo": "El lector no se prende o no se carga",
     "qtd": 17
   },
@@ -12268,14 +15616,6 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
@@ -12284,16 +15624,24 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
+    "n1": "FDV",
+    "n2": "FDV",
     "motivo": "Otros Problemas",
-    "qtd": 10
+    "qtd": 11
   },
   {
     "dia": "2026-03-24",
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
+    "qtd": 10
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Otros Problemas",
     "qtd": 10
   },
@@ -12325,16 +15673,16 @@ daily: [
     "dia": "2026-03-24",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 6
   },
   {
     "dia": "2026-03-24",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 6
   },
   {
@@ -12356,8 +15704,8 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 5
   },
@@ -12372,33 +15720,9 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 5
   },
   {
@@ -12415,6 +15739,30 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 5
   },
   {
@@ -12444,17 +15792,17 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
     "qtd": 3
   },
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 3
   },
   {
@@ -12479,6 +15827,30 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
     "qtd": 2
   },
   {
@@ -12508,25 +15880,17 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
     "qtd": 2
   },
   {
@@ -12548,18 +15912,10 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Reboot & Authority\"",
+    "qtd": 1
   },
   {
     "dia": "2026-03-24",
@@ -12580,9 +15936,81 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"Reboot & Authority\"",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "TLV",
+    "n2": "TLV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
@@ -12598,15 +16026,15 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
     "qtd": 1
   },
   {
@@ -12623,6 +16051,22 @@ daily: [
     "n1": "CC_VIRTUAL",
     "n2": "CC_VIRTUAL",
     "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-24",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -12638,7 +16082,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Teclado/botón roto",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
     "qtd": 1
   },
   {
@@ -12646,87 +16090,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "TLV",
-    "n2": "TLV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -12735,14 +16099,6 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
     "qtd": 1
   },
   {
@@ -12756,17 +16112,9 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-24",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Otros Problemas",
     "qtd": 1
   },
   {
@@ -12780,9 +16128,9 @@ daily: [
   {
     "dia": "2026-03-24",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Otros Problemas",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -12900,9 +16248,9 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 9
   },
   {
@@ -12916,9 +16264,9 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Otros Problemas",
     "qtd": 9
   },
   {
@@ -12988,17 +16336,17 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 5
   },
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 5
   },
   {
@@ -13038,7 +16386,47 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Teclado/botón roto",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
     "motivo": "El chip y wifi no funcionan",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
     "qtd": 3
   },
   {
@@ -13055,46 +16443,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Teclado/botón roto",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Teclado/botón roto",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 3
   },
   {
@@ -13116,9 +16464,9 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
   {
@@ -13126,7 +16474,7 @@ daily: [
     "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 2
   },
   {
@@ -13140,9 +16488,25 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 2
   },
   {
@@ -13180,22 +16544,6 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
@@ -13212,17 +16560,17 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "Otros Problemas",
     "qtd": 1
   },
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
@@ -13236,9 +16584,25 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Otros Problemas",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No conecta con MP\"",
     "qtd": 1
   },
   {
@@ -13246,7 +16610,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -13262,7 +16626,15 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
   },
   {
@@ -13285,24 +16657,8 @@ daily: [
     "dia": "2026-03-23",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -13324,41 +16680,9 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-23",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Pantalla rota",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -13372,9 +16696,25 @@ daily: [
   {
     "dia": "2026-03-23",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -13391,6 +16731,14 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_CHAT",
     "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-23",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -13532,9 +16880,9 @@ daily: [
   {
     "dia": "2026-03-22",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
     "qtd": 3
   },
   {
@@ -13548,9 +16896,9 @@ daily: [
   {
     "dia": "2026-03-22",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 3
   },
   {
@@ -13581,22 +16929,6 @@ daily: [
     "dia": "2026-03-22",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-22",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-22",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Teclado/botón roto",
     "qtd": 2
@@ -13612,6 +16944,30 @@ daily: [
   {
     "dia": "2026-03-22",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-22",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-22",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-22",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
@@ -13628,10 +16984,34 @@ daily: [
   {
     "dia": "2026-03-22",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-22",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-22",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-22",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
   },
   {
     "dia": "2026-03-22",
@@ -13655,38 +17035,6 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-22",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-22",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-22",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-22",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
     "qtd": 1
   },
   {
@@ -13870,6 +17218,14 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 3
   },
@@ -13892,17 +17248,17 @@ daily: [
   {
     "dia": "2026-03-21",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 3
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
   },
   {
     "dia": "2026-03-21",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 2
   },
   {
@@ -13934,7 +17290,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
+    "motivo": "Pantalla rota",
     "qtd": 2
   },
   {
@@ -13948,10 +17304,10 @@ daily: [
   {
     "dia": "2026-03-21",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 2
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Reboot & Authority\"",
+    "qtd": 1
   },
   {
     "dia": "2026-03-21",
@@ -13972,9 +17328,9 @@ daily: [
   {
     "dia": "2026-03-21",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
     "qtd": 1
   },
   {
@@ -13990,31 +17346,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Reboot & Authority\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "motivo": "Mensaje \"Tamper detected\"",
     "qtd": 1
   },
   {
@@ -14022,7 +17354,15 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Visor tactil no funciona",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -14030,7 +17370,31 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
     "qtd": 1
   },
   {
@@ -14053,8 +17417,16 @@ daily: [
     "dia": "2026-03-21",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
+    "motivo": "Visor tactil no funciona",
     "qtd": 1
   },
   {
@@ -14062,15 +17434,15 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
     "dia": "2026-03-21",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
     "qtd": 1
   },
   {
@@ -14100,6 +17472,22 @@ daily: [
   {
     "dia": "2026-03-21",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"No es posible hacer ventas\"",
@@ -14108,57 +17496,9 @@ daily: [
   {
     "dia": "2026-03-21",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-21",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
     "qtd": 1
   },
   {
@@ -14167,6 +17507,14 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-21",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -14284,17 +17632,17 @@ daily: [
   {
     "dia": "2026-03-20",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 9
   },
   {
     "dia": "2026-03-20",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 9
   },
   {
@@ -14340,17 +17688,17 @@ daily: [
   {
     "dia": "2026-03-20",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 6
   },
   {
     "dia": "2026-03-20",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 6
   },
   {
@@ -14412,6 +17760,46 @@ daily: [
   {
     "dia": "2026-03-20",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Mi dispositivo no reconoce el lector",
@@ -14436,41 +17824,9 @@ daily: [
   {
     "dia": "2026-03-20",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 3
   },
   {
@@ -14485,9 +17841,17 @@ daily: [
     "dia": "2026-03-20",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 3
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 2
   },
   {
     "dia": "2026-03-20",
@@ -14524,42 +17888,10 @@ daily: [
   {
     "dia": "2026-03-20",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El chip y wifi no funcionan",
     "qtd": 2
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
   },
   {
     "dia": "2026-03-20",
@@ -14589,39 +17921,7 @@ daily: [
     "dia": "2026-03-20",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Smartpos Paró\"",
     "qtd": 1
   },
@@ -14630,79 +17930,15 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "motivo": "Mensaje \"Tamper detected\"",
     "qtd": 1
   },
   {
     "dia": "2026-03-20",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El dispositivo emite ruido",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sticker de seguridad de la caja roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "TLV",
-    "n2": "TLV",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "El lector no se prende o no se carga",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
     "qtd": 1
   },
   {
@@ -14724,9 +17960,9 @@ daily: [
   {
     "dia": "2026-03-20",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -14734,15 +17970,7 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-20",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Smartpos Paró\"",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -14750,7 +17978,103 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El dispositivo emite ruido",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sticker de seguridad de la caja roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "TLV",
+    "n2": "TLV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -14765,8 +18089,8 @@ daily: [
     "dia": "2026-03-20",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Lector funciona lento",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 1
   },
   {
@@ -14774,7 +18098,31 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mi dispositivo no reconoce el lector",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-20",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Smartpos Paró\"",
     "qtd": 1
   },
   {
@@ -14886,7 +18234,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 11
   },
   {
@@ -14894,7 +18242,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 11
   },
   {
@@ -14916,14 +18264,6 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Lector funciona lento",
@@ -14932,10 +18272,10 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 8
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 9
   },
   {
     "dia": "2026-03-19",
@@ -14943,6 +18283,14 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 8
   },
   {
@@ -14972,6 +18320,14 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Pantalla rota",
@@ -14989,24 +18345,8 @@ daily: [
     "dia": "2026-03-19",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Otros Problemas",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
     "qtd": 5
   },
   {
@@ -15015,6 +18355,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Teclado/botón roto",
+    "qtd": 5
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 5
   },
   {
@@ -15040,6 +18388,30 @@ daily: [
     "n2": "FDV",
     "motivo": "Visor tactil no funciona",
     "qtd": 4
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Otros Problemas",
+    "qtd": 3
   },
   {
     "dia": "2026-03-19",
@@ -15060,32 +18432,8 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 3
   },
@@ -15100,6 +18448,14 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
     "n1": "CC_VIRTUAL",
     "n2": "CC_VIRTUAL",
     "motivo": "El lector no se prende o no se carga",
@@ -15108,9 +18464,49 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
     "qtd": 2
   },
   {
@@ -15132,54 +18528,6 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
     "motivo": "Teclado/botón roto",
@@ -15196,65 +18544,9 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -15262,15 +18554,7 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -15284,25 +18568,17 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 1
   },
   {
@@ -15316,14 +18592,6 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-19",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
@@ -15332,9 +18600,9 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Mensaje \"Tamper detected\"",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 1
   },
   {
@@ -15342,7 +18610,23 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Pantalla rota",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
@@ -15350,15 +18634,63 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   },
   {
     "dia": "2026-03-19",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
   },
   {
@@ -15367,6 +18699,14 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -15396,9 +18736,17 @@ daily: [
   {
     "dia": "2026-03-19",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
+    "n1": "FAQ",
+    "n2": "POINT",
     "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-19",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -15532,14 +18880,6 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Otros Problemas",
@@ -15551,6 +18891,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "No es posible imprimir el comprobante",
+    "qtd": 11
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Otros Problemas",
     "qtd": 11
   },
   {
@@ -15564,14 +18912,6 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Lector funciona lento",
@@ -15580,10 +18920,10 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 6
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 7
   },
   {
     "dia": "2026-03-18",
@@ -15591,6 +18931,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
     "qtd": 6
   },
   {
@@ -15608,6 +18956,14 @@ daily: [
     "n2": "CX",
     "motivo": "El chip y wifi no funcionan",
     "qtd": 5
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Lector funciona lento",
+    "qtd": 4
   },
   {
     "dia": "2026-03-18",
@@ -15630,15 +18986,15 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Lector funciona lento",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 4
   },
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 4
   },
   {
@@ -15652,17 +19008,9 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
     "motivo": "Sólo el chip no funciona",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 4
   },
   {
@@ -15702,7 +19050,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Visor tactil no funciona",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 3
   },
   {
@@ -15711,6 +19059,14 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Lector funciona lento",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Visor tactil no funciona",
     "qtd": 3
   },
   {
@@ -15727,14 +19083,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El chip y wifi no funcionan",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 3
   },
   {
@@ -15765,6 +19113,38 @@ daily: [
     "dia": "2026-03-18",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Lector funciona lento",
     "qtd": 2
@@ -15796,38 +19176,6 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Defeito no Leitor de Cartões",
@@ -15839,14 +19187,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
   {
@@ -15860,6 +19200,14 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
@@ -15868,9 +19216,9 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -15884,129 +19232,9 @@ daily: [
   {
     "dia": "2026-03-18",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-18",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el wifi no funciona",
+    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
     "qtd": 1
   },
   {
@@ -16030,7 +19258,119 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 1
   },
   {
@@ -16047,6 +19387,14 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Mensaje \"No conecta con MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-18",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -16181,6 +19529,14 @@ daily: [
     "dia": "2026-03-17",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 8
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 8
@@ -16191,14 +19547,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "No es posible imprimir el comprobante",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
     "qtd": 8
   },
   {
@@ -16230,7 +19578,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 6
   },
   {
@@ -16238,7 +19586,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 6
   },
   {
@@ -16284,9 +19632,9 @@ daily: [
   {
     "dia": "2026-03-17",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
     "qtd": 4
   },
   {
@@ -16300,17 +19648,9 @@ daily: [
   {
     "dia": "2026-03-17",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 4
   },
   {
@@ -16319,6 +19659,14 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Teclado/botón roto",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 4
   },
   {
@@ -16349,16 +19697,16 @@ daily: [
     "dia": "2026-03-17",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 3
   },
   {
     "dia": "2026-03-17",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 3
   },
   {
@@ -16375,6 +19723,46 @@ daily: [
     "n1": "FDV",
     "n2": "FDV",
     "motivo": "Teclado/botón roto",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 2
   },
   {
@@ -16390,15 +19778,7 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 2
   },
   {
@@ -16407,54 +19787,6 @@ daily: [
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
     "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
     "qtd": 2
   },
   {
@@ -16476,18 +19808,18 @@ daily: [
   {
     "dia": "2026-03-17",
     "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 2
   },
   {
     "dia": "2026-03-17",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Pantalla rota",
-    "qtd": 1
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 2
   },
   {
     "dia": "2026-03-17",
@@ -16495,6 +19827,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -16508,145 +19848,9 @@ daily: [
   {
     "dia": "2026-03-17",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Não conecta com MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
+    "n1": "CC_VIRTUAL",
+    "n2": "CC_VIRTUAL",
     "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 1
   },
   {
@@ -16654,15 +19858,7 @@ daily: [
     "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-17",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -16694,7 +19890,159 @@ daily: [
     "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Não conecta com MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Init Config Error\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"HW attack\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el wifi no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-17",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el wifi no funciona",
     "qtd": 1
   },
   {
@@ -16708,17 +20056,17 @@ daily: [
   {
     "dia": "2026-03-17",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla rota",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
     "dia": "2026-03-17",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el wifi no funciona",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -16876,6 +20224,14 @@ daily: [
   {
     "dia": "2026-03-16",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 6
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
@@ -16886,7 +20242,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 6
   },
   {
@@ -16895,14 +20251,6 @@ daily: [
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 6
   },
   {
@@ -16932,6 +20280,14 @@ daily: [
   {
     "dia": "2026-03-16",
     "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Lector funciona lento",
@@ -16943,14 +20299,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "No es posible imprimir el comprobante",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 4
   },
   {
@@ -16972,9 +20320,9 @@ daily: [
   {
     "dia": "2026-03-16",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 4
   },
   {
@@ -16996,17 +20344,17 @@ daily: [
   {
     "dia": "2026-03-16",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
     "qtd": 2
   },
   {
     "dia": "2026-03-16",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 2
   },
   {
@@ -17020,9 +20368,9 @@ daily: [
   {
     "dia": "2026-03-16",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
     "qtd": 2
   },
   {
@@ -17036,33 +20384,17 @@ daily: [
   {
     "dia": "2026-03-16",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Lector funciona lento",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 2
   },
   {
@@ -17078,15 +20410,47 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Lector funciona lento",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
     "qtd": 2
   },
   {
     "dia": "2026-03-16",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Teclado/botón roto",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
     "qtd": 2
   },
   {
@@ -17102,15 +20466,7 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 2
   },
   {
@@ -17132,10 +20488,26 @@ daily: [
   {
     "dia": "2026-03-16",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Reboot in progress\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
   },
   {
     "dia": "2026-03-16",
@@ -17158,151 +20530,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Reboot in progress\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
     "qtd": 1
   },
   {
@@ -17326,7 +20554,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"No conecta con MP\"",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
     "qtd": 1
   },
   {
@@ -17342,7 +20570,15 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Smartpos Paró\"",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No conecta con MP\"",
     "qtd": 1
   },
   {
@@ -17350,7 +20586,127 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-16",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -17367,14 +20723,6 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-16",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -17477,16 +20825,16 @@ daily: [
     "dia": "2026-03-15",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 5
   },
   {
     "dia": "2026-03-15",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 5
   },
   {
@@ -17501,8 +20849,8 @@ daily: [
     "dia": "2026-03-15",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 3
   },
   {
@@ -17517,8 +20865,8 @@ daily: [
     "dia": "2026-03-15",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
+    "n2": "HELP_PORTAL",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 3
   },
   {
@@ -17533,14 +20881,6 @@ daily: [
     "dia": "2026-03-15",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "No es posible imprimir el comprobante",
     "qtd": 2
@@ -17548,33 +20888,9 @@ daily: [
   {
     "dia": "2026-03-15",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 2
   },
   {
@@ -17588,9 +20904,89 @@ daily: [
   {
     "dia": "2026-03-15",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -17604,17 +21000,17 @@ daily: [
   {
     "dia": "2026-03-15",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
     "dia": "2026-03-15",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -17639,62 +21035,6 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-15",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -17711,6 +21051,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-15",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -17837,16 +21185,16 @@ daily: [
     "dia": "2026-03-14",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 5
   },
   {
     "dia": "2026-03-14",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "n2": "MAXWELL_FORM",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 5
   },
   {
@@ -17860,14 +21208,6 @@ daily: [
   {
     "dia": "2026-03-14",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "El chip y wifi no funcionan",
@@ -17876,17 +21216,9 @@ daily: [
   {
     "dia": "2026-03-14",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "Lector funciona lento",
     "qtd": 4
   },
   {
@@ -17902,8 +21234,16 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 3
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 4
   },
   {
     "dia": "2026-03-14",
@@ -17918,7 +21258,15 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "motivo": "Pantalla rota",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 3
   },
   {
@@ -17932,9 +21280,9 @@ daily: [
   {
     "dia": "2026-03-14",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 3
   },
   {
@@ -17957,16 +21305,24 @@ daily: [
     "dia": "2026-03-14",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 2
   },
   {
     "dia": "2026-03-14",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_CHAT",
+    "motivo": "Mi dispositivo no reconoce el lector",
     "qtd": 2
   },
   {
@@ -17988,17 +21344,9 @@ daily: [
   {
     "dia": "2026-03-14",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 2
   },
   {
@@ -18028,25 +21376,17 @@ daily: [
   {
     "dia": "2026-03-14",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -18060,137 +21400,9 @@ daily: [
   {
     "dia": "2026-03-14",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-14",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 1
   },
   {
@@ -18220,9 +21432,137 @@ daily: [
   {
     "dia": "2026-03-14",
     "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Otros Problemas",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mi dispositivo no reconoce el lector",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Ped Tampered\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
     "qtd": 1
   },
   {
@@ -18239,6 +21579,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-14",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
     "qtd": 1
   },
   {
@@ -18516,6 +21864,14 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Sólo el chip no funciona",
@@ -18524,10 +21880,10 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 4
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
+    "qtd": 3
   },
   {
     "dia": "2026-03-13",
@@ -18540,9 +21896,17 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Pantalla rota",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "El lector no se prende o no se carga",
     "qtd": 3
   },
   {
@@ -18564,26 +21928,18 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 3
   },
   {
     "dia": "2026-03-13",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 3
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 2
   },
   {
     "dia": "2026-03-13",
@@ -18596,9 +21952,33 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"Tamper detected\"",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Teclado/botón roto",
     "qtd": 2
   },
   {
@@ -18615,22 +21995,6 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 2
   },
   {
@@ -18652,18 +22016,34 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 2
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
   },
   {
     "dia": "2026-03-13",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Mensaje \"Smartpos Paró\"",
+    "qtd": 1
   },
   {
     "dia": "2026-03-13",
@@ -18671,6 +22051,14 @@ daily: [
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Lector funciona lento",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
     "qtd": 1
   },
   {
@@ -18685,16 +22073,8 @@ daily: [
     "dia": "2026-03-13",
     "site": "MLB",
     "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
     "qtd": 1
   },
   {
@@ -18708,17 +22088,33 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -18726,7 +22122,15 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "motivo": "Defeito no Leitor de Cartões",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
     "qtd": 1
   },
   {
@@ -18734,7 +22138,15 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Smartpos Paró\"",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
     "qtd": 1
   },
   {
@@ -18742,15 +22154,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
+    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
     "qtd": 1
   },
   {
@@ -18766,7 +22170,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
     "qtd": 1
   },
   {
@@ -18788,9 +22192,33 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Mensaje \"No es posible hacer ventas\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-13",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -18804,17 +22232,9 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla rota",
+    "n1": "CX_NIVEL_2",
+    "n2": "CX_NIVEL_2",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 1
   },
   {
@@ -18828,81 +22248,9 @@ daily: [
   {
     "dia": "2026-03-13",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-13",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -19060,17 +22408,17 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "El chip y wifi no funcionan",
     "qtd": 12
   },
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
     "qtd": 12
   },
   {
@@ -19084,17 +22432,17 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Lector funciona lento",
     "qtd": 9
   },
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 9
   },
   {
@@ -19164,9 +22512,9 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 5
   },
   {
@@ -19180,9 +22528,9 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No es posible imprimir el comprobante",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 5
   },
   {
@@ -19204,14 +22552,6 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
     "n1": "CX_NIVEL_2",
     "n2": "CX_NIVEL_2",
     "motivo": "El lector no se prende o no se carga",
@@ -19223,6 +22563,14 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 4
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "No es posible imprimir el comprobante",
     "qtd": 4
   },
   {
@@ -19244,6 +22592,14 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 3
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
     "n1": "CX",
     "n2": "CX",
     "motivo": "Pantalla blanca cargando y sin mensaje",
@@ -19254,8 +22610,8 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
+    "motivo": "Pantalla rota",
+    "qtd": 2
   },
   {
     "dia": "2026-03-12",
@@ -19270,15 +22626,7 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
+    "motivo": "Sólo el wifi no funciona",
     "qtd": 2
   },
   {
@@ -19287,6 +22635,14 @@ daily: [
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Defeito no leitor do chip",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Teclado/botón roto",
     "qtd": 2
   },
   {
@@ -19318,30 +22674,6 @@ daily: [
     "site": "MLB",
     "n1": "CERTIFIED_CONSULTANT",
     "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "Sólo el chip no funciona",
     "qtd": 2
   },
@@ -19365,6 +22697,22 @@ daily: [
     "dia": "2026-03-12",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Visor tactil no funciona",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Pantalla blanca cargando y sin mensaje",
+    "qtd": 2
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "HELP_PORTAL",
     "motivo": "Mensaje \"Bloqueo de seguridad\"",
     "qtd": 1
@@ -19374,7 +22722,31 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
+    "motivo": "Mensaje \"Reboot & Authority\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "CX",
+    "n2": "CX",
     "motivo": "Defeito no leitor do chip",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El chip y wifi no funcionan",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
     "qtd": 1
   },
   {
@@ -19396,17 +22768,17 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Reboot & Authority\"",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
+    "n1": "CX",
+    "n2": "CX",
+    "motivo": "Pantalla rota",
     "qtd": 1
   },
   {
@@ -19414,15 +22786,7 @@ daily: [
     "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -19430,7 +22794,31 @@ daily: [
     "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
+    "motivo": "Sólo el chip no funciona",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "VERDI_FORM",
+    "motivo": "El lector no se prende o no se carga",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Defeito no Leitor de Cartões",
     "qtd": 1
   },
   {
@@ -19444,57 +22832,17 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
     "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Não conecta com MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sticker de seguridad de la caja roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
     "n1": "FDV",
     "n2": "FDV",
-    "motivo": "Defeito no Leitor de Cartões",
+    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
     "qtd": 1
   },
   {
@@ -19517,8 +22865,64 @@ daily: [
     "dia": "2026-03-12",
     "site": "MLB",
     "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "No es posible imprimir el comprobante",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "POINT",
+    "motivo": "Mensaje \"Bloqueo de seguridad\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Maquininha trava com mensagem \"Não conecta com MP\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "MAXWELL_FORM",
+    "motivo": "Teclado/botón roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FAQ",
+    "n2": "HELP_PORTAL",
+    "motivo": "Sticker de seguridad de la caja roto",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
+    "qtd": 1
+  },
+  {
+    "dia": "2026-03-12",
+    "site": "MLB",
+    "n1": "FDV",
+    "n2": "FDV",
+    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
     "qtd": 1
   },
   {
@@ -19548,22 +22952,6 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
     "n1": "FAQ",
     "n2": "MAXWELL_FORM",
     "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
@@ -19572,9 +22960,9 @@ daily: [
   {
     "dia": "2026-03-12",
     "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
+    "n1": "CERTIFIED_CONSULTANT",
+    "n2": "CERTIFIED_CONSULTANT",
+    "motivo": "Mensaje \"Ped Tampered\"",
     "qtd": 1
   },
   {
@@ -19582,39 +22970,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
+    "motivo": "Visor tactil no funciona",
     "qtd": 1
   },
   {
@@ -19638,7 +22994,7 @@ daily: [
     "site": "MLB",
     "n1": "CX",
     "n2": "CX",
-    "motivo": "Visor tactil no funciona",
+    "motivo": "Lector funciona lento",
     "qtd": 1
   },
   {
@@ -19647,3790 +23003,6 @@ daily: [
     "n1": "CX",
     "n2": "CX",
     "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-12",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 222
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 115
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 74
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 72
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 49
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 47
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 30
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Otros Problemas",
-    "qtd": 26
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 22
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
-    "qtd": 21
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
-    "qtd": 17
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 15
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 15
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 13
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 12
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 10
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Irruption\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Discontinuidad",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-11",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 321
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 113
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 93
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 77
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 60
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 57
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 46
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 40
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 30
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Otros Problemas",
-    "qtd": 30
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 21
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 20
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 16
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 16
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
-    "qtd": 14
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 10
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Irruption\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Reboot & Authority\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ningun punto de acceso encontrado\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-10",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 265
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 121
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 73
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 70
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 65
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 60
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 38
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 36
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
-    "qtd": 32
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Otros Problemas",
-    "qtd": 26
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 21
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 20
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 16
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 14
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 14
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 13
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 12
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
-    "qtd": 10
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Lector funciona lento",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Lector funciona lento",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensagem \"Password Required\" / \"Enter password\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Reboot in progress\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Smartpos Paró\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-09",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 102
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 70
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 42
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 30
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 24
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 16
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 15
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 12
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Otros Problemas",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 10
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Init Config Error\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Irruption\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-08",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 150
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 83
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 52
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 38
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 37
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
-    "qtd": 31
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 22
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 19
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 15
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 14
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 10
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Otros Problemas",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "VERDI_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Maquininha trava com a luz ao redor da point ligada em azul",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-07",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 188
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 75
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 70
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 50
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 47
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 46
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Otros Problemas",
-    "qtd": 36
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 30
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Otros Problemas",
-    "qtd": 26
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 26
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 20
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 18
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Otros Problemas",
-    "qtd": 15
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 14
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Otros Problemas",
-    "qtd": 12
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 11
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 9
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 8
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Otros Problemas",
-    "qtd": 7
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 6
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_CHAT",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Bloqueo de seguridad\"",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Pantalla rota",
-    "qtd": 5
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 4
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "El chip y wifi no funcionan",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Ped Tampered\"",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Lector funciona lento",
-    "qtd": 3
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "El lector no reconoce la tarjeta (diferentes tarjetas y clientes)",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla rota",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "No es posible imprimir el comprobante",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Mensaje \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Tamper detected\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Teclado/botón roto",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla blanca cargando y sin mensaje",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 2
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el wifi no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Pantalla rota",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Mi dispositivo no reconoce el lector",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "POINT",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"No conecta con MP\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Lector funciona lento",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensagem \"Sua Point parou de funcionar. Reinicie-a para cobrar\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Connecting\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX_NIVEL_2",
-    "n2": "CX_NIVEL_2",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Maquininha trava com mensagem \"Escaneie o código QR para pedir a troca dessa maquininha\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Pantalla blanca cargando con logo MP / androind iniciando",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Sólo el chip no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "Mensaje \"Init Config Error\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"HW attack\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Pantalla blanca cargando con mensaje \"buscando información\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Defeito no leitor do chip",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "HELP_PORTAL",
-    "motivo": "Visor tactil no funciona",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "El lector no se prende o no se carga",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CC_VIRTUAL",
-    "n2": "CC_VIRTUAL",
-    "motivo": "Otros Problemas",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Mensaje \"No es posible hacer ventas\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FDV",
-    "n2": "FDV",
-    "motivo": "Defeito no Leitor de Cartões",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CX",
-    "n2": "CX",
-    "motivo": "Mensaje \"Irruption\"",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "CERTIFIED_CONSULTANT",
-    "n2": "CERTIFIED_CONSULTANT",
-    "motivo": "No permite cobrar con NFC (la luz azul no enciende)",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Teclado/botón roto",
-    "qtd": 1
-  },
-  {
-    "dia": "2026-03-06",
-    "site": "MLB",
-    "n1": "FAQ",
-    "n2": "MAXWELL_FORM",
-    "motivo": "Sólo el chip no funciona",
     "qtd": 1
   }
 ],
@@ -23441,28 +23013,292 @@ daily: [
   // Estrutura: { dia:'YYYY-MM-DD', site, canal:'FORM'|'CX'|'MAXWELL', qtd_bloqueados }
   blocked: [
   {
-    "dia": "2026-04-10",
+    "dia": "2026-04-16",
     "site": "MLA",
     "canal": "MAXWELL_CHAT",
-    "qtd_bloqueados": 61
+    "qtd_bloqueados": 35
   },
   {
-    "dia": "2026-04-10",
+    "dia": "2026-04-16",
     "site": "MLA",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 7
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 150
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLB",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 14
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLC",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 3
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLC",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 1
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLM",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 2
+  },
+  {
+    "dia": "2026-04-16",
+    "site": "MLM",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLA",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 60
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLA",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 9
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 250
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLB",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 29
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLC",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 9
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLC",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 1
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLM",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 2
+  },
+  {
+    "dia": "2026-04-15",
+    "site": "MLM",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 4
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLA",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 80
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLA",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 8
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 264
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLB",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 42
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLC",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 7
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLC",
     "canal": "MAXWELL_FORM",
     "qtd_bloqueados": 3
   },
   {
+    "dia": "2026-04-14",
+    "site": "MLM",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 1
+  },
+  {
+    "dia": "2026-04-14",
+    "site": "MLM",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 1
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLA",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 81
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLA",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 7
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 233
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLB",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 58
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLC",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 4
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLC",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 3
+  },
+  {
+    "dia": "2026-04-13",
+    "site": "MLM",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 2
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLA",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 19
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLA",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 1
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 178
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLB",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 28
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLC",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 3
+  },
+  {
+    "dia": "2026-04-12",
+    "site": "MLM",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 1
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLA",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 41
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLA",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 4
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 191
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLB",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 39
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLC",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 6
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLC",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 2
+  },
+  {
+    "dia": "2026-04-11",
+    "site": "MLM",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 2
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLA",
+    "canal": "MAXWELL_CHAT",
+    "qtd_bloqueados": 81
+  },
+  {
+    "dia": "2026-04-10",
+    "site": "MLA",
+    "canal": "MAXWELL_FORM",
+    "qtd_bloqueados": 6
+  },
+  {
     "dia": "2026-04-10",
     "site": "MLB",
     "canal": "MAXWELL_CHAT",
-    "qtd_bloqueados": 205
+    "qtd_bloqueados": 248
   },
   {
     "dia": "2026-04-10",
     "site": "MLB",
     "canal": "MAXWELL_FORM",
-    "qtd_bloqueados": 33
+    "qtd_bloqueados": 50
   },
   {
     "dia": "2026-04-10",
@@ -23474,7 +23310,7 @@ daily: [
     "dia": "2026-04-10",
     "site": "MLC",
     "canal": "MAXWELL_FORM",
-    "qtd_bloqueados": 2
+    "qtd_bloqueados": 5
   },
   {
     "dia": "2026-04-10",
@@ -23504,7 +23340,7 @@ daily: [
     "dia": "2026-04-09",
     "site": "MLB",
     "canal": "MAXWELL_FORM",
-    "qtd_bloqueados": 35
+    "qtd_bloqueados": 36
   },
   {
     "dia": "2026-04-09",
@@ -23810,7 +23646,7 @@ daily: [
     "dia": "2026-04-01",
     "site": "MLA",
     "canal": "CX",
-    "qtd_bloqueados": 10
+    "qtd_bloqueados": 17
   },
   {
     "dia": "2026-04-01",
@@ -23828,7 +23664,7 @@ daily: [
     "dia": "2026-04-01",
     "site": "MLB",
     "canal": "CX",
-    "qtd_bloqueados": 262
+    "qtd_bloqueados": 423
   },
   {
     "dia": "2026-04-01",
@@ -26141,8 +25977,8 @@ daily: [
     "tipo": "Longtail",
     "g1": 6,
     "g3": 0,
-    "g4": 1316,
-    "total": 1322,
+    "g4": 1317,
+    "total": 1323,
     "g1_pct": 0.45,
     "g3_pct": 0.0,
     "g4_pct": 99.55
@@ -26177,8 +26013,8 @@ daily: [
     "tipo": "SMB",
     "g1": 0,
     "g3": 0,
-    "g4": 471,
-    "total": 471,
+    "g4": 470,
+    "total": 470,
     "g1_pct": 0.0,
     "g3_pct": 0.0,
     "g4_pct": 100.0
@@ -26403,13 +26239,13 @@ daily: [
     "site": "MLA",
     "mes": "2025-12",
     "tipo": "Longtail",
-    "g1": 1371,
+    "g1": 1372,
     "g3": 0,
-    "g4": 2015,
+    "g4": 2014,
     "total": 3386,
-    "g1_pct": 40.49,
+    "g1_pct": 40.52,
     "g3_pct": 0.0,
-    "g4_pct": 59.51
+    "g4_pct": 59.48
   },
   {
     "site": "MLA",
@@ -26429,11 +26265,11 @@ daily: [
     "tipo": "Longtail",
     "g1": 3039,
     "g3": 0,
-    "g4": 1538,
-    "total": 4577,
-    "g1_pct": 66.4,
+    "g4": 1539,
+    "total": 4578,
+    "g1_pct": 66.38,
     "g3_pct": 0.0,
-    "g4_pct": 33.6
+    "g4_pct": 33.62
   },
   {
     "site": "MLA",
@@ -26451,13 +26287,13 @@ daily: [
     "site": "MLA",
     "mes": "2026-02",
     "tipo": "Longtail",
-    "g1": 5078,
+    "g1": 5081,
     "g3": 0,
-    "g4": 2977,
-    "total": 8055,
-    "g1_pct": 63.04,
+    "g4": 2978,
+    "total": 8059,
+    "g1_pct": 63.05,
     "g3_pct": 0.0,
-    "g4_pct": 36.96
+    "g4_pct": 36.95
   },
   {
     "site": "MLA",
@@ -26475,13 +26311,13 @@ daily: [
     "site": "MLA",
     "mes": "2026-03",
     "tipo": "Longtail",
-    "g1": 2429,
+    "g1": 2438,
     "g3": 0,
-    "g4": 785,
-    "total": 3214,
-    "g1_pct": 75.58,
+    "g4": 790,
+    "total": 3228,
+    "g1_pct": 75.53,
     "g3_pct": 0.0,
-    "g4_pct": 24.42
+    "g4_pct": 24.47
   },
   {
     "site": "MLA",
@@ -26489,43 +26325,43 @@ daily: [
     "tipo": "SMB",
     "g1": 712,
     "g3": 0,
-    "g4": 4787,
-    "total": 5499,
-    "g1_pct": 12.95,
+    "g4": 4789,
+    "total": 5501,
+    "g1_pct": 12.94,
     "g3_pct": 0.0,
-    "g4_pct": 87.05
+    "g4_pct": 87.06
   },
   {
     "site": "MLA",
     "mes": "2026-04",
     "tipo": "Longtail",
-    "g1": 278,
+    "g1": 604,
     "g3": 0,
-    "g4": 153,
-    "total": 431,
-    "g1_pct": 64.5,
+    "g4": 190,
+    "total": 794,
+    "g1_pct": 76.07,
     "g3_pct": 0.0,
-    "g4_pct": 35.5
+    "g4_pct": 23.93
   },
   {
     "site": "MLA",
     "mes": "2026-04",
     "tipo": "SMB",
-    "g1": 165,
+    "g1": 302,
     "g3": 0,
-    "g4": 735,
-    "total": 900,
-    "g1_pct": 18.33,
+    "g4": 1241,
+    "total": 1543,
+    "g1_pct": 19.57,
     "g3_pct": 0.0,
-    "g4_pct": 81.67
+    "g4_pct": 80.43
   },
   {
     "site": "MLB",
     "mes": "2025-01",
     "tipo": "Longtail",
     "g1": 40,
-    "g3": 896,
-    "g4": 22712,
+    "g3": 897,
+    "g4": 22711,
     "total": 23648,
     "g1_pct": 0.17,
     "g3_pct": 3.79,
@@ -26536,21 +26372,21 @@ daily: [
     "mes": "2025-01",
     "tipo": "SMB",
     "g1": 0,
-    "g3": 2228,
-    "g4": 3775,
+    "g3": 2229,
+    "g4": 3774,
     "total": 6003,
     "g1_pct": 0.0,
-    "g3_pct": 37.11,
-    "g4_pct": 62.89
+    "g3_pct": 37.13,
+    "g4_pct": 62.87
   },
   {
     "site": "MLB",
     "mes": "2025-02",
     "tipo": "Longtail",
     "g1": 317,
-    "g3": 698,
+    "g3": 699,
     "g4": 21455,
-    "total": 22470,
+    "total": 22471,
     "g1_pct": 1.41,
     "g3_pct": 3.11,
     "g4_pct": 95.48
@@ -26561,8 +26397,8 @@ daily: [
     "tipo": "SMB",
     "g1": 0,
     "g3": 2054,
-    "g4": 3591,
-    "total": 5645,
+    "g4": 3590,
+    "total": 5644,
     "g1_pct": 0.0,
     "g3_pct": 36.39,
     "g4_pct": 63.61
@@ -26572,12 +26408,12 @@ daily: [
     "mes": "2025-03",
     "tipo": "Longtail",
     "g1": 1363,
-    "g3": 740,
-    "g4": 20483,
+    "g3": 743,
+    "g4": 20480,
     "total": 22586,
     "g1_pct": 6.03,
-    "g3_pct": 3.28,
-    "g4_pct": 90.69
+    "g3_pct": 3.29,
+    "g4_pct": 90.68
   },
   {
     "site": "MLB",
@@ -26596,12 +26432,12 @@ daily: [
     "mes": "2025-04",
     "tipo": "Longtail",
     "g1": 875,
-    "g3": 806,
-    "g4": 19936,
+    "g3": 810,
+    "g4": 19932,
     "total": 21617,
     "g1_pct": 4.05,
-    "g3_pct": 3.73,
-    "g4_pct": 92.22
+    "g3_pct": 3.75,
+    "g4_pct": 92.21
   },
   {
     "site": "MLB",
@@ -26619,33 +26455,33 @@ daily: [
     "site": "MLB",
     "mes": "2025-05",
     "tipo": "Longtail",
-    "g1": 743,
-    "g3": 812,
-    "g4": 20316,
-    "total": 21871,
+    "g1": 744,
+    "g3": 818,
+    "g4": 20310,
+    "total": 21872,
     "g1_pct": 3.4,
-    "g3_pct": 3.71,
-    "g4_pct": 92.89
+    "g3_pct": 3.74,
+    "g4_pct": 92.86
   },
   {
     "site": "MLB",
     "mes": "2025-05",
     "tipo": "SMB",
     "g1": 0,
-    "g3": 2265,
-    "g4": 4790,
+    "g3": 2266,
+    "g4": 4789,
     "total": 7055,
     "g1_pct": 0.0,
-    "g3_pct": 32.1,
-    "g4_pct": 67.9
+    "g3_pct": 32.12,
+    "g4_pct": 67.88
   },
   {
     "site": "MLB",
     "mes": "2025-06",
     "tipo": "Longtail",
     "g1": 535,
-    "g3": 776,
-    "g4": 19280,
+    "g3": 777,
+    "g4": 19279,
     "total": 20591,
     "g1_pct": 2.6,
     "g3_pct": 3.77,
@@ -26656,45 +26492,45 @@ daily: [
     "mes": "2025-06",
     "tipo": "SMB",
     "g1": 143,
-    "g3": 2079,
-    "g4": 4741,
+    "g3": 2080,
+    "g4": 4740,
     "total": 6963,
     "g1_pct": 2.05,
-    "g3_pct": 29.86,
-    "g4_pct": 68.09
+    "g3_pct": 29.87,
+    "g4_pct": 68.07
   },
   {
     "site": "MLB",
     "mes": "2025-07",
     "tipo": "Longtail",
     "g1": 986,
-    "g3": 754,
-    "g4": 20228,
+    "g3": 756,
+    "g4": 20226,
     "total": 21968,
     "g1_pct": 4.49,
-    "g3_pct": 3.43,
-    "g4_pct": 92.08
+    "g3_pct": 3.44,
+    "g4_pct": 92.07
   },
   {
     "site": "MLB",
     "mes": "2025-07",
     "tipo": "SMB",
     "g1": 520,
-    "g3": 2057,
-    "g4": 5679,
+    "g3": 2058,
+    "g4": 5678,
     "total": 8256,
     "g1_pct": 6.3,
-    "g3_pct": 24.92,
-    "g4_pct": 68.79
+    "g3_pct": 24.93,
+    "g4_pct": 68.77
   },
   {
     "site": "MLB",
     "mes": "2025-08",
     "tipo": "Longtail",
     "g1": 3455,
-    "g3": 605,
+    "g3": 606,
     "g4": 18690,
-    "total": 22750,
+    "total": 22751,
     "g1_pct": 15.19,
     "g3_pct": 2.66,
     "g4_pct": 82.15
@@ -26704,23 +26540,23 @@ daily: [
     "mes": "2025-08",
     "tipo": "SMB",
     "g1": 687,
-    "g3": 1790,
-    "g4": 5725,
+    "g3": 1793,
+    "g4": 5722,
     "total": 8202,
     "g1_pct": 8.38,
-    "g3_pct": 21.82,
-    "g4_pct": 69.8
+    "g3_pct": 21.86,
+    "g4_pct": 69.76
   },
   {
     "site": "MLB",
     "mes": "2025-09",
     "tipo": "Longtail",
     "g1": 4815,
-    "g3": 508,
-    "g4": 15225,
-    "total": 20548,
+    "g3": 509,
+    "g4": 15223,
+    "total": 20547,
     "g1_pct": 23.43,
-    "g3_pct": 2.47,
+    "g3_pct": 2.48,
     "g4_pct": 74.09
   },
   {
@@ -26753,11 +26589,11 @@ daily: [
     "tipo": "SMB",
     "g1": 2035,
     "g3": 2277,
-    "g4": 7585,
-    "total": 11897,
+    "g4": 7583,
+    "total": 11895,
     "g1_pct": 17.11,
     "g3_pct": 19.14,
-    "g4_pct": 63.76
+    "g4_pct": 63.75
   },
   {
     "site": "MLB",
@@ -26765,8 +26601,8 @@ daily: [
     "tipo": "Longtail",
     "g1": 3463,
     "g3": 484,
-    "g4": 14661,
-    "total": 18608,
+    "g4": 14662,
+    "total": 18609,
     "g1_pct": 18.61,
     "g3_pct": 2.6,
     "g4_pct": 78.79
@@ -26776,21 +26612,21 @@ daily: [
     "mes": "2025-11",
     "tipo": "SMB",
     "g1": 2457,
-    "g3": 1671,
-    "g4": 6447,
+    "g3": 1674,
+    "g4": 6444,
     "total": 10575,
     "g1_pct": 23.23,
-    "g3_pct": 15.8,
-    "g4_pct": 60.96
+    "g3_pct": 15.83,
+    "g4_pct": 60.94
   },
   {
     "site": "MLB",
     "mes": "2025-12",
     "tipo": "Longtail",
     "g1": 2425,
-    "g3": 318,
-    "g4": 16785,
-    "total": 19528,
+    "g3": 319,
+    "g4": 16786,
+    "total": 19530,
     "g1_pct": 12.42,
     "g3_pct": 1.63,
     "g4_pct": 85.95
@@ -26800,21 +26636,21 @@ daily: [
     "mes": "2025-12",
     "tipo": "SMB",
     "g1": 2454,
-    "g3": 1557,
-    "g4": 6535,
+    "g3": 1558,
+    "g4": 6534,
     "total": 10546,
     "g1_pct": 23.27,
-    "g3_pct": 14.76,
-    "g4_pct": 61.97
+    "g3_pct": 14.77,
+    "g4_pct": 61.96
   },
   {
     "site": "MLB",
     "mes": "2026-01",
     "tipo": "Longtail",
-    "g1": 4307,
-    "g3": 295,
-    "g4": 18701,
-    "total": 23303,
+    "g1": 4309,
+    "g3": 296,
+    "g4": 18709,
+    "total": 23314,
     "g1_pct": 18.48,
     "g3_pct": 1.27,
     "g4_pct": 80.25
@@ -26824,84 +26660,84 @@ daily: [
     "mes": "2026-01",
     "tipo": "SMB",
     "g1": 3379,
-    "g3": 1834,
-    "g4": 10170,
+    "g3": 1836,
+    "g4": 10168,
     "total": 15383,
     "g1_pct": 21.97,
-    "g3_pct": 11.92,
-    "g4_pct": 66.11
+    "g3_pct": 11.94,
+    "g4_pct": 66.1
   },
   {
     "site": "MLB",
     "mes": "2026-02",
     "tipo": "Longtail",
-    "g1": 3447,
-    "g3": 225,
-    "g4": 22646,
-    "total": 26318,
-    "g1_pct": 13.1,
-    "g3_pct": 0.85,
-    "g4_pct": 86.05
+    "g1": 3456,
+    "g3": 226,
+    "g4": 22666,
+    "total": 26348,
+    "g1_pct": 13.12,
+    "g3_pct": 0.86,
+    "g4_pct": 86.03
   },
   {
     "site": "MLB",
     "mes": "2026-02",
     "tipo": "SMB",
-    "g1": 3176,
-    "g3": 1680,
+    "g1": 3177,
+    "g3": 1681,
     "g4": 16056,
-    "total": 20912,
+    "total": 20914,
     "g1_pct": 15.19,
-    "g3_pct": 8.03,
-    "g4_pct": 76.78
+    "g3_pct": 8.04,
+    "g4_pct": 76.77
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "tipo": "Longtail",
-    "g1": 3008,
-    "g3": 192,
-    "g4": 14989,
-    "total": 18189,
-    "g1_pct": 16.54,
-    "g3_pct": 1.06,
-    "g4_pct": 82.41
+    "g1": 3105,
+    "g3": 197,
+    "g4": 15381,
+    "total": 18683,
+    "g1_pct": 16.62,
+    "g3_pct": 1.05,
+    "g4_pct": 82.33
   },
   {
     "site": "MLB",
     "mes": "2026-03",
     "tipo": "SMB",
     "g1": 2921,
-    "g3": 1395,
-    "g4": 11417,
-    "total": 15733,
-    "g1_pct": 18.57,
+    "g3": 1398,
+    "g4": 11449,
+    "total": 15768,
+    "g1_pct": 18.52,
     "g3_pct": 8.87,
-    "g4_pct": 72.57
+    "g4_pct": 72.61
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "tipo": "Longtail",
-    "g1": 321,
-    "g3": 11,
-    "g4": 1800,
-    "total": 2132,
-    "g1_pct": 15.06,
-    "g3_pct": 0.52,
-    "g4_pct": 84.43
+    "g1": 733,
+    "g3": 40,
+    "g4": 4076,
+    "total": 4849,
+    "g1_pct": 15.12,
+    "g3_pct": 0.82,
+    "g4_pct": 84.06
   },
   {
     "site": "MLB",
     "mes": "2026-04",
     "tipo": "SMB",
-    "g1": 807,
-    "g3": 208,
-    "g4": 1842,
-    "total": 2857,
-    "g1_pct": 28.25,
-    "g3_pct": 7.28,
-    "g4_pct": 64.47
+    "g1": 1344,
+    "g3": 410,
+    "g4": 3408,
+    "total": 5162,
+    "g1_pct": 26.04,
+    "g3_pct": 7.94,
+    "g4_pct": 66.02
   },
   {
     "site": "MLC",
@@ -27027,13 +26863,13 @@ daily: [
     "site": "MLC",
     "mes": "2025-11",
     "tipo": "Longtail",
-    "g1": 135,
+    "g1": 136,
     "g3": 0,
     "g4": 5,
-    "total": 140,
-    "g1_pct": 96.43,
+    "total": 141,
+    "g1_pct": 96.45,
     "g3_pct": 0.0,
-    "g4_pct": 3.57
+    "g4_pct": 3.55
   },
   {
     "site": "MLC",
@@ -27123,13 +26959,13 @@ daily: [
     "site": "MLC",
     "mes": "2026-03",
     "tipo": "Longtail",
-    "g1": 61,
+    "g1": 63,
     "g3": 0,
     "g4": 4,
-    "total": 65,
-    "g1_pct": 93.85,
+    "total": 67,
+    "g1_pct": 94.03,
     "g3_pct": 0.0,
-    "g4_pct": 6.15
+    "g4_pct": 5.97
   },
   {
     "site": "MLC",
@@ -27147,25 +26983,25 @@ daily: [
     "site": "MLC",
     "mes": "2026-04",
     "tipo": "Longtail",
-    "g1": 15,
+    "g1": 38,
     "g3": 0,
-    "g4": 5,
-    "total": 20,
-    "g1_pct": 75.0,
+    "g4": 7,
+    "total": 45,
+    "g1_pct": 84.44,
     "g3_pct": 0.0,
-    "g4_pct": 25.0
+    "g4_pct": 15.56
   },
   {
     "site": "MLC",
     "mes": "2026-04",
     "tipo": "SMB",
-    "g1": 15,
+    "g1": 37,
     "g3": 0,
-    "g4": 55,
-    "total": 70,
-    "g1_pct": 21.43,
+    "g4": 78,
+    "total": 115,
+    "g1_pct": 32.17,
     "g3_pct": 0.0,
-    "g4_pct": 78.57
+    "g4_pct": 67.83
   },
   {
     "site": "MLM",
@@ -27461,11 +27297,11 @@ daily: [
     "tipo": "Longtail",
     "g1": 2537,
     "g3": 0,
-    "g4": 1987,
-    "total": 4524,
-    "g1_pct": 56.08,
+    "g4": 1988,
+    "total": 4525,
+    "g1_pct": 56.07,
     "g3_pct": 0.0,
-    "g4_pct": 43.92
+    "g4_pct": 43.93
   },
   {
     "site": "MLM",
@@ -27483,10 +27319,10 @@ daily: [
     "site": "MLM",
     "mes": "2026-02",
     "tipo": "Longtail",
-    "g1": 3143,
+    "g1": 3145,
     "g3": 0,
-    "g4": 2666,
-    "total": 5809,
+    "g4": 2667,
+    "total": 5812,
     "g1_pct": 54.11,
     "g3_pct": 0.0,
     "g4_pct": 45.89
@@ -27497,8 +27333,8 @@ daily: [
     "tipo": "SMB",
     "g1": 409,
     "g3": 0,
-    "g4": 4118,
-    "total": 4527,
+    "g4": 4119,
+    "total": 4528,
     "g1_pct": 9.03,
     "g3_pct": 0.0,
     "g4_pct": 90.97
@@ -27507,13 +27343,13 @@ daily: [
     "site": "MLM",
     "mes": "2026-03",
     "tipo": "Longtail",
-    "g1": 2525,
+    "g1": 2531,
     "g3": 0,
-    "g4": 2109,
-    "total": 4634,
-    "g1_pct": 54.49,
+    "g4": 2121,
+    "total": 4652,
+    "g1_pct": 54.41,
     "g3_pct": 0.0,
-    "g4_pct": 45.51
+    "g4_pct": 45.59
   },
   {
     "site": "MLM",
@@ -27521,35 +27357,35 @@ daily: [
     "tipo": "SMB",
     "g1": 436,
     "g3": 0,
-    "g4": 2319,
-    "total": 2755,
-    "g1_pct": 15.83,
+    "g4": 2322,
+    "total": 2758,
+    "g1_pct": 15.81,
     "g3_pct": 0.0,
-    "g4_pct": 84.17
+    "g4_pct": 84.19
   },
   {
     "site": "MLM",
     "mes": "2026-04",
     "tipo": "Longtail",
-    "g1": 468,
+    "g1": 907,
     "g3": 0,
-    "g4": 342,
-    "total": 810,
-    "g1_pct": 57.78,
+    "g4": 760,
+    "total": 1667,
+    "g1_pct": 54.41,
     "g3_pct": 0.0,
-    "g4_pct": 42.22
+    "g4_pct": 45.59
   },
   {
     "site": "MLM",
     "mes": "2026-04",
     "tipo": "SMB",
-    "g1": 158,
+    "g1": 224,
     "g3": 0,
-    "g4": 319,
-    "total": 477,
-    "g1_pct": 33.12,
+    "g4": 669,
+    "total": 893,
+    "g1_pct": 25.08,
     "g3_pct": 0.0,
-    "g4_pct": 66.88
+    "g4_pct": 74.92
   }
 ],
 

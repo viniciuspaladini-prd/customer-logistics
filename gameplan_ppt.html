@@ -31,7 +31,7 @@ html, body {
   flex-direction: column;
   align-items: center;
   min-height: 100vh;
-  padding: 20px 0 60px;
+  padding: 20px 0 24px;
 }
 
 /* ── Slide ── */
@@ -47,18 +47,16 @@ html, body {
 
 /* ── Navigation ── */
 #nav {
-  position: fixed;
-  bottom: 16px;
-  left: 50%;
-  transform: translateX(-50%);
+  width: 1280px;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 14px;
-  background: rgba(0,0,0,.65);
-  backdrop-filter: blur(8px);
-  padding: 8px 20px;
-  border-radius: 30px;
-  z-index: 9999;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+  margin-top: 0;
+  flex-shrink: 0;
 }
 #nav button {
   background: rgba(255,255,255,.15);
@@ -413,8 +411,10 @@ html, body {
 .site-conclusion .ok    { color: #276749; font-weight: 700; }
 .site-conclusion .warn  { color: #C05621; font-weight: 700; }
 .site-conclusion b      { color: #1a1a2e; }
-#s5 .site-conclusion { min-height: 110px; }
-#s6 .site-conclusion { min-height: 88px; }
+#s5  .site-conclusion { min-height: 110px; }
+#s6  .site-conclusion { min-height: 88px; }
+#s11 .site-conclusion { height: 80px; overflow: hidden; }
+#s12 .site-conclusion { height: 80px; overflow: hidden; }
 .site-kpi { display:flex; gap:6px; align-items:center; justify-content:space-around; padding:5px 12px 5px; border-bottom:1px solid #E2E8F0; flex-shrink:0; }
 .site-kpi-block { text-align:center; display:flex; flex-direction:column; align-items:center; }
 .site-kpi-pct { font-size:22px; font-weight:900; line-height:1; }
@@ -1069,11 +1069,11 @@ html, body {
           </div>
           <div style="text-align:center">
             <div class="stat-label">Sol/MAD</div>
-            <div class="stat-val" style="color:#E53E3E">1,39%</div>
+            <div class="stat-val" style="color:#E53E3E">1,24%</div>
           </div>
           <div style="text-align:right">
             <div class="stat-label">Fin/MAD</div>
-            <div class="stat-val" style="color:#2A9D8F">1,25%</div>
+            <div class="stat-val" style="color:#2A9D8F">1,12%</div>
           </div>
         </div>
         <div class="pres-pills-row">
@@ -1092,7 +1092,7 @@ html, body {
           <img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷">
         </div>
         <div class="site-conclusion">
-          <span class="alert">Sobre la meta</span> — Sol/MAD <b>1,01%</b> vs meta <b>0,60%</b>. Fin/MAD <b>0,69%</b> vs meta <b>0,50%</b>. <span class="warn">MAD cayó −350K en mar/26</span> (2,59M → 2,24M, −13,5%) con solicitudes estables — ratio sube por caída de base, no por aumento de cambios.
+          <span class="alert">Sobre la meta</span> — Sol/MAD <b>0,86%</b> vs meta <b>0,60%</b>. Fin/MAD <b>0,59%</b> vs meta <b>0,50%</b>. MAD estable en 2,62M en mar/26. Gap de 9.538 bloqueos/mes.
         </div>
         <div class="site-chart-wrap" style="flex:1;min-height:160px;">
           <canvas id="chart-mlb"></canvas>
@@ -1108,11 +1108,11 @@ html, body {
           </div>
           <div style="text-align:center">
             <div class="stat-label">Sol/MAD</div>
-            <div class="stat-val" style="color:#E53E3E">1,01%</div>
+            <div class="stat-val" style="color:#E53E3E">0,86%</div>
           </div>
           <div style="text-align:right">
             <div class="stat-label">Fin/MAD</div>
-            <div class="stat-val" style="color:#2A9D8F">0,69%</div>
+            <div class="stat-val" style="color:#2A9D8F">0,59%</div>
           </div>
         </div>
         <div class="pres-pills-row">
@@ -1147,11 +1147,11 @@ html, body {
           </div>
           <div style="text-align:center">
             <div class="stat-label">Sol/MAD</div>
-            <div class="stat-val" style="color:#E53E3E">1,00%</div>
+            <div class="stat-val" style="color:#E53E3E">0,92%</div>
           </div>
           <div style="text-align:right">
             <div class="stat-label">Fin/MAD</div>
-            <div class="stat-val" style="color:#2A9D8F">0,77%</div>
+            <div class="stat-val" style="color:#2A9D8F">0,71%</div>
           </div>
         </div>
         <div class="pres-pills-row">
@@ -1186,11 +1186,11 @@ html, body {
           </div>
           <div style="text-align:center">
             <div class="stat-label">Sol/MAD</div>
-            <div class="stat-val" style="color:#DD6B20">0,81%</div>
+            <div class="stat-val" style="color:#DD6B20">0,72%</div>
           </div>
           <div style="text-align:right">
             <div class="stat-label">Fin/MAD</div>
-            <div class="stat-val" style="color:#2A9D8F">0,61%</div>
+            <div class="stat-val" style="color:#2A9D8F">0,55%</div>
           </div>
         </div>
         <div class="pres-pills-row">
@@ -1547,7 +1547,13 @@ html, body {
   #s8 .mx-tl-dot.done{border-color:#94A3B8;background:#94A3B8;color:#fff;}
   #s8 .mx-tl-dot.next{border-color:#1a4a8a;background:#1a4a8a;color:#fff;box-shadow:0 0 0 3px rgba(26,74,138,.15);}
   #s8 .mx-tl-dot.disc{border-color:#CBD5E1;border-style:dashed;color:#94A3B8;}
-  #s8 .mx-tl-card{background:#fff;border:1px solid #E2E8F0;border-radius:7px;padding:5px 7px;width:calc(100% - 8px);box-shadow:0 1px 3px rgba(0,0,0,.04);flex:1;display:flex;flex-direction:column;min-height:0;}
+  #s8 .mx-tl-card{background:#fff;border:1px solid #E2E8F0;border-radius:7px;padding:5px 7px;width:calc(100% - 8px);box-shadow:0 1px 3px rgba(0,0,0,.04);flex:1;display:flex;flex-direction:column;min-height:0;height:140px;}
+  #s8 .mx-res-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;}
+  #s8 .mx-res-kpi{background:#fff;border-radius:9px;padding:8px 14px;border:1px solid #E2E8F0;box-shadow:0 1px 5px rgba(0,0,0,.05);display:flex;align-items:center;gap:10px;}
+  #s8 .mx-res-arrow{font-size:18px;font-weight:900;flex-shrink:0;}
+  #s8 .mx-res-body{display:flex;flex-direction:column;gap:1px;}
+  #s8 .mx-res-val{font-size:18px;font-weight:800;line-height:1.1;}
+  #s8 .mx-res-lbl{font-size:9px;color:#64748B;font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
   #s8 .mx-tl-card.done{background:#F8FAFC;border-color:#E2E8F0;}
   #s8 .mx-tl-card.next{background:#EFF6FF;border-color:rgba(26,74,138,.2);}
   #s8 .mx-tl-card.disc{background:#FAFAFA;border-color:#E5E7EB;border-style:dashed;}
@@ -1698,6 +1704,20 @@ html, body {
               <div><div class="mx-tl-impact-val done">7.529 bloqueos/mes</div><div class="mx-tl-impact-lbl">MLB · mar/26 · resultado real</div></div>
               <span class="mx-tl-badge real">Real</span>
             </div>
+            <div style="margin-top:5px;display:flex;gap:4px;flex-wrap:wrap;">
+              <div style="flex:1;background:#F0FFF4;border-radius:5px;padding:3px 6px;display:flex;align-items:center;gap:4px;">
+                <span style="color:#276749;font-size:10px;font-weight:900;">↓ −4pp</span>
+                <span style="font-size:8px;color:#4B5563;">abandono</span>
+              </div>
+              <div style="flex:1;background:#EFF6FF;border-radius:5px;padding:3px 6px;display:flex;align-items:center;gap:4px;">
+                <span style="color:#1a4a8a;font-size:10px;font-weight:900;">↑ 153K</span>
+                <span style="font-size:8px;color:#4B5563;">TPV/mes</span>
+              </div>
+              <div style="flex:1;background:#F0FFF4;border-radius:5px;padding:3px 6px;display:flex;align-items:center;gap:4px;">
+                <span style="color:#276749;font-size:10px;font-weight:900;">↑ +6,4%</span>
+                <span style="font-size:8px;color:#4B5563;">CSAT 4,13</span>
+              </div>
+            </div>
           </div>
         </div>
         <div class="mx-tl-item">
@@ -1771,7 +1791,7 @@ html, body {
             <div class="mx-tl-impact">
               <div>
                 <div class="mx-tl-impact-val disc">~−2.200 sol/mes est.</div>
-                <div class="mx-tl-impact-lbl">MLB 1,01%→0,60% · MLA 1,39%→? · MLM 1,15%→? · MLC 0,92%→?</div>
+                <div class="mx-tl-impact-lbl">MLB 0,86%→0,60% · MLA 1,24%→? · MLM 0,72%→? · MLC 0,92%→?</div>
               </div>
               <span class="mx-tl-badge tbd">A definir</span>
             </div>
