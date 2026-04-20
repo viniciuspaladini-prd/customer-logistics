@@ -1,0 +1,591 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Maxwell · Chargeback Sellers — Diagnóstico Completo</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 14px; }
+
+  header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%); color: #fff; padding: 32px 40px; border-bottom: 4px solid #ffe600; }
+  header .badge { display: inline-block; background: #ffe600; color: #1a1a2e; font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 4px; margin-bottom: 14px; letter-spacing: .5px; text-transform: uppercase; }
+  header h1 { font-size: 26px; font-weight: 700; }
+  header p { font-size: 13px; opacity: .65; margin-top: 8px; }
+  header .meta { display: flex; gap: 24px; margin-top: 18px; flex-wrap: wrap; }
+  header .meta span { font-size: 12px; opacity: .55; }
+  header .meta strong { opacity: 1; color: #ffe600; }
+
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+
+  .section { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.07); }
+  .section-title { display: flex; align-items: center; gap: 10px; margin-bottom: 20px; }
+  .section-title .num { width: 28px; height: 28px; border-radius: 50%; background: #ffe600; color: #1a1a2e; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+  .section-title h2 { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+  .section h3 { font-size: 13px; font-weight: 700; color: #374151; margin: 20px 0 10px; }
+  .section p { font-size: 13px; color: #4b5563; line-height: 1.7; margin-bottom: 10px; }
+  .divider { border: none; border-top: 1px solid #f3f4f6; margin: 20px 0; }
+
+  /* KPIs */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin: 20px 0; }
+  .kpi { background: #f9fafb; border-radius: 10px; padding: 18px 16px; border-left: 4px solid #009ee3; }
+  .kpi.red { border-left-color: #ef4444; }
+  .kpi.yellow { border-left-color: #f59e0b; }
+  .kpi.green { border-left-color: #10b981; }
+  .kpi.purple { border-left-color: #8b5cf6; }
+  .kpi.dark { border-left-color: #1a1a2e; }
+  .kpi .label { font-size: 11px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: .5px; }
+  .kpi .value { font-size: 30px; font-weight: 700; color: #1a1a2e; margin: 6px 0 2px; line-height: 1; }
+  .kpi .sub { font-size: 11px; color: #9ca3af; margin-top: 4px; }
+  .kpi .badge-val { font-size: 11px; font-weight: 700; padding: 2px 7px; border-radius: 4px; display: inline-block; margin-top: 6px; }
+  .bad { background: #fee2e2; color: #b91c1c; }
+  .warn { background: #fef3c7; color: #92400e; }
+  .good { background: #d1fae5; color: #065f46; }
+  .neutral { background: #f3f4f6; color: #6b7280; }
+
+  /* Tables */
+  .table-wrap { overflow-x: auto; margin-top: 12px; }
+  table { width: 100%; border-collapse: collapse; font-size: 12px; }
+  th { background: #f9fafb; padding: 9px 12px; text-align: left; font-weight: 600; color: #6b7280; font-size: 11px; border-bottom: 2px solid #e5e7eb; white-space: nowrap; text-transform: uppercase; letter-spacing: .4px; }
+  td { padding: 9px 12px; border-bottom: 1px solid #f3f4f6; color: #374151; vertical-align: middle; }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: #fafafa; }
+  .row-bad td { background: #fff5f5; }
+  .row-warn td { background: #fffbeb; }
+  .row-good td { background: #f0fdf4; }
+  .row-highlight td { background: #eff6ff; font-weight: 600; }
+
+  /* Pills */
+  .pill { display: inline-block; padding: 2px 9px; border-radius: 20px; font-size: 11px; font-weight: 600; white-space: nowrap; }
+  .pill-red { background: #fee2e2; color: #b91c1c; }
+  .pill-yellow { background: #fef3c7; color: #92400e; }
+  .pill-green { background: #d1fae5; color: #065f46; }
+  .pill-blue { background: #dbeafe; color: #1d4ed8; }
+  .pill-gray { background: #f3f4f6; color: #6b7280; }
+  .pill-purple { background: #ede9fe; color: #6d28d9; }
+
+  /* Callout */
+  .callout { border-radius: 8px; padding: 14px 16px; margin: 16px 0; font-size: 13px; line-height: 1.6; display: flex; gap: 12px; align-items: flex-start; }
+  .callout-icon { font-size: 18px; flex-shrink: 0; margin-top: 1px; }
+  .callout.red { background: #fff5f5; border-left: 4px solid #ef4444; }
+  .callout.yellow { background: #fffbeb; border-left: 4px solid #f59e0b; }
+  .callout.blue { background: #eff6ff; border-left: 4px solid #3b82f6; }
+  .callout.green { background: #f0fdf4; border-left: 4px solid #10b981; }
+  .callout strong { color: #1a1a2e; }
+
+  /* Quote cards */
+  .quotes-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 12px; margin-top: 14px; }
+  .quote-card { background: #f9fafb; border-radius: 8px; padding: 14px 16px; border-left: 3px solid #e5e7eb; font-size: 12px; color: #374151; line-height: 1.6; font-style: italic; }
+  .quote-card .q-label { font-style: normal; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 6px; }
+  .quote-card.status { border-left-color: #8b5cf6; }
+  .quote-card.docs { border-left-color: #3b82f6; }
+  .quote-card.funds { border-left-color: #f59e0b; }
+  .quote-card.process { border-left-color: #ef4444; }
+
+  /* Tool sequence */
+  .tool-flow { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; margin: 10px 0; }
+  .tool-chip { background: #f3f4f6; border-radius: 4px; padding: 4px 10px; font-size: 11px; font-weight: 600; color: #374151; font-family: monospace; }
+  .tool-chip.cbk { background: #dbeafe; color: #1d4ed8; }
+  .tool-chip.wrong { background: #fee2e2; color: #b91c1c; }
+  .tool-chip.ok { background: #d1fae5; color: #065f46; }
+  .tool-arrow { color: #9ca3af; font-size: 14px; }
+
+  /* Feature gap table */
+  .gap-table td:first-child { font-weight: 600; font-family: monospace; font-size: 11px; color: #4b5563; }
+  .check { color: #10b981; font-size: 16px; }
+  .cross { color: #ef4444; font-size: 16px; }
+
+  /* Bar chart */
+  .bar-row { display: flex; align-items: center; gap: 10px; margin-bottom: 8px; }
+  .bar-label { font-size: 12px; color: #374151; width: 230px; flex-shrink: 0; }
+  .bar-track { flex: 1; height: 20px; background: #f3f4f6; border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; border-radius: 4px; display: flex; align-items: center; padding-left: 8px; font-size: 11px; font-weight: 700; color: #fff; transition: width .3s; }
+  .bar-vol { font-size: 11px; color: #9ca3af; width: 80px; text-align: right; flex-shrink: 0; }
+
+  /* Priority sprint */
+  .sprint { border: 1px solid #e5e7eb; border-radius: 10px; padding: 18px; margin-bottom: 12px; }
+  .sprint-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .sprint-badge { padding: 4px 12px; border-radius: 6px; font-size: 12px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; }
+  .sprint-badge.s1 { background: #ffe600; color: #1a1a2e; }
+  .sprint-badge.s2 { background: #e5e7eb; color: #6b7280; }
+  .sprint-title { font-size: 14px; font-weight: 700; color: #1a1a2e; }
+  .sprint-items { display: flex; flex-direction: column; gap: 8px; }
+  .sprint-item { display: flex; gap: 10px; align-items: flex-start; font-size: 12px; color: #374151; }
+  .sprint-item .field { font-family: monospace; font-weight: 700; font-size: 11px; background: #f3f4f6; padding: 2px 7px; border-radius: 4px; flex-shrink: 0; }
+  .sprint-item .desc { line-height: 1.5; }
+
+  /* Tooltip-like JSON block */
+  .json-block { background: #1e293b; border-radius: 8px; padding: 16px; font-family: monospace; font-size: 12px; line-height: 1.7; margin: 12px 0; overflow-x: auto; }
+  .json-key { color: #93c5fd; }
+  .json-val { color: #86efac; }
+  .json-val.empty { color: #f87171; font-weight: 700; }
+  .json-val.missing { color: #6b7280; font-style: italic; }
+  .json-comment { color: #64748b; }
+
+  /* Timeline */
+  .timeline { position: relative; padding-left: 28px; margin: 12px 0; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 6px; bottom: 6px; width: 2px; background: #e5e7eb; }
+  .tl-item { position: relative; margin-bottom: 16px; }
+  .tl-item::before { content: ''; position: absolute; left: -24px; top: 5px; width: 10px; height: 10px; border-radius: 50%; background: #fff; border: 2px solid #9ca3af; }
+  .tl-item.active::before { background: #ffe600; border-color: #f59e0b; }
+  .tl-item.bad::before { background: #ef4444; border-color: #ef4444; }
+  .tl-item .tl-date { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .5px; }
+  .tl-item .tl-title { font-size: 13px; font-weight: 600; color: #1a1a2e; margin: 2px 0; }
+  .tl-item .tl-desc { font-size: 12px; color: #6b7280; line-height: 1.5; }
+
+  .trend-down { color: #ef4444; font-size: 11px; font-weight: 700; }
+  .trend-up { color: #10b981; font-size: 11px; font-weight: 700; }
+
+  @media (max-width: 640px) {
+    header { padding: 24px 20px; }
+    .container { padding: 20px 14px; }
+    .bar-label { width: 150px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="badge">Diagnóstico · Abr 2026</div>
+  <h1>Maxwell — Chargeback Sellers</h1>
+  <p>Análise completa baseada em dados reais de <code>BT_CX_MAXWELL_CONVERSATIONS</code> · Jan–Abr 2026</p>
+  <div class="meta">
+    <span>Tabela: <strong>BT_CX_MAXWELL_CONVERSATIONS</strong></span>
+    <span>Filtro: <strong>USER_ROLE = seller · TYPIFICATION_L2 = Chargebacks and Account Impact</strong></span>
+    <span>Período de referência: <strong>Mar/26</strong></span>
+  </div>
+</header>
+
+<div class="container">
+
+  <!-- SECTION 1: KPIs -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">1</div>
+      <h2>Visão Geral — Março 2026</h2>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi dark">
+        <div class="label">Volume Mensal</div>
+        <div class="value">5.235</div>
+        <div class="sub">conversas de sellers</div>
+        <span class="badge-val warn">+280% vs jan/26</span>
+      </div>
+      <div class="kpi red">
+        <div class="label">CSAT</div>
+        <div class="value">3,07</div>
+        <div class="sub">2º pior tema de sellers</div>
+        <span class="badge-val bad">-24% vs Point (4,02)</span>
+      </div>
+      <div class="kpi red">
+        <div class="label">Escalação p/ Humano</div>
+        <div class="value">35,3%</div>
+        <div class="sub">vs 9,7% no tema Point</div>
+        <span class="badge-val bad">3,6× acima do baseline</span>
+      </div>
+      <div class="kpi yellow">
+        <div class="label">Contacted</div>
+        <div class="value">28,2%</div>
+        <div class="sub">sellers que voltaram para CX</div>
+        <span class="badge-val warn">vs 7,2% no tema Point</span>
+      </div>
+      <div class="kpi red">
+        <div class="label">Não Resolvido</div>
+        <div class="value">44,7%</div>
+        <div class="sub">unresolved + sem classificação</div>
+        <span class="badge-val bad">CSAT médio 1,66</span>
+      </div>
+      <div class="kpi purple">
+        <div class="label">Escalação Direta</div>
+        <div class="value">22,6%</div>
+        <div class="sub">sem tentativa de resolução</div>
+        <span class="badge-val bad">100% escalação</span>
+      </div>
+    </div>
+
+    <div class="callout red">
+      <div class="callout-icon">⚠️</div>
+      <div><strong>Pior experiência de sellers no Maxwell</strong> — Chargeback tem o menor CSAT (3,07) e a maior taxa de escalação (35,3%) entre todos os temas de sellers. O tema Point, que é nosso baseline, tem CSAT 4,02 e escalação de 9,7%.</div>
+    </div>
+
+    <h3>Evolução Mensal</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Mês</th><th>Convs</th><th>CSAT</th><th>Escalação</th><th>Contacted</th><th>Resolved %</th><th>Tendência</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>Jan/26</td><td>1.370</td><td>2,90</td><td>47,9%</td><td>38,8%</td><td>—</td><td><span class="trend-down">▼ linha base</span></td></tr>
+          <tr><td>Fev/26</td><td>4.051</td><td>2,95</td><td>39,0%</td><td>31,8%</td><td>—</td><td><span class="trend-down">▼ +195% volume</span></td></tr>
+          <tr class="row-bad"><td><strong>Mar/26</strong></td><td><strong>5.235</strong></td><td><strong>3,07</strong></td><td><strong>35,3%</strong></td><td><strong>28,2%</strong></td><td><strong>52,7%</strong></td><td><span class="trend-down">▼ pico de volume</span></td></tr>
+          <tr class="row-warn"><td>Abr/26 (parcial)</td><td>3.828</td><td>2,48</td><td>28,0%</td><td>20,3%</td><td>—</td><td><span class="trend-up">▲ melhora pós-fix MCP</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Benchmark — Chargeback vs outros temas de sellers (Mar/26)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Tema</th><th>Volume</th><th>CSAT</th><th>Escalação</th><th>Contacted</th><th>Resolved</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-good"><td>Point (baseline)</td><td>134.025</td><td><strong>4,02</strong></td><td>9,7%</td><td>7,2%</td><td>75,6%</td></tr>
+          <tr><td>Selling Capabilities</td><td>41.523</td><td>3,90</td><td>11,3%</td><td>9,0%</td><td>84,5%</td></tr>
+          <tr><td>Outros sellers</td><td>1.144.984</td><td>3,81</td><td>8,8%</td><td>6,8%</td><td>71,6%</td></tr>
+          <tr><td>Denuncias y Bloqueos</td><td>30.441</td><td>3,45</td><td>30,9%</td><td>24,9%</td><td>61,3%</td></tr>
+          <tr class="row-bad"><td><strong>Chargebacks ← foco</strong></td><td><strong>5.235</strong></td><td><strong>3,07</strong></td><td><strong>35,3%</strong></td><td><strong>28,2%</strong></td><td><strong>52,7%</strong></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 2: CBK TOOL -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">2</div>
+      <h2>A Tool <code>chargeback_triage_chargeback</code></h2>
+    </div>
+
+    <div class="callout red">
+      <div class="callout-icon">🔴</div>
+      <div><strong>Zero chamadas até 7-abr.</strong> A tool existia mas Maxwell não a estava chamando — bloqueio de MCP confirmado. Fix deployado ~8-abr. Mesmo após o fix, a tool só é chamada em ~20% das conversas.</div>
+    </div>
+
+    <h3>Linha do Tempo — Adoção da Tool (últimas 3 semanas)</h3>
+    <div class="timeline">
+      <div class="tl-item bad">
+        <div class="tl-date">Até 07-Abr</div>
+        <div class="tl-title">0 chamadas à tool de CBK</div>
+        <div class="tl-desc">Maxwell bloqueava o MCP de chargebacks. Todas as ~3.700 convs do período usaram tools genéricas sem contexto de disputa.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-date">08-Abr — Fix deployado</div>
+        <div class="tl-title">Tool começa a ser chamada (53 convs no dia)</div>
+        <div class="tl-desc">Pico de cobertura: 87 calls em 09-abr (36% das convs do dia). Após o pico, estabiliza em 15–25% de cobertura diária.</div>
+      </div>
+      <div class="tl-item active">
+        <div class="tl-date">08–20 Abr</div>
+        <div class="tl-title">482 conversas com a tool · 78% ainda sem ela</div>
+        <div class="tl-desc">A tool está sendo chamada, mas em menos de 1 em cada 4 conversas de chargeback. Problema de routing/prompt persiste.</div>
+      </div>
+    </div>
+
+    <h3>Impacto da Tool: com vs sem (pós 08-abr)</h3>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Cenário</th><th>Convs</th><th>CSAT</th><th>Escalação</th><th>Resolved</th><th>Unresolved</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-warn"><td><span class="pill pill-blue">Com chargeback_triage_chargeback</span></td><td>482</td><td>2,50</td><td>24,9%</td><td>64% (305)</td><td>24% (115)</td></tr>
+          <tr><td><span class="pill pill-gray">Sem chargeback_triage_chargeback</span></td><td>2.103</td><td>2,64</td><td>36,0%</td><td>62% (1.316)</td><td>23% (487)</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout yellow">
+      <div class="callout-icon">⚡</div>
+      <div><strong>A tool reduz a escalação de 36% para 25%, mas o CSAT piora (2,64 → 2,50).</strong> Isso indica que o seller recebe a resposta da tool (que provavelmente é um link para o FE), mas a informação ainda não resolve sua dúvida. Reduz escala, não resolve a experiência.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 3: O QUE A TOOL RETORNA -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">3</div>
+      <h2>O que a tool retorna hoje — evidência do <code>TRANSACTIONAL_CONTEXT</code></h2>
+    </div>
+
+    <p>Nas conversas onde a tool foi chamada, o campo <code>TRANSACTIONAL_CONTEXT</code> registra o contexto transacional usado por Maxwell. Em <strong>100% das ocorrências</strong>, os campos críticos chegam vazios:</p>
+
+    <div class="json-block">
+      <span class="json-comment">// TRANSACTIONAL_CONTEXT — extraído de convs reais com chargeback_triage_chargeback</span><br>
+      {<br>
+      &nbsp;&nbsp;<span class="json-key">"id"</span>: <span class="json-val">"149902305865"</span>,&nbsp;&nbsp;<span class="json-comment">// ✅ payment ID identificado</span><br>
+      &nbsp;&nbsp;<span class="json-key">"type"</span>: <span class="json-val">"payment"</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-comment">// ✅ tipo de transação</span><br>
+      &nbsp;&nbsp;<span class="json-key">"amount"</span>: <span class="json-val empty">""</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-comment">// ❌ VAZIO — valor em disputa ausente</span><br>
+      &nbsp;&nbsp;<span class="json-key">"status"</span>: <span class="json-val empty">""</span>,&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="json-comment">// ❌ VAZIO — status da disputa ausente</span><br>
+      &nbsp;&nbsp;<span class="json-key">"user_role"</span>: <span class="json-val">"seller"</span>,<br>
+      &nbsp;&nbsp;<span class="json-comment">// ❌ dispute_reason — ausente</span><br>
+      &nbsp;&nbsp;<span class="json-comment">// ❌ response_deadline — ausente</span><br>
+      &nbsp;&nbsp;<span class="json-comment">// ❌ required_documents — ausente</span><br>
+      &nbsp;&nbsp;<span class="json-comment">// ❌ document_rejection_reason — ausente</span><br>
+      &nbsp;&nbsp;<span class="json-comment">// ❌ fund_release_date — ausente</span><br>
+      }
+    </div>
+
+    <h3>Matriz de campos: o que existe vs o que é necessário</h3>
+    <div class="table-wrap">
+      <table class="gap-table">
+        <thead>
+          <tr><th>Campo</th><th>Hoje</th><th>O que o seller precisa</th><th>Impacto estimado</th></tr>
+        </thead>
+        <tbody>
+          <tr><td>payment_id</td><td><span class="check">✓</span> Presente</td><td>Identificar a transação</td><td><span class="pill pill-gray">base</span></td></tr>
+          <tr><td>chargeback_exists</td><td><span class="check">✓</span> Confirmado (tool é chamada)</td><td>Confirmar que existe disputa</td><td><span class="pill pill-gray">base</span></td></tr>
+          <tr><td>deeplink_fe_gestao</td><td><span class="check">✓</span> Retornado (inferido)</td><td>Link para o FE de gestão</td><td><span class="pill pill-gray">base</span></td></tr>
+          <tr class="row-bad"><td>amount</td><td><span class="cross">✗</span> <strong>Vazio</strong></td><td>"Quanto está retido?"</td><td><span class="pill pill-red">~1.900 convs/mês</span></td></tr>
+          <tr class="row-bad"><td>chargeback_status</td><td><span class="cross">✗</span> <strong>Vazio</strong></td><td>"Qual o status da minha disputa?"</td><td><span class="pill pill-red">~690 convs/mês direto</span></td></tr>
+          <tr class="row-bad"><td>dispute_reason</td><td><span class="cross">✗</span> Ausente</td><td>"Por que foi contestado?"</td><td><span class="pill pill-red">~202 + "como responder"</span></td></tr>
+          <tr class="row-bad"><td>response_deadline</td><td><span class="cross">✗</span> Ausente</td><td>"Até quando tenho que responder?"</td><td><span class="pill pill-red">~561 convs/mês</span></td></tr>
+          <tr class="row-bad"><td>required_documents</td><td><span class="cross">✗</span> Ausente</td><td>"O que preciso enviar como prova?"</td><td><span class="pill pill-red">~561 convs/mês</span></td></tr>
+          <tr class="row-bad"><td>document_rejection_reason</td><td><span class="cross">✗</span> Ausente</td><td>"Por que minha prova foi recusada?"</td><td><span class="pill pill-yellow">menor volume, alto CSAT gain</span></td></tr>
+          <tr class="row-bad"><td>fund_release_date</td><td><span class="cross">✗</span> Ausente</td><td>"Quando os fundos são liberados?"</td><td><span class="pill pill-red">~1.900 convs/mês</span></td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECTION 4: SELLER INTENTS -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">4</div>
+      <h2>O que os sellers estão pedindo — Categorias de intenção</h2>
+    </div>
+
+    <p>Classificação baseada no campo <code>LLM_CONV_TYPE_REASON</code> das 9.091 conversas de mar+abr/26.</p>
+
+    <div style="margin: 20px 0;">
+      <div class="bar-row">
+        <div class="bar-label">Como responder / resolver</div>
+        <div class="bar-track"><div class="bar-fill" style="width:21.6%;background:#3b82f6;">21,6%</div></div>
+        <div class="bar-vol">1.964 convs</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Fundos retidos / não liberados</div>
+        <div class="bar-track"><div class="bar-fill" style="width:20.9%;background:#f59e0b;">20,9%</div></div>
+        <div class="bar-vol">1.900 convs</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Sem classificação (escalação direta)</div>
+        <div class="bar-track"><div class="bar-fill" style="width:20.5%;background:#ef4444;">20,5%</div></div>
+        <div class="bar-vol">1.871 convs</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Outros</div>
+        <div class="bar-track"><div class="bar-fill" style="width:20.7%;background:#9ca3af;">20,7%</div></div>
+        <div class="bar-vol">1.887 convs</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Status do chargeback</div>
+        <div class="bar-track"><div class="bar-fill" style="width:7.6%;background:#8b5cf6;">7,6%</div></div>
+        <div class="bar-vol">690 convs</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Documentação / provas</div>
+        <div class="bar-track"><div class="bar-fill" style="width:6.2%;background:#06b6d4;">6,2%</div></div>
+        <div class="bar-vol">561 convs</div>
+      </div>
+      <div class="bar-row">
+        <div class="bar-label">Chargeback indevido / fraude</div>
+        <div class="bar-track"><div class="bar-fill" style="width:2.2%;background:#10b981;">2,2%</div></div>
+        <div class="bar-vol">202 convs</div>
+      </div>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Categoria</th><th>Vol</th><th>CSAT</th><th>Escalação</th><th>Resolved %</th><th>O que falta na tool</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><span class="pill pill-blue">Como responder</span></td><td>1.964</td><td>2,73</td><td>16,1%</td><td>76,1%</td><td><code>dispute_reason</code>, <code>required_documents</code></td></tr>
+          <tr class="row-bad"><td><span class="pill pill-yellow">Fundos retidos</span></td><td>1.900</td><td>2,94</td><td>16,8%</td><td>69,7%</td><td><code>amount</code>, <code>fund_release_date</code></td></tr>
+          <tr class="row-bad"><td><span class="pill pill-red">Escalação direta (sem reason)</span></td><td>1.871</td><td>1,46</td><td>100%</td><td>0%</td><td>Routing: Maxwell não tenta resolver</td></tr>
+          <tr class="row-good"><td><span class="pill pill-purple">Status do chargeback</span></td><td>690</td><td><strong>3,53</strong></td><td><strong>9,7%</strong></td><td>78,6%</td><td><code>chargeback_status</code> (melhor CSAT quando resolve)</td></tr>
+          <tr class="row-good"><td><span class="pill pill-blue">Documentação / provas</span></td><td>561</td><td>3,40</td><td>12,8%</td><td>75,9%</td><td><code>required_documents</code>, <code>document_rejection_reason</code></td></tr>
+          <tr><td><span class="pill pill-green">Fraude / indevido</span></td><td>202</td><td>3,19</td><td>15,3%</td><td>72,8%</td><td><code>dispute_reason</code> para validar contexto</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout blue">
+      <div class="callout-icon">💡</div>
+      <div><strong>Insight:</strong> As categorias com melhor CSAT são justamente "status" (3,53) e "documentação" (3,40) — onde a informação existe no sistema mas a tool não a expõe. Quando o Maxwell consegue responder parcialmente via <code>knowledge-base_search</code>, o CSAT sobe. Com dado real, subiria mais.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 5: CONVERSAS REAIS -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">5</div>
+      <h2>Conversas reais — O que o Maxwell não consegue responder</h2>
+    </div>
+
+    <p>Extraído diretamente do campo <code>LLM_CONV_TYPE_REASON</code> de sessões com <code>LLM_RESOLUTION_STATUS = unresolved</code> onde a tool de CBK foi chamada:</p>
+
+    <div class="quotes-grid">
+      <div class="quote-card status">
+        <div class="q-label" style="color:#8b5cf6;">Status</div>
+        "User experienced friction with chargeback status not updating despite payment, indicating operational confusion and system issue"
+      </div>
+      <div class="quote-card status">
+        <div class="q-label" style="color:#8b5cf6;">Status</div>
+        "User is confused about why the chargeback status hasn't changed and needs guidance on next steps."
+      </div>
+      <div class="quote-card funds">
+        <div class="q-label" style="color:#f59e0b;">Fundos</div>
+        "User is confused why funds aren't released after dispute withdrawal and needs guidance on how to resolve it."
+      </div>
+      <div class="quote-card funds">
+        <div class="q-label" style="color:#f59e0b;">Fundos</div>
+        "User experienced friction with funds being withheld and does not know how to locate or dispute the retention."
+      </div>
+      <div class="quote-card docs">
+        <div class="q-label" style="color:#3b82f6;">Documentação</div>
+        "Seller is confused about why video proof was rejected and needs guidance on how to properly contest a chargeback."
+      </div>
+      <div class="quote-card docs">
+        <div class="q-label" style="color:#3b82f6;">Documentação</div>
+        "User experienced friction with contestation process and confusion about evidence requirements and fund retention."
+      </div>
+      <div class="quote-card process">
+        <div class="q-label" style="color:#ef4444;">Processo</div>
+        "User is confused and frustrated about why a contestation isn't resolved despite submitting documents."
+      </div>
+      <div class="quote-card process">
+        <div class="q-label" style="color:#ef4444;">Processo</div>
+        "User is confused about why no response was received and needs guidance on how to proceed with a chargeback process."
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 6: TOOLS ERRADAS -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">6</div>
+      <h2>Tools que Maxwell usa quando não tem a CBK — e por que é errado</h2>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Tool chamada</th><th>Convs com ela</th><th>Escalação</th><th>CSAT</th><th>Por que é inadequada para CBK</th></tr>
+        </thead>
+        <tbody>
+          <tr><td><code>user-activity_get_last_activities</code></td><td>11.434</td><td>33,6%</td><td>2,96</td><td>Encontra a transação mas não tem dados da disputa</td></tr>
+          <tr class="row-bad"><td><code>previous-contacts_search_contacts</code></td><td>1.507</td><td><strong>58,7%</strong></td><td>2,58</td><td>Maior escalação de todas — seller não quer histórico de contatos, quer resolução</td></tr>
+          <tr class="row-bad"><td><code>platform-issue_check_active_incidents</code></td><td>2.565</td><td>43,9%</td><td>2,78</td><td>Maxwell trata chargeback como incidente de plataforma — não é</td></tr>
+          <tr class="row-bad"><td><code>debts_get_user_debts</code></td><td>1.536</td><td>46,1%</td><td>3,20</td><td>Chargeback não é dívida do seller</td></tr>
+          <tr><td><code>knowledge-base_search</code></td><td>12.901</td><td>33,5%</td><td>2,99</td><td>Resposta genérica sem dados reais do CBK específico</td></tr>
+          <tr><td><code>human-support_create_human_support_link</code></td><td>5.100</td><td>100%</td><td>2,00</td><td>Fallback para CX — CSAT 2,0 ao escalar</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3>Padrão de tools em conversas não resolvidas</h3>
+    <p style="margin-bottom:10px;">Sequência típica observada quando Maxwell falha em chargeback:</p>
+    <div class="tool-flow">
+      <span class="tool-chip ok">user-account_get_user_info</span>
+      <span class="tool-arrow">→</span>
+      <span class="tool-chip ok">bank-account_get_balance</span>
+      <span class="tool-arrow">→</span>
+      <span class="tool-chip wrong">platform-issue_check_active_incidents</span>
+      <span class="tool-arrow">→</span>
+      <span class="tool-chip wrong">platform-issue_identify_issue_pattern</span>
+      <span class="tool-arrow">→</span>
+      <span class="tool-chip wrong">previous-contacts_search_contacts</span>
+      <span class="tool-arrow">→</span>
+      <span class="tool-chip wrong">human-support_create_human_support_link</span>
+    </div>
+    <p style="font-size:12px;color:#6b7280;margin-top:6px;">Maxwell tenta tratar chargeback como: (1) incidente de plataforma, depois (2) histórico de contatos, depois (3) escala para humano. Sem nenhuma tentativa de consultar o estado real da disputa.</p>
+  </div>
+
+  <!-- SECTION 7: SITE BREAKDOWN -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">7</div>
+      <h2>Breakdown por Site</h2>
+    </div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Site</th><th>Mar/26</th><th>%</th><th>CSAT</th><th>Escalação</th><th>Fev/26</th><th>Jan/26</th></tr>
+        </thead>
+        <tbody>
+          <tr class="row-highlight"><td>🇧🇷 MLB</td><td>3.464</td><td><strong>66%</strong></td><td>2,92</td><td>36,5%</td><td>2.411</td><td>947</td></tr>
+          <tr><td>🇦🇷 MLA</td><td>1.197</td><td>22,9%</td><td>3,11</td><td>36,0%</td><td>1.303</td><td>317</td></tr>
+          <tr><td>🇲🇽 MLM</td><td>566</td><td>10,8%</td><td>3,70</td><td>26,5%</td><td>336</td><td>105</td></tr>
+          <tr><td>🇨🇱 MLC</td><td>8</td><td>&lt;1%</td><td>—</td><td>25,0%</td><td>1</td><td>1</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <div class="callout blue">
+      <div class="callout-icon">📌</div>
+      <div><strong>MLB concentra 66% do volume</strong> e tem o maior crescimento absoluto (947 → 3.464 em 3 meses). MLA tem volume relevante e mesma taxa de escalação. MLM tem melhor CSAT (3,70) e menor escalação (26,5%) — pode indicar perfil diferente de consulta ou menor complexidade de disputa.</div>
+    </div>
+  </div>
+
+  <!-- SECTION 8: ACCIONÁVEIS -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">8</div>
+      <h2>O que deve ser adicionado à tool — Priorização</h2>
+    </div>
+
+    <div class="sprint">
+      <div class="sprint-header">
+        <span class="sprint-badge s1">Sprint 1 — Maior impacto</span>
+        <span class="sprint-title">Campos provavelmente já na API interna de CBK</span>
+      </div>
+      <div class="sprint-items">
+        <div class="sprint-item">
+          <span class="field">chargeback_status</span>
+          <div class="desc">Estado atual da disputa: <em>awaiting_seller_response, under_review, resolved_seller_win, resolved_buyer_win</em> — resolve ~690 convs/mês diretamente e melhora CSAT em todas as demais.</div>
+        </div>
+        <div class="sprint-item">
+          <span class="field">amount_at_risk</span>
+          <div class="desc">Valor em disputa retido. Campo hoje retorna string vazia. Impacta ~1.900 convs/mês sobre "fundos retidos".</div>
+        </div>
+        <div class="sprint-item">
+          <span class="field">response_deadline</span>
+          <div class="desc">Data limite para o seller enviar evidências. Resolve a dúvida "até quando tenho que responder?" que aparece em ~561 convs.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="sprint">
+      <div class="sprint-header">
+        <span class="sprint-badge s2">Sprint 2</span>
+        <span class="sprint-title">Informação de documentação e motivo</span>
+      </div>
+      <div class="sprint-items">
+        <div class="sprint-item">
+          <span class="field">dispute_reason</span>
+          <div class="desc">Motivo declarado pelo comprador (fraude, não recebeu, não era o esperado). Permite Maxwell orientar o seller sobre como responder especificamente.</div>
+        </div>
+        <div class="sprint-item">
+          <span class="field">required_documents</span>
+          <div class="desc">Lista de tipos de evidência aceitos para o motivo específico. Elimina a dúvida "o que preciso enviar?"</div>
+        </div>
+        <div class="sprint-item">
+          <span class="field">document_rejection_reason</span>
+          <div class="desc">Quando o seller submeteu provas e foram recusadas, por quê. Conversas explícitas sobre "meu vídeo foi rejeitado" hoje vão 100% para humano.</div>
+        </div>
+        <div class="sprint-item">
+          <span class="field">fund_release_date</span>
+          <div class="desc">Previsão de liberação dos fundos após resolução da disputa. Complementa <code>amount_at_risk</code> para o cluster "fundos retidos".</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="callout green">
+      <div class="callout-icon">✅</div>
+      <div><strong>Pergunta-chave para o Rodrigo/Glo:</strong> a API interna de CBK já expõe <code>chargeback_status</code>, <code>amount</code> e <code>response_deadline</code>? Se sim, Sprint 1 é só desenvolvimento no MCP — sem dependência de API. Se não, há um gap de API também que precisa ser endereçado antes.</div>
+    </div>
+
+    <div class="callout yellow">
+      <div class="callout-icon">🔧</div>
+      <div><strong>Gap adicional — Routing (independente dos campos):</strong> mesmo com os novos campos, a tool só é chamada em ~20% das conversas. É preciso investigar por que o Maxwell não a chama nas outras 80%. Pode ser um problema de prompt/descrição da tool no MCP ou critério de seleção do Maxwell.</div>
+    </div>
+  </div>
+
+  <div style="text-align:center;font-size:11px;color:#9ca3af;padding:24px 0 40px;">
+    Dados: <code>meli-bi-data.WHOWNER.BT_CX_MAXWELL_CONVERSATIONS</code> · Gerado em Abr/2026 · Vinicius Paladini
+  </div>
+
+</div>
+</body>
+</html>
