@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Relatório Maxwell MLU — Point Devices (N950)</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: 'Segoe UI', Arial, sans-serif; background: #f0f2f5; color: #222; }
+  .header { background: linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f3460 100%); color: white; padding: 40px 48px; border-bottom: 4px solid #ffe600; }
+  .header h1 { font-size: 28px; font-weight: 700; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; opacity: 0.75; margin-bottom: 20px; }
+  .header-meta { display: flex; gap: 32px; flex-wrap: wrap; }
+  .header-meta .meta-item span { display: block; opacity: 0.6; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .header-meta .meta-item strong { font-size: 18px; font-weight: 700; color: #ffe600; }
+  .container { max-width: 1100px; margin: 0 auto; padding: 32px 24px; }
+  .section-title { font-size: 18px; font-weight: 700; color: #1a1a2e; border-left: 4px solid #ffe600; padding-left: 12px; margin: 40px 0 20px; }
+  .timeline { background: white; border-radius: 12px; padding: 28px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 24px; }
+  .timeline-grid { display: flex; align-items: flex-end; gap: 16px; height: 180px; margin-top: 20px; }
+  .timeline-bar { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: flex-end; gap: 6px; height: 100%; }
+  .timeline-bar .bar { width: 100%; border-radius: 6px 6px 0 0; background: #0f3460; }
+  .timeline-bar .bar.spike { background: #ffe600; }
+  .timeline-bar .bar-label { font-size: 12px; color: #666; text-align: center; }
+  .timeline-bar .bar-val { font-size: 13px; font-weight: 700; color: #1a1a2e; }
+  .timeline-note { background: #fffbea; border: 1px solid #ffe600; border-radius: 8px; padding: 12px 16px; font-size: 13px; margin-top: 16px; color: #555; line-height: 1.6; }
+  .stats-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .stat-card { background: white; border-radius: 12px; padding: 20px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); text-align: center; border-top: 4px solid #0f3460; }
+  .stat-card.yellow { border-top-color: #ffe600; }
+  .stat-card.green { border-top-color: #2ecc71; }
+  .stat-card.red { border-top-color: #e74c3c; }
+  .stat-card .val { font-size: 32px; font-weight: 800; color: #1a1a2e; }
+  .stat-card .lbl { font-size: 12px; color: #888; margin-top: 4px; }
+  .table-wrap { background: white; border-radius: 12px; overflow: hidden; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 24px; }
+  table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  thead tr { background: #1a1a2e; color: white; }
+  thead th { padding: 12px 16px; text-align: left; font-weight: 600; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  tbody tr:nth-child(even) { background: #f8f9fa; }
+  tbody tr:hover { background: #fffbea; }
+  tbody td { padding: 11px 16px; border-bottom: 1px solid #eee; vertical-align: middle; }
+  .badge { display: inline-block; padding: 3px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; white-space: nowrap; }
+  .badge-green { background: #d4edda; color: #155724; }
+  .badge-yellow { background: #fff3cd; color: #856404; }
+  .badge-red { background: #f8d7da; color: #721c24; }
+  .badge-gray { background: #e2e3e5; color: #383d41; }
+  .defbar { display: flex; align-items: center; gap: 8px; }
+  .defbar .bar-bg { flex: 1; height: 8px; border-radius: 4px; background: #e9ecef; }
+  .defbar .bar-fill { height: 8px; border-radius: 4px; background: #0f3460; }
+  .defbar span { font-size: 12px; font-weight: 700; min-width: 38px; text-align: right; }
+  .case-card { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.07); margin-bottom: 24px; overflow: hidden; }
+  .case-header { display: flex; align-items: flex-start; justify-content: space-between; padding: 20px 24px; border-bottom: 2px solid #f0f2f5; flex-wrap: wrap; gap: 12px; }
+  .case-header h3 { font-size: 16px; font-weight: 700; color: #1a1a2e; }
+  .case-header .case-meta { display: flex; gap: 8px; align-items: center; flex-wrap: wrap; }
+  .case-body { padding: 24px; }
+  .case-stats { display: flex; gap: 24px; flex-wrap: wrap; margin-bottom: 20px; }
+  .case-stat .cv { font-size: 24px; font-weight: 800; color: #1a1a2e; }
+  .case-stat .cl { font-size: 11px; color: #888; }
+  .priority-tag { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 20px; font-size: 12px; font-weight: 700; }
+  .priority-red { background: #f8d7da; color: #721c24; }
+  .priority-yellow { background: #fff3cd; color: #856404; }
+  .priority-green { background: #d4edda; color: #155724; }
+  .conv-title { font-size: 11px; font-weight: 700; color: #888; margin: 20px 0 10px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .conv-box { background: #f8f9fa; border-radius: 10px; padding: 16px 20px; margin-bottom: 14px; border-left: 4px solid #0f3460; font-size: 13px; line-height: 1.7; }
+  .conv-box.resolved { border-left-color: #2ecc71; }
+  .conv-box.unresolved { border-left-color: #e74c3c; }
+  .conv-box.partial { border-left-color: #f39c12; }
+  .msg { margin: 8px 0; }
+  .who { font-weight: 700; font-size: 11px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; min-width: 68px; }
+  .who.seller { color: #0f3460; }
+  .who.maxwell { color: #888; }
+  .conv-result { display: inline-flex; align-items: center; padding: 4px 10px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-top: 10px; }
+  .result-ok { background: #d4edda; color: #155724; }
+  .result-fail { background: #f8d7da; color: #721c24; }
+  .result-partial { background: #fff3cd; color: #856404; }
+  .insight-box { background: #fffbea; border: 1px solid #ffe600; border-radius: 10px; padding: 16px 20px; margin: 16px 0; font-size: 13px; color: #555; line-height: 1.6; }
+  .sub-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
+  .sub-table th { background: #f0f2f5; padding: 8px 12px; text-align: left; font-weight: 600; font-size: 12px; border-bottom: 2px solid #dee2e6; }
+  .sub-table td { padding: 8px 12px; border-bottom: 1px solid #eee; }
+  .flow-box { background: #1a1a2e; color: white; border-radius: 10px; padding: 16px 20px; font-family: monospace; font-size: 13px; line-height: 2; margin: 16px 0; }
+  .flow-box .arrow { color: #ffe600; }
+  .flow-box .bad { color: #e74c3c; }
+  .recom-box { background: #f0f7ff; border-radius: 10px; padding: 16px 20px; border-left: 4px solid #0f3460; margin-top: 12px; font-size: 13px; line-height: 1.6; }
+  .recom-box h4 { font-size: 13px; font-weight: 700; margin-bottom: 6px; color: #1a1a2e; }
+  footer { text-align: center; padding: 32px; color: #aaa; font-size: 12px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <h1>Relatório Maxwell — MLU · Point Devices (N950)</h1>
+  <div class="subtitle">Análise completa de casuísticas com exemplos de conversas reais</div>
+  <div class="header-meta">
+    <div class="meta-item"><span>Primeira conversa</span><strong>02 jan 2026</strong></div>
+    <div class="meta-item"><span>Última atualização</span><strong>17 abr 2026</strong></div>
+    <div class="meta-item"><span>Total de conversas</span><strong>1.770</strong></div>
+    <div class="meta-item"><span>Deflection geral</span><strong>85,7%</strong></div>
+    <div class="meta-item"><span>Device único</span><strong>N950</strong></div>
+  </div>
+</div>
+
+<div class="container">
+
+  <div class="section-title">Evolução Histórica</div>
+  <div class="timeline">
+    <div style="font-size:13px;color:#666;">Volume mensal de conversas — MLU Point Devices</div>
+    <div class="timeline-grid">
+      <div class="timeline-bar">
+        <div class="bar-val">29</div>
+        <div class="bar" style="height:3%;"></div>
+        <div class="bar-label">Jan/26<br><small>69% defl.</small></div>
+      </div>
+      <div class="timeline-bar">
+        <div class="bar-val">35</div>
+        <div class="bar" style="height:4%;"></div>
+        <div class="bar-label">Fev/26<br><small>82,9% defl.</small></div>
+      </div>
+      <div class="timeline-bar">
+        <div class="bar-val">109</div>
+        <div class="bar" style="height:12%;"></div>
+        <div class="bar-label">Mar/26<br><small>83,5% defl.</small></div>
+      </div>
+      <div class="timeline-bar">
+        <div class="bar-val" style="font-size:20px;font-weight:900;color:#856404;">1.597</div>
+        <div class="bar spike" style="height:90%;"></div>
+        <div class="bar-label"><strong>Abr/26 ⚡</strong><br><small>86,2% defl.</small></div>
+      </div>
+    </div>
+    <div class="timeline-note">
+      <strong>13/abr/2026 — Ponto de inflexão:</strong> de ~30 conversas/dia para 306 em um único dia. Novos entry points <code>help-interactions</code> e <code>point-hub</code> ativados no app. A deflection <strong>não caiu</strong> — subiu de 83,5% → 86,2%, indicando que o volume novo é de casos que o Maxwell já resolve bem (compra, comissões, status de pedido).
+    </div>
+  </div>
+
+  <div class="stats-grid">
+    <div class="stat-card yellow"><div class="val">1.770</div><div class="lbl">Conversas totais</div></div>
+    <div class="stat-card green"><div class="val">85,7%</div><div class="lbl">Deflection geral</div></div>
+    <div class="stat-card"><div class="val">12,2%</div><div class="lbl">Contacted</div></div>
+    <div class="stat-card red"><div class="val">3,86</div><div class="lbl">CSAT médio</div></div>
+    <div class="stat-card"><div class="val">N950</div><div class="lbl">Único device em MLU</div></div>
+  </div>
+
+  <div class="section-title">Distribuição por Use Case</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>Use Case</th><th>Volume</th><th>Share</th><th>Deflection</th><th>Contacted</th><th>CSAT</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td><strong>How To / Usage Guidance</strong></td><td>948</td><td>53,6%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:92%;"></div></div><span>92,3%</span></div></td><td>7,1%</td><td>3,86</td><td><span class="badge badge-green">✅ Resolvido</span></td></tr>
+        <tr><td><strong>Fees and Commissions</strong></td><td>114</td><td>6,4%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:83%;"></div></div><span>83,3%</span></div></td><td>15,8%</td><td>3,33</td><td><span class="badge badge-green">✅ Resolvido</span></td></tr>
+        <tr><td><strong>Payment Status Inquiry</strong></td><td>105</td><td>5,9%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:94%;"></div></div><span>94,3%</span></div></td><td>3,8%</td><td>5,0</td><td><span class="badge badge-green">✅ Resolvido</span></td></tr>
+        <tr><td><strong>Shipping Issues</strong></td><td>77</td><td>4,4%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:77%;"></div></div><span>76,6%</span></div></td><td>16,9%</td><td>5,0</td><td><span class="badge badge-yellow">⚠️ Parcial</span></td></tr>
+        <tr><td><strong>Return Request</strong></td><td>60</td><td>3,4%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:70%;"></div></div><span>70,0%</span></div></td><td>26,7%</td><td>3,0</td><td><span class="badge badge-yellow">⚠️ Parcial</span></td></tr>
+        <tr><td><strong>Product Not Received</strong></td><td>60</td><td>3,4%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:77%;"></div></div><span>76,7%</span></div></td><td>21,7%</td><td>—</td><td><span class="badge badge-yellow">⚠️ Parcial</span></td></tr>
+        <tr><td><strong>Promotions &amp; Benefits</strong></td><td>54</td><td>3,1%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:87%;"></div></div><span>87,0%</span></div></td><td>13,0%</td><td>—</td><td><span class="badge badge-yellow">⚠️ Parcial</span></td></tr>
+        <tr><td><strong>Product Cancellation Request</strong></td><td>48</td><td>2,7%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:79%;"></div></div><span>79,2%</span></div></td><td>14,6%</td><td><strong style="color:#e74c3c;">1,0</strong></td><td><span class="badge badge-red">🔴 Crítico</span></td></tr>
+        <tr><td><strong>Configuration Setup</strong></td><td>39</td><td>2,2%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:77%;"></div></div><span>76,9%</span></div></td><td>20,5%</td><td>—</td><td><span class="badge badge-yellow">⚠️ Parcial</span></td></tr>
+        <tr><td><strong>Malfunction</strong></td><td>26</td><td>1,5%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:54%;"></div></div><span>53,8%</span></div></td><td>34,6%</td><td>—</td><td><span class="badge badge-red">🔴 Crítico</span></td></tr>
+        <tr><td><strong>Incorrect Charge</strong></td><td>15</td><td>0,8%</td><td><div class="defbar"><div class="bar-bg"><div class="bar-fill" style="width:47%;"></div></div><span>46,7%</span></div></td><td>53,3%</td><td>—</td><td><span class="badge badge-red">🔴 Pior do site</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="section-title">Detalhamento por Caso</div>
+
+  <!-- CASE 1 -->
+  <div class="case-card">
+    <div class="case-header">
+      <h3>1. How To / Usage Guidance</h3>
+      <div class="case-meta">
+        <span class="priority-tag priority-green">✅ Bem resolvido</span>
+        <span class="badge badge-gray">53,6% do volume</span>
+        <span class="badge badge-green">Deflection 92,3%</span>
+        <span class="badge badge-gray">Desde 02/jan/2026</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-stats">
+        <div class="case-stat"><div class="cv">948</div><div class="cl">Conversas</div></div>
+        <div class="case-stat"><div class="cv">92,3%</div><div class="cl">Deflection</div></div>
+        <div class="case-stat"><div class="cv">7,1%</div><div class="cl">Contacted</div></div>
+        <div class="case-stat"><div class="cv">3,86</div><div class="cl">CSAT</div></div>
+      </div>
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Volume dominante desde o primeiro dia. Sellers perguntando como comprar o N950, comissões, funcionamento e elegibilidade. Maxwell resolve bem — é o pilar do canal em MLU.</p>
+
+      <div class="conv-title">Exemplo 1 — Como comprar</div>
+      <div class="conv-box resolved">
+        <div class="msg"><span class="who seller">Seller</span> "¿Cómo compro el pos?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Podés comprarlo desde el canal oficial acá: [Comprar Point Smart]"</div>
+        <span class="conv-result result-ok">✅ Deflected</span>
+      </div>
+
+      <div class="conv-title">Exemplo 2 — Elegibilidade sem empresa</div>
+      <div class="conv-box resolved">
+        <div class="msg"><span class="who seller">Seller</span> "Para usar el pos tengo que tener empresa abierta o lo puedo usar con cuenta personal?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No necesariamente. Podés registrarte con una cuenta personal. El RUT solo se pide si querés abrir una cuenta de empresa."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Vendo como persona en una feria barrial, ¿me sirve?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Sí, perfectamente. Con cuenta personal podés comprar y usar el Point sin tener empresa."</div>
+        <span class="conv-result result-ok">✅ Deflected</span>
+      </div>
+
+      <div class="conv-title">Exemplo 3 — Comissões e simulação de venda</div>
+      <div class="conv-box resolved">
+        <div class="msg"><span class="who seller">Seller</span> "¿Cuánto cobran de comisión si cobro débito y si cobro crédito en cuotas?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Débito: 2,25% + IVA al instante. Crédito al instante: 5,99% + IVA. A 21 días: 5,24% + IVA. Cuotas: 3 cuotas +2,50%, 6 cuotas +3,50%, 12 cuotas +6,00%."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Si vendo $2000 en 6 cuotas a 21 días, ¿cuánto me queda?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Recibís $1.882 netos. Tu cliente paga 6 cuotas de $376,98."</div>
+        <span class="conv-result result-ok">✅ Deflected | CSAT 3,33</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 2 -->
+  <div class="case-card">
+    <div class="case-header">
+      <h3>2. Promoção $1.550 vs Preço Regular $3.699</h3>
+      <div class="case-meta">
+        <span class="priority-tag priority-red">🔴 Crítico</span>
+        <span class="badge badge-gray">Promotions + Incorrect Charge</span>
+        <span class="badge badge-red">Deflection &lt;50%</span>
+        <span class="badge badge-gray">Surgiu: abr/2026</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Concentrado no spike de abril. Promoção de lançamento ($1.550 / 69% OFF) esgotou e gerou três padrões distintos. Maxwell não tem ação de compensação em nenhum deles.</p>
+
+      <div class="conv-title">Sub-caso A — Promoção sumiu antes de comprar</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "Vi que estaba la promoción de $1.550 y ahora sale $3.699. Hace dos días estaba a ese precio."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "El precio de lanzamiento de $1.550 figura como agotado. El valor vigente es $3.699."</div>
+        <div class="msg"><span class="who seller">Seller</span> "A compañeras mías les salió a $1.550. ¿Por qué a mí no?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No puedo recuperar el precio anterior ni aplicar el descuento de lanzamiento. El valor válido es el del canal oficial al momento de la compra."</div>
+        <span class="conv-result result-fail">❌ Not Deflected | CSAT 2</span>
+      </div>
+
+      <div class="conv-title">Sub-caso B — Comprou ao preço cheio, viu promo depois</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "Compré el pos a $3399 y ahora lo venden a $1550. ¡Me metieron la mano en el bolsillo!"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Entiendo tu molestia. El cobro fue de $3.399 con un descuento de $1.601 aplicado sobre el precio base de $5.000."</div>
+        <div class="msg"><span class="who seller">Seller</span> "No puede ser que con días de diferencia salga menos de la mitad. Quiero el reembolso de la diferencia."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No tengo una gestión disponible para ajustar el precio de una compra ya aprobada."</div>
+        <span class="conv-result result-fail">❌ Contacted | CSAT 1</span>
+      </div>
+
+      <div class="conv-title">Sub-caso C — Tentou comprar na promo, checkout travou</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "Intenté comprar el pos con el precio lanzamiento pero al pagar me rechazaba la tarjeta. Tenía saldo. Intenté 5 veces."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Revisé: hay 5 intentos rechazados. No hay falla general. Puede ser validación del banco."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Mientras tanto perdí el precio de $1.550 y ahora sale $3.699. ¡Ustedes me estafaron!"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Entiendo la situación. Te dejo el acceso a soporte para que revisen el caso."</div>
+        <span class="conv-result result-fail">❌ Contacted | CSAT 1</span>
+      </div>
+
+      <div class="insight-box">
+        <strong>Por que o Maxwell não resolve:</strong> não possui ferramenta de compensação de preço, não consegue recuperar promoção expirada e não tem ação para ajuste pós-compra. O seller chega com expectativa legítima e Maxwell só consegue sugerir devolução — que o seller geralmente não quer.
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 3 -->
+  <div class="case-card">
+    <div class="case-header">
+      <h3>3. Shipping Issues</h3>
+      <div class="case-meta">
+        <span class="priority-tag priority-yellow">⚠️ Parcial</span>
+        <span class="badge badge-gray">4,4% do volume</span>
+        <span class="badge badge-yellow">Deflection 76,6%</span>
+        <span class="badge badge-green">CSAT 5,0 quando humano resolve</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-stats">
+        <div class="case-stat"><div class="cv">77</div><div class="cl">Conversas</div></div>
+        <div class="case-stat"><div class="cv">76,6%</div><div class="cl">Deflection</div></div>
+        <div class="case-stat"><div class="cv">16,9%</div><div class="cl">Contacted</div></div>
+        <div class="case-stat"><div class="cv">5,0</div><div class="cl">CSAT</div></div>
+      </div>
+
+      <div class="conv-title">Exemplo 1 — Prazo mudou</div>
+      <div class="conv-box partial">
+        <div class="msg"><span class="who seller">Seller</span> "Me dijeron que llegaba hoy y ahora dice que llega el 22. ¿Por qué cambió?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "La fecha estimada cambió. El estado es 'listo para despacho' y la nueva fecha es desde el 22/04."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Lo necesito urgente para mi negocio."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Entiendo la urgencia. No tengo opción para adelantar el envío desde acá."</div>
+        <span class="conv-result result-partial">⚠️ Deflected — seller insatisfeito</span>
+      </div>
+
+      <div class="conv-title">Exemplo 2 — Marcado entregue, não chegou</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "Dice que lo recibí pero nunca llegó. ¿Quién lo recibió y a qué hora?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Figura entregado el 16 de abril a las 17:23 hs. Recibido por Christian (recepción) en [dirección]."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Imposible, son las 15:19. El horario no cierra."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "El dato horario no es confiable. Podés reportarlo desde el detalle de la operación."</div>
+        <div class="msg"><span class="who seller">Seller</span> "El detalle queda en blanco, no me da ninguna opción."</div>
+        <span class="conv-result result-fail">❌ Contacted | humano resolve | CSAT 5,0</span>
+      </div>
+
+      <div class="conv-title">Exemplo 3 — Endereço incorreto</div>
+      <div class="conv-box partial">
+        <div class="msg"><span class="who seller">Seller</span> "Puse mal la dirección, ¿pueden cambiarla? El envío todavía no salió."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No se puede cambiar la dirección una vez creada la orden, aunque esté en preparación."</div>
+        <div class="msg"><span class="who seller">Seller</span> "¿Entonces qué hago?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Si no podés recibir en esa dirección, podés rechazar la entrega cuando llegue."</div>
+        <span class="conv-result result-partial">⚠️ Deflected — política correta, sem solução prática</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 4 -->
+  <div class="case-card">
+    <div class="case-header">
+      <h3>4. Return Request</h3>
+      <div class="case-meta">
+        <span class="priority-tag priority-yellow">⚠️ Parcial</span>
+        <span class="badge badge-gray">3,4% do volume</span>
+        <span class="badge badge-yellow">Deflection 70% | Contacted 26,7%</span>
+        <span class="badge badge-red">CSAT 3,0</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Quase todas as devoluções em abril são motivadas pela queda de preço após a compra. A tool de devolução falha em ~30% dos casos.</p>
+
+      <div class="conv-title">Exemplo 1 — Devolução OK (70% dos casos)</div>
+      <div class="conv-box resolved">
+        <div class="msg"><span class="who seller">Seller</span> "Quiero devolver el point porque ahora está más barato."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Puedo iniciar la devolución. ¿Cuál es el motivo?"</div>
+        <div class="msg"><span class="who seller">Seller</span> "Tasas y condiciones."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Listo: devolución creada. Importe: $3.399. Etiqueta UES generada. Hasta el 15 de mayo."</div>
+        <span class="conv-result result-ok">✅ Deflected | CSAT 4–5</span>
+      </div>
+
+      <div class="conv-title">Exemplo 2 — Tool falha (~30% dos casos)</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "Quiero devolver, lo compré por error."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Preparé la solicitud. Confirmame si querés seguir."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Sí."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No se pudo completar por un problema en la gestión logística. Podés continuar desde: [link]"</div>
+        <div class="msg"><span class="who seller">Seller</span> "El link no me muestra nada, queda vacío."</div>
+        <span class="conv-result result-fail">❌ Contacted | CSAT 2</span>
+      </div>
+
+      <div class="insight-box">
+        <strong>Problema raiz:</strong> a tool de criação de devolução retorna erro logístico em ~30% das chamadas. O link de fallback também falha. O seller fica sem saída. O CSAT 3,0 geral é puxado para baixo por esses casos.
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 5 -->
+  <div class="case-card">
+    <div class="case-header">
+      <h3>5. Product Cancellation Request</h3>
+      <div class="case-meta">
+        <span class="priority-tag priority-red">🔴 CSAT 1,0</span>
+        <span class="badge badge-gray">2,7% do volume</span>
+        <span class="badge badge-yellow">Deflection 79,2%</span>
+        <span class="badge badge-gray">Surgiu: abr/2026</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Política correta — cancelamento não disponível antes da entrega. Porém a forma de comunicar gera o pior CSAT do site. O seller sente que está abandonado sem alternativa.</p>
+
+      <div class="conv-title">Exemplo — Cancelamento por queda de preço</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "Quiero cancelar la compra porque ahora está a la mitad del precio."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No se puede cancelar antes de la entrega. Cuando llegue, podés rechazarla."</div>
+        <div class="msg"><span class="who seller">Seller</span> "¿Y cómo rechazo?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Cuando el correo intente entregar, simplemente no lo recibas."</div>
+        <div class="msg"><span class="who seller">Seller</span> "No quiero esperar días por algo que no me sirve. ¿No hay otra opción?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No, por ahora es la única alternativa disponible."</div>
+        <span class="conv-result result-fail">❌ Encerra sem solução | CSAT 1</span>
+      </div>
+
+      <div class="recom-box">
+        <h4>💡 Recomendação — Ajuste de mensagem (sem mudança de política)</h4>
+        Substituir o encerramento seco por: <em>"Entendemos que es frustrante. El pedido llega estimado el [data]. Cuando el repartidor llegue, podés rechazarlo y el reembolso se procesa automáticamente. ¿Querés que te avisemos cuando el envío salga para estar atento?"</em>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 6 -->
+  <div class="case-card">
+    <div class="case-header">
+      <h3>6. Malfunction</h3>
+      <div class="case-meta">
+        <span class="priority-tag priority-red">🔴 Crítico</span>
+        <span class="badge badge-gray">1,5% do volume</span>
+        <span class="badge badge-red">Deflection 53,8% | Contacted 34,6%</span>
+        <span class="badge badge-gray">Desde jan/2026</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <div class="case-stats">
+        <div class="case-stat"><div class="cv">26</div><div class="cl">Conversas</div></div>
+        <div class="case-stat"><div class="cv">53,8%</div><div class="cl">Deflection</div></div>
+        <div class="case-stat"><div class="cv">34,6%</div><div class="cl">Contacted</div></div>
+      </div>
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Menor volume mas alto impacto — quase 1 em cada 3 escala para humano. As ferramentas de troca e reativação de SIM falham por restrições de cobertura geográfica.</p>
+
+      <div class="conv-title">Exemplo 1 — SIM sem sinal (mais frequente)</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "No toma señal. Fui al link de reactivación y me dice 'corresponde a otra cuenta'."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "El formulario se abrió con una cuenta distinta. Cerrá sesión y volvé a entrar con la cuenta correcta."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Ya lo hice varias veces y sigue lo mismo."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Intenté la reactivación pero no está disponible por esta vía. Podés usar: [link SIM]"</div>
+        <div class="msg"><span class="who seller">Seller</span> "El link da 'No fue posible registrar tu pedido'."</div>
+        <span class="conv-result result-fail">❌ Contacted | Causa real: chip fisicamente mal encaixado de fábrica</span>
+      </div>
+
+      <div class="conv-title">Exemplo 2 — Impressora imprimindo em branco</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "El papel sale completamente en blanco. Ya chequeé todo y está bien."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Corresponde gestionar el cambio del equipo por falla de impresora. ¿Cuál es tu dirección?"</div>
+        <div class="msg"><span class="who seller">Seller</span> "[dirección en Maldonado]"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No pude completar el cambio porque esa dirección no está habilitada para envío. Podés continuar desde: [link]"</div>
+        <div class="msg"><span class="who seller">Seller</span> "El link da 'tuvimos un problema'."</div>
+        <span class="conv-result result-fail">❌ Contacted</span>
+      </div>
+
+      <div class="conv-title">Exemplo 3 — Dispositivo não liga</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "No me enciende el point. Ya lo tuve toda la noche enchufado y no hace nada."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Parece una falla de encendido. Podés gestionar el cambio desde: [link gestión]"</div>
+        <div class="msg"><span class="who seller">Seller</span> "El link da error. No hay ninguna forma de contactarme con nadie."</div>
+        <span class="conv-result result-fail">❌ Contacted</span>
+      </div>
+
+      <div class="flow-box">
+        <span class="arrow">▸</span> Seller reporta falha no N950<br>
+        <span class="arrow">▸</span> Maxwell faz diagnóstico básico (rollo, carga, WiFi)<br>
+        <span class="arrow">▸</span> Maxwell aciona tool de troca ou reativação de SIM<br>
+        <span class="bad">✗  Tool retorna erro: zona sem cobertura ou área não habilitada</span><br>
+        <span class="arrow">▸</span> Maxwell fornece link de fallback<br>
+        <span class="bad">✗  Link também falha com erro genérico</span><br>
+        <span class="bad">✗  Escala para humano — 34,6% dos casos de Malfunction</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- CASE 7 -->
+  <div class="case-card">
+    <div class="case-header">
+      <h3>7. Incorrect Charge — Nota Fiscal e Divergência de Preço</h3>
+      <div class="case-meta">
+        <span class="priority-tag priority-red">🔴 Pior deflection do site</span>
+        <span class="badge badge-red">Deflection 46,7% | Contacted 53,3%</span>
+        <span class="badge badge-gray">15 casos | Surgiu: abr/2026</span>
+      </div>
+    </div>
+    <div class="case-body">
+      <p style="font-size:13px;color:#555;margin-bottom:16px;">Todos os 15 casos em abril. Três sub-tipos — Maxwell só resolve um deles (cobrança duplicada).</p>
+
+      <table class="sub-table">
+        <thead><tr><th>Sub-tipo</th><th>Volume</th><th>Deflected</th><th>Contacted</th></tr></thead>
+        <tbody>
+          <tr><td>Incorrect Charge (preço cobrado ≠ esperado)</td><td>10</td><td>4</td><td>6</td></tr>
+          <tr><td>Return Request (originado em cobrança errada)</td><td>2</td><td>1</td><td>1</td></tr>
+          <tr><td>Price Mismatch (explícito)</td><td>1</td><td>0</td><td>1</td></tr>
+          <tr><td>Document Request (nota fiscal)</td><td>1</td><td>1</td><td>0</td></tr>
+          <tr><td><strong>Duplicate Charge ✅ Maxwell resolve</strong></td><td>1</td><td>1</td><td>0</td></tr>
+        </tbody>
+      </table>
+
+      <div class="conv-title" style="margin-top:20px;">Exemplo 1 — Nota fiscal $5.000 vs $1.550 pago</div>
+      <div class="conv-box partial">
+        <div class="msg"><span class="who seller">Seller</span> "Compré el point por $1550. Me llegó una factura de $5000. ¿Tengo que pagarla?"</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No tenés que pagarla. El cobro fue de $1.550. La factura muestra $5.000 como valor fiscal, no una deuda."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Necesito un comprobante que diga $1550 para mi contabilidad."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No puedo emitir o modificar la factura desde acá."</div>
+        <div class="msg"><span class="who seller">Seller</span> [retorna no dia seguinte com o mesmo problema]</div>
+        <span class="conv-result result-partial">⚠️ Deflected tecnicamente — seller volta sem o documento que precisava</span>
+      </div>
+
+      <div class="conv-title">Exemplo 2 — Cobrado valor diferente do exibido no checkout</div>
+      <div class="conv-box unresolved">
+        <div class="msg"><span class="who seller">Seller</span> "Me cobraron $3399 pero en la pantalla decía claramente $1550 antes de confirmar."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "La compra quedó registrada por $3.699. El precio de lanzamiento de $1.550 ya estaba agotado al confirmar."</div>
+        <div class="msg"><span class="who seller">Seller</span> "¡Pero me lo mostró con ese precio! Quiero el reembolso de la diferencia."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "No tengo una opción para aplicar un reintegro parcial por diferencia de precio."</div>
+        <span class="conv-result result-fail">❌ Contacted</span>
+      </div>
+
+      <div class="conv-title">Exemplo 3 — Cobrança duplicada (único sub-tipo que Maxwell resolve)</div>
+      <div class="conv-box resolved">
+        <div class="msg"><span class="who seller">Seller</span> "Al comprar me dio error, lo volví a intentar. Me descontaron las dos veces y me llegaron dos pos."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Encontré dos compras aprobadas de $3.399 cada una. Ambas entregadas."</div>
+        <div class="msg"><span class="who seller">Seller</span> "Quiero devolver uno."</div>
+        <div class="msg"><span class="who maxwell">Maxwell</span> "Devolución creada: $3.399 a reintegrar. Etiqueta UES generada, válida hasta el 15 de mayo."</div>
+        <span class="conv-result result-ok">✅ Deflected — único sub-tipo resolvido</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- PRIORITIES -->
+  <div class="section-title">Resumo de Prioridades</div>
+  <div class="table-wrap">
+    <table>
+      <thead><tr><th>#</th><th>Caso</th><th>Surgiu</th><th>Volume</th><th>Problema raiz</th><th>Prioridade</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td><strong>Promo $1.550 vs $3.699</strong></td><td>Abr/2026</td><td>~10% total</td><td>Sem ferramenta de compensação ou contenção de preço</td><td><span class="badge badge-red">🔴 Alta</span></td></tr>
+        <tr><td>2</td><td><strong>Malfunction (SIM/troca)</strong></td><td>Jan/2026</td><td>26 casos</td><td>Tools de troca e reativação com erro de cobertura geográfica</td><td><span class="badge badge-red">🔴 Alta</span></td></tr>
+        <tr><td>3</td><td><strong>Incorrect Charge (nota fiscal)</strong></td><td>Abr/2026</td><td>15 casos</td><td>Maxwell não emite/corrige fatura fiscal</td><td><span class="badge badge-red">🔴 Alta</span></td></tr>
+        <tr><td>4</td><td><strong>Return Request (tool falhando)</strong></td><td>Abr/2026</td><td>60 casos</td><td>~30% com erro logístico na tool de devolução</td><td><span class="badge badge-yellow">🟡 Média</span></td></tr>
+        <tr><td>5</td><td><strong>Cancellation (CSAT 1,0)</strong></td><td>Abr/2026</td><td>48 casos</td><td>Política correta, mensagem sem empatia ou alternativa</td><td><span class="badge badge-yellow">🟡 Média</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+<footer>Relatório Maxwell MLU · Point Devices (N950) · Dados: 02/jan/2026 – 17/abr/2026 · Gerado em 20/abr/2026</footer>
+</body>
+</html>
