@@ -582,6 +582,216 @@
     </div>
   </div>
 
+  <!-- SECTION 9: ANTES vs DEPOIS -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">9</div>
+      <h2>Antes vs Depois do MCP — Análise por categoria de problema</h2>
+    </div>
+
+    <p>Três períodos comparados com base na data do fix (~08-abr) e na presença da <code>triage_chargeback</code> no campo <code>TOOLS</code>:</p>
+
+    <div style="display:flex;gap:10px;flex-wrap:wrap;margin:14px 0 20px;">
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;"><span style="width:12px;height:12px;border-radius:3px;background:#ef4444;display:inline-block;"></span> <strong>Antes</strong> — Mar/26–07-abr · sem MCP (tool bloqueada)</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;"><span style="width:12px;height:12px;border-radius:3px;background:#f59e0b;display:inline-block;"></span> <strong>Depois · sem tool</strong> — Pós 08-abr · MCP desbloqueado mas tool não chamada</span>
+      <span style="display:flex;align-items:center;gap:6px;font-size:12px;"><span style="width:12px;height:12px;border-radius:3px;background:#10b981;display:inline-block;"></span> <strong>Depois · com tool</strong> — Pós 08-abr · <code>triage_chargeback</code> chamada</span>
+    </div>
+
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr><th>Categoria</th><th>Período</th><th>Vol</th><th>CSAT</th><th>Escalação</th><th>Resolved %</th></tr>
+        </thead>
+        <tbody>
+          <!-- Status da disputa -->
+          <tr class="row-bad"><td rowspan="3"><strong>Status da disputa</strong></td><td><span class="pill pill-red">Antes (sem MCP)</span></td><td>522</td><td><strong>3.69</strong></td><td>7.5%</td><td>76.1%</td></tr>
+          <tr class="row-warn"><td><span class="pill pill-yellow">Depois · sem tool</span></td><td>131</td><td>1.0</td><td>19.8%</td><td>90.1%</td></tr>
+          <tr class="row-good"><td><span class="pill pill-green">Depois · com tool</span></td><td>40</td><td>—</td><td><strong>10.0%</strong></td><td>75.0%</td></tr>
+          <tr><td colspan="6" style="padding:0;border:none;"><div style="height:6px;background:#f9fafb;"></div></td></tr>
+          <!-- Documentação -->
+          <tr class="row-bad"><td rowspan="3"><strong>Documentação / provas</strong></td><td><span class="pill pill-red">Antes (sem MCP)</span></td><td>375</td><td><strong>3.53</strong></td><td>13.6%</td><td>77.9%</td></tr>
+          <tr class="row-warn"><td><span class="pill pill-yellow">Depois · sem tool</span></td><td>131</td><td>—</td><td>14.5%</td><td>71.0%</td></tr>
+          <tr class="row-good"><td><span class="pill pill-green">Depois · com tool</span></td><td>57</td><td>1.0</td><td><strong>5.3%</strong></td><td>73.7%</td></tr>
+          <tr><td colspan="6" style="padding:0;border:none;"><div style="height:6px;background:#f9fafb;"></div></td></tr>
+          <!-- Fundos retidos -->
+          <tr class="row-bad"><td rowspan="3"><strong>Fundos retidos</strong></td><td><span class="pill pill-red">Antes (sem MCP)</span></td><td>2.357</td><td>2.95</td><td>17.4%</td><td>68.0%</td></tr>
+          <tr class="row-warn"><td><span class="pill pill-yellow">Depois · sem tool</span></td><td>567</td><td>2.88</td><td>16.4%</td><td>69.8%</td></tr>
+          <tr class="row-good"><td><span class="pill pill-green">Depois · com tool</span></td><td>62</td><td>5.0</td><td>21.0%</td><td>56.5%</td></tr>
+          <tr><td colspan="6" style="padding:0;border:none;"><div style="height:6px;background:#f9fafb;"></div></td></tr>
+          <!-- Como responder -->
+          <tr class="row-bad"><td rowspan="3"><strong>Como responder</strong></td><td><span class="pill pill-red">Antes (sem MCP)</span></td><td>1.010</td><td>2.87</td><td>17.3%</td><td>77.7%</td></tr>
+          <tr class="row-warn"><td><span class="pill pill-yellow">Depois · sem tool</span></td><td>689</td><td>1.5</td><td>15.7%</td><td>72.9%</td></tr>
+          <tr class="row-good"><td><span class="pill pill-green">Depois · com tool</span></td><td>211</td><td>2.25</td><td>17.5%</td><td>75.8%</td></tr>
+          <tr><td colspan="6" style="padding:0;border:none;"><div style="height:6px;background:#f9fafb;"></div></td></tr>
+          <!-- Sem classificação -->
+          <tr class="row-bad"><td rowspan="3"><strong>Sem classificação (escalação direta)</strong></td><td><span class="pill pill-red">Antes (sem MCP)</span></td><td>1.520</td><td>1.45</td><td>100%</td><td>0%</td></tr>
+          <tr class="row-warn"><td><span class="pill pill-yellow">Depois · sem tool</span></td><td>300</td><td>1.5</td><td>100%</td><td>0%</td></tr>
+          <tr class="row-good"><td><span class="pill pill-green">Depois · com tool</span></td><td>58</td><td>—</td><td>100%</td><td>0%</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="callout yellow">
+      <div class="callout-icon">⚡</div>
+      <div>
+        <strong>3 insights do comparativo:</strong><br>
+        <strong>1. Documentação</strong>: a tool reduz escalação de 13.6% → 5.3% (-8.3pp), mas o CSAT cai para 1.0. O seller encontra o chargeback mas não recebe as informações de quais documentos enviar — derruba satisfação.<br>
+        <strong>2. Fundos retidos</strong>: a tool piora escalação (17.4% → 21.0%) e resolved cai (68% → 56.5%). Confirma que a tool não retorna <code>fund_release_date</code> nem <code>amount_at_risk</code> — frustra mais do que ajuda nesse cluster.<br>
+        <strong>3. Sem classificação</strong>: 100% de escalação direta em todos os períodos — o MCP não resolve o problema de routing. Maxwell não tenta resolver antes de escalar.
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 10: EXEMPLOS DE CONVERSAS -->
+  <div class="section">
+    <div class="section-title">
+      <div class="num">10</div>
+      <h2>Exemplos reais de conversas — Antes vs Depois por problema</h2>
+    </div>
+
+    <p style="margin-bottom:20px;">Extraído do campo <code>LLM_CONV_TYPE_REASON</code>. Cada card mostra: o problema, as tools usadas e o resultado.</p>
+
+    <!-- Fundos retidos -->
+    <h3 style="color:#f59e0b;display:flex;align-items:center;gap:8px;">
+      <span style="width:10px;height:10px;border-radius:50%;background:#f59e0b;display:inline-block;"></span> Fundos retidos / bloqueados
+    </h3>
+    <div class="quotes-grid" style="margin-bottom:24px;">
+      <div class="quote-card funds" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLB · Mar/26 · unresolved</div>
+        "User experienced friction with fund retention and confusion over why funds remain blocked despite believing all obligations are cleared."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>debts_get_user_debts</code> · <code>previous-contacts_search_contacts</code> · <code>knowledge-base_search</code> → escalou para humano
+        </div>
+      </div>
+      <div class="quote-card funds" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLB · Mar/26 · unresolved</div>
+        "User is blocked from recovering funds until they submit documentation to resolve a chargeback, a corrective action required by the platform."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>bank-account_get_balance</code> · <code>knowledge-base_search</code> · sem triage_chargeback
+        </div>
+      </div>
+      <div class="quote-card funds" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLM · Abr/26 · unresolved</div>
+        "User is confused why funds aren't released after dispute withdrawal and needs guidance on how to resolve it."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>bank-account_get_balance</code> · <code>knowledge-base_search</code> → ainda não resolve: tool não retorna <code>fund_release_date</code>
+        </div>
+      </div>
+      <div class="quote-card funds" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLB · Abr/26 · resolved</div>
+        "Seller is confused about why funds are retained and how to resolve active chargebacks, indicating operational doubt and friction."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>human-support_create_human_support_link</code> → resolvido via escalação (não via tool)
+        </div>
+      </div>
+    </div>
+
+    <!-- Documentação -->
+    <h3 style="color:#3b82f6;display:flex;align-items:center;gap:8px;">
+      <span style="width:10px;height:10px;border-radius:50%;background:#3b82f6;display:inline-block;"></span> Documentação / provas
+    </h3>
+    <div class="quotes-grid" style="margin-bottom:24px;">
+      <div class="quote-card docs" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLB · Mar/26 · resolved</div>
+        "Seller had friction with contestation process and needed guidance on acceptable proof and document submission."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>user-activity_get_last_activities</code> · <code>knowledge-base_search</code> → respondeu com informação genérica da KB
+        </div>
+      </div>
+      <div class="quote-card docs" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLM · Mar/26 · resolved</div>
+        "User was blocked from reversing a chargeback outcome and needed corrective action to understand why evidence was rejected."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>user-activity_get_last_activities</code> · <code>knowledge-base_search</code> → sem dado do motivo de rejeição
+        </div>
+      </div>
+      <div class="quote-card docs" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLA · Abr/26 · resolved</div>
+        "User had friction with a chargeback dispute and needed guidance on how to respond with documentation."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>knowledge-base_search</code> → reduziu escalação mas CSAT 1.0: tool não retorna <code>required_documents</code>
+        </div>
+      </div>
+      <div class="quote-card docs" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLM · Abr/26 · resolved</div>
+        "User had friction in submitting correct documentation for a chargeback and needed guidance on how to resolve it."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>platform-issue_check_active_incidents</code> (errado) · <code>knowledge-base_search</code>
+        </div>
+      </div>
+    </div>
+
+    <!-- Status da disputa -->
+    <h3 style="color:#8b5cf6;display:flex;align-items:center;gap:8px;">
+      <span style="width:10px;height:10px;border-radius:50%;background:#8b5cf6;display:inline-block;"></span> Status da disputa
+    </h3>
+    <div class="quotes-grid" style="margin-bottom:24px;">
+      <div class="quote-card status" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLB · Abr/26 · unresolved</div>
+        "User is confused about the status of a chargeback and needs guidance on the process."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>previous-contacts_search_contacts</code> · <code>user-activity_get_last_activities</code> → sem visibilidade do status real da disputa
+        </div>
+      </div>
+      <div class="quote-card status" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLB · Mar/26 · unresolved</div>
+        "User is confused about why a contestation was reported despite the transaction showing as approved."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>user-activity_get_activity_details</code> · <code>knowledge-base_search</code> → payment aprovado, mas chargeback aberto — sem campos para explicar
+        </div>
+      </div>
+      <div class="quote-card status" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLM · Abr/26 · unresolved</div>
+        "User experienced friction in locating chargeback status and needed guidance on how to verify it."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>cards-transaction-claim_get_transaction</code> → tool chamada mas <code>status</code> vazio no response
+        </div>
+      </div>
+      <div class="quote-card status" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLB · Abr/26 · resolved</div>
+        "User had confusion about dispute status and needed guidance on how to proceed, indicating operational doubt."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>human-support_create_human_support_link</code> → marcado resolved mas escalou para humano
+        </div>
+      </div>
+    </div>
+
+    <!-- Como responder -->
+    <h3 style="color:#1d4ed8;display:flex;align-items:center;gap:8px;">
+      <span style="width:10px;height:10px;border-radius:50%;background:#1d4ed8;display:inline-block;"></span> Como responder / processo
+    </h3>
+    <div class="quotes-grid" style="margin-bottom:8px;">
+      <div class="quote-card process" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLB · Mar/26 · unresolved</div>
+        "User was blocked from reversing a fraudulent refund and needed to escalate a closed dispute."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>previous-contacts_search_contacts</code> · <code>human-support_create_human_support_link</code> → 100% escalação
+        </div>
+      </div>
+      <div class="quote-card process" style="border-left-color:#ef4444;">
+        <div class="q-label" style="color:#ef4444;">ANTES · MLB · Mar/26 · resolved</div>
+        "Seller is confused about why a chargeback occurred despite customer denial, seeking clarification on process and resolution."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>user-activity_get_last_activities</code> · <code>knowledge-base_search</code> → respondeu com conteúdo genérico, sem <code>dispute_reason</code>
+        </div>
+      </div>
+      <div class="quote-card process" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLB · Abr/26 · resolved</div>
+        "User had operational confusion about how to identify and respond to a chargeback, requiring guidance on process and tools."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>knowledge-base_search</code> → resolvido, mas sem dado de <code>dispute_reason</code> para personalizar resposta
+        </div>
+      </div>
+      <div class="quote-card process" style="border-left-color:#10b981;">
+        <div class="q-label" style="color:#10b981;">DEPOIS · com tool · MLB · Abr/26 · unresolved</div>
+        "User is confused and frustrated about being held liable for a chargeback she believes is invalid, seeking guidance on how to resolve it."
+        <div style="margin-top:10px;font-style:normal;font-size:11px;color:#6b7280;">
+          Tools: <code>triage_chargeback</code> · <code>merchant-tools_get_consultant_contact</code> → escalou; frustração por falta de <code>dispute_reason</code>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div style="text-align:center;font-size:11px;color:#9ca3af;padding:24px 0 40px;">
     Dados: <code>meli-bi-data.WHOWNER.BT_CX_MAXWELL_CONVERSATIONS</code> · Gerado em Abr/2026 · Vinicius Paladini
   </div>
