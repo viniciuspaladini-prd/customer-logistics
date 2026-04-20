@@ -71,6 +71,9 @@
   .result-ok { background: #d4edda; color: #155724; }
   .result-fail { background: #f8d7da; color: #721c24; }
   .result-partial { background: #fff3cd; color: #856404; }
+  .conv-id { display: inline-flex; align-items: center; gap: 5px; background: #f0f2f5; border: 1px solid #dee2e6; border-radius: 6px; padding: 3px 8px; font-family: monospace; font-size: 11px; color: #555; margin-bottom: 10px; cursor: pointer; transition: background 0.15s; }
+  .conv-id:hover { background: #e2e3e5; }
+  .conv-id span { opacity: 0.5; font-size: 10px; }
   .insight-box { background: #fffbea; border: 1px solid #ffe600; border-radius: 10px; padding: 16px 20px; margin: 16px 0; font-size: 13px; color: #555; line-height: 1.6; }
   .sub-table { width: 100%; border-collapse: collapse; font-size: 13px; margin-top: 12px; }
   .sub-table th { background: #f0f2f5; padding: 8px 12px; text-align: left; font-weight: 600; font-size: 12px; border-bottom: 2px solid #dee2e6; }
@@ -181,6 +184,7 @@
 
       <div class="conv-title">Exemplo 1 — Como comprar</div>
       <div class="conv-box resolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('f0ac81d6-dbba-4ed7-b4fa-602a3dba7112')" title="Clique para copiar"><span>🔗 ID</span> f0ac81d6-dbba-4ed7-b4fa-602a3dba7112</div>
         <div class="msg"><span class="who seller">Seller</span> "¿Cómo compro el pos?"</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Podés comprarlo desde el canal oficial acá: [Comprar Point Smart]"</div>
         <span class="conv-result result-ok">✅ Deflected</span>
@@ -188,6 +192,7 @@
 
       <div class="conv-title">Exemplo 2 — Elegibilidade sem empresa</div>
       <div class="conv-box resolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('0a2c8b4d-dedc-46d3-8930-9078bdd803ab')" title="Clique para copiar"><span>🔗 ID</span> 0a2c8b4d-dedc-46d3-8930-9078bdd803ab</div>
         <div class="msg"><span class="who seller">Seller</span> "Para usar el pos tengo que tener empresa abierta o lo puedo usar con cuenta personal?"</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "No necesariamente. Podés registrarte con una cuenta personal. El RUT solo se pide si querés abrir una cuenta de empresa."</div>
         <div class="msg"><span class="who seller">Seller</span> "Vendo como persona en una feria barrial, ¿me sirve?"</div>
@@ -197,6 +202,7 @@
 
       <div class="conv-title">Exemplo 3 — Comissões e simulação de venda</div>
       <div class="conv-box resolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('d8730d53-9386-4090-af84-32cb8a1d58d5')" title="Clique para copiar"><span>🔗 ID</span> d8730d53-9386-4090-af84-32cb8a1d58d5</div>
         <div class="msg"><span class="who seller">Seller</span> "¿Cuánto cobran de comisión si cobro débito y si cobro crédito en cuotas?"</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Débito: 2,25% + IVA al instante. Crédito al instante: 5,99% + IVA. A 21 días: 5,24% + IVA. Cuotas: 3 cuotas +2,50%, 6 cuotas +3,50%, 12 cuotas +6,00%."</div>
         <div class="msg"><span class="who seller">Seller</span> "Si vendo $2000 en 6 cuotas a 21 días, ¿cuánto me queda?"</div>
@@ -222,6 +228,7 @@
 
       <div class="conv-title">Sub-caso A — Promoção sumiu antes de comprar</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('1e70e0fd-4d9a-45ed-991a-e0b46c669805')" title="Clique para copiar"><span>🔗 ID</span> 1e70e0fd-4d9a-45ed-991a-e0b46c669805</div>
         <div class="msg"><span class="who seller">Seller</span> "Vi que estaba la promoción de $1.550 y ahora sale $3.699. Hace dos días estaba a ese precio."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "El precio de lanzamiento de $1.550 figura como agotado. El valor vigente es $3.699."</div>
         <div class="msg"><span class="who seller">Seller</span> "A compañeras mías les salió a $1.550. ¿Por qué a mí no?"</div>
@@ -231,6 +238,7 @@
 
       <div class="conv-title">Sub-caso B — Comprou ao preço cheio, viu promo depois</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('73e06379-d43a-44d5-a60b-1f8488171be0')" title="Clique para copiar"><span>🔗 ID</span> 73e06379-d43a-44d5-a60b-1f8488171be0</div>
         <div class="msg"><span class="who seller">Seller</span> "Compré el pos a $3399 y ahora lo venden a $1550. ¡Me metieron la mano en el bolsillo!"</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Entiendo tu molestia. El cobro fue de $3.399 con un descuento de $1.601 aplicado sobre el precio base de $5.000."</div>
         <div class="msg"><span class="who seller">Seller</span> "No puede ser que con días de diferencia salga menos de la mitad. Quiero el reembolso de la diferencia."</div>
@@ -240,6 +248,7 @@
 
       <div class="conv-title">Sub-caso C — Tentou comprar na promo, checkout travou</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('549e93ce-4308-4b32-b891-da6d175ae6b2')" title="Clique para copiar"><span>🔗 ID</span> 549e93ce-4308-4b32-b891-da6d175ae6b2</div>
         <div class="msg"><span class="who seller">Seller</span> "Intenté comprar el pos con el precio lanzamiento pero al pagar me rechazaba la tarjeta. Tenía saldo. Intenté 5 veces."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Revisé: hay 5 intentos rechazados. No hay falla general. Puede ser validación del banco."</div>
         <div class="msg"><span class="who seller">Seller</span> "Mientras tanto perdí el precio de $1.550 y ahora sale $3.699. ¡Ustedes me estafaron!"</div>
@@ -274,6 +283,7 @@
 
       <div class="conv-title">Exemplo 1 — Prazo mudou</div>
       <div class="conv-box partial">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('25dc00d1-09db-463f-a6aa-af1ca60f70fb')" title="Clique para copiar"><span>🔗 ID</span> 25dc00d1-09db-463f-a6aa-af1ca60f70fb</div>
         <div class="msg"><span class="who seller">Seller</span> "Me dijeron que llegaba hoy y ahora dice que llega el 22. ¿Por qué cambió?"</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "La fecha estimada cambió. El estado es 'listo para despacho' y la nueva fecha es desde el 22/04."</div>
         <div class="msg"><span class="who seller">Seller</span> "Lo necesito urgente para mi negocio."</div>
@@ -283,6 +293,7 @@
 
       <div class="conv-title">Exemplo 2 — Marcado entregue, não chegou</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('42905f91-b772-41ec-abb9-10a8b35993f1')" title="Clique para copiar"><span>🔗 ID</span> 42905f91-b772-41ec-abb9-10a8b35993f1</div>
         <div class="msg"><span class="who seller">Seller</span> "Dice que lo recibí pero nunca llegó. ¿Quién lo recibió y a qué hora?"</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Figura entregado el 16 de abril a las 17:23 hs. Recibido por Christian (recepción) en [dirección]."</div>
         <div class="msg"><span class="who seller">Seller</span> "Imposible, son las 15:19. El horario no cierra."</div>
@@ -293,6 +304,7 @@
 
       <div class="conv-title">Exemplo 3 — Endereço incorreto</div>
       <div class="conv-box partial">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('646d38af-c105-45ff-a57a-919f2dc5321e')" title="Clique para copiar"><span>🔗 ID</span> 646d38af-c105-45ff-a57a-919f2dc5321e</div>
         <div class="msg"><span class="who seller">Seller</span> "Puse mal la dirección, ¿pueden cambiarla? El envío todavía no salió."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "No se puede cambiar la dirección una vez creada la orden, aunque esté en preparación."</div>
         <div class="msg"><span class="who seller">Seller</span> "¿Entonces qué hago?"</div>
@@ -318,6 +330,7 @@
 
       <div class="conv-title">Exemplo 1 — Devolução OK (70% dos casos)</div>
       <div class="conv-box resolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('20e5f73b-d0aa-49dd-8e31-2804ebda7793')" title="Clique para copiar"><span>🔗 ID</span> 20e5f73b-d0aa-49dd-8e31-2804ebda7793</div>
         <div class="msg"><span class="who seller">Seller</span> "Quiero devolver el point porque ahora está más barato."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Puedo iniciar la devolución. ¿Cuál es el motivo?"</div>
         <div class="msg"><span class="who seller">Seller</span> "Tasas y condiciones."</div>
@@ -327,6 +340,7 @@
 
       <div class="conv-title">Exemplo 2 — Tool falha (~30% dos casos)</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('a7a6f5b2-8ee2-458f-9392-9ae6be7f99bd')" title="Clique para copiar"><span>🔗 ID</span> a7a6f5b2-8ee2-458f-9392-9ae6be7f99bd</div>
         <div class="msg"><span class="who seller">Seller</span> "Quiero devolver, lo compré por error."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Preparé la solicitud. Confirmame si querés seguir."</div>
         <div class="msg"><span class="who seller">Seller</span> "Sí."</div>
@@ -357,6 +371,7 @@
 
       <div class="conv-title">Exemplo — Cancelamento por queda de preço</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('ec1900c7-df42-4bf8-8d42-17dc1568996c')" title="Clique para copiar"><span>🔗 ID</span> ec1900c7-df42-4bf8-8d42-17dc1568996c</div>
         <div class="msg"><span class="who seller">Seller</span> "Quiero cancelar la compra porque ahora está a la mitad del precio."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "No se puede cancelar antes de la entrega. Cuando llegue, podés rechazarla."</div>
         <div class="msg"><span class="who seller">Seller</span> "¿Y cómo rechazo?"</div>
@@ -394,6 +409,7 @@
 
       <div class="conv-title">Exemplo 1 — SIM sem sinal (mais frequente)</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('b45c9d44-5218-450e-9518-4b2a09ad8ae4')" title="Clique para copiar"><span>🔗 ID</span> b45c9d44-5218-450e-9518-4b2a09ad8ae4</div>
         <div class="msg"><span class="who seller">Seller</span> "No toma señal. Fui al link de reactivación y me dice 'corresponde a otra cuenta'."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "El formulario se abrió con una cuenta distinta. Cerrá sesión y volvé a entrar con la cuenta correcta."</div>
         <div class="msg"><span class="who seller">Seller</span> "Ya lo hice varias veces y sigue lo mismo."</div>
@@ -404,6 +420,7 @@
 
       <div class="conv-title">Exemplo 2 — Impressora imprimindo em branco</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('d5b12a1d-d6ee-4a96-b752-21b277002991')" title="Clique para copiar"><span>🔗 ID</span> d5b12a1d-d6ee-4a96-b752-21b277002991</div>
         <div class="msg"><span class="who seller">Seller</span> "El papel sale completamente en blanco. Ya chequeé todo y está bien."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Corresponde gestionar el cambio del equipo por falla de impresora. ¿Cuál es tu dirección?"</div>
         <div class="msg"><span class="who seller">Seller</span> "[dirección en Maldonado]"</div>
@@ -414,6 +431,7 @@
 
       <div class="conv-title">Exemplo 3 — Dispositivo não liga</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('42a1e32d-47f4-4b0f-badc-2d16ef0be576')" title="Clique para copiar"><span>🔗 ID</span> 42a1e32d-47f4-4b0f-badc-2d16ef0be576</div>
         <div class="msg"><span class="who seller">Seller</span> "No me enciende el point. Ya lo tuve toda la noche enchufado y no hace nada."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Parece una falla de encendido. Podés gestionar el cambio desde: [link gestión]"</div>
         <div class="msg"><span class="who seller">Seller</span> "El link da error. No hay ninguna forma de contactarme con nadie."</div>
@@ -458,6 +476,7 @@
 
       <div class="conv-title" style="margin-top:20px;">Exemplo 1 — Nota fiscal $5.000 vs $1.550 pago</div>
       <div class="conv-box partial">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('c02d32f7-f14f-4715-90c9-70e1739d7114')" title="Clique para copiar"><span>🔗 ID</span> c02d32f7-f14f-4715-90c9-70e1739d7114</div>
         <div class="msg"><span class="who seller">Seller</span> "Compré el point por $1550. Me llegó una factura de $5000. ¿Tengo que pagarla?"</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "No tenés que pagarla. El cobro fue de $1.550. La factura muestra $5.000 como valor fiscal, no una deuda."</div>
         <div class="msg"><span class="who seller">Seller</span> "Necesito un comprobante que diga $1550 para mi contabilidad."</div>
@@ -468,6 +487,7 @@
 
       <div class="conv-title">Exemplo 2 — Cobrado valor diferente do exibido no checkout</div>
       <div class="conv-box unresolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('3ee6b2fd-de8e-442c-998e-936976cff81b')" title="Clique para copiar"><span>🔗 ID</span> 3ee6b2fd-de8e-442c-998e-936976cff81b</div>
         <div class="msg"><span class="who seller">Seller</span> "Me cobraron $3399 pero en la pantalla decía claramente $1550 antes de confirmar."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "La compra quedó registrada por $3.699. El precio de lanzamiento de $1.550 ya estaba agotado al confirmar."</div>
         <div class="msg"><span class="who seller">Seller</span> "¡Pero me lo mostró con ese precio! Quiero el reembolso de la diferencia."</div>
@@ -477,6 +497,7 @@
 
       <div class="conv-title">Exemplo 3 — Cobrança duplicada (único sub-tipo que Maxwell resolve)</div>
       <div class="conv-box resolved">
+        <div class="conv-id" onclick="navigator.clipboard.writeText('0fdde4ce-a919-4401-b692-fd5cb103b6f0')" title="Clique para copiar"><span>🔗 ID</span> 0fdde4ce-a919-4401-b692-fd5cb103b6f0</div>
         <div class="msg"><span class="who seller">Seller</span> "Al comprar me dio error, lo volví a intentar. Me descontaron las dos veces y me llegaron dos pos."</div>
         <div class="msg"><span class="who maxwell">Maxwell</span> "Encontré dos compras aprobadas de $3.399 cada una. Ambas entregadas."</div>
         <div class="msg"><span class="who seller">Seller</span> "Quiero devolver uno."</div>
