@@ -903,6 +903,143 @@ else:
     </div>
   </div>
 
+  <!-- CONSUMO POR SEGMENTO — DADOS REAIS -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span>Consumo por Segmento — Dados Reais Q1/26 (base para política)</div>
+    <div class="alert alert-green">
+      <span>✅</span>
+      <div>Fonte: <code>BT_MP_POINT_SERVICE_ORDER</code> × <code>LK_MP_SEGMENTATION_SELLERS</code> · Q1/26. Taxa emergencial = pedidos de tipo EMERGENCY / total pedidos do segmento.</div>
+    </div>
+
+    <div style="overflow-x:auto;margin-bottom:16px">
+    <table class="rules-table" style="min-width:900px">
+      <thead>
+        <tr>
+          <th>Segmento</th>
+          <th>Site</th>
+          <th style="text-align:right">Sellers únicos/mês</th>
+          <th style="text-align:right">Pedidos Q1</th>
+          <th style="text-align:right">Kits médio/pedido</th>
+          <th style="text-align:right">Emergenciais Q1</th>
+          <th style="text-align:right">% Emergencial</th>
+          <th>Leitura</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#FFFDE7">
+          <td rowspan="4"><span class="badge badge-yellow">BIG SELLERS</span></td>
+          <td>🇦🇷 MLA</td><td style="text-align:right">~1.200</td><td style="text-align:right">4.614</td>
+          <td style="text-align:right"><strong>2,9</strong></td><td style="text-align:right">2</td>
+          <td style="text-align:right"><span class="badge badge-green">0,1%</span></td>
+          <td style="font-size:11px">Muito seguro</td>
+        </tr>
+        <tr style="background:#FFFDE7">
+          <td>🇧🇷 MLB</td><td style="text-align:right">~107</td><td style="text-align:right">366</td>
+          <td style="text-align:right"><strong>4,4</strong></td><td style="text-align:right">2</td>
+          <td style="text-align:right"><span class="badge badge-green">0,5%</span></td>
+          <td style="font-size:11px">Alto consumo, quase sem emergências</td>
+        </tr>
+        <tr style="background:#FFFDE7">
+          <td>🇨🇱 MLC</td><td style="text-align:right">~353</td><td style="text-align:right">1.649</td>
+          <td style="text-align:right"><strong>5,0</strong></td><td style="text-align:right">2</td>
+          <td style="text-align:right"><span class="badge badge-green">0,1%</span></td>
+          <td style="font-size:11px">Maior consumo por pedido</td>
+        </tr>
+        <tr style="background:#FFFDE7">
+          <td>🇲🇽 MLM</td><td style="text-align:right">~124</td><td style="text-align:right">456</td>
+          <td style="text-align:right"><strong>2,3</strong></td><td style="text-align:right">0</td>
+          <td style="text-align:right"><span class="badge badge-green">0,0%</span></td>
+          <td style="font-size:11px">Zero emergências no Q1</td>
+        </tr>
+        <tr>
+          <td rowspan="4"><span class="badge badge-blue">SMB</span></td>
+          <td>🇦🇷 MLA</td><td style="text-align:right">~5.644</td><td style="text-align:right">17.665</td>
+          <td style="text-align:right"><strong>1,6</strong></td><td style="text-align:right">62</td>
+          <td style="text-align:right"><span class="badge badge-green">0,4%</span></td>
+          <td style="font-size:11px">Estável, baixa emergência</td>
+        </tr>
+        <tr>
+          <td>🇧🇷 MLB</td><td style="text-align:right">~27.167</td><td style="text-align:right">84.468</td>
+          <td style="text-align:right"><strong>1,6</strong></td><td style="text-align:right">428</td>
+          <td style="text-align:right"><span class="badge badge-orange">0,5%</span></td>
+          <td style="font-size:11px">Volume alto, taxa ok</td>
+        </tr>
+        <tr>
+          <td>🇨🇱 MLC</td><td style="text-align:right">~5.973</td><td style="text-align:right">23.447</td>
+          <td style="text-align:right"><strong>1,8</strong></td><td style="text-align:right">24</td>
+          <td style="text-align:right"><span class="badge badge-green">0,1%</span></td>
+          <td style="font-size:11px">Melhor desempenho SMB</td>
+        </tr>
+        <tr>
+          <td>🇲🇽 MLM</td><td style="text-align:right">~8.491</td><td style="text-align:right">29.602</td>
+          <td style="text-align:right"><strong>1,3</strong></td><td style="text-align:right">17</td>
+          <td style="text-align:right"><span class="badge badge-green">0,1%</span></td>
+          <td style="font-size:11px">Muito estável</td>
+        </tr>
+        <tr style="background:#FEE8EA">
+          <td rowspan="4"><span class="badge badge-gray">LONGTAIL</span></td>
+          <td>🇦🇷 MLA</td><td style="text-align:right">~7.107</td><td style="text-align:right">21.592</td>
+          <td style="text-align:right"><strong>1,1</strong></td><td style="text-align:right">162</td>
+          <td style="text-align:right"><span class="badge badge-orange">0,7%</span></td>
+          <td style="font-size:11px">Threshold restritivo amplia risco</td>
+        </tr>
+        <tr style="background:#FEE8EA">
+          <td>🇧🇷 MLB</td><td style="text-align:right">~24.263</td><td style="text-align:right">73.579</td>
+          <td style="text-align:right"><strong>1,2</strong></td><td style="text-align:right"><strong>877</strong></td>
+          <td style="text-align:right"><span class="badge badge-red"><strong>1,2%</strong></span></td>
+          <td style="font-size:11px">Maior taxa emergencial — política backfire</td>
+        </tr>
+        <tr style="background:#FEE8EA">
+          <td>🇨🇱 MLC</td><td style="text-align:right">~3.538</td><td style="text-align:right">10.866</td>
+          <td style="text-align:right"><strong>1,1</strong></td><td style="text-align:right">42</td>
+          <td style="text-align:right"><span class="badge badge-orange">0,4%</span></td>
+          <td style="font-size:11px">Threshold 60% já ajuda</td>
+        </tr>
+        <tr style="background:#FEE8EA">
+          <td>🇲🇽 MLM</td><td style="text-align:right">~11.336</td><td style="text-align:right">34.433</td>
+          <td style="text-align:right"><strong>1,2</strong></td><td style="text-align:right">295</td>
+          <td style="text-align:right"><span class="badge badge-orange">0,9%</span></td>
+          <td style="font-size:11px">2ª maior taxa emergencial</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="grid-3" style="gap:12px;margin-bottom:20px">
+      <div class="alert alert-green" style="margin:0">
+        <span>✅</span>
+        <div><strong>BS → 100% seguro</strong><br><span style="font-size:12px">0–0,5% emergencial em todos os sites. Alto consumo por pedido (2,3–5,0 kits). Threshold restritivo não traz benefício — só gera fricção em sellers de alto valor.</span></div>
+      </div>
+      <div class="alert alert-blue" style="margin:0">
+        <span>💡</span>
+        <div><strong>SMB → 70% equilibrado</strong><br><span style="font-size:12px">Taxa emergencial 0,1–0,5%. Consumo constante (1,3–1,8 kits/pedido). Threshold 70% dá margem para pedir antes do esgotamento sem abrir totalmente.</span></div>
+      </div>
+      <div class="alert alert-red" style="margin:0">
+        <span>⚠️</span>
+        <div><strong>Longtail → subir threshold para 55-60%</strong><br><span style="font-size:12px">Taxa emergencial 1,2% em MLB — a mais alta. Com 1,2 kits/pedido e threshold 40%, o intervalo proativo é curto. Subir para 55-60% permite pedir antes do esgotamento → menos emergenciais.</span></div>
+      </div>
+    </div>
+
+    <!-- INSIGHT LONGTAIL BACKFIRE -->
+    <div style="background:linear-gradient(135deg,#FEE8EA,#FFF0F0);border:2px solid var(--red);border-radius:10px;padding:18px;margin-bottom:16px">
+      <div style="font-size:14px;font-weight:700;color:var(--red);margin-bottom:10px">Paradoxo da política restritiva no Longtail (MLB)</div>
+      <div class="grid-2" style="gap:16px;font-size:12px;line-height:1.7">
+        <div>
+          <strong>Lógica esperada da restrição (40%):</strong><br>
+          "Threshold baixo → seller pede menos → menos pedidos desnecessários"<br><br>
+          <strong>O que os dados mostram:</strong><br>
+          Longtail MLB tem 1,2% de emergencial vs 0,5% do SMB. O Longtail não está abusando — está <strong>esgotando mais</strong> porque o proativo chega tarde demais.
+        </div>
+        <div>
+          <strong>Por que acontece:</strong><br>
+          Com 1,2 kits/pedido e threshold 40%, a janela entre "pode pedir" e "zera" é pequena. Se o seller perde a notificação ou está ocupado, o estoque vai a 0% antes de agir → emergencial.<br><br>
+          <strong>Solução:</strong> threshold 55-60% dá mais tempo de reação → notificação chega mais cedo → menos emergenciais → menor custo operacional.
+        </div>
+      </div>
+    </div>
+
+  </div>
+
   <!-- ELEGIBILIDADE POR SEGMENTO -->
   <div class="card">
     <div class="card-title"><span class="icon">&#x1F3AF;</span>Regras de Elegibilidade por Segmento — Cross-Site</div>
@@ -993,25 +1130,186 @@ else:
     </table>
     </div>
 
-    <!-- PROBLEMA + PROPOSTA UNIFICADA -->
-    <div style="margin-top:20px" class="grid-2">
-      <div class="alert alert-red" style="align-items:flex-start">
-        <span>&#x26A8;</span>
-        <div>
-          <strong>Problema atual — Bypass via CX</strong><br>
-          <span style="font-size:12px">Seller SMB MLB com 60% de estoque: portal bloqueia (50%), Maxwell/FAQ aprovam (80%). Seller bloqueado no autoatendimento recorre ao CX humano — custo ~$3–5 por contactacao desnecessaria. Estimativa: ~18% dos sellers bloqueados no portal buscam CX como escape.</span>
+    <!-- PROPOSTA DATA-DRIVEN POR SEGMENTO E SITE -->
+    <div style="margin-top:20px">
+      <div class="section-title">Proposta de Política — Data-Driven por Segmento e Site</div>
+
+      <div style="overflow-x:auto;margin-bottom:16px">
+      <table class="rules-table" style="min-width:900px">
+        <thead>
+          <tr>
+            <th>Segmento</th>
+            <th>Site</th>
+            <th>Threshold Atual (portal)</th>
+            <th>Taxa Emerg. Atual</th>
+            <th>Threshold Proposto (todos canais)</th>
+            <th>Evidência / Justificativa</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:#E6F7EE">
+            <td rowspan="4"><span class="badge badge-yellow">BIG SELLERS</span></td>
+            <td>🇦🇷 MLA · 🇧🇷 MLB · 🇲🇽 MLM</td>
+            <td>50%</td><td><span class="badge badge-green">0–0,5%</span></td>
+            <td><strong style="color:var(--green)">100% — livre</strong></td>
+            <td style="font-size:11px">0% emergencial em MLM, 0,5% MLB. Alto consumo (2,3–4,9 kits/pedido). Risco de churn se bloqueado.</td>
+          </tr>
+          <tr style="background:#E6F7EE">
+            <td>🇨🇱 MLC</td>
+            <td>99%</td><td><span class="badge badge-green">0,1%</span></td>
+            <td><strong style="color:var(--green)">100% — manter</strong></td>
+            <td style="font-size:11px">Já sem restrição prática. Maior consumo cross-site (6,1 kits/pedido em mar). Manter.</td>
+          </tr>
+          <tr style="background:#EBF3FF">
+            <td rowspan="2"><span class="badge badge-blue">SMB</span></td>
+            <td>🇦🇷 MLA · 🇧🇷 MLB · 🇲🇽 MLM</td>
+            <td>50% (portal)<br>80–90% (CX)</td><td><span class="badge badge-green">0,1–0,5%</span></td>
+            <td><strong style="color:var(--blue)">70% — todos os canais</strong></td>
+            <td style="font-size:11px">Taxa emergencial baixa e estável. Consumo constante (1,3–1,6 kits). 70% dá margem sem abrir risco. Elimina o gap portal×CX.</td>
+          </tr>
+          <tr style="background:#EBF3FF">
+            <td>🇨🇱 MLC</td>
+            <td>99%</td><td><span class="badge badge-green">0,1%</span></td>
+            <td><strong style="color:var(--blue)">99% — manter</strong></td>
+            <td style="font-size:11px">MLC já é aberto para SMB. Taxa emergencial quase zero. Não mexer.</td>
+          </tr>
+          <tr style="background:#FFF0E8">
+            <td rowspan="4"><span class="badge badge-gray">LONGTAIL</span></td>
+            <td>🇧🇷 MLB</td>
+            <td>40%</td><td><span class="badge badge-red">1,2%</span></td>
+            <td><strong style="color:var(--orange)">60% — todos os canais</strong></td>
+            <td style="font-size:11px">MLC (60%) tem 0,4% emergencial. MLB (40%) tem 1,2%. Evidência direta: threshold maior = menos emergenciais. Salto de +20pp.</td>
+          </tr>
+          <tr style="background:#FFF0E8">
+            <td>🇲🇽 MLM</td>
+            <td>40%</td><td><span class="badge badge-orange">0,9%</span></td>
+            <td><strong style="color:var(--orange)">55% — todos os canais</strong></td>
+            <td style="font-size:11px">2ª maior taxa. Ajuste gradual +15pp. Monitorar emergenciais nas primeiras 4 semanas.</td>
+          </tr>
+          <tr style="background:#FFF0E8">
+            <td>🇦🇷 MLA</td>
+            <td>40%</td><td><span class="badge badge-orange">0,7%</span></td>
+            <td><strong style="color:var(--orange)">55% — todos os canais</strong></td>
+            <td style="font-size:11px">Mesma lógica MLM. Taxa moderada, volume menor. +15pp com monitoramento.</td>
+          </tr>
+          <tr style="background:#E6F7EE">
+            <td>🇨🇱 MLC</td>
+            <td>60%</td><td><span class="badge badge-green">0,4%</span></td>
+            <td><strong style="color:var(--green)">60% — manter</strong></td>
+            <td style="font-size:11px">Benchmark de sucesso. Já funciona — é a evidência usada para recomendar MLB→60%.</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="alert" style="background:linear-gradient(135deg,#1A1A2E,#16213E);color:white;border-radius:10px;padding:18px;margin-bottom:12px">
+        <span>💡</span>
+        <div style="line-height:1.7;font-size:13px">
+          <strong style="color:var(--yellow)">Insight central dos dados:</strong> a política restritiva para Longtail está produzindo o efeito oposto ao desejado. MLC Longtail com <strong>60% de threshold</strong> tem <strong>0,4% de emergencial</strong>. MLB Longtail com <strong>40%</strong> tem <strong>1,2%</strong>. Threshold mais alto → seller recebe notificação mais cedo → mais tempo para agir → menos esgotamento. Não há evidência de abuso com threshold maior no segmento Longtail.
         </div>
       </div>
-      <div class="alert alert-green" style="align-items:flex-start">
-        <span>&#x1F3AF;</span>
-        <div>
-          <strong>Proposta — Politica unificada (MLB)</strong><br>
-          <span style="font-size:12px">
-            <strong>BS: 100%</strong> todos os canais (portal +50pp) — sellers de maior valor, risco de churn alto<br>
-            <strong>SMB: 70%</strong> todos os canais (portal +20pp, CX −10pp) — elimina escape<br>
-            <strong>Longtail: 50%</strong> todos os canais (portal +10pp) — equipara portal ao CX atual<br>
-            Impacto estimado: −25% CR, +15–20% autogestao, +0,4–0,6 CSAT
-          </span>
+
+      <!-- IMPACTO DE CUSTO DA POLÍTICA -->
+      <div style="border:2px solid var(--gray-border);border-radius:10px;overflow:hidden;margin-top:16px">
+        <div style="background:var(--black);color:var(--yellow);padding:12px 18px;font-weight:700;font-size:14px">
+          Impacto de Custo — Ser Mais Permissivo Aumenta o Custo?
+        </div>
+        <div style="padding:18px">
+
+          <div class="grid-2" style="gap:20px;margin-bottom:16px">
+            <div>
+              <div class="section-title">Por que o custo NÃO aumenta proporcionalmente</div>
+              <div style="font-size:12px;line-height:1.8;color:var(--gray-mid)">
+                O sistema calcula a quantidade de kits com base no <strong>consumo estimado de 30 dias</strong> — o seller não recebe mais kits por ter threshold mais alto, só recebe <strong>mais cedo</strong>.<br><br>
+                No proativo, o saldo restante é <strong>acumulado</strong> na entrega. A frequência anual de pedidos tende a se manter — o ciclo é determinado pelo consumo, não pelo threshold.<br><br>
+                <strong>O que muda:</strong> a distribuição temporal dos pedidos, não o volume total de kits enviados por ano.
+              </div>
+            </div>
+            <div>
+              <div class="section-title">O emergencial é mais caro que o proativo</div>
+              <table class="rules-table">
+                <thead><tr><th>Tipo</th><th>Frete</th><th>Custo CX</th><th>Total estimado</th></tr></thead>
+                <tbody>
+                  <tr style="background:#E6F7EE"><td>Proativo (digital)</td><td>$3,38</td><td>$0</td><td><strong>$3,38</strong></td></tr>
+                  <tr style="background:#FEE8EA"><td>Emergencial (CX)</td><td>$3,38</td><td>~$4–5</td><td><strong>$7–8</strong></td></tr>
+                </tbody>
+              </table>
+              <div style="font-size:11px;color:var(--gray-light);margin-top:6px">
+                * Frete = avg 1 kit MLB Longtail · CX = custo de contactação estimado
+              </div>
+            </div>
+          </div>
+
+          <!-- SIMULAÇÃO DE CUSTO MLB LONGTAIL -->
+          <div class="section-title">Simulação — MLB Longtail (40% → 60%)</div>
+          <div style="overflow-x:auto">
+          <table class="rules-table">
+            <thead>
+              <tr>
+                <th>Cenário</th>
+                <th style="text-align:right">Pedidos proativos/Q1</th>
+                <th style="text-align:right">Emergenciais/Q1</th>
+                <th style="text-align:right">Custo logístico (frete)</th>
+                <th style="text-align:right">Custo CX emergencial</th>
+                <th style="text-align:right">Custo Total</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="background:#FEE8EA">
+                <td><strong>Atual</strong> (40%)</td>
+                <td style="text-align:right">72.702</td>
+                <td style="text-align:right">877</td>
+                <td style="text-align:right">73.579 × $3,38 = <strong>$248.697</strong></td>
+                <td style="text-align:right">877 × $4,50 = <strong>$3.947</strong></td>
+                <td style="text-align:right"><strong>$252.644</strong></td>
+              </tr>
+              <tr style="background:#E6F7EE">
+                <td><strong>Proposto</strong> (60%)</td>
+                <td style="text-align:right">73.285 <span style="font-size:10px;color:var(--gray-light)">(+583 proativos)</span></td>
+                <td style="text-align:right">295 <span style="font-size:10px;color:var(--green)">(-582)</span></td>
+                <td style="text-align:right">73.580 × $3,38 = <strong>$248.700</strong></td>
+                <td style="text-align:right">295 × $4,50 = <strong>$1.328</strong></td>
+                <td style="text-align:right"><strong>$250.028</strong></td>
+              </tr>
+              <tr style="background:#FFFDE7">
+                <td><strong>Economia</strong></td>
+                <td style="text-align:right;color:var(--gray-light)">≈ mesmo volume</td>
+                <td style="text-align:right;color:var(--green)"><strong>−582 (−66%)</strong></td>
+                <td style="text-align:right;color:var(--gray-light)">≈ mesmo</td>
+                <td style="text-align:right;color:var(--green)"><strong>−$2.619</strong></td>
+                <td style="text-align:right;color:var(--green)"><strong>−$2.616/Q1</strong></td>
+              </tr>
+            </tbody>
+          </table>
+          </div>
+          <div style="font-size:11px;color:var(--gray-light);margin-top:6px">
+            Premissas: emergenciais convertidos em proativos (mesmo frete, sem custo CX) · CX cost = $4,50/contato · benchmark: taxa emergencial MLC LT = 0,4%
+          </div>
+
+          <div class="grid-3" style="gap:12px;margin-top:16px">
+            <div style="background:var(--gray-bg);border-radius:8px;padding:14px;text-align:center">
+              <div style="font-size:11px;color:var(--gray-light);text-transform:uppercase;font-weight:700">Economia Q1/26 MLB LT</div>
+              <div style="font-size:26px;font-weight:800;color:var(--green)">−$2.616</div>
+              <div style="font-size:11px;color:var(--gray-light)">apenas em custo CX evitado</div>
+            </div>
+            <div style="background:var(--gray-bg);border-radius:8px;padding:14px;text-align:center">
+              <div style="font-size:11px;color:var(--gray-light);text-transform:uppercase;font-weight:700">SMB 70% — aumento de custo?</div>
+              <div style="font-size:26px;font-weight:800;color:var(--blue)">Mínimo</div>
+              <div style="font-size:11px;color:var(--gray-light)">Mesmo volume de kits, timing mais cedo. Emergencial já baixo (0,5%).</div>
+            </div>
+            <div style="background:var(--gray-bg);border-radius:8px;padding:14px;text-align:center">
+              <div style="font-size:11px;color:var(--gray-light);text-transform:uppercase;font-weight:700">Os envios se pagam?</div>
+              <div style="font-size:26px;font-weight:800;color:var(--orange)">Indiretamente</div>
+              <div style="font-size:11px;color:var(--gray-light)">Bobina sem estoque = Point não imprime = seller não cobra = MP perde transação</div>
+            </div>
+          </div>
+
+          <div class="alert alert-orange" style="margin-top:12px">
+            <span>⚠️</span>
+            <div style="font-size:12px">
+              <strong>Os envios se repagam?</strong> O custo do serviço de bobinas é subsidiado pelo MP — não é cobrado do seller diretamente. O retorno vem indiretamente: <strong>seller com Point funcionando = mais transações = mais receita de MDR/fee</strong>. Um seller que para de imprimir por falta de bobina reduz ou cancela uso do device. A política de bobinas é ferramenta de retenção, não de receita direta.
+            </div>
+          </div>
         </div>
       </div>
     </div>
