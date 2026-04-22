@@ -1502,35 +1502,91 @@ else:
           <td style="font-size:11px">Sellers ativos geram receita que justifica o serviço. Threshold maior reduz emergenciais (benchmark MLC). Limitação do motor reforça margem de segurança.</td>
         </tr>
         <tr style="background:#FEE8EA">
-          <td><span class="badge badge-gray">LONGTAIL inativo</span><br><span style="font-size:10px;color:var(--gray-light)">(TPV baixo ou 0)</span></td>
+          <td><span class="badge badge-gray">LONGTAIL inativo</span><br><span style="font-size:10px;color:var(--gray-light)">TPN &lt; 30/90 dias (&lt;10/mês)</span></td>
           <td><span class="badge badge-red">&gt;50%</span></td>
           <td>—</td>
           <td>40%</td>
-          <td><strong style="color:var(--red)">Bloquear ou limitar</strong></td>
-          <td style="font-size:11px">Seller inativo recebe bobinas mas não gera receita. Custo não se justifica. Critério: TPV mínimo dos últimos 3 meses como condição de elegibilidade.</td>
+          <td><strong style="color:var(--red)">Sem proativo — CX apenas se emergencial</strong></td>
+          <td style="font-size:11px">47,7% do Longtail MLB. Device imprime &lt;10×/mês. Custo de bobina não é justificado economicamente. Proteção: device &lt;6 meses ou TPN crescente → elegível.</td>
         </tr>
       </tbody>
     </table>
     </div>
 
-    <!-- NOVO CRITÉRIO: TPV MÍNIMO LONGTAIL -->
+    <!-- CRITÉRIO POR IMPRESSÕES -->
     <div style="background:linear-gradient(135deg,#1A1A2E,#16213E);color:white;border-radius:10px;padding:18px;margin-bottom:16px">
-      <div style="font-size:14px;font-weight:700;color:var(--yellow);margin-bottom:12px">Nova dimensão de política: TPV mínimo como critério de elegibilidade para Longtail</div>
-      <div class="grid-2" style="gap:20px;font-size:12px;line-height:1.7">
+      <div style="font-size:14px;font-weight:700;color:var(--yellow);margin-bottom:12px">Critério de elegibilidade por Impressões (TPN) — mais preciso que TPV</div>
+      <div style="font-size:12px;color:rgba(255,255,255,0.8);line-height:1.7;margin-bottom:12px">
+        TPN (transações com impressão) é mais direto que TPV: um seller pode ter TPV alto mas poucas impressões (pagamentos digitais sem recibo físico). <strong style="color:var(--yellow)">O que consome bobina é impressão, não valor transacionado.</strong>
+      </div>
+
+      <!-- DISTRIBUIÇÃO REAL POR SITE -->
+      <div style="overflow-x:auto;margin-bottom:16px">
+      <table style="width:100%;border-collapse:collapse;font-size:12px">
+        <thead>
+          <tr style="border-bottom:1px solid rgba(255,255,255,0.2)">
+            <th style="padding:8px;text-align:left;color:var(--yellow)">Faixa TPN/Q1</th>
+            <th style="padding:8px;text-align:right;color:var(--yellow)">🇧🇷 MLB</th>
+            <th style="padding:8px;text-align:right;color:var(--yellow)">🇦🇷 MLA</th>
+            <th style="padding:8px;text-align:right;color:var(--yellow)">🇨🇱 MLC</th>
+            <th style="padding:8px;text-align:right;color:var(--yellow)">🇲🇽 MLM</th>
+            <th style="padding:8px;text-align:left;color:var(--yellow)">TPV médio/Q1</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr style="background:rgba(242,61,79,0.25);border-bottom:1px solid rgba(255,255,255,0.1)">
+            <td style="padding:8px"><strong style="color:#FF8A8A">1–29 impressões (&lt;10/mês)</strong><br><span style="font-size:10px;color:rgba(255,255,255,0.6)">Device quase inativo</span></td>
+            <td style="padding:8px;text-align:right">746.695 <span style="color:#FF8A8A">(47,7%)</span></td>
+            <td style="padding:8px;text-align:right">267.265 <span style="color:#FF8A8A">(54,3%)</span></td>
+            <td style="padding:8px;text-align:right">24.689 <span style="color:#FF8A8A">(23,2%)</span></td>
+            <td style="padding:8px;text-align:right">370.947 <span style="color:#FF8A8A">(45,9%)</span></td>
+            <td style="padding:8px;font-size:11px">MLB $601 · MLA $354</td>
+          </tr>
+          <tr style="background:rgba(255,119,51,0.15);border-bottom:1px solid rgba(255,255,255,0.1)">
+            <td style="padding:8px"><strong style="color:#FFB380">30–89 (10–30/mês)</strong><br><span style="font-size:10px;color:rgba(255,255,255,0.6)">Uso esporádico</span></td>
+            <td style="padding:8px;text-align:right">276.836 <span style="color:#FFB380">(17,7%)</span></td>
+            <td style="padding:8px;text-align:right">88.316 <span style="color:#FFB380">(17,9%)</span></td>
+            <td style="padding:8px;text-align:right">14.662 <span style="color:#FFB380">(13,8%)</span></td>
+            <td style="padding:8px;text-align:right">160.047 <span style="color:#FFB380">(19,8%)</span></td>
+            <td style="padding:8px;font-size:11px">MLB $1.241 · MLA $1.262</td>
+          </tr>
+          <tr style="background:rgba(255,230,0,0.1);border-bottom:1px solid rgba(255,255,255,0.1)">
+            <td style="padding:8px"><strong style="color:var(--yellow)">90–299 (30–100/mês)</strong><br><span style="font-size:10px;color:rgba(255,255,255,0.6)">Uso regular</span></td>
+            <td style="padding:8px;text-align:right">302.381 <span style="color:var(--yellow)">(19,3%)</span></td>
+            <td style="padding:8px;text-align:right">80.298 <span style="color:var(--yellow)">(16,3%)</span></td>
+            <td style="padding:8px;text-align:right">22.909 <span style="color:var(--yellow)">(21,5%)</span></td>
+            <td style="padding:8px;text-align:right">151.171 <span style="color:var(--yellow)">(18,7%)</span></td>
+            <td style="padding:8px;font-size:11px">MLB $1.658 · MLA $2.607</td>
+          </tr>
+          <tr style="background:rgba(0,166,80,0.15)">
+            <td style="padding:8px"><strong style="color:#80E8A8">300+ (100+/mês)</strong><br><span style="font-size:10px;color:rgba(255,255,255,0.6)">Alto consumo</span></td>
+            <td style="padding:8px;text-align:right">240.553 <span style="color:#80E8A8">(15,4%)</span></td>
+            <td style="padding:8px;text-align:right">56.484 <span style="color:#80E8A8">(11,5%)</span></td>
+            <td style="padding:8px;text-align:right">44.348 <span style="color:#80E8A8">(41,6%)</span></td>
+            <td style="padding:8px;text-align:right">126.369 <span style="color:#80E8A8">(15,6%)</span></td>
+            <td style="padding:8px;font-size:11px">MLB $3.342 · MLA $6.836</td>
+          </tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="grid-2" style="gap:16px;font-size:12px;line-height:1.7">
         <div>
-          <strong style="color:var(--yellow)">Proposta:</strong><br>
-          Longtail só elegível para bobinas se tiver TPV ≥ <em>[threshold a definir]</em> nos últimos 3 meses.<br><br>
-          <strong style="color:var(--yellow)">Exemplo (MLB):</strong><br>
-          • TPV mínimo: $100 USD/mês nos últimos 3 meses<br>
-          • Sellers que não atingem: não recebem notificação proativa e são bloqueados no portal<br>
-          • Podem ainda solicitar via CX (emergencial, se necessário)
+          <strong style="color:var(--yellow)">Proposta de corte: TPN ≥ 30/Q1 (10 impressões/mês)</strong><br>
+          Eliminar sellers com &lt; 10 impressões/mês do fluxo proativo de bobinas.<br><br>
+          <strong style="color:var(--yellow)">Impacto por site (sellers excluídos do proativo):</strong><br>
+          • 🇧🇷 MLB: −746k sellers (47,7%)<br>
+          • 🇦🇷 MLA: −267k sellers (54,3%)<br>
+          • 🇨🇱 MLC: −25k sellers (23,2%) <span style="color:#80E8A8">← menor impacto</span><br>
+          • 🇲🇽 MLM: −371k sellers (45,9%)
         </div>
         <div>
-          <strong style="color:var(--yellow)">Impacto estimado:</strong><br>
-          Se 30% do Longtail MLB está inativo ou sub-ativo → ~630k sellers elegíveis a menos<br>
-          Redução de custo: 30% × 73.579 pedidos Q1 × $4,75 = <strong style="color:var(--green)">~$104k/Q1</strong><br><br>
-          <strong style="color:var(--yellow)">Risco:</strong><br>
-          Seller semi-ativo pode ativar mais se receber bobinas (bootstrapping). O corte precisa ser calibrado para não prejudicar sellers em crescimento inicial.
+          <strong style="color:var(--yellow)">Proteção para sellers em rampa:</strong><br>
+          Critério deve ser avaliado em janela móvel de 90 dias e não bloquear sellers com menos de 6 meses de device. Seller novo com device &lt; 6 meses → elegível independente de TPN.<br><br>
+          <strong style="color:var(--yellow)">Sellers excluídos ainda podem:</strong><br>
+          • Solicitar via CX (emergencial) se precisar<br>
+          • Reativar elegibilidade automaticamente ao atingir TPN ≥ 30/90 dias<br>
+          • Receber kit na compra do device (quantidade padrão por modelo)
         </div>
       </div>
     </div>
