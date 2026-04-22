@@ -1,0 +1,1566 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Point Paper Roll — Análise</title>
+<style>
+  :root {
+    --yellow: #FFE600;
+    --yellow-dark: #F0D800;
+    --black: #1A1A1A;
+    --gray-dark: #2D2D2D;
+    --gray-mid: #444;
+    --gray-light: #666;
+    --gray-bg: #F5F5F5;
+    --gray-border: #E0E0E0;
+    --white: #FFFFFF;
+    --blue: #3483FA;
+    --blue-light: #EBF3FF;
+    --green: #00A650;
+    --green-light: #E6F7EE;
+    --red: #F23D4F;
+    --red-light: #FEE8EA;
+    --orange: #FF7733;
+    --orange-light: #FFF0E8;
+    --purple: #9B59B6;
+    --purple-light: #F5EEF8;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; background: var(--gray-bg); color: var(--black); min-height: 100vh; }
+
+  .header { background: var(--black); padding: 0 32px; display: flex; align-items: center; justify-content: space-between; height: 60px; position: sticky; top: 0; z-index: 100; box-shadow: 0 2px 8px rgba(0,0,0,0.3); }
+  .header-brand { display: flex; align-items: center; gap: 12px; }
+  .header-logo { background: var(--yellow); color: var(--black); font-weight: 900; font-size: 13px; padding: 4px 10px; border-radius: 4px; letter-spacing: -0.5px; }
+  .header-title { color: var(--white); font-size: 15px; font-weight: 600; }
+  .header-badge { background: var(--yellow); color: var(--black); font-size: 11px; font-weight: 700; padding: 3px 10px; border-radius: 12px; }
+
+  .tabs-bar { background: var(--white); border-bottom: 2px solid var(--gray-border); padding: 0 32px; display: flex; gap: 0; overflow-x: auto; scrollbar-width: none; }
+  .tabs-bar::-webkit-scrollbar { display: none; }
+  .tab-btn { padding: 14px 24px; font-size: 13px; font-weight: 600; color: var(--gray-light); background: none; border: none; border-bottom: 3px solid transparent; cursor: pointer; white-space: nowrap; transition: all 0.2s; margin-bottom: -2px; }
+  .tab-btn:hover { color: var(--black); background: var(--gray-bg); }
+  .tab-btn.active { color: var(--black); border-bottom-color: var(--yellow); background: none; }
+
+  .tab-content { display: none; padding: 32px; max-width: 1300px; margin: 0 auto; }
+  .tab-content.active { display: block; }
+
+  .card { background: var(--white); border-radius: 12px; padding: 24px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); margin-bottom: 20px; }
+  .card-title { font-size: 16px; font-weight: 700; color: var(--black); margin-bottom: 16px; padding-bottom: 12px; border-bottom: 2px solid var(--gray-border); display: flex; align-items: center; gap: 8px; }
+  .card-title .icon { background: var(--yellow); width: 28px; height: 28px; border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 14px; }
+
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 16px; margin-bottom: 24px; }
+  .kpi-card { background: var(--white); border-radius: 10px; padding: 20px; box-shadow: 0 1px 4px rgba(0,0,0,0.08); border-left: 4px solid var(--yellow); }
+  .kpi-card.blue { border-left-color: var(--blue); }
+  .kpi-card.green { border-left-color: var(--green); }
+  .kpi-card.red { border-left-color: var(--red); }
+  .kpi-card.purple { border-left-color: var(--purple); }
+  .kpi-card.orange { border-left-color: var(--orange); }
+  .kpi-label { font-size: 11px; font-weight: 600; color: var(--gray-light); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 6px; }
+  .kpi-value { font-size: 28px; font-weight: 800; color: var(--black); line-height: 1; }
+  .kpi-sub { font-size: 12px; color: var(--gray-light); margin-top: 4px; }
+
+  .rules-table { width: 100%; border-collapse: collapse; font-size: 13px; }
+  .rules-table th { background: var(--black); color: var(--yellow); padding: 10px 14px; text-align: left; font-weight: 700; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; }
+  .rules-table td { padding: 10px 14px; border-bottom: 1px solid var(--gray-border); vertical-align: top; }
+  .rules-table tr:last-child td { border-bottom: none; }
+  .rules-table tr:nth-child(even) td { background: var(--gray-bg); }
+  .rules-table tr:hover td { background: #FFFDE7; }
+
+  .badge { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 12px; font-size: 11px; font-weight: 700; }
+  .badge-yellow { background: var(--yellow); color: var(--black); }
+  .badge-blue { background: var(--blue-light); color: var(--blue); }
+  .badge-green { background: var(--green-light); color: var(--green); }
+  .badge-red { background: var(--red-light); color: var(--red); }
+  .badge-orange { background: var(--orange-light); color: var(--orange); }
+  .badge-purple { background: var(--purple-light); color: var(--purple); }
+  .badge-gray { background: var(--gray-bg); color: var(--gray-light); }
+
+  .alert { border-radius: 8px; padding: 14px 18px; margin-bottom: 16px; font-size: 13px; display: flex; gap: 10px; align-items: flex-start; line-height: 1.5; }
+  .alert-yellow { background: #FFFDE7; border-left: 4px solid var(--yellow); color: #555; }
+  .alert-blue { background: var(--blue-light); border-left: 4px solid var(--blue); color: #1a4a8c; }
+  .alert-green { background: var(--green-light); border-left: 4px solid var(--green); color: #1a5c3a; }
+  .alert-red { background: var(--red-light); border-left: 4px solid var(--red); color: #8c1a1a; }
+  .alert-orange { background: var(--orange-light); border-left: 4px solid var(--orange); color: #7a3a1a; }
+
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  @media (max-width: 900px) { .grid-2, .grid-3 { grid-template-columns: 1fr; } }
+
+  .section-title { font-size: 12px; font-weight: 700; color: var(--gray-light); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 12px; margin-top: 8px; }
+
+  .timeline { position: relative; padding-left: 28px; }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: var(--gray-border); }
+  .timeline-item { position: relative; margin-bottom: 18px; }
+  .timeline-item::before { content: ''; position: absolute; left: -22px; top: 6px; width: 12px; height: 12px; border-radius: 50%; background: var(--yellow); border: 2px solid var(--black); }
+  .timeline-title { font-size: 13px; font-weight: 700; color: var(--black); }
+  .timeline-desc { font-size: 12px; color: var(--gray-light); margin-top: 3px; line-height: 1.5; }
+
+  .code-block { background: #1E1E1E; color: #D4D4D4; border-radius: 8px; padding: 16px; font-family: 'Courier New', monospace; font-size: 12px; line-height: 1.6; overflow-x: auto; margin-bottom: 16px; }
+  .code-block .keyword { color: #569CD6; }
+  .code-block .string { color: #CE9178; }
+  .code-block .comment { color: #6A9955; }
+  .code-block .number { color: #B5CEA8; }
+
+  .decision-tree { font-size: 12px; line-height: 1.8; background: #1E1E1E; color: #D4D4D4; padding: 20px; border-radius: 10px; font-family: 'Courier New', monospace; }
+  .dt-yes { color: #4EC9B0; }
+  .dt-no { color: #F48771; }
+  .dt-action { color: #DCDCAA; }
+  .dt-condition { color: #C586C0; }
+  .dt-comment { color: #6A9955; }
+
+  .rule-card { border: 2px solid var(--gray-border); border-radius: 10px; overflow: hidden; margin-bottom: 16px; }
+  .rule-card-header { background: var(--black); color: var(--yellow); padding: 10px 16px; font-size: 13px; font-weight: 700; display: flex; justify-content: space-between; align-items: center; }
+  .rule-card-body { padding: 16px; }
+
+  .flow-container { display: flex; align-items: flex-start; gap: 0; overflow-x: auto; padding: 16px 0; }
+  .flow-step { display: flex; flex-direction: column; align-items: center; min-width: 130px; }
+  .flow-step-box { background: var(--white); border: 2px solid var(--gray-border); border-radius: 10px; padding: 12px 8px; text-align: center; width: 120px; }
+  .flow-step-box:hover { border-color: var(--yellow); box-shadow: 0 4px 12px rgba(255,230,0,0.3); }
+  .flow-step-icon { font-size: 22px; margin-bottom: 5px; }
+  .flow-step-label { font-size: 11px; font-weight: 700; color: var(--black); line-height: 1.3; }
+  .flow-step-sub { font-size: 10px; color: var(--gray-light); margin-top: 4px; }
+  .flow-step-number { background: var(--yellow); color: var(--black); width: 20px; height: 20px; border-radius: 50%; font-size: 11px; font-weight: 800; display: flex; align-items: center; justify-content: center; margin-bottom: 8px; }
+  .flow-arrow { display: flex; align-items: center; padding: 0 4px; margin-top: 38px; color: var(--gray-light); font-size: 18px; }
+
+  .notif-box { background: var(--black); color: var(--white); border-radius: 12px; padding: 16px 20px; margin-bottom: 12px; font-size: 13px; position: relative; overflow: hidden; }
+  .notif-box::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 4px; }
+  .notif-box.push::before { background: var(--blue); }
+  .notif-box.email::before { background: var(--yellow); }
+  .notif-box .notif-type { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: rgba(255,255,255,0.5); margin-bottom: 4px; }
+  .notif-box .notif-title { font-weight: 700; margin-bottom: 4px; }
+  .notif-box .notif-body { color: rgba(255,255,255,0.8); font-size: 12px; line-height: 1.5; }
+
+  .chat-bubble { border-radius: 12px; padding: 12px 16px; margin-bottom: 8px; font-size: 13px; line-height: 1.6; max-width: 85%; }
+  .chat-user { background: var(--yellow); color: var(--black); align-self: flex-end; margin-left: auto; border-bottom-right-radius: 4px; }
+  .chat-maxwell { background: var(--white); border: 1px solid var(--gray-border); border-bottom-left-radius: 4px; box-shadow: 0 1px 4px rgba(0,0,0,0.06); }
+  .chat-container { display: flex; flex-direction: column; gap: 6px; padding: 14px; background: #F8F9FA; border-radius: 10px; margin-bottom: 14px; }
+  .chat-label { font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+  .chat-label.user-label { color: var(--gray-light); text-align: right; }
+  .chat-label.bot-label { color: var(--blue); }
+
+  .progress-bar-container { background: var(--gray-border); border-radius: 4px; height: 8px; overflow: hidden; margin-top: 6px; }
+  .progress-bar-fill { height: 100%; border-radius: 4px; }
+
+  .inv-level { display: flex; align-items: center; gap: 12px; padding: 10px 0; border-bottom: 1px solid var(--gray-border); font-size: 13px; }
+  .inv-level:last-child { border-bottom: none; }
+  .inv-dot { width: 12px; height: 12px; border-radius: 50%; flex-shrink: 0; }
+
+  .page-section-header { font-size: 18px; font-weight: 800; margin-bottom: 4px; padding: 16px 0 8px; border-top: 2px solid var(--gray-border); }
+  .page-section-sub { font-size: 13px; color: var(--gray-light); margin-bottom: 16px; }
+</style>
+</head>
+<body>
+
+<div class="header">
+  <div class="header-brand">
+    <div class="header-logo">MP</div>
+    <div class="header-title">Point Paper Roll — Análise</div>
+  </div>
+  <div class="header-badge">Cross-Site · 2026</div>
+</div>
+
+<div class="tabs-bar">
+  <button class="tab-btn active" onclick="switchTab('overview', this)">Visao Geral</button>
+  <button class="tab-btn" onclick="switchTab('engine', this)">Motor de Bobinas</button>
+  <button class="tab-btn" onclick="switchTab('support', this)">Suporte</button>
+</div>
+
+<!-- ==================== TAB 1: VISÃO GERAL ==================== -->
+<div id="tab-overview" class="tab-content active">
+
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">CR Médio Q1/26</div>
+      <div class="kpi-value">0,203</div>
+      <div class="kpi-sub">×10k MAD cross-site · 267 casos CX</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">MAD Cross-Site (média)</div>
+      <div class="kpi-value">~4,4M</div>
+      <div class="kpi-sub">devices ativos/mês · excl. Point TAP</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">CSAT Médio Q1/26</div>
+      <div class="kpi-value">3,41</div>
+      <div class="kpi-sub">meta: 4,0 · range real: 3,13–3,67</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Deflection Maxwell</div>
+      <div class="kpi-value">~90%</div>
+      <div class="kpi-sub">abr/26: 90,8% · mar/26: 89,4%</div>
+    </div>
+    <div class="kpi-card orange">
+      <div class="kpi-label">Pico CR (fev/26)</div>
+      <div class="kpi-value">0,231</div>
+      <div class="kpi-sub">×10k MAD · período supply issue</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Canais de Solicitação</div>
+      <div class="kpi-value">4</div>
+      <div class="kpi-sub">Portal / FAQ / Maxwell / CX Humano</div>
+    </div>
+  </div>
+
+  <!-- COMO FUNCIONA HOJE -->
+  <div class="card">
+    <div class="card-title"><span class="icon">&#x27A1;</span>Como Funciona Hoje — Experiência do Seller de Ponta a Ponta</div>
+    <div class="flow-container">
+      <div class="flow-step">
+        <div class="flow-step-number">1</div>
+        <div class="flow-step-box">
+          <div class="flow-step-icon">&#x1F5A8;</div>
+          <div class="flow-step-label">Maquininha Imprime</div>
+          <div class="flow-step-sub">Point Pro 2 / Smart 2 / Smart em uso</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">2</div>
+        <div class="flow-step-box">
+          <div class="flow-step-icon">&#x1F4CA;</div>
+          <div class="flow-step-label">Consome Bobina</div>
+          <div class="flow-step-sub">Sistema decrementa estoque a cada pagamento</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">3</div>
+        <div class="flow-step-box" style="border-color:var(--blue)">
+          <div class="flow-step-icon">&#x1F4BB;</div>
+          <div class="flow-step-label">Monitoramento</div>
+          <div class="flow-step-sub">Engine verifica threshold periodicamente</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">4</div>
+        <div class="flow-step-box" style="border-color:var(--orange)">
+          <div class="flow-step-icon">&#x26A0;</div>
+          <div class="flow-step-label">Threshold Atingido</div>
+          <div class="flow-step-sub">Estoque abaixo do limite por segmento/canal</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">5</div>
+        <div class="flow-step-box" style="border-color:var(--yellow)">
+          <div class="flow-step-icon">&#x1F514;</div>
+          <div class="flow-step-label">Notificacao</div>
+          <div class="flow-step-sub">Push + e-mail ao responsavel</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">6</div>
+        <div class="flow-step-box">
+          <div class="flow-step-icon">&#x1F4F1;</div>
+          <div class="flow-step-label">Seller Solicita</div>
+          <div class="flow-step-sub">Portal / FAQ / Maxwell / CX</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">7</div>
+        <div class="flow-step-box">
+          <div class="flow-step-icon">&#x2699;</div>
+          <div class="flow-step-label">Motor Valida</div>
+          <div class="flow-step-sub">RestockUtils: quantidade + tipo grupo</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">8</div>
+        <div class="flow-step-box">
+          <div class="flow-step-icon">&#x1F4E6;</div>
+          <div class="flow-step-label">Fulfillment</div>
+          <div class="flow-step-sub">Shipments gerados e despachados</div>
+        </div>
+      </div>
+      <div class="flow-arrow">&#x2192;</div>
+      <div class="flow-step">
+        <div class="flow-step-number">9</div>
+        <div class="flow-step-box" style="border-color:var(--green)">
+          <div class="flow-step-icon">&#x2705;</div>
+          <div class="flow-step-label">Entrega</div>
+          <div class="flow-step-sub">2–5 dias uteis · inventario resetado</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- TIPOS DE SOLICITAÇÃO -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📋</span>Tipos de Solicitação</div>
+    <div class="grid-3" style="gap:16px">
+
+      <!-- PROATIVA -->
+      <div style="border:2px solid var(--green);border-radius:10px;overflow:hidden">
+        <div style="background:var(--green);color:#fff;padding:12px 16px;font-weight:700;font-size:13px;display:flex;justify-content:space-between;align-items:center">
+          Proativa <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;font-size:10px">Threshold: 50% estoque</span>
+        </div>
+        <div style="padding:14px;font-size:12px;line-height:1.7;color:var(--gray-mid)">
+          Acionada quando o estoque de bobinas atinge <strong>50% de consumo</strong>. Seller recebe e-mail + push com link direto para o fluxo.<br><br>
+          <strong>Cálculo automático:</strong> consumo diário estimado para prever os próximos 30 dias → determina a quantidade de kits (1–30).<br><br>
+          <strong>Ao receber:</strong> estoque restante anterior + novo estoque são somados.<br>
+          <span style="font-size:11px;color:var(--gray-light)">Ex: 100 impressões restantes + 600 do kit = 700 disponíveis</span>
+        </div>
+      </div>
+
+      <!-- EMERGENCIAL -->
+      <div style="border:2px solid var(--orange);border-radius:10px;overflow:hidden">
+        <div style="background:var(--orange);color:#fff;padding:12px 16px;font-weight:700;font-size:13px;display:flex;justify-content:space-between;align-items:center">
+          Emergencial <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;font-size:10px">Estoque zerado</span>
+        </div>
+        <div style="padding:14px;font-size:12px;line-height:1.7;color:var(--gray-mid)">
+          Acionada quando o estoque <strong>acabou antes do esperado</strong> ou houve falha no cálculo. Seller entra em contato com CX para realizar o pedido.<br><br>
+          <strong>Cálculo:</strong> mesmo método estimativo do proativo.<br><br>
+          <strong>Ao receber:</strong> estoque anterior é <strong>ignorado</strong> — reinicia com a quantidade do kit entregue.<br>
+          <span style="font-size:11px;color:var(--gray-light)">Ex: 100 impressões restantes são desconsideradas → novo estoque = kit entregue</span>
+        </div>
+      </div>
+
+      <!-- EMERGENCIAL FORÇADA -->
+      <div style="border:2px solid var(--red);border-radius:10px;overflow:hidden">
+        <div style="background:var(--red);color:#fff;padding:12px 16px;font-weight:700;font-size:13px;display:flex;justify-content:space-between;align-items:center">
+          Emergencial Forçada <span class="badge" style="background:rgba(255,255,255,0.2);color:#fff;font-size:10px">Pedido perdido</span>
+        </div>
+        <div style="padding:14px;font-size:12px;line-height:1.7;color:var(--gray-mid)">
+          Acionada quando o seller informa que o <strong>pedido em andamento não chegou</strong> — perda de tracking por falha de atualização de status.<br><br>
+          <strong>Ação:</strong> pedido anterior é ignorado, novo envio emergencial é criado.<br><br>
+          <strong>Canal exclusivo:</strong> apenas via CX One (atendente humano).<br>
+          <span style="font-size:11px;color:var(--gray-light)">Mesmas regras da emergencial: estoque reinicia com quantidade do novo kit</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- CANAIS DE ACESSO -->
+  <div class="card">
+    <div class="card-title"><span class="icon">🔌</span>Como Acessar — Canais Disponíveis</div>
+    <div class="grid-2" style="gap:16px">
+
+      <div>
+        <div class="section-title">Autogestão (Digital)</div>
+        <div style="display:flex;flex-direction:column;gap:10px">
+
+          <div style="border:1px solid var(--gray-border);border-radius:8px;padding:12px;display:flex;gap:12px;align-items:flex-start">
+            <div style="background:var(--yellow);width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">📧</div>
+            <div>
+              <div style="font-weight:700;font-size:13px">E-mail / Push (Proativo)</div>
+              <div style="font-size:12px;color:var(--gray-light);margin-top:2px">Link direto enviado quando estoque atinge 40%. Leva para a página inicial do fluxo de reposição.</div>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--gray-border);border-radius:8px;padding:12px;display:flex;gap:12px;align-items:flex-start">
+            <div style="background:var(--blue-light);width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🌐</div>
+            <div>
+              <div style="font-weight:700;font-size:13px">Portal / Point Hub (Web)</div>
+              <div style="font-size:12px;color:var(--gray-light);margin-top:2px">Acesso direto pelo portal Mercado Pago. Experiência nova (automática) e legado. Colaboradores têm botão desabilitado.</div>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--gray-border);border-radius:8px;padding:12px;display:flex;gap:12px;align-items:flex-start">
+            <div style="background:var(--green-light);width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🤖</div>
+            <div>
+              <div style="font-weight:700;font-size:13px">Maxwell (Nova Atenção Assistida)</div>
+              <div style="font-size:12px;color:var(--gray-light);margin-top:2px">Canal conversacional. Deflection 89–91% (mar–abr/26). Mesmo threshold do FAQ. <code>SOURCE_CHANNEL = 'NEW_ASSISTED_ATENTION'</code></div>
+            </div>
+          </div>
+
+          <div style="border:1px solid var(--yellow);border-radius:8px;padding:12px;display:flex;gap:12px;align-items:flex-start;background:#FFFDE7">
+            <div style="background:var(--black);width:32px;height:32px;border-radius:6px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0">🖨️</div>
+            <div>
+              <div style="font-weight:700;font-size:13px">Point Smart 1 e 2 (device direto)</div>
+              <div style="font-size:12px;color:var(--gray-light);margin-top:2px">Solicitação diretamente pelo dispositivo. Identificado na query por <code>SO_SOURCE_CHANNEL = 'POINT'</code> ou fabricante SmartPOS (PAX, Newland, dSPREAD).</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">CX One (Atendimento Humano)</div>
+        <div style="border:1px solid var(--gray-border);border-radius:8px;padding:16px;margin-bottom:12px">
+          <div style="font-weight:700;font-size:13px;margin-bottom:10px">Caminho no CX One:</div>
+          <div style="display:flex;flex-direction:column;gap:6px;font-size:12px">
+            <div style="display:flex;align-items:center;gap:8px"><span style="background:var(--black);color:var(--yellow);padding:2px 8px;border-radius:4px;font-weight:700;font-size:11px">1</span> Tab <strong>Mercado Pago</strong></div>
+            <div style="margin-left:8px;color:var(--gray-light)">↓</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="background:var(--black);color:var(--yellow);padding:2px 8px;border-radius:4px;font-weight:700;font-size:11px">2</span> <strong>Point (New)</strong></div>
+            <div style="margin-left:8px;color:var(--gray-light)">↓</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="background:var(--black);color:var(--yellow);padding:2px 8px;border-radius:4px;font-weight:700;font-size:11px">3</span> <strong>Dispositivos</strong></div>
+            <div style="margin-left:8px;color:var(--gray-light)">↓</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="background:var(--black);color:var(--yellow);padding:2px 8px;border-radius:4px;font-weight:700;font-size:11px">4</span> <strong>Ver detalle</strong></div>
+            <div style="margin-left:8px;color:var(--gray-light)">↓</div>
+            <div style="display:flex;align-items:center;gap:8px"><span style="background:var(--green);color:#fff;padding:2px 8px;border-radius:4px;font-weight:700;font-size:11px">5</span> <strong>Crear solicitud de rollos de papel</strong></div>
+          </div>
+          <div style="margin-top:10px;font-size:11px;color:var(--gray-light)">* Botão aparece apenas para maquininhas que utilizam bobinas</div>
+        </div>
+
+        <div class="alert alert-blue">
+          <span>ℹ️</span>
+          <div style="font-size:12px">CX One suporta os <strong>3 tipos</strong> de solicitação: Proativa, Emergencial e Emergencial Forçada. É o único canal para as duas últimas.</div>
+        </div>
+
+        <div class="section-title" style="margin-top:12px">Países Disponíveis</div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <span class="badge badge-blue">🇦🇷 Argentina</span>
+          <span class="badge badge-green">🇧🇷 Brasil</span>
+          <span class="badge badge-yellow">🇨🇱 Chile</span>
+          <span class="badge badge-orange">🇲🇽 México</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- QUANTIDADES POR DISPOSITIVO -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📦</span>Bobinas por Dispositivo</div>
+    <div class="grid-2" style="gap:16px">
+
+      <div>
+        <div class="section-title">Compra do Device (bobinas incluídas)</div>
+        <table class="rules-table">
+          <thead><tr><th>Site</th><th>Modelo</th><th>Bobinas</th></tr></thead>
+          <tbody>
+            <tr><td rowspan="3">🇦🇷 MLA</td><td>Point Plus</td><td>3 bobinas</td></tr>
+            <tr><td>Point Smart</td><td>5 bobinas</td></tr>
+            <tr><td>Point Smart 2</td><td>5 bobinas</td></tr>
+            <tr><td rowspan="5">🇧🇷 MLB</td><td>Point Pro</td><td>5 bobinas</td></tr>
+            <tr><td>Point Pro 2</td><td>4 bobinas</td></tr>
+            <tr><td>Point Pro 3</td><td>4 bobinas</td></tr>
+            <tr><td>Point Smart</td><td>5 bobinas</td></tr>
+            <tr><td>Point Smart 2</td><td>5 bobinas</td></tr>
+            <tr><td rowspan="3">🇨🇱 MLC</td><td>Point Smart 2</td><td>5 bobinas</td></tr>
+            <tr><td>Redelcom Point</td><td>5 bobinas</td></tr>
+            <tr><td>Redelcom Point Smart</td><td>5 bobinas</td></tr>
+            <tr><td rowspan="2">🇲🇽 MLM</td><td>Point Smart</td><td>5 bobinas</td></tr>
+            <tr><td>Point Smart 2</td><td>5 bobinas</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div>
+        <div class="section-title">Reposição (bobinas por kit)</div>
+        <table class="rules-table">
+          <thead><tr><th>Site</th><th>Bobinas / Kit</th><th>Obs.</th></tr></thead>
+          <tbody>
+            <tr><td>🇦🇷 MLA</td><td><strong>10 bobinas</strong></td><td>Custo $0,17/bob · frete $2,38/envio</td></tr>
+            <tr style="background:#FFFDE7"><td>🇧🇷 MLB</td><td><strong>6 bobinas</strong></td><td>Único site com 6/kit · $0,19/bob · $3,38/envio</td></tr>
+            <tr><td>🇨🇱 MLC</td><td><strong>10 bobinas</strong></td><td>Custo $0,21/bob · frete $4,00/envio</td></tr>
+            <tr><td>🇲🇽 MLM</td><td><strong>10 bobinas</strong></td><td>Custo $0,16/bob · frete $4,11/envio</td></tr>
+          </tbody>
+        </table>
+
+        <div class="alert alert-yellow" style="margin-top:12px">
+          <span>💡</span>
+          <div style="font-size:12px">MLB é o único site com <strong>6 bobinas/kit</strong> em vez de 10. Isso impacta o cálculo de custo/bobina e a frequência de reposição. Ver análise completa na aba <strong>Motor de Bobinas</strong>.</div>
+        </div>
+
+        <div class="section-title" style="margin-top:12px">Validações do Motor</div>
+        <table class="rules-table">
+          <thead><tr><th>Validação</th><th>O que faz</th><th>Canais</th></tr></thead>
+          <tbody>
+            <tr><td><code>VALIDATE_CREATION</code></td><td>Valida dados do pedido</td><td>CX, FAQ, OPERATIONS</td></tr>
+            <tr><td><code>VALIDATE_DEVICE</code></td><td>Valida serial_number do device</td><td>CX, FAQ, OPERATIONS</td></tr>
+            <tr><td><code>VALIDATE_SUSPECTED</code></td><td>Detecta características suspeitas / fraude</td><td>CX, FAQ, OPERATIONS</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:11px;color:var(--gray-light);margin-top:6px">Configuráveis por País · Canal · Can Skip (com ROLE interna) · Key Message de erro</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- VOLUME POR CANAL — DADOS REAIS Q1/26 -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📊</span>Volume de Pedidos por Canal — Q1/26 (dados reais BQ)</div>
+    <div class="alert alert-green" style="margin-bottom:16px">
+      <span>✅</span>
+      <div>Fonte: <code>BT_MP_POINT_SERVICE_ORDER</code> · <code>SO_FLOW_TYPE = 'PAPER_ROLL'</code> · jan–mar/2026. Maxwell e Point Smart identificados via <code>SO_SOURCE_CHANNEL</code> (requerem join em MELIDATA.TRACKS para separação completa).</div>
+    </div>
+
+    <div style="overflow-x:auto">
+    <table class="rules-table" style="min-width:900px">
+      <thead>
+        <tr>
+          <th>Canal</th>
+          <th style="text-align:right">🇦🇷 MLA</th>
+          <th style="text-align:right">🇧🇷 MLB</th>
+          <th style="text-align:right">🇨🇱 MLC</th>
+          <th style="text-align:right">🇲🇽 MLM</th>
+          <th style="text-align:right">Total Q1/26</th>
+          <th>% Cross-Site</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#FFFDE7">
+          <td><strong>Autogestão Web</strong><br><span style="font-size:10px;color:var(--gray-light)">portal/app · push · email</span></td>
+          <td style="text-align:right">20.991</td>
+          <td style="text-align:right">110.830</td>
+          <td style="text-align:right">16.977</td>
+          <td style="text-align:right">35.937</td>
+          <td style="text-align:right"><strong>184.735</strong></td>
+          <td><span class="badge badge-green">60,8%</span></td>
+        </tr>
+        <tr style="background:#EBF3FF">
+          <td><strong>Point Smart</strong> (device direto)<br><span style="font-size:10px;color:var(--gray-light)">SO_SOURCE_CHANNEL='POINT' · PAX/Newland/dSPREAD</span></td>
+          <td style="text-align:right">18.715</td>
+          <td style="text-align:right">35.063</td>
+          <td style="text-align:right">17.077</td>
+          <td style="text-align:right">24.316</td>
+          <td style="text-align:right"><strong>95.171</strong></td>
+          <td><span class="badge badge-blue">31,3%</span></td>
+        </tr>
+        <tr>
+          <td>Presencial (CC + FDV)<br><span style="font-size:10px;color:var(--gray-light)">Consultor Certificado · Fuerza de Venta</span></td>
+          <td style="text-align:right">3.501</td>
+          <td style="text-align:right">9.689</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">3.572</td>
+          <td style="text-align:right">16.762</td>
+          <td><span class="badge badge-purple">5,5%</span></td>
+        </tr>
+        <tr>
+          <td>CX Humano — Proativo<br><span style="font-size:10px;color:var(--gray-light)">seller com estoque · bypass de threshold</span></td>
+          <td style="text-align:right">296</td>
+          <td style="text-align:right">1.965</td>
+          <td style="text-align:right">955</td>
+          <td style="text-align:right">379</td>
+          <td style="text-align:right">3.595</td>
+          <td><span class="badge badge-orange">1,2%</span></td>
+        </tr>
+        <tr style="background:#FEE8EA">
+          <td><strong>CX Humano — Emergencial</strong><br><span style="font-size:10px;color:var(--gray-light)">estoque zerou · pedido urgente</span></td>
+          <td style="text-align:right">227</td>
+          <td style="text-align:right">1.348</td>
+          <td style="text-align:right">69</td>
+          <td style="text-align:right">315</td>
+          <td style="text-align:right"><strong>1.959</strong></td>
+          <td><span class="badge badge-red">0,6%</span></td>
+        </tr>
+        <tr>
+          <td>ON DEMAND / Cartera<br><span style="font-size:10px;color:var(--gray-light)">Carteira assessorada · eventos</span></td>
+          <td style="text-align:right">157</td>
+          <td style="text-align:right">—</td>
+          <td style="text-align:right">962</td>
+          <td style="text-align:right">45</td>
+          <td style="text-align:right">1.164</td>
+          <td><span class="badge badge-gray">0,4%</span></td>
+        </tr>
+        <tr>
+          <td>CC Virtual / Email / TLV / N2</td>
+          <td style="text-align:right">41</td>
+          <td style="text-align:right">155</td>
+          <td style="text-align:right">3</td>
+          <td style="text-align:right">11</td>
+          <td style="text-align:right">210</td>
+          <td><span class="badge badge-gray">&lt;0,1%</span></td>
+        </tr>
+        <tr style="background:var(--black);color:var(--yellow)">
+          <td><strong>TOTAL</strong></td>
+          <td style="text-align:right"><strong>43.928</strong></td>
+          <td style="text-align:right"><strong>159.050</strong></td>
+          <td style="text-align:right"><strong>36.044</strong></td>
+          <td style="text-align:right"><strong>64.575</strong></td>
+          <td style="text-align:right"><strong>303.597</strong></td>
+          <td><strong>100%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- INSIGHT POINT SMART -->
+    <div class="alert" style="background:linear-gradient(135deg,#EBF3FF,#F0F7FF);border-left:4px solid var(--blue);margin-top:16px">
+      <span>💡</span>
+      <div>
+        <strong>Point Smart é o 2º maior canal — 31,3% dos pedidos cross-site (95.171 em Q1/26)</strong><br>
+        <span style="font-size:12px">Em MLC, Point Smart (47,4%) e Autogestão Web (47,1%) estão virtualmente empatados como canais dominantes. Em MLA, Point Smart representa 42,6% dos pedidos. Canal crítico e subestimado na análise de canais.</span>
+      </div>
+    </div>
+
+    <div class="grid-3" style="gap:12px;margin-top:12px">
+      <div class="alert alert-green" style="margin:0">
+        <span>✅</span>
+        <div><strong>92,1% digital</strong> (Autogestão + Point Smart) — altíssima autogestão. Apenas 1,8% via CX humano no total cross-site.</div>
+      </div>
+      <div class="alert alert-red" style="margin:0">
+        <span>🚨</span>
+        <div><strong>1.959 emergenciais CX</strong> — estoque zerou. MLB concentra 69% (1.348). Objetivo: prevenir com política unificada e notificação proativa.</div>
+      </div>
+      <div class="alert alert-orange" style="margin:0">
+        <span>⚠️</span>
+        <div><strong>3.595 proativos via CX</strong> — poderiam resolver no digital. Bypass do gap de threshold entre portal e CX. Ver proposta na aba Motor de Bobinas.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CANAIS DE SOLICITAÇÃO -->
+  <div class="card">
+    <div class="card-title"><span class="icon">📡</span>Canais de Solicitacao — Thresholds Atuais por Segmento (MLB)</div>
+    <div class="alert alert-yellow">
+      <span>&#x2139;</span>
+      <span>Threshold = nivel maximo de estoque restante para que o pedido seja aceito. Threshold 50% significa que o seller so pode pedir com &lt;= 50% de estoque restante. O gap entre canais gera bypass via CX.</span>
+    </div>
+    <div style="overflow-x:auto">
+    <table class="rules-table" style="min-width:700px">
+      <thead>
+        <tr>
+          <th>Canal</th>
+          <th>Descricao</th>
+          <th style="text-align:center">Big Sellers</th>
+          <th style="text-align:center">SMB</th>
+          <th style="text-align:center">Longtail</th>
+          <th>Observacao</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Portal Direto</strong></td>
+          <td>portal.mercadopago.com.br · app MP</td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-red">40%</span></td>
+          <td style="font-size:12px">Canal mais restritivo. Sellers bloqueados recorrem a CX.</td>
+        </tr>
+        <tr>
+          <td><strong>FAQ (Autogestao)</strong></td>
+          <td>Fluxo guiado sem agente humano</td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+          <td style="text-align:center"><span class="badge badge-blue">80%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="font-size:12px">Mais permissivo que portal para BS e SMB.</td>
+        </tr>
+        <tr>
+          <td><strong>Maxwell</strong></td>
+          <td>Canal conversacional (mesmo threshold FAQ)</td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+          <td style="text-align:center"><span class="badge badge-blue">80%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="font-size:12px">Deflection 89–91% (mar–abr/26). CSAT 3,13–3,67.</td>
+        </tr>
+        <tr>
+          <td><strong>CX Humano</strong></td>
+          <td>Atendimento humano / CX Nivel 2</td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+          <td style="text-align:center"><span class="badge badge-orange">80–90%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="font-size:12px">MLB SMB N2 = 90% (vs 80% MLA). Custo ~$3–5/contactacao.</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div style="display:flex;gap:12px;margin-top:12px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><span class="badge badge-green">100%</span> Sem restricao pratica</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><span class="badge badge-orange">80–90%</span> Restricao leve</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><span class="badge badge-yellow">50%</span> Restricao moderada</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><span class="badge badge-red">40%</span> Restricao rigorosa</div>
+    </div>
+  </div>
+
+  <!-- PROBLEMAS ATUAIS + ARQUITETURA -->
+  <div class="grid-2">
+    <div class="card" style="border:2px solid var(--red)">
+      <div class="card-title" style="border-bottom-color:var(--red)"><span class="icon" style="background:var(--red);color:#fff">!</span>Experiencia Atual — Principais Problemas</div>
+
+      <div class="alert alert-red" style="margin-bottom:12px">
+        <span>&#x26A0;</span>
+        <div>
+          <strong>1. Gap de threshold entre canais gera bypass CX</strong><br>
+          <span style="font-size:12px">Seller SMB com 60% de estoque: bloqueado no portal (50%), mas aprovado no Maxwell/CX (80%). Gera custo humano para pedido que deveria ser digital.</span>
+        </div>
+      </div>
+
+      <div class="alert alert-red" style="margin-bottom:12px">
+        <span>&#x26A0;</span>
+        <div>
+          <strong>2. CSAT abaixo da meta em todos os meses confiaveis</strong><br>
+          <span style="font-size:12px">Range real Q1/26: 3,13–3,67 (meta: 4,0). Nenhum mes com amostra &gt;10 atingiu a meta. "Consultar status" e "reclamar atraso" puxam a media para baixo (CSAT 2,8 e 1,9).</span>
+        </div>
+      </div>
+
+      <div class="alert alert-orange" style="margin-bottom:12px">
+        <span>&#x26A0;</span>
+        <div>
+          <strong>3. Supply issues derrubam CSAT e explodem contactacoes</strong><br>
+          <span style="font-size:12px">fev–mar/26: Maxwell informou prazo padrao sem saber do atraso. Pico CR = 0,231×10k. Supply Issues = 84 contactacoes (31% do Q1). CSAT medio durante supply: ~2,8.</span>
+        </div>
+      </div>
+
+      <div class="alert alert-orange">
+        <span>&#x26A0;</span>
+        <div>
+          <strong>4. Split de shipment para 6–9 kits ON_DEMAND e ineficiente</strong><br>
+          <span style="font-size:12px">Pedido de 7 kits gera 2 shipments (5+2) com custo $0,351/bobina — 68% mais caro que 30 kits ($0,209/bobina). UX deveria guiar para 5 ou 10.</span>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <!-- NOTIFICAÇÕES -->
+      <div class="card" style="margin-bottom:20px">
+        <div class="card-title"><span class="icon">&#x1F514;</span>Sistema de Notificacoes</div>
+
+        <div class="notif-box push" style="margin-bottom:10px">
+          <div class="notif-type">Push Notification — Alerta (20–40% restante)</div>
+          <div class="notif-title">Suas bobinas estao acabando</div>
+          <div class="notif-body">O estoque de [Nome/Serial] esta em [X]%. Solicite reposicao agora.<br><strong>[Solicitar Bobinas]</strong></div>
+        </div>
+
+        <div class="notif-box push" style="margin-bottom:10px">
+          <div class="notif-type">Push + E-mail — Critico (&lt;20%)</div>
+          <div class="notif-title">Bobinas em nivel critico</div>
+          <div class="notif-body">Estoque critico! Solicite agora para evitar interrupcao na impressao.<br><strong>[Solicitar Agora]</strong></div>
+        </div>
+
+        <table class="rules-table" style="margin-top:8px">
+          <thead><tr><th>Evento</th><th>Canal</th><th>Frequencia max.</th></tr></thead>
+          <tbody>
+            <tr><td>Inventario &lt;40%</td><td>Push</td><td>1x/dia</td></tr>
+            <tr><td>Inventario &lt;20%</td><td>Push + E-mail</td><td>1x/12h</td></tr>
+            <tr><td>Pedido criado / despachado / entregue</td><td>Push + E-mail</td><td>por evento</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <!-- ARQUITETURA -->
+      <div class="card">
+        <div class="card-title"><span class="icon">&#x1F3D7;</span>Arquitetura do Sistema — 3 Camadas</div>
+        <div class="grid-3" style="gap:8px">
+          <div>
+            <div class="section-title">Monitoramento</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-title">Coleta de transacoes</div>
+                <div class="timeline-desc">API de pagamentos decrementa inventario estimado</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-title">Verificacao de threshold</div>
+                <div class="timeline-desc">Engine verifica periodicamente o nivel por grupo</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-title">Notificacao</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-title">Disparo automatico</div>
+                <div class="timeline-desc">Push + e-mail ao responsavel pelo grupo</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-title">Validacao do pedido</div>
+                <div class="timeline-desc">RestockUtils valida quantidade e tipo de grupo</div>
+              </div>
+            </div>
+          </div>
+          <div>
+            <div class="section-title">Fulfillment</div>
+            <div class="timeline">
+              <div class="timeline-item">
+                <div class="timeline-title">Geracao de shipments</div>
+                <div class="timeline-desc">1 ou N caixas conforme regras do motor</div>
+              </div>
+              <div class="timeline-item">
+                <div class="timeline-title">Entrega e reset</div>
+                <div class="timeline-desc">Inventario resetado apos entrega confirmada</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top:16px">Estados do Inventario</div>
+        <div class="inv-level">
+          <div class="inv-dot" style="background:var(--green)"></div>
+          <div style="flex:1"><div style="font-weight:600;font-size:13px">Normal (&gt;60%)</div><div style="font-size:11px;color:var(--gray-light)">Sem acao necessaria</div></div>
+          <span class="badge badge-green">OK</span>
+        </div>
+        <div class="inv-level">
+          <div class="inv-dot" style="background:var(--orange)"></div>
+          <div style="flex:1"><div style="font-weight:600;font-size:13px">Alerta (20–60%)</div><div style="font-size:11px;color:var(--gray-light)">Push preventivo enviado</div></div>
+          <span class="badge badge-orange">ALERTA</span>
+        </div>
+        <div class="inv-level">
+          <div class="inv-dot" style="background:var(--red)"></div>
+          <div style="flex:1"><div style="font-weight:600;font-size:13px">Critico (&lt;20%)</div><div style="font-size:11px;color:var(--gray-light)">Push + e-mail urgente</div></div>
+          <span class="badge badge-red">CRITICO</span>
+        </div>
+        <div class="inv-level">
+          <div class="inv-dot" style="background:var(--black)"></div>
+          <div style="flex:1"><div style="font-weight:600;font-size:13px">Esgotado (0%)</div><div style="font-size:11px;color:var(--gray-light)">Maquininha nao imprime</div></div>
+          <span class="badge badge-gray">VAZIO</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== TAB 2: MOTOR DE BOBINAS ==================== -->
+<div id="tab-engine" class="tab-content">
+
+  <div class="alert alert-blue">
+    <span>&#x2699;</span>
+    <div><strong>RestockUtils</strong> — Classe responsavel pelo calculo e geracao de shipments para pedidos MLB. Define quantidades e divisoes de envio conforme o tipo de grupo (CONVENTIONAL ou ON_DEMAND).</div>
+  </div>
+
+  <!-- REGRAS DO MOTOR -->
+  <div class="grid-2">
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <span>CONVENTIONAL — Regras do Motor</span>
+        <span class="badge badge-yellow">1 shipment sempre</span>
+      </div>
+      <div class="rule-card-body">
+        <table class="rules-table">
+          <thead>
+            <tr><th>Qtd Solicitada</th><th>Qtd Enviada</th><th>Shipments</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>&lt;= 5 kits</td><td><strong>= solicitado</strong></td><td>1×exato</td><td style="font-size:11px;color:var(--gray-light)">Pediu 3 → envia 3</td></tr>
+            <tr><td>6 a 10 kits</td><td><strong>= 10 kits</strong></td><td>1×10</td><td style="font-size:11px;color:var(--gray-light)">Pediu 7 → envia 10</td></tr>
+            <tr><td>11 a 14 kits</td><td><strong>= 10 kits</strong></td><td>1×10</td><td style="font-size:11px;color:var(--gray-light)">Pediu 12 → envia 10</td></tr>
+            <tr><td>15 a 24 kits</td><td><strong>= 20 kits</strong></td><td>1×20</td><td style="font-size:11px;color:var(--gray-light)">Pediu 17 → envia 20</td></tr>
+            <tr><td>25 a 34 kits</td><td><strong>= 30 kits</strong></td><td>1×30</td><td style="font-size:11px;color:var(--gray-light)">Pediu 30 → envia 30</td></tr>
+            <tr><td>&gt; 34 kits</td><td><strong>= 30 kits (cap)</strong></td><td>1×30</td><td style="font-size:11px;color:var(--gray-light)">Pediu 60 → envia 30</td></tr>
+          </tbody>
+        </table>
+        <div class="decision-tree" style="margin-top:12px">
+<span class="dt-comment">// CONVENTIONAL logic</span>
+if qtd <span class="dt-condition">&lt;=</span> <span class="number">5</span>:   <span class="dt-action">→ ship(qtd)</span>
+elif qtd <span class="dt-condition">&lt;=</span> <span class="number">10</span>:  <span class="dt-action">→ ship(10)</span>
+else:
+  rounded = round_to_10(qtd)
+  <span class="dt-action">→ ship(MIN(rounded, 30))</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="rule-card">
+      <div class="rule-card-header">
+        <span>ON_DEMAND — Regras do Motor</span>
+        <span class="badge badge-blue">N shipments possiveis</span>
+      </div>
+      <div class="rule-card-body">
+        <table class="rules-table">
+          <thead>
+            <tr><th>Qtd Solicitada</th><th>Shipments Gerados</th><th>Exemplo</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>1 a 5 kits</td><td>1 shipment exato</td><td style="font-size:11px;color:var(--gray-light)">Pediu 4 → 1×4</td></tr>
+            <tr style="background:#FEE8EA"><td>6 a 9 kits</td><td>2 shipments: [5] + [resto]</td><td style="font-size:11px;color:var(--gray-light)">Pediu 7 → 1×5 + 1×2</td></tr>
+            <tr><td>10–29 kits (mult. de 10)</td><td>N × 10 kits</td><td style="font-size:11px;color:var(--gray-light)">Pediu 20 → 2×10</td></tr>
+            <tr style="background:#FEE8EA"><td>10–29 kits (nao mult.)</td><td><span style="color:var(--red)">BusinessException</span></td><td style="font-size:11px;color:var(--red)">Pediu 12 → ERRO</td></tr>
+            <tr><td>&gt;= 30 kits (mult. de 30)</td><td>N × 30 kits</td><td style="font-size:11px;color:var(--gray-light)">Pediu 90 → 3×30</td></tr>
+            <tr style="background:#FEE8EA"><td>&gt;= 30 kits (nao mult.)</td><td><span style="color:var(--red)">BusinessException</span></td><td style="font-size:11px;color:var(--red)">Pediu 34 → ERRO</td></tr>
+          </tbody>
+        </table>
+        <div class="decision-tree" style="margin-top:12px">
+<span class="dt-comment">// ON_DEMAND logic</span>
+if qtd <span class="dt-condition">&lt;=</span> <span class="number">5</span>:   <span class="dt-action">→ [ship(qtd)]</span>
+elif qtd <span class="dt-condition">&lt;=</span> <span class="number">9</span>:   <span class="dt-action">→ [ship(5), ship(qtd-5)]</span>
+elif qtd <span class="dt-condition">&lt;</span> <span class="number">30</span>:
+  if qtd % <span class="number">10</span> != <span class="number">0</span>: <span class="dt-no">raise Exception</span>
+  <span class="dt-action">→ [ship(10)] × (qtd / 10)</span>
+else:
+  if qtd % <span class="number">30</span> != <span class="number">0</span>: <span class="dt-no">raise Exception</span>
+  <span class="dt-action">→ [ship(30)] × (qtd / 30)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MATRIZ DE DECISÃO COMPLETA -->
+  <div class="card">
+    <div class="card-title"><span class="icon">&#x1F4CA;</span>Matriz de Decisao Completa</div>
+    <div style="overflow-x:auto">
+    <table class="rules-table">
+      <thead>
+        <tr>
+          <th>Qtd Solicitada</th>
+          <th>CONVENTIONAL — Enviado</th>
+          <th>CONVENTIONAL — Shipments</th>
+          <th>ON_DEMAND — Enviado</th>
+          <th>ON_DEMAND — Shipments</th>
+          <th>Erro ON_DEMAND?</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>1</td><td>1×1</td><td>1</td><td>1×1</td><td>—</td></tr>
+        <tr><td>3</td><td>3</td><td>1×3</td><td>3</td><td>1×3</td><td>—</td></tr>
+        <tr><td>5</td><td>5</td><td>1×5</td><td>5</td><td>1×5</td><td>—</td></tr>
+        <tr style="background:#FEE8EA"><td>7</td><td>10</td><td>1×10</td><td>5+2</td><td>1×5 + 1×2</td><td>— (split ineficiente)</td></tr>
+        <tr style="background:#FEE8EA"><td>9</td><td>10</td><td>1×10</td><td>5+4</td><td>1×5 + 1×4</td><td>— (split ineficiente)</td></tr>
+        <tr><td>10</td><td>10</td><td>1×10</td><td>10</td><td>1×10</td><td>—</td></tr>
+        <tr style="background:#FEE8EA"><td>12</td><td>10</td><td>1×10</td><td style="color:var(--red)">Erro</td><td>—</td><td style="color:var(--red)">Nao mult. de 10</td></tr>
+        <tr style="background:#FEE8EA"><td>17</td><td>20</td><td>1×20</td><td style="color:var(--red)">Erro</td><td>—</td><td style="color:var(--red)">Nao mult. de 10</td></tr>
+        <tr><td>20</td><td>20</td><td>1×20</td><td>20</td><td>2×10</td><td>—</td></tr>
+        <tr style="background:#FEE8EA"><td>25</td><td>30</td><td>1×30</td><td style="color:var(--red)">Erro</td><td>—</td><td style="color:var(--red)">Nao mult. de 10</td></tr>
+        <tr style="background:#FFFDE7"><td><strong>30</strong></td><td><strong>30</strong></td><td><strong>1×30</strong></td><td><strong>30</strong></td><td><strong>1×30</strong></td><td>— (otimo)</td></tr>
+        <tr style="background:#FEE8EA"><td>34</td><td>30</td><td>1×30</td><td style="color:var(--red)">Erro</td><td>—</td><td style="color:var(--red)">Nao mult. de 30</td></tr>
+        <tr><td>60</td><td>30 (cap)</td><td>1×30</td><td>60</td><td>2×30</td><td>—</td></tr>
+        <tr><td>90</td><td>30 (cap)</td><td>1×30</td><td>90</td><td>3×30</td><td>—</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+
+  <!-- ELEGIBILIDADE POR SEGMENTO -->
+  <div class="card">
+    <div class="card-title"><span class="icon">&#x1F3AF;</span>Regras de Elegibilidade por Segmento — Cross-Site</div>
+    <div class="alert alert-yellow">
+      <span>&#x1F4A1;</span>
+      <div><strong>Como ler:</strong> threshold = 50% significa que o seller so pode pedir com &lt;= 50% de estoque. MLC (99%) = sem restricao pratica. Gap entre portal e CX/FAQ gera bypass emergencial.</div>
+    </div>
+    <div style="overflow-x:auto">
+    <table class="rules-table" style="min-width:820px">
+      <thead>
+        <tr>
+          <th>Segmento</th>
+          <th>Canal</th>
+          <th style="text-align:center">MLA</th>
+          <th style="text-align:center">MLB</th>
+          <th style="text-align:center">MLC</th>
+          <th style="text-align:center">MLM</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr style="background:#FFFDE7">
+          <td rowspan="3" style="font-weight:700;vertical-align:middle;background:#FFFDE7"><span class="badge badge-yellow">BIG SELLERS</span></td>
+          <td>Portal direto</td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">99%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+        </tr>
+        <tr style="background:#FFFDE7">
+          <td>FAQ / Maxwell</td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">99%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+        </tr>
+        <tr style="background:#FFFDE7">
+          <td>CX / N2</td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">99%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+        </tr>
+        <tr>
+          <td rowspan="3" style="font-weight:700;vertical-align:middle"><span class="badge badge-blue">SMB</span></td>
+          <td>Portal direto</td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">99%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+        </tr>
+        <tr>
+          <td>FAQ / Maxwell</td>
+          <td style="text-align:center"><span class="badge badge-blue">80%</span></td>
+          <td style="text-align:center"><span class="badge badge-blue">80%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">99%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+        </tr>
+        <tr>
+          <td>CX / N2</td>
+          <td style="text-align:center"><span class="badge badge-blue">80%</span></td>
+          <td style="text-align:center"><span class="badge badge-orange">90%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">99%</span></td>
+          <td style="text-align:center"><span class="badge badge-green">100%</span></td>
+        </tr>
+        <tr style="background:#F8F9FA">
+          <td rowspan="3" style="font-weight:700;vertical-align:middle;background:#F8F9FA"><span class="badge badge-gray">LONGTAIL</span></td>
+          <td>Portal direto</td>
+          <td style="text-align:center"><span class="badge badge-red">40%</span></td>
+          <td style="text-align:center"><span class="badge badge-red">40%</span></td>
+          <td style="text-align:center"><span class="badge badge-blue">60%</span></td>
+          <td style="text-align:center"><span class="badge badge-red">40%</span></td>
+        </tr>
+        <tr style="background:#F8F9FA">
+          <td>FAQ / Maxwell</td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-blue">60%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+        </tr>
+        <tr style="background:#F8F9FA">
+          <td>CX / N2</td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+          <td style="text-align:center"><span class="badge badge-blue">60%</span></td>
+          <td style="text-align:center"><span class="badge badge-yellow">50%</span></td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- PROBLEMA + PROPOSTA UNIFICADA -->
+    <div style="margin-top:20px" class="grid-2">
+      <div class="alert alert-red" style="align-items:flex-start">
+        <span>&#x26A8;</span>
+        <div>
+          <strong>Problema atual — Bypass via CX</strong><br>
+          <span style="font-size:12px">Seller SMB MLB com 60% de estoque: portal bloqueia (50%), Maxwell/FAQ aprovam (80%). Seller bloqueado no autoatendimento recorre ao CX humano — custo ~$3–5 por contactacao desnecessaria. Estimativa: ~18% dos sellers bloqueados no portal buscam CX como escape.</span>
+        </div>
+      </div>
+      <div class="alert alert-green" style="align-items:flex-start">
+        <span>&#x1F3AF;</span>
+        <div>
+          <strong>Proposta — Politica unificada (MLB)</strong><br>
+          <span style="font-size:12px">
+            <strong>BS: 100%</strong> todos os canais (portal +50pp) — sellers de maior valor, risco de churn alto<br>
+            <strong>SMB: 70%</strong> todos os canais (portal +20pp, CX −10pp) — elimina escape<br>
+            <strong>Longtail: 50%</strong> todos os canais (portal +10pp) — equipara portal ao CX atual<br>
+            Impacto estimado: −25% CR, +15–20% autogestao, +0,4–0,6 CSAT
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- CUSTO DE ENVIO CROSS-SITE -->
+  <div class="card">
+    <div class="card-title"><span class="icon">&#x1F4B0;</span>Custo de Envio Cross-Site — Dados Reais por Site</div>
+
+    <div class="alert alert-blue">
+      <span>&#x2139;</span>
+      <div><strong>Formula:</strong> Custo Total = (Kits × Bob/kit × $/bob) + (Shipments × $/envio). MLB tem 6 bobinas/kit; todos os demais sites tem 10 bobinas/kit.</div>
+    </div>
+
+    <div style="overflow-x:auto">
+    <table class="rules-table" style="margin-bottom:16px">
+      <thead>
+        <tr>
+          <th>Site</th>
+          <th>Bob/Kit</th>
+          <th>$/Bob</th>
+          <th>$/Frete/Envio</th>
+          <th>Bob Totais (30 kits)</th>
+          <th>Custo Produto</th>
+          <th>Custo Frete</th>
+          <th>Total 30 kits</th>
+          <th>$/bobina</th>
+          <th>$/kit</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>MLA</td><td>10</td><td>$0,17</td><td>$2,38</td><td>300</td><td>$51,00</td><td>$2,38</td><td><strong>$53,38</strong></td><td>$0,178</td><td>$1,78</td></tr>
+        <tr style="background:#FFFDE7"><td><strong>MLB</strong></td><td><strong>6</strong></td><td><strong>$0,19</strong></td><td><strong>$3,38</strong></td><td><strong>180</strong></td><td><strong>$34,20</strong></td><td><strong>$3,38</strong></td><td><strong>$37,58</strong></td><td><strong>$0,209</strong></td><td><strong>$1,25</strong></td></tr>
+        <tr><td>MLC</td><td>10</td><td>$0,21</td><td>$4,00</td><td>300</td><td>$63,00</td><td>$4,00</td><td><strong>$67,00</strong></td><td>$0,223</td><td>$2,23</td></tr>
+        <tr><td>MLM</td><td>10</td><td>$0,16</td><td>$4,11</td><td>300</td><td>$48,00</td><td>$4,11</td><td><strong>$52,11</strong></td><td>$0,174</td><td>$1,74</td></tr>
+        <tr><td>MLU</td><td>10</td><td>$0,30</td><td>$5,02</td><td>300</td><td>$90,00</td><td>$5,02</td><td><strong>$95,02</strong></td><td>$0,317</td><td>$3,17</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- CENÁRIOS MLB -->
+    <div class="section-title">MLB — Custo por Cenario (6 bob/kit · $0,19/bob · $3,38/envio)</div>
+    <div style="overflow-x:auto">
+    <table class="rules-table">
+      <thead>
+        <tr>
+          <th>Qtd Kits</th><th>Bobinas</th><th>Tipo</th><th>Shipments</th><th>Custo Prod.</th><th>Custo Frete</th><th>Total</th><th>$/bobina</th><th>Eficiencia</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>5</td><td>30</td><td><span class="badge badge-gray">ambos</span></td><td>1×5</td><td>$5,70</td><td>$3,38</td><td><strong>$9,08</strong></td><td>$0,303</td><td><span class="badge badge-orange">Baixa</span></td></tr>
+        <tr style="background:#FEE8EA"><td>7</td><td>42</td><td><span class="badge badge-blue">ON_DEM.</span></td><td>1×5 + 1×2</td><td>$7,98</td><td>$6,76</td><td><strong>$14,74</strong></td><td style="color:var(--red)"><strong>$0,351</strong></td><td><span class="badge badge-red">Pior</span></td></tr>
+        <tr style="background:#FEE8EA"><td>9</td><td>54</td><td><span class="badge badge-blue">ON_DEM.</span></td><td>1×5 + 1×4</td><td>$10,26</td><td>$6,76</td><td><strong>$17,02</strong></td><td style="color:var(--red)">$0,315</td><td><span class="badge badge-red">Muito Baixa</span></td></tr>
+        <tr><td>10</td><td>60</td><td><span class="badge badge-gray">ambos</span></td><td>1×10</td><td>$11,40</td><td>$3,38</td><td><strong>$14,78</strong></td><td>$0,246</td><td><span class="badge badge-green">Boa</span></td></tr>
+        <tr><td>20</td><td>120</td><td><span class="badge badge-blue">ON_DEM.</span></td><td>2×10</td><td>$22,80</td><td>$6,76</td><td><strong>$29,56</strong></td><td>$0,246</td><td><span class="badge badge-green">Boa</span></td></tr>
+        <tr style="background:#FFFDE7"><td><strong>30</strong></td><td><strong>180</strong></td><td><span class="badge badge-gray">ambos</span></td><td><strong>1×30</strong></td><td><strong>$34,20</strong></td><td><strong>$3,38</strong></td><td><strong>$37,58</strong></td><td style="color:var(--green)"><strong>$0,209</strong></td><td><span class="badge badge-green">Otima</span></td></tr>
+        <tr><td>60</td><td>360</td><td><span class="badge badge-blue">ON_DEM.</span></td><td>2×30</td><td>$68,40</td><td>$6,76</td><td><strong>$75,16</strong></td><td>$0,209</td><td><span class="badge badge-green">Otima</span></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- PROPOSTAS DE ECONOMIA -->
+    <div class="section-title" style="margin-top:20px">3 Propostas de Economia — MLB</div>
+    <div class="grid-3" style="gap:12px">
+      <div class="rule-card" style="margin-bottom:0">
+        <div class="rule-card-header" style="background:var(--green)">
+          <span>Proposta 1 — MLB: 6 para 10 bob/kit</span>
+          <span class="badge badge-yellow">Recomendada</span>
+        </div>
+        <div class="rule-card-body" style="font-size:12px;line-height:1.6">
+          <strong>Situacao atual:</strong> 300 bob = 2 pedidos (30+20 kits) = 3 shipments = $67,14<br>
+          <strong>Proposto:</strong> 300 bob = 1 pedido (30 kits × 10) = 1 shipment = $60,38<br>
+          <div style="margin-top:10px;text-align:center">
+            <div style="font-size:24px;font-weight:800;color:var(--green)">−10,1%</div>
+            <div style="font-size:11px;color:var(--gray-light)">economia no custo total por ciclo de 300 bob</div>
+            <div style="font-size:11px;color:var(--gray-light)">$0,224 → $0,201/bobina · −1 shipment</div>
+          </div>
+          <div style="margin-top:8px"><span class="badge badge-orange">Complexidade: media</span> <span style="font-size:11px">mudanca de embalagem + motor</span></div>
+          <div style="margin-top:4px"><span class="badge badge-blue">Prazo: Q2/Q3 2026</span></div>
+        </div>
+      </div>
+      <div class="rule-card" style="margin-bottom:0">
+        <div class="rule-card-header" style="background:var(--blue)">
+          <span>Proposta 2 — Eliminar split 6–9 kits</span>
+          <span class="badge badge-yellow">Alta prioridade</span>
+        </div>
+        <div class="rule-card-body" style="font-size:12px;line-height:1.6">
+          <strong>Problema:</strong> ON_DEMAND 7 kits → 2 shipments → $6,76 frete ($0,351/bob)<br>
+          <strong>Proposto:</strong> 1 shipment de 7 kits → $3,38 frete ($0,265/bob)<br>
+          <strong>Alternativa UX:</strong> redirecionar selector para 5 ou 10 kits (mais simples)<br>
+          <div style="margin-top:10px;text-align:center">
+            <div style="font-size:24px;font-weight:800;color:var(--blue)">−$3,38</div>
+            <div style="font-size:11px;color:var(--gray-light)">por pedido na faixa 6–9 kits</div>
+          </div>
+          <div style="margin-top:8px"><span class="badge badge-green">Complexidade: baixa</span></div>
+          <div style="margin-top:4px"><span class="badge badge-blue">Prazo: Q2 2026</span></div>
+        </div>
+      </div>
+      <div class="rule-card" style="margin-bottom:0">
+        <div class="rule-card-header" style="background:var(--purple)">
+          <span>Proposta 3 — Consolidacao por local</span>
+          <span class="badge badge-blue">Medio prazo</span>
+        </div>
+        <div class="rule-card-body" style="font-size:12px;line-height:1.6">
+          <strong>Sem consolidacao:</strong> 3 maquinas × 10 kits = 3 shipments = $44,34<br>
+          <strong>Com consolidacao:</strong> 1 pedido × 30 kits = 1 shipment = $37,58<br>
+          <div style="margin-top:10px;text-align:center">
+            <div style="font-size:24px;font-weight:800;color:var(--purple)">−15%</div>
+            <div style="font-size:11px;color:var(--gray-light)">para locais com 3+ maquinas</div>
+          </div>
+          <div style="margin-top:8px"><span class="badge badge-orange">Complexidade: media</span></div>
+          <div style="margin-top:4px"><span class="badge badge-blue">Prazo: Q3 2026</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- ==================== TAB 3: SUPORTE ==================== -->
+<div id="tab-support" class="tab-content">
+
+  <!-- KPIs DE SUPORTE -->
+  <div class="kpi-grid">
+    <div class="kpi-card">
+      <div class="kpi-label">CR Medio Q1/26</div>
+      <div class="kpi-value">0,203</div>
+      <div class="kpi-sub">×10k MAD · 267 casos CX (jan–mar)</div>
+    </div>
+    <div class="kpi-card red">
+      <div class="kpi-label">Pico CR (fev/26)</div>
+      <div class="kpi-value">0,231</div>
+      <div class="kpi-sub">×10k · supply issue period</div>
+    </div>
+    <div class="kpi-card orange">
+      <div class="kpi-label">CSAT Medio Q1</div>
+      <div class="kpi-value">3,41</div>
+      <div class="kpi-sub">57 respostas / 1.477 conv. · meta: 4,0</div>
+    </div>
+    <div class="kpi-card green">
+      <div class="kpi-label">Deflection Maxwell</div>
+      <div class="kpi-value">~90%</div>
+      <div class="kpi-sub">abr/26: 90,8% · mar/26: 89,4%</div>
+    </div>
+    <div class="kpi-card blue">
+      <div class="kpi-label">Maior Use Case CX</div>
+      <div class="kpi-value">60%</div>
+      <div class="kpi-sub">Product Not Received (159/267 Q1)</div>
+    </div>
+    <div class="kpi-card purple">
+      <div class="kpi-label">Supply Issues Q1</div>
+      <div class="kpi-value">31%</div>
+      <div class="kpi-sub">84 contactacoes de 267 total</div>
+    </div>
+  </div>
+
+  <!-- TABELA CR MÊS A MÊS -->
+  <div class="card">
+    <div class="card-title"><span class="icon">&#x1F4C5;</span>Contact Rate e CSAT — Dados Reais por Mes (BigQuery)</div>
+    <div class="alert alert-green" style="margin-bottom:12px">
+      <span>&#x2705;</span>
+      <div>Dados reais extraidos de <code>BT_MAXWELL_CONVERSATION_DETAILS</code> · filtro <code>PRODUCT_DETAIL LIKE '%paper%'</code> · <code>SITE_ID = 'MLB'</code>. CR = casos com <code>CONTACTED=TRUE</code> / MAD cross-site.</div>
+    </div>
+
+    <div style="overflow-x:auto">
+    <table class="rules-table">
+      <thead>
+        <tr>
+          <th>Mes</th>
+          <th>Casos CX</th>
+          <th>MAD (cross-site)</th>
+          <th>CR x10k MAD</th>
+          <th>Deflection Maxwell</th>
+          <th>CSAT</th>
+          <th>Observacao</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>nov/25</td><td>69</td><td>4.601.967</td>
+          <td><span class="badge badge-orange">0,150</span></td>
+          <td>71,6%</td><td><span class="badge badge-orange">3,67 (n=12)</span></td>
+          <td style="font-size:11px;color:var(--gray-light)">Baseline pre-supply issue</td>
+        </tr>
+        <tr>
+          <td>dez/25</td><td>44</td><td>4.639.907</td>
+          <td><span class="badge badge-green">0,095</span></td>
+          <td>61,9%</td><td><span class="badge badge-red">3,13 (n=8)</span></td>
+          <td style="font-size:11px;color:var(--gray-light)">CR minimo; CSAT baixo com n pequeno</td>
+        </tr>
+        <tr>
+          <td>jan/26</td><td>87</td><td>4.544.791</td>
+          <td><span class="badge badge-orange">0,191</span></td>
+          <td>77,0%</td><td><span class="badge badge-orange">3,64 (n=22)</span></td>
+          <td style="font-size:11px;color:var(--gray-light)">Volume aumenta; deflection sobe</td>
+        </tr>
+        <tr style="background:#FFF0E8">
+          <td><strong>fev/26</strong></td><td><strong>106 (pico)</strong></td><td>4.589.120</td>
+          <td><span class="badge badge-red">0,231</span></td>
+          <td>73,4%</td><td><span class="badge badge-red">3,44 (n=9)</span></td>
+          <td style="font-size:11px;color:var(--red)">Pico CR · supply issue ativo · deflection cai</td>
+        </tr>
+        <tr>
+          <td>mar/26</td><td>74</td><td>4.039.043</td>
+          <td><span class="badge badge-orange">0,183</span></td>
+          <td>89,4%</td><td><span class="badge badge-red">3,15 (n=26)</span></td>
+          <td style="font-size:11px;color:var(--gray-light)">CR cai; deflection dispara para 89%</td>
+        </tr>
+        <tr style="background:#E6F7EE">
+          <td>abr/26</td><td>48</td><td>—</td>
+          <td><span class="badge badge-green">tendencia queda</span></td>
+          <td>90,8%</td><td><span class="badge badge-green">4,0 (n=3*)</span></td>
+          <td style="font-size:11px;color:var(--gray-light)">*n=3 nao confiavel; deflection recorde</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <!-- GRÁFICO CSAT -->
+    <div class="section-title" style="margin-top:20px">CSAT Mensal — Visualizacao</div>
+    <div style="display:flex;gap:0;align-items:flex-end;height:160px;padding:0 8px;margin-bottom:8px;border-bottom:2px solid var(--gray-border)">
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+        <div style="font-size:11px;font-weight:700;color:var(--orange)">3,67</div>
+        <div style="width:40px;background:var(--orange);border-radius:4px 4px 0 0;height:103px"></div>
+        <div style="font-size:10px;color:var(--gray-light)">nov/25</div>
+        <div style="font-size:9px;color:var(--gray-light)">(n=12)</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+        <div style="font-size:11px;font-weight:700;color:var(--red)">3,13</div>
+        <div style="width:40px;background:var(--red);border-radius:4px 4px 0 0;height:88px"></div>
+        <div style="font-size:10px;color:var(--gray-light)">dez/25</div>
+        <div style="font-size:9px;color:var(--gray-light)">(n=8)</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+        <div style="font-size:11px;font-weight:700;color:var(--orange)">3,64</div>
+        <div style="width:40px;background:var(--orange);border-radius:4px 4px 0 0;height:102px"></div>
+        <div style="font-size:10px;color:var(--gray-light)">jan/26</div>
+        <div style="font-size:9px;color:var(--gray-light)">(n=22)</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+        <div style="font-size:11px;font-weight:700;color:var(--red)">3,44</div>
+        <div style="width:40px;background:var(--red);border-radius:4px 4px 0 0;height:96px"></div>
+        <div style="font-size:10px;color:var(--gray-light)">fev/26</div>
+        <div style="font-size:9px;color:var(--gray-light)">(n=9)</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+        <div style="font-size:11px;font-weight:700;color:var(--red)">3,15</div>
+        <div style="width:40px;background:var(--red);border-radius:4px 4px 0 0;height:88px"></div>
+        <div style="font-size:10px;color:var(--gray-light)">mar/26</div>
+        <div style="font-size:9px;color:var(--gray-light)">(n=26)</div>
+      </div>
+      <div style="display:flex;flex-direction:column;align-items:center;flex:1;gap:4px">
+        <div style="font-size:11px;font-weight:700;color:var(--green)">4,00</div>
+        <div style="width:40px;background:var(--green);border-radius:4px 4px 0 0;height:112px"></div>
+        <div style="font-size:10px;color:var(--gray-light)">abr/26</div>
+        <div style="font-size:9px;color:var(--gray-light)">(n=3 *)</div>
+      </div>
+      <!-- Linha de meta -->
+      <div style="position:relative;flex:0;width:0">
+        <div style="position:absolute;right:20px;top:0;width:280px;border-top:2px dashed var(--green);margin-top:4px">
+          <span style="font-size:10px;color:var(--green);font-weight:700;background:white;padding:0 4px">META 4,0</span>
+        </div>
+      </div>
+    </div>
+    <div style="display:flex;gap:16px;margin-top:8px;flex-wrap:wrap">
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><div style="width:12px;height:12px;background:var(--green);border-radius:2px"></div>CSAT &gt;= 4,0 (meta)</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><div style="width:12px;height:12px;background:var(--orange);border-radius:2px"></div>CSAT 3,5–3,9</div>
+      <div style="display:flex;align-items:center;gap:6px;font-size:12px"><div style="width:12px;height:12px;background:var(--red);border-radius:2px"></div>CSAT &lt; 3,5</div>
+      <div style="font-size:12px;color:var(--gray-light)">* abr/26: apenas 3 avaliacoes, nao confiavel</div>
+    </div>
+  </div>
+
+  <!-- BREAKDOWN DE CONTACTAÇÕES + SUPPLY ISSUES -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">&#x1F4CA;</span>Breakdown de Contactacoes Q1/26 — 267 casos CX</div>
+
+      <div style="display:flex;flex-direction:column;gap:8px;margin-bottom:16px">
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <div style="flex:0 0 170px;font-size:12px">Product Not Received</div>
+          <div style="flex:1;background:var(--gray-border);border-radius:4px;height:26px;overflow:hidden">
+            <div style="width:60%;background:var(--red);height:100%;display:flex;align-items:center;padding-left:10px;color:#fff;font-size:12px;font-weight:700">159 (60%)</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <div style="flex:0 0 170px;font-size:12px">Supply Issues</div>
+          <div style="flex:1;background:var(--gray-border);border-radius:4px;height:26px;overflow:hidden">
+            <div style="width:31%;background:var(--orange);height:100%;display:flex;align-items:center;padding-left:10px;color:#fff;font-size:12px;font-weight:700">84 (31%)</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <div style="flex:0 0 170px;font-size:12px">Shipping Issues</div>
+          <div style="flex:1;background:var(--gray-border);border-radius:4px;height:26px;overflow:hidden">
+            <div style="width:3%;background:var(--yellow);height:100%;min-width:50px;display:flex;align-items:center;padding-left:10px;color:#333;font-size:12px;font-weight:700">9 (3%)</div>
+          </div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px;font-size:13px">
+          <div style="flex:0 0 170px;font-size:12px">Outros</div>
+          <div style="flex:1;background:var(--gray-border);border-radius:4px;height:26px;overflow:hidden">
+            <div style="width:6%;background:var(--gray-light);height:100%;min-width:46px;display:flex;align-items:center;padding-left:10px;color:#fff;font-size:12px;font-weight:700">15 (6%)</div>
+          </div>
+        </div>
+      </div>
+
+      <div style="background:linear-gradient(135deg,#E6F7EE,#F0FFF6);border:2px solid var(--green);border-radius:10px;padding:16px">
+        <div style="font-size:12px;font-weight:700;color:var(--green);margin-bottom:8px">IMPACTO DA POLITICA UNIFICADA — Projecao CR</div>
+        <div style="font-size:12px;color:var(--gray-mid);line-height:1.8">
+          <strong>Base:</strong> 159 contactacoes "Product Not Received" no Q1/26<br>
+          <strong>Estimativa conservadora (−25%):</strong> <span style="color:var(--green);font-weight:700">−40 contactacoes/trimestre</span><br>
+          <strong>Estimativa otimista (−40%):</strong> <span style="color:var(--green);font-weight:700">−64 contactacoes/trimestre</span><br>
+          <strong>CR: </strong>de 0,203 → <span style="color:var(--green);font-weight:700">0,152–0,172 x10k MAD</span> (−15% a −25%)
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">&#x1F6A8;</span>Supply Issues — Analise de Impacto</div>
+      <div style="font-size:13px;line-height:1.6;color:var(--gray-mid);margin-bottom:16px">
+        <strong>O que e Supply Issue:</strong> periodo em que o estoque de bobinas no CD fica abaixo do necessario para atender pedidos no prazo prometido. Maxwell continua recebendo solicitacoes mas nao consegue informar prazo real.
+      </div>
+
+      <div class="grid-3" style="gap:8px;margin-bottom:16px">
+        <div class="kpi-card red" style="padding:14px">
+          <div class="kpi-label">Periodo ativo</div>
+          <div class="kpi-value" style="font-size:18px">fev–mar/26</div>
+          <div class="kpi-sub">2 meses com supply restrito</div>
+        </div>
+        <div class="kpi-card red" style="padding:14px">
+          <div class="kpi-label">Impacto CSAT</div>
+          <div class="kpi-value">−1,2</div>
+          <div class="kpi-sub">CSAT medio supply: ~2,8</div>
+        </div>
+        <div class="kpi-card orange" style="padding:14px">
+          <div class="kpi-label">Aumento contactacoes</div>
+          <div class="kpi-value">+257%</div>
+          <div class="kpi-sub">out/25: 372 → fev/26: 1.329</div>
+        </div>
+      </div>
+
+      <div class="section-title">3 Acoes Recomendadas para Supply Issues</div>
+
+      <div style="border:1px solid var(--blue-light);border-radius:8px;padding:12px;margin-bottom:10px;background:var(--blue-light)">
+        <div style="font-size:12px;font-weight:700;color:var(--blue);margin-bottom:4px">Acao 1 — Flag de supply issue em tempo real</div>
+        <div style="font-size:12px;color:#1a4a8c;line-height:1.6">
+          Variavel <code>supply_issue_active = true/false</code> por site em <code>configurations.yaml</code>. Maxwell usa mensagem de excecao em vez do prazo padrao quando ativo.<br>
+          <span class="badge badge-blue" style="margin-top:6px;display:inline-flex">Impacto: alto · Esforco: baixo</span>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--orange-light);border-radius:8px;padding:12px;margin-bottom:10px;background:var(--orange-light)">
+        <div style="font-size:12px;font-weight:700;color:var(--orange);margin-bottom:4px">Acao 2 — Cancelamento proativo durante atraso</div>
+        <div style="font-size:12px;color:#7a3a1a;line-height:1.6">
+          Pedidos com &gt;7 dias sem despacho devem ser cancelaveis via Maxwell sem fricção — oferecer na primeira interacao sobre atraso.<br>
+          <span class="badge badge-orange" style="margin-top:6px;display:inline-flex">Impacto: alto · Esforco: medio</span>
+        </div>
+      </div>
+
+      <div style="border:1px solid var(--purple-light);border-radius:8px;padding:12px;background:var(--purple-light)">
+        <div style="font-size:12px;font-weight:700;color:var(--purple);margin-bottom:4px">Acao 3 — Notificacao proativa de atraso</div>
+        <div style="font-size:12px;color:#5a2d6e;line-height:1.6">
+          Antes do seller reclamar, pr-inventory envia push/email com nova previsao. Reduz conversas reativas e melhora CSAT por proatividade.<br>
+          <span class="badge badge-purple" style="margin-top:6px;display:inline-flex">Impacto: muito alto · Esforco: medio</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ROADMAP MAXWELL + FLUXO DE DECISÃO -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-title"><span class="icon">&#x1F680;</span>Roadmap Maxwell — Paper Roll</div>
+      <div class="timeline">
+        <div class="timeline-item">
+          <div class="timeline-title" style="color:var(--green)">Disponivel — create/execute intent PAPER_ROLL</div>
+          <div class="timeline-desc">Tool create_intent_order suporta type=PAPER_ROLL; execute_intent_order finaliza com aprovacao explicita (2-step obrigatorio)</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title" style="color:var(--green)">Disponivel — spec de cancelamento</div>
+          <div class="timeline-desc">Fluxo de cancelamento via Maxwell para ORDER_CREATED e SHIPPING_CREATED sem despacho (RSO_TAG_NUMBER IS NULL)</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title" style="color:var(--blue)">Implementado 29/jan — get-device-details</div>
+          <div class="timeline-desc">Tool para consultar nivel de inventario de bobinas e informacoes do device em tempo real</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Q2/2026 — Diagnostico guiado "Nao imprime"</div>
+          <div class="timeline-desc">Arvore de decisao: verificar bobina vazia vs. falha de hardware antes de criar pedido. Estimativa: −15% pedidos desnecessarios</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Q2/2026 — Reposicao automatica via Maxwell</div>
+          <div class="timeline-desc">Maxwell cria pedido automaticamente quando inventario atinge threshold configurado pelo seller, com confirmacao via push</div>
+        </div>
+        <div class="timeline-item">
+          <div class="timeline-title">Q3/2026 — Segmentacao por grupo (locales)</div>
+          <div class="timeline-desc">Maxwell solicita bobinas para um grupo inteiro de maquininhas de um local, unificando em um pedido so</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-title"><span class="icon">&#x1F333;</span>Fluxo de Decisao Maxwell — Paper Roll</div>
+      <div class="decision-tree">
+<span class="dt-comment">// Maxwell Paper Roll Decision Tree</span>
+
+TRIGGER: "bobina", "papel", "rolo", "reposicao"
+  │
+  ├─[1] <span class="dt-condition">get_device_details(cust_id)</span>
+  │     ├─ tem device com impressora?
+  │     │    └─ <span class="dt-yes">SIM</span> → <span class="dt-action">continue</span>
+  │     └─ <span class="dt-no">NAO</span> → <span class="dt-action">"Nao possui maquininha com impressora"</span>
+  │          └─ <span class="dt-action">fallback_url: link compra device</span>
+  │
+  ├─[2] <span class="dt-condition">Verificar inventario + elegibilidade</span>
+  │     ├─ <span class="dt-yes">abaixo do threshold?</span> → <span class="dt-action">continue</span>
+  │     └─ <span class="dt-no">acima do threshold?</span>
+  │          └─ <span class="dt-action">"Seu estoque e de {X}%. Limite: {threshold}%"</span>
+  │
+  ├─[3] <span class="dt-condition">Coletar quantidade</span>
+  │     ├─ CONVENTIONAL: aceitar qualquer qtd
+  │     │    └─ <span class="dt-action">informar que sera arredondada</span>
+  │     └─ ON_DEMAND: validar multiplos
+  │          ├─ qtd <= 9: <span class="dt-action">aceitar</span>
+  │          ├─ 10-29: multiplo de 10? <span class="dt-yes">SIM</span>→ ok / <span class="dt-no">NAO</span>→ sugerir 10/20
+  │          └─ >=30: multiplo de 30? <span class="dt-yes">SIM</span>→ ok / <span class="dt-no">NAO</span>→ sugerir 30/60
+  │
+  ├─[4] <span class="dt-condition">create_intent_order(PAPER_ROLL, qty)</span>
+  │     ├─ <span class="dt-yes">success?</span> → mostrar resumo: kits, ships, prazo
+  │     └─ <span class="dt-no">error?</span>  → <span class="dt-action">fallback_url: portal paper roll</span>
+  │
+  └─[5] <span class="dt-condition">usuario confirma?</span>
+       ├─ <span class="dt-yes">SIM</span> → <span class="dt-condition">execute_intent_order</span>
+       │         ├─ <span class="dt-yes">ok</span>  → pedido + prazo entrega
+       │         └─ <span class="dt-no">err</span> → <span class="dt-action">fallback_url: portal MP</span>
+       └─ <span class="dt-no">NAO</span> → <span class="dt-action">fallback_url (sempre retornado)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- EXEMPLOS DE CONVERSA -->
+  <div class="card">
+    <div class="card-title"><span class="icon">&#x1F4AC;</span>Exemplos de Conversa Maxwell</div>
+    <div class="grid-2">
+      <div>
+        <div class="section-title">Happy Path — Pedido 10 kits ON_DEMAND</div>
+        <div class="chat-container">
+          <div>
+            <div class="chat-label user-label">Seller</div>
+            <div class="chat-bubble chat-user">Quero pedir bobinas para minha maquininha</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell</div>
+            <div class="chat-bubble chat-maxwell">
+              Verifiquei suas maquininhas: <strong>Point Pro 2 (Serial: XXXXX)</strong> esta em <strong>15%</strong> de estoque — nivel critico.<br><br>Quantos kits deseja? Opcoes validas: 5, 10, 20 ou 30 kits.
+            </div>
+          </div>
+          <div>
+            <div class="chat-label user-label">Seller</div>
+            <div class="chat-bubble chat-user">Quero 10 kits</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell</div>
+            <div class="chat-bubble chat-maxwell">
+              Confirmo: <strong>10 kits</strong> · Point Pro 2 (XXXXX) · 1 caixa · Rua das Flores, 123 — SP · Prazo: 3–5 dias uteis.<br>Confirma o pedido?
+            </div>
+          </div>
+          <div>
+            <div class="chat-label user-label">Seller</div>
+            <div class="chat-bubble chat-user">Sim</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell</div>
+            <div class="chat-bubble chat-maxwell">Pedido <strong>#PR-2026-04785</strong> confirmado! Voce recebera o rastreio por e-mail.</div>
+          </div>
+        </div>
+      </div>
+
+      <div>
+        <div class="section-title">Quantidade Invalida ON_DEMAND (12 kits)</div>
+        <div class="chat-container">
+          <div>
+            <div class="chat-label user-label">Seller</div>
+            <div class="chat-bubble chat-user">Preciso de 12 bobinas</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell</div>
+            <div class="chat-bubble chat-maxwell">
+              Para pedidos acima de 9 kits, a quantidade precisa ser <strong>multipla de 10</strong>.<br>Posso ajustar para: 10 kits (1 caixa) ou 20 kits (2 caixas). Qual prefere?
+            </div>
+          </div>
+          <div>
+            <div class="chat-label user-label">Seller</div>
+            <div class="chat-bubble chat-user">10 kits</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell</div>
+            <div class="chat-bubble chat-maxwell">Pedido de <strong>10 kits</strong> preparado. Confirma o envio para Rua das Flores, 123 — SP?</div>
+          </div>
+        </div>
+
+        <div class="section-title" style="margin-top:16px">Supply Issue — Gestao de Expectativa</div>
+        <div class="chat-container">
+          <div>
+            <div class="chat-label user-label">Seller (durante supply issue)</div>
+            <div class="chat-bubble chat-user">Cade minhas bobinas? Pedi faz 2 semanas</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell (com flag supply_issue_active)</div>
+            <div class="chat-bubble chat-maxwell" style="border-left:3px solid var(--green)">
+              Consultei seu pedido <strong>#PR-2026-04521</strong>. Estamos enfrentando uma indisponibilidade temporaria de estoque que esta causando atrasos.<br><br>
+              Seu pedido esta na fila com prioridade — nova previsao: <strong>[data atualizada]</strong>. Deseja manter ou cancelar?
+            </div>
+          </div>
+        </div>
+
+        <div class="section-title">Cancelamento Possivel</div>
+        <div class="chat-container">
+          <div>
+            <div class="chat-label user-label">Seller</div>
+            <div class="chat-bubble chat-user">Quero cancelar meu pedido de bobinas</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell</div>
+            <div class="chat-bubble chat-maxwell">
+              Pedido <strong>#PR-2026-04780</strong> — 10 kits · status: <strong>ORDER_CREATED</strong> (nao despachado).<br>Posso cancelar. Confirma?
+            </div>
+          </div>
+          <div>
+            <div class="chat-label user-label">Seller</div>
+            <div class="chat-bubble chat-user">Sim, cancela</div>
+          </div>
+          <div>
+            <div class="chat-label bot-label">Maxwell</div>
+            <div class="chat-bubble chat-maxwell">Pedido cancelado. Status: <strong>CANCELLATION_REQUESTED_BY_CUSTOMER</strong>. Deseja fazer um novo pedido?</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  function switchTab(tabName, btn) {
+    document.querySelectorAll('.tab-content').forEach(t => t.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+    document.getElementById('tab-' + tabName).classList.add('active');
+    btn.classList.add('active');
+  }
+</script>
+
+</body>
+</html>
