@@ -1,0 +1,1338 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Serviço de Bobinas Point — Apresentação Executiva</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    background: #0D0D0D;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    overflow: hidden;
+  }
+
+  .presentation-wrapper {
+    position: relative;
+    width: 1280px;
+    height: 720px;
+  }
+
+  /* Progress bar */
+  .progress-bar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 4px;
+    background: #FFE600;
+    transition: width 0.4s ease;
+    z-index: 100;
+    border-radius: 0 2px 2px 0;
+  }
+
+  /* Slide container */
+  .slide {
+    display: none;
+    position: absolute;
+    top: 0; left: 0;
+    width: 1280px;
+    height: 720px;
+    background: #1A1A1A;
+    color: #FFFFFF;
+    overflow: hidden;
+  }
+  .slide.active { display: flex; }
+
+  /* Navigation */
+  .nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255,230,0,0.12);
+    border: 1px solid rgba(255,230,0,0.3);
+    color: #FFE600;
+    width: 44px;
+    height: 80px;
+    cursor: pointer;
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 200;
+    border-radius: 4px;
+  }
+  .nav-btn:hover { background: rgba(255,230,0,0.25); }
+  .nav-prev { left: -52px; }
+  .nav-next { right: -52px; }
+
+  /* Slide number */
+  .slide-number {
+    position: absolute;
+    bottom: 16px;
+    right: 24px;
+    font-size: 12px;
+    color: #666;
+    letter-spacing: 0.5px;
+  }
+
+  /* ========== TYPOGRAPHY ========== */
+  .slide-tag {
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #FFE600;
+    margin-bottom: 8px;
+  }
+
+  h1 { font-size: 52px; font-weight: 700; line-height: 1.1; }
+  h2 { font-size: 28px; font-weight: 700; line-height: 1.2; }
+  h3 { font-size: 18px; font-weight: 600; }
+  h4 { font-size: 14px; font-weight: 600; }
+
+  .subtitle {
+    font-size: 18px;
+    color: #BBBBBB;
+    margin-top: 12px;
+    line-height: 1.5;
+  }
+
+  /* ========== SHARED LAYOUT UTILITIES ========== */
+  .flex-col { display: flex; flex-direction: column; }
+  .flex-row { display: flex; flex-direction: row; }
+  .gap-8 { gap: 8px; }
+  .gap-12 { gap: 12px; }
+  .gap-16 { gap: 16px; }
+  .gap-24 { gap: 24px; }
+
+  .yellow { color: #FFE600; }
+  .gray { color: #999; }
+  .white { color: #FFF; }
+  .red-text { color: #FF6B6B; }
+  .green-text { color: #4CAF50; }
+  .orange-text { color: #FF9800; }
+
+  /* ========== BOXES ========== */
+  .box {
+    border-radius: 6px;
+    padding: 12px 16px;
+  }
+  .box-yellow { background: rgba(255,230,0,0.12); border-left: 3px solid #FFE600; }
+  .box-red { background: rgba(255,107,107,0.12); border-left: 3px solid #FF6B6B; }
+  .box-green { background: rgba(76,175,80,0.12); border-left: 3px solid #4CAF50; }
+  .box-gray { background: rgba(255,255,255,0.06); border-left: 3px solid #666; }
+  .box-orange { background: rgba(255,152,0,0.12); border-left: 3px solid #FF9800; }
+  .box-dark { background: #111; border: 1px solid #333; border-radius: 6px; padding: 12px 16px; }
+
+  /* ========== TABLES ========== */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  th {
+    background: #2A2A2A;
+    color: #FFE600;
+    padding: 8px 12px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.3px;
+    border-bottom: 1px solid #333;
+  }
+  td {
+    padding: 7px 12px;
+    border-bottom: 1px solid #222;
+    color: #DDD;
+    vertical-align: middle;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:hover td { background: rgba(255,255,255,0.03); }
+
+  .td-highlight { color: #FFE600; font-weight: 600; }
+  .td-green { color: #4CAF50; font-weight: 600; }
+  .td-red { color: #FF6B6B; font-weight: 600; }
+  .td-orange { color: #FF9800; font-weight: 600; }
+  .td-gray { color: #888; }
+
+  /* ========== SLIDE 1 — CAPA ========== */
+  #slide-1 {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 80px 100px;
+    background: #1A1A1A;
+  }
+  #slide-1 .accent-bar {
+    position: absolute;
+    left: 0; top: 0; bottom: 0;
+    width: 8px;
+    background: #FFE600;
+  }
+  #slide-1 .accent-bottom {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 3px;
+    background: linear-gradient(90deg, #FFE600 0%, transparent 60%);
+  }
+  #slide-1 .decorative-circle {
+    position: absolute;
+    right: 80px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 320px;
+    height: 320px;
+    border-radius: 50%;
+    border: 2px solid rgba(255,230,0,0.1);
+    pointer-events: none;
+  }
+  #slide-1 .decorative-circle::after {
+    content: '';
+    position: absolute;
+    top: 30px; left: 30px; right: 30px; bottom: 30px;
+    border-radius: 50%;
+    border: 1px solid rgba(255,230,0,0.06);
+  }
+  #slide-1 h1 { font-size: 56px; line-height: 1.1; max-width: 700px; }
+  #slide-1 .cap-subtitle { font-size: 22px; color: #CCC; margin-top: 20px; max-width: 600px; }
+  #slide-1 .cap-tag {
+    margin-top: 40px;
+    display: inline-block;
+    background: #FFE600;
+    color: #1A1A1A;
+    font-size: 12px;
+    font-weight: 700;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 3px;
+  }
+
+  /* ========== SLIDE INNER LAYOUT ========== */
+  .slide-inner {
+    width: 100%;
+    height: 100%;
+    padding: 40px 56px 44px 56px;
+    display: flex;
+    flex-direction: column;
+  }
+  .slide-header {
+    margin-bottom: 24px;
+    flex-shrink: 0;
+  }
+  .slide-header h2 { font-size: 26px; }
+  .slide-header .subtitle { font-size: 13px; color: #999; margin-top: 4px; }
+  .slide-body { flex: 1; min-height: 0; }
+
+  /* ========== HORIZONTAL BAR CHART ========== */
+  .bar-chart { display: flex; flex-direction: column; gap: 10px; }
+  .bar-item { display: flex; align-items: center; gap: 10px; }
+  .bar-label { font-size: 12px; color: #CCC; width: 180px; flex-shrink: 0; text-align: right; }
+  .bar-track { flex: 1; background: #2A2A2A; border-radius: 3px; height: 24px; position: relative; }
+  .bar-fill { height: 100%; border-radius: 3px; position: absolute; left: 0; top: 0; display: flex; align-items: center; justify-content: flex-end; padding-right: 8px; }
+  .bar-fill span { font-size: 11px; font-weight: 700; color: #1A1A1A; }
+  .bar-pct { font-size: 12px; color: #888; width: 50px; flex-shrink: 0; }
+
+  /* ========== FLOW STEPS ========== */
+  .flow-steps {
+    display: flex;
+    align-items: center;
+    gap: 0;
+  }
+  .flow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    flex: 1;
+  }
+  .flow-icon {
+    width: 44px; height: 44px;
+    background: #2A2A2A;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    border: 2px solid #333;
+  }
+  .flow-icon.active { background: rgba(255,230,0,0.15); border-color: #FFE600; }
+  .flow-step-label { font-size: 10px; color: #999; text-align: center; max-width: 80px; }
+  .flow-arrow {
+    color: #444;
+    font-size: 18px;
+    flex-shrink: 0;
+    margin: 0 -4px;
+    padding-bottom: 22px;
+  }
+
+  /* ========== KPI CARDS ========== */
+  .kpi-card {
+    background: #222;
+    border: 1px solid #333;
+    border-radius: 8px;
+    padding: 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .kpi-value { font-size: 32px; font-weight: 700; color: #FFE600; }
+  .kpi-label { font-size: 12px; color: #999; }
+  .kpi-delta { font-size: 12px; color: #4CAF50; }
+
+  /* ========== TYPE CARDS ========== */
+  .type-card {
+    background: #222;
+    border-radius: 6px;
+    padding: 14px 16px;
+    flex: 1;
+  }
+  .type-card .type-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+  }
+  .badge-green { background: rgba(76,175,80,0.2); color: #4CAF50; }
+  .badge-orange { background: rgba(255,152,0,0.2); color: #FF9800; }
+  .badge-red { background: rgba(255,107,107,0.2); color: #FF6B6B; }
+
+  /* ========== LEGEND DOTS ========== */
+  .legend { display: flex; gap: 16px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 6px; font-size: 11px; color: #AAA; }
+  .legend-dot { width: 10px; height: 10px; border-radius: 2px; flex-shrink: 0; }
+
+  /* ========== THRESHOLD COLOR CELLS ========== */
+  .th-free { color: #4CAF50; font-weight: 700; }
+  .th-mod { color: #FFE600; font-weight: 700; }
+  .th-rest { color: #FF9800; font-weight: 700; }
+  .th-vrest { color: #FF6B6B; font-weight: 700; }
+
+  /* ========== DIVIDER ========== */
+  .divider { border: none; border-top: 1px solid #2A2A2A; margin: 0; }
+
+  /* ========== COMPARISON COLUMNS ========== */
+  .compare-col {
+    flex: 1;
+    background: #1E1E1E;
+    border-radius: 8px;
+    padding: 20px;
+    border: 1px solid #2A2A2A;
+  }
+  .compare-col.highlight { border-color: #4CAF50; }
+  .compare-col h4 { margin-bottom: 12px; font-size: 13px; }
+  .compare-sep {
+    display: flex;
+    align-items: center;
+    padding: 0 12px;
+    color: #555;
+    font-size: 22px;
+  }
+
+  /* ========== TIMELINE ========== */
+  .timeline { display: flex; flex-direction: column; gap: 10px; }
+  .timeline-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+  }
+  .timeline-dot {
+    width: 10px; height: 10px;
+    background: #FFE600;
+    border-radius: 50%;
+    flex-shrink: 0;
+    margin-top: 4px;
+  }
+  .timeline-dot.gray { background: #555; }
+  .timeline-content { flex: 1; }
+  .timeline-period { font-size: 11px; color: #FFE600; font-weight: 600; margin-bottom: 2px; }
+  .timeline-text { font-size: 12px; color: #CCC; }
+
+  /* ========== STAT ROW ========== */
+  .stat-row {
+    display: flex;
+    gap: 16px;
+  }
+  .stat-box {
+    flex: 1;
+    background: #222;
+    border-radius: 6px;
+    padding: 12px 16px;
+    border: 1px solid #2C2C2C;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+  }
+  .stat-val { font-size: 24px; font-weight: 700; color: #FFE600; }
+  .stat-lbl { font-size: 11px; color: #888; }
+
+  /* ========== SCROLLABLE TABLE WRAPPER ========== */
+  .table-scroll { overflow-y: auto; max-height: 100%; }
+
+</style>
+</head>
+<body>
+
+<div class="presentation-wrapper">
+  <div class="progress-bar" id="progressBar"></div>
+
+  <!-- NAV BUTTONS -->
+  <button class="nav-btn nav-prev" id="prevBtn" onclick="changeSlide(-1)">&#8592;</button>
+  <button class="nav-btn nav-next" id="nextBtn" onclick="changeSlide(1)">&#8594;</button>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 1 — CAPA -->
+  <!-- ======================================================== -->
+  <div class="slide active" id="slide-1">
+    <div class="accent-bar"></div>
+    <div class="accent-bottom"></div>
+    <div class="decorative-circle"></div>
+    <div style="padding-left: 24px;">
+      <div class="slide-tag">Mercado Pago Point</div>
+      <h1>Serviço de Bobinas<br><span class="yellow">Point</span></h1>
+      <div class="cap-subtitle">Diagnóstico, Custos e Propostas de Otimização</div>
+      <div class="cap-tag">Q1/2026 &middot; Cross-Site</div>
+    </div>
+    <div class="slide-number">1 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 2 — O PROBLEMA -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-2">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Diagnóstico</div>
+        <h2>Custo e Divergência de Regras por Canal</h2>
+      </div>
+      <div class="slide-body flex-row gap-24">
+        <!-- LEFT -->
+        <div style="flex:1.1; display:flex; flex-direction:column; gap:14px;">
+          <h4 style="color:#999; font-size:11px; text-transform:uppercase; letter-spacing:1px;">O que está acontecendo</h4>
+          <div class="box box-yellow">
+            <div style="font-size:13px; color:#DDD; line-height:1.6;">
+              Gap de threshold entre portal e CX gera <strong style="color:#FFE600">bypass</strong>: sellers bloqueados no autoatendimento ligam para o CX, gerando custo de atendimento humano para pedido que deveria ser digital.
+            </div>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+            <div class="box box-red" style="display:flex; align-items:baseline; gap:10px;">
+              <div style="font-size:24px; font-weight:700; color:#FF6B6B; flex-shrink:0;">3.595</div>
+              <div style="font-size:12px; color:#DDD;">pedidos <strong>proativos via CX</strong> em Q1/26 — custo evitável: <strong style="color:#FF6B6B;">~$16.178</strong> (a $4,50/contato)</div>
+            </div>
+            <div class="box box-orange" style="display:flex; align-items:baseline; gap:10px;">
+              <div style="font-size:24px; font-weight:700; color:#FF9800; flex-shrink:0;">1.959</div>
+              <div style="font-size:12px; color:#DDD;"><strong>emergenciais via CX</strong> em Q1/26 — parte explicada por limitação técnica do motor de cálculo de estoque</div>
+            </div>
+          </div>
+          <div class="box box-gray" style="margin-top:auto;">
+            <div style="font-size:11px; color:#888;">Custo proativo digital = <strong style="color:#4CAF50">$0</strong> &nbsp;&nbsp;|&nbsp;&nbsp; Custo via CX humano = <strong style="color:#FF6B6B;">~$4,50/contato</strong></div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div style="width:1px; background:#2A2A2A; flex-shrink:0;"></div>
+
+        <!-- RIGHT -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:14px;">
+          <h4 style="color:#999; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Exemplo concreto — SMB MLB</h4>
+          <div style="font-size:12px; color:#888; margin-bottom:4px;">Seller com 60% de estoque restante tenta solicitar bobinas:</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Canal</th>
+                <th>Threshold</th>
+                <th>Resultado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Portal direto</td>
+                <td class="td-orange">50%</td>
+                <td class="td-red">Bloqueado</td>
+              </tr>
+              <tr>
+                <td>Maxwell / FAQ</td>
+                <td class="td-highlight">80%</td>
+                <td class="td-green">Permitido</td>
+              </tr>
+              <tr>
+                <td>CX Humano</td>
+                <td class="td-highlight">80–90%</td>
+                <td class="td-green">Permitido</td>
+              </tr>
+            </tbody>
+          </table>
+          <div style="font-size:12px; color:#888; line-height:1.5; margin-top:4px;">
+            O seller bloqueado no portal <strong style="color:#DDD">migra para o CX</strong> para obter o mesmo resultado. O custo do pedido passa de $0 para $4,50.
+          </div>
+          <div class="box box-yellow" style="margin-top:auto;">
+            <div style="font-size:12px; color:#DDD;">
+              <strong style="color:#FFE600">Solucao:</strong> unificar thresholds elimina o incentivo de bypass e converte custo variavel em custo zero.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">2 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 3 — EXPERIENCIA DE SOLICITATION -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-3">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Fluxo do Servico</div>
+        <h2>Como Funciona a Reposicao de Bobinas</h2>
+      </div>
+      <div class="slide-body flex-col gap-20">
+
+        <!-- FLOW -->
+        <div style="background:#1E1E1E; border-radius:8px; padding:18px 24px;">
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; margin-bottom:14px;">Jornada de reposicao</div>
+          <div class="flow-steps">
+            <div class="flow-step">
+              <div class="flow-icon">&#128444;</div>
+              <div class="flow-step-label">Maquininha imprime</div>
+            </div>
+            <div class="flow-arrow">&#8594;</div>
+            <div class="flow-step">
+              <div class="flow-icon">&#128196;</div>
+              <div class="flow-step-label">Consome bobina</div>
+            </div>
+            <div class="flow-arrow">&#8594;</div>
+            <div class="flow-step">
+              <div class="flow-icon">&#128202;</div>
+              <div class="flow-step-label">Sistema monitora estoque</div>
+            </div>
+            <div class="flow-arrow">&#8594;</div>
+            <div class="flow-step">
+              <div class="flow-icon active">&#9888;</div>
+              <div class="flow-step-label">Threshold atingido</div>
+            </div>
+            <div class="flow-arrow">&#8594;</div>
+            <div class="flow-step">
+              <div class="flow-icon active">&#128276;</div>
+              <div class="flow-step-label">Notificacao push + email</div>
+            </div>
+            <div class="flow-arrow">&#8594;</div>
+            <div class="flow-step">
+              <div class="flow-icon active">&#128203;</div>
+              <div class="flow-step-label">Seller solicita</div>
+            </div>
+            <div class="flow-arrow">&#8594;</div>
+            <div class="flow-step">
+              <div class="flow-icon active">&#128666;</div>
+              <div class="flow-step-label">Entrega 2–5 dias</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TYPE CARDS -->
+        <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; margin-bottom:2px;">Tipos de solicitacao</div>
+        <div class="flex-row gap-16" style="flex:1;">
+
+          <div class="type-card" style="border: 1px solid #333;">
+            <div class="type-badge badge-green">Proativo</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              <strong style="color:#4CAF50">Threshold atingido</strong> → notificacao automatica → seller solicita por qualquer canal → cálculo de 30 dias de consumo → acumula estoque residual no próximo envio
+            </div>
+            <div style="margin-top:10px; font-size:11px; color:#888;">Custo: <strong style="color:#4CAF50">$0 (digital)</strong> ou $4,50 (CX)</div>
+          </div>
+
+          <div class="type-card" style="border: 1px solid #333;">
+            <div class="type-badge badge-orange">Emergencial</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              <strong style="color:#FF9800">Estoque zerado</strong> → somente via CX → cálculo estimado de consumo → reinicia estoque do zero, <strong>ignorando saldo residual</strong> anterior
+            </div>
+            <div style="margin-top:10px; font-size:11px; color:#888;">Risco: seller fica sem bobinas, impacto em vendas</div>
+          </div>
+
+          <div class="type-card" style="border: 1px solid #333;">
+            <div class="type-badge badge-red">Emergencial Forcado</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              <strong style="color:#FF6B6B">Pedido em andamento perdido</strong> → ignora envio anterior → novo envio emergencial via CX. Acionado quando envio foi extraviado ou danificado
+            </div>
+            <div style="margin-top:10px; font-size:11px; color:#888;">Baixo volume, alto custo operacional</div>
+          </div>
+
+        </div>
+
+        <div style="font-size:11px; color:#555; text-align:center;">
+          Paises atendidos: MLA (Argentina) &nbsp;&middot;&nbsp; MLB (Brasil) &nbsp;&middot;&nbsp; MLC (Chile) &nbsp;&middot;&nbsp; MLM (Mexico)
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">3 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 4 — REGRAS POR CANAL -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-4">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Regras de Elegibilidade</div>
+        <h2>Divergencia de Thresholds por Canal e Segmento</h2>
+        <div class="subtitle">Threshold = % maximo de estoque restante para poder solicitar. Gap entre canais gera bypass via CX.</div>
+      </div>
+      <div class="slide-body flex-col gap-16">
+
+        <table>
+          <thead>
+            <tr>
+              <th>Segmento</th>
+              <th>Portal</th>
+              <th>Maxwell / FAQ</th>
+              <th>CX</th>
+              <th>CX N2</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Big Sellers</strong></td>
+              <td class="th-rest">50%</td>
+              <td class="th-free">100%</td>
+              <td class="th-free">100%</td>
+              <td class="th-free">100%</td>
+            </tr>
+            <tr>
+              <td><strong>SMB</strong></td>
+              <td class="th-rest">50%</td>
+              <td class="th-mod">80%</td>
+              <td class="th-mod">80%</td>
+              <td class="th-mod">80–90%</td>
+            </tr>
+            <tr>
+              <td><strong>Longtail</strong></td>
+              <td class="th-vrest">40%</td>
+              <td class="th-rest">50%</td>
+              <td class="th-rest">50%</td>
+              <td class="th-rest">50%</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- Legend -->
+        <div class="legend">
+          <div class="legend-item"><div class="legend-dot" style="background:#4CAF50"></div> Sem restricao (100%)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#FFE600"></div> Moderado (75–80%)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#FF9800"></div> Restritivo (50%)</div>
+          <div class="legend-item"><div class="legend-dot" style="background:#FF6B6B"></div> Muito restritivo (40%)</div>
+        </div>
+
+        <!-- Insight boxes -->
+        <div class="flex-row gap-16" style="margin-top:4px;">
+          <div class="box box-red" style="flex:1;">
+            <div style="font-size:13px; color:#DDD; line-height:1.6;">
+              Um seller SMB com <strong style="color:#FFE600">60% de estoque</strong> é bloqueado no portal (threshold 50%), mas pode solicitar via CX (threshold 80%). O gap incentiva o bypass e gera custo humano.
+            </div>
+          </div>
+          <div class="box box-yellow" style="flex:1;">
+            <div style="font-size:13px; color:#DDD; line-height:1.6;">
+              <strong style="color:#FFE600">MLC (Chile)</strong>: todos os segmentos com threshold de 99% na prática — sem restricao ativa. Resultado: canal digital domina (47% Point Smart), menor CR de emergenciais no Longtail.
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#111; border: 1px solid #333; border-radius:6px; padding:12px 20px; margin-top:auto;">
+          <div style="font-size:12px; color:#888; line-height:1.5;">
+            <strong style="color:#FFE600">Impacto quantificado:</strong> 3.595 pedidos proativos migraram para CX em Q1/26 por bloqueio de portal.
+            Ao unificar thresholds, esses pedidos retornam ao canal digital (custo zero).
+            Estimativa de economia: <strong style="color:#4CAF50">~$16.178/Q1 evitaveis</strong>.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">4 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 5 — SHARE POR CANAL -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-5">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Volume por Canal</div>
+        <h2>Share por Canal — Q1/26 (303.597 pedidos &middot; Cross-Site)</h2>
+      </div>
+      <div class="slide-body flex-row gap-24">
+
+        <!-- BAR CHART -->
+        <div style="flex:1.4; display:flex; flex-direction:column; gap:12px; justify-content:center;">
+          <div class="bar-chart">
+
+            <div class="bar-item">
+              <div class="bar-label">Autogestao Web</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:60.8%; background:#FFE600;">
+                  <span>60,8%</span>
+                </div>
+              </div>
+              <div class="bar-pct" style="color:#FFE600;">184.735</div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">Point Smart (device)</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:31.3%; background:#4A9EFF;">
+                  <span>31,3%</span>
+                </div>
+              </div>
+              <div class="bar-pct" style="color:#4A9EFF;">95.171</div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">Presencial (CC+FDV)</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:5.5%; background:#888;">
+                  &nbsp;
+                </div>
+              </div>
+              <div class="bar-pct" style="color:#888;">16.762</div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">CX Proativo (bypass)</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:1.2%; background:#FF9800;">
+                  &nbsp;
+                </div>
+              </div>
+              <div class="bar-pct" style="color:#FF9800;">3.595</div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">CX Emergencial</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:0.8%; background:#FF6B6B;">
+                  &nbsp;
+                </div>
+              </div>
+              <div class="bar-pct" style="color:#FF6B6B;">1.959</div>
+            </div>
+
+            <div class="bar-item">
+              <div class="bar-label">ON DEMAND / Cartera</div>
+              <div class="bar-track">
+                <div class="bar-fill" style="width:0.4%; background:#9B59B6;">
+                  &nbsp;
+                </div>
+              </div>
+              <div class="bar-pct" style="color:#9B59B6;">1.164</div>
+            </div>
+
+          </div>
+        </div>
+
+        <!-- RIGHT — Insights -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:14px; justify-content:center;">
+
+          <div class="box box-yellow">
+            <div style="font-size:13px; font-weight:600; color:#FFE600; margin-bottom:4px;">92,1% digital</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">Autogestao Web + Point Smart representam a grande maioria dos pedidos. Point Smart é o 2° maior canal — com 47% dos pedidos em MLC.</div>
+          </div>
+
+          <div class="box box-red">
+            <div style="font-size:13px; font-weight:600; color:#FF6B6B; margin-bottom:4px;">5.554 via CX humano</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">Oportunidade de conversao para digital: <strong style="color:#FF6B6B;">~$25k/Q1</strong> em custo evitavel. Parte significativa migrou por bloqueio de threshold no portal.</div>
+          </div>
+
+          <div class="box box-gray">
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              <strong style="color:#AAA;">Point Smart</strong>: unico canal que envolve interacao direta no device. Alto share em MLC sugere adocao natural quando threshold nao e restritivo.
+            </div>
+          </div>
+
+          <div style="display:flex; gap:12px; margin-top:4px;">
+            <div class="stat-box">
+              <div class="stat-val" style="font-size:20px;">47%</div>
+              <div class="stat-lbl">Point Smart em MLC</div>
+            </div>
+            <div class="stat-box">
+              <div class="stat-val" style="font-size:20px; color:#FF6B6B;">1,8%</div>
+              <div class="stat-lbl">Total via CX humano</div>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">5 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 6 — MOTOR DE LIBERACAO -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-6">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Elegibilidade</div>
+        <h2>Motor de Liberacao — Umbrais por Segmento e Rentabilidade</h2>
+      </div>
+      <div class="slide-body flex-col gap-14">
+        <table>
+          <thead>
+            <tr>
+              <th>Segmento</th>
+              <th>Sellers/mes MLB</th>
+              <th>TPV/seller/mes</th>
+              <th>Custo bob./receita</th>
+              <th>Taxa emergencial</th>
+              <th>Threshold atual</th>
+              <th>Recomendacao</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>Big Sellers</strong></td>
+              <td>~1.500</td>
+              <td>$37.458</td>
+              <td class="td-green">0,2%</td>
+              <td class="td-green">0,5%</td>
+              <td class="td-rest">50% portal</td>
+              <td class="td-green">100% (livre)</td>
+            </tr>
+            <tr>
+              <td><strong>SMB</strong></td>
+              <td>~295k</td>
+              <td>$3.720</td>
+              <td class="td-mod">2,7%</td>
+              <td class="td-green">0,5%</td>
+              <td class="td-rest">50% portal</td>
+              <td class="td-mod">75% unificado</td>
+            </tr>
+            <tr>
+              <td><strong>LT ativo</strong> (TPN &ge;30/Q1)</td>
+              <td>~820k</td>
+              <td>$445</td>
+              <td class="td-orange">~22%</td>
+              <td class="td-orange">1,2%</td>
+              <td class="td-vrest">40% portal</td>
+              <td class="td-mod">60% unificado</td>
+            </tr>
+            <tr>
+              <td><strong>LT inativo</strong> (TPN &lt;30/Q1)</td>
+              <td>~747k</td>
+              <td>~$200</td>
+              <td class="td-red">&gt;50%</td>
+              <td class="td-gray">—</td>
+              <td class="td-vrest">40% portal</td>
+              <td class="td-red">Sem proativo</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="flex-row gap-14">
+          <div class="box box-yellow" style="flex:1.2;">
+            <div style="font-size:12px; font-weight:600; color:#FFE600; margin-bottom:6px;">Limitacao tecnica do motor</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              O motor nao captura reimpressoes, relatorios e impressoes de teste. O estoque estimado pode ser <strong>10–20pp maior que o real</strong>. Um threshold mais alto compensa essa margem de erro — sellers nao ficam sem bobinas antes do previsto.
+            </div>
+          </div>
+          <div class="box box-green" style="flex:1;">
+            <div style="font-size:12px; font-weight:600; color:#4CAF50; margin-bottom:6px;">Benchmark: threshold maior reduz emergenciais</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              MLC Longtail (threshold 60%) → <strong style="color:#4CAF50">0,4% emergencial</strong><br>
+              MLB Longtail (threshold 40%) → <strong style="color:#FF6B6B;">1,2% emergencial</strong><br>
+              Diferenca de 0,8pp com configuracao mais permissiva.
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#111; border:1px solid #333; border-radius:6px; padding:12px 20px;">
+          <div style="font-size:12px; color:#888; line-height:1.5;">
+            <strong style="color:#DDD;">Logica:</strong> threshold mais alto permite pedido antes do esgotamento. Com estoque em transito + saldo residual, a janela de risco se fecha. Resultado observado em MLC valida a hipotese.
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="slide-number">6 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 7 — CUSTOS LOGISTICOS -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-7">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Custos</div>
+        <h2>Custos de Envio por Site — Dados Reais</h2>
+      </div>
+      <div class="slide-body flex-row gap-24">
+
+        <!-- LEFT — cross-site table -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">Custo por site (30 kits padrao)</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Site</th>
+                <th>Bob/Kit</th>
+                <th>$/Bob</th>
+                <th>Frete/Envio</th>
+                <th>Custo 30 kits</th>
+                <th>$/Bobina</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>MLA</strong></td>
+                <td>10</td>
+                <td>$0,17</td>
+                <td>$2,38</td>
+                <td>$53,38</td>
+                <td class="td-green">$0,178</td>
+              </tr>
+              <tr>
+                <td><strong>MLB</strong></td>
+                <td>6</td>
+                <td>$0,19</td>
+                <td>$3,38</td>
+                <td>$37,58</td>
+                <td class="td-mod">$0,209</td>
+              </tr>
+              <tr>
+                <td><strong>MLC</strong></td>
+                <td>10</td>
+                <td>$0,21</td>
+                <td>$4,00</td>
+                <td>$67,00</td>
+                <td class="td-orange">$0,223</td>
+              </tr>
+              <tr>
+                <td><strong>MLM</strong></td>
+                <td>10</td>
+                <td>$0,16</td>
+                <td>$4,11</td>
+                <td>$52,11</td>
+                <td class="td-green">$0,174</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="box box-gray" style="margin-top:auto;">
+            <div style="font-size:12px; color:#DDD; line-height:1.5;">MLB e o unico site com kit de 6 bobinas. Todos os demais operam com 10. Isso impacta diretamente a frequencia de pedidos e o custo unitario.</div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div style="width:1px; background:#2A2A2A;"></div>
+
+        <!-- RIGHT — MLB ON_DEMAND ineficiency -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">MLB — Ineficiencia do ON_DEMAND (split 5+2)</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Cenario MLB</th>
+                <th>Shipments</th>
+                <th>Custo total</th>
+                <th>$/Bobina</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>7 kits (split 5+2)</td>
+                <td class="td-red">2 fretes</td>
+                <td class="td-red">$14,74</td>
+                <td class="td-red">$0,351</td>
+              </tr>
+              <tr>
+                <td>10 kits</td>
+                <td>1 frete</td>
+                <td>$14,78</td>
+                <td class="td-mod">$0,246</td>
+              </tr>
+              <tr>
+                <td>30 kits</td>
+                <td>1 frete</td>
+                <td>$37,58</td>
+                <td class="td-green">$0,209 ← MELHOR</td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="box box-red">
+            <div style="font-size:13px; font-weight:700; color:#FF6B6B; margin-bottom:4px;">+68% de custo no pior cenario</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              7 kits ON_DEMAND com split forcado (5+2) = $0,351/bobina versus $0,209/bobina com 30 kits. O split duplica o frete sem aumentar o valor entregue.
+            </div>
+          </div>
+
+          <div class="box box-yellow" style="margin-top:auto;">
+            <div style="font-size:12px; color:#DDD; line-height:1.5;">
+              <strong style="color:#FFE600">Acao:</strong> aumentar kit MLB de 6 para 10 bobinas elimina a necessidade de splits frequentes e reduz o custo unitario de $0,209 para proximo de MLA/MLM.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="slide-number">7 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 8 — PROPOSTA 1 -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-8">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Proposta 1</div>
+        <h2>Aumentar Kit MLB de 6 para 10 Bobinas</h2>
+      </div>
+      <div class="slide-body flex-col gap-16">
+
+        <!-- COMPARE -->
+        <div class="flex-row gap-12">
+          <div class="compare-col">
+            <h4 style="color:#FF6B6B; margin-bottom:12px;">ANTES — Kit de 6 bobinas</h4>
+            <div style="font-size:12px; color:#DDD; line-height:2;">
+              300 bobinas &rarr; 50 kits &rarr; 2 pedidos (30+20) &rarr; 3 shipments<br>
+              <span style="color:#888;">Custo:</span> $37,58 + $29,56 = <strong style="color:#FF6B6B;">$67,14</strong><br>
+              <span style="color:#888;">$/bobina:</span> <strong style="color:#FF6B6B;">$0,224</strong>
+            </div>
+          </div>
+          <div class="compare-sep">&rarr;</div>
+          <div class="compare-col highlight">
+            <h4 style="color:#4CAF50; margin-bottom:12px;">DEPOIS — Kit de 10 bobinas</h4>
+            <div style="font-size:12px; color:#DDD; line-height:2;">
+              300 bobinas &rarr; 30 kits &rarr; 1 pedido &rarr; 1 shipment<br>
+              <span style="color:#888;">Custo:</span> <strong style="color:#4CAF50;">$60,38</strong><br>
+              <span style="color:#888;">$/bobina:</span> <strong style="color:#4CAF50;">$0,201</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- IMPACT KPIS -->
+        <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; margin-top:4px;">Impacto estimado</div>
+        <div class="stat-row">
+          <div class="stat-box">
+            <div class="stat-val">−10,1%</div>
+            <div class="stat-lbl">custo por ciclo de 300 bobinas</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val">−1</div>
+            <div class="stat-lbl">shipment por ciclo (menos manuseio logistico)</div>
+          </div>
+          <div class="stat-box">
+            <div class="stat-val" style="font-size:18px;">Menos</div>
+            <div class="stat-lbl">emergenciais — ciclos mais longos reduzem janelas de esgotamento</div>
+          </div>
+        </div>
+
+        <!-- EXPLANATION -->
+        <div class="flex-row gap-14" style="margin-top:4px;">
+          <div class="box box-yellow" style="flex:1;">
+            <div style="font-size:12px; font-weight:600; color:#FFE600; margin-bottom:6px;">Por que funciona</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              Mais bobinas por kit significa que o seller cobre o mesmo volume de consumo em 1 pedido em vez de 2. Menos pedidos por ano = menos janelas de risco de esgotamento entre ciclos.
+            </div>
+          </div>
+          <div class="box box-gray" style="flex:1;">
+            <div style="font-size:12px; font-weight:600; color:#DDD; margin-bottom:6px;">Alinhamento com outros sites</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              MLA, MLC e MLM ja operam com kit de 10 bobinas. MLB e o unico outlier com 6. A mudanca padroniza a operacao e simplifica a gestao de supply chain.
+            </div>
+          </div>
+        </div>
+
+        <div style="background:#111; border:1px solid #333; border-radius:6px; padding:12px 20px; margin-top:auto;">
+          <div style="font-size:12px; color:#888; line-height:1.5;">
+            <strong style="color:#DDD;">Requisitos:</strong> mudanca de embalagem (fornecedor) + ajuste no motor de calculo (quantidade por kit). Sem impacto no preco ao seller. Implementacao estimada: Q3/2026.
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="slide-number">8 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 9 — PROPOSTA 2 -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-9">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Proposta 2</div>
+        <h2>Unificacao de Umbrais + Criterio por Impressoes (TPN)</h2>
+      </div>
+      <div class="slide-body flex-row gap-20">
+
+        <!-- P2a -->
+        <div style="flex:1.2; display:flex; flex-direction:column; gap:12px;">
+          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">P2a — Unificar thresholds por segmento</div>
+          <table style="font-size:12px;">
+            <thead>
+              <tr>
+                <th>Segmento</th>
+                <th>Hoje (portal)</th>
+                <th>Hoje (CX)</th>
+                <th>Proposto</th>
+                <th>Efeito</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Big Sellers</td>
+                <td class="th-rest">50%</td>
+                <td class="th-free">100%</td>
+                <td class="th-free">100%</td>
+                <td style="font-size:11px; color:#4CAF50;">Sem friccao</td>
+              </tr>
+              <tr>
+                <td>SMB</td>
+                <td class="th-rest">50%</td>
+                <td class="th-mod">80%</td>
+                <td class="th-mod">75%</td>
+                <td style="font-size:11px; color:#4CAF50;">Elimina bypass CX</td>
+              </tr>
+              <tr>
+                <td>LT ativo</td>
+                <td class="th-vrest">40%</td>
+                <td class="th-rest">50%</td>
+                <td class="th-mod">60%</td>
+                <td style="font-size:11px; color:#4CAF50;">Reduz emergencial</td>
+              </tr>
+              <tr>
+                <td>LT inativo</td>
+                <td class="th-vrest">40%</td>
+                <td class="th-rest">50%</td>
+                <td class="td-red">Bloqueado</td>
+                <td style="font-size:11px; color:#888;">Custo nao justificado</td>
+              </tr>
+            </tbody>
+          </table>
+          <div class="box box-green">
+            <div style="font-size:12px; color:#DDD; line-height:1.5;">
+              Impacto estimado: <strong style="color:#4CAF50;">−25% CR CX Paper Roll</strong> &nbsp;&middot;&nbsp; <strong style="color:#4CAF50;">−582 emergenciais MLB LT/Q1</strong>
+            </div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div style="width:1px; background:#2A2A2A; flex-shrink:0;"></div>
+
+        <!-- P2b -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
+          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">P2b — Criterio TPN Longtail</div>
+          <div style="font-size:12px; color:#888; margin-bottom:4px;">Distribuicao MLB Longtail por TPN/mes:</div>
+
+          <!-- Distribution bars -->
+          <div style="display:flex; flex-direction:column; gap:8px;">
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
+                <span>&lt; 10/mes (TPN baixo)</span>
+                <span style="color:#FF6B6B;">746k · 47,7%</span>
+              </div>
+              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
+                <div style="width:47.7%; background:#FF6B6B; height:100%; border-radius:3px;"></div>
+              </div>
+              <div style="font-size:10px; color:#FF6B6B; margin-top:2px;">Sem proativo (custo &gt; receita)</div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
+                <span>10–30/mes</span>
+                <span style="color:#FF9800;">17,7%</span>
+              </div>
+              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
+                <div style="width:17.7%; background:#FF9800; height:100%; border-radius:3px;"></div>
+              </div>
+              <div style="font-size:10px; color:#4CAF50; margin-top:2px;">Proativo com threshold 60%</div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
+                <span>30–100/mes</span>
+                <span style="color:#FFE600;">19,3%</span>
+              </div>
+              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
+                <div style="width:19.3%; background:#FFE600; height:100%; border-radius:3px;"></div>
+              </div>
+              <div style="font-size:10px; color:#4CAF50; margin-top:2px;">Proativo com threshold 60%</div>
+            </div>
+            <div>
+              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
+                <span>100+/mes</span>
+                <span style="color:#4CAF50;">15,4%</span>
+              </div>
+              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
+                <div style="width:15.4%; background:#4CAF50; height:100%; border-radius:3px;"></div>
+              </div>
+              <div style="font-size:10px; color:#4CAF50; margin-top:2px;">Proativo com threshold 60%</div>
+            </div>
+          </div>
+
+          <div class="box box-yellow" style="margin-top:auto;">
+            <div style="font-size:12px; color:#DDD; line-height:1.5;">
+              Corte TPN &lt; 30/Q1 exclui <strong style="color:#FFE600;">47,7% do Longtail MLB</strong> do proativo. Protecao: device &lt; 6 meses e elegivel independente de TPN.
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="slide-number">9 / 10</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 10 — RESUMO E PROXIMOS PASSOS -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-10">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Conclusao</div>
+        <h2>Resumo e Proximos Passos</h2>
+      </div>
+      <div class="slide-body flex-row gap-24">
+
+        <!-- LEFT — impact table -->
+        <div style="flex:1.2; display:flex; flex-direction:column; gap:14px;">
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">Sintese de impacto</div>
+          <table>
+            <thead>
+              <tr>
+                <th>Proposta</th>
+                <th>Complexidade</th>
+                <th>Ganho estimado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <strong>P1</strong>: Kit 6&rarr;10 MLB<br>
+                  <span style="font-size:11px; color:#888;">Embalagem + motor</span>
+                </td>
+                <td class="td-orange">Media</td>
+                <td>
+                  <span class="td-green">−10,1%</span> custo logistico<br>
+                  <span style="font-size:11px; color:#888;">−1 shipment/ciclo</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>P2a</strong>: Unificar umbrais<br>
+                  <span style="font-size:11px; color:#888;">Config. pr-inventory</span>
+                </td>
+                <td class="td-green">Baixa</td>
+                <td>
+                  <span class="td-green">−25% CR CX</span><br>
+                  <span style="font-size:11px; color:#888;">~$25k/Q1 evitaveis</span>
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <strong>P2b</strong>: Criterio TPN LT<br>
+                  <span style="font-size:11px; color:#888;">Config. + regra elegibilidade</span>
+                </td>
+                <td class="td-orange">Media</td>
+                <td>
+                  <span class="td-green">−47%</span> sellers LT no proativo<br>
+                  <span style="font-size:11px; color:#888;">Foco em sellers ativos</span>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+
+          <div class="box box-yellow" style="margin-top:auto;">
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              Combinadas, P2a + P2b constituem uma mudanca de configuracao de baixa-media complexidade com retorno direto em reducao de CX e foco de recurso em sellers rentaveis.
+            </div>
+          </div>
+        </div>
+
+        <!-- DIVIDER -->
+        <div style="width:1px; background:#2A2A2A; flex-shrink:0;"></div>
+
+        <!-- RIGHT — timeline -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:14px;">
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">Roadmap de implementacao</div>
+
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-period">Q2/2026</div>
+                <div class="timeline-text"><strong>P2a — Unificacao de umbrais</strong><br>Mudanca de configuracao, baixa complexidade. Impacto imediato em CX.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot"></div>
+              <div class="timeline-content">
+                <div class="timeline-period">Q2/2026</div>
+                <div class="timeline-text"><strong>P2b — Criterio TPN Longtail</strong><br>Validacao juridica + engenharia. Define corte por nivel de atividade.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot gray"></div>
+              <div class="timeline-content">
+                <div class="timeline-period" style="color:#888;">Q3/2026</div>
+                <div class="timeline-text" style="color:#888;"><strong style="color:#CCC;">P1 — Kit 6&rarr;10 MLB</strong><br>Mudanca de embalagem + negociacao com logistica + ajuste motor.</div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-dot gray"></div>
+              <div class="timeline-content">
+                <div class="timeline-period" style="color:#888;">Q3/2026</div>
+                <div class="timeline-text" style="color:#888;"><strong style="color:#CCC;">Monitoramento</strong><br>Acompanhar emergenciais e CR por 60 dias pos-mudanca. Ajuste fino de thresholds se necessario.</div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box box-dark" style="margin-top:auto;">
+            <div style="font-size:12px; color:#888; line-height:1.5;">
+              Metricas de sucesso: <strong style="color:#DDD;">CR CX Paper Roll</strong> · <strong style="color:#DDD;">% emergenciais/total</strong> · <strong style="color:#DDD;">custo medio/bobina MLB</strong>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="slide-number">10 / 10</div>
+  </div>
+
+</div><!-- end presentation-wrapper -->
+
+<script>
+  var currentSlide = 1;
+  var totalSlides = 10;
+
+  function updateProgress() {
+    var pct = (currentSlide / totalSlides) * 100;
+    document.getElementById('progressBar').style.width = pct + '%';
+  }
+
+  function showSlide(n) {
+    var slides = document.querySelectorAll('.slide');
+    slides.forEach(function(s) { s.classList.remove('active'); });
+    document.getElementById('slide-' + n).classList.add('active');
+    document.getElementById('prevBtn').style.opacity = n === 1 ? '0.3' : '1';
+    document.getElementById('nextBtn').style.opacity = n === totalSlides ? '0.3' : '1';
+    updateProgress();
+  }
+
+  function changeSlide(dir) {
+    var next = currentSlide + dir;
+    if (next < 1 || next > totalSlides) return;
+    currentSlide = next;
+    showSlide(currentSlide);
+  }
+
+  document.addEventListener('keydown', function(e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') changeSlide(1);
+    if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') changeSlide(-1);
+  });
+
+  // Init
+  updateProgress();
+</script>
+</body>
+</html>
