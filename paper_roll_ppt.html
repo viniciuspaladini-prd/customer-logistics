@@ -403,7 +403,7 @@
       <div class="cap-subtitle">Diagnóstico, Custos e Propostas de Otimização</div>
       <div class="cap-tag">Q1/2026 &middot; Cross-Site</div>
     </div>
-    <div class="slide-number">1 / 10</div>
+    <div class="slide-number">1 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -483,7 +483,7 @@
         </div>
       </div>
     </div>
-    <div class="slide-number">2 / 10</div>
+    <div class="slide-number">2 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -573,7 +573,7 @@
         </div>
       </div>
     </div>
-    <div class="slide-number">3 / 10</div>
+    <div class="slide-number">3 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -654,7 +654,7 @@
         </div>
       </div>
     </div>
-    <div class="slide-number">4 / 10</div>
+    <div class="slide-number">4 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -768,7 +768,7 @@
         </div>
       </div>
     </div>
-    <div class="slide-number">5 / 10</div>
+    <div class="slide-number">5 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -857,7 +857,7 @@
         </div>
       </div>
     </div>
-    <div class="slide-number">6 / 10</div>
+    <div class="slide-number">6 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -978,7 +978,7 @@
 
       </div>
     </div>
-    <div class="slide-number">7 / 10</div>
+    <div class="slide-number">7 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -1054,7 +1054,7 @@
 
       </div>
     </div>
-    <div class="slide-number">8 / 10</div>
+    <div class="slide-number">8 / 11</div>
   </div>
 
   <!-- ======================================================== -->
@@ -1064,21 +1064,22 @@
     <div class="slide-inner">
       <div class="slide-header">
         <div class="slide-tag">Proposta 2</div>
-        <h2>Unificacao de Umbrais + Criterio por Impressoes (TPN)</h2>
+        <h2>Reducao do Umbral de Estoque de 50% para 40%</h2>
+        <div class="subtitle">Aplicar umbral uniforme de 40% em todos os canais — elimina divergencia e reduz pedidos prematuros</div>
       </div>
       <div class="slide-body flex-row gap-20">
 
-        <!-- P2a -->
+        <!-- ESQUERDA: o que muda -->
         <div style="flex:1.2; display:flex; flex-direction:column; gap:12px;">
-          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">P2a — Unificar thresholds por segmento</div>
+          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Situacao Atual vs Proposto — MLB</div>
           <table style="font-size:12px;">
             <thead>
               <tr>
                 <th>Segmento</th>
-                <th>Hoje (portal)</th>
-                <th>Hoje (CX)</th>
-                <th>Proposto</th>
-                <th>Efeito</th>
+                <th>Portal (atual)</th>
+                <th>CX/FAQ (atual)</th>
+                <th>Proposto (todos)</th>
+                <th>Mudanca</th>
               </tr>
             </thead>
             <tbody>
@@ -1086,35 +1087,63 @@
                 <td>Big Sellers</td>
                 <td class="th-rest">50%</td>
                 <td class="th-free">100%</td>
-                <td class="th-free">100%</td>
-                <td style="font-size:11px; color:#4CAF50;">Sem friccao</td>
+                <td class="th-vrest" style="background:#1A3A1A; color:#4CAF50; font-weight:700;">40%</td>
+                <td style="font-size:11px; color:#FF9800;">Portal −10pp · CX unificado</td>
               </tr>
               <tr>
                 <td>SMB</td>
                 <td class="th-rest">50%</td>
                 <td class="th-mod">80%</td>
-                <td class="th-mod">75%</td>
-                <td style="font-size:11px; color:#4CAF50;">Elimina bypass CX</td>
+                <td class="th-vrest" style="background:#1A3A1A; color:#4CAF50; font-weight:700;">40%</td>
+                <td style="font-size:11px; color:#FF9800;">Portal −10pp · CX −40pp</td>
               </tr>
               <tr>
-                <td>LT ativo</td>
+                <td>Longtail</td>
                 <td class="th-vrest">40%</td>
                 <td class="th-rest">50%</td>
-                <td class="th-mod">60%</td>
-                <td style="font-size:11px; color:#4CAF50;">Reduz emergencial</td>
-              </tr>
-              <tr>
-                <td>LT inativo</td>
-                <td class="th-vrest">40%</td>
-                <td class="th-rest">50%</td>
-                <td class="td-red">Bloqueado</td>
-                <td style="font-size:11px; color:#888;">Custo nao justificado</td>
+                <td class="th-vrest" style="background:#1A3A1A; color:#4CAF50; font-weight:700;">40%</td>
+                <td style="font-size:11px; color:#888;">Portal sem mudanca · CX −10pp</td>
               </tr>
             </tbody>
           </table>
-          <div class="box box-green">
-            <div style="font-size:12px; color:#DDD; line-height:1.5;">
-              Impacto estimado: <strong style="color:#4CAF50;">−25% CR CX Paper Roll</strong> &nbsp;&middot;&nbsp; <strong style="color:#4CAF50;">−582 emergenciais MLB LT/Q1</strong>
+
+          <!-- pedidos afetados por faixa 40-50% -->
+          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-top:4px;">Pedidos na Faixa 40–50% de Estoque — Q1/26 (seriam bloqueados)</div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
+              <span style="color:#888; width:90px;">MLB SMB</span>
+              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
+                <div style="width:56%; background:#3483FA; height:100%; border-radius:3px;"></div>
+              </div>
+              <span style="color:#3483FA; font-weight:600; width:70px;">5.670/Q1</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
+              <span style="color:#888; width:90px;">MLC Longtail</span>
+              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
+                <div style="width:42%; background:#FF9800; height:100%; border-radius:3px;"></div>
+              </div>
+              <span style="color:#FF9800; font-weight:600; width:70px;">4.332/Q1</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
+              <span style="color:#888; width:90px;">MLM SMB</span>
+              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
+                <div style="width:19%; background:#9B59B6; height:100%; border-radius:3px;"></div>
+              </div>
+              <span style="color:#9B59B6; font-weight:600; width:70px;">1.957/Q1</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
+              <span style="color:#888; width:90px;">MLA SMB+BS</span>
+              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
+                <div style="width:13%; background:#4CAF50; height:100%; border-radius:3px;"></div>
+              </div>
+              <span style="color:#4CAF50; font-weight:600; width:70px;">1.336/Q1</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
+              <span style="color:#888; width:90px; font-weight:700;">TOTAL</span>
+              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
+                <div style="width:100%; background:#FFE600; height:100%; border-radius:3px;"></div>
+              </div>
+              <span style="color:#FFE600; font-weight:700; width:70px;">~16.274/Q1</span>
             </div>
           </div>
         </div>
@@ -1122,188 +1151,242 @@
         <!-- DIVIDER -->
         <div style="width:1px; background:#2A2A2A; flex-shrink:0;"></div>
 
-        <!-- P2b -->
-        <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
-          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">P2b — Criterio TPN Longtail</div>
-          <div style="font-size:12px; color:#888; margin-bottom:4px;">Distribuicao MLB Longtail por TPN/mes:</div>
+        <!-- DIREITA: impacto -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:14px;">
+          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Impacto Esperado da Proposta 2</div>
 
-          <!-- Distribution bars -->
-          <div style="display:flex; flex-direction:column; gap:8px;">
-            <div>
-              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
-                <span>&lt; 10/mes (TPN baixo)</span>
-                <span style="color:#FF6B6B;">746k · 47,7%</span>
-              </div>
-              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
-                <div style="width:47.7%; background:#FF6B6B; height:100%; border-radius:3px;"></div>
-              </div>
-              <div style="font-size:10px; color:#FF6B6B; margin-top:2px;">Sem proativo (custo &gt; receita)</div>
+          <div style="display:flex; flex-direction:column; gap:10px;">
+
+            <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #4CAF50; border-radius:6px; padding:12px;">
+              <div style="font-size:11px; color:#4CAF50; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Reducao de Pedidos</div>
+              <div style="font-size:22px; font-weight:800; color:#FFF;">~3.255 pedidos/Q1</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">20% dos 16.274 afetados sao genuinamente evitados (restante e apenas adiado)</div>
             </div>
-            <div>
-              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
-                <span>10–30/mes</span>
-                <span style="color:#FF9800;">17,7%</span>
-              </div>
-              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
-                <div style="width:17.7%; background:#FF9800; height:100%; border-radius:3px;"></div>
-              </div>
-              <div style="font-size:10px; color:#4CAF50; margin-top:2px;">Proativo com threshold 60%</div>
+
+            <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #FF6B6B; border-radius:6px; padding:12px;">
+              <div style="font-size:11px; color:#FF6B6B; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Casos CX Eliminados (Bypass)</div>
+              <div style="font-size:22px; font-weight:800; color:#FFF;">~2.517 contatos/Q1</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">70% do CX proativo cross-site (3.595) eliminado — sellers com 40–80% nao passam mais pelo CX</div>
             </div>
-            <div>
-              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
-                <span>30–100/mes</span>
-                <span style="color:#FFE600;">19,3%</span>
-              </div>
-              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
-                <div style="width:19.3%; background:#FFE600; height:100%; border-radius:3px;"></div>
-              </div>
-              <div style="font-size:10px; color:#4CAF50; margin-top:2px;">Proativo com threshold 60%</div>
+
+            <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #FFE600; border-radius:6px; padding:12px;">
+              <div style="font-size:11px; color:#FFE600; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Economia P2 (@$3/caso ou pedido)</div>
+              <div style="font-size:22px; font-weight:800; color:#FFE600;">~$17.300/Q1</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">Pedidos evitados $9.765 + CX bypass $7.551</div>
             </div>
-            <div>
-              <div style="display:flex; justify-content:space-between; font-size:11px; color:#888; margin-bottom:3px;">
-                <span>100+/mes</span>
-                <span style="color:#4CAF50;">15,4%</span>
-              </div>
-              <div style="background:#2A2A2A; border-radius:3px; height:18px;">
-                <div style="width:15.4%; background:#4CAF50; height:100%; border-radius:3px;"></div>
-              </div>
-              <div style="font-size:10px; color:#4CAF50; margin-top:2px;">Proativo com threshold 60%</div>
+
+          </div>
+
+          <div class="box box-dark" style="margin-top:auto;">
+            <div style="font-size:11px; color:#888; line-height:1.5;">
+              Risco monitorar: sellers SMB bloqueados podem escalar emergenciais se o gap entre pedidos aumentar. Acompanhar taxa emergencial nas 4 semanas pos-mudanca.
             </div>
           </div>
 
-          <div class="box box-yellow" style="margin-top:auto;">
-            <div style="font-size:12px; color:#DDD; line-height:1.5;">
-              Corte TPN &lt; 30/Q1 exclui <strong style="color:#FFE600;">47,7% do Longtail MLB</strong> do proativo. Protecao: device &lt; 6 meses e elegivel independente de TPN.
-            </div>
+        </div>
+
+      </div>
+    </div>
+    <div class="slide-number">9 / 11</div>
+  </div>
+
+  <!-- ======================================================== -->
+  <!-- SLIDE 10 — IMPACTO COMBINADO P1 + P2 -->
+  <!-- ======================================================== -->
+  <div class="slide" id="slide-10">
+    <div class="slide-inner">
+      <div class="slide-header">
+        <div class="slide-tag">Impacto Combinado</div>
+        <h2>P1 + P2 Juntas — Reducao de Casos CX, Pedidos e Custo</h2>
+        <div class="subtitle">Cada caso CX ou pedido evitado = ~$3 USD. Base: Q1/2026 cross-site.</div>
+      </div>
+      <div class="slide-body" style="display:flex; flex-direction:column; gap:16px; justify-content:center;">
+
+        <!-- TABELA PRINCIPAL -->
+        <table style="font-size:13px; width:100%;">
+          <thead>
+            <tr>
+              <th style="width:200px;">Acao</th>
+              <th style="text-align:center;">Mecanismo</th>
+              <th style="text-align:right;">Casos CX evitados/Q1</th>
+              <th style="text-align:right;">Pedidos evitados/Q1</th>
+              <th style="text-align:right; color:#FFE600;">Economia (~$3/caso)</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>
+                <strong style="color:#FFE600;">P1 — Kit 6&rarr;10 MLB</strong><br>
+                <span style="font-size:11px; color:#888;">Mais bobinas/kit → ciclos mais longos</span>
+              </td>
+              <td style="font-size:11px; color:#888; text-align:center;">Menor frequencia de pedidos<br>→ menos janelas de esgotamento<br>→ menos emergenciais</td>
+              <td style="text-align:right; color:#4CAF50; font-weight:700;">~263<br><span style="font-size:10px; color:#888;">emergenciais MLB −30%</span></td>
+              <td style="text-align:right; color:#4CAF50; font-weight:700;">~4.112 ciclos<br><span style="font-size:10px; color:#888;">menos shipments MLB</span></td>
+              <td style="text-align:right; font-weight:700; font-size:16px; color:#FFE600;">~$28.600/Q1</td>
+            </tr>
+            <tr>
+              <td>
+                <strong style="color:#3483FA;">P2 — Umbral 50%&rarr;40%</strong><br>
+                <span style="font-size:11px; color:#888;">Threshold uniforme todos os canais</span>
+              </td>
+              <td style="font-size:11px; color:#888; text-align:center;">Sellers com 40–80% estoque<br>bloqueados em todos os canais<br>→ menos bypass e pedidos prematuros</td>
+              <td style="text-align:right; color:#4CAF50; font-weight:700;">~2.517<br><span style="font-size:10px; color:#888;">bypass CX eliminados</span></td>
+              <td style="text-align:right; color:#4CAF50; font-weight:700;">~3.255<br><span style="font-size:10px; color:#888;">pedidos evitados (20% dos 16.274)</span></td>
+              <td style="text-align:right; font-weight:700; font-size:16px; color:#3483FA;">~$17.300/Q1</td>
+            </tr>
+            <tr style="background:#1C1C1C; border-top:2px solid #FFE600;">
+              <td style="padding:14px 10px;">
+                <strong style="color:#FFE600; font-size:14px;">TOTAL COMBINADO</strong><br>
+                <span style="font-size:11px; color:#888;">P1 + P2 aplicadas juntas</span>
+              </td>
+              <td style="text-align:center; color:#888; font-size:11px;">MLB + cross-site</td>
+              <td style="text-align:right;">
+                <span style="font-size:24px; font-weight:800; color:#FF6B6B;">~2.780</span><br>
+                <span style="font-size:10px; color:#888;">casos CX/Q1</span>
+              </td>
+              <td style="text-align:right;">
+                <span style="font-size:24px; font-weight:800; color:#4CAF50;">~3.255+</span><br>
+                <span style="font-size:10px; color:#888;">pedidos/Q1</span>
+              </td>
+              <td style="text-align:right;">
+                <div style="font-size:30px; font-weight:800; color:#FFE600;">~$45.900/Q1</div>
+                <div style="font-size:11px; color:#888;">~$183.600/ano</div>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- TRES METRICAS ABAIXO -->
+        <div style="display:flex; gap:16px;">
+          <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FF6B6B; border-radius:6px; padding:14px; text-align:center;">
+            <div style="font-size:11px; color:#888; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Reducao de Casos CX/Q1</div>
+            <div style="font-size:32px; font-weight:800; color:#FF6B6B;">−2.780</div>
+            <div style="font-size:11px; color:#888; margin-top:4px;">de ~5.554 atuais → ~2.774 restantes</div>
+          </div>
+          <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #4CAF50; border-radius:6px; padding:14px; text-align:center;">
+            <div style="font-size:11px; color:#888; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Pedidos/Shipments Evitados/Q1</div>
+            <div style="font-size:32px; font-weight:800; color:#4CAF50;">−3.255+</div>
+            <div style="font-size:11px; color:#888; margin-top:4px;">pedidos prematuros eliminados cross-site</div>
+          </div>
+          <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FFE600; border-radius:6px; padding:14px; text-align:center;">
+            <div style="font-size:11px; color:#888; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Economia Total Anualizada</div>
+            <div style="font-size:32px; font-weight:800; color:#FFE600;">~$184k</div>
+            <div style="font-size:11px; color:#888; margin-top:4px;">@$3/caso ou pedido evitado</div>
+          </div>
+          <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #9B59B6; border-radius:6px; padding:14px; text-align:center;">
+            <div style="font-size:11px; color:#888; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Complexidade Implementacao</div>
+            <div style="font-size:18px; font-weight:800; color:#9B59B6; margin-top:4px;">P2: Baixa<br>P1: Media</div>
+            <div style="font-size:11px; color:#888; margin-top:4px;">P2 = config. Q2 · P1 = embalagem Q3</div>
           </div>
         </div>
 
       </div>
     </div>
-    <div class="slide-number">9 / 10</div>
+    <div class="slide-number">10 / 11</div>
   </div>
 
   <!-- ======================================================== -->
-  <!-- SLIDE 10 — RESUMO E PROXIMOS PASSOS -->
+  <!-- SLIDE 11 — RESUMO E PROXIMOS PASSOS -->
   <!-- ======================================================== -->
-  <div class="slide" id="slide-10">
+  <div class="slide" id="slide-11">
     <div class="slide-inner">
       <div class="slide-header">
         <div class="slide-tag">Conclusao</div>
-        <h2>Resumo e Proximos Passos</h2>
+        <h2>Proximos Passos</h2>
       </div>
       <div class="slide-body flex-row gap-24">
 
-        <!-- LEFT — impact table -->
         <div style="flex:1.2; display:flex; flex-direction:column; gap:14px;">
-          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">Sintese de impacto</div>
-          <table>
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">Sintese das propostas</div>
+          <table style="font-size:12px;">
             <thead>
               <tr>
                 <th>Proposta</th>
                 <th>Complexidade</th>
-                <th>Ganho estimado</th>
+                <th>Prazo</th>
+                <th>Ganho Q1</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>
                   <strong>P1</strong>: Kit 6&rarr;10 MLB<br>
-                  <span style="font-size:11px; color:#888;">Embalagem + motor</span>
+                  <span style="font-size:11px; color:#888;">Embalagem + motor de calculo</span>
                 </td>
                 <td class="td-orange">Media</td>
-                <td>
-                  <span class="td-green">−10,1%</span> custo logistico<br>
-                  <span style="font-size:11px; color:#888;">−1 shipment/ciclo</span>
-                </td>
+                <td style="color:#888; font-size:11px;">Q3/2026</td>
+                <td><span class="td-green">~$28.600</span></td>
               </tr>
               <tr>
                 <td>
-                  <strong>P2a</strong>: Unificar umbrais<br>
-                  <span style="font-size:11px; color:#888;">Config. pr-inventory</span>
+                  <strong>P2</strong>: Umbral 50%&rarr;40% (todos canais)<br>
+                  <span style="font-size:11px; color:#888;">Config. pr-inventory + criterio TPN LT</span>
                 </td>
                 <td class="td-green">Baixa</td>
-                <td>
-                  <span class="td-green">−25% CR CX</span><br>
-                  <span style="font-size:11px; color:#888;">~$25k/Q1 evitaveis</span>
-                </td>
+                <td style="color:#888; font-size:11px;">Q2/2026</td>
+                <td><span class="td-green">~$17.300</span></td>
               </tr>
-              <tr>
-                <td>
-                  <strong>P2b</strong>: Criterio TPN LT<br>
-                  <span style="font-size:11px; color:#888;">Config. + regra elegibilidade</span>
-                </td>
-                <td class="td-orange">Media</td>
-                <td>
-                  <span class="td-green">−47%</span> sellers LT no proativo<br>
-                  <span style="font-size:11px; color:#888;">Foco em sellers ativos</span>
-                </td>
+              <tr style="background:#1C1C1C;">
+                <td><strong style="color:#FFE600;">P1 + P2 Combinadas</strong></td>
+                <td>—</td>
+                <td style="font-size:11px; color:#888;">Q2–Q3/26</td>
+                <td><strong style="color:#FFE600; font-size:14px;">~$45.900/Q1</strong></td>
               </tr>
             </tbody>
           </table>
-
           <div class="box box-yellow" style="margin-top:auto;">
             <div style="font-size:12px; color:#DDD; line-height:1.6;">
-              Combinadas, P2a + P2b constituem uma mudanca de configuracao de baixa-media complexidade com retorno direto em reducao de CX e foco de recurso em sellers rentaveis.
+              Metricas de sucesso: <strong>CR CX Paper Roll</strong> (atual 0,203×10k MAD) &middot; <strong>% emergenciais/total</strong> (MLB LT atual 1,2%) &middot; <strong>custo medio/bobina MLB</strong> (atual $0,209)
             </div>
           </div>
         </div>
 
-        <!-- DIVIDER -->
         <div style="width:1px; background:#2A2A2A; flex-shrink:0;"></div>
 
-        <!-- RIGHT — timeline -->
         <div style="flex:1; display:flex; flex-direction:column; gap:14px;">
-          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">Roadmap de implementacao</div>
-
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px;">Roadmap</div>
           <div class="timeline">
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
                 <div class="timeline-period">Q2/2026</div>
-                <div class="timeline-text"><strong>P2a — Unificacao de umbrais</strong><br>Mudanca de configuracao, baixa complexidade. Impacto imediato em CX.</div>
+                <div class="timeline-text"><strong>P2 — Reducao do umbral 50%&rarr;40%</strong><br>Mudanca de configuracao em pr-inventory. Aplicar criterio TPN para Longtail.</div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot"></div>
               <div class="timeline-content">
-                <div class="timeline-period">Q2/2026</div>
-                <div class="timeline-text"><strong>P2b — Criterio TPN Longtail</strong><br>Validacao juridica + engenharia. Define corte por nivel de atividade.</div>
+                <div class="timeline-period">Q2–Q3/2026</div>
+                <div class="timeline-text"><strong>Monitoramento pos-P2</strong><br>Acompanhar emergenciais e CR por 60 dias. Ajustar se taxa emergencial MLB SMB subir &gt;0,8%.</div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot gray"></div>
               <div class="timeline-content">
                 <div class="timeline-period" style="color:#888;">Q3/2026</div>
-                <div class="timeline-text" style="color:#888;"><strong style="color:#CCC;">P1 — Kit 6&rarr;10 MLB</strong><br>Mudanca de embalagem + negociacao com logistica + ajuste motor.</div>
+                <div class="timeline-text" style="color:#888;"><strong style="color:#CCC;">P1 — Kit 6&rarr;10 MLB</strong><br>Negociacao de embalagem + ajuste motor de calculo + piloto MLB.</div>
               </div>
             </div>
             <div class="timeline-item">
               <div class="timeline-dot gray"></div>
               <div class="timeline-content">
-                <div class="timeline-period" style="color:#888;">Q3/2026</div>
-                <div class="timeline-text" style="color:#888;"><strong style="color:#CCC;">Monitoramento</strong><br>Acompanhar emergenciais e CR por 60 dias pos-mudanca. Ajuste fino de thresholds se necessario.</div>
+                <div class="timeline-period" style="color:#888;">Q4/2026</div>
+                <div class="timeline-text" style="color:#888;"><strong style="color:#CCC;">Avaliacao de expansao P1</strong><br>Se MLB bem sucedido, avaliar aumento de kit para MLA/MLC/MLM tambem.</div>
               </div>
-            </div>
-          </div>
-
-          <div class="box box-dark" style="margin-top:auto;">
-            <div style="font-size:12px; color:#888; line-height:1.5;">
-              Metricas de sucesso: <strong style="color:#DDD;">CR CX Paper Roll</strong> · <strong style="color:#DDD;">% emergenciais/total</strong> · <strong style="color:#DDD;">custo medio/bobina MLB</strong>
             </div>
           </div>
         </div>
 
       </div>
     </div>
-    <div class="slide-number">10 / 10</div>
+    <div class="slide-number">11 / 11</div>
   </div>
 
 </div><!-- end presentation-wrapper -->
 
 <script>
   var currentSlide = 1;
-  var totalSlides = 10;
+  var totalSlides = 11;
 
   function updateProgress() {
     var pct = (currentSlide / totalSlides) * 100;
