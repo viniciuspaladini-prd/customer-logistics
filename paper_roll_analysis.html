@@ -798,8 +798,91 @@
 <div id="tab-engine" class="tab-content">
 
   <div class="alert alert-blue">
-    <span>&#x2699;</span>
-    <div><strong>RestockUtils</strong> — Classe responsavel pelo calculo e geracao de shipments para pedidos MLB. Define quantidades e divisoes de envio conforme o tipo de grupo (CONVENTIONAL ou ON_DEMAND).</div>
+    <span>⚙️</span>
+    <div><strong>RestockUtils</strong> — Classe responsável pelo cálculo e geração de shipments para pedidos MLB. Define quantidades e divisões de envio conforme o tipo de grupo (CONVENTIONAL ou ON_DEMAND).</div>
+  </div>
+
+  <!-- LIMITAÇÃO CRÍTICA DO MOTOR -->
+  <div style="border:2px solid var(--red);border-radius:12px;overflow:hidden;margin-bottom:20px">
+    <div style="background:var(--red);color:#fff;padding:12px 18px;font-weight:700;font-size:14px;display:flex;align-items:center;gap:8px">
+      <span>⚠️</span> Limitação Crítica do Motor de Inventário
+    </div>
+    <div style="padding:18px">
+      <div class="grid-2" style="gap:20px">
+        <div>
+          <div class="section-title">O problema</div>
+          <div style="font-size:13px;line-height:1.8;color:var(--gray-mid)">
+            O motor calcula o inventário baseado no <strong>número de pagamentos processados</strong> por cada maquininha. Porém, <strong>nem todas as modalidades de impressão são capturadas</strong> pelo sistema de tracking.<br><br>
+            Isso significa que o estoque exibido ao seller e usado no threshold pode ser <strong>sistematicamente maior que o real</strong>:
+          </div>
+          <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;font-size:12px">
+            <div style="background:#FEE8EA;border-radius:6px;padding:10px 12px;display:flex;gap:8px">
+              <span style="color:var(--red);font-weight:700">❌</span>
+              <div><strong>Reimpressões de comprovante</strong> — o seller reimprime um recibo sem nova transação. Motor não decrementa.</div>
+            </div>
+            <div style="background:#FEE8EA;border-radius:6px;padding:10px 12px;display:flex;gap:8px">
+              <span style="color:var(--red);font-weight:700">❌</span>
+              <div><strong>Impressões de relatório/turno</strong> — relatórios de fechamento de caixa. Não são pagamentos, não são capturados.</div>
+            </div>
+            <div style="background:#FEE8EA;border-radius:6px;padding:10px 12px;display:flex;gap:8px">
+              <span style="color:var(--red);font-weight:700">❌</span>
+              <div><strong>Impressões de teste</strong> — auto-teste da impressora. Motor ignora.</div>
+            </div>
+            <div style="background:#FEE8EA;border-radius:6px;padding:10px 12px;display:flex;gap:8px">
+              <span style="color:var(--red);font-weight:700">❌</span>
+              <div><strong>Falha de papel (jam)</strong> — bobina desperdiçada por atolamento. Motor não decrementa.</div>
+            </div>
+            <div style="background:#FFF0E8;border-radius:6px;padding:10px 12px;display:flex;gap:8px">
+              <span style="color:var(--orange);font-weight:700">⚠️</span>
+              <div><strong>Certas modalidades de pagamento</strong> — dependendo da integração, alguns eventos de pagamento podem não acionar o decremento corretamente.</div>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="section-title">Impacto na leitura do estoque</div>
+          <div style="background:var(--gray-bg);border-radius:10px;padding:16px;font-size:12px;line-height:1.8;margin-bottom:12px">
+            <strong>Exemplo real:</strong><br>
+            Motor diz: <span style="color:var(--green);font-weight:700">40% de estoque</span><br>
+            Estoque real: pode ser <span style="color:var(--red);font-weight:700">20–30%</span> considerando impressões não capturadas<br><br>
+            → Seller está mais próximo do zero do que o sistema indica<br>
+            → Threshold configurado em 40% pode estar <em>efetivamente</em> funcionando como 20–25%<br>
+            → Sistema dispara proativo mais tarde do que deveria
+          </div>
+
+          <div class="section-title">Impacto na taxa de emergenciais</div>
+          <div class="alert alert-orange" style="margin-bottom:10px">
+            <span>📊</span>
+            <div>Parte da taxa emergencial observada (ex: Longtail MLB 1,2%) <strong>não é falha de política</strong> — é <strong>erro de estimativa de estoque</strong>. O seller não "furou" o threshold — o threshold foi atingido antes do esperado por impressões não contabilizadas.</div>
+          </div>
+          <div class="alert alert-red" style="margin:0">
+            <span>⚠️</span>
+            <div><strong>Implicação para a política:</strong> qualquer threshold deve adicionar uma <strong>margem de segurança</strong> para cobrir o gap de estimativa. Threshold 60% no sistema pode equivaler a ~45–50% real — o que ainda é conservador o suficiente.</div>
+          </div>
+
+          <div class="section-title" style="margin-top:14px">Proposta de melhoria técnica</div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-title">Integrar eventos de impressão não-pagamento</div>
+              <div class="timeline-desc">Capturar eventos de reimpressão, relatório e teste diretamente do device para decrementar o estoque estimado com mais precisão</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Fator de correção por modelo</div>
+              <div class="timeline-desc">Aplicar multiplicador de consumo estimado por modelo (ex: Point Pro 2 → 1,15× o consumo de pagamentos) baseado em análise histórica de discrepância</div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-title">Alertar quando discrepância for detectada</div>
+              <div class="timeline-desc">Se seller reporta bobina vazia mas sistema indica &gt;20% → registrar como divergência para calibração do modelo</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- IMPACTO NA POLÍTICA -->
+      <div style="background:linear-gradient(135deg,#1A1A2E,#16213E);color:white;border-radius:10px;padding:16px;margin-top:16px;font-size:13px;line-height:1.7">
+        <span style="color:var(--yellow);font-weight:700">Conclusão para a política de threshold:</span><br>
+        A limitação de captura de impressões é um argumento <strong>a favor de thresholds mais altos</strong> — não como permissividade, mas como <strong>margem de segurança técnica</strong>. Se o sistema subestima o consumo real em ~10–20pp, um threshold de 60% no sistema equivale a ~40–50% do estoque real. Elevar o threshold de Longtail de 40% → 60% no sistema pode ser o ajuste correto para que o proativo seja disparado quando o estoque real ainda está por volta de 40–50%.
+      </div>
+    </div>
   </div>
 
   <!-- REGRAS DO MOTOR -->
