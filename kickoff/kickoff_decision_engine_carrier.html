@@ -1,0 +1,1202 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kick-off Discovery — Decision Engine para Seleção de Carrier</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    font-family: 'Segoe UI', Arial, sans-serif;
+    background: #e8e8e8;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.presentation {
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.18);
+}
+
+.slide {
+    display: none;
+    width: 1280px;
+    height: 720px;
+    background: #fff;
+    position: absolute;
+    top: 0; left: 0;
+    padding: 48px 72px 52px 72px;
+    flex-direction: column;
+}
+
+.slide.active { display: flex; }
+
+.slide-num {
+    position: absolute;
+    top: 22px;
+    right: 30px;
+    font-size: 12px;
+    color: #ccc;
+    font-weight: 700;
+    letter-spacing: 1px;
+}
+
+.footer-bar {
+    position: absolute;
+    bottom: 0; left: 0; right: 0;
+    height: 5px;
+    background: #FFE600;
+}
+
+.accent-bar {
+    width: 56px;
+    height: 6px;
+    background: #FFE600;
+    border-radius: 3px;
+    margin-bottom: 16px;
+    flex-shrink: 0;
+}
+
+.tag {
+    display: inline-block;
+    background: #FFE600;
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    padding: 5px 14px;
+    border-radius: 20px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+h1 { font-size: 50px; font-weight: 800; color: #000; line-height: 1.1; }
+h2 { font-size: 32px; font-weight: 800; color: #000; margin-bottom: 4px; }
+
+/* NAV */
+.nav {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 20px;
+}
+
+.nav button {
+    background: #FFE600;
+    border: none;
+    width: 44px; height: 44px;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: 800;
+    cursor: pointer;
+    color: #000;
+    transition: all 0.15s;
+}
+
+.nav button:hover { background: #000; color: #FFE600; }
+.nav .counter { font-size: 14px; font-weight: 700; color: #555; min-width: 50px; text-align: center; }
+
+/* ======== SLIDE 1 — COVER ======== */
+.cover { justify-content: center !important; }
+.cover .teams { display: flex; gap: 20px; margin-top: 36px; }
+.cover .team-pill { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 600; color: #555; }
+.cover .team-dot { width: 10px; height: 10px; background: #FFE600; border-radius: 50%; flex-shrink: 0; }
+
+/* ======== SLIDE 2 — PANORAMA ======== */
+.repair-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 18px;
+    flex: 1;
+}
+
+.repair-table th {
+    background: #FFE600;
+    color: #000;
+    font-size: 12px;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    padding: 10px 14px;
+    text-align: center;
+    border: 2px solid #fff;
+}
+
+.repair-table th.site-header {
+    background: #000;
+    color: #FFE600;
+    width: 70px;
+}
+
+.repair-table td {
+    padding: 10px 14px;
+    text-align: center;
+    border: 2px solid #fff;
+    vertical-align: middle;
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.repair-table tr:nth-child(odd) td  { background: #f8f8f8; }
+.repair-table tr:nth-child(even) td { background: #f2f2f2; }
+
+.repair-table td.site-cell {
+    background: #000 !important;
+    color: #FFE600;
+    font-size: 14px;
+    font-weight: 800;
+    letter-spacing: 1px;
+    white-space: nowrap;
+}
+
+.repair-table td.avail { color: #000; }
+.repair-table td.avail .sla { font-weight: 800; font-size: 13px; color: #000; }
+.repair-table td.avail .info { font-size: 11px; color: #666; margin-top: 2px; }
+
+.repair-table td.na {
+    color: #ccc;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.panorama-callout {
+    background: #000;
+    border-radius: 12px;
+    padding: 14px 22px;
+    margin-top: 14px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    flex-shrink: 0;
+}
+
+.panorama-callout .icon { font-size: 20px; flex-shrink: 0; }
+.panorama-callout .text { font-size: 13px; color: #fff; line-height: 1.5; }
+.panorama-callout .text strong { color: #FFE600; }
+
+/* ======== SLIDE 3 — PROBLEMA ======== */
+.problema-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    flex: 1;
+    margin-top: 18px;
+}
+
+.problema-left {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.big-stat {
+    background: #f8f8f8;
+    border-radius: 14px;
+    padding: 18px 22px;
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    border-left: 5px solid #FFE600;
+}
+
+.big-stat .num {
+    font-size: 38px;
+    font-weight: 900;
+    color: #000;
+    line-height: 1;
+    white-space: nowrap;
+}
+
+.big-stat .num.small { font-size: 28px; }
+
+.big-stat .stat-info { display: flex; flex-direction: column; gap: 3px; }
+.big-stat .stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.8px; color: #aaa; }
+.big-stat .stat-desc { font-size: 13px; color: #444; line-height: 1.4; }
+
+.problema-right {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+}
+
+.seg-gap {
+    background: #000;
+    border-radius: 14px;
+    padding: 24px;
+    flex: 1;
+}
+
+.seg-gap .gap-title { font-size: 13px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; color: #FFE600; margin-bottom: 18px; }
+
+.seg-row-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 12px 0;
+    border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+
+.seg-row-item:last-child { border-bottom: none; }
+
+.seg-badge {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 4px 10px;
+    border-radius: 8px;
+    white-space: nowrap;
+    min-width: 90px;
+    text-align: center;
+}
+
+.seg-badge.smb  { background: #FFE600; color: #000; }
+.seg-badge.ht   { background: #FFE600; color: #000; }
+.seg-badge.lt   { background: #333; color: #aaa; }
+
+.seg-row-item .seg-desc { font-size: 13px; color: #ccc; line-height: 1.4; flex: 1; }
+.seg-row-item .seg-hoje { font-size: 12px; color: #ff6b6b; font-weight: 700; white-space: nowrap; }
+
+.problema-callout {
+    background: #FFE600;
+    border-radius: 12px;
+    padding: 14px 20px;
+}
+
+.problema-callout .pc-title { font-size: 14px; font-weight: 800; color: #000; margin-bottom: 3px; }
+.problema-callout .pc-text  { font-size: 13px; color: #444; }
+
+/* ======== SLIDE 4 — RESPONSABILIDADES ======== */
+.resp-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 18px;
+    flex: 1;
+    margin-top: 20px;
+}
+
+.resp-card { border-radius: 16px; padding: 24px 22px; display: flex; flex-direction: column; }
+.resp-card.log  { background: #000; }
+.resp-card.ccc  { background: #FFE600; }
+.resp-card.biz  { background: #f6f6f6; border: 2px solid #e8e8e8; }
+
+.resp-card .sq-label { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.resp-card.log .sq-label { color: #FFE600; }
+.resp-card.ccc .sq-label { color: rgba(0,0,0,0.45); }
+.resp-card.biz .sq-label { color: #999; }
+
+.resp-card .sq-title { font-size: 18px; font-weight: 800; line-height: 1.2; margin-bottom: 16px; }
+.resp-card.log .sq-title { color: #fff; }
+.resp-card.ccc .sq-title { color: #000; }
+.resp-card.biz .sq-title { color: #000; }
+
+.resp-card ul { list-style: none; display: flex; flex-direction: column; gap: 9px; }
+.resp-card li { font-size: 13px; line-height: 1.4; padding-left: 14px; position: relative; }
+.resp-card li::before { content: '▸'; position: absolute; left: 0; font-size: 11px; top: 1px; }
+.resp-card.log li { color: #ccc; }
+.resp-card.log li::before { color: #FFE600; }
+.resp-card.ccc li { color: #222; }
+.resp-card.ccc li::before { color: #000; }
+.resp-card.biz li { color: #444; }
+.resp-card.biz li::before { color: #000; }
+
+.resp-card .sq-owner { margin-top: auto; padding-top: 14px; font-size: 12px; font-weight: 700; }
+.resp-card.log .sq-owner { color: #FFE600; }
+.resp-card.ccc .sq-owner { color: #000; }
+.resp-card.biz .sq-owner { color: #888; }
+
+/* ======== SLIDE 5 — VARIÁVEIS ======== */
+.var-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 20px; }
+
+.var-card { background: #f8f8f8; border-radius: 14px; padding: 22px 18px; border-top: 4px solid #FFE600; }
+.var-icon { font-size: 28px; margin-bottom: 10px; }
+.var-name { font-size: 15px; font-weight: 800; color: #000; margin-bottom: 4px; }
+.var-dir  { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.5px; color: #aaa; margin-bottom: 8px; }
+.var-desc { font-size: 13px; color: #555; line-height: 1.4; }
+
+.formula-box {
+    background: #000;
+    border-radius: 12px;
+    padding: 16px 28px;
+    margin-top: 16px;
+    text-align: center;
+    font-family: 'Courier New', monospace;
+    font-size: 15px;
+    color: #fff;
+}
+
+.formula-box .y { color: #FFE600; font-weight: 800; }
+.formula-note { text-align: center; font-size: 12px; color: #aaa; margin-top: 8px; }
+
+/* ======== SLIDE 6 — COMO FUNCIONA ======== */
+.flow-row { display: flex; align-items: stretch; gap: 0; margin-top: 28px; }
+
+.flow-step {
+    flex: 1;
+    background: #f8f8f8;
+    border-radius: 14px;
+    padding: 26px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.step-num {
+    width: 36px; height: 36px;
+    background: #FFE600;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 16px;
+    margin-bottom: 14px;
+    flex-shrink: 0;
+}
+
+.step-title { font-size: 15px; font-weight: 800; color: #000; margin-bottom: 8px; }
+.step-desc  { font-size: 13px; color: #666; line-height: 1.4; }
+
+.step-date {
+    margin-top: 14px;
+    font-size: 12px;
+    font-weight: 800;
+    color: #000;
+    background: #fff;
+    border: 2px solid #FFE600;
+    border-radius: 8px;
+    padding: 4px 10px;
+}
+
+.flow-arrow {
+    font-size: 24px;
+    color: #FFE600;
+    font-weight: 900;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.stats-row {
+    display: flex;
+    margin-top: 24px;
+    background: #f8f8f8;
+    border-radius: 14px;
+    overflow: hidden;
+}
+
+.stat-item { flex: 1; padding: 18px 20px; border-right: 1px solid #e8e8e8; text-align: center; }
+.stat-item:last-child { border-right: none; }
+.stat-label { font-size: 11px; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; color: #aaa; margin-bottom: 6px; }
+.stat-value { font-size: 20px; font-weight: 800; color: #000; }
+
+/* ======== SLIDE 7 — CRONOGRAMA ======== */
+.tl-wrap { margin-top: 40px; position: relative; }
+.tl-line { position: absolute; top: 9px; left: 6%; right: 6%; height: 3px; background: #e8e8e8; z-index: 0; }
+
+.tl-items { display: grid; grid-template-columns: repeat(4, 1fr); position: relative; z-index: 1; }
+
+.tl-item { display: flex; flex-direction: column; align-items: center; text-align: center; }
+
+.tl-dot { width: 20px; height: 20px; border-radius: 50%; background: #e0e0e0; margin-bottom: 14px; flex-shrink: 0; }
+.tl-dot.today { background: #000; box-shadow: 0 0 0 4px #fff, 0 0 0 7px #FFE600; }
+
+.tl-date  { font-size: 15px; font-weight: 800; color: #000; }
+.tl-topic { font-size: 13px; font-weight: 700; color: #333; margin-top: 4px; }
+.tl-desc  { font-size: 12px; color: #888; margin-top: 5px; max-width: 160px; line-height: 1.3; }
+
+.tl-today-badge {
+    margin-top: 8px;
+    display: inline-block;
+    background: #FFE600;
+    color: #000;
+    font-size: 10px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 20px;
+    text-transform: uppercase;
+}
+
+.seg-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; margin-top: 40px; }
+
+.seg-card { border-radius: 12px; padding: 16px 20px; }
+.seg-card.s1 { background: #000; }
+.seg-card.s2 { background: #FFE600; }
+.seg-card.s3 { background: #f0f0f0; border: 2px solid #e0e0e0; }
+
+.seg-card .sn { font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 4px; }
+.seg-card .sr { font-size: 14px; font-weight: 700; margin-bottom: 3px; }
+.seg-card .so { font-size: 12px; }
+
+.seg-card.s1 .sn { color: #FFE600; }
+.seg-card.s1 .sr { color: #fff; }
+.seg-card.s1 .so { color: #aaa; }
+.seg-card.s2 .sn { color: rgba(0,0,0,0.45); }
+.seg-card.s2 .sr { color: #000; }
+.seg-card.s2 .so { color: #555; }
+.seg-card.s3 .sn { color: #999; }
+.seg-card.s3 .sr { color: #000; }
+.seg-card.s3 .so { color: #666; }
+
+/* ======== SLIDE 8 — PRÓXIMOS PASSOS ======== */
+.steps-list { display: flex; flex-direction: column; gap: 13px; margin-top: 18px; }
+
+.step-item { display: flex; align-items: center; gap: 16px; padding: 15px 20px; background: #f8f8f8; border-radius: 12px; }
+
+.step-badge {
+    background: #FFE600;
+    color: #000;
+    font-weight: 800;
+    font-size: 12px;
+    padding: 5px 12px;
+    border-radius: 8px;
+    white-space: nowrap;
+    flex-shrink: 0;
+    min-width: 64px;
+    text-align: center;
+}
+
+.step-text { font-size: 14px; color: #333; line-height: 1.4; flex: 1; }
+.step-text code { background: #e4e4e4; padding: 1px 7px; border-radius: 4px; font-size: 12px; font-family: 'Courier New', monospace; }
+.step-owner { font-size: 12px; font-weight: 700; color: #aaa; white-space: nowrap; flex-shrink: 0; }
+
+.next-banner { background: #FFE600; border-radius: 12px; padding: 17px 24px; margin-top: 16px; display: flex; align-items: center; gap: 16px; }
+.next-banner .icon { font-size: 26px; }
+.next-banner .title { font-size: 15px; font-weight: 800; color: #000; }
+.next-banner .sub   { font-size: 13px; color: #555; margin-top: 2px; }
+</style>
+</head>
+<body>
+
+<div class="presentation">
+
+<!-- SLIDE 1 — COVER -->
+<div class="slide cover active">
+    <div class="slide-num">01 / 10</div>
+    <div class="accent-bar" style="width: 100px;"></div>
+    <div class="tag">Discovery Kick-off · 22 de abril de 2026</div>
+    <h1 style="margin-top: 22px; max-width: 720px;">Decision Engine para<br>Seleção de <span style="background:#FFE600; padding:0 8px;">Carrier</span></h1>
+    <p style="font-size: 18px; color: #555; margin-top: 20px; max-width: 620px; line-height: 1.55;">
+        Construir uma matriz inteligente de logística que otimize custo, lead time e satisfação considerando o perfil e segmento do seller.
+    </p>
+    <div class="teams">
+        <div class="team-pill"><div class="team-dot"></div>Customer Centric Core</div>
+        <div class="team-pill"><div class="team-dot"></div>Logistics</div>
+        <div class="team-pill"><div class="team-dot"></div>Negocio / SDX</div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 2 — POR QUE ESTAMOS AQUI -->
+<div class="slide">
+    <div class="slide-num">02 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Por que estamos aqui?</h2>
+    <p style="font-size:15px; color:#888; margin-bottom:0;">Contexto, problemática e o que esperamos construir juntos neste discovery.</p>
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:20px; flex:1; margin-top:20px;">
+
+        <!-- Problemática -->
+        <div style="background:#000; border-radius:16px; padding:28px 26px; display:flex; flex-direction:column;">
+            <div style="font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; color:#FFE600; margin-bottom:10px;">🔍 A Problemática</div>
+            <div style="font-size:18px; font-weight:800; color:#fff; line-height:1.3; margin-bottom:20px;">A seleção tem lógica, mas não explora todo o potencial</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; flex:1;">
+                <li style="font-size:13px; color:#ccc; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#FFE600;">▸</span>
+                    Existe uma lógica de seleção hoje, mas ela não considera o <strong style="color:#FFE600;">momento de venda do seller</strong> — se está ativando, crescendo ou consolidado
+                </li>
+                <li style="font-size:13px; color:#ccc; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#FFE600;">▸</span>
+                    Variáveis como segmento (BS / SMB / LT), histórico do carrier e SLA por região ainda não são aproveitadas na decisão
+                </li>
+                <li style="font-size:13px; color:#ccc; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#FFE600;">▸</span>
+                    Há espaço para evoluir a lógica e extrair mais valor — priorizando quem mais precisa de ativação rápida
+                </li>
+            </ul>
+        </div>
+
+        <!-- Contexto -->
+        <div style="background:#FFE600; border-radius:16px; padding:28px 26px; display:flex; flex-direction:column;">
+            <div style="font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; color:rgba(0,0,0,0.45); margin-bottom:10px;">📊 O Contexto</div>
+            <div style="font-size:18px; font-weight:800; color:#000; line-height:1.3; margin-bottom:20px;">Já temos estrutura — falta inteligência na decisão</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; flex:1;">
+                <li style="font-size:13px; color:#222; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#000; font-weight:900;">▸</span>
+                    4 sites · 5 modalidades de envio disponíveis (Domicílio, Sucursal, ME, Sameday, Presencial)
+                </li>
+                <li style="font-size:13px; color:#222; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#000; font-weight:900;">▸</span>
+                    Lead time e EnE com variação entre sites — há espaço claro de melhoria
+                </li>
+                <li style="font-size:13px; color:#222; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#000; font-weight:900;">▸</span>
+                    Pirâmide de valor: BS → SMB → Longtail — cada segmento tem necessidades distintas de SLA e custo
+                </li>
+            </ul>
+        </div>
+
+        <!-- O que esperamos -->
+        <div style="background:#f6f6f6; border-radius:16px; padding:28px 26px; display:flex; flex-direction:column; border:2px solid #e8e8e8;">
+            <div style="font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:1.5px; color:#999; margin-bottom:10px;">🎯 O que Esperamos</div>
+            <div style="font-size:18px; font-weight:800; color:#000; line-height:1.3; margin-bottom:20px;">Sair com um modelo e um plano claro para Q3/26</div>
+            <ul style="list-style:none; display:flex; flex-direction:column; gap:12px; flex:1;">
+                <li style="font-size:13px; color:#444; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#000; font-weight:900;">▸</span>
+                    Definir um <strong>modelo de decisão</strong> que direcione o carrier certo para cada segmento
+                </li>
+                <li style="font-size:13px; color:#444; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#000; font-weight:900;">▸</span>
+                    Alinhar as <strong>3 squads</strong> (Logistics, CCC, Negocio/SDX) em torno de escopo e variáveis
+                </li>
+                <li style="font-size:13px; color:#444; line-height:1.5; padding-left:14px; position:relative;">
+                    <span style="position:absolute; left:0; color:#000; font-weight:900;">▸</span>
+                    Validar o discovery até <strong>17/06</strong> e organizar o build para <strong>Q3/26</strong>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 2 — PANORAMA ATUAL -->
+<div class="slide">
+    <div class="slide-num">03 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Panorama: Logística de Reparos por Site</h2>
+    <p style="font-size: 15px; color: #888;">Já gerenciamos diversas modalidades de envio — a oportunidade está em concentrar essa gestão e direcionar cada segmento à melhor opção.</p>
+    <table class="repair-table">
+        <thead>
+            <tr>
+                <th class="site-header">Site</th>
+                <th>🏠 Domicílio</th>
+                <th>🏪 Em Sucursal</th>
+                <th>📦 Mercado Envío</th>
+                <th>⚡ Sameday</th>
+                <th>🧑‍🔧 Visita Presencial</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td class="site-cell">MLB 🇧🇷</td>
+                <td class="avail">
+                    <div class="sla">1–2 dias hábeis</div>
+                    <div class="info">Correios · 2 tentativas</div>
+                </td>
+                <td class="avail">
+                    <div class="sla">30 dias corridos</div>
+                    <div class="info">Renova código</div>
+                </td>
+                <td class="avail">
+                    <div class="sla">1–6 dias hábeis</div>
+                    <div class="info">Dropoff/Crossdoc · 3 tent.</div>
+                </td>
+                <td class="avail">
+                    <div class="sla">Até 24h</div>
+                    <div class="info">3 tentativas</div>
+                </td>
+                <td class="na">—</td>
+            </tr>
+            <tr>
+                <td class="site-cell">MLA 🇦🇷</td>
+                <td class="avail">
+                    <div class="sla">1–5 dias hábeis</div>
+                    <div class="info">Andreani · 3 tentativas</div>
+                </td>
+                <td class="avail">
+                    <div class="sla">60 dias corridos</div>
+                    <div class="info">Cancela</div>
+                </td>
+                <td class="avail">
+                    <div class="sla">1–3 dias hábeis</div>
+                    <div class="info">3 tentativas</div>
+                </td>
+                <td class="avail">
+                    <div class="sla">Até 24h</div>
+                    <div class="info">3 tentativas</div>
+                </td>
+                <td class="na">—</td>
+            </tr>
+            <tr>
+                <td class="site-cell">MLC 🇨🇱</td>
+                <td class="na">—</td>
+                <td class="na">—</td>
+                <td class="avail">
+                    <div class="sla">A definir</div>
+                    <div class="info">3 tentativas</div>
+                </td>
+                <td class="na">—</td>
+                <td class="avail">
+                    <div class="sla">8–72 horas</div>
+                    <div class="info">2 tentativas</div>
+                </td>
+            </tr>
+            <tr>
+                <td class="site-cell">MLM 🇲🇽</td>
+                <td class="na">—</td>
+                <td class="avail">
+                    <div class="sla">7 dias</div>
+                    <div class="info">Renova código (90d)</div>
+                </td>
+                <td class="avail">
+                    <div class="sla">1–3 dias hábeis</div>
+                    <div class="info">3 tentativas</div>
+                </td>
+                <td class="na">—</td>
+                <td class="na">—</td>
+            </tr>
+        </tbody>
+    </table>
+    <div class="panorama-callout">
+        <div class="icon">💡</div>
+        <div class="text">
+            Hoje controlamos <strong>diversas modalidades</strong> — mas a escolha entre elas não considera o segmento do seller.
+            A oportunidade é <strong>concentrar essa gestão</strong> e direcionar cada segmento (<strong>BS, SMB, Longtail</strong>) à modalidade mais adequada ao seu perfil.
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 3 — O PROBLEMA -->
+<div class="slide">
+    <div class="slide-num">04 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>O Problema: Uma Lógica Para Todos</h2>
+    <p style="font-size:15px; color:#888;">Há variação entre os sites e espaço para melhoria — seleção inteligente pode garantir SLA consistente para SMB e BS.</p>
+    <div style="display:flex; flex-direction:column; flex:1; gap:13px; margin-top:12px;">
+    <!-- TOP: 4 charts -->
+    <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-auto-rows:1fr; gap:13px; flex:1; min-height:0; align-items:stretch;">
+
+        <!-- MLB -->
+        <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                <div>
+                    <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLB 🇧🇷</div>
+                    <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">2,55d</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">2,90d</span></div>
+                    <div style="font-size:11px; color:#22a745; font-weight:800; margin-top:2px;">✓ abaixo</div>
+                </div>
+            </div>
+            <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                <line x1="28" y1="55" x2="190" y2="55" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <text x="25" y="58" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">2,90</text>
+                <polygon points="28,52 40,34 52,31 65,19 77,25 90,34 102,50 114,50 127,55 139,39 152,51 164,58 177,60 190,63 190,70 28,70" fill="#FFE600" opacity="0.2"/>
+                <polyline points="28,52 40,34 52,31 65,19 77,25 90,34 102,50 114,50 127,55 139,39 152,51 164,58 177,60 190,63" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="65" cy="19" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                <text x="65" y="11" text-anchor="middle" font-size="9" font-weight="900" fill="#000">4,59</text>
+                <circle cx="190" cy="63" r="4" fill="#000"/>
+                <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">2,55</text>
+            </svg>
+            <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">4,59d</strong></div>
+        </div>
+
+        <!-- MLA -->
+        <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                <div>
+                    <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLA 🇦🇷</div>
+                    <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">1,82d</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">1,70d</span></div>
+                    <div style="font-size:11px; color:#ff6b6b; font-weight:800; margin-top:2px;">✗ acima</div>
+                </div>
+            </div>
+            <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                <line x1="28" y1="55" x2="190" y2="55" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <text x="25" y="58" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">1,70</text>
+                <polygon points="28,42 40,41 52,42 65,49 77,43 90,57 102,42 114,39 127,51 139,20 152,33 164,48 177,40 190,46 190,70 28,70" fill="#FFE600" opacity="0.2"/>
+                <polyline points="28,42 40,41 52,42 65,49 77,43 90,57 102,42 114,39 127,51 139,20 152,33 164,48 177,40 190,46" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="139" cy="20" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                <text x="139" y="12" text-anchor="middle" font-size="9" font-weight="900" fill="#000">2,17</text>
+                <circle cx="190" cy="46" r="4" fill="#000"/>
+                <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">1,82</text>
+            </svg>
+            <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">2,17d</strong></div>
+        </div>
+
+        <!-- MLM -->
+        <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                <div>
+                    <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLM 🇲🇽</div>
+                    <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">2,45d</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">2,10d</span></div>
+                    <div style="font-size:11px; color:#ff6b6b; font-weight:800; margin-top:2px;">✗ acima</div>
+                </div>
+            </div>
+            <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                <line x1="28" y1="58" x2="190" y2="58" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <text x="25" y="61" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">2,10</text>
+                <polygon points="28,50 41,18 53,35 66,49 78,58 91,60 103,59 116,53 128,46 141,35 153,40 166,47 178,48 190,44 190,70 28,70" fill="#FFE600" opacity="0.2"/>
+                <polyline points="28,50 41,18 53,35 66,49 78,58 91,60 103,59 116,53 128,46 141,35 153,40 166,47 178,48 190,44" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="41" cy="18" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                <text x="41" y="10" text-anchor="middle" font-size="9" font-weight="900" fill="#000">3,10</text>
+                <circle cx="190" cy="44" r="4" fill="#000"/>
+                <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">2,45</text>
+            </svg>
+            <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">3,10d</strong></div>
+        </div>
+
+        <!-- MLC -->
+        <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+            <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                <div>
+                    <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLC 🇨🇱</div>
+                    <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">1,31d</div>
+                </div>
+                <div style="text-align:right;">
+                    <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">1,40d</span></div>
+                    <div style="font-size:11px; color:#22a745; font-weight:800; margin-top:2px;">✓ abaixo</div>
+                </div>
+            </div>
+            <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                <line x1="28" y1="50" x2="190" y2="50" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                <text x="25" y="53" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">1,40</text>
+                <polygon points="28,49 41,32 53,46 66,35 78,39 91,36 103,26 116,35 128,60 141,49 153,51 166,53 178,58 190,56 190,70 28,70" fill="#FFE600" opacity="0.2"/>
+                <polyline points="28,49 41,32 53,46 66,35 78,39 91,36 103,26 116,35 128,60 141,49 153,51 166,53 178,58 190,56" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                <circle cx="103" cy="26" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                <text x="103" y="18" text-anchor="middle" font-size="9" font-weight="900" fill="#000">1,76</text>
+                <circle cx="190" cy="56" r="4" fill="#000"/>
+                <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">1,31</text>
+            </svg>
+            <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">1,76d</strong></div>
+        </div>
+
+    </div><!-- /4 charts -->
+
+    <!-- BOTTOM: segment gap + callout -->
+    <div style="display:grid; grid-template-columns:1fr auto; gap:13px; flex-shrink:0;">
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr; gap:12px;">
+            <div style="background:#000; border-radius:12px; padding:14px 16px;">
+                <div style="font-size:10px; font-weight:800; color:#FFE600; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">BS — Big Sellers</div>
+                <div style="font-size:13px; color:#fff; line-height:1.4; margin-bottom:8px;">Maior TPV — relação estratégica. SLA rígido, success_rate ≥ 90%.</div>
+                <div style="font-size:12px; color:#ff6b6b; font-weight:700;">✗ Recebe: custo mínimo</div>
+            </div>
+            <div style="background:#000; border-radius:12px; padding:14px 16px;">
+                <div style="font-size:10px; font-weight:800; color:#FFE600; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">SMB</div>
+                <div style="font-size:13px; color:#fff; line-height:1.4; margin-bottom:8px;">TPV médio — ativação rápida = crescimento. SLA curto, carrier confiável.</div>
+                <div style="font-size:12px; color:#ff6b6b; font-weight:700;">✗ Recebe: custo mínimo</div>
+            </div>
+            <div style="background:#f0f0f0; border-radius:12px; padding:14px 16px; border:2px solid #e0e0e0;">
+                <div style="font-size:10px; font-weight:800; color:#999; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Longtail</div>
+                <div style="font-size:13px; color:#555; line-height:1.4; margin-bottom:8px;">Menor TPV imediato. Convencional por custo é adequado.</div>
+                <div style="font-size:12px; color:#22a745; font-weight:700;">✓ Custo mínimo OK</div>
+            </div>
+        </div>
+        <div class="problema-callout" style="min-width:280px; display:flex; flex-direction:column; justify-content:center;">
+            <div class="pc-title">Oportunidade: garantir SLA para BS e SMB</div>
+            <div class="pc-text">Nos picos, BS e SMB ficam na fila com Longtail. Seleção inteligente protege os segmentos prioritários.</div>
+        </div>
+    </div><!-- /bottom -->
+
+    </div><!-- /flex column -->
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 4 — EnE -->
+<div class="slide">
+    <div class="slide-num">05 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Entrega Não Efetiva (EnE) — por Site</h2>
+    <p style="font-size:15px; color:#888;">Carrier não consegue entregar → reentrega, atraso na ativação, má experiência para o seller.</p>
+    <div style="display:flex; flex-direction:column; flex:1; gap:13px; margin-top:12px;">
+        <div style="display:grid; grid-template-columns:1fr 1fr 1fr 1fr; grid-auto-rows:1fr; gap:13px; flex:1; min-height:0; align-items:stretch;">
+
+            <!-- MLB ENE -->
+            <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                    <div>
+                        <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLB 🇧🇷</div>
+                        <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">1,67%</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">1,50%</span></div>
+                        <div style="font-size:11px; color:#ff6b6b; font-weight:800; margin-top:2px;">✗ acima</div>
+                    </div>
+                </div>
+                <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                    <line x1="28" y1="47" x2="190" y2="47" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="25" y="50" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">1,50</text>
+                    <polygon points="28,21 41,28 53,33 66,26 78,38 91,59 103,54 116,44 128,45 141,18 153,39 166,43 178,39 190,39 190,68 28,68" fill="#FFE600" opacity="0.2"/>
+                    <polyline points="28,21 41,28 53,33 66,26 78,38 91,59 103,54 116,44 128,45 141,18 153,39 166,43 178,39 190,39" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="141" cy="18" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                    <text x="141" y="10" text-anchor="middle" font-size="9" font-weight="900" fill="#000">2,12%</text>
+                    <circle cx="190" cy="39" r="4" fill="#000"/>
+                    <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">1,67%</text>
+                </svg>
+                <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">2,12%</strong></div>
+            </div>
+
+            <!-- MLA ENE -->
+            <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                    <div>
+                        <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLA 🇦🇷</div>
+                        <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">1,59%</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">2,00%</span></div>
+                        <div style="font-size:11px; color:#22a745; font-weight:800; margin-top:2px;">✓ abaixo</div>
+                    </div>
+                </div>
+                <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                    <line x1="28" y1="50" x2="190" y2="50" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="25" y="53" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">2,00</text>
+                    <polygon points="28,43 41,24 53,16 66,38 78,44 91,45 103,52 116,49 128,36 141,25 153,50 166,60 178,58 190,59 190,68 28,68" fill="#FFE600" opacity="0.2"/>
+                    <polyline points="28,43 41,24 53,16 66,38 78,44 91,45 103,52 116,49 128,36 141,25 153,50 166,60 178,58 190,59" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="53" cy="16" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                    <text x="53" y="8" text-anchor="middle" font-size="9" font-weight="900" fill="#000">3,52%</text>
+                    <circle cx="190" cy="59" r="4" fill="#000"/>
+                    <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">1,59%</text>
+                </svg>
+                <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">3,52%</strong></div>
+            </div>
+
+            <!-- MLM ENE -->
+            <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                    <div>
+                        <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLM 🇲🇽</div>
+                        <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">1,32%</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">1,25%</span></div>
+                        <div style="font-size:11px; color:#ff6b6b; font-weight:800; margin-top:2px;">✗ acima</div>
+                    </div>
+                </div>
+                <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                    <line x1="28" y1="48" x2="190" y2="48" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="25" y="51" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">1,25</text>
+                    <polygon points="28,58 41,44 53,50 66,37 78,50 91,49 103,30 116,18 128,43 141,34 153,43 166,44 178,42 190,46 190,68 28,68" fill="#FFE600" opacity="0.2"/>
+                    <polyline points="28,58 41,44 53,50 66,37 78,50 91,49 103,30 116,18 128,43 141,34 153,43 166,44 178,42 190,46" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="116" cy="18" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                    <text x="116" y="10" text-anchor="middle" font-size="9" font-weight="900" fill="#000">2,23%</text>
+                    <circle cx="190" cy="46" r="4" fill="#000"/>
+                    <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">1,32%</text>
+                </svg>
+                <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">2,23%</strong></div>
+            </div>
+
+            <!-- MLC ENE -->
+            <div style="background:#f8f8f8; border-radius:14px; padding:14px 14px 10px; display:flex; flex-direction:column; min-height:0; overflow:hidden;">
+                <div style="display:flex; justify-content:space-between; align-items:flex-start; margin-bottom:6px;">
+                    <div>
+                        <div style="font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:1px; color:#aaa;">MLC 🇨🇱</div>
+                        <div style="font-size:26px; font-weight:900; color:#000; line-height:1.1;">1,09%</div>
+                    </div>
+                    <div style="text-align:right;">
+                        <div style="font-size:10px; color:#888;">meta <span style="color:#ff4444; font-weight:800;">1,30%</span></div>
+                        <div style="font-size:11px; color:#22a745; font-weight:800; margin-top:2px;">✓ abaixo</div>
+                    </div>
+                </div>
+                <svg viewBox="0 0 200 75" style="width:100%; flex:1;" overflow="visible">
+                    <line x1="28" y1="39" x2="190" y2="39" stroke="#ff4444" stroke-width="1.5" stroke-dasharray="4,3"/>
+                    <text x="25" y="42" text-anchor="end" font-size="8" fill="#ff4444" font-weight="700">1,30</text>
+                    <polygon points="28,52 42,54 55,60 69,31 82,32 96,32 109,24 123,41 136,17 150,43 163,59 177,35 190,44 190,68 28,68" fill="#FFE600" opacity="0.2"/>
+                    <polyline points="28,52 42,54 55,60 69,31 82,32 96,32 109,24 123,41 136,17 150,43 163,59 177,35 190,44" fill="none" stroke="#000" stroke-width="2" stroke-linejoin="round" stroke-linecap="round"/>
+                    <circle cx="136" cy="17" r="4" fill="#FFE600" stroke="#000" stroke-width="1.5"/>
+                    <text x="136" y="9" text-anchor="middle" font-size="9" font-weight="900" fill="#000">2,23%</text>
+                    <circle cx="190" cy="44" r="4" fill="#000"/>
+                    <text x="190" y="73" text-anchor="middle" font-size="9" font-weight="700" fill="#000">1,09%</text>
+                </svg>
+                <div style="font-size:10px; color:#888; margin-top:6px;">Pico: <strong style="color:#000">2,23%</strong></div>
+            </div>
+
+        </div>
+
+        <!-- Bottom callout -->
+        <div style="display:grid; grid-template-columns:1fr auto; gap:13px; flex-shrink:0;">
+            <div style="display:grid; grid-template-columns:repeat(4,1fr); gap:10px;">
+                <div style="background:#fff3f3; border-radius:10px; padding:12px 14px; border-left:4px solid #ff6b6b; display:flex; align-items:center; gap:10px;">
+                    <div style="font-size:18px; font-weight:900; color:#000;">MLB</div>
+                    <div style="font-size:12px; color:#555;">1,67% <span style="color:#ff6b6b; font-weight:700;">▲ acima de 1,50%</span></div>
+                </div>
+                <div style="background:#f3fff5; border-radius:10px; padding:12px 14px; border-left:4px solid #22a745; display:flex; align-items:center; gap:10px;">
+                    <div style="font-size:18px; font-weight:900; color:#000;">MLA</div>
+                    <div style="font-size:12px; color:#555;">1,59% <span style="color:#22a745; font-weight:700;">▼ abaixo de 2,00%</span></div>
+                </div>
+                <div style="background:#fff3f3; border-radius:10px; padding:12px 14px; border-left:4px solid #ff6b6b; display:flex; align-items:center; gap:10px;">
+                    <div style="font-size:18px; font-weight:900; color:#000;">MLM</div>
+                    <div style="font-size:12px; color:#555;">1,32% <span style="color:#ff6b6b; font-weight:700;">▲ acima de 1,25%</span></div>
+                </div>
+                <div style="background:#f3fff5; border-radius:10px; padding:12px 14px; border-left:4px solid #22a745; display:flex; align-items:center; gap:10px;">
+                    <div style="font-size:18px; font-weight:900; color:#000;">MLC</div>
+                    <div style="font-size:12px; color:#555;">1,09% <span style="color:#22a745; font-weight:700;">▼ abaixo de 1,30%</span></div>
+                </div>
+            </div>
+            <div style="background:#000; border-radius:12px; padding:14px 18px; min-width:260px; display:flex; flex-direction:column; justify-content:center;">
+                <div style="font-size:11px; font-weight:800; color:#FFE600; text-transform:uppercase; letter-spacing:1px; margin-bottom:6px;">Oportunidade</div>
+                <div style="font-size:13px; color:#fff; line-height:1.5;">Carrier com <strong style="color:#FFE600;">menor EnE por região</strong> garante mais entregas na primeira tentativa — menos reentrega, ativação mais rápida.</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 4 — RESPONSABILIDADES -->
+<div class="slide">
+    <div class="slide-num">06 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Divisão de Responsabilidades</h2>
+    <p style="font-size: 15px; color: #888;">Cada squad com escopo claro, sem sobreposição.</p>
+    <div class="resp-row">
+        <div class="resp-card log">
+            <div class="sq-label">Logistics Squad</div>
+            <div class="sq-title">Supply de Opções Logísticas</div>
+            <ul>
+                <li>Endpoint com carriers elegíveis por rota e região</li>
+                <li>Metadados: custo, SLA, cobertura geográfica, capacidade</li>
+                <li>Taxa de sucesso histórica por carrier + região</li>
+                <li>Disponibilidade e restrições operacionais</li>
+            </ul>
+            <div class="sq-owner">Owner: Yuri Silva Alcantar</div>
+        </div>
+        <div class="resp-card ccc">
+            <div class="sq-label">Customer Centric Core</div>
+            <div class="sq-title">Decision Engine & Perfil do Seller</div>
+            <ul>
+                <li>Motor de decisão: scoring + regras por segmento</li>
+                <li>Perfil do seller: segmento (SMB/BS/LT), TPV, potencial</li>
+                <li>Regras obrigatórias: SLA para SMB/BS, custo para LT</li>
+                <li>Carrier selecionado com score breakdown para auditoria</li>
+            </ul>
+            <div class="sq-owner">Owner: Icaro Florencio</div>
+        </div>
+        <div class="resp-card biz">
+            <div class="sq-label">Negocio / SDX</div>
+            <div class="sq-title">Variáveis & Insights de Segmentação</div>
+            <ul>
+                <li>Critérios de segmentação: BS (Big Sellers), SMB, Longtail</li>
+                <li>Pesos por variável: custo, lead time, satisfação, potencial</li>
+                <li>Regras de negócio por segmento e thresholds mínimos</li>
+                <li>KPIs de validação e critérios de sucesso</li>
+            </ul>
+            <div class="sq-owner">Owner: TBD</div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 5 — VARIÁVEIS -->
+<div class="slide">
+    <div class="slide-num">07 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Variáveis do Modelo de Decisão</h2>
+    <p style="font-size: 15px; color: #888;">Quatro dimensões combinadas em um score configurável por segmento.</p>
+    <div class="var-grid">
+        <div class="var-card">
+            <div class="var-icon">💰</div>
+            <div class="var-name">Custo Logístico</div>
+            <div class="var-dir">A minimizar — peso alto para Longtail</div>
+            <div class="var-desc">Custo médio por envio por carrier e rota. Normalizado para [0,1].</div>
+        </div>
+        <div class="var-card">
+            <div class="var-icon">⏱️</div>
+            <div class="var-name">Lead Time / SLA</div>
+            <div class="var-dir">A minimizar — peso alto para SMB e BS</div>
+            <div class="var-desc">Dias estimados de entrega por carrier e região. Impacto direto na ativação.</div>
+        </div>
+        <div class="var-card">
+            <div class="var-icon">⭐</div>
+            <div class="var-name">Satisfação (NPS)</div>
+            <div class="var-dir">A maximizar</div>
+            <div class="var-desc">Avaliação do seller sobre o carrier + taxa de entrega bem-sucedida por região.</div>
+        </div>
+        <div class="var-card">
+            <div class="var-icon">📈</div>
+            <div class="var-name">Potencial do Seller</div>
+            <div class="var-dir">A maximizar — SMB e BS prioritários</div>
+            <div class="var-desc">Segmento, TPV histórico/estimado. Impacto de demora em ativação e TPV perdido.</div>
+        </div>
+    </div>
+    <div class="formula-box">
+        score&nbsp;=&nbsp;<span class="y">w1</span>&nbsp;×&nbsp;(1−custo)&nbsp;+&nbsp;<span class="y">w2</span>&nbsp;×&nbsp;(1−SLA)&nbsp;+&nbsp;<span class="y">w3</span>&nbsp;×&nbsp;satisfação&nbsp;+&nbsp;<span class="y">w4</span>&nbsp;×&nbsp;potencial_seller
+    </div>
+    <p class="formula-note">BS / SMB: w2 e w4 altos (SLA + potencial) &nbsp;·&nbsp; Longtail: w1 alto (custo) &nbsp;·&nbsp; Pesos definidos por Negocio/SDX</p>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 6 — COMO FUNCIONA O DISCOVERY -->
+<div class="slide">
+    <div class="slide-num">08 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Como Funciona o Discovery</h2>
+    <p style="font-size: 15px; color: #888;">3 encontros entre as squads — do kick-off à organização para desenvolvimento em Q3/26.</p>
+    <div class="flow-row">
+        <div class="flow-step">
+            <div class="step-num">1</div>
+            <div class="step-title">Kick-off</div>
+            <div class="step-desc">Alinhamento do problema, divisão de squads, acordos iniciais e panorama de dados</div>
+            <div class="step-date">22 / 04</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+            <div class="step-num">2</div>
+            <div class="step-title">Estrutura Técnica & Variáveis</div>
+            <div class="step-desc">Apresentação da estrutura técnica, contrato da API, variáveis de negócio e pesos por segmento</div>
+            <div class="step-date">20 / 05</div>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-step">
+            <div class="step-num">3</div>
+            <div class="step-title">Validação Final & Q3/26</div>
+            <div class="step-desc">Validação do discovery, decisão de desenvolvimento e organização para etapa de build em Q3/26</div>
+            <div class="step-date">17 / 06</div>
+        </div>
+    </div>
+    <div class="stats-row">
+        <div class="stat-item">
+            <div class="stat-label">Início</div>
+            <div class="stat-value">22 abr 2026</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-label">Entrega</div>
+            <div class="stat-value">17 jun 2026</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-label">Encontros</div>
+            <div class="stat-value">3 reuniões</div>
+        </div>
+        <div class="stat-item">
+            <div class="stat-label">Squads</div>
+            <div class="stat-value">3 equipes</div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 7 — CRONOGRAMA -->
+<div class="slide">
+    <div class="slide-num">09 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Cronograma do Discovery</h2>
+    <p style="font-size: 15px; color: #888;">3 encontros de 22/04 a 17/06 — validação e organização para Q3/26.</p>
+    <div class="tl-wrap">
+        <div class="tl-line"></div>
+        <div class="tl-items" style="grid-template-columns: repeat(3,1fr);">
+            <div class="tl-item">
+                <div class="tl-dot today"></div>
+                <div class="tl-date">22/04</div>
+                <div class="tl-topic">Kick-off</div>
+                <div class="tl-desc">Alinhamento geral, divisão de squads, acordos iniciais</div>
+                <div class="tl-today-badge">Hoje</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-date">20/05</div>
+                <div class="tl-topic">Estrutura Técnica & Variáveis</div>
+                <div class="tl-desc">Estrutura técnica, contrato da API, variáveis de negócio e pesos por segmento</div>
+            </div>
+            <div class="tl-item">
+                <div class="tl-dot"></div>
+                <div class="tl-date">17/06</div>
+                <div class="tl-topic">Validação Final & Q3/26</div>
+                <div class="tl-desc">Validação do discovery, decisão de dev e organização para build em Q3/26</div>
+            </div>
+        </div>
+    </div>
+    <div class="seg-grid">
+        <div class="seg-card s1">
+            <div class="sn">BS — Big Sellers</div>
+            <div class="sr">Maior TPV · SLA rígido · success_rate ≥ 90%</div>
+            <div class="so">Prioridade máxima — SLA acima do custo</div>
+        </div>
+        <div class="seg-card s2">
+            <div class="sn">SMB</div>
+            <div class="sr">TPV médio · SLA curto · carrier confiável</div>
+            <div class="so">Alta prioridade — ativação rápida = crescimento</div>
+        </div>
+        <div class="seg-card s3">
+            <div class="sn">Longtail — Convencional</div>
+            <div class="sr">Menor TPV · Otimização por custo</div>
+            <div class="so">SLA relaxado — lógica atual já atende</div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 8 — PRÓXIMOS PASSOS -->
+<div class="slide">
+    <div class="slide-num">10 / 10</div>
+    <div class="accent-bar"></div>
+    <h2>Próximos Passos Imediatos</h2>
+    <p style="font-size: 15px; color: #888;">Ações que saem deste kick-off para destravar o discovery.</p>
+    <div class="steps-list">
+        <div class="step-item">
+            <div class="step-badge">ASAP</div>
+            <div class="step-text">Confirmar owners de Negocio/SDX e data lead de Logística. Preencher critérios de segmentação SMB / BS / Longtail.</div>
+            <div class="step-owner">Vinicius Paladini</div>
+        </div>
+        <div class="step-item">
+            <div class="step-badge">20/05</div>
+            <div class="step-text"><strong>Logistics:</strong> proposta de como expor as opções logísticas — estrutura da API, metadados disponíveis (carrier, custo, SLA, cobertura, success_rate) e contratos de integração.</div>
+            <div class="step-owner">Logistics</div>
+        </div>
+        <div class="step-item">
+            <div class="step-badge">20/05</div>
+            <div class="step-text"><strong>Customer Centric Core:</strong> proposta de como funciona o Decision Engine — lógica de scoring, regras por segmento (BS / SMB / LT) e como o perfil do seller entra na decisão.</div>
+            <div class="step-owner">CCC</div>
+        </div>
+        <div class="step-item">
+            <div class="step-badge">20/05</div>
+            <div class="step-text"><strong>Negocio / SDX + Produto:</strong> proposta das variáveis de negócio relevantes — pesos por segmento, momento de venda do seller e critérios de priorização.</div>
+            <div class="step-owner">Negocio / SDX · Produto</div>
+        </div>
+        <div class="step-item">
+            <div class="step-badge">17/06</div>
+            <div class="step-text">Implementar PoC do Decision Engine em staging com dataset real. Validação final do discovery e organização do plano de build para Q3/26.</div>
+            <div class="step-owner">CCC / Data</div>
+        </div>
+    </div>
+    <div class="next-banner">
+        <div class="icon">📅</div>
+        <div>
+            <div class="title">Próximo encontro: 20 de maio de 2026</div>
+            <div class="sub">Tema: Estrutura Técnica & Variáveis — cada squad traz estrutura técnica, API mapeada e proposta de variáveis de negócio</div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+</div>
+
+<!-- Navigation -->
+<div class="nav">
+    <button onclick="prev()">←</button>
+    <span class="counter" id="ctr">1 / 8</span>
+    <button onclick="next()">→</button>
+</div>
+
+<script>
+let cur = 0;
+const slides = document.querySelectorAll('.slide');
+
+function go(n) {
+    slides[cur].classList.remove('active');
+    cur = (n + slides.length) % slides.length;
+    slides[cur].classList.add('active');
+    document.getElementById('ctr').textContent = `${cur + 1} / 10`;
+}
+
+function prev() { go(cur - 1); }
+function next() { go(cur + 1); }
+
+document.addEventListener('keydown', e => {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowDown') next();
+    if (e.key === 'ArrowLeft'  || e.key === 'ArrowUp')   prev();
+});
+</script>
+</body>
+</html>
