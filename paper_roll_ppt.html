@@ -447,74 +447,108 @@
     <div class="slide-inner">
       <div class="slide-header">
         <div class="slide-tag">Diagnóstico</div>
-        <h2>Custo e Divergência de Regras por Canal</h2>
+        <h2>Dois Problemas Centrais no Serviço de Bobinas</h2>
       </div>
-      <div class="slide-body flex-row gap-24">
-        <!-- LEFT -->
-        <div style="flex:1.1; display:flex; flex-direction:column; gap:14px;">
-          <h4 style="color:#999; font-size:11px; text-transform:uppercase; letter-spacing:1px;">O que está acontecendo</h4>
-          <div class="box box-yellow">
-            <div style="font-size:13px; color:#DDD; line-height:1.6;">
-              Gap de threshold entre portal e CX gera <strong style="color:#FFE600">bypass</strong>: sellers bloqueados no autoatendimento ligam para o CX, gerando custo de atendimento humano para pedido que deveria ser digital.
+      <div class="slide-body flex-row gap-0">
+
+        <!-- PROBLEMA 1 — CUSTO -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:0; border-right:1px solid #2A2A2A; padding-right:32px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,107,107,0.15); border:2px solid #FF6B6B; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; color:#FF6B6B; flex-shrink:0;">1</div>
+            <div style="font-size:17px; font-weight:700; color:#FF6B6B;">Alto Custo Logístico</div>
+          </div>
+
+          <div style="font-size:13px; color:#999; line-height:1.7; margin-bottom:18px;">
+            O custo de envio de bobinas é um custo subsidiado pelo MP — não cobrado do seller. Cada shipment tem custo fixo de frete independente da quantidade enviada, e o MLB opera com <strong style="color:#DDD;">6 bobinas/kit</strong> vs <strong style="color:#DDD;">10 dos demais sites</strong>, gerando o pior custo por bobina.
+          </div>
+
+          <!-- 3 stats em linha -->
+          <div style="display:flex; gap:12px; margin-bottom:18px;">
+            <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FF6B6B; border-radius:6px; padding:12px; text-align:center;">
+              <div style="font-size:26px; font-weight:800; color:#FF6B6B;">303k</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">pedidos/Q1 cross-site</div>
+            </div>
+            <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FF9800; border-radius:6px; padding:12px; text-align:center;">
+              <div style="font-size:26px; font-weight:800; color:#FF9800;">$3,38</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">frete/shipment MLB</div>
+            </div>
+            <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FFE600; border-radius:6px; padding:12px; text-align:center;">
+              <div style="font-size:26px; font-weight:800; color:#FFE600;">$0,21</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">diferença $/bob MLB vs outros</div>
             </div>
           </div>
-          <div style="display:flex; flex-direction:column; gap:10px;">
-            <div class="box box-red" style="display:flex; align-items:baseline; gap:10px;">
-              <div style="font-size:24px; font-weight:700; color:#FF6B6B; flex-shrink:0;">3.595</div>
-              <div style="font-size:12px; color:#DDD;">pedidos <strong>proativos via CX</strong> em Q1/26 — custo evitável: <strong style="color:#FF6B6B;">~$16.178</strong> (a $4,50/contato)</div>
+
+          <!-- barra comparativa bob/kit -->
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; margin-bottom:8px;">Bobinas por kit na reposição</div>
+          <div style="display:flex; flex-direction:column; gap:6px;">
+            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
+              <span style="color:#888; width:36px;">MLB</span>
+              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:20px; overflow:hidden;">
+                <div style="width:60%; background:#FF6B6B; height:100%; border-radius:3px; display:flex; align-items:center; padding-left:8px;">
+                  <span style="font-size:11px; font-weight:700; color:#1A1A1A;">6 bobinas</span>
+                </div>
+              </div>
             </div>
-            <div class="box box-orange" style="display:flex; align-items:baseline; gap:10px;">
-              <div style="font-size:24px; font-weight:700; color:#FF9800; flex-shrink:0;">1.959</div>
-              <div style="font-size:12px; color:#DDD;"><strong>emergenciais via CX</strong> em Q1/26 — parte explicada por limitação técnica do motor de cálculo de estoque</div>
+            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
+              <span style="color:#888; width:36px;">Outros</span>
+              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:20px; overflow:hidden;">
+                <div style="width:100%; background:#4CAF50; height:100%; border-radius:3px; display:flex; align-items:center; padding-left:8px;">
+                  <span style="font-size:11px; font-weight:700; color:#1A1A1A;">10 bobinas</span>
+                </div>
+              </div>
             </div>
-          </div>
-          <div class="box box-gray" style="margin-top:auto;">
-            <div style="font-size:11px; color:#888;">Custo proativo digital = <strong style="color:#4CAF50">$0</strong> &nbsp;&nbsp;|&nbsp;&nbsp; Custo via CX humano = <strong style="color:#FF6B6B;">~$4,50/contato</strong></div>
           </div>
         </div>
 
-        <!-- DIVIDER -->
-        <div style="width:1px; background:#2A2A2A; flex-shrink:0;"></div>
-
-        <!-- RIGHT -->
-        <div style="flex:1; display:flex; flex-direction:column; gap:14px;">
-          <h4 style="color:#999; font-size:11px; text-transform:uppercase; letter-spacing:1px;">Exemplo concreto — SMB MLB</h4>
-          <div style="font-size:12px; color:#888; margin-bottom:4px;">Seller com 60% de estoque restante tenta solicitar bobinas:</div>
-          <table>
-            <thead>
-              <tr>
-                <th>Canal</th>
-                <th>Threshold</th>
-                <th>Resultado</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Portal direto</td>
-                <td class="td-orange">50%</td>
-                <td class="td-red">Bloqueado</td>
-              </tr>
-              <tr>
-                <td>Maxwell / FAQ</td>
-                <td class="td-highlight">80%</td>
-                <td class="td-green">Permitido</td>
-              </tr>
-              <tr>
-                <td>CX Humano</td>
-                <td class="td-highlight">80–90%</td>
-                <td class="td-green">Permitido</td>
-              </tr>
-            </tbody>
-          </table>
-          <div style="font-size:12px; color:#888; line-height:1.5; margin-top:4px;">
-            O seller bloqueado no portal <strong style="color:#DDD">migra para o CX</strong> para obter o mesmo resultado. O custo do pedido passa de $0 para $4,50.
+        <!-- PROBLEMA 2 — REGRAS DISTINTAS -->
+        <div style="flex:1; display:flex; flex-direction:column; gap:0; padding-left:32px;">
+          <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
+            <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,152,0,0.15); border:2px solid #FF9800; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; color:#FF9800; flex-shrink:0;">2</div>
+            <div style="font-size:17px; font-weight:700; color:#FF9800;">Regras Distintas por Canal</div>
           </div>
-          <div class="box box-yellow" style="margin-top:auto;">
-            <div style="font-size:12px; color:#DDD;">
-              <strong style="color:#FFE600">Solucao:</strong> unificar thresholds elimina o incentivo de bypass e converte custo variavel em custo zero.
+
+          <div style="font-size:13px; color:#999; line-height:1.7; margin-bottom:18px;">
+            A elegibilidade para solicitar bobinas varia conforme o canal de atendimento. O mesmo seller, com o mesmo estoque, obtém resultados diferentes dependendo de onde solicita — criando uma jornada inconsistente e gerando contatos desnecessários no CX.
+          </div>
+
+          <!-- visual canal vs resultado -->
+          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Exemplo: Seller SMB com 70% de estoque restante</div>
+          <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:18px;">
+            <div style="display:flex; align-items:center; justify-content:space-between; background:#1C1C1C; border:1px solid #2A2A2A; border-radius:6px; padding:10px 14px;">
+              <div style="font-size:13px; color:#DDD;">Autogestão / Maxwell</div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:11px; color:#888;">threshold 80%</span>
+                <span style="background:#1A3A1A; color:#4CAF50; font-size:11px; font-weight:700; padding:3px 12px; border-radius:12px; border:1px solid #4CAF50;">PERMITIDO</span>
+              </div>
+            </div>
+            <div style="display:flex; align-items:center; justify-content:space-between; background:#1C1C1C; border:1px solid #2A2A2A; border-radius:6px; padding:10px 14px;">
+              <div style="font-size:13px; color:#DDD;">CX Humano</div>
+              <div style="display:flex; align-items:center; gap:10px;">
+                <span style="font-size:11px; color:#888;">threshold 80–90%</span>
+                <span style="background:#1A3A1A; color:#4CAF50; font-size:11px; font-weight:700; padding:3px 12px; border-radius:12px; border:1px solid #4CAF50;">PERMITIDO</span>
+              </div>
             </div>
           </div>
+
+          <!-- resultado: custo -->
+          <div style="display:flex; gap:12px; margin-bottom:auto;">
+            <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FF6B6B; border-radius:6px; padding:12px; text-align:center;">
+              <div style="font-size:26px; font-weight:800; color:#FF6B6B;">5.554</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">pedidos via CX Q1/26<br>que poderiam ser digitais</div>
+            </div>
+            <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FF9800; border-radius:6px; padding:12px; text-align:center;">
+              <div style="font-size:26px; font-weight:800; color:#FF9800;">~$25k</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">custo evitável/Q1<br>a $4,50/contato</div>
+            </div>
+          </div>
+
+          <!-- objetivo -->
+          <div style="background:rgba(255,230,0,0.08); border:1px solid rgba(255,230,0,0.25); border-radius:6px; padding:12px 14px; margin-top:16px;">
+            <div style="font-size:11px; color:#FFE600; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Objetivo</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">Reduzir o custo logístico por bobina entregue e tornar as regras de elegibilidade consistentes entre canais — eliminando a jornada de duas etapas que hoje gera custo desnecessário.</div>
+          </div>
         </div>
+
       </div>
     </div>
     <div class="slide-number">2 / 11</div>
