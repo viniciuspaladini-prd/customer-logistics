@@ -1188,86 +1188,79 @@
     <div class="slide-inner">
       <div class="slide-header">
         <div class="slide-tag">Proposta 2</div>
-        <h2>Reducao do Umbral de Estoque de 50% para 40%</h2>
-        <div class="subtitle">Aplicar umbral uniforme de 40% em todos os canais — elimina divergencia e reduz pedidos prematuros</div>
+        <h2>Aumentar Umbral de 40% para 50% em Todos os Sites</h2>
+        <div class="subtitle">Umbral = % de estoque restante a partir do qual o seller já pode solicitar. Umbral maior = seller pede mais cedo = menos esgotamento.</div>
       </div>
       <div class="slide-body flex-row gap-20">
 
         <!-- ESQUERDA: o que muda -->
         <div style="flex:1.2; display:flex; flex-direction:column; gap:12px;">
-          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Situacao Atual vs Proposto — MLB</div>
+
+          <!-- visual antes/depois -->
+          <div style="display:flex; gap:12px;">
+            <div style="flex:1; background:#2A1010; border:1px solid #4A2020; border-radius:8px; padding:14px;">
+              <div style="font-size:11px; color:#FF6B6B; font-weight:700; text-transform:uppercase; margin-bottom:8px;">Atual — 40% de estoque</div>
+              <div style="background:#2A2A2A; border-radius:4px; height:20px; overflow:hidden; margin-bottom:6px;">
+                <div style="width:60%; background:#FF6B6B; height:100%; display:flex; align-items:center; padding-left:6px;">
+                  <span style="font-size:10px; color:#1A1A1A; font-weight:700;">60% consumido</span>
+                </div>
+              </div>
+              <div style="font-size:11px; color:#888; line-height:1.5;">Seller precisa consumir <strong style="color:#FF6B6B;">60%</strong> do estoque antes de poder solicitar. Janela de segurança pequena — risco de esgotamento alto.</div>
+            </div>
+            <div style="display:flex; align-items:center; font-size:20px; color:#FFE600; font-weight:700; flex-shrink:0;">→</div>
+            <div style="flex:1; background:#1A2A1A; border:1px solid #2A4A2A; border-radius:8px; padding:14px;">
+              <div style="font-size:11px; color:#4CAF50; font-weight:700; text-transform:uppercase; margin-bottom:8px;">Proposto — 50% de estoque</div>
+              <div style="background:#2A2A2A; border-radius:4px; height:20px; overflow:hidden; margin-bottom:6px;">
+                <div style="width:50%; background:#4CAF50; height:100%; display:flex; align-items:center; padding-left:6px;">
+                  <span style="font-size:10px; color:#1A1A1A; font-weight:700;">50% consumido</span>
+                </div>
+              </div>
+              <div style="font-size:11px; color:#888; line-height:1.5;">Seller solicita quando ainda tem <strong style="color:#4CAF50;">50%</strong> restante. Mais tempo para receber antes de zerar. Menos emergenciais.</div>
+            </div>
+          </div>
+
+          <!-- tabela por site -->
+          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Mudanca por Site e Segmento</div>
           <table style="font-size:12px;">
             <thead>
               <tr>
                 <th>Segmento</th>
-                <th>Portal (atual)</th>
-                <th>CX/FAQ (atual)</th>
-                <th>Proposto (todos)</th>
-                <th>Mudanca</th>
+                <th style="text-align:center;">MLA · MLB · MLM</th>
+                <th style="text-align:center;">MLC (atual)</th>
+                <th style="text-align:center;">Proposto</th>
+                <th>Efeito</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Big Sellers</td>
-                <td class="th-rest">50%</td>
-                <td class="th-free">100%</td>
-                <td class="th-vrest" style="background:#1A3A1A; color:#4CAF50; font-weight:700;">40%</td>
-                <td style="font-size:11px; color:#FF9800;">Portal −10pp · CX unificado</td>
+                <td style="text-align:center;" class="th-free">100%</td>
+                <td style="text-align:center;" class="th-free">99%</td>
+                <td style="text-align:center;" class="th-free">100%</td>
+                <td style="font-size:11px; color:#888;">Sem mudanca — ja sem restricao</td>
               </tr>
               <tr>
                 <td>SMB</td>
-                <td class="th-rest">50%</td>
-                <td class="th-mod">80%</td>
-                <td class="th-vrest" style="background:#1A3A1A; color:#4CAF50; font-weight:700;">40%</td>
-                <td style="font-size:11px; color:#FF9800;">Portal −10pp · CX −40pp</td>
+                <td style="text-align:center;" class="th-mod">80%</td>
+                <td style="text-align:center;" class="th-free">99%</td>
+                <td style="text-align:center;" class="th-mod">80%</td>
+                <td style="font-size:11px; color:#888;">Sem mudanca — avaliar alinhamento com MLC</td>
               </tr>
-              <tr>
-                <td>Longtail</td>
-                <td class="th-vrest">40%</td>
-                <td class="th-rest">50%</td>
-                <td class="th-vrest" style="background:#1A3A1A; color:#4CAF50; font-weight:700;">40%</td>
-                <td style="font-size:11px; color:#888;">Portal sem mudanca · CX −10pp</td>
+              <tr style="background:#1A2A1A;">
+                <td><strong style="color:#FFE600;">Longtail</strong></td>
+                <td style="text-align:center;" class="td-red">40%</td>
+                <td style="text-align:center;" class="td-orange">60%</td>
+                <td style="text-align:center; background:#1A3A1A; color:#4CAF50; font-weight:700; font-size:14px;">50%</td>
+                <td style="font-size:11px; color:#4CAF50; font-weight:600;">+10pp · menos emergenciais</td>
               </tr>
             </tbody>
           </table>
 
-          <!-- pedidos afetados por faixa 40-50% -->
-          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-top:4px;">Pedidos na Faixa 40–50% de Estoque — Q1/26 (seriam bloqueados)</div>
-          <div style="display:flex; flex-direction:column; gap:6px;">
-            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
-              <span style="color:#888; width:90px;">MLB SMB</span>
-              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
-                <div style="width:56%; background:#3483FA; height:100%; border-radius:3px;"></div>
-              </div>
-              <span style="color:#3483FA; font-weight:600; width:70px;">5.670/Q1</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
-              <span style="color:#888; width:90px;">MLC Longtail</span>
-              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
-                <div style="width:42%; background:#FF9800; height:100%; border-radius:3px;"></div>
-              </div>
-              <span style="color:#FF9800; font-weight:600; width:70px;">4.332/Q1</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
-              <span style="color:#888; width:90px;">MLM SMB</span>
-              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
-                <div style="width:19%; background:#9B59B6; height:100%; border-radius:3px;"></div>
-              </div>
-              <span style="color:#9B59B6; font-weight:600; width:70px;">1.957/Q1</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
-              <span style="color:#888; width:90px;">MLA SMB+BS</span>
-              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
-                <div style="width:13%; background:#4CAF50; height:100%; border-radius:3px;"></div>
-              </div>
-              <span style="color:#4CAF50; font-weight:600; width:70px;">1.336/Q1</span>
-            </div>
-            <div style="display:flex; align-items:center; gap:10px; font-size:12px;">
-              <span style="color:#888; width:90px; font-weight:700;">TOTAL</span>
-              <div style="flex:1; background:#2A2A2A; border-radius:3px; height:16px; overflow:hidden;">
-                <div style="width:100%; background:#FFE600; height:100%; border-radius:3px;"></div>
-              </div>
-              <span style="color:#FFE600; font-weight:700; width:70px;">~16.274/Q1</span>
+          <!-- benchmark MLC -->
+          <div style="background:#111; border:1px solid #2A2A2A; border-left:3px solid #4CAF50; border-radius:6px; padding:10px 14px;">
+            <div style="font-size:11px; color:#4CAF50; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Benchmark: MLC Longtail ja opera a 60%</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">
+              MLC tem umbral de 60% para Longtail e apresenta <strong style="color:#4CAF50;">0,4%</strong> de emergenciais. MLB com 40% tem <strong style="color:#FF6B6B;">1,2%</strong>. Subir para 50% é um passo intermediário comprovado.
             </div>
           </div>
         </div>
@@ -1276,37 +1269,78 @@
         <div style="width:1px; background:#2A2A2A; flex-shrink:0;"></div>
 
         <!-- DIREITA: impacto -->
-        <div style="flex:1; display:flex; flex-direction:column; gap:14px;">
-          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Impacto Esperado da Proposta 2</div>
+        <div style="flex:1; display:flex; flex-direction:column; gap:12px;">
+          <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600;">Impacto Esperado — Longtail MLB</div>
 
-          <div style="display:flex; flex-direction:column; gap:10px;">
+          <!-- dados reais na faixa 40-50% -->
+          <div style="font-size:12px; color:#999; line-height:1.5; margin-bottom:4px;">
+            Sellers MLB Longtail que hoje <strong style="color:#DDD;">não conseguem solicitar</strong> com 40–50% de estoque restante passariam a poder solicitar — antes de chegar próximo do fim:
+          </div>
 
-            <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #4CAF50; border-radius:6px; padding:12px;">
-              <div style="font-size:11px; color:#4CAF50; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Reducao de Pedidos</div>
-              <div style="font-size:22px; font-weight:800; color:#FFF;">~3.255 pedidos/Q1</div>
-              <div style="font-size:11px; color:#888; margin-top:2px;">20% dos 16.274 afetados sao genuinamente evitados (restante e apenas adiado)</div>
+          <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #3483FA; border-radius:6px; padding:12px;">
+            <div style="font-size:11px; color:#3483FA; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Pedidos na faixa 40–50% estoque — Q1/26</div>
+            <div style="font-size:22px; font-weight:800; color:#FFF;">855 pedidos MLB LT</div>
+            <div style="font-size:11px; color:#888; margin-top:2px;">5.670 SMB · 855 LT · 1.336 MLA · ~16.274 cross-site</div>
+          </div>
+
+          <div style="display:flex; flex-direction:column; gap:10px; margin-top:4px;">
+            <!-- Tabela de emergenciais por site -->
+            <div style="font-size:11px; color:#FFE600; text-transform:uppercase; letter-spacing:1px; font-weight:600; margin-bottom:2px;">Reducao de Emergenciais — Sites em 40% Hoje</div>
+            <table style="font-size:12px;">
+              <thead>
+                <tr>
+                  <th>Site (LT)</th>
+                  <th style="text-align:right;">Atual (40%)</th>
+                  <th style="text-align:right;">Emerg. Q1</th>
+                  <th style="text-align:right;">Est. 50%</th>
+                  <th style="text-align:right;">Reducao</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>🇧🇷 MLB</td>
+                  <td style="text-align:right;" class="td-red">1,2%</td>
+                  <td style="text-align:right;">877</td>
+                  <td style="text-align:right;">~584</td>
+                  <td style="text-align:right;" class="td-green">−293</td>
+                </tr>
+                <tr>
+                  <td>🇲🇽 MLM</td>
+                  <td style="text-align:right;" class="td-orange">0,9%</td>
+                  <td style="text-align:right;">295</td>
+                  <td style="text-align:right;">~197</td>
+                  <td style="text-align:right;" class="td-green">−98</td>
+                </tr>
+                <tr>
+                  <td>🇦🇷 MLA</td>
+                  <td style="text-align:right;" class="td-orange">0,7%</td>
+                  <td style="text-align:right;">162</td>
+                  <td style="text-align:right;">~108</td>
+                  <td style="text-align:right;" class="td-green">−54</td>
+                </tr>
+                <tr style="background:#1A2A1A; border-top:1px solid #2A4A2A;">
+                  <td><strong>Total</strong></td>
+                  <td style="text-align:right;" class="td-red">1,2% MLB</td>
+                  <td style="text-align:right;font-weight:700;">1.334</td>
+                  <td style="text-align:right;font-weight:700;">~889</td>
+                  <td style="text-align:right;font-weight:700;" class="td-green">−445/Q1</td>
+                </tr>
+              </tbody>
+            </table>
+            <div style="font-size:10px; color:#666; margin-top:2px;">Estimativa: interpolacao linear entre MLB (40%→1,2%) e MLC (60%→0,4%)</div>
+
+            <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #FFE600; border-radius:6px; padding:12px; margin-top:4px;">
+              <div style="font-size:11px; color:#FFE600; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Economia CX (@$3/emergencial evitado)</div>
+              <div style="font-size:22px; font-weight:800; color:#FFE600;">−445 × $3 = ~$1.335/Q1</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">~$5.340/ano cross-site · MLB concentra 66% da economia</div>
             </div>
-
-            <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #FF6B6B; border-radius:6px; padding:12px;">
-              <div style="font-size:11px; color:#FF6B6B; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Casos CX Eliminados (Bypass)</div>
-              <div style="font-size:22px; font-weight:800; color:#FFF;">~2.517 contatos/Q1</div>
-              <div style="font-size:11px; color:#888; margin-top:2px;">70% do CX proativo cross-site (3.595) eliminado — sellers com 40–80% nao passam mais pelo CX</div>
-            </div>
-
-            <div style="background:#1C1C1C; border:1px solid #2A2A2A; border-left:3px solid #FFE600; border-radius:6px; padding:12px;">
-              <div style="font-size:11px; color:#FFE600; font-weight:700; text-transform:uppercase; margin-bottom:4px;">Economia P2 (@$3/caso ou pedido)</div>
-              <div style="font-size:22px; font-weight:800; color:#FFE600;">~$17.300/Q1</div>
-              <div style="font-size:11px; color:#888; margin-top:2px;">Pedidos evitados $9.765 + CX bypass $7.551</div>
-            </div>
-
           </div>
 
           <div class="box box-dark" style="margin-top:auto;">
             <div style="font-size:11px; color:#888; line-height:1.5;">
-              Risco monitorar: sellers SMB bloqueados podem escalar emergenciais se o gap entre pedidos aumentar. Acompanhar taxa emergencial nas 4 semanas pos-mudanca.
+              Complexidade: <strong style="color:#DDD;">baixa</strong> — mudanca de configuracao no pr-inventory. Sem impacto em UX do seller. Implementacao estimada: Q2/2026.
             </div>
           </div>
-
         </div>
 
       </div>
