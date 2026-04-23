@@ -500,52 +500,59 @@
           </div>
         </div>
 
-        <!-- PROBLEMA 2 — REGRAS DISTINTAS -->
+        <!-- PROBLEMA 2 — EXPERIÊNCIA DIFERENTE POR CANAL -->
         <div style="flex:1; display:flex; flex-direction:column; gap:0; padding-left:32px;">
           <div style="display:flex; align-items:center; gap:12px; margin-bottom:16px;">
             <div style="width:36px; height:36px; border-radius:50%; background:rgba(255,152,0,0.15); border:2px solid #FF9800; display:flex; align-items:center; justify-content:center; font-size:18px; font-weight:800; color:#FF9800; flex-shrink:0;">2</div>
-            <div style="font-size:17px; font-weight:700; color:#FF9800;">Regras Distintas por Canal</div>
+            <div style="font-size:17px; font-weight:700; color:#FF9800;">Experiência Diferente por Canal</div>
           </div>
 
-          <div style="font-size:13px; color:#999; line-height:1.7; margin-bottom:18px;">
-            A elegibilidade para solicitar bobinas varia conforme o canal de atendimento. O mesmo seller, com o mesmo estoque, obtém resultados diferentes dependendo de onde solicita — criando uma jornada inconsistente e gerando contatos desnecessários no CX.
+          <div style="font-size:13px; color:#999; line-height:1.7; margin-bottom:14px;">
+            O <strong style="color:#DDD;">tipo de solicitação disponível</strong> varia conforme o canal. Em autogestão, o seller só consegue fazer pedido <strong style="color:#4CAF50;">proativo</strong>. Se o estoque zerar, ele é obrigado a ligar para o CX — não há caminho digital para emergencial.
           </div>
 
-          <!-- visual canal vs resultado -->
-          <div style="font-size:11px; color:#666; text-transform:uppercase; letter-spacing:1px; margin-bottom:10px;">Exemplo: Seller SMB com 70% de estoque restante</div>
-          <div style="display:flex; flex-direction:column; gap:8px; margin-bottom:18px;">
-            <div style="display:flex; align-items:center; justify-content:space-between; background:#1C1C1C; border:1px solid #2A2A2A; border-radius:6px; padding:10px 14px;">
-              <div style="font-size:13px; color:#DDD;">Autogestão / Maxwell</div>
-              <div style="display:flex; align-items:center; gap:10px;">
-                <span style="font-size:11px; color:#888;">threshold 80%</span>
-                <span style="background:#1A3A1A; color:#4CAF50; font-size:11px; font-weight:700; padding:3px 12px; border-radius:12px; border:1px solid #4CAF50;">PERMITIDO</span>
-              </div>
-            </div>
-            <div style="display:flex; align-items:center; justify-content:space-between; background:#1C1C1C; border:1px solid #2A2A2A; border-radius:6px; padding:10px 14px;">
-              <div style="font-size:13px; color:#DDD;">CX Humano</div>
-              <div style="display:flex; align-items:center; gap:10px;">
-                <span style="font-size:11px; color:#888;">threshold 80–90%</span>
-                <span style="background:#1A3A1A; color:#4CAF50; font-size:11px; font-weight:700; padding:3px 12px; border-radius:12px; border:1px solid #4CAF50;">PERMITIDO</span>
-              </div>
-            </div>
-          </div>
+          <!-- tabela de capacidade por canal -->
+          <table style="font-size:12px; margin-bottom:14px;">
+            <thead>
+              <tr>
+                <th>Canal</th>
+                <th style="text-align:center;">Proativo</th>
+                <th style="text-align:center;">Emergencial</th>
+                <th style="text-align:center;">Emerg. Forçado</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Autogestão / Maxwell / Point Smart</td>
+                <td style="text-align:center;color:#4CAF50;font-weight:700;">✓</td>
+                <td style="text-align:center;color:#FF6B6B;font-weight:700;">✗</td>
+                <td style="text-align:center;color:#FF6B6B;font-weight:700;">✗</td>
+              </tr>
+              <tr style="background:#1C1C1C;">
+                <td><strong style="color:#FFE600;">CX Humano</strong></td>
+                <td style="text-align:center;color:#4CAF50;font-weight:700;">✓</td>
+                <td style="text-align:center;color:#4CAF50;font-weight:700;">✓</td>
+                <td style="text-align:center;color:#4CAF50;font-weight:700;">✓</td>
+              </tr>
+            </tbody>
+          </table>
 
-          <!-- resultado: custo -->
-          <div style="display:flex; gap:12px; margin-bottom:auto;">
+          <!-- impacto -->
+          <div style="display:flex; gap:10px; margin-bottom:14px;">
             <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FF6B6B; border-radius:6px; padding:12px; text-align:center;">
-              <div style="font-size:26px; font-weight:800; color:#FF6B6B;">5.554</div>
-              <div style="font-size:11px; color:#888; margin-top:2px;">pedidos via CX Q1/26<br>que poderiam ser digitais</div>
+              <div style="font-size:26px; font-weight:800; color:#FF6B6B;">1.959</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">emergenciais via CX/Q1<br>sem alternativa digital</div>
             </div>
             <div style="flex:1; background:#1C1C1C; border:1px solid #2A2A2A; border-top:3px solid #FF9800; border-radius:6px; padding:12px; text-align:center;">
-              <div style="font-size:26px; font-weight:800; color:#FF9800;">~$25k</div>
-              <div style="font-size:11px; color:#888; margin-top:2px;">custo evitável/Q1<br>a $4,50/contato</div>
+              <div style="font-size:26px; font-weight:800; color:#FF9800;">$0</div>
+              <div style="font-size:11px; color:#888; margin-top:2px;">custo via autogestão<br>vs $4,50 via CX</div>
             </div>
           </div>
 
           <!-- objetivo -->
-          <div style="background:rgba(255,230,0,0.08); border:1px solid rgba(255,230,0,0.25); border-radius:6px; padding:12px 14px; margin-top:16px;">
+          <div style="background:rgba(255,230,0,0.08); border:1px solid rgba(255,230,0,0.25); border-radius:6px; padding:12px 14px; margin-top:auto;">
             <div style="font-size:11px; color:#FFE600; font-weight:700; text-transform:uppercase; letter-spacing:1px; margin-bottom:4px;">Objetivo</div>
-            <div style="font-size:12px; color:#DDD; line-height:1.6;">Reduzir o custo logístico por bobina entregue e tornar as regras de elegibilidade consistentes entre canais — eliminando a jornada de duas etapas que hoje gera custo desnecessário.</div>
+            <div style="font-size:12px; color:#DDD; line-height:1.6;">Igualar a experiência entre canais — o seller deve conseguir resolver qualquer tipo de solicitação de bobinas sem precisar de atendimento humano.</div>
           </div>
         </div>
 
@@ -645,81 +652,90 @@
   </div>
 
   <!-- ======================================================== -->
-  <!-- SLIDE 4 — REGRAS POR CANAL -->
+  <!-- SLIDE 4 — REGRAS POR PAÍS -->
   <!-- ======================================================== -->
   <div class="slide" id="slide-4">
     <div class="slide-inner">
       <div class="slide-header">
         <div class="slide-tag">Regras de Elegibilidade</div>
-        <h2>Divergencia de Thresholds por Canal e Segmento</h2>
-        <div class="subtitle">Threshold = % maximo de estoque restante para poder solicitar. Gap entre canais gera bypass via CX.</div>
+        <h2>Thresholds de Elegibilidade — Divergência entre Países</h2>
+        <div class="subtitle">Threshold = % máximo de estoque restante para poder solicitar. FAQ, CX e CX N2 aplicam o mesmo valor dentro de cada país. A divergência é entre países.</div>
       </div>
-      <div class="slide-body flex-col gap-16">
+      <div class="slide-body flex-col gap-14">
 
-        <table>
+        <!-- TABELA PRINCIPAL -->
+        <table style="font-size:13px;">
           <thead>
             <tr>
-              <th>Segmento</th>
-              <th>Portal</th>
-              <th>Maxwell / FAQ</th>
-              <th>CX</th>
-              <th>CX N2</th>
+              <th style="width:130px;">Segmento</th>
+              <th style="text-align:center;">🇦🇷 MLA</th>
+              <th style="text-align:center;">🇧🇷 MLB</th>
+              <th style="text-align:center;">🇨🇱 MLC</th>
+              <th style="text-align:center;">🇲🇽 MLM</th>
+              <th style="width:220px;">Observação</th>
             </tr>
           </thead>
           <tbody>
             <tr>
               <td><strong>Big Sellers</strong></td>
-              <td class="th-rest">50%</td>
-              <td class="th-free">100%</td>
-              <td class="th-free">100%</td>
-              <td class="th-free">100%</td>
+              <td style="text-align:center;"><span style="background:#1A3A1A;color:#4CAF50;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">100%</span></td>
+              <td style="text-align:center;"><span style="background:#1A3A1A;color:#4CAF50;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">100%</span></td>
+              <td style="text-align:center;"><span style="background:#1A3A1A;color:#4CAF50;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">99%</span></td>
+              <td style="text-align:center;"><span style="background:#1A3A1A;color:#4CAF50;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">100%</span></td>
+              <td style="font-size:11px;color:#888;">Sem restrição em todos os países. Sem divergência.</td>
             </tr>
             <tr>
               <td><strong>SMB</strong></td>
-              <td class="th-rest">50%</td>
-              <td class="th-mod">80%</td>
-              <td class="th-mod">80%</td>
-              <td class="th-mod">80–90%</td>
+              <td style="text-align:center;"><span style="background:#2A2010;color:#FF9800;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">80%</span></td>
+              <td style="text-align:center;"><span style="background:#2A2010;color:#FF9800;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">80%</span><br><span style="font-size:10px;color:#666;">(N2: 90%)</span></td>
+              <td style="text-align:center;"><span style="background:#1A3A1A;color:#4CAF50;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">99%</span></td>
+              <td style="text-align:center;"><span style="background:#1A3A1A;color:#4CAF50;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">100%</span></td>
+              <td style="font-size:11px;color:#FF9800;font-weight:600;">Gap: MLA/MLB restritivos vs MLC/MLM livres. Maior divergência entre países.</td>
             </tr>
             <tr>
               <td><strong>Longtail</strong></td>
-              <td class="th-vrest">40%</td>
-              <td class="th-rest">50%</td>
-              <td class="th-rest">50%</td>
-              <td class="th-rest">50%</td>
+              <td style="text-align:center;"><span style="background:#2A1A10;color:#FF6B6B;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">50%</span></td>
+              <td style="text-align:center;"><span style="background:#2A1A10;color:#FF6B6B;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">50%</span></td>
+              <td style="text-align:center;"><span style="background:#2A2010;color:#FF9800;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">60%</span></td>
+              <td style="text-align:center;"><span style="background:#2A1A10;color:#FF6B6B;font-weight:700;padding:4px 16px;border-radius:4px;font-size:14px;">50%</span></td>
+              <td style="font-size:11px;color:#888;">MLC ligeiramente mais permissivo. MLC LT tem menor taxa emergencial: <strong style="color:#4CAF50;">0,4%</strong> vs MLB <strong style="color:#FF6B6B;">1,2%</strong>.</td>
             </tr>
           </tbody>
         </table>
 
-        <!-- Legend -->
-        <div class="legend">
-          <div class="legend-item"><div class="legend-dot" style="background:#4CAF50"></div> Sem restricao (100%)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#FFE600"></div> Moderado (75–80%)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#FF9800"></div> Restritivo (50%)</div>
-          <div class="legend-item"><div class="legend-dot" style="background:#FF6B6B"></div> Muito restritivo (40%)</div>
-        </div>
-
-        <!-- Insight boxes -->
-        <div class="flex-row gap-16" style="margin-top:4px;">
-          <div class="box box-red" style="flex:1;">
-            <div style="font-size:13px; color:#DDD; line-height:1.6;">
-              Um seller SMB com <strong style="color:#FFE600">60% de estoque</strong> é bloqueado no portal (threshold 50%), mas pode solicitar via CX (threshold 80%). O gap incentiva o bypass e gera custo humano.
-            </div>
-          </div>
-          <div class="box box-yellow" style="flex:1;">
-            <div style="font-size:13px; color:#DDD; line-height:1.6;">
-              <strong style="color:#FFE600">MLC (Chile)</strong>: todos os segmentos com threshold de 99% na prática — sem restricao ativa. Resultado: canal digital domina (47% Point Smart), menor CR de emergenciais no Longtail.
-            </div>
+        <!-- NOTA CANAIS -->
+        <div style="background:#111;border:1px solid #2A2A2A;border-left:3px solid #3483FA;border-radius:6px;padding:10px 16px;">
+          <div style="font-size:12px;color:#888;line-height:1.5;">
+            <strong style="color:#3483FA;">Importante:</strong> dentro de cada país, FAQ, CX e CX N2 aplicam o mesmo threshold. A divergência é entre países — e entre <strong style="color:#DDD;">tipos de fluxo disponíveis por canal</strong> (emergencial só existe no CX).
           </div>
         </div>
 
-        <div style="background:#111; border: 1px solid #333; border-radius:6px; padding:12px 20px; margin-top:auto;">
-          <div style="font-size:12px; color:#888; line-height:1.5;">
-            <strong style="color:#FFE600">Impacto quantificado:</strong> 3.595 pedidos proativos migraram para CX em Q1/26 por bloqueio de portal.
-            Ao unificar thresholds, esses pedidos retornam ao canal digital (custo zero).
-            Estimativa de economia: <strong style="color:#4CAF50">~$16.178/Q1 evitaveis</strong>.
+        <!-- TRES INSIGHTS -->
+        <div class="flex-row gap-12" style="flex:1;align-items:stretch;">
+          <div style="flex:1;background:#1C1C1C;border:1px solid #2A2A2A;border-top:3px solid #FF9800;border-radius:6px;padding:12px;">
+            <div style="font-size:11px;color:#FF9800;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Divergência SMB por País</div>
+            <div style="font-size:12px;color:#DDD;line-height:1.6;">
+              SMB em <strong>MLM/MLC</strong>: pode solicitar com <strong style="color:#4CAF50;">99–100%</strong> de estoque.<br>
+              SMB em <strong>MLA/MLB</strong>: limitado a <strong style="color:#FF9800;">80%</strong>.<br><br>
+              Experiência diferente para o mesmo segmento de seller.
+            </div>
+          </div>
+          <div style="flex:1;background:#1C1C1C;border:1px solid #2A2A2A;border-top:3px solid #FF6B6B;border-radius:6px;padding:12px;">
+            <div style="font-size:11px;color:#FF6B6B;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">Emergencial só no CX</div>
+            <div style="font-size:12px;color:#DDD;line-height:1.6;">
+              Seller sem estoque <strong>não tem autoatendimento</strong> — precisa obrigatoriamente ir para o CX humano.<br><br>
+              <strong style="color:#FF6B6B;">1.959</strong> emergenciais via CX em Q1/26 sem alternativa digital. Custo evitável.
+            </div>
+          </div>
+          <div style="flex:1;background:#1C1C1C;border:1px solid #2A2A2A;border-top:3px solid #4CAF50;border-radius:6px;padding:12px;">
+            <div style="font-size:11px;color:#4CAF50;font-weight:700;text-transform:uppercase;letter-spacing:1px;margin-bottom:6px;">MLC como benchmark</div>
+            <div style="font-size:12px;color:#DDD;line-height:1.6;">
+              MLC: threshold <strong style="color:#4CAF50;">99%</strong> (BS/SMB) e <strong style="color:#4CAF50;">60%</strong> (LT). Resultado: apenas <strong style="color:#4CAF50;">0,4%</strong> de emergenciais no Longtail vs <strong style="color:#FF6B6B;">1,2%</strong> no MLB.<br><br>
+              Mais permissivo → menos emergência.
+            </div>
           </div>
         </div>
+
       </div>
     </div>
     <div class="slide-number">4 / 11</div>
