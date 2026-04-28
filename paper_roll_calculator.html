@@ -1,0 +1,1072 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Calculadora de Política — Bobinas Point MLB</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #1A1A1A;
+    --bg-card: #242424;
+    --bg-card2: #2C2C2C;
+    --border: #383838;
+    --yellow: #FFE600;
+    --yellow-dim: rgba(255,230,0,0.15);
+    --green: #00C853;
+    --green-dim: rgba(0,200,83,0.12);
+    --red: #FF3D3D;
+    --red-dim: rgba(255,61,61,0.12);
+    --blue: #2196F3;
+    --blue-dim: rgba(33,150,243,0.12);
+    --text: #F0F0F0;
+    --text-muted: #888;
+    --text-dim: #BDBDBD;
+    --radius: 10px;
+    --shadow: 0 2px 12px rgba(0,0,0,0.4);
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+    font-size: 14px;
+    line-height: 1.5;
+    min-height: 100vh;
+  }
+
+  /* ── HEADER ── */
+  header {
+    background: #000;
+    padding: 14px 24px;
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    border-bottom: 2px solid var(--yellow);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+  }
+  .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .logo-mp {
+    background: var(--yellow);
+    color: #000;
+    font-weight: 800;
+    font-size: 13px;
+    padding: 4px 8px;
+    border-radius: 4px;
+    letter-spacing: 0.5px;
+  }
+  header h1 {
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--text);
+    flex: 1;
+  }
+  .badge-estimate {
+    background: rgba(255,230,0,0.15);
+    border: 1px solid var(--yellow);
+    color: var(--yellow);
+    font-size: 11px;
+    padding: 3px 10px;
+    border-radius: 20px;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  /* ── MAIN LAYOUT ── */
+  .main-container {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 20px 16px;
+    display: grid;
+    grid-template-columns: 380px 1fr;
+    gap: 20px;
+    align-items: start;
+  }
+  @media (max-width: 900px) {
+    .main-container { grid-template-columns: 1fr; }
+  }
+
+  /* ── PANELS ── */
+  .panel {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    border-radius: var(--radius);
+    overflow: hidden;
+    box-shadow: var(--shadow);
+  }
+  .panel-header {
+    background: #000;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    border-bottom: 1px solid var(--border);
+  }
+  .panel-header h2 {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--yellow);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .panel-body {
+    padding: 16px;
+  }
+
+  /* ── SECTION LABELS ── */
+  .section-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    margin-bottom: 10px;
+    margin-top: 20px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+  }
+  .section-label:first-child { margin-top: 0; }
+
+  /* ── TOGGLE ── */
+  .toggle-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 14px;
+    background: var(--bg-card2);
+    border-radius: 8px;
+    border: 1px solid var(--border);
+    margin-bottom: 8px;
+    cursor: pointer;
+    transition: border-color 0.2s;
+  }
+  .toggle-row:hover { border-color: var(--yellow); }
+  .toggle-row.active { border-color: var(--green); background: var(--green-dim); }
+  .toggle-label { font-size: 13px; font-weight: 600; }
+  .toggle-sub { font-size: 11px; color: var(--text-muted); margin-top: 2px; }
+
+  .toggle-switch {
+    position: relative;
+    width: 40px;
+    height: 22px;
+    flex-shrink: 0;
+  }
+  .toggle-switch input { opacity: 0; width: 0; height: 0; }
+  .slider-track {
+    position: absolute;
+    inset: 0;
+    background: #444;
+    border-radius: 22px;
+    cursor: pointer;
+    transition: background 0.2s;
+  }
+  .slider-track::before {
+    content: '';
+    position: absolute;
+    height: 16px; width: 16px;
+    left: 3px; top: 3px;
+    background: #fff;
+    border-radius: 50%;
+    transition: transform 0.2s;
+  }
+  input:checked + .slider-track { background: var(--green); }
+  input:checked + .slider-track::before { transform: translateX(18px); }
+
+  /* ── THRESHOLD INPUTS ── */
+  .threshold-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 16px;
+  }
+  .input-group {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+  .input-group label {
+    font-size: 11px;
+    color: var(--text-muted);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .input-group .input-wrap {
+    display: flex;
+    align-items: center;
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    overflow: hidden;
+    transition: border-color 0.2s;
+  }
+  .input-group .input-wrap:focus-within { border-color: var(--yellow); }
+  .input-prefix {
+    padding: 0 8px;
+    color: var(--text-muted);
+    font-size: 13px;
+    background: #333;
+    height: 36px;
+    display: flex;
+    align-items: center;
+    border-right: 1px solid var(--border);
+  }
+  .input-group input[type="number"] {
+    background: transparent;
+    border: none;
+    color: var(--text);
+    font-size: 14px;
+    font-weight: 600;
+    padding: 0 10px;
+    height: 36px;
+    width: 100%;
+    outline: none;
+    -moz-appearance: textfield;
+  }
+  .input-group input[type="number"]::-webkit-inner-spin-button,
+  .input-group input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+
+  /* ── TIER BLOCKS ── */
+  .tier-block {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 12px 14px;
+    margin-bottom: 10px;
+  }
+  .tier-block-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+  .tier-badge {
+    font-size: 11px;
+    font-weight: 800;
+    padding: 3px 10px;
+    border-radius: 20px;
+    letter-spacing: 0.5px;
+  }
+  .tier-a .tier-badge { background: rgba(33,150,243,0.2); color: var(--blue); border: 1px solid var(--blue); }
+  .tier-b .tier-badge { background: rgba(255,230,0,0.15); color: var(--yellow); border: 1px solid var(--yellow); }
+  .tier-c .tier-badge { background: rgba(255,61,61,0.15); color: var(--red); border: 1px solid var(--red); }
+  .tier-desc {
+    font-size: 11px;
+    color: var(--text-muted);
+  }
+  .tier-sellers-count {
+    font-size: 12px;
+    color: var(--text-dim);
+    font-weight: 600;
+  }
+
+  .slider-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  .slider-row label { font-size: 11px; color: var(--text-muted); white-space: nowrap; }
+  .slider-row input[type="range"] {
+    flex: 1;
+    height: 4px;
+    accent-color: var(--yellow);
+    cursor: pointer;
+    background: #444;
+    border-radius: 2px;
+    outline: none;
+    -webkit-appearance: none;
+  }
+  .slider-row input[type="range"]::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    background: var(--yellow);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 4px rgba(255,230,0,0.5);
+  }
+  .slider-val {
+    font-size: 14px;
+    font-weight: 800;
+    color: var(--yellow);
+    min-width: 40px;
+    text-align: right;
+  }
+  .emerg-rate-preview {
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 6px;
+    text-align: right;
+  }
+  .emerg-rate-preview span { color: var(--text-dim); font-weight: 600; }
+
+  /* ── RESET BTN ── */
+  .btn-reset {
+    width: 100%;
+    padding: 10px;
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 12px;
+    font-weight: 600;
+    margin-top: 4px;
+    transition: all 0.2s;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .btn-reset:hover { border-color: var(--yellow); color: var(--yellow); }
+
+  /* ── KPI CARDS ── */
+  .kpi-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .kpi-card {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px;
+    border-left: 3px solid var(--border);
+    transition: border-color 0.2s;
+  }
+  .kpi-card.green  { border-left-color: var(--green);  background: var(--green-dim); }
+  .kpi-card.red    { border-left-color: var(--red);    background: var(--red-dim); }
+  .kpi-card.yellow { border-left-color: var(--yellow); background: var(--yellow-dim); }
+  .kpi-card.blue   { border-left-color: var(--blue);   background: var(--blue-dim); }
+  .kpi-label {
+    font-size: 10px;
+    color: var(--text-muted);
+    text-transform: uppercase;
+    letter-spacing: 0.6px;
+    margin-bottom: 6px;
+    font-weight: 600;
+  }
+  .kpi-value {
+    font-size: 22px;
+    font-weight: 800;
+    line-height: 1.1;
+  }
+  .kpi-card.green  .kpi-value { color: var(--green); }
+  .kpi-card.red    .kpi-value { color: var(--red); }
+  .kpi-card.yellow .kpi-value { color: var(--yellow); }
+  .kpi-card.blue   .kpi-value { color: var(--blue); }
+  .kpi-sub {
+    font-size: 10px;
+    color: var(--text-muted);
+    margin-top: 4px;
+  }
+
+  /* Big total card */
+  .kpi-total {
+    background: var(--yellow-dim);
+    border: 2px solid var(--yellow);
+    border-radius: 10px;
+    padding: 18px 20px;
+    text-align: center;
+    margin-bottom: 16px;
+  }
+  .kpi-total .kpi-label { color: var(--yellow); font-size: 11px; margin-bottom: 8px; }
+  .kpi-total .kpi-value { font-size: 36px; color: var(--yellow); }
+  .kpi-total .kpi-annualized { font-size: 16px; color: var(--text-dim); margin-top: 4px; }
+  .kpi-total .kpi-annualized strong { color: var(--yellow); }
+
+  /* ── TABLE ── */
+  .breakdown-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12px;
+  }
+  .breakdown-table th {
+    background: #000;
+    color: var(--yellow);
+    padding: 8px 10px;
+    text-align: right;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+  }
+  .breakdown-table th:first-child { text-align: left; }
+  .breakdown-table td {
+    padding: 8px 10px;
+    text-align: right;
+    border-bottom: 1px solid var(--border);
+    color: var(--text-dim);
+  }
+  .breakdown-table td:first-child { text-align: left; font-weight: 700; color: var(--text); }
+  .breakdown-table tr:last-child td {
+    border-bottom: none;
+    background: rgba(255,230,0,0.06);
+    color: var(--text);
+    font-weight: 700;
+  }
+  .breakdown-table tr:hover:not(:last-child) td { background: rgba(255,255,255,0.03); }
+  .delta-positive { color: var(--green) !important; font-weight: 700 !important; }
+  .delta-negative { color: var(--red) !important; font-weight: 700 !important; }
+
+  .tier-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 50%;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+  .dot-a   { background: var(--blue); }
+  .dot-b   { background: var(--yellow); }
+  .dot-c   { background: var(--red); }
+  .dot-smb { background: var(--green); }
+  .dot-tot { background: var(--text-muted); }
+
+  /* ── NOTE ── */
+  .note {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: 10px 12px;
+    font-size: 11px;
+    color: var(--text-muted);
+    margin-top: 14px;
+    line-height: 1.6;
+  }
+  .note strong { color: var(--text-dim); }
+
+  /* ── SMIB DETAIL ── */
+  .smb-detail {
+    background: var(--bg-card2);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--green);
+    border-radius: 6px;
+    padding: 10px 12px;
+    margin-top: 8px;
+    font-size: 12px;
+    color: var(--text-dim);
+    display: none;
+  }
+  .smb-detail.visible { display: block; }
+  .smb-detail strong { color: var(--green); }
+
+  /* ── SCROLLBAR ── */
+  ::-webkit-scrollbar { width: 6px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: #444; border-radius: 3px; }
+  ::-webkit-scrollbar-thumb:hover { background: #555; }
+
+  /* ── DIVIDER ── */
+  .divider { border: none; border-top: 1px solid var(--border); margin: 14px 0; }
+
+  /* Table wrapper */
+  .table-wrap { overflow-x: auto; border-radius: 8px; border: 1px solid var(--border); }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-mp">MP</span>
+  </div>
+  <h1>Calculadora de Política — Bobinas Point MLB</h1>
+  <span class="badge-estimate">ESTIMATIVAS Q1/2026</span>
+</header>
+
+<div class="main-container">
+
+  <!-- ═══════════════════════ CONTROLES ═══════════════════════ -->
+  <aside>
+    <div class="panel">
+      <div class="panel-header">
+        <h2>⚙ Controles</h2>
+      </div>
+      <div class="panel-body">
+
+        <!-- SMB Toggle -->
+        <div class="section-label">SMB — Segmento</div>
+        <div class="toggle-row" id="smbToggleRow" onclick="toggleSMB()">
+          <div>
+            <div class="toggle-label">+1 kit por entrega (SMB)</div>
+            <div class="toggle-sub">Enviar 2 kits por pedido → ~38% menos pedidos/ano</div>
+          </div>
+          <label class="toggle-switch" onclick="event.stopPropagation()">
+            <input type="checkbox" id="smbToggle" onchange="calculate()">
+            <span class="slider-track"></span>
+          </label>
+        </div>
+
+        <div class="smb-detail" id="smbDetail">
+          SMB atual: <strong id="smbPedidosBase">84.468</strong> pedidos/Q1 →
+          Com +1 kit: <strong id="smbPedidosNovo">—</strong> pedidos/Q1
+          (<strong id="smbPedidosDelta">—</strong>)
+          <br>Custo produto/Q: igual. Economia de frete/Q:
+          <strong id="smbFreteEcon">—</strong>
+        </div>
+
+        <hr class="divider">
+
+        <!-- Longtail thresholds -->
+        <div class="section-label">Longtail — Thresholds de TPV</div>
+        <div class="threshold-grid">
+          <div class="input-group">
+            <label>Threshold Alto</label>
+            <div class="input-wrap">
+              <span class="input-prefix">USD</span>
+              <input type="number" id="tpvAlto" value="500" min="100" max="5000" step="50" oninput="calculate()">
+            </div>
+          </div>
+          <div class="input-group">
+            <label>Threshold Médio</label>
+            <div class="input-wrap">
+              <span class="input-prefix">USD</span>
+              <input type="number" id="tpvMedio" value="200" min="50" max="2000" step="50" oninput="calculate()">
+            </div>
+          </div>
+        </div>
+        <div id="tpvWarning" style="font-size:11px;color:var(--red);margin-bottom:10px;display:none;">
+          ⚠ Threshold Médio deve ser menor que o Alto.
+        </div>
+
+        <hr class="divider">
+
+        <!-- Tier sliders -->
+        <div class="section-label">Longtail — Umbrais de Estoque por Tier</div>
+
+        <!-- Tier A -->
+        <div class="tier-block tier-a">
+          <div class="tier-block-header">
+            <div>
+              <span class="tier-badge">Tier A</span>
+              <span class="tier-desc" id="tierADesc" style="margin-left:8px;"></span>
+            </div>
+            <span class="tier-sellers-count" id="tierASellers">—</span>
+          </div>
+          <div class="slider-row">
+            <label>Umbral</label>
+            <input type="range" id="sliderA" min="40" max="100" value="70" oninput="syncSlider('A')">
+            <span class="slider-val" id="valA">70%</span>
+          </div>
+          <div class="emerg-rate-preview">
+            Taxa emergencial estimada: <span id="rateA">0,2%</span>
+          </div>
+        </div>
+
+        <!-- Tier B -->
+        <div class="tier-block tier-b">
+          <div class="tier-block-header">
+            <div>
+              <span class="tier-badge">Tier B</span>
+              <span class="tier-desc" id="tierBDesc" style="margin-left:8px;"></span>
+            </div>
+            <span class="tier-sellers-count" id="tierBSellers">—</span>
+          </div>
+          <div class="slider-row">
+            <label>Umbral</label>
+            <input type="range" id="sliderB" min="40" max="100" value="60" oninput="syncSlider('B')">
+            <span class="slider-val" id="valB">60%</span>
+          </div>
+          <div class="emerg-rate-preview">
+            Taxa emergencial estimada: <span id="rateB">0,4%</span>
+          </div>
+        </div>
+
+        <!-- Tier C -->
+        <div class="tier-block tier-c">
+          <div class="tier-block-header">
+            <div>
+              <span class="tier-badge">Tier C</span>
+              <span class="tier-desc" id="tierCDesc" style="margin-left:8px;"></span>
+            </div>
+            <span class="tier-sellers-count" id="tierCSellers">—</span>
+          </div>
+          <div class="slider-row">
+            <label>Umbral</label>
+            <input type="range" id="sliderC" min="0" max="80" value="40" oninput="syncSlider('C')">
+            <span class="slider-val" id="valC">40%</span>
+          </div>
+          <div class="emerg-rate-preview">
+            Taxa emergencial estimada: <span id="rateC">1,25%</span>
+          </div>
+        </div>
+
+        <button class="btn-reset" onclick="resetDefaults()">↺ Resetar para defaults</button>
+
+      </div><!-- /panel-body -->
+    </div><!-- /panel -->
+  </aside>
+
+  <!-- ═══════════════════════ RESULTADOS ═══════════════════════ -->
+  <section>
+    <div class="panel">
+      <div class="panel-header">
+        <h2>📊 Resultados em tempo real</h2>
+      </div>
+      <div class="panel-body">
+
+        <!-- Total destacado -->
+        <div class="kpi-total">
+          <div class="kpi-label">ECONOMIA TOTAL ESTIMADA — Q1/2026</div>
+          <div class="kpi-value" id="totalEconomy">$0</div>
+          <div class="kpi-annualized">
+            Anualizada (×4): <strong id="totalAnnual">$0</strong>
+          </div>
+        </div>
+
+        <!-- KPI grid -->
+        <div class="kpi-grid">
+          <div class="kpi-card" id="kpiEmergLT">
+            <div class="kpi-label">Emergenciais LT evitados Q1</div>
+            <div class="kpi-value" id="emergLTAvoided">—</div>
+            <div class="kpi-sub" id="emergLTSub">—</div>
+          </div>
+          <div class="kpi-card" id="kpiCustoLT">
+            <div class="kpi-label">Δ Custo Longtail Q1</div>
+            <div class="kpi-value" id="custoLTDelta">—</div>
+            <div class="kpi-sub" id="custoLTSub">—</div>
+          </div>
+          <div class="kpi-card" id="kpiSMB">
+            <div class="kpi-label">SMB Economia Frete Q1</div>
+            <div class="kpi-value" id="smbEconDisplay">—</div>
+            <div class="kpi-sub" id="smbEconSub">Toggle desativado</div>
+          </div>
+          <div class="kpi-card blue">
+            <div class="kpi-label">Pedidos LT c/ nova política</div>
+            <div class="kpi-value" id="ltPedidosNovos">—</div>
+            <div class="kpi-sub" id="ltPedidosSub">—</div>
+          </div>
+        </div>
+
+        <!-- Breakdown table -->
+        <div class="panel-header" style="border-radius:8px 8px 0 0; margin-bottom:0;">
+          <h2>Detalhamento por Tier</h2>
+        </div>
+        <div class="table-wrap" style="border-top:none; border-radius:0 0 8px 8px;">
+          <table class="breakdown-table">
+            <thead>
+              <tr>
+                <th>Tier</th>
+                <th>Sellers</th>
+                <th>Pedidos Q1</th>
+                <th>Emerg. atual</th>
+                <th>Emerg. nova política</th>
+                <th>Δ Emerg.</th>
+                <th>Custo atual</th>
+                <th>Custo novo</th>
+                <th>Δ Custo</th>
+              </tr>
+            </thead>
+            <tbody id="tableBody">
+              <!-- populated by JS -->
+            </tbody>
+          </table>
+        </div>
+
+        <div class="note">
+          <strong>Metodologia:</strong>
+          Custo = (kits × 6 bobinas × $0,19) + (pedidos × $3,38). Emergenciais estimados pela relação umbral→taxa de MLC
+          (70%→0,2% | 60%→0,4% | 50%→0,7% | &lt;50%→1,25%). Redistribuição entre tiers proporcional ao volume da faixa de TPV
+          intersectada. SMB +1 kit: mesma quantidade anual de bobinas entregues em ~38% menos pedidos, com economia de frete.
+          Todos os dados são <strong>estimativas baseadas em Q1/2026</strong> — os valores marcados com * foram interpolados.
+        </div>
+
+      </div><!-- /panel-body -->
+    </div><!-- /panel -->
+  </section>
+
+</div><!-- /main-container -->
+
+<script>
+// ═══════════════════════════════════════════════════════════════
+//  DADOS BASE
+// ═══════════════════════════════════════════════════════════════
+
+// Faixas de TPV (tpv_min = limite inferior da faixa)
+// tpv_max determinado pelo próximo registro
+const BASE_ROWS = [
+  { id: 'r0', tpv_min: 2000, tpv_max: Infinity, sellers: 2341,    pedidos: 1,     emergenciais: 0,   custo: 5      },
+  { id: 'r1', tpv_min: 900,  tpv_max: 2000,     sellers: 10324,   pedidos: 21,    emergenciais: 1,   custo: 122    },
+  { id: 'r2', tpv_min: 400,  tpv_max: 900,      sellers: 39928,   pedidos: 500,   emergenciais: 30,  custo: 2000   },
+  { id: 'r3', tpv_min: 150,  tpv_max: 400,      sellers: 159038,  pedidos: 4025,  emergenciais: 40,  custo: 20056  },
+  { id: 'r4', tpv_min: 0,    tpv_max: 150,      sellers: 1392056, pedidos: 67454, emergenciais: 858, custo: 338225 },
+  { id: 'r5', tpv_min: null, tpv_max: null,      sellers: 193266,  pedidos: 464,   emergenciais: 17,  custo: 2288   }, // sem transação — sempre Tier C
+];
+
+const SMB = {
+  pedidos: 84468,
+  kits_medio: 1.62,
+  custo: 443373,
+  emergenciais: 428,
+  frete_por_pedido: 3.38,
+  produto_por_pedido: 1.62 * 6 * 0.19, // ≈ 1.846
+};
+
+const CUSTO_FRETE = 3.38;
+
+// Mapeamento umbral → taxa emergencial (interpolação linear por pontos)
+function emergRate(threshold) {
+  if (threshold >= 70) return 0.002;
+  if (threshold >= 60) {
+    // linear 60→70: 0.004→0.002
+    return 0.004 - (threshold - 60) / 10 * (0.004 - 0.002);
+  }
+  if (threshold >= 50) {
+    // linear 50→60: 0.007→0.004
+    return 0.007 - (threshold - 50) / 10 * (0.007 - 0.004);
+  }
+  // linear 40→50: 0.0125→0.007
+  const t = Math.max(0, threshold);
+  if (t >= 40) return 0.0125 - (t - 40) / 10 * (0.0125 - 0.007);
+  // 0–40: linear 0→40: 0.015→0.0125
+  return 0.015 - t / 40 * (0.015 - 0.0125);
+}
+
+function fmtPct(v) {
+  return (v * 100).toFixed(2) + '%';
+}
+function fmtNum(v, dec=0) {
+  return v.toLocaleString('pt-BR', { minimumFractionDigits: dec, maximumFractionDigits: dec });
+}
+function fmtUSD(v) {
+  return '$' + fmtNum(Math.round(v));
+}
+function fmtDelta(v) {
+  const s = (v >= 0 ? '+' : '') + fmtUSD(Math.abs(v));
+  return (v >= 0 ? '+' : '-') + fmtUSD(Math.abs(v));
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  CONTROLES
+// ═══════════════════════════════════════════════════════════════
+
+function toggleSMB() {
+  const cb = document.getElementById('smbToggle');
+  cb.checked = !cb.checked;
+  calculate();
+}
+
+function syncSlider(tier) {
+  const a = parseInt(document.getElementById('sliderA').value);
+  const b = parseInt(document.getElementById('sliderB').value);
+  const c = parseInt(document.getElementById('sliderC').value);
+
+  // Enforce: c <= b <= a
+  if (tier === 'A') {
+    let newA = a;
+    let newB = Math.min(b, newA);
+    let newC = Math.min(c, newB);
+    document.getElementById('sliderB').value = newB;
+    document.getElementById('sliderC').value = newC;
+  } else if (tier === 'B') {
+    let newB = b;
+    let newA = Math.max(a, newB);
+    let newC = Math.min(c, newB);
+    document.getElementById('sliderA').value = newA;
+    document.getElementById('sliderC').value = newC;
+  } else if (tier === 'C') {
+    let newC = c;
+    let newB = Math.max(b, newC);
+    let newA = Math.max(a, newB);
+    document.getElementById('sliderA').value = newA;
+    document.getElementById('sliderB').value = newB;
+  }
+
+  updateSliderLabels();
+  calculate();
+}
+
+function updateSliderLabels() {
+  const a = parseInt(document.getElementById('sliderA').value);
+  const b = parseInt(document.getElementById('sliderB').value);
+  const c = parseInt(document.getElementById('sliderC').value);
+  document.getElementById('valA').textContent = a + '%';
+  document.getElementById('valB').textContent = b + '%';
+  document.getElementById('valC').textContent = c + '%';
+  document.getElementById('rateA').textContent = fmtPct(emergRate(a));
+  document.getElementById('rateB').textContent = fmtPct(emergRate(b));
+  document.getElementById('rateC').textContent = fmtPct(emergRate(c));
+}
+
+function resetDefaults() {
+  document.getElementById('tpvAlto').value = 500;
+  document.getElementById('tpvMedio').value = 200;
+  document.getElementById('sliderA').value = 70;
+  document.getElementById('sliderB').value = 60;
+  document.getElementById('sliderC').value = 40;
+  document.getElementById('smbToggle').checked = false;
+  updateSliderLabels();
+  calculate();
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  LÓGICA PRINCIPAL
+// ═══════════════════════════════════════════════════════════════
+
+function getTierForRow(row, tpvAlto, tpvMedio) {
+  if (row.tpv_min === null) return 'C'; // sem transação → sempre C
+  // Determina o tier pela posição da faixa relativa aos thresholds
+  // Usamos o ponto médio da faixa para classificação
+  const mid = row.tpv_max === Infinity ? row.tpv_min + 500 : (row.tpv_min + row.tpv_max) / 2;
+  if (mid >= tpvAlto) return 'A';
+  if (mid >= tpvMedio) return 'B';
+  return 'C';
+}
+
+function calculate() {
+  const tpvAlto  = Math.max(1, parseFloat(document.getElementById('tpvAlto').value)  || 500);
+  const tpvMedio = Math.max(1, parseFloat(document.getElementById('tpvMedio').value) || 200);
+  const umbA = parseInt(document.getElementById('sliderA').value);
+  const umbB = parseInt(document.getElementById('sliderB').value);
+  const umbC = parseInt(document.getElementById('sliderC').value);
+  const smbOn = document.getElementById('smbToggle').checked;
+
+  // Validação
+  const warn = document.getElementById('tpvWarning');
+  if (tpvMedio >= tpvAlto) {
+    warn.style.display = 'block';
+  } else {
+    warn.style.display = 'none';
+  }
+
+  // Tier labels
+  document.getElementById('tierADesc').textContent = '> $' + fmtNum(tpvAlto) + '/mês';
+  document.getElementById('tierBDesc').textContent = '$' + fmtNum(tpvMedio) + ' – $' + fmtNum(tpvAlto) + '/mês';
+  document.getElementById('tierCDesc').textContent = '< $' + fmtNum(tpvMedio) + '/mês';
+
+  // Taxas emergenciais por tier
+  const rateA = emergRate(umbA);
+  const rateB = emergRate(umbB);
+  const rateC = emergRate(umbC);
+
+  // ─── Agregar dados por tier ───
+  const tiers = { A: { sellers:0, pedidos:0, emergenciais:0, custo:0, emergNovas:0, custoNovo:0 },
+                  B: { sellers:0, pedidos:0, emergenciais:0, custo:0, emergNovas:0, custoNovo:0 },
+                  C: { sellers:0, pedidos:0, emergenciais:0, custo:0, emergNovas:0, custoNovo:0 } };
+
+  BASE_ROWS.forEach(row => {
+    const t = getTierForRow(row, tpvAlto, tpvMedio);
+    tiers[t].sellers     += row.sellers;
+    tiers[t].pedidos     += row.pedidos;
+    tiers[t].emergenciais += row.emergenciais;
+    tiers[t].custo       += row.custo;
+  });
+
+  // Atualizar contagem de sellers nos tier blocks
+  document.getElementById('tierASellers').textContent = fmtNum(tiers.A.sellers) + ' sellers';
+  document.getElementById('tierBSellers').textContent = fmtNum(tiers.B.sellers) + ' sellers';
+  document.getElementById('tierCSellers').textContent = fmtNum(tiers.C.sellers) + ' sellers';
+
+  // Calcular nova taxa emergencial e custo por tier
+  // Cada pedido de emergencial adicional = 1 pedido novo = custo: (1×6×0.19) + 3.38 = 4.52
+  const CUSTO_KIT_COMPLETO = (6 * 0.19) + 3.38; // $4.52 por pedido emergencial gerado
+
+  // Para cada tier: novo custo = custo base + (emergenciais_novos - emergenciais_atuais) × CUSTO_KIT_COMPLETO
+  // emergenciais novos = pedidos × nova_taxa
+  // emergenciais atuais já incluídos no custo base — mas queremos calcular o delta de emergenciais
+  // Abordagem: total_pedidos × taxa_nova → emergenciais novos esperados
+  // delta_emergenciais = emerg_novos - emerg_atual
+  // delta_custo = delta_emergenciais × CUSTO_KIT_COMPLETO
+
+  const rateMap = { A: rateA, B: rateB, C: rateC };
+  const labelMap = {
+    A: '<span class="tier-dot dot-a"></span>Tier A',
+    B: '<span class="tier-dot dot-b"></span>Tier B',
+    C: '<span class="tier-dot dot-c"></span>Tier C',
+  };
+
+  let totalEmergEvitados = 0;
+  let totalCustoDelta = 0;
+  let totalPedidosNovos = 0;
+
+  const rows = {};
+  ['A','B','C'].forEach(t => {
+    const d = tiers[t];
+    const rate = rateMap[t];
+    const emergNovos = Math.round(d.pedidos * rate);
+    const deltaEmerg = emergNovos - d.emergenciais;
+    const deltaCusto = deltaEmerg * CUSTO_KIT_COMPLETO;
+    rows[t] = { ...d, emergNovos, deltaEmerg, deltaCusto, custoNovo: d.custo + deltaCusto };
+    totalEmergEvitados += -deltaEmerg; // positivo = evitados (delta negativo)
+    totalCustoDelta += deltaCusto;
+    totalPedidosNovos += d.pedidos + Math.max(0, deltaEmerg); // pedidos originais + emergenciais extras
+  });
+
+  // ─── SMB ───
+  // +1 kit: 2 kits por pedido, portanto o seller não precisa pedir novo kit tão cedo.
+  // Estimativa: 38% menos pedidos no ano. Custo produto/ano é o mesmo (mesma quantidade de bobinas).
+  // Apenas economia de frete.
+  const smbPedidosNovos = Math.round(SMB.pedidos * (1 - 0.38));
+  const smbPedidosDelta = smbPedidosNovos - SMB.pedidos; // negativo
+  const smbFreteEcon   = -smbPedidosDelta * CUSTO_FRETE;
+  const smbCustoNovo   = SMB.custo - smbFreteEcon;
+  const smbDeltaCusto  = smbOn ? -smbFreteEcon : 0;
+
+  // ─── Totais ───
+  const totalLTEmergAtual = tiers.A.emergenciais + tiers.B.emergenciais + tiers.C.emergenciais;
+  const totalLTEmergNovos = rows.A.emergNovos + rows.B.emergNovos + rows.C.emergNovos;
+  const totalLTPedidos    = tiers.A.pedidos + tiers.B.pedidos + tiers.C.pedidos;
+  const totalLTCustoAtual = tiers.A.custo + tiers.B.custo + tiers.C.custo;
+  const totalLTCustoNovo  = rows.A.custoNovo + rows.B.custoNovo + rows.C.custoNovo;
+  const totalLTDeltaEmerg = totalLTEmergNovos - totalLTEmergAtual;
+  const totalLTDeltaCusto = totalLTCustoNovo - totalLTCustoAtual;
+
+  const totalEconomy  = -totalLTDeltaCusto + (smbOn ? smbFreteEcon : 0);
+  const totalAnnual   = totalEconomy * 4;
+
+  // ─── Update DOM ───
+
+  // Big total
+  const totalEl = document.getElementById('totalEconomy');
+  totalEl.textContent = fmtUSD(Math.abs(totalEconomy));
+  totalEl.style.color = totalEconomy >= 0 ? 'var(--green)' : 'var(--red)';
+  document.getElementById('totalAnnual').textContent = fmtUSD(Math.abs(totalAnnual));
+  document.getElementById('totalAnnual').style.color = totalAnnual >= 0 ? 'var(--green)' : 'var(--red)';
+
+  // KPI emergenciais LT
+  const emergLTAvoid = -totalLTDeltaEmerg;
+  document.getElementById('emergLTAvoided').textContent = (emergLTAvoid >= 0 ? '-' : '+') + fmtNum(Math.abs(emergLTAvoid));
+  document.getElementById('emergLTSub').textContent = 'Atual: ' + fmtNum(totalLTEmergAtual) + ' | Nova política: ' + fmtNum(totalLTEmergNovos);
+  const kpiEmergEl = document.getElementById('kpiEmergLT');
+  kpiEmergEl.className = 'kpi-card ' + (emergLTAvoid > 0 ? 'green' : emergLTAvoid < 0 ? 'red' : '');
+  document.getElementById('emergLTAvoided').style.color = emergLTAvoid >= 0 ? 'var(--green)' : 'var(--red)';
+
+  // KPI custo LT
+  document.getElementById('custoLTDelta').textContent = (totalLTDeltaCusto >= 0 ? '+' : '') + fmtUSD(Math.round(totalLTDeltaCusto));
+  document.getElementById('custoLTSub').textContent = 'Atual: ' + fmtUSD(totalLTCustoAtual) + ' | Novo: ' + fmtUSD(Math.round(totalLTCustoNovo));
+  const kpiCustoEl = document.getElementById('kpiCustoLT');
+  kpiCustoEl.className = 'kpi-card ' + (totalLTDeltaCusto <= 0 ? 'green' : 'red');
+  document.getElementById('custoLTDelta').style.color = totalLTDeltaCusto <= 0 ? 'var(--green)' : 'var(--red)';
+
+  // KPI SMB
+  if (smbOn) {
+    document.getElementById('smbEconDisplay').textContent = '+' + fmtUSD(smbFreteEcon);
+    document.getElementById('smbEconDisplay').style.color = 'var(--green)';
+    document.getElementById('smbEconSub').textContent = fmtNum(-smbPedidosDelta) + ' pedidos/Q1 evitados';
+    document.getElementById('kpiSMB').className = 'kpi-card green';
+  } else {
+    document.getElementById('smbEconDisplay').textContent = '—';
+    document.getElementById('smbEconDisplay').style.color = 'var(--text-muted)';
+    document.getElementById('smbEconSub').textContent = 'Toggle desativado';
+    document.getElementById('kpiSMB').className = 'kpi-card';
+  }
+
+  // KPI pedidos LT
+  document.getElementById('ltPedidosNovos').textContent = fmtNum(totalLTEmergNovos + totalLTPedidos - totalLTEmergAtual);
+  document.getElementById('ltPedidosSub').textContent = 'Atual: ' + fmtNum(totalLTPedidos) + ' pedidos/Q1';
+
+  // SMB detail
+  document.getElementById('smbDetail').className = 'smb-detail' + (smbOn ? ' visible' : '');
+  document.getElementById('smbPedidosBase').textContent = fmtNum(SMB.pedidos);
+  document.getElementById('smbPedidosNovo').textContent = fmtNum(smbPedidosNovos);
+  document.getElementById('smbPedidosDelta').textContent = fmtNum(smbPedidosDelta) + ' pedidos';
+  document.getElementById('smbFreteEcon').textContent = fmtUSD(smbFreteEcon);
+
+  // Toggle row class
+  const toggleRow = document.getElementById('smbToggleRow');
+  toggleRow.className = 'toggle-row' + (smbOn ? ' active' : '');
+
+  // ─── Table ───
+  const tbody = document.getElementById('tableBody');
+  const tableData = [
+    {
+      label: labelMap.A + ' (&gt;$' + fmtNum(tpvAlto) + ')',
+      sellers: fmtNum(tiers.A.sellers),
+      pedidos: fmtNum(tiers.A.pedidos),
+      emergAtual: fmtNum(tiers.A.emergenciais),
+      emergNovo: fmtNum(rows.A.emergNovos),
+      deltaEmerg: rows.A.deltaEmerg,
+      custoAtual: tiers.A.custo,
+      custoNovo: rows.A.custoNovo,
+      deltaCusto: rows.A.deltaCusto,
+    },
+    {
+      label: labelMap.B + ' ($' + fmtNum(tpvMedio) + '–$' + fmtNum(tpvAlto) + ')',
+      sellers: fmtNum(tiers.B.sellers),
+      pedidos: fmtNum(tiers.B.pedidos),
+      emergAtual: fmtNum(tiers.B.emergenciais),
+      emergNovo: fmtNum(rows.B.emergNovos),
+      deltaEmerg: rows.B.deltaEmerg,
+      custoAtual: tiers.B.custo,
+      custoNovo: rows.B.custoNovo,
+      deltaCusto: rows.B.deltaCusto,
+    },
+    {
+      label: labelMap.C + ' (&lt;$' + fmtNum(tpvMedio) + ')',
+      sellers: fmtNum(tiers.C.sellers),
+      pedidos: fmtNum(tiers.C.pedidos),
+      emergAtual: fmtNum(tiers.C.emergenciais),
+      emergNovo: fmtNum(rows.C.emergNovos),
+      deltaEmerg: rows.C.deltaEmerg,
+      custoAtual: tiers.C.custo,
+      custoNovo: rows.C.custoNovo,
+      deltaCusto: rows.C.deltaCusto,
+    },
+    {
+      label: '<span class="tier-dot dot-smb"></span>SMB',
+      sellers: '—',
+      pedidos: fmtNum(SMB.pedidos) + (smbOn ? ' → ' + fmtNum(smbPedidosNovos) : ''),
+      emergAtual: fmtNum(SMB.emergenciais),
+      emergNovo: fmtNum(SMB.emergenciais),
+      deltaEmerg: 0,
+      custoAtual: SMB.custo,
+      custoNovo: smbOn ? smbCustoNovo : SMB.custo,
+      deltaCusto: smbOn ? -smbFreteEcon : 0,
+    },
+  ];
+
+  // Total row
+  const totPedidos = tiers.A.pedidos + tiers.B.pedidos + tiers.C.pedidos + SMB.pedidos;
+  const totEmergAtual = totalLTEmergAtual + SMB.emergenciais;
+  const totEmergNovo  = totalLTEmergNovos + SMB.emergenciais;
+  const totDeltaEmerg = totalLTDeltaEmerg;
+  const totCustoAtual = totalLTCustoAtual + SMB.custo;
+  const totCustoNovo  = totalLTCustoNovo  + (smbOn ? smbCustoNovo : SMB.custo);
+  const totDeltaCusto = totCustoNovo - totCustoAtual;
+
+  const allRows = [...tableData, {
+    label: '<span class="tier-dot dot-tot"></span><strong>TOTAL</strong>',
+    sellers: '—',
+    pedidos: fmtNum(totPedidos),
+    emergAtual: fmtNum(totEmergAtual),
+    emergNovo: fmtNum(totEmergNovo),
+    deltaEmerg: totDeltaEmerg,
+    custoAtual: totCustoAtual,
+    custoNovo: totCustoNovo,
+    deltaCusto: totDeltaCusto,
+  }];
+
+  tbody.innerHTML = allRows.map(r => {
+    const deCls = r.deltaEmerg < 0 ? 'delta-positive' : r.deltaEmerg > 0 ? 'delta-negative' : '';
+    const dcCls = r.deltaCusto < 0 ? 'delta-positive' : r.deltaCusto > 0 ? 'delta-negative' : '';
+    const deStr = r.deltaEmerg === 0 ? '—' : (r.deltaEmerg > 0 ? '+' : '') + fmtNum(r.deltaEmerg);
+    const dcStr = r.deltaCusto === 0 ? '—' : (r.deltaCusto > 0 ? '+' : '') + fmtUSD(Math.round(Math.abs(r.deltaCusto))) * (r.deltaCusto > 0 ? 1 : -1);
+    // fix sign in display
+    const dcDisp = r.deltaCusto === 0 ? '—' : (r.deltaCusto > 0 ? '+' : '-') + fmtUSD(Math.abs(Math.round(r.deltaCusto)));
+    return `<tr>
+      <td>${r.label}</td>
+      <td>${r.sellers}</td>
+      <td>${r.pedidos}</td>
+      <td>${r.emergAtual}</td>
+      <td>${r.emergNovo}</td>
+      <td class="${deCls}">${deStr}</td>
+      <td>${fmtUSD(Math.round(r.custoAtual))}</td>
+      <td>${fmtUSD(Math.round(r.custoNovo))}</td>
+      <td class="${dcCls}">${dcDisp}</td>
+    </tr>`;
+  }).join('');
+}
+
+// ═══════════════════════════════════════════════════════════════
+//  INIT
+// ═══════════════════════════════════════════════════════════════
+updateSliderLabels();
+calculate();
+</script>
+</body>
+</html>
