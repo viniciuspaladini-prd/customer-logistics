@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Gameplan de Trocas 2.0 · 2026</title>
+<style>
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%; min-height: 100vh;
+  background: #1a1a2e;
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 40px 20px;
+}
+
+.logo-bar {
+  display: flex; align-items: center; gap: 14px;
+  margin-bottom: 36px;
+}
+.logo-mp {
+  width: 44px; height: 44px; background: #FFD000; border-radius: 10px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 16px; font-weight: 900; color: #1a1a2e;
+}
+.logo-title {
+  font-size: 13px; font-weight: 700; color: rgba(255,255,255,.5);
+  letter-spacing: .1em; text-transform: uppercase;
+}
+
+.main-title {
+  font-size: 36px; font-weight: 900; color: #fff;
+  text-align: center; margin-bottom: 6px; letter-spacing: -.01em;
+}
+.main-title span { color: #FFD000; }
+
+.subtitle {
+  font-size: 14px; color: rgba(255,255,255,.45); text-align: center;
+  margin-bottom: 52px; letter-spacing: .03em;
+}
+
+.cards {
+  display: flex; gap: 28px; align-items: stretch;
+}
+
+.card {
+  width: 340px; background: #fff; border-radius: 20px;
+  overflow: hidden; display: flex; flex-direction: column;
+  box-shadow: 0 8px 40px rgba(0,0,0,.35);
+  transition: transform .2s, box-shadow .2s;
+  cursor: pointer; text-decoration: none;
+}
+.card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 50px rgba(0,0,0,.5);
+}
+
+.card-header {
+  padding: 28px 28px 24px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.card-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10px; font-weight: 800; letter-spacing: .08em;
+  text-transform: uppercase; padding: 4px 10px; border-radius: 20px;
+  width: fit-content;
+}
+.card-month {
+  font-size: 30px; font-weight: 900; line-height: 1; color: #111827;
+}
+.card-month span { font-size: 17px; font-weight: 700; }
+.card-data-label {
+  font-size: 12px; color: #6B7280; font-weight: 600; margin-top: -4px;
+}
+
+.card-divider { height: 1px; background: #F3F4F6; margin: 0 28px; }
+
+.card-body { padding: 20px 28px 24px; flex: 1; }
+.card-kpis { display: flex; flex-direction: column; gap: 9px; margin-bottom: 18px; }
+.kpi-row { display: flex; align-items: center; gap: 8px; }
+.kpi-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.kpi-text { font-size: 12px; color: #374151; line-height: 1.4; }
+.kpi-text b { color: #111827; }
+
+.card-cta {
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+  padding: 13px; border-radius: 10px;
+  font-size: 13px; font-weight: 800; letter-spacing: .02em;
+  transition: opacity .15s;
+}
+.card:hover .card-cta { opacity: .9; }
+
+/* Abril — amarelo */
+.card-abr .card-header { background: linear-gradient(135deg,#1a1a2e 0%,#2d2d4e 100%); }
+.card-abr .card-badge { background: rgba(255,208,0,.15); color: #FFD000; }
+.card-abr .card-month { color: #fff; }
+.card-abr .card-data-label { color: rgba(255,255,255,.5); }
+.card-abr .card-cta { background: #FFD000; color: #1a1a2e; }
+
+/* Maio — azul */
+.card-mai .card-header { background: linear-gradient(135deg,#1a4a8a 0%,#1e3a6e 100%); }
+.card-mai .card-badge { background: rgba(255,255,255,.15); color: rgba(255,255,255,.85); }
+.card-mai .card-month { color: #fff; }
+.card-mai .card-data-label { color: rgba(255,255,255,.5); }
+.card-mai .card-cta { background: #1a4a8a; color: #fff; }
+
+.wip-note {
+  font-size: 10px; color: #9CA3AF; text-align: center; margin-top: 8px;
+  font-style: italic;
+}
+
+.footer {
+  margin-top: 48px; font-size: 11px; color: rgba(255,255,255,.2);
+  letter-spacing: .06em; text-transform: uppercase;
+}
+</style>
+</head>
+<body>
+
+<div class="logo-bar">
+  <div class="logo-mp">MP</div>
+  <div class="logo-title">Mercado Pago Point</div>
+</div>
+
+<div class="main-title">Gameplan de Trocas <span>2.0</span></div>
+<div class="subtitle">Selecciona la presentación del período</div>
+
+<div class="cards">
+
+  <!-- Abril.26 -->
+  <a class="card card-abr" href="gameplan_abr26.html">
+    <div class="card-header">
+      <span class="card-badge">✓ Apresentado</span>
+      <div class="card-month">Abril<span>.26</span></div>
+      <div class="card-data-label">Dados de março/26 · Cierre Q1</div>
+    </div>
+    <div class="card-divider"></div>
+    <div class="card-body">
+      <div class="card-kpis">
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#16A34A;"></div>
+          <div class="kpi-text">MLB <b>1,01%</b> Sol/MAD — meta 0,60%</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#D97706;"></div>
+          <div class="kpi-text">MLA <b>1,24%</b> · política ativa 05/03</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#6B7280;"></div>
+          <div class="kpi-text">MLM <b>0,72%</b> · MLC <b>0,92%</b> em exploração</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#1a4a8a;"></div>
+          <div class="kpi-text">Sameday MLB <b>55%</b> cobertura → meta 66% abr</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#FFD000;"></div>
+          <div class="kpi-text">Maxwell <b>74,2%</b> das solicitudes cross-site</div>
+        </div>
+      </div>
+      <div class="card-cta">Abrir Gameplan Abril.26 →</div>
+    </div>
+  </a>
+
+  <!-- Maio.26 -->
+  <a class="card card-mai" href="gameplan_mai26.html">
+    <div class="card-header">
+      <span class="card-badge">🚧 Em construção</span>
+      <div class="card-month">Maio<span>.26</span></div>
+      <div class="card-data-label">Dados de abril/26 · Cierre Q1+</div>
+    </div>
+    <div class="card-divider"></div>
+    <div class="card-body">
+      <div class="card-kpis">
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#16A34A;"></div>
+          <div class="kpi-text">MLB <b>~0,91%</b> proj. Sol/MAD — ↓ vs mar</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#16A34A;"></div>
+          <div class="kpi-text">MLA <b>~0,82%</b> proj. — ↓↓ efeito política</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#D97706;"></div>
+          <div class="kpi-text">MLM <b>~0,79%</b> · MLC <b>~0,95%</b> proj.</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#1a4a8a;"></div>
+          <div class="kpi-text">Sameday MLB <b>66%</b> cobertura com GO+SE</div>
+        </div>
+        <div class="kpi-row">
+          <div class="kpi-dot" style="background:#818CF8;"></div>
+          <div class="kpi-text">Tool segmentação <b>16/04</b> · PTM <b>23/04</b></div>
+        </div>
+      </div>
+      <div class="card-cta">Abrir Gameplan Maio.26 →</div>
+    </div>
+    <div class="wip-note">Dados de abril parciais · MAD fecha fim do mês</div>
+  </a>
+
+</div>
+
+<div class="footer">Mercado Pago Point · Gameplan de Trocas 2026</div>
+
+</body>
+</html>
