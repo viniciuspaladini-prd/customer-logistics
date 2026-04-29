@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=1280">
-<title>Gameplan de Trocas 2.0 · 2026</title>
+<title>Gameplan de Trocas Cross Sites · 2026</title>
 <style>
 * { box-sizing: border-box; margin: 0; padding: 0; }
 html, body {
@@ -37,7 +37,28 @@ html, body {
 
 .subtitle {
   font-size: 14px; color: rgba(255,255,255,.45); text-align: center;
-  margin-bottom: 52px; letter-spacing: .03em;
+  margin-bottom: 20px; letter-spacing: .03em;
+}
+.objective-box {
+  max-width: 680px; text-align: center; margin-bottom: 44px;
+  background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px; padding: 18px 28px; display: flex; flex-direction: column; gap: 10px;
+}
+.obj-title {
+  font-size: 10px; font-weight: 800; text-transform: uppercase; letter-spacing: .12em;
+  color: #FFD000; opacity: .8;
+}
+.obj-pillars {
+  display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+}
+.obj-pill {
+  display: flex; align-items: center; gap: 6px;
+  background: rgba(255,255,255,.07); border-radius: 20px;
+  padding: 6px 14px; font-size: 12px; color: rgba(255,255,255,.75); font-weight: 600;
+}
+.obj-pill-dot { width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0; }
+.obj-desc {
+  font-size: 12px; color: rgba(255,255,255,.38); line-height: 1.55;
 }
 
 .cards {
@@ -123,8 +144,20 @@ html, body {
   <div class="logo-title">Mercado Pago Point</div>
 </div>
 
-<div class="main-title">Gameplan de Trocas <span>2.0</span></div>
+<div class="main-title">Gameplan de Trocas <span>Cross Sites</span></div>
 <div class="subtitle">Selecciona la presentación del período</div>
+
+<div class="objective-box">
+  <div class="obj-title">Objetivo da Mesa</div>
+  <div class="obj-pillars">
+    <div class="obj-pill"><div class="obj-pill-dot" style="background:#FF6B6B;"></div>Reducir trocas desnecessárias</div>
+    <div class="obj-pill"><div class="obj-pill-dot" style="background:#FFD000;"></div>Diagnóstico & prevenção via Maxwell</div>
+    <div class="obj-pill"><div class="obj-pill-dot" style="background:#4ADE80;"></div>Melhor experiência logística</div>
+  </div>
+  <div class="obj-desc">
+    Monitoramos a taxa de pedidos de troca/MAD mensalmente em MLB, MLA, MLM e MLC — identificando causas raiz, oportunidades de produto e assegurando o menor leadtime possível quando a troca é necessária.
+  </div>
+</div>
 
 <div class="cards">
 
