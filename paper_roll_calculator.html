@@ -518,15 +518,15 @@
           <div class="input-group">
             <label>Threshold Alto</label>
             <div class="input-wrap">
-              <span class="input-prefix">R$</span>
-              <input type="number" id="tpvAlto" value="10000" min="1000" max="100000" step="1000" oninput="calculate()">
+              <span class="input-prefix">USD</span>
+              <input type="number" id="tpvAlto" value="2000" min="200" max="20000" step="200" oninput="calculate()">
             </div>
           </div>
           <div class="input-group">
             <label>Threshold Médio</label>
             <div class="input-wrap">
-              <span class="input-prefix">R$</span>
-              <input type="number" id="tpvMedio" value="5000" min="500" max="50000" step="500" oninput="calculate()">
+              <span class="input-prefix">USD</span>
+              <input type="number" id="tpvMedio" value="1000" min="100" max="10000" step="100" oninput="calculate()">
             </div>
           </div>
         </div>
@@ -687,17 +687,17 @@
 //  DADOS BASE
 // ═══════════════════════════════════════════════════════════════
 
-// Faixas de TPV em R$ (BRL) — fonte: BT_MP_IC_POINT_LIFE_CYCLE × BT_MP_IC_TRANSACTIONS
-// Sellers LT MLB com POINT SMART ou POINT PRO · 2025-01+
+// Faixas de TPV em USD — fonte: BT_MP_IC_POINT_LIFE_CYCLE × BT_MP_IC_TRANSACTIONS
+// Sellers LT MLB com POINT SMART ou POINT PRO · 2025-01+ · câmbio R$5/USD
 // pedidos/emergenciais/custo: estimados a partir de BT_MP_POINT_SERVICE_ORDER Q1/2026
 const BASE_ROWS = [
-  { id: 'r0', tpv_min: 50000, tpv_max: Infinity, sellers: 1209,    pedidos: 200,   emergenciais: 3,   custo: 910,   tpn: 611, label: 'R$50k+' },
-  { id: 'r1', tpv_min: 20000, tpv_max: 50000,    sellers: 12250,   pedidos: 1800,  emergenciais: 23,  custo: 8200,  tpn: 358, label: 'R$20k–50k' },
-  { id: 'r2', tpv_min: 10000, tpv_max: 20000,    sellers: 58302,   pedidos: 7500,  emergenciais: 94,  custo: 34100, tpn: 244, label: 'R$10k–20k' },
-  { id: 'r3', tpv_min: 5000,  tpv_max: 10000,    sellers: 177543,  pedidos: 18000, emergenciais: 225, custo: 81900, tpn: 157, label: 'R$5k–10k' },
-  { id: 'r4', tpv_min: 3000,  tpv_max: 5000,     sellers: 214741,  pedidos: 14000, emergenciais: 175, custo: 63700, tpn: 91,  label: 'R$3k–5k' },
-  { id: 'r5', tpv_min: 1000,  tpv_max: 3000,     sellers: 523845,  pedidos: 15000, emergenciais: 188, custo: 68300, tpn: 41,  label: 'R$1k–3k' },
-  { id: 'r6', tpv_min: 1,     tpv_max: 1000,     sellers: 565012,  pedidos: 12000, emergenciais: 150, custo: 54700, tpn: 10,  label: 'R$1–999' },
+  { id: 'r0', tpv_min: 10000, tpv_max: Infinity, sellers: 1209,    pedidos: 200,   emergenciais: 3,   custo: 910,   tpn: 611, label: '>$10k' },
+  { id: 'r1', tpv_min: 4000,  tpv_max: 10000,    sellers: 12250,   pedidos: 1800,  emergenciais: 23,  custo: 8200,  tpn: 358, label: '$4k–10k' },
+  { id: 'r2', tpv_min: 2000,  tpv_max: 4000,     sellers: 58302,   pedidos: 7500,  emergenciais: 94,  custo: 34100, tpn: 244, label: '$2k–4k' },
+  { id: 'r3', tpv_min: 1000,  tpv_max: 2000,     sellers: 177543,  pedidos: 18000, emergenciais: 225, custo: 81900, tpn: 157, label: '$1k–2k' },
+  { id: 'r4', tpv_min: 600,   tpv_max: 1000,     sellers: 214741,  pedidos: 14000, emergenciais: 175, custo: 63700, tpn: 91,  label: '$600–1k' },
+  { id: 'r5', tpv_min: 200,   tpv_max: 600,      sellers: 523845,  pedidos: 15000, emergenciais: 188, custo: 68300, tpn: 41,  label: '$200–600' },
+  { id: 'r6', tpv_min: 1,     tpv_max: 200,      sellers: 565012,  pedidos: 12000, emergenciais: 150, custo: 54700, tpn: 10,  label: '$1–200' },
   { id: 'r7', tpv_min: null,  tpv_max: null,      sellers: 193266,  pedidos: 3900,  emergenciais: 17,  custo: 17500, tpn: 0,   label: 'Sem TPV' },
 ];
 
@@ -797,8 +797,8 @@ function updateSliderLabels() {
 }
 
 function resetDefaults() {
-  document.getElementById('tpvAlto').value = 10000;
-  document.getElementById('tpvMedio').value = 5000;
+  document.getElementById('tpvAlto').value = 2000;
+  document.getElementById('tpvMedio').value = 1000;
   document.getElementById('sliderA').value = 70;
   document.getElementById('sliderB').value = 60;
   document.getElementById('sliderC').value = 40;
