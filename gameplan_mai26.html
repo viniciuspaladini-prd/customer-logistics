@@ -715,6 +715,15 @@ html, body {
   background: #DCFCE7;
   color: #16A34A;
 }
+.status-badge-done {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: #1a4a8a;
+  color: #fff;
+}
 .status-badge-planned {
   display: inline-block;
   font-size: 9px;
@@ -1224,7 +1233,7 @@ html, body {
     <span class="breadcrumb-page">Canal de solicitud</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">Maxwell concentra 74% de las solicitudes — canal principal en todos los sites</div>
+    <div class="slide-title">Abr/26: Maxwell alcanza 84% cross-site — MLB 84%, MLA 86%, MLM 92%, MLC 42%</div>
     <div class="four-col" style="align-content:stretch;grid-auto-rows:1fr;">
       <div class="site-col">
         <div class="site-col-hdr">
@@ -1844,7 +1853,7 @@ html, body {
     <span class="breadcrumb-page">SMB</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">MLB SMB: G1 al 41% en mar/26 — <span style="font-size:14px;font-weight:600;color:#6B7280;">Meta 83% definida solo para MLB</span></div>
+    <div class="slide-title">MLB SMB: G1 al 24% en abr/26 — <span style="font-size:14px;font-weight:600;color:#6B7280;">Meta 83% definida solo para MLB</span></div>
     <div class="four-col" style="align-content:stretch;grid-auto-rows:1fr;">
       <div class="site-col">
         <div class="site-col-hdr"><span class="site-name">MLA</span><img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"></div>
@@ -1914,7 +1923,7 @@ html, body {
     <span class="breadcrumb-page">Longtail</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">MLA G1 llega a 80% en mar/26 (reajuste A910/N950); MLB en 28% — <span style="font-size:14px;font-weight:600;color:#6B7280;">Meta 90% definida solo para MLB</span></div>
+    <div class="slide-title">MLA Longtail G1 77% en abr/26; MLB en 18% — <span style="font-size:14px;font-weight:600;color:#6B7280;">Meta 90% definida solo para MLB</span></div>
     <div class="four-col" style="align-content:stretch;grid-auto-rows:1fr;">
       <div class="site-col">
         <div class="site-col-hdr"><span class="site-name">MLA</span><img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"></div>
@@ -2051,23 +2060,23 @@ html, body {
     <span class="breadcrumb-page">Sameday MLB</span>
   </div>
   <div class="slide-title" style="padding:3px 20px 0;flex-shrink:0;">
-    Sameday MLB: cerramos marzo con <b>55% de cobertura</b> — meta de <span style="color:#16A34A;font-weight:800;">66%</span> con expansión GO y SE en abril/26
+    Sameday MLB: cerramos abril con <b>66% de cobertura</b> — expansión GO y SE completada · próximo hito <span style="color:#16A34A;font-weight:800;">Q3</span>
   </div>
 
   <!-- ══ COVERAGE BAR — navy Meli ══ -->
   <div class="s12-covbar">
     <div class="cov-stat">
-      <div class="cov-num" style="color:#fff;">55%</div>
-      <div class="cov-sub" style="color:rgba(255,255,255,.55);">mar/26</div>
+      <div class="cov-num" style="color:#fff;">66%</div>
+      <div class="cov-sub" style="color:rgba(255,255,255,.55);">abr/26</div>
     </div>
     <div class="cov-arrow-wrap">→</div>
     <div class="cov-stat" style="border-right:none;border-left:1px solid rgba(255,255,255,.1);">
-      <div class="cov-num" style="color:#FFD000;">66%</div>
-      <div class="cov-sub" style="color:#FFD000;opacity:.85;">abr/26 · +GO+SE</div>
+      <div class="cov-num" style="color:#FFD000;">Q3</div>
+      <div class="cov-sub" style="color:#FFD000;opacity:.85;">próxima expansión</div>
     </div>
     <div class="cov-prog-area">
       <div class="cov-track-labels">
-        <span>0%</span><span style="color:#fff;">55%</span><span style="color:#FFD000;">66%</span><span>100%</span>
+        <span>0%</span><span style="color:#fff;">66%</span><span style="color:#FFD000;">Q3</span><span>100%</span>
       </div>
       <div class="cov-track">
         <div class="cov-fill-a"></div>
@@ -2146,7 +2155,7 @@ html, body {
     <div class="s12-col">
       <div class="wf-hdr">
         <h3>Eficiencia Unitac</h3>
-        <p>marzo/26 · 3.842 solicitudes en el alcance sameday</p>
+        <p>abr/26 · 3.842 solicitudes en el alcance sameday</p>
       </div>
       <div class="wf-wrap">
         <canvas id="chart-unitac"></canvas>
@@ -2157,7 +2166,7 @@ html, body {
 
     <!-- ── COL 3: Findings + Alya + Experimento ── -->
     <div class="s12-col" style="padding-right:20px;gap:6px;">
-      <div class="col-ttl">Resultados · mar/26</div>
+      <div class="col-ttl">Resultados · abr/26</div>
 
       <div class="finding" style="background:#F0FDF4;">
         <div class="f-badge" style="background:#16A34A;">A</div>
@@ -2527,18 +2536,18 @@ html, body {
           <tr>
             <td><span class="kpi-pill kpi-pill-blue">Solicitudes</span></td>
             <td><b>Política de bloqueos — todos los canales</b><br><span style="font-size:10px;color:var(--muted);">Negativa de política en todos los canales de solicitud (Maxwell, CX, CC, FDV)</span></td>
-            <td><span class="status-badge-planned">Planeado</span></td>
+            <td><span class="status-badge">En curso</span></td>
             <td style="font-size:10px;">Vini Paladini e Icaro Florencio</td>
-            <td style="white-space:nowrap;font-weight:700;">15/05</td>
+            <td style="white-space:nowrap;font-weight:700;">15/05 ✓</td>
             <td style="font-size:10px;color:#0F766E;font-weight:700;">Bloqueo ~30% inelegibles</td>
             <td style="white-space:nowrap;"><img class="flag-sm" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
           </tr>
           <tr>
             <td><span class="kpi-pill kpi-pill-blue">Solicitudes</span></td>
             <td><b>PTM WiFi → SIM / Vouchers</b><br><span style="font-size:10px;color:var(--muted);">Desvío pre-solicitud via PTM: WiFi → SIM card y vouchers</span></td>
-            <td><span class="status-badge">En curso</span></td>
+            <td><span class="status-badge-done">Entregado</span></td>
             <td style="font-size:10px;">Vini Paladini, Zarina Madelaine, Luisa Haddad e Icaro Florencio</td>
-            <td style="white-space:nowrap;font-weight:700;">23/04</td>
+            <td style="white-space:nowrap;font-weight:700;">23/04 ✓</td>
             <td style="font-size:10px;color:#0F766E;font-weight:700;">−500 solicitudes/mes est.</td>
             <td style="white-space:nowrap;"><img class="flag-sm" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"><img class="flag-sm" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"><img class="flag-sm" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
           </tr>
@@ -2619,7 +2628,7 @@ html, body {
     <em>GRACIAS!</em>
   </div>
   <div style="position:absolute;bottom:36px;width:100%;text-align:center;font-size:13px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase;">
-    Gameplan de Recambios 2.0 · Abril 2026
+    Gameplan de Recambios 2.0 · Mayo 2026
   </div>
 </div>
 
@@ -2696,7 +2705,7 @@ function initSlide(n) {
 // ============================================================
 // CHART DEFAULTS
 // ============================================================
-const MONTHS_LABEL = ['oct/25','nov/25','dic/25','ene/26','feb/26','mar/26'];
+const MONTHS_LABEL = ['oct/25','nov/25','dic/25','ene/26','feb/26','mar/26','abr/26'];
 
 function baseChartOpts(yLabel, y2Label) {
   return {
@@ -2748,42 +2757,42 @@ function fmtK(v) {
 }
 
 function initSlide4() {
-  const LABELS = ['nov/25','dic/25','ene/26','feb/26','mar/26'];
+  const LABELS = ['nov/25','dic/25','ene/26','feb/26','mar/26','abr/26'];
   const sites = [
     {
       id: 'chart-mla',
-      aberturas:   [775,  842,  1205, 1232,  736],
-      finalizadas: [3735, 3952, 5690, 13342, 6573],
-      totDigital:  [4510, 4794, 6895, 14574, 7309],
-      pedMad:      [0.77, 0.79, 1.19, 2.47,  1.24],
-      finMad:      [0.64, 0.65, 0.98, 2.26,  1.12],
+      aberturas:   [775,  842,  1205, 1232,  736,  378],
+      finalizadas: [3735, 3952, 5690, 13342, 6573, 4138],
+      totDigital:  [4510, 4794, 6895, 14574, 7309, 4516],
+      pedMad:      [0.77, 0.79, 1.19, 2.47,  1.24, 0.78],
+      finMad:      [0.64, 0.65, 0.98, 2.26,  1.12, 0.71],
       hasMeta: false
     },
     {
       id: 'chart-mlb',
-      aberturas:   [4910,  8179,  6474,  5523,  7127],
-      finalizadas: [16536, 17462, 20465, 18190, 15465],
-      totDigital:  [21446, 25641, 26939, 23713, 22592],
-      pedMad:      [0.79,  0.96,  1.04,  0.92,  0.86],
-      finMad:      [0.61,  0.65,  0.79,  0.71,  0.59],
+      aberturas:   [4910,  8179,  6474,  5523,  7127,  6557],
+      finalizadas: [16536, 17462, 20465, 18190, 15465, 14434],
+      totDigital:  [21446, 25641, 26939, 23713, 22592, 20991],
+      pedMad:      [0.79,  0.96,  1.04,  0.92,  0.86,  0.81],
+      finMad:      [0.61,  0.65,  0.79,  0.71,  0.59,  0.56],
       hasMeta: true
     },
     {
       id: 'chart-mlc',
-      aberturas:   [459,  335,  321,  328,  364],
-      finalizadas: [917,  1176, 1607, 1220, 1207],
-      totDigital:  [1376, 1511, 1928, 1548, 1571],
-      pedMad:      [0.93, 0.96, 1.22, 0.95, 0.92],
-      finMad:      [0.62, 0.74, 1.01, 0.75, 0.71],
+      aberturas:   [459,  335,  321,  328,  364,  316],
+      finalizadas: [917,  1176, 1607, 1220, 1207, 1159],
+      totDigital:  [1376, 1511, 1928, 1548, 1571, 1475],
+      pedMad:      [0.93, 0.96, 1.22, 0.95, 0.92, 0.85],
+      finMad:      [0.62, 0.74, 1.01, 0.75, 0.71, 0.66],
       hasMeta: false
     },
     {
       id: 'chart-mlm',
-      aberturas:   [1870, 1913, 2295, 2070, 2155],
-      finalizadas: [4499, 4781, 6819, 8845, 6886],
-      totDigital:  [6369, 6694, 9114, 10915, 9041],
-      pedMad:      [0.59, 0.59, 0.80, 0.92,  0.72],
-      finMad:      [0.42, 0.42, 0.60, 0.74,  0.55],
+      aberturas:   [1870, 1913, 2295, 2070, 2155, 2485],
+      finalizadas: [4499, 4781, 6819, 8845, 6886, 6474],
+      totDigital:  [6369, 6694, 9114, 10915, 9041, 8959],
+      pedMad:      [0.59, 0.59, 0.80, 0.92,  0.72, 0.70],
+      finMad:      [0.42, 0.42, 0.60, 0.74,  0.55, 0.51],
       hasMeta: false
     }
   ];
@@ -2951,8 +2960,8 @@ function initSlide4() {
 // SLIDE 5 — Canal de Solicitud
 // ============================================================
 function initSlide5() {
-  const CANAL_MONTHS = ['2025-11','2025-12','2026-01','2026-02','2026-03'];
-  const CANAL_LABELS = ['nov/25','dic/25','ene/26','feb/26','mar/26'];
+  const CANAL_MONTHS = ['2025-11','2025-12','2026-01','2026-02','2026-03','2026-04'];
+  const CANAL_LABELS = ['nov/25','dic/25','ene/26','feb/26','mar/26','abr/26'];
   const SITES = ['MLA','MLB','MLC','MLM'];
   const CANVAS_IDS = ['chart-canal-mla','chart-canal-mlb','chart-canal-mlc','chart-canal-mlm'];
 
@@ -3024,17 +3033,17 @@ function initSlide5() {
 function initSlide9() {
   const data = [
     { id: 'chart-lt-longtail-mla', site: 'MLA',
-      g1: [66,72,52,69,65,80], g3: [1,1,2,1,1,0], g4: [33,27,46,30,34,20],
-      totals: [2543,2953,3092,4305,7731,3090] },
+      g1: [66,72,52,69,65,80,77], g3: [1,1,2,1,1,0,0], g4: [33,27,46,30,34,20,23],
+      totals: [2543,2953,3092,4305,7731,3090,2172] },
     { id: 'chart-lt-longtail-mlb', site: 'MLB',
-      g1: [35,30,18,30,28,28], g3: [3,3,2,2,2,2], g4: [62,67,80,68,70,70],
-      totals: [15736,11718,12700,14157,12356,9878] },
+      g1: [35,30,18,30,28,28,18], g3: [3,3,2,2,2,2,1], g4: [62,67,80,68,70,70,81],
+      totals: [15736,11718,12700,14157,12356,9878,16285] },
     { id: 'chart-lt-longtail-mlc', site: 'MLC',
-      g1: [80,96,88,93,95,94], g3: [2,0,0,0,0,0], g4: [18,4,12,7,5,6],
-      totals: [130,140,48,27,82,65] },
+      g1: [80,96,88,93,95,94,88], g3: [2,0,0,0,0,0,0], g4: [18,4,12,7,5,6,12],
+      totals: [130,140,48,27,82,65,99] },
     { id: 'chart-lt-longtail-mlm', site: 'MLM',
-      g1: [58,61,58,63,62,68], g3: [1,0,1,1,1,1], g4: [41,39,41,36,37,31],
-      totals: [3353,3385,3269,4359,5659,4525] },
+      g1: [58,61,58,63,62,68,48], g3: [1,0,1,1,1,1,0], g4: [41,39,41,36,37,31,52],
+      totals: [3353,3385,3269,4359,5659,4525,4939] },
   ];
   buildLeadtimeCharts(data, 90);
 }
@@ -3045,17 +3054,17 @@ function initSlide9() {
 function initSlide10() {
   const data = [
     { id: 'chart-lt-smb-mla', site: 'MLA',
-      g1: [16,32,25,17,20,21], g3: [46,45,50,53,46,41], g4: [38,23,25,30,34,38],
-      totals: [646,788,865,1388,5610,3454] },
+      g1: [16,32,25,17,20,21,21], g3: [46,45,50,53,46,41,0], g4: [38,23,25,30,34,38,79],
+      totals: [646,788,865,1388,5610,3454,3283] },
     { id: 'chart-lt-smb-mlb', site: 'MLB',
-      g1: [23,35,36,39,40,41], g3: [26,23,22,21,21,18], g4: [51,42,42,40,39,41],
-      totals: [8669,7071,6838,8549,7933,7137] },
+      g1: [23,35,36,39,40,41,24], g3: [26,23,22,21,21,18,9], g4: [51,42,42,40,39,41,67],
+      totals: [8669,7071,6838,8549,7933,7137,12244] },
     { id: 'chart-lt-smb-mlc', site: 'MLC',
-      g1: [0,43,41,41,38,35], g3: [0,2,4,5,5,13], g4: [0,55,55,54,57,52],
-      totals: [0,94,375,861,471,292] },
+      g1: [0,43,41,41,38,35,34], g3: [0,2,4,5,5,13,0], g4: [0,55,55,54,57,52,66],
+      totals: [0,94,375,861,471,292,238] },
     { id: 'chart-lt-smb-mlm', site: 'MLM',
-      g1: [18,24,22,17,21,32], g3: [52,41,51,51,50,47], g4: [30,35,27,32,29,21],
-      totals: [1236,1123,1519,2476,3206,2330] },
+      g1: [18,24,22,17,21,32,18], g3: [52,41,51,51,50,47,0], g4: [30,35,27,32,29,21,82],
+      totals: [1236,1123,1519,2476,3206,2330,2168] },
   ];
   buildLeadtimeCharts(data, 83);
 }
