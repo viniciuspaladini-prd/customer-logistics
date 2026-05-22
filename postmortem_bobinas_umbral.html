@@ -1,0 +1,925 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Post-mortem · Incidente Umbral Bobinas SMB · Maxwell Point</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: #f0f2f5; color: #1a1a2e; font-size: 14px; }
+
+  header { background: linear-gradient(135deg, #dc2626, #ef4444); color: #fff; padding: 28px 40px; }
+  header h1 { font-size: 24px; font-weight: 700; }
+  header p  { font-size: 13px; opacity: .85; margin-top: 6px; }
+  .header-badge { display: inline-block; background: rgba(255,255,255,.2); padding: 4px 12px; border-radius: 20px; font-size: 11px; font-weight: 700; margin-top: 10px; letter-spacing: .5px; }
+
+  .container { max-width: 1140px; margin: 0 auto; padding: 32px 24px; }
+
+  .section { background: #fff; border-radius: 12px; padding: 28px; margin-bottom: 24px; box-shadow: 0 1px 4px rgba(0,0,0,.07); }
+  .section h2 { font-size: 16px; font-weight: 700; color: #009ee3; margin-bottom: 6px; display: flex; align-items: center; gap: 8px; }
+  .section h2.red   { color: #dc2626; }
+  .section h2.green { color: #059669; }
+  .section h3 { font-size: 13px; font-weight: 700; color: #374151; margin: 20px 0 10px; }
+  .section p  { font-size: 13px; color: #4b5563; line-height: 1.7; margin-bottom: 10px; }
+  .divider { border: none; border-top: 1px solid #f3f4f6; margin: 20px 0; }
+
+  .tag { display: inline-block; padding: 2px 10px; border-radius: 20px; font-size: 11px; font-weight: 600; }
+  .tag-blue   { background: #dbeafe; color: #1d4ed8; }
+  .tag-green  { background: #d1fae5; color: #065f46; }
+  .tag-orange { background: #fef3c7; color: #92400e; }
+  .tag-red    { background: #fee2e2; color: #991b1b; }
+  .tag-gray   { background: #f3f4f6; color: #6b7280; }
+  .tag-purple { background: #ede9fe; color: #5b21b6; }
+
+  /* KPI grid */
+  .kpi-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(180px, 1fr)); gap: 16px; margin: 20px 0; }
+  .kpi { background: #f9fafb; border-radius: 10px; padding: 18px; border-left: 4px solid #009ee3; }
+  .kpi.green  { border-left-color: #10b981; }
+  .kpi.orange { border-left-color: #f59e0b; }
+  .kpi.red    { border-left-color: #ef4444; }
+  .kpi.purple { border-left-color: #8b5cf6; }
+  .kpi.gray   { border-left-color: #9ca3af; background: #f3f4f6; }
+  .kpi .label { font-size: 11px; font-weight: 600; color: #6b7280; text-transform: uppercase; letter-spacing: .5px; }
+  .kpi .value { font-size: 26px; font-weight: 700; color: #1a1a2e; margin: 6px 0 2px; }
+  .kpi .sub   { font-size: 11px; color: #6b7280; }
+  .kpi .delta { font-size: 12px; font-weight: 600; margin-top: 4px; }
+  .delta-up        { color: #10b981; }
+  .delta-down-bad  { color: #ef4444; }
+  .delta-down-good { color: #10b981; }
+  .delta-neutral   { color: #6b7280; }
+  .delta-warn      { color: #f59e0b; }
+  .placeholder { font-style: italic; color: #9ca3af !important; font-weight: 400 !important; font-size: 16px !important; }
+
+  /* Tables */
+  table { width: 100%; border-collapse: collapse; font-size: 12px; margin-top: 12px; }
+  th { background: #f9fafb; padding: 9px 12px; text-align: left; font-weight: 600; color: #6b7280; font-size: 11px; border-bottom: 2px solid #e5e7eb; white-space: nowrap; }
+  td { padding: 8px 12px; border-bottom: 1px solid #f3f4f6; color: #374151; }
+  tr:hover td { background: #f9fafb; }
+  .highlight-row      td { background: #f0fdf4; font-weight: 600; }
+  .highlight-row-warn td { background: #fef3c7; }
+  .highlight-row-red  td { background: #fee2e2; }
+  .highlight-row-gray td { background: #f3f4f6; color: #6b7280; font-style: italic; }
+
+  /* Callout */
+  .callout { border-radius: 8px; padding: 16px 20px; margin: 16px 0; display: flex; gap: 14px; align-items: flex-start; }
+  .callout.info    { background: #eff6ff; border-left: 4px solid #3b82f6; }
+  .callout.success { background: #f0fdf4; border-left: 4px solid #10b981; }
+  .callout.warn    { background: #fffbeb; border-left: 4px solid #f59e0b; }
+  .callout.error   { background: #fef2f2; border-left: 4px solid #ef4444; }
+  .callout.query   { background: #f8fafc; border-left: 4px solid #64748b; }
+  .callout .icon   { font-size: 18px; line-height: 1; }
+  .callout .text   { font-size: 12px; color: #374151; line-height: 1.7; }
+  .callout .text strong { color: #1a1a2e; }
+
+  /* Two col */
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 20px; }
+  @media (max-width: 700px) { .two-col, .three-col { grid-template-columns: 1fr; } }
+
+  /* Method note */
+  .method { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 14px 18px; margin-top: 12px; font-size: 11px; color: #64748b; line-height: 1.7; }
+  .method strong { color: #475569; }
+
+  /* Flow */
+  .flow { display: flex; align-items: center; gap: 0; margin: 16px 0; flex-wrap: wrap; }
+  .flow-box { background: #f3f4f6; border-radius: 8px; padding: 10px 16px; font-size: 12px; font-weight: 600; color: #374151; text-align: center; min-width: 120px; }
+  .flow-box.blue  { background: #dbeafe; color: #1d4ed8; }
+  .flow-box.green { background: #d1fae5; color: #065f46; }
+  .flow-box.red   { background: #fee2e2; color: #991b1b; }
+  .flow-box.gray  { background: #f3f4f6; color: #6b7280; }
+  .flow-arrow { color: #9ca3af; font-size: 20px; padding: 0 8px; }
+
+  /* ─── TIMELINE ─── */
+  .timeline { position: relative; margin: 28px 0; padding-left: 32px; }
+  .timeline::before { content: ''; position: absolute; left: 10px; top: 6px; bottom: 6px; width: 2px; background: #e5e7eb; }
+  .tl-item { position: relative; margin-bottom: 24px; }
+  .tl-item:last-child { margin-bottom: 0; }
+  .tl-dot { position: absolute; left: -26px; width: 16px; height: 16px; border-radius: 50%; border: 3px solid #fff; box-shadow: 0 0 0 2px #9ca3af; background: #9ca3af; top: 2px; }
+  .tl-dot.blue   { background: #3b82f6; box-shadow: 0 0 0 2px #3b82f6; }
+  .tl-dot.red    { background: #ef4444; box-shadow: 0 0 0 2px #ef4444; }
+  .tl-dot.orange { background: #f59e0b; box-shadow: 0 0 0 2px #f59e0b; }
+  .tl-dot.green  { background: #10b981; box-shadow: 0 0 0 2px #10b981; }
+  .tl-date  { font-size: 11px; font-weight: 700; color: #6b7280; text-transform: uppercase; letter-spacing: .5px; margin-bottom: 2px; }
+  .tl-title { font-size: 13px; font-weight: 700; color: #1a1a2e; margin-bottom: 4px; }
+  .tl-desc  { font-size: 12px; color: #6b7280; line-height: 1.6; }
+
+  /* SQL block */
+  .sql-block { background: #1e293b; border-radius: 10px; padding: 20px 24px; margin-top: 12px; overflow-x: auto; }
+  .sql-block pre { font-family: 'JetBrains Mono', 'Fira Code', 'Courier New', monospace; font-size: 11px; color: #e2e8f0; line-height: 1.7; white-space: pre; }
+  .sql-block .kw  { color: #7dd3fc; }  /* keywords */
+  .sql-block .fn  { color: #c084fc; }  /* functions */
+  .sql-block .str { color: #86efac; }  /* strings */
+  .sql-block .cmt { color: #64748b; font-style: italic; }
+  .sql-title { font-size: 12px; font-weight: 700; color: #374151; margin-top: 20px; margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+  .sql-title::before { content: '⌗'; color: #009ee3; font-size: 14px; }
+
+  /* Badge */
+  .badge-before { display: inline-block; background: #fef3c7; color: #92400e; padding: 1px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+  .badge-after  { display: inline-block; background: #d1fae5; color: #065f46; padding: 1px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+  .badge-inc    { display: inline-block; background: #fee2e2; color: #991b1b; padding: 1px 8px; border-radius: 10px; font-size: 10px; font-weight: 700; }
+
+  /* Severity chip */
+  .severity { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 20px; font-size: 12px; font-weight: 700; margin-left: 12px; }
+  .severity.sev2 { background: #fef3c7; color: #92400e; border: 1.5px solid #fcd34d; }
+
+  footer { text-align: center; padding: 24px; font-size: 11px; color: #9ca3af; }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>Post-mortem · Incidente Umbral de Bobinas SMB
+    <span class="severity sev2">⚠ SEV-2</span>
+  </h1>
+  <p>Maxwell Point · MLB · 21/05/2026 15h24 → 22/05/2026 11h30 · Janela: ~20h</p>
+  <div class="header-badge">PAPER_ROLL · Supply Issues · SMB Threshold</div>
+</header>
+
+<div class="container">
+
+  <!-- ═══════════════════════════════════════════════════════ RESUMO EXECUTIVO -->
+  <div class="section">
+    <h2 class="red">Resumo Executivo</h2>
+    <p>Com o objetivo de equalizar a experiência de autogestão e CX no fluxo de bobinas para sellers SMB, a equipe habilitou o umbral de elegibilidade para <strong>100%</strong> dos SMBs. Ao ativar essa configuração, uma comunicação foi <strong>disparada automaticamente</strong> para toda a base SMB — <strong>79.000 sellers</strong> — informando que já podiam solicitar bobinas. O disparo automático da comunicação não era o comportamento esperado para esse escopo, gerando um volume de pedidos muito acima do normal em todos os sites.</p>
+    <p>Ao identificar o volume anômalo, a equipe executou <strong>rollback</strong> do umbral. Está sendo preparada uma comunicação de retificação para os 79K sellers notificados. Este documento consolida o post-mortem de pedidos gerados na janela do incidente e o monitoramento de Contact Rate (CR) pós-rollback.</p>
+
+    <div class="callout error">
+      <div class="icon">🔴</div>
+      <div class="text">
+        <strong>Causa Raiz:</strong> Ao ativar o umbral de 100%, a comunicação foi disparada automaticamente para toda a base SMB (79K sellers) — comportamento não esperado para esse escopo de ativação. O resultado foi ~15.300 pedidos incrementais em todos os sites durante a janela do incidente.
+      </div>
+    </div>
+
+    <div class="kpi-grid">
+      <div class="kpi red">
+        <div class="label">Sellers Notificados</div>
+        <div class="value">79.000</div>
+        <div class="delta delta-down-bad">Comunicação enviada para base total SMB</div>
+        <div class="sub">Todos os sites · janela do incidente</div>
+      </div>
+      <div class="kpi red">
+        <div class="label">Pedidos Incrementais SMB</div>
+        <div class="value">~14.552</div>
+        <div class="delta delta-down-bad">Total: 18.159 obs. · 2.859 esperados</div>
+        <div class="sub">Todos os sites · ~20h de janela</div>
+      </div>
+      <div class="kpi orange">
+        <div class="label">Site mais impactado</div>
+        <div class="value">MLB</div>
+        <div class="delta delta-neutral">9.703 incrementais SMB · 13,7×</div>
+        <div class="sub">MLM: +3.620 · MLA: +1.229</div>
+      </div>
+      <div class="kpi green">
+        <div class="label">CR Maxwell (Supply Issues)</div>
+        <div class="value">1,6%</div>
+        <div class="delta delta-down-good">Sem atrito · baseline: 2,6%</div>
+        <div class="sub">Dia 21/05 · deflection 93,8%</div>
+      </div>
+      <div class="kpi green">
+        <div class="label">Tempo até Rollback</div>
+        <div class="value">~20h</div>
+        <div class="delta delta-neutral">21/05 15h24 → 22/05 11h30</div>
+        <div class="sub">MLC: sem anomalia detectada</div>
+      </div>
+      <div class="kpi green">
+        <div class="label">Status Remediação</div>
+        <div class="value" style="font-size:16px">Em andamento</div>
+        <div class="delta delta-up">Rollback executado</div>
+        <div class="sub">Comunicação retificação pendente</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ TIMELINE -->
+  <div class="section">
+    <h2>Timeline do Incidente</h2>
+
+    <div class="timeline">
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-date">Decisão — [DATA_DECISAO]</div>
+        <div class="tl-title">Decisão de remoção de fricção no fluxo SMB de Bobinas</div>
+        <div class="tl-desc">A equipe de produto decide equalizar a experiência de autogestão e CX para solicitação de bobinas (PAPER_ROLL) para sellers SMB, removendo barreiras de elegibilidade que criavam fricção desnecessária. Objetivo: reduzir CR e melhorar experiência no Maxwell.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot blue"></div>
+        <div class="tl-date">Implementação — [DATA_DEPLOY]</div>
+        <div class="tl-title">Alteração do umbral de elegibilidade</div>
+        <div class="tl-desc">O parâmetro de threshold que determina o percentual de sellers elegíveis para solicitação de bobinas é alterado. A mudança, ao invés de expandir gradualmente o escopo, configurou erroneamente a elegibilidade para toda a base SMB.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot red"></div>
+        <div class="tl-date">Incidente — 21/05/2026 · 15h24</div>
+        <div class="tl-title">Disparo de comunicação para 79.000 sellers</div>
+        <div class="tl-desc">A régua de comunicação, sensível ao umbral de elegibilidade, dispara notificação habilitando a solicitação de bobinas para 79K sellers SMB — incluindo aqueles fora da política original prevista para a mudança. O volume potencial de pedidos é identificado como risco crítico.</div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot orange"></div>
+        <div class="tl-date">Detecção — [DATA_DETECCAO] · [HORARIO]</div>
+        <div class="tl-title">Detecção do volume anômalo / escopo incorreto</div>
+        <div class="tl-desc">O time identifica que o escopo da comunicação extrapolou o planejado. Início da análise de impacto e decisão de rollback. <strong>Time to detect: [X horas/minutos]</strong></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot orange"></div>
+        <div class="tl-date">Rollback — 22/05/2026 · 11h30</div>
+        <div class="tl-title">Rollback do fluxo executado</div>
+        <div class="tl-desc">O umbral é revertido para o valor anterior ao incidente, impedindo novos pedidos oriundos da comunicação incorreta. Fluxo de PAPER_ROLL volta ao estado pré-incidente. <strong>Janela total: ~20 horas (15h24 de 21/05 → 11h30 de 22/05)</strong></div>
+      </div>
+
+      <div class="tl-item">
+        <div class="tl-dot green"></div>
+        <div class="tl-date">Remediação — 22/05/2026 · Em andamento</div>
+        <div class="tl-title">Preparação da comunicação de retificação</div>
+        <div class="tl-desc">Comunicação sendo elaborada para os 79K sellers notificados, explicando o ocorrido, que a habilitação foi incorreta e que o fluxo voltou às regras anteriores. Alinhamento com equipes de CX e Comunicação para evitar spike de contatos.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ CONTEXTO -->
+  <div class="section">
+    <h2>Contexto &amp; Decisão Original</h2>
+
+    <h3>Objetivo da mudança</h3>
+    <div class="flow">
+      <div class="flow-box gray">
+        <div style="font-size:10px;color:#9ca3af">ESTADO ANTERIOR</div>
+        Fricção no fluxo SMB<br>
+        <span style="font-size:10px;font-weight:400">Umbral restritivo → sellers sem acesso</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box blue">
+        <div style="font-size:10px">OBJETIVO</div>
+        Equalizar SMB = CX<br>
+        <span style="font-size:10px;font-weight:400">Mesma experiência autogestão</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box red">
+        <div style="font-size:10px;color:#fca5a5">O QUE ACONTECEU</div>
+        79K sellers notificados<br>
+        <span style="font-size:10px;font-weight:400">Umbral errado → escopo total SMB</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box green">
+        <div style="font-size:10px">ROLLBACK</div>
+        Fluxo revertido<br>
+        <span style="font-size:10px;font-weight:400">Comunicação retificação pendente</span>
+      </div>
+    </div>
+
+    <h3>Política de Bobinas — Referência</h3>
+    <table>
+      <thead>
+        <tr><th>Segmento</th><th>Regra Vigente</th><th>Status no Incidente</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>SMB (escopo correto)</td><td>[REGRA_SMB — ex: transacional/volume mínimo]</td><td><span class="badge-before">Deveria ser alvo</span></td></tr>
+        <tr class="highlight-row-warn"><td>SMB (escopo incorreto)</td><td>Fora da política vigente</td><td><span class="badge-inc">Recebeu comunicação</span></td></tr>
+        <tr class="highlight-row-gray"><td>Longtail</td><td>Não alterado</td><td>Não impactado</td></tr>
+        <tr class="highlight-row-gray"><td>Big / Enterprise</td><td>Não alterado</td><td>Não impactado</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout info">
+      <div class="icon">ℹ️</div>
+      <div class="text">
+        <strong>Nota:</strong> O incidente afetou exclusivamente o fluxo <strong>PAPER_ROLL</strong> (Supply Issues — bobinas). Os fluxos de REPAIR (recambio de device) e SIM_CARD não foram impactados pela alteração do umbral.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ POST-MORTEM PEDIDOS -->
+  <div class="section">
+    <h2>Post-mortem · Volume de Pedidos PAPER_ROLL</h2>
+    <p>Análise de quantos pedidos foram efetivamente criados durante a janela do incidente (entre o disparo da comunicação incorreta e o rollback do fluxo).</p>
+
+    <div class="callout warn">
+      <div class="icon">⚠️</div>
+      <div class="text">
+        <strong>Janela do incidente:</strong> 21/05/2026 15h24 → 22/05/2026 11h30 · <strong>~20 horas</strong><br>
+        Pedidos criados nessa janela com origem Maxwell (autogestão) por sellers SMB são o universo de análise.
+      </div>
+    </div>
+
+    <h3>Pedidos por hora durante a janela — todos os sites (FAQ)</h3>
+    <table>
+      <thead>
+        <tr><th>Hora (BRT)</th><th>Total</th><th>MLB</th><th>MLM</th><th>MLA</th><th>MLC</th><th>Sellers Únicos</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-warn"><td>21/05 18h</td><td>671</td><td>459</td><td>118</td><td>74</td><td>18</td><td>671</td></tr>
+        <tr class="highlight-row-warn"><td>21/05 19h</td><td>1.426</td><td>964</td><td>286</td><td>146</td><td>27</td><td>1.426</td></tr>
+        <tr class="highlight-row-warn"><td>21/05 20h</td><td>1.392</td><td>936</td><td>302</td><td>126</td><td>27</td><td>1.392</td></tr>
+        <tr class="highlight-row-warn"><td>21/05 21h</td><td>1.578</td><td>901</td><td>497</td><td>160</td><td>20</td><td>1.578</td></tr>
+        <tr class="highlight-row-warn"><td>21/05 22h</td><td>1.328</td><td>776</td><td>371</td><td>159</td><td>22</td><td>1.327</td></tr>
+        <tr class="highlight-row-warn"><td>21/05 23h</td><td>1.566</td><td>969</td><td>402</td><td>162</td><td>32</td><td>1.566</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 00h</td><td><strong>1.607</strong></td><td>1.006</td><td>430</td><td>134</td><td>35</td><td>1.607</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 01h</td><td>1.112</td><td>680</td><td>300</td><td>98</td><td>31</td><td>1.112</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 02h</td><td>904</td><td>504</td><td>297</td><td>72</td><td>29</td><td>904</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 03h</td><td>880</td><td>495</td><td>332</td><td>34</td><td>19</td><td>880</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 04h</td><td>539</td><td>215</td><td>286</td><td>26</td><td>11</td><td>539</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 05h</td><td>239</td><td>105</td><td>114</td><td>7</td><td>13</td><td>239</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 06h</td><td>269</td><td>113</td><td>146</td><td>6</td><td>4</td><td>269</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 07h</td><td>164</td><td>73</td><td>83</td><td>7</td><td>1</td><td>164</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 08h</td><td>257</td><td>219</td><td>28</td><td>10</td><td>0</td><td>257</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 09h</td><td>464</td><td>421</td><td>13</td><td>29</td><td>0</td><td>464</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 10h</td><td>747</td><td>644</td><td>19</td><td>81</td><td>2</td><td>747</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 11h</td><td>1.025</td><td>790</td><td>67</td><td>158</td><td>9</td><td>1.025</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 12h</td><td>814</td><td>525</td><td>98</td><td>168</td><td>22</td><td>814</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 13h</td><td>837</td><td>527</td><td>134</td><td>153</td><td>21</td><td>837</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 14h</td><td>647</td><td>410</td><td>125</td><td>79</td><td>32</td><td>647</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 15h</td><td>378</td><td>223</td><td>82</td><td>35</td><td>38</td><td>378</td></tr>
+        <tr class="highlight-row-warn"><td>22/05 16h</td><td>452</td><td>—</td><td>—</td><td>—</td><td>—</td><td>452</td></tr>
+        <tr class="highlight-row" style="font-weight:700"><td><strong>TOTAL JANELA</strong></td><td><strong>~19.096</strong></td><td>—</td><td>—</td><td>—</td><td>—</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <p style="font-size:11px;color:#6b7280;margin-top:6px">Pico: 22/05 00h com 1.607 pedidos/hora. Início: 21/05 15h24. Janela estendida até 16h do dia 22/05.</p>
+
+    <h3>Pedidos diários — comparativo com baseline (7 dias anteriores)</h3>
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Dia</th><th>Período</th><th>Pedidos PAPER_ROLL</th><th>Sellers Únicos</th><th>vs Baseline</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-gray"><td>14/05</td><td>Qui</td><td><span class="badge-before">Baseline</span></td><td>1.884</td><td>1.879</td><td>—</td></tr>
+        <tr class="highlight-row-gray"><td>15/05</td><td>Sex</td><td><span class="badge-before">Baseline</span></td><td>1.758</td><td>1.752</td><td>—</td></tr>
+        <tr class="highlight-row-gray"><td>16/05</td><td>Sáb</td><td><span class="badge-before">Baseline</span></td><td>1.381</td><td>1.381</td><td>—</td></tr>
+        <tr class="highlight-row-gray"><td>17/05</td><td>Dom</td><td><span class="badge-before">Baseline</span></td><td>1.091</td><td>1.091</td><td>—</td></tr>
+        <tr class="highlight-row-gray"><td>18/05</td><td>Seg</td><td><span class="badge-before">Baseline</span></td><td>1.743</td><td>1.742</td><td>—</td></tr>
+        <tr class="highlight-row-gray"><td>19/05</td><td>Ter</td><td><span class="badge-before">Baseline</span></td><td>1.975</td><td>1.964</td><td>—</td></tr>
+        <tr class="highlight-row-gray"><td>20/05</td><td>Qua</td><td><span class="badge-before">Baseline</span></td><td>1.897</td><td>1.891</td><td>— <span style="font-size:10px;color:#6b7280">Média seg-sex: ~1.850</span></td></tr>
+        <tr class="highlight-row-warn"><td><strong>21/05</strong></td><td>Qui</td><td><span class="badge-inc">Incidente</span></td><td><strong>8.329</strong></td><td><strong>8.315</strong></td><td><span style="color:#ef4444;font-weight:700">+373%</span></td></tr>
+        <tr class="highlight-row-warn"><td><strong>22/05</strong></td><td>Sex</td><td><span class="badge-inc">Incidente</span></td><td><strong>4.433</strong></td><td><strong>4.427</strong></td><td><span style="color:#ef4444;font-weight:700">+140%</span> <span style="font-size:10px;color:#6b7280">(até 11h30)</span></td></tr>
+      </tbody>
+    </table>
+
+    <h3>Resumo de Impacto</h3>
+    <div class="kpi-grid">
+      <div class="kpi red">
+        <div class="label">Total Pedidos na Janela</div>
+        <div class="value">11.638</div>
+        <div class="delta delta-down-bad">+373% vs baseline de ~1.850/dia</div>
+        <div class="sub">PAPER_ROLL criados durante incidente</div>
+      </div>
+      <div class="kpi red">
+        <div class="label">Incrementais SMB</div>
+        <div class="value">~9.699</div>
+        <div class="delta delta-down-bad">13,6× acima do normal · baseline ~768 / 20h</div>
+        <div class="sub">SMB: 10.467 obs. − 768 esperados</div>
+      </div>
+      <div class="kpi green">
+        <div class="label">Pedidos Canceláveis</div>
+        <div class="value">11.559</div>
+        <div class="delta delta-up">99,3% do total · SHIPPING_CREATED</div>
+        <div class="sub">RSO_TAG_NUMBER IS NULL · reversão possível</div>
+      </div>
+      <div class="kpi red">
+        <div class="label">Pedidos Não Canceláveis</div>
+        <div class="value">79</div>
+        <div class="delta delta-down-bad">0,7% · já entregues</div>
+        <div class="sub">SHIPPING_DELIVERED · irreversível</div>
+      </div>
+    </div>
+
+    <h3>Breakdown por site e segmento — todos os sites</h3>
+    <table>
+      <thead>
+        <tr><th>Site</th><th>Segmento</th><th>Observado</th><th>Esperado (~20h)</th><th>Incrementais</th><th>Uplift</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-warn"><td rowspan="3"><strong>MLB 🇧🇷</strong></td><td>SMB</td><td>10.467</td><td>~764</td><td><strong>+9.703</strong></td><td><span style="color:#ef4444;font-weight:700">13,7×</span></td></tr>
+        <tr class="highlight-row-warn"><td>Longtail</td><td>1.062</td><td>~622</td><td>+440</td><td>1,7×</td></tr>
+        <tr class="highlight-row-warn"><td>Big Sellers</td><td>15</td><td>~5</td><td>+10</td><td>2,8×</td></tr>
+        <tr><td rowspan="3"><strong>MLM 🇲🇽</strong></td><td>SMB</td><td>3.917</td><td>~297</td><td><strong>+3.620</strong></td><td><span style="color:#ef4444;font-weight:700">13,2×</span></td></tr>
+        <tr><td>Longtail</td><td>449</td><td>~339</td><td>+111</td><td>1,3×</td></tr>
+        <tr><td>Big Sellers</td><td>21</td><td>~5</td><td>+16</td><td>4,1×</td></tr>
+        <tr><td rowspan="3"><strong>MLA 🇦🇷</strong></td><td>SMB</td><td>1.383</td><td>~154</td><td><strong>+1.229</strong></td><td><span style="color:#f59e0b;font-weight:700">9,0×</span></td></tr>
+        <tr><td>Longtail</td><td>246</td><td>~198</td><td>+49</td><td>1,2×</td></tr>
+        <tr><td>Big Sellers</td><td>218</td><td>~50</td><td>+168</td><td>4,3×</td></tr>
+        <tr class="highlight-row-gray"><td rowspan="3"><strong>MLC 🇨🇱</strong></td><td>SMB</td><td>264</td><td>~257</td><td>+7</td><td>1,0× — sem anomalia</td></tr>
+        <tr class="highlight-row-gray"><td>Longtail</td><td>81</td><td>~144</td><td>-63</td><td>0,6×</td></tr>
+        <tr class="highlight-row-gray"><td>Big Sellers</td><td>12</td><td>~19</td><td>-7</td><td>0,6×</td></tr>
+        <tr class="highlight-row"><td colspan="2"><strong>TOTAL GLOBAL</strong></td><td><strong>18.159</strong></td><td><strong>~2.859</strong></td><td><strong>+15.300</strong></td><td><span style="color:#ef4444;font-weight:700">6,4×</span></td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout warn">
+      <div class="icon">📊</div>
+      <div class="text">
+        <strong>MLC não apresentou anomalia</strong> — volume dentro do baseline em todos os segmentos (0,85×). MLB e MLM foram os mais impactados, com SMB a ~13× acima do normal em ambos. MLA apresentou anomalia no SMB (9×) e também em Big Sellers (4,3×).
+      </div>
+    </div>
+
+    <div class="callout success">
+      <div class="icon">✅</div>
+      <div class="text">
+        <strong>Boa notícia operacional:</strong> 11.559 dos 11.638 pedidos (99,3%) estão em <code>SHIPPING_CREATED</code> com <code>RSO_TAG_NUMBER IS NULL</code>, ou seja, tecnicamente canceláveis conforme a política de cancelamento Maxwell. A decisão de cancelar ou manter está em aberto — ver ação #3 em Próximos Passos.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ CR MAXWELL -->
+  <div class="section">
+    <h2>Contact Rate · Maxwell Post-Comunicação</h2>
+    <p>Análise do Contact Rate (CR) nas conversas Maxwell de Supply Issues após o disparo da comunicação incorreta. Busca identificar se sellers que receberam a comunicação e tentaram solicitar bobinas — mas foram bloqueados pelo rollback ou regras — geraram atrito (escalada para humano).</p>
+
+    <div class="callout info">
+      <div class="icon">ℹ️</div>
+      <div class="text">
+        <strong>Definição de CR aqui:</strong> % de conversas no use case <em>Supply Issues / PAPER_ROLL</em> com <code>CONTACTED = TRUE</code> (escalada para humano) ou <code>OUTCOME = 'unresolved'</code> no período pós-comunicação.<br>
+        <strong>Baseline:</strong> Semanas anteriores ao incidente · CR Supply Issues = <strong>2,6%</strong> (referência do roadmap pós-lançamento em 23/03/2026).
+      </div>
+    </div>
+
+    <h3>CR por dia — Supply Issues (Maxwell)</h3>
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Período</th><th>Conversas</th><th>Contacted</th><th>CR %</th><th>CSAT</th><th>Unresolved %</th><th>Deflection %</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-gray"><td>14/05</td><td><span class="badge-before">Baseline</span></td><td>371</td><td>12</td><td>3,2%</td><td>4,00</td><td>42,0%</td><td>94,3%</td></tr>
+        <tr class="highlight-row-gray"><td>15/05</td><td><span class="badge-before">Baseline</span></td><td>321</td><td>11</td><td>3,4%</td><td>3,67</td><td>42,4%</td><td>92,5%</td></tr>
+        <tr class="highlight-row-gray"><td>16/05</td><td><span class="badge-before">Baseline</span></td><td>269</td><td>5</td><td>1,9%</td><td>3,40</td><td>40,5%</td><td>95,2%</td></tr>
+        <tr class="highlight-row-gray"><td>17/05</td><td><span class="badge-before">Baseline</span></td><td>194</td><td>3</td><td>1,5%</td><td>—</td><td>38,1%</td><td>95,9%</td></tr>
+        <tr class="highlight-row-gray"><td>18/05</td><td><span class="badge-before">Baseline</span></td><td>353</td><td>9</td><td>2,5%</td><td>5,00</td><td>38,8%</td><td>94,1%</td></tr>
+        <tr class="highlight-row-gray"><td>19/05</td><td><span class="badge-before">Baseline</span></td><td>413</td><td>14</td><td>3,4%</td><td>3,50</td><td>39,2%</td><td>92,7%</td></tr>
+        <tr class="highlight-row-gray"><td>20/05</td><td><span class="badge-before">Baseline</span></td><td>384</td><td>10</td><td>2,6%</td><td>2,75</td><td>37,0%</td><td>94,0%</td></tr>
+        <tr class="highlight-row"><td><strong>21/05</strong></td><td><span class="badge-inc">Incidente</span></td><td><strong>437</strong></td><td><strong>7</strong></td><td><span style="color:#10b981;font-weight:700">1,6%</span></td><td><strong>5,00</strong></td><td>39,8%</td><td>93,8%</td></tr>
+        <tr class="highlight-row"><td><strong>22/05</strong></td><td><span class="badge-inc">Incidente</span></td><td><strong>91</strong></td><td><strong>2</strong></td><td><span style="color:#10b981;font-weight:700">2,2%</span></td><td>—</td><td>42,9%</td><td>93,4%</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout success" style="margin-top:16px">
+      <div class="icon">✅</div>
+      <div class="text">
+        <strong>Sem atrito medido no Maxwell até agora:</strong> O CR de Supply Issues em 21/05 (1,6%) ficou <em>abaixo</em> do baseline da semana (~2,6%). Deflection mantida em 93,8%. CSAT 5,0 — sellers que acessaram o fluxo durante o incidente completaram o pedido sem atrito. O risco de CR no Maxwell está concentrado nos próximos dias, após a comunicação de retificação (sellers bloqueados tentando solicitar).
+      </div>
+    </div>
+
+    <div class="two-col" style="margin-top:20px">
+      <div>
+        <h3>CR Supply Issues — Consolidado</h3>
+        <table>
+          <thead><tr><th>Período</th><th>CR %</th><th>CSAT</th><th>Deflection</th></tr></thead>
+          <tbody>
+            <tr><td>Baseline (14→20/05)</td><td>2,5%</td><td>3,72</td><td>94,0%</td></tr>
+            <tr class="highlight-row"><td>Incidente (21→22/05)</td><td><strong>1,7%</strong></td><td><strong>5,00</strong></td><td><strong>93,7%</strong></td></tr>
+            <tr class="highlight-row-gray"><td>Pós-rollback (a monitorar)</td><td>—</td><td>—</td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Unresolved Reasons (21–22/05, contacted)</h3>
+        <table>
+          <thead><tr><th>Motivo</th><th>Qtd</th><th>%</th></tr></thead>
+          <tbody>
+            <tr class="highlight-row"><td>escalated_to_human</td><td>8</td><td>88,9%</td></tr>
+            <tr><td>N/A</td><td>1</td><td>11,1%</td></tr>
+            <tr class="highlight-row-gray"><td><strong>Total contactados</strong></td><td><strong>9</strong></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ REMEDIAÇÃO -->
+  <div class="section">
+    <h2 class="green">Ações de Remediação</h2>
+
+    <div class="two-col">
+      <div>
+        <h3>Concluídas</h3>
+        <table>
+          <thead><tr><th>Ação</th><th>Status</th><th>Data</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr class="highlight-row"><td>Rollback do umbral de elegibilidade</td><td><span class="tag tag-green">Concluído</span></td><td>[DATA_ROLLBACK]</td><td>[OWNER]</td></tr>
+            <tr class="highlight-row"><td>Análise de volume de pedidos na janela</td><td><span class="tag tag-orange">Em andamento</span></td><td>22/05/2026</td><td>[OWNER]</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div>
+        <h3>Pendentes</h3>
+        <table>
+          <thead><tr><th>Ação</th><th>Prazo</th><th>Owner</th></tr></thead>
+          <tbody>
+            <tr class="highlight-row-warn"><td>Comunicação de retificação aos 79K sellers</td><td>[DATA_PREV]</td><td>[OWNER]</td></tr>
+            <tr class="highlight-row-warn"><td>Definir destino dos pedidos incrementais (cancelar / manter?)</td><td>[DATA_PREV]</td><td>[OWNER]</td></tr>
+            <tr><td>Review de processo para alterações de umbral + comunicação</td><td>[DATA_PREV]</td><td>[OWNER]</td></tr>
+            <tr><td>Adicionar validação / dry-run de régua antes do disparo</td><td>[DATA_PREV]</td><td>[OWNER_ENG]</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <h3>Comunicação de Retificação — Rascunho de Pontos</h3>
+    <div class="callout warn">
+      <div class="icon">📧</div>
+      <div class="text">
+        <strong>Para:</strong> 79.000 sellers SMB que receberam a comunicação de habilitação incorreta<br>
+        <strong>Tom:</strong> Transparente, breve, sem alarmismo. Explicar o que houve e confirmar que o fluxo voltou ao normal.<br><br>
+        <strong>Pontos obrigatórios:</strong><br>
+        1. Reconhecer que uma comunicação foi enviada por engano habilitando a solicitação de bobinas;<br>
+        2. Explicar que identificamos o erro e revertemos o fluxo;<br>
+        3. Informar as regras corretas de elegibilidade para bobinas;<br>
+        4. Para sellers que fizeram pedido e não são elegíveis: o que acontece com o pedido (cancelamento, manutenção, etc.);<br>
+        5. Canal de suporte caso tenham dúvidas.
+      </div>
+    </div>
+
+    <h3>Root Cause &amp; Ações Preventivas</h3>
+    <table>
+      <thead>
+        <tr><th>Causa</th><th>Tipo</th><th>Ação Preventiva</th><th>Prazo</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Alteração de umbral sem validação do escopo da régua de comunicação</td>
+          <td><span class="tag tag-red">Processo</span></td>
+          <td>Checklist obrigatório: toda alteração de threshold deve incluir simulação do volume de sellers impactados pela régua antes do deploy</td>
+          <td>[DATA]</td>
+        </tr>
+        <tr>
+          <td>Acoplamento direto entre config de umbral e disparo de comunicação em massa</td>
+          <td><span class="tag tag-purple">Técnico</span></td>
+          <td>Desacoplar gatilho de comunicação do parâmetro de umbral; adicionar aprovação manual para comunicações &gt; X sellers</td>
+          <td>[DATA]</td>
+        </tr>
+        <tr>
+          <td>Ausência de dry-run da régua de comunicação</td>
+          <td><span class="tag tag-purple">Técnico</span></td>
+          <td>Implementar modo dry-run que retorna contagem antes de efetivamente disparar a comunicação</td>
+          <td>[DATA]</td>
+        </tr>
+        <tr>
+          <td>Falta de alerta de volume anômalo de pedidos PAPER_ROLL</td>
+          <td><span class="tag tag-orange">Monitoramento</span></td>
+          <td>Criar alerta automático quando volume diário de PAPER_ROLL exceder 2× o baseline semanal</td>
+          <td>[DATA]</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ DECISÃO FUTURA -->
+  <div class="section">
+    <h2 class="green">Decisão Futura · Retomada da Iniciativa</h2>
+    <p>A iniciativa original — equalizar a experiência de autogestão SMB no fluxo de bobinas — permanece válida. A lição do incidente orienta <strong>como reimplementá-la de forma controlada</strong>, desacoplando o umbral técnico da régua de comunicação.</p>
+
+    <h3>Proposta: Umbral 100% · Comunicação 80%</h3>
+
+    <div class="callout info">
+      <div class="icon">💡</div>
+      <div class="text">
+        <strong>Princípio:</strong> O umbral que governa a <em>elegibilidade técnica</em> no fluxo pode ser 100% (qualquer SMB pode solicitar se acessar), mas a <em>régua de comunicação ativa</em> deve ser disparada para apenas 80% da base — criando uma janela de controle antes de escalar para o restante.
+      </div>
+    </div>
+
+    <div class="flow" style="margin-top:20px">
+      <div class="flow-box blue" style="min-width:160px;text-align:left;padding:14px 18px">
+        <div style="font-size:10px;color:#93c5fd;margin-bottom:4px">UMBRAL TÉCNICO</div>
+        <strong>100%</strong><br>
+        <span style="font-size:11px;font-weight:400">Qualquer SMB elegível pode solicitar bobinas se entrar no fluxo por conta própria</span>
+      </div>
+      <div class="flow-arrow">≠</div>
+      <div class="flow-box green" style="min-width:160px;text-align:left;padding:14px 18px">
+        <div style="font-size:10px;color:#6ee7b7;margin-bottom:4px">RÉGUA DE COMUNICAÇÃO</div>
+        <strong>80% da base</strong><br>
+        <span style="font-size:11px;font-weight:400">Notificação ativa disparada para ~63K sellers em primeira onda</span>
+      </div>
+      <div class="flow-arrow">→</div>
+      <div class="flow-box gray" style="min-width:160px;text-align:left;padding:14px 18px">
+        <div style="font-size:10px;margin-bottom:4px">SEGUNDA ONDA</div>
+        <strong>20% restantes</strong><br>
+        <span style="font-size:11px;font-weight:400">Comunicados após validação de volume e CR da primeira onda</span>
+      </div>
+    </div>
+
+    <h3>Benefícios do desacoplamento</h3>
+    <table>
+      <thead>
+        <tr><th>Dimensão</th><th>Implementação anterior (incidente)</th><th>Nova abordagem proposta</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Elegibilidade técnica</td>
+          <td>Acoplada ao umbral → qualquer mudança no threshold dispara comunicação</td>
+          <td>Parâmetro independente → pode ser 100% sem forçar comunicação em massa</td>
+        </tr>
+        <tr>
+          <td>Escopo da comunicação</td>
+          <td>Derivado automaticamente do umbral (79K de uma vez)</td>
+          <td>Configurado explicitamente por régua separada (80% → ~63K, depois 100%)</td>
+        </tr>
+        <tr class="highlight-row">
+          <td>Controle de risco</td>
+          <td>Nenhum — spike imediato sem janela de observação</td>
+          <td>20% de buffer para monitorar volume, CR e CX antes da expansão total</td>
+        </tr>
+        <tr>
+          <td>Rollback</td>
+          <td>Necessário reverter o fluxo inteiro</td>
+          <td>Basta pausar a segunda onda da comunicação, sem alterar o fluxo técnico</td>
+        </tr>
+        <tr>
+          <td>Sellers orgânicos</td>
+          <td>Não previstos — qualquer seller SMB poderia acessar</td>
+          <td>Já cobertos pelo umbral 100% — chegam por conta própria sem comunicação</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Critérios de go/no-go para segunda onda (os 20% restantes)</h3>
+    <div class="callout warn">
+      <div class="icon">📊</div>
+      <div class="text">
+        Medir nos primeiros <strong>7 dias após a primeira onda</strong>:<br>
+        — <strong>Volume PAPER_ROLL/dia:</strong> ≤ 2× baseline pré-comunicação<br>
+        — <strong>CR Maxwell Supply Issues:</strong> ≤ 4% (baseline atual: 2,5%)<br>
+        — <strong>Chamados CX sobre bobinas:</strong> sem spike relevante vs baseline<br>
+        — <strong>CSAT Supply Issues:</strong> ≥ 4,0<br><br>
+        Se todos os critérios atendidos → disparar comunicação para os 20% restantes. Caso contrário, investigar antes de expandir.
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ QUERIES -->
+  <div class="section">
+    <h2>Queries BigQuery</h2>
+    <p>Queries para extração dos dados deste post-mortem. Substituir os campos <code>[DATA_*]</code> pelas datas reais do incidente antes de executar.</p>
+
+    <div class="sql-title">P1-A · Pedidos PAPER_ROLL por hora na janela do incidente</div>
+    <div class="sql-block"><pre>
+<span class="kw">SELECT</span>
+  <span class="fn">FORMAT_TIMESTAMP</span>(<span class="str">'%Y-%m-%d %H:00'</span>, <span class="fn">TIMESTAMP_TRUNC</span>(SO_REQUEST_DATE, HOUR, <span class="str">'America/Sao_Paulo'</span>)) <span class="kw">AS</span> hora,
+  <span class="fn">COUNT</span>(*) <span class="kw">AS</span> pedidos,
+  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> CUST_ID) <span class="kw">AS</span> sellers_unicos,
+  <span class="fn">COUNTIF</span>(SO_ORDER_STATUS = <span class="str">'ORDER_CREATED'</span>) <span class="kw">AS</span> pedidos_criados,
+  <span class="fn">COUNTIF</span>(SO_ORDER_STATUS <span class="kw">IN</span> (<span class="str">'SHIPPING_CREATED'</span>, <span class="str">'SHIPPING_DELIVERED'</span>)) <span class="kw">AS</span> pedidos_despachados
+<span class="kw">FROM</span> `meli-bi-data.WHOWNER.BT_MP_POINT_SERVICE_ORDER`
+<span class="kw">WHERE</span>
+  SITE_ID = <span class="str">'MLB'</span>
+  <span class="kw">AND</span> FLOW_TYPE = <span class="str">'PAPER_ROLL'</span>
+  <span class="kw">AND</span> SO_CALL_CENTER = <span class="str">'MAXWELL'</span>                   <span class="cmt">-- apenas autogestão</span>
+  <span class="kw">AND</span> SO_REQUEST_DATE <span class="kw">BETWEEN</span>
+        <span class="fn">TIMESTAMP</span>(<span class="str">'[DATA_COMUNICACAO] [HH:mm:00]'</span>, <span class="str">'America/Sao_Paulo'</span>)
+    <span class="kw">AND</span> <span class="fn">TIMESTAMP</span>(<span class="str">'[DATA_ROLLBACK] [HH:mm:00]'</span>,    <span class="str">'America/Sao_Paulo'</span>)
+<span class="kw">GROUP BY</span> 1
+<span class="kw">ORDER BY</span> 1
+</pre></div>
+
+    <div class="sql-title">P1-B · Pedidos diários PAPER_ROLL — janela + 7 dias antes e depois (comparativo)</div>
+    <div class="sql-block"><pre>
+<span class="kw">SELECT</span>
+  <span class="fn">DATE</span>(SO_REQUEST_DATE, <span class="str">'America/Sao_Paulo'</span>) <span class="kw">AS</span> data,
+  <span class="fn">COUNT</span>(*) <span class="kw">AS</span> pedidos_total,
+  <span class="fn">COUNT</span>(<span class="kw">DISTINCT</span> CUST_ID) <span class="kw">AS</span> sellers_unicos,
+  <span class="fn">COUNTIF</span>(SO_CALL_CENTER = <span class="str">'MAXWELL'</span>) <span class="kw">AS</span> pedidos_maxwell,
+  <span class="fn">COUNTIF</span>(SO_ORDER_STATUS = <span class="str">'SHIPPING_DELIVERED'</span>) <span class="kw">AS</span> finalizados,
+  <span class="fn">COUNTIF</span>(SO_ORDER_STATUS = <span class="str">'ORDER_CANCELED'</span>) <span class="kw">AS</span> cancelados,
+  <span class="fn">COUNTIF</span>(SO_ORDER_STATUS = <span class="str">'ORDER_CREATED'</span>) <span class="kw">AS</span> aguardando
+<span class="kw">FROM</span> `meli-bi-data.WHOWNER.BT_MP_POINT_SERVICE_ORDER`
+<span class="kw">WHERE</span>
+  SITE_ID = <span class="str">'MLB'</span>
+  <span class="kw">AND</span> FLOW_TYPE = <span class="str">'PAPER_ROLL'</span>
+  <span class="kw">AND</span> <span class="fn">DATE</span>(SO_REQUEST_DATE, <span class="str">'America/Sao_Paulo'</span>) <span class="kw">BETWEEN</span>
+        <span class="fn">DATE_SUB</span>(<span class="fn">DATE</span>(<span class="str">'[DATA_COMUNICACAO]'</span>), <span class="kw">INTERVAL</span> 7 <span class="kw">DAY</span>)
+    <span class="kw">AND</span> <span class="fn">DATE_ADD</span>(<span class="fn">DATE</span>(<span class="str">'[DATA_ROLLBACK]'</span>),    <span class="kw">INTERVAL</span> 7 <span class="kw">DAY</span>)
+<span class="kw">GROUP BY</span> 1
+<span class="kw">ORDER BY</span> 1
+</pre></div>
+
+    <div class="sql-title">P1-C · Sellers que solicitaram na janela — identificação para decisão de cancelamento</div>
+    <div class="sql-block"><pre>
+<span class="kw">SELECT</span>
+  so.CUST_ID,
+  so.SO_ORDER_ID,
+  so.SO_REQUEST_DATE,
+  so.SO_ORDER_STATUS,
+  so.RSO_TAG_NUMBER,                           <span class="cmt">-- NULL = não despachado → cancelável</span>
+  <span class="kw">CASE</span>
+    <span class="kw">WHEN</span> so.SO_ORDER_STATUS = <span class="str">'ORDER_CREATED'</span>
+     <span class="kw">AND</span> so.RSO_TAG_NUMBER <span class="kw">IS NULL</span> <span class="kw">THEN</span> <span class="str">'CANCELÁVEL'</span>
+    <span class="kw">WHEN</span> so.SO_ORDER_STATUS = <span class="str">'SHIPPING_CREATED'</span>
+     <span class="kw">AND</span> so.RSO_TAG_NUMBER <span class="kw">IS NULL</span> <span class="kw">THEN</span> <span class="str">'CANCELÁVEL'</span>
+    <span class="kw">ELSE</span> <span class="str">'NÃO CANCELÁVEL'</span>
+  <span class="kw">END</span> <span class="kw">AS</span> status_cancelamento
+<span class="kw">FROM</span> `meli-bi-data.WHOWNER.BT_MP_POINT_SERVICE_ORDER` so
+<span class="kw">WHERE</span>
+  so.SITE_ID = <span class="str">'MLB'</span>
+  <span class="kw">AND</span> so.FLOW_TYPE = <span class="str">'PAPER_ROLL'</span>
+  <span class="kw">AND</span> so.SO_CALL_CENTER = <span class="str">'MAXWELL'</span>
+  <span class="kw">AND</span> so.SO_REQUEST_DATE <span class="kw">BETWEEN</span>
+        <span class="fn">TIMESTAMP</span>(<span class="str">'[DATA_COMUNICACAO] [HH:mm:00]'</span>, <span class="str">'America/Sao_Paulo'</span>)
+    <span class="kw">AND</span> <span class="fn">TIMESTAMP</span>(<span class="str">'[DATA_ROLLBACK] [HH:mm:00]'</span>,    <span class="str">'America/Sao_Paulo'</span>)
+<span class="kw">ORDER BY</span> so.SO_REQUEST_DATE
+</pre></div>
+
+    <div class="sql-title">P2-A · CR Maxwell Supply Issues — diário pós-comunicação</div>
+    <div class="sql-block"><pre>
+<span class="kw">SELECT</span>
+  <span class="fn">DATE</span>(CONV_CREATED_DT) <span class="kw">AS</span> data,
+  <span class="fn">COUNT</span>(*) <span class="kw">AS</span> conversas,
+  <span class="fn">COUNTIF</span>(CONTACTED = <span class="kw">TRUE</span>) <span class="kw">AS</span> contacted,
+  <span class="fn">ROUND</span>(<span class="fn">COUNTIF</span>(CONTACTED = <span class="kw">TRUE</span>) / <span class="fn">COUNT</span>(*) * 100, 1) <span class="kw">AS</span> cr_pct,
+  <span class="fn">ROUND</span>(<span class="fn">AVG</span>(<span class="kw">IF</span>(CSAT.SCORE <span class="kw">IS NOT NULL</span>, <span class="fn">CAST</span>(CSAT.SCORE <span class="kw">AS</span> FLOAT64), <span class="kw">NULL</span>)), 2) <span class="kw">AS</span> avg_csat,
+  <span class="fn">COUNTIF</span>(OUTCOME = <span class="str">'unresolved'</span>) <span class="kw">AS</span> unresolved,
+  <span class="fn">ROUND</span>(<span class="fn">COUNTIF</span>(OUTCOME = <span class="str">'unresolved'</span>) / <span class="fn">COUNT</span>(*) * 100, 1) <span class="kw">AS</span> unresolved_pct,
+  <span class="fn">COUNTIF</span>(DEFLECTED = <span class="kw">TRUE</span>) <span class="kw">AS</span> deflected,
+  <span class="fn">ROUND</span>(<span class="fn">COUNTIF</span>(DEFLECTED = <span class="kw">TRUE</span>) / <span class="fn">COUNT</span>(*) * 100, 1) <span class="kw">AS</span> deflection_pct
+<span class="kw">FROM</span> `meli-bi-data.WHOWNER.BT_MAXWELL_CONVERSATION_DETAILS`
+<span class="kw">WHERE</span>
+  CLASSIFICATION.PRODUCT = <span class="str">'Point Devices'</span>
+  <span class="kw">AND</span> CLASSIFICATION.USE_CASE <span class="kw">LIKE</span> <span class="str">'%supply%'</span>      <span class="cmt">-- ajustar para o use_case exato de bobinas</span>
+  <span class="kw">AND</span> CONV_CREATED_DT <span class="kw">BETWEEN</span>
+        <span class="fn">DATE_SUB</span>(<span class="fn">DATE</span>(<span class="str">'[DATA_COMUNICACAO]'</span>), <span class="kw">INTERVAL</span> 7 <span class="kw">DAY</span>)
+    <span class="kw">AND</span> <span class="fn">DATE_ADD</span>(<span class="fn">DATE</span>(<span class="str">'[DATA_ROLLBACK]'</span>),    <span class="kw">INTERVAL</span> 7 <span class="kw">DAY</span>)
+  <span class="kw">AND</span> COUNT_IN_METRICS = <span class="kw">TRUE</span>
+  <span class="kw">AND</span> IS_DELETED = <span class="kw">FALSE</span>
+<span class="kw">GROUP BY</span> 1
+<span class="kw">ORDER BY</span> 1
+</pre></div>
+
+    <div class="sql-title">P2-B · Motivos de escalada (Unresolved Reasons) na janela</div>
+    <div class="sql-block"><pre>
+<span class="kw">SELECT</span>
+  <span class="fn">COALESCE</span>(UNRESOLVED_REASON, <span class="str">'resolved'</span>) <span class="kw">AS</span> unresolved_reason,
+  <span class="fn">COUNT</span>(*) <span class="kw">AS</span> conversas,
+  <span class="fn">ROUND</span>(<span class="fn">COUNT</span>(*) / <span class="fn">SUM</span>(<span class="fn">COUNT</span>(*)) <span class="kw">OVER</span>() * 100, 1) <span class="kw">AS</span> pct
+<span class="kw">FROM</span> `meli-bi-data.WHOWNER.BT_MAXWELL_CONVERSATION_DETAILS`
+<span class="kw">WHERE</span>
+  CLASSIFICATION.PRODUCT = <span class="str">'Point Devices'</span>
+  <span class="kw">AND</span> CLASSIFICATION.USE_CASE <span class="kw">LIKE</span> <span class="str">'%supply%'</span>
+  <span class="kw">AND</span> CONV_CREATED_DT <span class="kw">BETWEEN</span>
+        <span class="fn">DATE</span>(<span class="str">'[DATA_COMUNICACAO]'</span>)
+    <span class="kw">AND</span> <span class="fn">DATE_ADD</span>(<span class="fn">DATE</span>(<span class="str">'[DATA_ROLLBACK]'</span>), <span class="kw">INTERVAL</span> 3 <span class="kw">DAY</span>)
+  <span class="kw">AND</span> COUNT_IN_METRICS = <span class="kw">TRUE</span>
+  <span class="kw">AND</span> IS_DELETED = <span class="kw">FALSE</span>
+  <span class="kw">AND</span> CONTACTED = <span class="kw">TRUE</span>
+<span class="kw">GROUP BY</span> 1
+<span class="kw">ORDER BY</span> 2 <span class="kw">DESC</span>
+</pre></div>
+
+    <div class="sql-title">P3 · Volume de conversas por hora no Maxwell (Supply Issues) — detecção de spike</div>
+    <div class="sql-block"><pre>
+<span class="kw">SELECT</span>
+  <span class="fn">FORMAT_TIMESTAMP</span>(<span class="str">'%Y-%m-%d %H:00'</span>, <span class="fn">TIMESTAMP_TRUNC</span>(CONV_CREATED_DT, HOUR, <span class="str">'America/Sao_Paulo'</span>)) <span class="kw">AS</span> hora,
+  <span class="fn">COUNT</span>(*) <span class="kw">AS</span> conversas,
+  <span class="fn">COUNTIF</span>(CONTACTED = <span class="kw">TRUE</span>) <span class="kw">AS</span> contacted,
+  <span class="fn">ROUND</span>(<span class="fn">COUNTIF</span>(CONTACTED = <span class="kw">TRUE</span>) / <span class="fn">COUNT</span>(*) * 100, 1) <span class="kw">AS</span> cr_pct
+<span class="kw">FROM</span> `meli-bi-data.WHOWNER.BT_MAXWELL_CONVERSATION_DETAILS`
+<span class="kw">WHERE</span>
+  CLASSIFICATION.PRODUCT = <span class="str">'Point Devices'</span>
+  <span class="kw">AND</span> CLASSIFICATION.USE_CASE <span class="kw">LIKE</span> <span class="str">'%supply%'</span>
+  <span class="kw">AND</span> CONV_CREATED_DT <span class="kw">BETWEEN</span>
+        <span class="fn">TIMESTAMP</span>(<span class="str">'[DATA_COMUNICACAO] [HH:mm:00]'</span>, <span class="str">'America/Sao_Paulo'</span>)
+    <span class="kw">AND</span> <span class="fn">TIMESTAMP_ADD</span>(<span class="fn">TIMESTAMP</span>(<span class="str">'[DATA_ROLLBACK] [HH:mm:00]'</span>, <span class="str">'America/Sao_Paulo'</span>), <span class="kw">INTERVAL</span> 48 HOUR)
+  <span class="kw">AND</span> COUNT_IN_METRICS = <span class="kw">TRUE</span>
+  <span class="kw">AND</span> IS_DELETED = <span class="kw">FALSE</span>
+<span class="kw">GROUP BY</span> 1
+<span class="kw">ORDER BY</span> 1
+</pre></div>
+
+    <div class="method">
+      <strong>Nota sobre SO_CALL_CENTER:</strong> Para identificar pedidos originados pelo Maxwell (autogestão), filtrar <code>SO_CALL_CENTER = 'MAXWELL'</code> ou o valor equivalente na tabela BT_MP_POINT_SERVICE_ORDER. Verificar o valor exato com a equipe de engenharia caso o filtro não retorne resultados. <br>
+      <strong>Nota sobre USE_CASE de bobinas:</strong> Verificar o valor exato do <code>CLASSIFICATION.USE_CASE</code> para o fluxo de Supply Issues/Bobinas consultando a tabela BT_MAXWELL_CONVERSATION_DETAILS com <code>LIMIT 100</code> para amostrar valores distintos.
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ MONITORAMENTO CX -->
+  <div class="section">
+    <h2>Monitoramento CX Pós-Rollback <span style="font-size:11px;font-weight:400;color:#9ca3af;margin-left:8px">Última atualização: 22/05/2026 ~15h · Sem impactos detectados</span></h2>
+    <p>Acompanhamento diário dos canais de CX para detectar spike gerado por sellers que receberam a comunicação incorreta e tentam solicitar bobinas após o rollback. Atualizado automaticamente a cada 4 horas.</p>
+
+    <div class="callout warn">
+      <div class="icon">⚠️</div>
+      <div class="text">
+        <strong>Janela crítica de monitoramento:</strong> os próximos 5 dias úteis após o envio da comunicação de retificação. Sellers que leram a notificação original, tentam solicitar e encontram o fluxo bloqueado → risco de escalada para CX.<br>
+        <strong>Alerta:</strong> qualquer dia com CX via SO &gt; <strong>87 pedidos</strong> (2× baseline) ou SDX Kit Bobina &gt; <strong>30 cases/dia</strong> (2× baseline) deve ser investigado imediatamente.
+      </div>
+    </div>
+
+    <h3>Canal 1 — Pedidos PAPER_ROLL via CX por site</h3>
+    <p style="font-size:11px;color:#6b7280">Baseline seg-sex MLB: <strong>~43/dia</strong> · Alerta: &gt;87/dia. MLA: ~5/dia · MLM: ~10/dia · MLC: ~8/dia</p>
+    <table>
+      <thead>
+        <tr><th>Data</th><th>MLB</th><th>MLA</th><th>MLM</th><th>MLC</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-gray"><td>19/05 <span style="color:#9ca3af;font-size:10px">Ter</span></td><td>52</td><td>1</td><td>10</td><td>8</td><td><span class="badge-before">Baseline</span></td></tr>
+        <tr class="highlight-row-gray"><td>20/05 <span style="color:#9ca3af;font-size:10px">Qua</span></td><td>39</td><td>7</td><td>9</td><td>10</td><td><span class="badge-before">Baseline</span></td></tr>
+        <tr class="highlight-row"><td>21/05 <span style="color:#9ca3af;font-size:10px">Qui</span></td><td>30</td><td>6</td><td>11</td><td>1</td><td><span class="badge-inc">Incidente</span> · sellers foram direto ao FAQ</td></tr>
+        <tr class="highlight-row"><td>22/05 <span style="color:#9ca3af;font-size:10px">Sex parcial</span></td><td><strong>25</strong></td><td>0</td><td>1</td><td>3</td><td><span style="color:#10b981;font-weight:600">✓ Normal</span> · proj. ~40–50 MLB</td></tr>
+        <tr class="highlight-row-gray"><td>23/05+</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Monitorar</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:20px">Canal 2 — Cases CX/SDX Kit Bobina (BT_MP_CR_SDX_CASES_DETAIL_MLB)</h3>
+    <p style="font-size:11px;color:#6b7280">Baseline maio (01→20/mai): <strong>~153 cases · ~8 cases/dia</strong> · filtro: <code>PRODUTO = 'Kit Bobina'</code></p>
+    <table>
+      <thead>
+        <tr><th>Período</th><th>Status Cases</th><th>Qtd</th><th>Observação</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-gray"><td>Mai/26 (até 20/05)</td><td>Sin retraso</td><td>110</td><td rowspan="3">Baseline pré-incidente · ~8 cases/dia</td></tr>
+        <tr class="highlight-row-gray"><td>Mai/26 (até 20/05)</td><td>Con retraso</td><td>31</td></tr>
+        <tr class="highlight-row-gray"><td>Mai/26 (até 20/05)</td><td>Finalizado</td><td>19</td></tr>
+        <tr class="highlight-row"><td>21–22/05 (incidente)</td><td colspan="2">—</td><td>A atualizar no próximo ciclo</td></tr>
+        <tr class="highlight-row-gray"><td>23/05+</td><td colspan="2">—</td><td>Monitorar após comunicação retificação</td></tr>
+      </tbody>
+    </table>
+
+    <h3 style="margin-top:20px">Canal 3 — CR Maxwell Supply Issues por site</h3>
+    <p style="font-size:11px;color:#6b7280">Baseline MLB ~2,5% CR · MLA ~2–4% · MLM ~4% · MLC ~4% · Alerta: &gt;6% com volume relevante</p>
+    <table>
+      <thead>
+        <tr><th>Data</th><th>Site</th><th>Conversas</th><th>CR %</th><th>CSAT</th><th>Deflection %</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-gray"><td>20/05</td><td>MLB</td><td>230</td><td>1,3%</td><td>2,67</td><td>94,8%</td><td><span class="badge-before">Baseline</span></td></tr>
+        <tr class="highlight-row-gray"><td>20/05</td><td>MLA</td><td>45</td><td>4,4%</td><td>—</td><td>93,3%</td><td><span class="badge-before">Baseline</span></td></tr>
+        <tr class="highlight-row-gray"><td>20/05</td><td>MLM</td><td>73</td><td>4,1%</td><td>—</td><td>94,5%</td><td><span class="badge-before">Baseline</span></td></tr>
+        <tr class="highlight-row-gray"><td>20/05</td><td>MLC</td><td>36</td><td>5,6%</td><td>3,0</td><td>88,9%</td><td><span class="badge-before">Baseline</span></td></tr>
+        <tr class="highlight-row"><td>21/05</td><td>MLB</td><td>297</td><td><span style="color:#10b981;font-weight:700">1,3%</span></td><td>5,0</td><td>92,6%</td><td>Sem atrito</td></tr>
+        <tr class="highlight-row"><td>21/05</td><td>MLA</td><td>51</td><td>2,0%</td><td>5,0</td><td>96,1%</td><td>Sem atrito</td></tr>
+        <tr class="highlight-row"><td>21/05</td><td>MLM</td><td>75</td><td>1,3%</td><td>—</td><td>98,7%</td><td>Sem atrito</td></tr>
+        <tr class="highlight-row"><td>21/05</td><td>MLC</td><td>14</td><td>7,1%</td><td>—</td><td>85,7%</td><td>Acima baseline · vol. baixo</td></tr>
+        <tr><td>22/05 parcial</td><td>MLB</td><td>189</td><td><span style="color:#10b981;font-weight:700">1,1%</span></td><td>5,0</td><td>94,7%</td><td><span style="color:#10b981;font-weight:600">✓ Normal</span></td></tr>
+        <tr><td>22/05 parcial</td><td>MLA</td><td>22</td><td><span style="color:#f59e0b;font-weight:700">9,1%</span></td><td>—</td><td>86,4%</td><td>Vol. baixo (22 conv.) · observar</td></tr>
+        <tr><td>22/05 parcial</td><td>MLM</td><td>16</td><td>0,0%</td><td>—</td><td>100%</td><td><span style="color:#10b981;font-weight:600">✓ Normal</span></td></tr>
+        <tr><td>22/05 parcial</td><td>MLC</td><td>12</td><td>0,0%</td><td>—</td><td>100%</td><td><span style="color:#10b981;font-weight:600">✓ Normal</span></td></tr>
+        <tr class="highlight-row-gray"><td>23/05+</td><td>Todos</td><td>—</td><td>—</td><td>—</td><td>—</td><td>Monitorar</td></tr>
+      </tbody>
+    </table>
+
+    <div class="method" style="margin-top:16px">
+      <strong>Queries de monitoramento:</strong><br>
+      — CX via SO: <code>BT_MP_POINT_SERVICE_ORDER WHERE SO_SITE_ID='MLB' AND SO_FLOW_TYPE='PAPER_ROLL' AND SO_CALL_CENTER IN ('CX','CX_NIVEL_2') AND DATE(SO_REQUEST_DATE) >= DATE_SUB(CURRENT_DATE(), INTERVAL 5 DAY)</code><br>
+      — SDX Cases: <code>BT_MP_CR_SDX_CASES_DETAIL_MLB WHERE PRODUTO='Kit Bobina' AND DATE(CI_CREATED_DATETIME) >= DATE_SUB(CURRENT_DATE(), INTERVAL 5 DAY)</code><br>
+      — Maxwell CR: <code>BT_MAXWELL_CONVERSATION_DETAILS WHERE CLASSIFICATION.PRODUCT='Point Devices' AND CLASSIFICATION.USE_CASE='Supply Issues' AND COUNT_IN_METRICS=TRUE AND IS_DELETED=FALSE AND CONV_CREATED_DT >= DATE_SUB(CURRENT_DATE(), INTERVAL 5 DAY)</code>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════════════════════════════════════ PRÓXIMOS PASSOS -->
+  <div class="section">
+    <h2>Próximos Passos</h2>
+
+    <table>
+      <thead>
+        <tr><th>#</th><th>Ação</th><th>Prioridade</th><th>Owner</th><th>Prazo</th><th>Status</th></tr>
+      </thead>
+      <tbody>
+        <tr class="highlight-row-warn">
+          <td>1</td>
+          <td>Enviar comunicação de retificação para os 79K sellers</td>
+          <td><span class="tag tag-red">Alta</span></td>
+          <td>[OWNER_CX]</td>
+          <td>[DATA]</td>
+          <td><span class="tag tag-orange">Pendente</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Monitorar CR Maxwell Supply Issues nos 5 dias pós-comunicação de retificação</td>
+          <td><span class="tag tag-orange">Média</span></td>
+          <td>[OWNER_DATA]</td>
+          <td>D+5 retificação</td>
+          <td><span class="tag tag-gray">Aguardando</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Implementar alerta automático de volume anômalo PAPER_ROLL</td>
+          <td><span class="tag tag-orange">Média</span></td>
+          <td>[OWNER_ENG]</td>
+          <td>[DATA]</td>
+          <td><span class="tag tag-orange">Pendente</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Replanejar implementação da remoção de fricção SMB bobinas (objetivo original)</td>
+          <td><span class="tag tag-gray">Baixa</span></td>
+          <td>[OWNER_PM]</td>
+          <td>Sprint seguinte</td>
+          <td><span class="tag tag-gray">Aguardando</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Replanejar implementação da remoção de fricção SMB bobinas (objetivo original)</td>
+          <td><span class="tag tag-gray">Baixa</span></td>
+          <td>[OWNER_PM]</td>
+          <td>Sprint seguinte</td>
+          <td><span class="tag tag-gray">Aguardando</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<footer>
+  Post-mortem · Incidente Umbral Bobinas SMB · Maxwell Point MLB · Gerado em 22/05/2026
+</footer>
+
+</body>
+</html>

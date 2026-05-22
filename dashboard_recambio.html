@@ -1,0 +1,836 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Dashboard Recâmbio Point | Mercado Pago</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+  <style>
+    :root{--blue:#2D73F5;--orange:#FF7A00;--green:#00C48C;--purple:#7B5EF8;
+          --yellow:#FFD000;--red:#FF4D4F;--bg:#F0F2F8;--card:#fff;
+          --text:#1A1A2E;--muted:#6B7280;--border:#E5E7EB;}
+    *{box-sizing:border-box;margin:0;padding:0;}
+    body{font-family:'Segoe UI',Arial,sans-serif;background:var(--bg);color:var(--text);}
+    .header{background:linear-gradient(135deg,#1A1A2E,#0F3460);padding:20px 32px;
+             display:flex;align-items:center;justify-content:space-between;}
+    .header-logo{background:var(--yellow);color:#1A1A2E;font-weight:900;font-size:13px;
+                  padding:6px 12px;border-radius:6px;}
+    .header-title{color:#fff;font-size:18px;font-weight:700;margin-left:16px;}
+    .header-sub{color:rgba(255,255,255,.6);font-size:12px;margin-top:2px;}
+    .header-badge{background:rgba(255,208,0,.15);border:1px solid rgba(255,208,0,.4);
+                   color:var(--yellow);padding:4px 12px;border-radius:20px;font-size:11px;}
+    .tabs{background:#fff;border-bottom:1px solid var(--border);
+           padding:0 32px;display:flex;gap:2px;white-space:nowrap;overflow-x:auto;}
+    .tab{padding:12px 16px;cursor:pointer;font-size:12px;font-weight:500;
+          color:#4B5563;border-bottom:3px solid transparent;transition:all .2s;white-space:nowrap;}
+    .tab:hover{color:var(--blue);} .tab.active{color:var(--blue);border-bottom-color:var(--blue);font-weight:700;}
+    .content{padding:28px 32px;max-width:1300px;margin:0 auto;}
+    .pane{display:none;} .pane.active{display:block;}
+    .kpi-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin-bottom:24px;}
+    .kpi{background:var(--card);border-radius:12px;padding:20px 24px;
+          box-shadow:0 1px 4px rgba(0,0,0,.08);border-top:4px solid;}
+    .kpi.blue{border-top-color:var(--blue);} .kpi.green{border-top-color:var(--green);}
+    .kpi.orange{border-top-color:var(--orange);} .kpi.purple{border-top-color:var(--purple);}
+    .kpi-label{font-size:11px;color:var(--muted);font-weight:700;text-transform:uppercase;letter-spacing:.5px;}
+    .kpi-value{font-size:28px;font-weight:800;margin:8px 0 4px;}
+    .kpi-delta{font-size:12px;color:var(--green);font-weight:600;}
+    .kpi-sub{font-size:11px;color:var(--muted);margin-top:4px;}
+    .cg2{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin-top:20px;}
+    .cw{background:var(--card);border-radius:12px;padding:20px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+    .ct{font-size:14px;font-weight:700;margin-bottom:4px;}
+    .cs{font-size:11px;color:var(--muted);margin-bottom:14px;}
+    canvas{max-height:240px;}
+    .leg{display:flex;gap:16px;margin-bottom:10px;}
+    .ld{width:10px;height:10px;border-radius:50%;}
+    .li{display:flex;align-items:center;gap:6px;font-size:12px;font-weight:600;}
+    .sec{font-size:15px;font-weight:800;margin:24px 0 14px;display:flex;align-items:center;gap:8px;}
+    .badge{background:var(--blue);color:#fff;font-size:10px;padding:2px 8px;border-radius:20px;font-weight:700;}
+    hr{border:none;border-top:1px solid var(--border);margin:24px 0;}
+    table{width:100%;border-collapse:collapse;font-size:13px;}
+    th{background:var(--bg);padding:10px 12px;text-align:left;font-size:11px;
+        font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);
+        border-bottom:1px solid var(--border);}
+    td{padding:10px 12px;border-bottom:1px solid var(--border);}
+    tr:last-child td{border-bottom:none;}
+    tr:hover td{background:#F9FAFB;}
+    .tag-full{background:#EFF6FF;color:var(--blue);padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
+    .tag-outros{background:#FFF7ED;color:var(--orange);padding:2px 8px;border-radius:4px;font-size:11px;font-weight:700;}
+    .positive{color:var(--green);font-weight:700;}
+    .card{background:var(--card);border-radius:12px;padding:24px;box-shadow:0 1px 4px rgba(0,0,0,.08);}
+    .hero{background:linear-gradient(135deg,#1A1A2E,#0F3460);border-radius:16px;
+           padding:36px;color:#fff;margin-bottom:24px;}
+    .hero h1{font-size:22px;font-weight:800;margin-bottom:8px;}
+    .hero p{color:rgba(255,255,255,.7);font-size:14px;line-height:1.7;max-width:700px;}
+    .hero-tags{display:flex;gap:8px;margin-top:16px;flex-wrap:wrap;}
+    .hero-tag{background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);
+               color:#fff;padding:4px 12px;border-radius:20px;font-size:11px;font-weight:600;}
+    .filter-btn{padding:5px 14px;border-radius:20px;font-size:11px;font-weight:600;
+                 cursor:pointer;border:1px solid var(--border);background:#fff;color:var(--muted);transition:all .2s;}
+    .filter-btn.active{background:var(--blue);color:#fff;border-color:var(--blue);}
+  </style>
+</head>
+<body>
+
+<div class="header">
+  <div style="display:flex;align-items:center">
+    <div class="header-logo">MP Point</div>
+    <div style="margin-left:16px">
+      <div class="header-title">Dashboard Recâmbio — SAME DAY x Padrão</div>
+      <div class="header-sub">Fluxo: REPAIR · Site: MLB · Atualizado em 21/05/2026</div>
+    </div>
+  </div>
+  <div class="header-badge">SAME DAY 18.5% do mix</div>
+</div>
+
+<div class="tabs">
+  <div class="tab active" onclick="showTab('ctx',this)">Contexto</div>
+  <div class="tab" onclick="showTab('exec',this)">Executivo</div>
+  <div class="tab" onclick="showTab('mensal',this)">Comparativo Mensal</div>
+  <div class="tab" onclick="showTab('sem',this)">Semanal</div>
+  <div class="tab" onclick="showTab('est',this)">Por Estado</div>
+</div>
+
+<div class="content">
+
+<!-- ═══════════════════════════════ CONTEXTO ═══════════════════════════════ -->
+<div id="ctx" class="pane active">
+  <div class="hero">
+    <h1>Recâmbio Point MLB — Análise de Leadtime</h1>
+    <p>Comparativo entre entregas <strong>SAME DAY</strong> (UNITAC + ALYA) e <strong>Padrão</strong> (INVAS, CNT, CMS) no fluxo de reparo de devices Point. Período: 2026-01-01 → hoje.</p>
+    <div class="hero-tags">
+      <span class="hero-tag">SO_FLOW_TYPE = REPAIR</span>
+      <span class="hero-tag">SHIPPING_DELIVERED</span>
+      <span class="hero-tag">MLB</span>
+      <span class="hero-tag">Total: 95,024.0 reparos</span>
+    </div>
+  </div>
+
+  <div class="kpi-grid">
+    <div class="kpi blue">
+      <div class="kpi-label">Total Reparos Entregues</div>
+      <div class="kpi-value">95,024.0</div>
+      <div class="kpi-sub">jan/26 → hoje</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">% SAME DAY</div>
+      <div class="kpi-value">18.5%</div>
+      <div class="kpi-sub">17,556.0 entregas SAME DAY</div>
+    </div>
+    <div class="kpi blue">
+      <div class="kpi-label">LT Médio SAME DAY</div>
+      <div class="kpi-value">1.2 d</div>
+      <div class="kpi-sub">dias úteis ponderado</div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-label">Delta LT (Padrão − SD)</div>
+      <div class="kpi-value">+2.0 d</div>
+      <div class="kpi-sub">LT Padrão: 3.2 d úteis</div>
+    </div>
+  </div>
+
+  <div class="sec">Adoção SAME DAY por Canal <span class="badge">Todos os períodos</span></div>
+  <div class="card">
+    <div style="margin-bottom:12px;display:flex;gap:8px;flex-wrap:wrap" id="ch-filter-btns">
+      <button class="filter-btn active" onclick="filterCh(this,'Todos')">Todos</button><button class="filter-btn" onclick="filterCh(this,'Jan/26')">Jan/26</button><button class="filter-btn" onclick="filterCh(this,'Fev/26')">Fev/26</button><button class="filter-btn" onclick="filterCh(this,'Mar/26')">Mar/26</button><button class="filter-btn" onclick="filterCh(this,'Abr/26')">Abr/26</button><button class="filter-btn" onclick="filterCh(this,'Mai/26')">Mai/26</button>
+    </div>
+    <table id="ch-table">
+      <thead>
+        <tr>
+          <th>Canal</th><th>Total</th><th>SAME DAY</th><th>Padrão</th><th>% SAME DAY</th>
+        </tr>
+      </thead>
+      <tbody id="ch-body">
+        
+        <tr>
+          <td style="font-weight:600">FAQ</td>
+          <td>65,672</td>
+          <td>12,340</td>
+          <td>53,332</td>
+          <td><span style="color:var(--blue);font-weight:700">18.8%</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">CX</td>
+          <td>15,765</td>
+          <td>5,098</td>
+          <td>10,667</td>
+          <td><span style="color:var(--blue);font-weight:700">32.3%</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">CERTIFIED_CONSULTANT</td>
+          <td>8,449</td>
+          <td>0</td>
+          <td>8,449</td>
+          <td><span style="color:var(--blue);font-weight:700">0.0%</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">FDV</td>
+          <td>4,598</td>
+          <td>0</td>
+          <td>4,598</td>
+          <td><span style="color:var(--blue);font-weight:700">0.0%</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">CX_NIVEL_2</td>
+          <td>322</td>
+          <td>118</td>
+          <td>204</td>
+          <td><span style="color:var(--blue);font-weight:700">36.6%</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">CC_VIRTUAL</td>
+          <td>191</td>
+          <td>0</td>
+          <td>191</td>
+          <td><span style="color:var(--blue);font-weight:700">0.0%</span></td>
+        </tr>
+        <tr>
+          <td style="font-weight:600">TLV</td>
+          <td>27</td>
+          <td>0</td>
+          <td>27</td>
+          <td><span style="color:var(--blue);font-weight:700">0.0%</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ EXECUTIVO ══════════════════════════════ -->
+<div id="exec" class="pane">
+  <div class="kpi-grid">
+    <div class="kpi blue">
+      <div class="kpi-label">SAME DAY — Reparos</div>
+      <div class="kpi-value">17,556.0</div>
+      <div class="kpi-delta">LT médio 1.2 d úteis</div>
+      <div class="kpi-sub">18.5% do mix total</div>
+    </div>
+    <div class="kpi orange">
+      <div class="kpi-label">Padrão — Reparos</div>
+      <div class="kpi-value">77,468.0</div>
+      <div class="kpi-delta">LT médio 3.2 d úteis</div>
+      <div class="kpi-sub">81.5% do mix total</div>
+    </div>
+    <div class="kpi green">
+      <div class="kpi-label">Delta Leadtime</div>
+      <div class="kpi-value">+2.0 d</div>
+      <div class="kpi-delta">Padrão é 2.0d mais lento</div>
+      <div class="kpi-sub">dias úteis médio ponderado</div>
+    </div>
+    <div class="kpi purple">
+      <div class="kpi-label">Total Reparos</div>
+      <div class="kpi-value">95,024.0</div>
+      <div class="kpi-sub">jan/26 → hoje (SHIPPING_DELIVERED)</div>
+    </div>
+  </div>
+
+  <div class="cg2">
+    <div class="cw">
+      <div class="ct">Volume semanal por método</div>
+      <div class="cs">Pedidos entregues — SAME DAY vs Padrão</div>
+      <canvas id="cVolW"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">Leadtime médio semanal (dias úteis)</div>
+      <div class="cs">Média ponderada — apenas entregas com LT > 0</div>
+      <canvas id="cLtW"></canvas>
+    </div>
+  </div>
+
+  <div class="cg2" style="margin-top:20px">
+    <div class="cw">
+      <div class="ct">Mix % SAME DAY por semana</div>
+      <div class="cs">% de reparos entregues via SAME DAY</div>
+      <canvas id="cMixW"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">Leadtime corridos (dias calendário)</div>
+      <div class="cs">Comparativo dias corridos — semanal</div>
+      <canvas id="cLtCW"></canvas>
+    </div>
+  </div>
+</div>
+
+<!-- ══════════════════════════ COMPARATIVO MENSAL ══════════════════════════ -->
+<div id="mensal" class="pane">
+  <div class="cg2">
+    <div class="cw">
+      <div class="ct">Volume mensal por método</div>
+      <div class="cs">Reparos entregues — SAME DAY vs Padrão</div>
+      <canvas id="cVolM"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">Leadtime médio mensal (dias úteis)</div>
+      <div class="cs">Média ponderada pelo volume de entregas</div>
+      <canvas id="cLtM"></canvas>
+    </div>
+  </div>
+
+  <div class="sec">Detalhamento Mensal</div>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Mês</th><th>Método</th><th>Reparos</th><th>LT Úteis</th><th>Delta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Jan/26</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>4,073.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>20,823.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Fev/26</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>3,916.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>18,329.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Mar/26</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>3,577.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>17,327.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Abr/26</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>3,465.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.9d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>14,142.0</td>
+          <td>3.1 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Mai/26</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>2,525.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.5d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>6,847.0</td>
+          <td>2.7 d</td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ SEMANAL ════════════════════════════════ -->
+<div id="sem" class="pane">
+  <div class="cg2">
+    <div class="cw">
+      <div class="ct">Leadtime semanal — dias úteis</div>
+      <div class="cs">SAME DAY vs Padrão por semana</div>
+      <canvas id="cLtWd"></canvas>
+    </div>
+    <div class="cw">
+      <div class="ct">Volume semanal</div>
+      <div class="cs">Reparos entregues por semana</div>
+      <canvas id="cVolWd"></canvas>
+    </div>
+  </div>
+
+  <div class="sec">Detalhamento Semanal</div>
+  <div class="card">
+    <table>
+      <thead>
+        <tr>
+          <th>Semana</th><th>Método</th><th>Reparos</th><th>LT Úteis</th><th>Delta</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 29/12</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>302.0</td>
+          <td>1.1 d</td>
+          <td rowspan="2" class="positive">−2.0d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>2,336.0</td>
+          <td>3.1 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 05/01</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>964.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.4d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,834.0</td>
+          <td>3.6 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 12/01</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>947.0</td>
+          <td>1.3 d</td>
+          <td rowspan="2" class="positive">−2.2d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,663.0</td>
+          <td>3.5 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 19/01</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>914.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.0d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,604.0</td>
+          <td>3.2 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 26/01</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>1,002.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.0d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,794.0</td>
+          <td>3.2 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 02/02</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>1,039.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,904.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 09/02</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>1,062.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.9d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,649.0</td>
+          <td>3.1 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 16/02</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>784.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,008.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 23/02</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>1,049.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.2d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,808.0</td>
+          <td>3.4 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 02/03</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>875.0</td>
+          <td>1.1 d</td>
+          <td rowspan="2" class="positive">−2.3d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,312.0</td>
+          <td>3.4 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 09/03</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>891.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>4,296.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 16/03</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>730.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.0d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>3,751.0</td>
+          <td>3.2 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 23/03</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>753.0</td>
+          <td>1.3 d</td>
+          <td rowspan="2" class="positive">−1.9d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>3,381.0</td>
+          <td>3.2 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 30/03</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>689.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>2,818.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 06/04</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>849.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−2.1d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>3,486.0</td>
+          <td>3.3 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 13/04</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>857.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.9d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>3,574.0</td>
+          <td>3.1 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 20/04</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>739.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.7d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>3,158.0</td>
+          <td>2.9 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 27/04</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>807.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.5d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>2,951.0</td>
+          <td>2.7 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 04/05</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>855.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.7d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>3,232.0</td>
+          <td>2.9 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 11/05</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>966.0</td>
+          <td>1.2 d</td>
+          <td rowspan="2" class="positive">−1.2d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>2,379.0</td>
+          <td>2.4 d</td>
+        </tr>
+        <tr>
+          <td rowspan="2" style="font-weight:700">Sem 18/05</td>
+          <td><span class="tag-full">SAME DAY</span></td>
+          <td>482.0</td>
+          <td>1.1 d</td>
+          <td rowspan="2" class="positive">−0.6d</td>
+        </tr>
+        <tr>
+          <td><span class="tag-outros">Padrão</span></td>
+          <td>530.0</td>
+          <td>1.7 d</td>
+        </tr></tbody>
+    </table>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ POR ESTADO ═════════════════════════════ -->
+<div id="est" class="pane">
+  <div style="display:flex;gap:12px;margin-bottom:16px;flex-wrap:wrap;align-items:center">
+    <div>
+      <span style="font-size:12px;font-weight:700;color:var(--muted);margin-right:8px">PERÍODO:</span>
+      <span id="est-period-btns" style="display:inline-flex;gap:6px;flex-wrap:wrap">
+        <button class="filter-btn active" onclick="filterEst(this,'Todos')">Todos</button><button class="filter-btn" onclick="filterEst(this,'Jan/26')">Jan/26</button><button class="filter-btn" onclick="filterEst(this,'Fev/26')">Fev/26</button><button class="filter-btn" onclick="filterEst(this,'Mar/26')">Mar/26</button><button class="filter-btn" onclick="filterEst(this,'Abr/26')">Abr/26</button><button class="filter-btn" onclick="filterEst(this,'Mai/26')">Mai/26</button>
+      </span>
+    </div>
+    <div style="margin-left:auto">
+      <span style="font-size:12px;font-weight:700;color:var(--muted);margin-right:8px">REGIÃO:</span>
+      <button class="filter-btn active" onclick="filterRegiao(this,'all')">Todos</button>
+      <button class="filter-btn" onclick="filterRegiao(this,'caprm')">Capital + RM</button>
+      <button class="filter-btn" onclick="filterRegiao(this,'int')">Interior</button>
+    </div>
+  </div>
+  <div class="card">
+    <table id="est-table">
+      <thead>
+        <tr>
+          <th>Estado</th>
+          <th>SAME DAY — Reparos</th><th>SAME DAY — LT Úteis</th>
+          <th>Padrão — Reparos</th><th>Padrão — LT Úteis</th>
+          <th>Delta LT</th>
+        </tr>
+      </thead>
+      <tbody id="est-body"></tbody>
+    </table>
+  </div>
+</div>
+
+</div><!-- /content -->
+
+<script>
+const DATA = {"labels": ["Sem 29/12", "Sem 05/01", "Sem 12/01", "Sem 19/01", "Sem 26/01", "Sem 02/02", "Sem 09/02", "Sem 16/02", "Sem 23/02", "Sem 02/03", "Sem 09/03", "Sem 16/03", "Sem 23/03", "Sem 30/03", "Sem 06/04", "Sem 13/04", "Sem 20/04", "Sem 27/04", "Sem 04/05", "Sem 11/05", "Sem 18/05"], "ltSD": [1.1, 1.2, 1.3, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.1, 1.2, 1.2, 1.3, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.2, 1.1], "ltPad": [3.1, 3.6, 3.5, 3.2, 3.2, 3.3, 3.1, 3.3, 3.4, 3.4, 3.3, 3.2, 3.2, 3.3, 3.3, 3.1, 2.9, 2.7, 2.9, 2.4, 1.7], "ltCorrSD": [1.7, 1.4, 1.5, 1.4, 1.4, 1.4, 1.4, 1.6, 1.4, 1.4, 1.5, 1.5, 1.6, 1.6, 1.4, 1.5, 1.6, 1.6, 1.5, 1.3, 1.1], "ltCorrPad": [4.4, 5.1, 4.8, 4.4, 4.4, 4.7, 5.0, 4.6, 4.7, 4.7, 4.7, 4.6, 4.7, 5.2, 4.8, 4.9, 4.5, 4.1, 4.0, 3.6, 1.7], "pedSD": [302.0, 964.0, 947.0, 914.0, 1002.0, 1039.0, 1062.0, 784.0, 1049.0, 875.0, 891.0, 730.0, 753.0, 689.0, 849.0, 857.0, 739.0, 807.0, 855.0, 966.0, 482.0], "pedPad": [2336.0, 4834.0, 4663.0, 4604.0, 4794.0, 4904.0, 4649.0, 4008.0, 4808.0, 4312.0, 4296.0, 3751.0, 3381.0, 2818.0, 3486.0, 3574.0, 3158.0, 2951.0, 3232.0, 2379.0, 530.0], "entSD": [302.0, 964.0, 947.0, 914.0, 1002.0, 1039.0, 1062.0, 784.0, 1049.0, 875.0, 891.0, 730.0, 753.0, 689.0, 849.0, 857.0, 739.0, 807.0, 855.0, 966.0, 482.0], "entPad": [2336.0, 4834.0, 4663.0, 4604.0, 4794.0, 4904.0, 4649.0, 4008.0, 4808.0, 4312.0, 4296.0, 3751.0, 3381.0, 2818.0, 3486.0, 3574.0, 3158.0, 2951.0, 3232.0, 2379.0, 530.0], "mesLabels": ["Jan/26", "Fev/26", "Mar/26", "Abr/26", "Mai/26"], "mesLtSD": [1.2, 1.2, 1.2, 1.2, 1.2], "mesLtPad": [3.3, 3.3, 3.3, 3.1, 2.7], "mesLtCorrSD": [1.5, 1.4, 1.5, 1.5, 1.4], "mesLtCorrPad": [4.6, 4.8, 4.7, 4.8, 3.8], "mesPedSD": [4073.0, 3916.0, 3577.0, 3465.0, 2525.0], "mesPedPad": [20823.0, 18329.0, 17327.0, 14142.0, 6847.0], "mesEntSD": [4073.0, 3916.0, 3577.0, 3465.0, 2525.0], "mesEntPad": [20823.0, 18329.0, 17327.0, 14142.0, 6847.0], "estMesLabels": ["Todos", "Jan/26", "Fev/26", "Mar/26", "Abr/26", "Mai/26"], "estMesData": {"Todos": {"Acre": {"Padrão": {"pedidos": 216, "lt_uteis": 7.7}}, "Alagoas": {"Padrão": {"pedidos": 904, "lt_uteis": 3.9}}, "Amapá": {"Padrão": {"pedidos": 343, "lt_uteis": 12.3}}, "Amazonas": {"Padrão": {"pedidos": 1417, "lt_uteis": 15.7}}, "Bahia": {"Padrão": {"pedidos": 5651, "lt_uteis": 3.2}}, "Ceará": {"Padrão": {"pedidos": 2258, "lt_uteis": 4.1}}, "Distrito Federal": {"Padrão": {"pedidos": 1102, "lt_uteis": 2.4}}, "Espírito Santo": {"Padrão": {"pedidos": 1951, "lt_uteis": 2.5}}, "Goiás": {"Padrão": {"pedidos": 3328, "lt_uteis": 2.6}}, "Maranhão": {"Padrão": {"pedidos": 1921, "lt_uteis": 4.2}}, "Mato Grosso": {"Padrão": {"pedidos": 1477, "lt_uteis": 3.8}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 901, "lt_uteis": 2.5}}, "Minas Gerais": {"Padrão": {"pedidos": 6867, "lt_uteis": 2.4}}, "N/D": {"Padrão": {"pedidos": 13047, "lt_uteis": null}, "SAME DAY": {"pedidos": 17556, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 2026, "lt_uteis": 2.2}}, "Paraíba": {"Padrão": {"pedidos": 1218, "lt_uteis": 4.0}}, "Pará": {"Padrão": {"pedidos": 3361, "lt_uteis": 4.5}}, "Pernambuco": {"Padrão": {"pedidos": 3017, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 678, "lt_uteis": 4.2}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 881, "lt_uteis": 4.8}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 729, "lt_uteis": 2.7}}, "Rio de Janeiro": {"Padrão": {"pedidos": 8473, "lt_uteis": 1.9}}, "Rondônia": {"Padrão": {"pedidos": 481, "lt_uteis": 6.2}}, "Roraima": {"Padrão": {"pedidos": 131, "lt_uteis": 18.7}}, "Santa Catarina": {"Padrão": {"pedidos": 804, "lt_uteis": 2.3}}, "Sergipe": {"Padrão": {"pedidos": 1293, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 12392, "lt_uteis": 1.9}}, "Tocantins": {"Padrão": {"pedidos": 601, "lt_uteis": 3.9}}}, "Jan/26": {"Acre": {"Padrão": {"pedidos": 54, "lt_uteis": 8.8}}, "Alagoas": {"Padrão": {"pedidos": 213, "lt_uteis": 4.1}}, "Amapá": {"Padrão": {"pedidos": 81, "lt_uteis": 13.4}}, "Amazonas": {"Padrão": {"pedidos": 495, "lt_uteis": 16.0}}, "Bahia": {"Padrão": {"pedidos": 1578, "lt_uteis": 3.3}}, "Ceará": {"Padrão": {"pedidos": 501, "lt_uteis": 4.3}}, "Distrito Federal": {"Padrão": {"pedidos": 328, "lt_uteis": 2.4}}, "Espírito Santo": {"Padrão": {"pedidos": 676, "lt_uteis": 2.5}}, "Goiás": {"Padrão": {"pedidos": 947, "lt_uteis": 2.6}}, "Maranhão": {"Padrão": {"pedidos": 441, "lt_uteis": 4.3}}, "Mato Grosso": {"Padrão": {"pedidos": 339, "lt_uteis": 4.0}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 230, "lt_uteis": 2.6}}, "Minas Gerais": {"Padrão": {"pedidos": 2541, "lt_uteis": 2.4}}, "N/D": {"Padrão": {"pedidos": 2898, "lt_uteis": null}, "SAME DAY": {"pedidos": 4073, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 620, "lt_uteis": 2.1}}, "Paraíba": {"Padrão": {"pedidos": 328, "lt_uteis": 4.1}}, "Pará": {"Padrão": {"pedidos": 806, "lt_uteis": 4.7}}, "Pernambuco": {"Padrão": {"pedidos": 728, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 126, "lt_uteis": 4.5}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 225, "lt_uteis": 4.1}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 191, "lt_uteis": 2.8}}, "Rio de Janeiro": {"Padrão": {"pedidos": 2297, "lt_uteis": 1.9}}, "Rondônia": {"Padrão": {"pedidos": 141, "lt_uteis": 6.9}}, "Roraima": {"Padrão": {"pedidos": 48, "lt_uteis": 22.6}}, "Santa Catarina": {"Padrão": {"pedidos": 269, "lt_uteis": 2.4}}, "Sergipe": {"Padrão": {"pedidos": 348, "lt_uteis": 3.6}}, "São Paulo": {"Padrão": {"pedidos": 3223, "lt_uteis": 1.9}}, "Tocantins": {"Padrão": {"pedidos": 151, "lt_uteis": 4.0}}}, "Fev/26": {"Acre": {"Padrão": {"pedidos": 54, "lt_uteis": 7.7}}, "Alagoas": {"Padrão": {"pedidos": 198, "lt_uteis": 4.0}}, "Amapá": {"Padrão": {"pedidos": 99, "lt_uteis": 13.8}}, "Amazonas": {"Padrão": {"pedidos": 369, "lt_uteis": 16.3}}, "Bahia": {"Padrão": {"pedidos": 1290, "lt_uteis": 3.2}}, "Ceará": {"Padrão": {"pedidos": 517, "lt_uteis": 4.1}}, "Distrito Federal": {"Padrão": {"pedidos": 266, "lt_uteis": 2.4}}, "Espírito Santo": {"Padrão": {"pedidos": 533, "lt_uteis": 2.6}}, "Goiás": {"Padrão": {"pedidos": 836, "lt_uteis": 2.6}}, "Maranhão": {"Padrão": {"pedidos": 445, "lt_uteis": 4.3}}, "Mato Grosso": {"Padrão": {"pedidos": 323, "lt_uteis": 4.0}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 192, "lt_uteis": 2.3}}, "Minas Gerais": {"Padrão": {"pedidos": 1553, "lt_uteis": 2.4}}, "N/D": {"Padrão": {"pedidos": 2664, "lt_uteis": null}, "SAME DAY": {"pedidos": 3916, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 467, "lt_uteis": 2.3}}, "Paraíba": {"Padrão": {"pedidos": 271, "lt_uteis": 4.0}}, "Pará": {"Padrão": {"pedidos": 695, "lt_uteis": 4.6}}, "Pernambuco": {"Padrão": {"pedidos": 750, "lt_uteis": 3.4}}, "Piauí": {"Padrão": {"pedidos": 163, "lt_uteis": 4.1}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 207, "lt_uteis": 4.2}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 153, "lt_uteis": 2.8}}, "Rio de Janeiro": {"Padrão": {"pedidos": 2336, "lt_uteis": 2.1}}, "Rondônia": {"Padrão": {"pedidos": 125, "lt_uteis": 6.0}}, "Roraima": {"Padrão": {"pedidos": 27, "lt_uteis": 19.8}}, "Santa Catarina": {"Padrão": {"pedidos": 181, "lt_uteis": 2.2}}, "Sergipe": {"Padrão": {"pedidos": 268, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 3228, "lt_uteis": 2.0}}, "Tocantins": {"Padrão": {"pedidos": 119, "lt_uteis": 3.8}}}, "Mar/26": {"Acre": {"Padrão": {"pedidos": 57, "lt_uteis": 7.4}}, "Alagoas": {"Padrão": {"pedidos": 201, "lt_uteis": 3.9}}, "Amapá": {"Padrão": {"pedidos": 82, "lt_uteis": 11.3}}, "Amazonas": {"Padrão": {"pedidos": 323, "lt_uteis": 14.8}}, "Bahia": {"Padrão": {"pedidos": 1262, "lt_uteis": 3.2}}, "Ceará": {"Padrão": {"pedidos": 468, "lt_uteis": 4.1}}, "Distrito Federal": {"Padrão": {"pedidos": 300, "lt_uteis": 2.5}}, "Espírito Santo": {"Padrão": {"pedidos": 425, "lt_uteis": 2.6}}, "Goiás": {"Padrão": {"pedidos": 731, "lt_uteis": 2.6}}, "Maranhão": {"Padrão": {"pedidos": 466, "lt_uteis": 4.5}}, "Mato Grosso": {"Padrão": {"pedidos": 370, "lt_uteis": 3.9}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 210, "lt_uteis": 2.6}}, "Minas Gerais": {"Padrão": {"pedidos": 1356, "lt_uteis": 2.4}}, "N/D": {"Padrão": {"pedidos": 3036, "lt_uteis": null}, "SAME DAY": {"pedidos": 3577, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 421, "lt_uteis": 2.1}}, "Paraíba": {"Padrão": {"pedidos": 261, "lt_uteis": 4.1}}, "Pará": {"Padrão": {"pedidos": 848, "lt_uteis": 4.7}}, "Pernambuco": {"Padrão": {"pedidos": 678, "lt_uteis": 3.6}}, "Piauí": {"Padrão": {"pedidos": 180, "lt_uteis": 4.3}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 164, "lt_uteis": 7.3}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 160, "lt_uteis": 2.6}}, "Rio de Janeiro": {"Padrão": {"pedidos": 1847, "lt_uteis": 1.9}}, "Rondônia": {"Padrão": {"pedidos": 101, "lt_uteis": 6.0}}, "Roraima": {"Padrão": {"pedidos": 36, "lt_uteis": 14.2}}, "Santa Catarina": {"Padrão": {"pedidos": 167, "lt_uteis": 2.3}}, "Sergipe": {"Padrão": {"pedidos": 280, "lt_uteis": 3.5}}, "São Paulo": {"Padrão": {"pedidos": 2744, "lt_uteis": 1.8}}, "Tocantins": {"Padrão": {"pedidos": 153, "lt_uteis": 4.5}}}, "Abr/26": {"Acre": {"Padrão": {"pedidos": 37, "lt_uteis": 6.7}}, "Alagoas": {"Padrão": {"pedidos": 181, "lt_uteis": 3.8}}, "Amapá": {"Padrão": {"pedidos": 70, "lt_uteis": 10.5}}, "Amazonas": {"Padrão": {"pedidos": 226, "lt_uteis": 15.1}}, "Bahia": {"Padrão": {"pedidos": 1079, "lt_uteis": 2.9}}, "Ceará": {"Padrão": {"pedidos": 520, "lt_uteis": 3.9}}, "Distrito Federal": {"Padrão": {"pedidos": 145, "lt_uteis": 2.1}}, "Espírito Santo": {"Padrão": {"pedidos": 194, "lt_uteis": 2.2}}, "Goiás": {"Padrão": {"pedidos": 636, "lt_uteis": 2.6}}, "Maranhão": {"Padrão": {"pedidos": 378, "lt_uteis": 4.0}}, "Mato Grosso": {"Padrão": {"pedidos": 289, "lt_uteis": 3.5}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 167, "lt_uteis": 2.3}}, "Minas Gerais": {"Padrão": {"pedidos": 1003, "lt_uteis": 2.2}}, "N/D": {"Padrão": {"pedidos": 2576, "lt_uteis": null}, "SAME DAY": {"pedidos": 3465, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 336, "lt_uteis": 2.1}}, "Paraíba": {"Padrão": {"pedidos": 231, "lt_uteis": 3.8}}, "Pará": {"Padrão": {"pedidos": 701, "lt_uteis": 4.1}}, "Pernambuco": {"Padrão": {"pedidos": 643, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 161, "lt_uteis": 3.9}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 188, "lt_uteis": 4.5}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 140, "lt_uteis": 2.5}}, "Rio de Janeiro": {"Padrão": {"pedidos": 1401, "lt_uteis": 1.8}}, "Rondônia": {"Padrão": {"pedidos": 95, "lt_uteis": 5.7}}, "Roraima": {"Padrão": {"pedidos": 20, "lt_uteis": 16.1}}, "Santa Catarina": {"Padrão": {"pedidos": 138, "lt_uteis": 2.1}}, "Sergipe": {"Padrão": {"pedidos": 277, "lt_uteis": 3.2}}, "São Paulo": {"Padrão": {"pedidos": 2192, "lt_uteis": 1.8}}, "Tocantins": {"Padrão": {"pedidos": 118, "lt_uteis": 3.5}}}, "Mai/26": {"Acre": {"Padrão": {"pedidos": 14, "lt_uteis": 6.3}}, "Alagoas": {"Padrão": {"pedidos": 111, "lt_uteis": 4.0}}, "Amapá": {"Padrão": {"pedidos": 11, "lt_uteis": 9.4}}, "Amazonas": {"Padrão": {"pedidos": 4, "lt_uteis": 6.0}}, "Bahia": {"Padrão": {"pedidos": 442, "lt_uteis": 2.9}}, "Ceará": {"Padrão": {"pedidos": 252, "lt_uteis": 4.2}}, "Distrito Federal": {"Padrão": {"pedidos": 63, "lt_uteis": 2.1}}, "Espírito Santo": {"Padrão": {"pedidos": 123, "lt_uteis": 2.2}}, "Goiás": {"Padrão": {"pedidos": 178, "lt_uteis": 2.5}}, "Maranhão": {"Padrão": {"pedidos": 191, "lt_uteis": 3.7}}, "Mato Grosso": {"Padrão": {"pedidos": 156, "lt_uteis": 3.5}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 102, "lt_uteis": 2.3}}, "Minas Gerais": {"Padrão": {"pedidos": 414, "lt_uteis": 2.3}}, "N/D": {"Padrão": {"pedidos": 1873, "lt_uteis": null}, "SAME DAY": {"pedidos": 2525, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 182, "lt_uteis": 2.2}}, "Paraíba": {"Padrão": {"pedidos": 127, "lt_uteis": 3.8}}, "Pará": {"Padrão": {"pedidos": 311, "lt_uteis": 3.7}}, "Pernambuco": {"Padrão": {"pedidos": 218, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 48, "lt_uteis": 3.9}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 97, "lt_uteis": 4.1}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 85, "lt_uteis": 2.6}}, "Rio de Janeiro": {"Padrão": {"pedidos": 592, "lt_uteis": 1.8}}, "Rondônia": {"Padrão": {"pedidos": 19, "lt_uteis": 5.7}}, "Santa Catarina": {"Padrão": {"pedidos": 49, "lt_uteis": 2.3}}, "Sergipe": {"Padrão": {"pedidos": 120, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 1005, "lt_uteis": 1.7}}, "Tocantins": {"Padrão": {"pedidos": 60, "lt_uteis": 3.6}}}}, "estMesDataCapRM": {"Todos": {"Acre": {"Padrão": {"pedidos": 178, "lt_uteis": 7.0}}, "Alagoas": {"Padrão": {"pedidos": 612, "lt_uteis": 3.9}}, "Amapá": {"Padrão": {"pedidos": 301, "lt_uteis": 12.1}}, "Amazonas": {"Padrão": {"pedidos": 1316, "lt_uteis": 15.4}}, "Bahia": {"Padrão": {"pedidos": 2518, "lt_uteis": 3.1}}, "Ceará": {"Padrão": {"pedidos": 1784, "lt_uteis": 4.1}}, "Distrito Federal": {"Padrão": {"pedidos": 1102, "lt_uteis": 2.4}}, "Espírito Santo": {"Padrão": {"pedidos": 1580, "lt_uteis": 2.5}}, "Goiás": {"Padrão": {"pedidos": 2014, "lt_uteis": 2.4}}, "Maranhão": {"Padrão": {"pedidos": 1161, "lt_uteis": 4.0}}, "Mato Grosso": {"Padrão": {"pedidos": 904, "lt_uteis": 3.3}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 635, "lt_uteis": 2.5}}, "Minas Gerais": {"Padrão": {"pedidos": 3728, "lt_uteis": 2.4}}, "Paraná": {"Padrão": {"pedidos": 1077, "lt_uteis": 2.1}}, "Paraíba": {"Padrão": {"pedidos": 891, "lt_uteis": 3.9}}, "Pará": {"Padrão": {"pedidos": 2274, "lt_uteis": 4.0}}, "Pernambuco": {"Padrão": {"pedidos": 2199, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 401, "lt_uteis": 3.5}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 557, "lt_uteis": 4.9}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 404, "lt_uteis": 2.5}}, "Rio de Janeiro": {"Padrão": {"pedidos": 6829, "lt_uteis": 1.9}}, "Rondônia": {"Padrão": {"pedidos": 350, "lt_uteis": 5.9}}, "Roraima": {"Padrão": {"pedidos": 120, "lt_uteis": 18.5}}, "Santa Catarina": {"Padrão": {"pedidos": 431, "lt_uteis": 2.2}}, "Sergipe": {"Padrão": {"pedidos": 993, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 6626, "lt_uteis": 1.9}}, "Tocantins": {"Padrão": {"pedidos": 280, "lt_uteis": 3.5}}}, "Jan/26": {"Acre": {"Padrão": {"pedidos": 42, "lt_uteis": 7.8}}, "Alagoas": {"Padrão": {"pedidos": 144, "lt_uteis": 4.0}}, "Amapá": {"Padrão": {"pedidos": 70, "lt_uteis": 13.3}}, "Amazonas": {"Padrão": {"pedidos": 467, "lt_uteis": 15.9}}, "Bahia": {"Padrão": {"pedidos": 762, "lt_uteis": 3.2}}, "Ceará": {"Padrão": {"pedidos": 388, "lt_uteis": 4.2}}, "Distrito Federal": {"Padrão": {"pedidos": 328, "lt_uteis": 2.4}}, "Espírito Santo": {"Padrão": {"pedidos": 560, "lt_uteis": 2.5}}, "Goiás": {"Padrão": {"pedidos": 581, "lt_uteis": 2.3}}, "Maranhão": {"Padrão": {"pedidos": 257, "lt_uteis": 4.2}}, "Mato Grosso": {"Padrão": {"pedidos": 207, "lt_uteis": 3.3}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 174, "lt_uteis": 2.7}}, "Minas Gerais": {"Padrão": {"pedidos": 1729, "lt_uteis": 2.4}}, "Paraná": {"Padrão": {"pedidos": 339, "lt_uteis": 2.0}}, "Paraíba": {"Padrão": {"pedidos": 254, "lt_uteis": 4.0}}, "Pará": {"Padrão": {"pedidos": 537, "lt_uteis": 4.3}}, "Pernambuco": {"Padrão": {"pedidos": 527, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 67, "lt_uteis": 3.6}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 141, "lt_uteis": 4.1}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 112, "lt_uteis": 2.6}}, "Rio de Janeiro": {"Padrão": {"pedidos": 1841, "lt_uteis": 1.9}}, "Rondônia": {"Padrão": {"pedidos": 97, "lt_uteis": 6.7}}, "Roraima": {"Padrão": {"pedidos": 46, "lt_uteis": 22.6}}, "Santa Catarina": {"Padrão": {"pedidos": 152, "lt_uteis": 2.4}}, "Sergipe": {"Padrão": {"pedidos": 258, "lt_uteis": 3.5}}, "São Paulo": {"Padrão": {"pedidos": 1620, "lt_uteis": 1.9}}, "Tocantins": {"Padrão": {"pedidos": 75, "lt_uteis": 3.8}}}, "Fev/26": {"Acre": {"Padrão": {"pedidos": 49, "lt_uteis": 7.3}}, "Alagoas": {"Padrão": {"pedidos": 126, "lt_uteis": 4.1}}, "Amapá": {"Padrão": {"pedidos": 90, "lt_uteis": 13.9}}, "Amazonas": {"Padrão": {"pedidos": 341, "lt_uteis": 15.8}}, "Bahia": {"Padrão": {"pedidos": 555, "lt_uteis": 3.1}}, "Ceará": {"Padrão": {"pedidos": 406, "lt_uteis": 4.1}}, "Distrito Federal": {"Padrão": {"pedidos": 266, "lt_uteis": 2.4}}, "Espírito Santo": {"Padrão": {"pedidos": 418, "lt_uteis": 2.6}}, "Goiás": {"Padrão": {"pedidos": 506, "lt_uteis": 2.4}}, "Maranhão": {"Padrão": {"pedidos": 264, "lt_uteis": 4.1}}, "Mato Grosso": {"Padrão": {"pedidos": 188, "lt_uteis": 3.4}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 133, "lt_uteis": 2.4}}, "Minas Gerais": {"Padrão": {"pedidos": 736, "lt_uteis": 2.4}}, "Paraná": {"Padrão": {"pedidos": 261, "lt_uteis": 2.3}}, "Paraíba": {"Padrão": {"pedidos": 209, "lt_uteis": 4.0}}, "Pará": {"Padrão": {"pedidos": 477, "lt_uteis": 4.3}}, "Pernambuco": {"Padrão": {"pedidos": 556, "lt_uteis": 3.4}}, "Piauí": {"Padrão": {"pedidos": 98, "lt_uteis": 3.5}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 117, "lt_uteis": 4.1}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 92, "lt_uteis": 2.6}}, "Rio de Janeiro": {"Padrão": {"pedidos": 1874, "lt_uteis": 2.0}}, "Rondônia": {"Padrão": {"pedidos": 96, "lt_uteis": 5.8}}, "Roraima": {"Padrão": {"pedidos": 26, "lt_uteis": 19.3}}, "Santa Catarina": {"Padrão": {"pedidos": 92, "lt_uteis": 2.0}}, "Sergipe": {"Padrão": {"pedidos": 213, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 1750, "lt_uteis": 2.0}}, "Tocantins": {"Padrão": {"pedidos": 63, "lt_uteis": 3.7}}}, "Mar/26": {"Acre": {"Padrão": {"pedidos": 46, "lt_uteis": 6.8}}, "Alagoas": {"Padrão": {"pedidos": 141, "lt_uteis": 3.9}}, "Amapá": {"Padrão": {"pedidos": 74, "lt_uteis": 11.0}}, "Amazonas": {"Padrão": {"pedidos": 293, "lt_uteis": 14.5}}, "Bahia": {"Padrão": {"pedidos": 538, "lt_uteis": 3.2}}, "Ceará": {"Padrão": {"pedidos": 360, "lt_uteis": 4.1}}, "Distrito Federal": {"Padrão": {"pedidos": 300, "lt_uteis": 2.5}}, "Espírito Santo": {"Padrão": {"pedidos": 341, "lt_uteis": 2.5}}, "Goiás": {"Padrão": {"pedidos": 461, "lt_uteis": 2.3}}, "Maranhão": {"Padrão": {"pedidos": 284, "lt_uteis": 4.2}}, "Mato Grosso": {"Padrão": {"pedidos": 214, "lt_uteis": 3.6}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 145, "lt_uteis": 2.6}}, "Minas Gerais": {"Padrão": {"pedidos": 628, "lt_uteis": 2.4}}, "Paraná": {"Padrão": {"pedidos": 214, "lt_uteis": 2.1}}, "Paraíba": {"Padrão": {"pedidos": 181, "lt_uteis": 4.0}}, "Pará": {"Padrão": {"pedidos": 558, "lt_uteis": 4.1}}, "Pernambuco": {"Padrão": {"pedidos": 502, "lt_uteis": 3.6}}, "Piauí": {"Padrão": {"pedidos": 112, "lt_uteis": 3.6}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 100, "lt_uteis": 8.0}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 81, "lt_uteis": 2.4}}, "Rio de Janeiro": {"Padrão": {"pedidos": 1477, "lt_uteis": 1.8}}, "Rondônia": {"Padrão": {"pedidos": 70, "lt_uteis": 5.6}}, "Roraima": {"Padrão": {"pedidos": 31, "lt_uteis": 13.5}}, "Santa Catarina": {"Padrão": {"pedidos": 93, "lt_uteis": 2.1}}, "Sergipe": {"Padrão": {"pedidos": 211, "lt_uteis": 3.6}}, "São Paulo": {"Padrão": {"pedidos": 1517, "lt_uteis": 1.8}}, "Tocantins": {"Padrão": {"pedidos": 66, "lt_uteis": 3.6}}}, "Abr/26": {"Acre": {"Padrão": {"pedidos": 28, "lt_uteis": 6.2}}, "Alagoas": {"Padrão": {"pedidos": 124, "lt_uteis": 3.7}}, "Amapá": {"Padrão": {"pedidos": 59, "lt_uteis": 9.8}}, "Amazonas": {"Padrão": {"pedidos": 214, "lt_uteis": 15.0}}, "Bahia": {"Padrão": {"pedidos": 473, "lt_uteis": 2.9}}, "Ceará": {"Padrão": {"pedidos": 421, "lt_uteis": 3.8}}, "Distrito Federal": {"Padrão": {"pedidos": 145, "lt_uteis": 2.1}}, "Espírito Santo": {"Padrão": {"pedidos": 157, "lt_uteis": 2.2}}, "Goiás": {"Padrão": {"pedidos": 376, "lt_uteis": 2.4}}, "Maranhão": {"Padrão": {"pedidos": 235, "lt_uteis": 3.9}}, "Mato Grosso": {"Padrão": {"pedidos": 189, "lt_uteis": 3.1}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 120, "lt_uteis": 2.3}}, "Minas Gerais": {"Padrão": {"pedidos": 453, "lt_uteis": 2.1}}, "Paraná": {"Padrão": {"pedidos": 175, "lt_uteis": 1.9}}, "Paraíba": {"Padrão": {"pedidos": 153, "lt_uteis": 3.8}}, "Pará": {"Padrão": {"pedidos": 469, "lt_uteis": 3.5}}, "Pernambuco": {"Padrão": {"pedidos": 459, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 92, "lt_uteis": 3.2}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 130, "lt_uteis": 4.4}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 77, "lt_uteis": 2.2}}, "Rio de Janeiro": {"Padrão": {"pedidos": 1155, "lt_uteis": 1.8}}, "Rondônia": {"Padrão": {"pedidos": 72, "lt_uteis": 5.6}}, "Roraima": {"Padrão": {"pedidos": 17, "lt_uteis": 15.5}}, "Santa Catarina": {"Padrão": {"pedidos": 69, "lt_uteis": 2.2}}, "Sergipe": {"Padrão": {"pedidos": 216, "lt_uteis": 3.2}}, "São Paulo": {"Padrão": {"pedidos": 1181, "lt_uteis": 1.8}}, "Tocantins": {"Padrão": {"pedidos": 51, "lt_uteis": 2.9}}}, "Mai/26": {"Acre": {"Padrão": {"pedidos": 13, "lt_uteis": 6.2}}, "Alagoas": {"Padrão": {"pedidos": 77, "lt_uteis": 4.0}}, "Amapá": {"Padrão": {"pedidos": 8, "lt_uteis": 9.1}}, "Amazonas": {"Padrão": {"pedidos": 1, "lt_uteis": 4.0}}, "Bahia": {"Padrão": {"pedidos": 190, "lt_uteis": 2.9}}, "Ceará": {"Padrão": {"pedidos": 209, "lt_uteis": 4.1}}, "Distrito Federal": {"Padrão": {"pedidos": 63, "lt_uteis": 2.1}}, "Espírito Santo": {"Padrão": {"pedidos": 104, "lt_uteis": 2.1}}, "Goiás": {"Padrão": {"pedidos": 90, "lt_uteis": 2.5}}, "Maranhão": {"Padrão": {"pedidos": 121, "lt_uteis": 3.6}}, "Mato Grosso": {"Padrão": {"pedidos": 106, "lt_uteis": 3.2}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 63, "lt_uteis": 2.3}}, "Minas Gerais": {"Padrão": {"pedidos": 182, "lt_uteis": 2.2}}, "Paraná": {"Padrão": {"pedidos": 88, "lt_uteis": 2.0}}, "Paraíba": {"Padrão": {"pedidos": 94, "lt_uteis": 3.8}}, "Pará": {"Padrão": {"pedidos": 233, "lt_uteis": 3.5}}, "Pernambuco": {"Padrão": {"pedidos": 155, "lt_uteis": 3.4}}, "Piauí": {"Padrão": {"pedidos": 32, "lt_uteis": 3.8}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 69, "lt_uteis": 4.1}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 42, "lt_uteis": 2.6}}, "Rio de Janeiro": {"Padrão": {"pedidos": 482, "lt_uteis": 1.7}}, "Rondônia": {"Padrão": {"pedidos": 15, "lt_uteis": 5.4}}, "Santa Catarina": {"Padrão": {"pedidos": 25, "lt_uteis": 2.2}}, "Sergipe": {"Padrão": {"pedidos": 95, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 558, "lt_uteis": 1.7}}, "Tocantins": {"Padrão": {"pedidos": 25, "lt_uteis": 2.9}}}}, "estMesDataInt": {"Todos": {"Acre": {"Padrão": {"pedidos": 38, "lt_uteis": 10.7}}, "Alagoas": {"Padrão": {"pedidos": 292, "lt_uteis": 4.0}}, "Amapá": {"Padrão": {"pedidos": 42, "lt_uteis": 13.2}}, "Amazonas": {"Padrão": {"pedidos": 101, "lt_uteis": 19.0}}, "Bahia": {"Padrão": {"pedidos": 3133, "lt_uteis": 3.2}}, "Ceará": {"Padrão": {"pedidos": 474, "lt_uteis": 4.3}}, "Espírito Santo": {"Padrão": {"pedidos": 371, "lt_uteis": 2.7}}, "Goiás": {"Padrão": {"pedidos": 1314, "lt_uteis": 2.9}}, "Maranhão": {"Padrão": {"pedidos": 760, "lt_uteis": 4.6}}, "Mato Grosso": {"Padrão": {"pedidos": 573, "lt_uteis": 4.6}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 266, "lt_uteis": 2.4}}, "Minas Gerais": {"Padrão": {"pedidos": 3139, "lt_uteis": 2.4}}, "N/D": {"Padrão": {"pedidos": 13047, "lt_uteis": null}, "SAME DAY": {"pedidos": 17556, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 949, "lt_uteis": 2.3}}, "Paraíba": {"Padrão": {"pedidos": 327, "lt_uteis": 4.1}}, "Pará": {"Padrão": {"pedidos": 1087, "lt_uteis": 5.4}}, "Pernambuco": {"Padrão": {"pedidos": 818, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 277, "lt_uteis": 5.1}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 324, "lt_uteis": 4.6}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 325, "lt_uteis": 2.9}}, "Rio de Janeiro": {"Padrão": {"pedidos": 1644, "lt_uteis": 2.1}}, "Rondônia": {"Padrão": {"pedidos": 131, "lt_uteis": 6.9}}, "Roraima": {"Padrão": {"pedidos": 11, "lt_uteis": 20.6}}, "Santa Catarina": {"Padrão": {"pedidos": 373, "lt_uteis": 2.4}}, "Sergipe": {"Padrão": {"pedidos": 300, "lt_uteis": 3.5}}, "São Paulo": {"Padrão": {"pedidos": 5766, "lt_uteis": 1.9}}, "Tocantins": {"Padrão": {"pedidos": 321, "lt_uteis": 4.3}}}, "Jan/26": {"Acre": {"Padrão": {"pedidos": 12, "lt_uteis": 12.5}}, "Alagoas": {"Padrão": {"pedidos": 69, "lt_uteis": 4.3}}, "Amapá": {"Padrão": {"pedidos": 11, "lt_uteis": 13.6}}, "Amazonas": {"Padrão": {"pedidos": 28, "lt_uteis": 18.6}}, "Bahia": {"Padrão": {"pedidos": 816, "lt_uteis": 3.3}}, "Ceará": {"Padrão": {"pedidos": 113, "lt_uteis": 4.4}}, "Espírito Santo": {"Padrão": {"pedidos": 116, "lt_uteis": 2.7}}, "Goiás": {"Padrão": {"pedidos": 366, "lt_uteis": 2.9}}, "Maranhão": {"Padrão": {"pedidos": 184, "lt_uteis": 4.6}}, "Mato Grosso": {"Padrão": {"pedidos": 132, "lt_uteis": 5.1}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 56, "lt_uteis": 2.3}}, "Minas Gerais": {"Padrão": {"pedidos": 812, "lt_uteis": 2.5}}, "N/D": {"Padrão": {"pedidos": 2898, "lt_uteis": null}, "SAME DAY": {"pedidos": 4073, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 281, "lt_uteis": 2.3}}, "Paraíba": {"Padrão": {"pedidos": 74, "lt_uteis": 4.4}}, "Pará": {"Padrão": {"pedidos": 269, "lt_uteis": 5.4}}, "Pernambuco": {"Padrão": {"pedidos": 201, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 59, "lt_uteis": 5.5}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 84, "lt_uteis": 4.0}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 79, "lt_uteis": 3.0}}, "Rio de Janeiro": {"Padrão": {"pedidos": 456, "lt_uteis": 2.2}}, "Rondônia": {"Padrão": {"pedidos": 44, "lt_uteis": 7.4}}, "Roraima": {"Padrão": {"pedidos": 2, "lt_uteis": 22.0}}, "Santa Catarina": {"Padrão": {"pedidos": 117, "lt_uteis": 2.4}}, "Sergipe": {"Padrão": {"pedidos": 90, "lt_uteis": 3.7}}, "São Paulo": {"Padrão": {"pedidos": 1603, "lt_uteis": 2.0}}, "Tocantins": {"Padrão": {"pedidos": 76, "lt_uteis": 4.2}}}, "Fev/26": {"Acre": {"Padrão": {"pedidos": 5, "lt_uteis": 12.4}}, "Alagoas": {"Padrão": {"pedidos": 72, "lt_uteis": 3.8}}, "Amapá": {"Padrão": {"pedidos": 9, "lt_uteis": 12.9}}, "Amazonas": {"Padrão": {"pedidos": 28, "lt_uteis": 21.9}}, "Bahia": {"Padrão": {"pedidos": 735, "lt_uteis": 3.3}}, "Ceará": {"Padrão": {"pedidos": 111, "lt_uteis": 4.2}}, "Espírito Santo": {"Padrão": {"pedidos": 115, "lt_uteis": 2.8}}, "Goiás": {"Padrão": {"pedidos": 330, "lt_uteis": 3.0}}, "Maranhão": {"Padrão": {"pedidos": 181, "lt_uteis": 4.8}}, "Mato Grosso": {"Padrão": {"pedidos": 135, "lt_uteis": 4.8}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 59, "lt_uteis": 2.3}}, "Minas Gerais": {"Padrão": {"pedidos": 817, "lt_uteis": 2.4}}, "N/D": {"Padrão": {"pedidos": 2664, "lt_uteis": null}, "SAME DAY": {"pedidos": 3916, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 206, "lt_uteis": 2.3}}, "Paraíba": {"Padrão": {"pedidos": 62, "lt_uteis": 4.2}}, "Pará": {"Padrão": {"pedidos": 218, "lt_uteis": 5.1}}, "Pernambuco": {"Padrão": {"pedidos": 194, "lt_uteis": 3.6}}, "Piauí": {"Padrão": {"pedidos": 65, "lt_uteis": 4.9}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 90, "lt_uteis": 4.3}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 61, "lt_uteis": 3.0}}, "Rio de Janeiro": {"Padrão": {"pedidos": 462, "lt_uteis": 2.3}}, "Rondônia": {"Padrão": {"pedidos": 29, "lt_uteis": 6.5}}, "Roraima": {"Padrão": {"pedidos": 1, "lt_uteis": 32.0}}, "Santa Catarina": {"Padrão": {"pedidos": 89, "lt_uteis": 2.4}}, "Sergipe": {"Padrão": {"pedidos": 55, "lt_uteis": 3.6}}, "São Paulo": {"Padrão": {"pedidos": 1478, "lt_uteis": 1.9}}, "Tocantins": {"Padrão": {"pedidos": 56, "lt_uteis": 3.9}}}, "Mar/26": {"Acre": {"Padrão": {"pedidos": 11, "lt_uteis": 10.0}}, "Alagoas": {"Padrão": {"pedidos": 60, "lt_uteis": 4.0}}, "Amapá": {"Padrão": {"pedidos": 8, "lt_uteis": 13.4}}, "Amazonas": {"Padrão": {"pedidos": 30, "lt_uteis": 18.3}}, "Bahia": {"Padrão": {"pedidos": 724, "lt_uteis": 3.3}}, "Ceará": {"Padrão": {"pedidos": 108, "lt_uteis": 4.2}}, "Espírito Santo": {"Padrão": {"pedidos": 84, "lt_uteis": 2.9}}, "Goiás": {"Padrão": {"pedidos": 270, "lt_uteis": 3.0}}, "Maranhão": {"Padrão": {"pedidos": 182, "lt_uteis": 5.0}}, "Mato Grosso": {"Padrão": {"pedidos": 156, "lt_uteis": 4.4}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 65, "lt_uteis": 2.6}}, "Minas Gerais": {"Padrão": {"pedidos": 728, "lt_uteis": 2.5}}, "N/D": {"Padrão": {"pedidos": 3036, "lt_uteis": null}, "SAME DAY": {"pedidos": 3577, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 207, "lt_uteis": 2.2}}, "Paraíba": {"Padrão": {"pedidos": 80, "lt_uteis": 4.3}}, "Pará": {"Padrão": {"pedidos": 290, "lt_uteis": 5.9}}, "Pernambuco": {"Padrão": {"pedidos": 176, "lt_uteis": 3.6}}, "Piauí": {"Padrão": {"pedidos": 68, "lt_uteis": 5.6}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 64, "lt_uteis": 6.3}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 79, "lt_uteis": 2.9}}, "Rio de Janeiro": {"Padrão": {"pedidos": 370, "lt_uteis": 2.1}}, "Rondônia": {"Padrão": {"pedidos": 31, "lt_uteis": 7.0}}, "Roraima": {"Padrão": {"pedidos": 5, "lt_uteis": 18.4}}, "Santa Catarina": {"Padrão": {"pedidos": 74, "lt_uteis": 2.5}}, "Sergipe": {"Padrão": {"pedidos": 69, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 1227, "lt_uteis": 1.8}}, "Tocantins": {"Padrão": {"pedidos": 87, "lt_uteis": 5.1}}}, "Abr/26": {"Acre": {"Padrão": {"pedidos": 9, "lt_uteis": 8.3}}, "Alagoas": {"Padrão": {"pedidos": 57, "lt_uteis": 3.8}}, "Amapá": {"Padrão": {"pedidos": 11, "lt_uteis": 13.7}}, "Amazonas": {"Padrão": {"pedidos": 12, "lt_uteis": 16.9}}, "Bahia": {"Padrão": {"pedidos": 606, "lt_uteis": 3.0}}, "Ceará": {"Padrão": {"pedidos": 99, "lt_uteis": 4.2}}, "Espírito Santo": {"Padrão": {"pedidos": 37, "lt_uteis": 2.2}}, "Goiás": {"Padrão": {"pedidos": 260, "lt_uteis": 2.9}}, "Maranhão": {"Padrão": {"pedidos": 143, "lt_uteis": 4.1}}, "Mato Grosso": {"Padrão": {"pedidos": 100, "lt_uteis": 4.2}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 47, "lt_uteis": 2.5}}, "Minas Gerais": {"Padrão": {"pedidos": 550, "lt_uteis": 2.3}}, "N/D": {"Padrão": {"pedidos": 2576, "lt_uteis": null}, "SAME DAY": {"pedidos": 3465, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 161, "lt_uteis": 2.2}}, "Paraíba": {"Padrão": {"pedidos": 78, "lt_uteis": 3.8}}, "Pará": {"Padrão": {"pedidos": 232, "lt_uteis": 5.3}}, "Pernambuco": {"Padrão": {"pedidos": 184, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 69, "lt_uteis": 4.9}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 58, "lt_uteis": 4.5}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 63, "lt_uteis": 2.8}}, "Rio de Janeiro": {"Padrão": {"pedidos": 246, "lt_uteis": 1.9}}, "Rondônia": {"Padrão": {"pedidos": 23, "lt_uteis": 6.3}}, "Roraima": {"Padrão": {"pedidos": 3, "lt_uteis": 19.7}}, "Santa Catarina": {"Padrão": {"pedidos": 69, "lt_uteis": 2.1}}, "Sergipe": {"Padrão": {"pedidos": 61, "lt_uteis": 3.3}}, "São Paulo": {"Padrão": {"pedidos": 1011, "lt_uteis": 1.8}}, "Tocantins": {"Padrão": {"pedidos": 67, "lt_uteis": 4.0}}}, "Mai/26": {"Acre": {"Padrão": {"pedidos": 1, "lt_uteis": 8.0}}, "Alagoas": {"Padrão": {"pedidos": 34, "lt_uteis": 4.0}}, "Amapá": {"Padrão": {"pedidos": 3, "lt_uteis": 10.3}}, "Amazonas": {"Padrão": {"pedidos": 3, "lt_uteis": 7.0}}, "Bahia": {"Padrão": {"pedidos": 252, "lt_uteis": 2.9}}, "Ceará": {"Padrão": {"pedidos": 43, "lt_uteis": 4.7}}, "Espírito Santo": {"Padrão": {"pedidos": 19, "lt_uteis": 2.7}}, "Goiás": {"Padrão": {"pedidos": 88, "lt_uteis": 2.6}}, "Maranhão": {"Padrão": {"pedidos": 70, "lt_uteis": 3.8}}, "Mato Grosso": {"Padrão": {"pedidos": 50, "lt_uteis": 4.2}}, "Mato Grosso do Sul": {"Padrão": {"pedidos": 39, "lt_uteis": 2.4}}, "Minas Gerais": {"Padrão": {"pedidos": 232, "lt_uteis": 2.4}}, "N/D": {"Padrão": {"pedidos": 1873, "lt_uteis": null}, "SAME DAY": {"pedidos": 2525, "lt_uteis": 1.2}}, "Paraná": {"Padrão": {"pedidos": 94, "lt_uteis": 2.3}}, "Paraíba": {"Padrão": {"pedidos": 33, "lt_uteis": 3.9}}, "Pará": {"Padrão": {"pedidos": 78, "lt_uteis": 4.5}}, "Pernambuco": {"Padrão": {"pedidos": 63, "lt_uteis": 3.5}}, "Piauí": {"Padrão": {"pedidos": 16, "lt_uteis": 4.0}}, "Rio Grande do Norte": {"Padrão": {"pedidos": 28, "lt_uteis": 4.2}}, "Rio Grande do Sul": {"Padrão": {"pedidos": 43, "lt_uteis": 2.6}}, "Rio de Janeiro": {"Padrão": {"pedidos": 110, "lt_uteis": 2.0}}, "Rondônia": {"Padrão": {"pedidos": 4, "lt_uteis": 7.0}}, "Santa Catarina": {"Padrão": {"pedidos": 24, "lt_uteis": 2.4}}, "Sergipe": {"Padrão": {"pedidos": 25, "lt_uteis": 3.4}}, "São Paulo": {"Padrão": {"pedidos": 447, "lt_uteis": 1.6}}, "Tocantins": {"Padrão": {"pedidos": 35, "lt_uteis": 4.1}}}}};
+const CH_DATA = {"Todos": [{"canal": "FAQ", "total": 65672, "sd_ped": 12340, "pad_ped": 53332, "pct_sd": 18.8}, {"canal": "CX", "total": 15765, "sd_ped": 5098, "pad_ped": 10667, "pct_sd": 32.3}, {"canal": "CERTIFIED_CONSULTANT", "total": 8449, "sd_ped": 0, "pad_ped": 8449, "pct_sd": 0.0}, {"canal": "FDV", "total": 4598, "sd_ped": 0, "pad_ped": 4598, "pct_sd": 0.0}, {"canal": "CX_NIVEL_2", "total": 322, "sd_ped": 118, "pad_ped": 204, "pct_sd": 36.6}, {"canal": "CC_VIRTUAL", "total": 191, "sd_ped": 0, "pad_ped": 191, "pct_sd": 0.0}, {"canal": "TLV", "total": 27, "sd_ped": 0, "pad_ped": 27, "pct_sd": 0.0}], "Jan/26": [{"canal": "FAQ", "total": 17690, "sd_ped": 2892, "pad_ped": 14798, "pct_sd": 16.3}, {"canal": "CX", "total": 4133, "sd_ped": 1153, "pad_ped": 2980, "pct_sd": 27.9}, {"canal": "CERTIFIED_CONSULTANT", "total": 2051, "sd_ped": 0, "pad_ped": 2051, "pct_sd": 0.0}, {"canal": "FDV", "total": 847, "sd_ped": 0, "pad_ped": 847, "pct_sd": 0.0}, {"canal": "CX_NIVEL_2", "total": 112, "sd_ped": 28, "pad_ped": 84, "pct_sd": 25.0}, {"canal": "CC_VIRTUAL", "total": 58, "sd_ped": 0, "pad_ped": 58, "pct_sd": 0.0}, {"canal": "TLV", "total": 5, "sd_ped": 0, "pad_ped": 5, "pct_sd": 0.0}], "Fev/26": [{"canal": "FAQ", "total": 15552, "sd_ped": 2716, "pad_ped": 12836, "pct_sd": 17.5}, {"canal": "CX", "total": 3906, "sd_ped": 1179, "pad_ped": 2727, "pct_sd": 30.2}, {"canal": "CERTIFIED_CONSULTANT", "total": 1674, "sd_ped": 0, "pad_ped": 1674, "pct_sd": 0.0}, {"canal": "FDV", "total": 990, "sd_ped": 0, "pad_ped": 990, "pct_sd": 0.0}, {"canal": "CC_VIRTUAL", "total": 56, "sd_ped": 0, "pad_ped": 56, "pct_sd": 0.0}, {"canal": "CX_NIVEL_2", "total": 56, "sd_ped": 21, "pad_ped": 35, "pct_sd": 37.5}, {"canal": "TLV", "total": 11, "sd_ped": 0, "pad_ped": 11, "pct_sd": 0.0}], "Mar/26": [{"canal": "FAQ", "total": 14534, "sd_ped": 2607, "pad_ped": 11927, "pct_sd": 17.9}, {"canal": "CX", "total": 3198, "sd_ped": 946, "pad_ped": 2252, "pct_sd": 29.6}, {"canal": "CERTIFIED_CONSULTANT", "total": 2031, "sd_ped": 0, "pad_ped": 2031, "pct_sd": 0.0}, {"canal": "FDV", "total": 1005, "sd_ped": 0, "pad_ped": 1005, "pct_sd": 0.0}, {"canal": "CX_NIVEL_2", "total": 68, "sd_ped": 24, "pad_ped": 44, "pct_sd": 35.3}, {"canal": "CC_VIRTUAL", "total": 61, "sd_ped": 0, "pad_ped": 61, "pct_sd": 0.0}, {"canal": "TLV", "total": 7, "sd_ped": 0, "pad_ped": 7, "pct_sd": 0.0}], "Abr/26": [{"canal": "FAQ", "total": 12051, "sd_ped": 2375, "pad_ped": 9676, "pct_sd": 19.7}, {"canal": "CX", "total": 2929, "sd_ped": 1066, "pad_ped": 1863, "pct_sd": 36.4}, {"canal": "CERTIFIED_CONSULTANT", "total": 1600, "sd_ped": 0, "pad_ped": 1600, "pct_sd": 0.0}, {"canal": "FDV", "total": 976, "sd_ped": 0, "pad_ped": 976, "pct_sd": 0.0}, {"canal": "CX_NIVEL_2", "total": 49, "sd_ped": 24, "pad_ped": 25, "pct_sd": 49.0}, {"canal": "CC_VIRTUAL", "total": 1, "sd_ped": 0, "pad_ped": 1, "pct_sd": 0.0}, {"canal": "TLV", "total": 1, "sd_ped": 0, "pad_ped": 1, "pct_sd": 0.0}], "Mai/26": [{"canal": "FAQ", "total": 5845, "sd_ped": 1750, "pad_ped": 4095, "pct_sd": 29.9}, {"canal": "CX", "total": 1599, "sd_ped": 754, "pad_ped": 845, "pct_sd": 47.2}, {"canal": "CERTIFIED_CONSULTANT", "total": 1093, "sd_ped": 0, "pad_ped": 1093, "pct_sd": 0.0}, {"canal": "FDV", "total": 780, "sd_ped": 0, "pad_ped": 780, "pct_sd": 0.0}, {"canal": "CX_NIVEL_2", "total": 37, "sd_ped": 21, "pad_ped": 16, "pct_sd": 56.8}, {"canal": "CC_VIRTUAL", "total": 15, "sd_ped": 0, "pad_ped": 15, "pct_sd": 0.0}, {"canal": "TLV", "total": 3, "sd_ped": 0, "pad_ped": 3, "pct_sd": 0.0}]};
+
+// ── Tabs ──────────────────────────────────────────────────────────────────────
+function showTab(id, el) {
+  document.querySelectorAll('.pane').forEach(p => p.classList.remove('active'));
+  document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+  el.classList.add('active');
+  if (id === 'exec')   buildExec();
+  if (id === 'mensal') buildMensal();
+  if (id === 'sem')    buildSem();
+  if (id === 'est')    buildEst();
+}
+
+// ── Color helpers ─────────────────────────────────────────────────────────────
+const C_SD  = '#2D73F5';
+const C_PAD = '#FF7A00';
+
+// ── Chart helpers ─────────────────────────────────────────────────────────────
+let charts = {};
+function mkChart(id, cfg) {
+  if (charts[id]) charts[id].destroy();
+  charts[id] = new Chart(document.getElementById(id), cfg);
+}
+
+// ── Executivo ─────────────────────────────────────────────────────────────────
+let execBuilt = false;
+function buildExec() {
+  if (execBuilt) return; execBuilt = true;
+  const L = DATA.labels;
+
+  // Volume semanal
+  mkChart('cVolW', {type:'bar', data:{labels:L, datasets:[
+    {label:'SAME DAY', data:DATA.pedSD, backgroundColor:C_SD+'CC'},
+    {label:'Padrão',   data:DATA.pedPad, backgroundColor:C_PAD+'CC'}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}
+  }});
+
+  // LT semanal úteis
+  mkChart('cLtW', {type:'line', data:{labels:L, datasets:[
+    {label:'SAME DAY', data:DATA.ltSD,  borderColor:C_SD,  tension:.4, pointRadius:3, fill:false},
+    {label:'Padrão',   data:DATA.ltPad, borderColor:C_PAD, tension:.4, pointRadius:3, fill:false}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{y:{beginAtZero:true,title:{display:true,text:'dias úteis'}}}
+  }});
+
+  // Mix % SD semanal
+  const mixSD = L.map((_,i) => {
+    const s = (DATA.pedSD[i]||0) + (DATA.pedPad[i]||0);
+    return s ? +((DATA.pedSD[i]||0)/s*100).toFixed(1) : null;
+  });
+  mkChart('cMixW', {type:'bar', data:{labels:L, datasets:[
+    {label:'% SAME DAY', data:mixSD, backgroundColor:C_SD+'BB'}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{y:{min:0,max:100,title:{display:true,text:'%'}}}
+  }});
+
+  // LT corridos
+  mkChart('cLtCW', {type:'line', data:{labels:L, datasets:[
+    {label:'SAME DAY', data:DATA.ltCorrSD,  borderColor:C_SD,  tension:.4, pointRadius:3, fill:false},
+    {label:'Padrão',   data:DATA.ltCorrPad, borderColor:C_PAD, tension:.4, pointRadius:3, fill:false}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{y:{beginAtZero:true,title:{display:true,text:'dias corridos'}}}
+  }});
+}
+
+// ── Mensal ────────────────────────────────────────────────────────────────────
+let mensalBuilt = false;
+function buildMensal() {
+  if (mensalBuilt) return; mensalBuilt = true;
+  const L = DATA.mesLabels;
+
+  mkChart('cVolM', {type:'bar', data:{labels:L, datasets:[
+    {label:'SAME DAY', data:DATA.mesPedSD,  backgroundColor:C_SD+'CC'},
+    {label:'Padrão',   data:DATA.mesPedPad, backgroundColor:C_PAD+'CC'}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}
+  }});
+
+  mkChart('cLtM', {type:'line', data:{labels:L, datasets:[
+    {label:'SAME DAY', data:DATA.mesLtSD,  borderColor:C_SD,  tension:.4, pointRadius:4, fill:false},
+    {label:'Padrão',   data:DATA.mesLtPad, borderColor:C_PAD, tension:.4, pointRadius:4, fill:false}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{y:{beginAtZero:true,title:{display:true,text:'dias úteis'}}}
+  }});
+}
+
+// ── Semanal ───────────────────────────────────────────────────────────────────
+let semBuilt = false;
+function buildSem() {
+  if (semBuilt) return; semBuilt = true;
+  const L = DATA.labels;
+
+  mkChart('cLtWd', {type:'line', data:{labels:L, datasets:[
+    {label:'SAME DAY', data:DATA.ltSD,  borderColor:C_SD,  tension:.4, pointRadius:3, fill:false},
+    {label:'Padrão',   data:DATA.ltPad, borderColor:C_PAD, tension:.4, pointRadius:3, fill:false}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{y:{beginAtZero:true,title:{display:true,text:'dias úteis'}}}
+  }});
+
+  mkChart('cVolWd', {type:'bar', data:{labels:L, datasets:[
+    {label:'SAME DAY', data:DATA.pedSD,  backgroundColor:C_SD+'CC'},
+    {label:'Padrão',   data:DATA.pedPad, backgroundColor:C_PAD+'CC'}
+  ]}, options:{responsive:true,plugins:{legend:{position:'top'}},
+    scales:{x:{stacked:true},y:{stacked:true,beginAtZero:true}}
+  }});
+}
+
+// ── Por Estado ────────────────────────────────────────────────────────────────
+let estCurPeriod = 'Todos';
+let estCurRegiao = 'all';
+
+function filterEst(el, period) {
+  document.querySelectorAll('#est-period-btns .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  estCurPeriod = period;
+  buildEst();
+}
+
+function filterRegiao(el, r) {
+  el.closest('div').querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  estCurRegiao = r;
+  buildEst();
+}
+
+function buildEst() {
+  const srcAll   = DATA.estMesData;
+  const srcCapRM = DATA.estMesDataCapRM;
+  const srcInt   = DATA.estMesDataInt;
+  const src = estCurRegiao === 'caprm' ? srcCapRM : estCurRegiao === 'int' ? srcInt : srcAll;
+  const periodData = src[estCurPeriod] || {};
+
+  // Mesclar estados de ambos os métodos
+  const estados = new Set([...Object.keys(periodData)]);
+  const rows = [];
+  estados.forEach(est => {
+    const sd  = (periodData[est] || {})['SAME DAY'] || null;
+    const pad = (periodData[est] || {})['Padrão']   || null;
+    const sdPed  = sd  ? sd['pedidos']  : 0;
+    const padPed = pad ? pad['pedidos'] : 0;
+    const sdLt   = sd  ? sd['lt_uteis'] : null;
+    const padLt  = pad ? pad['lt_uteis']: null;
+    const delta  = (sdLt !== null && padLt !== null) ? +(padLt - sdLt).toFixed(1) : null;
+    rows.push({est, sdPed, padPed, sdLt, padLt, delta});
+  });
+  rows.sort((a,b) => (b.sdPed + b.padPed) - (a.sdPed + a.padPed));
+
+  const tbody = document.getElementById('est-body');
+  tbody.innerHTML = rows.map(r => `
+    <tr>
+      <td style="font-weight:600">${r.est}</td>
+      <td>${r.sdPed.toLocaleString()}</td>
+      <td>${r.sdLt !== null ? r.sdLt + ' d' : '—'}</td>
+      <td>${r.padPed.toLocaleString()}</td>
+      <td>${r.padLt !== null ? r.padLt + ' d' : '—'}</td>
+      <td class="positive">${r.delta !== null ? (r.delta >= 0 ? '+' : '') + r.delta + 'd' : '—'}</td>
+    </tr>`).join('');
+}
+
+// ── Canal filter ──────────────────────────────────────────────────────────────
+function filterCh(el, period) {
+  document.querySelectorAll('#ch-filter-btns .filter-btn').forEach(b => b.classList.remove('active'));
+  el.classList.add('active');
+  const rows = (CH_DATA[period] || []).map(r => `
+    <tr>
+      <td style="font-weight:600">${r.canal}</td>
+      <td>${r.total.toLocaleString()}</td>
+      <td>${r.sd_ped.toLocaleString()}</td>
+      <td>${r.pad_ped.toLocaleString()}</td>
+      <td><span style="color:#2D73F5;font-weight:700">${r.pct_sd}%</span></td>
+    </tr>`).join('');
+  document.getElementById('ch-body').innerHTML = rows;
+}
+
+// Init
+buildEst();
+</script>
+</body>
+</html>
