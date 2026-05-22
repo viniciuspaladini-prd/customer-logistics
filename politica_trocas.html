@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Política de Recambios — Mercado Pago Point</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.2.0/dist/chartjs-plugin-datalabels.min.js"></script>
+<style>
+:root {
+  --yellow: #FFD000;
+  --dark: #1a1a2e;
+  --blue: #1a4a8a;
+  --green: #16A34A;
+  --red: #E53E3E;
+  --orange: #D97706;
+  --teal: #2A9D8F;
+  --muted: #6B7280;
+  --border: #E2E8F0;
+  --bg: #F8FAFC;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  background: var(--bg);
+  color: #111827;
+  min-height: 100vh;
+}
+
+/* ── HEADER ── */
+.page-header {
+  background: var(--dark);
+  padding: 18px 32px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.header-left { display: flex; align-items: center; gap: 16px; }
+.mp-badge {
+  background: var(--yellow); color: var(--dark);
+  font-size: 12px; font-weight: 900; padding: 5px 10px; border-radius: 7px;
+  letter-spacing: .04em;
+}
+.page-title { font-size: 20px; font-weight: 800; color: #fff; }
+.page-title span { color: var(--yellow); }
+.page-subtitle { font-size: 12px; color: rgba(255,255,255,.4); margin-top: 2px; }
+.header-date { font-size: 11px; color: rgba(255,255,255,.35); font-weight: 600; text-transform: uppercase; letter-spacing: .08em; }
+
+/* ── SUMMARY BAR ── */
+.summary-bar {
+  background: #fff;
+  border-bottom: 1px solid var(--border);
+  padding: 14px 32px;
+  display: flex; gap: 32px; align-items: center;
+}
+.sum-kpi { display: flex; flex-direction: column; gap: 2px; }
+.sum-kpi-val { font-size: 22px; font-weight: 900; color: var(--dark); }
+.sum-kpi-lbl { font-size: 10px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .06em; }
+.sum-divider { width: 1px; height: 36px; background: var(--border); }
+.status-pill {
+  font-size: 10px; font-weight: 800; padding: 4px 12px; border-radius: 20px;
+  letter-spacing: .04em; display: flex; align-items: center; gap: 5px;
+}
+.pill-active { background: #DCFCE7; color: var(--green); }
+.pill-new { background: #FEF3C7; color: #D97706; }
+
+/* ── BODY ── */
+.page-body {
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 24px 32px 40px;
+  display: flex; flex-direction: column; gap: 24px;
+}
+
+/* ── TREND CHART ── */
+.trend-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  border: 1px solid var(--border);
+}
+.card-title {
+  font-size: 13px; font-weight: 800; color: #111827;
+  margin-bottom: 4px; display: flex; align-items: center; gap: 8px;
+}
+.card-subtitle { font-size: 11px; color: var(--muted); margin-bottom: 16px; }
+.trend-wrap { position: relative; height: 200px; }
+
+/* ── SITE GRID ── */
+.sites-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+}
+
+/* ── SITE CARD ── */
+.site-card {
+  background: #fff;
+  border-radius: 14px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  overflow: hidden;
+  display: flex; flex-direction: column;
+}
+.site-card-header {
+  padding: 14px 18px 12px;
+  display: flex; flex-direction: column; gap: 8px;
+}
+.site-card-top { display: flex; align-items: center; justify-content: space-between; }
+.site-name-row { display: flex; align-items: center; gap: 8px; }
+.flag-img { width: 24px; height: 24px; border-radius: 50%; object-fit: cover; }
+.site-name { font-size: 18px; font-weight: 900; color: var(--dark); }
+.act-badge {
+  font-size: 9px; font-weight: 800; padding: 3px 8px; border-radius: 10px;
+  white-space: nowrap;
+}
+.act-badge.active { background: #DCFCE7; color: var(--green); }
+.act-badge.new { background: #FEF3C7; color: #D97706; }
+.act-date { font-size: 10px; font-weight: 600; color: var(--muted); }
+
+/* KPI block */
+.site-kpis {
+  display: grid; grid-template-columns: 1fr 1fr;
+  gap: 8px; padding: 0 18px 12px;
+}
+.kpi-box {
+  background: var(--bg); border-radius: 8px; padding: 8px 10px;
+  display: flex; flex-direction: column; gap: 2px;
+}
+.kpi-box-lbl { font-size: 9px; font-weight: 700; color: var(--muted); text-transform: uppercase; letter-spacing: .04em; }
+.kpi-box-val { font-size: 18px; font-weight: 900; line-height: 1; }
+.kpi-box-sub { font-size: 9px; color: var(--muted); margin-top: 1px; }
+
+/* Canal pills */
+.canal-section { padding: 0 18px 10px; }
+.canal-title { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 6px; display: flex; align-items: center; gap: 6px; }
+.canal-title::after { content: ''; flex: 1; height: 1px; background: var(--border); }
+.canal-pills { display: flex; gap: 5px; flex-wrap: wrap; }
+.canal-pill {
+  font-size: 9.5px; font-weight: 700; padding: 3px 10px; border-radius: 10px;
+  white-space: nowrap;
+}
+.cp-mx { background: #EEF2FF; color: #4338CA; }
+.cp-cx { background: #F0FDFA; color: #0F766E; }
+
+/* Chart area */
+.site-chart { padding: 0 18px 14px; flex: 1; display: flex; flex-direction: column; gap: 6px; }
+.chart-wrap { height: 130px; position: relative; }
+
+/* Policy rules */
+.policy-section {
+  border-top: 1px solid var(--border);
+  padding: 12px 18px 14px;
+  background: var(--bg);
+}
+.policy-title { font-size: 9px; font-weight: 800; text-transform: uppercase; letter-spacing: .07em; color: var(--muted); margin-bottom: 8px; }
+.policy-rule {
+  display: flex; gap: 6px; align-items: flex-start; margin-bottom: 5px;
+}
+.policy-seg {
+  font-size: 9px; font-weight: 800; padding: 2px 7px; border-radius: 4px;
+  white-space: nowrap; flex-shrink: 0;
+}
+.seg-smb { background: #DBEAFE; color: var(--blue); }
+.seg-lt { background: #FEF3C7; color: #D97706; }
+.seg-all { background: #F3F4F6; color: #4B5563; }
+.policy-text { font-size: 10px; color: #374151; line-height: 1.4; }
+
+/* ── CANAL BREAKDOWN CARD ── */
+.canal-big-card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 20px 24px;
+  box-shadow: 0 1px 8px rgba(0,0,0,.06);
+  border: 1px solid var(--border);
+}
+.canal-big-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; margin-top: 14px;
+}
+.canal-site-block { display: flex; flex-direction: column; gap: 8px; }
+.canal-site-name { font-size: 11px; font-weight: 800; color: var(--dark); display: flex; align-items: center; gap: 6px; }
+.canal-bar-row { display: flex; flex-direction: column; gap: 4px; }
+.canal-bar-label { display: flex; justify-content: space-between; align-items: center; }
+.canal-bar-name { font-size: 10px; color: #374151; font-weight: 600; }
+.canal-bar-val { font-size: 10px; font-weight: 800; color: var(--dark); }
+.canal-bar-track { height: 8px; background: #F1F5F9; border-radius: 4px; overflow: hidden; }
+.canal-bar-fill { height: 100%; border-radius: 4px; }
+</style>
+</head>
+<body>
+
+<div class="page-header">
+  <div class="header-left">
+    <div class="mp-badge">MP</div>
+    <div>
+      <div class="page-title">Política de Recambios <span>Cross Sites</span></div>
+      <div class="page-subtitle">Mercado Pago Point · Bloqueos por elegibilidad · 4 sites activos</div>
+    </div>
+  </div>
+  <div class="header-date">Actualizado · Mayo 2026</div>
+</div>
+
+<!-- SUMMARY BAR -->
+<div class="summary-bar">
+  <div class="sum-kpi">
+    <div class="sum-kpi-val" id="sum-total">—</div>
+    <div class="sum-kpi-lbl">Bloqueos abr/26 (4 sites)</div>
+  </div>
+  <div class="sum-divider"></div>
+  <div class="sum-kpi">
+    <div class="sum-kpi-val" style="color:#E53E3E">9.960</div>
+    <div class="sum-kpi-lbl">Pico histórico (MLB nov/25)</div>
+  </div>
+  <div class="sum-divider"></div>
+  <div class="sum-kpi">
+    <div class="sum-kpi-val" style="color:#16A34A">−17%</div>
+    <div class="sum-kpi-lbl">MLB abr vs mar/26</div>
+  </div>
+  <div class="sum-divider"></div>
+  <div style="display:flex;gap:8px;flex-wrap:wrap;">
+    <span class="status-pill pill-active">✓ MLB — desde oct/25</span>
+    <span class="status-pill pill-active">✓ MLA — desde 05/03/26</span>
+    <span class="status-pill pill-new">🚀 MLM — desde 15/05/26</span>
+    <span class="status-pill pill-new">🚀 MLC — desde 15/05/26</span>
+  </div>
+</div>
+
+<div class="page-body">
+
+  <!-- TREND CHART -->
+  <div class="trend-card">
+    <div class="card-title">📊 Evolución de bloqueos por política — todos los sites</div>
+    <div class="card-subtitle">Bloqueos mensuales · sep/25 → may/26 (may parcial hasta 20/05)</div>
+    <div class="trend-wrap">
+      <canvas id="chart-trend"></canvas>
+    </div>
+  </div>
+
+  <!-- SITE CARDS -->
+  <div class="sites-grid">
+
+    <!-- MLB -->
+    <div class="site-card">
+      <div class="site-card-header">
+        <div class="site-card-top">
+          <div class="site-name-row">
+            <img class="flag-img" src="https://flagcdn.com/w40/br.png" alt="BR">
+            <span class="site-name">MLB</span>
+          </div>
+          <span class="act-badge active">✓ Activo</span>
+        </div>
+        <div class="act-date">Política activa desde oct/2025</div>
+      </div>
+      <div class="site-kpis">
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">Bloqueos abr/26</div>
+          <div class="kpi-box-val" style="color:#E53E3E">7.960</div>
+          <div class="kpi-box-sub">−1.578 vs mar (−17%)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">Pico histórico</div>
+          <div class="kpi-box-val" style="color:#D97706">10.021</div>
+          <div class="kpi-box-sub">nov/25</div>
+        </div>
+      </div>
+      <div class="canal-section">
+        <div class="canal-title">Canal abr/26</div>
+        <div class="canal-pills">
+          <span class="canal-pill cp-mx">Maxwell Chat: 5.997 (75%)</span>
+          <span class="canal-pill cp-mx">Maxwell Form: 1.139 (14%)</span>
+          <span class="canal-pill cp-cx">CX: 824 (10%)</span>
+        </div>
+      </div>
+      <div class="site-chart">
+        <div class="chart-wrap"><canvas id="chart-mlb-bloq"></canvas></div>
+      </div>
+      <div class="policy-section">
+        <div class="policy-title">Reglas de elegibilidad</div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-smb">SMB · Big</span>
+          <span class="policy-text">Recambio <b>vitalício</b> — sin restricción de TPV ni antigüedad</span>
+        </div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-lt">Longtail</span>
+          <span class="policy-text">≥ R$1.500 TPV en 3 meses <b>Y</b> device comprado hace ≤ 3 meses</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MLA -->
+    <div class="site-card">
+      <div class="site-card-header">
+        <div class="site-card-top">
+          <div class="site-name-row">
+            <img class="flag-img" src="https://flagcdn.com/w40/ar.png" alt="AR">
+            <span class="site-name">MLA</span>
+          </div>
+          <span class="act-badge active">✓ Activo</span>
+        </div>
+        <div class="act-date">Política activa desde 05/03/2026</div>
+      </div>
+      <div class="site-kpis">
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">Bloqueos abr/26</div>
+          <div class="kpi-box-val" style="color:#E53E3E">1.805</div>
+          <div class="kpi-box-sub">−589 vs mar (−25%)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">1er mes completo</div>
+          <div class="kpi-box-val" style="color:#D97706">2.394</div>
+          <div class="kpi-box-sub">mar/26 (desde 05/03)</div>
+        </div>
+      </div>
+      <div class="canal-section">
+        <div class="canal-title">Canal abr/26</div>
+        <div class="canal-pills">
+          <span class="canal-pill cp-mx">Maxwell Chat: 1.590 (88%)</span>
+          <span class="canal-pill cp-mx">Maxwell Form: 178 (10%)</span>
+          <span class="canal-pill cp-cx">CX: 37 (2%)</span>
+        </div>
+      </div>
+      <div class="site-chart">
+        <div class="chart-wrap"><canvas id="chart-mla-bloq"></canvas></div>
+      </div>
+      <div class="policy-section">
+        <div class="policy-title">Reglas de elegibilidad</div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-smb">SMB · Big</span>
+          <span class="policy-text">Recambio <b>vitalício</b> — sin restricción</span>
+        </div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-lt">Longtail</span>
+          <span class="policy-text">≥ USD 1.200 TPV en 3 meses <b>Y</b> device ≤ 12 meses</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MLM -->
+    <div class="site-card">
+      <div class="site-card-header">
+        <div class="site-card-top">
+          <div class="site-name-row">
+            <img class="flag-img" src="https://flagcdn.com/w40/mx.png" alt="MX">
+            <span class="site-name">MLM</span>
+          </div>
+          <span class="act-badge new">🚀 Nuevo</span>
+        </div>
+        <div class="act-date">Política activa desde 15/05/2026</div>
+      </div>
+      <div class="site-kpis">
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">Bloqueos mai/26</div>
+          <div class="kpi-box-val" style="color:#D97706">48</div>
+          <div class="kpi-box-sub">1ª semana (parcial)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">Solicitudes abr/26</div>
+          <div class="kpi-box-val" style="color:#1a4a8a">8.959</div>
+          <div class="kpi-box-sub">Sin barrera hasta 15/05</div>
+        </div>
+      </div>
+      <div class="canal-section">
+        <div class="canal-title">Canal mai/26 (parcial)</div>
+        <div class="canal-pills">
+          <span class="canal-pill cp-mx">Maxwell Chat: 25 (52%)</span>
+          <span class="canal-pill cp-mx">Maxwell Form: 23 (48%)</span>
+        </div>
+      </div>
+      <div class="site-chart">
+        <div class="chart-wrap"><canvas id="chart-mlm-bloq"></canvas></div>
+      </div>
+      <div class="policy-section">
+        <div class="policy-title">Reglas de elegibilidad</div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-all">Todos</span>
+          <span class="policy-text">Garantía de 12 meses · Device comprado hace <b>≤ 12 meses</b> para ser elegible</span>
+        </div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-lt">Longtail</span>
+          <span class="policy-text">Criterios adicionales de TPV en análisis — a definir Q2'26</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- MLC -->
+    <div class="site-card">
+      <div class="site-card-header">
+        <div class="site-card-top">
+          <div class="site-name-row">
+            <img class="flag-img" src="https://flagcdn.com/w40/cl.png" alt="CL">
+            <span class="site-name">MLC</span>
+          </div>
+          <span class="act-badge new">🚀 Nuevo</span>
+        </div>
+        <div class="act-date">Política activa desde 15/05/2026</div>
+      </div>
+      <div class="site-kpis">
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">Bloqueos mai/26</div>
+          <div class="kpi-box-val" style="color:#D97706">112</div>
+          <div class="kpi-box-sub">1ª semana (parcial)</div>
+        </div>
+        <div class="kpi-box">
+          <div class="kpi-box-lbl">Solicitudes abr/26</div>
+          <div class="kpi-box-val" style="color:#1a4a8a">1.475</div>
+          <div class="kpi-box-sub">CX dominante (58%)</div>
+        </div>
+      </div>
+      <div class="canal-section">
+        <div class="canal-title">Canal mai/26 (parcial)</div>
+        <div class="canal-pills">
+          <span class="canal-pill cp-mx">Maxwell Chat: 80 (71%)</span>
+          <span class="canal-pill cp-mx">Maxwell Form: 32 (29%)</span>
+        </div>
+      </div>
+      <div class="site-chart">
+        <div class="chart-wrap"><canvas id="chart-mlc-bloq"></canvas></div>
+      </div>
+      <div class="policy-section">
+        <div class="policy-title">Reglas de elegibilidad</div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-all">Todos</span>
+          <span class="policy-text">Garantía de 12 meses · Device comprado hace <b>≤ 12 meses</b> para ser elegible</span>
+        </div>
+        <div class="policy-rule">
+          <span class="policy-seg seg-lt">Longtail</span>
+          <span class="policy-text">Criterios adicionales de TPV en análisis — a definir Q2'26</span>
+        </div>
+      </div>
+    </div>
+
+  </div><!-- /sites-grid -->
+
+</div><!-- /page-body -->
+
+<script>
+// ── DATA ──
+const MONTHS = ['sep/25','oct/25','nov/25','dic/25','ene/26','feb/26','mar/26','abr/26','mai/26'];
+
+const BLOQ = {
+  MLB: [3035, 8278, 10021, 8862, 9102, 9489, 9538, 7960, 5019],
+  MLA: [0,    0,    0,     0,    0,    290,  2394, 1805, 556],
+  MLM: [0,    0,    0,     0,    0,    0,    53,   68,   48],
+  MLC: [0,    0,    0,     0,    0,    1,    66,   147,  112],
+};
+
+// Set summary total
+const totalAbr = 7960 + 1805 + 68 + 147;
+document.getElementById('sum-total').textContent = totalAbr.toLocaleString('pt-BR');
+
+// ── TREND CHART (all sites) ──
+(function() {
+  const canvas = document.getElementById('chart-trend');
+  const wrap = canvas.parentElement;
+  canvas.width = wrap.clientWidth || 1200;
+  canvas.height = 200;
+  new Chart(canvas, {
+    type: 'line',
+    data: {
+      labels: MONTHS,
+      datasets: [
+        { label: 'MLB', data: BLOQ.MLB, borderColor: '#1a4a8a', backgroundColor: 'rgba(26,74,138,.08)', fill: true, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#1a4a8a', borderWidth: 2.5 },
+        { label: 'MLA', data: BLOQ.MLA, borderColor: '#E53E3E', backgroundColor: 'rgba(229,62,62,.06)', fill: true, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#E53E3E', borderWidth: 2 },
+        { label: 'MLM', data: BLOQ.MLM, borderColor: '#D97706', backgroundColor: 'rgba(217,119,6,.06)', fill: true, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#D97706', borderWidth: 2 },
+        { label: 'MLC', data: BLOQ.MLC, borderColor: '#2A9D8F', backgroundColor: 'rgba(42,157,143,.06)', fill: true, tension: 0.3, pointRadius: 4, pointBackgroundColor: '#2A9D8F', borderWidth: 2 },
+      ]
+    },
+    options: {
+      responsive: false, animation: false,
+      plugins: {
+        legend: { display: true, position: 'top', labels: { font: { size: 11, weight: '700' }, boxWidth: 14, padding: 16 } },
+        datalabels: { display: false }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748B' } },
+        y: { grid: { color: '#F1F5F9' }, ticks: { font: { size: 10 }, color: '#64748B', callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v } }
+      }
+    }
+  });
+})();
+
+// ── MINI CHARTS PER SITE ──
+function buildMiniChart(id, data, color) {
+  const canvas = document.getElementById(id);
+  if (!canvas) return;
+  const wrap = canvas.parentElement;
+  canvas.width = wrap.clientWidth || 260;
+  canvas.height = 130;
+
+  // Highlight last bar
+  const colors = data.map((_, i) => i === data.length - 1 ? color : color + '55');
+
+  new Chart(canvas, {
+    type: 'bar',
+    plugins: [ChartDataLabels],
+    data: {
+      labels: MONTHS.slice(MONTHS.length - data.filter(v => v > 0 || true).length),
+      datasets: [{
+        data: data,
+        backgroundColor: colors,
+        borderRadius: 4,
+        borderSkipped: false,
+      }]
+    },
+    options: {
+      responsive: false, animation: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: {
+          anchor: 'end', align: 'top',
+          font: { size: 8, weight: '700' },
+          color: '#374151',
+          formatter: v => v > 0 ? (v >= 1000 ? (v/1000).toFixed(1)+'k' : v) : '',
+        }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 8 }, color: '#94A3B8', maxRotation: 0 } },
+        y: { display: false, beginAtZero: true }
+      }
+    }
+  });
+}
+
+buildMiniChart('chart-mlb-bloq', BLOQ.MLB, '#1a4a8a');
+buildMiniChart('chart-mla-bloq', BLOQ.MLA, '#E53E3E');
+buildMiniChart('chart-mlm-bloq', BLOQ.MLM, '#D97706');
+buildMiniChart('chart-mlc-bloq', BLOQ.MLC, '#2A9D8F');
+</script>
+</body>
+</html>
