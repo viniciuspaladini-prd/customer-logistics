@@ -1992,6 +1992,205 @@ html, body {
 </div>
 
 <!-- ============================================================
+     SLIDE IBM — Operación IBM MLC · Expansión MLM
+     ============================================================ -->
+<div class="slide content-slide" id="s11b">
+  <style>
+  #s11b { background:#F8FAFC; }
+  #s11b .ibm-body { flex:1; display:grid; grid-template-columns:34% 38% 28%; gap:14px; padding:6px 20px 10px; min-height:0; overflow:hidden; }
+  #s11b .ibm-col { display:flex; flex-direction:column; gap:10px; min-height:0; }
+  #s11b .ibm-section-lbl { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.09em; color:#6B7280; display:flex; align-items:center; gap:6px; flex-shrink:0; }
+  #s11b .ibm-section-lbl::after { content:''; flex:1; height:1px; background:#E2E8F0; }
+  /* flow */
+  #s11b .flow-wrap { display:flex; flex-direction:column; gap:6px; flex:1; }
+  #s11b .flow-step { background:#fff; border-radius:9px; border:1px solid #E2E8F0; padding:9px 13px; display:flex; align-items:flex-start; gap:9px; box-shadow:0 1px 4px rgba(0,0,0,.05); }
+  #s11b .flow-num { width:22px; height:22px; border-radius:50%; background:#1a4a8a; color:#fff; font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  #s11b .flow-txt { font-size:11px; color:#374151; line-height:1.4; }
+  #s11b .flow-txt b { color:#111827; }
+  #s11b .flow-arrow { text-align:center; font-size:14px; color:#CBD5E1; line-height:1; flex-shrink:0; }
+  #s11b .flow-outcome { display:grid; grid-template-columns:1fr 1fr; gap:6px; flex-shrink:0; }
+  #s11b .outcome-box { border-radius:8px; padding:8px 10px; display:flex; flex-direction:column; gap:2px; }
+  #s11b .outcome-val { font-size:22px; font-weight:900; line-height:1; }
+  #s11b .outcome-lbl { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+  /* elegibilidade */
+  #s11b .elig-box { background:#EFF6FF; border-radius:8px; padding:9px 12px; flex-shrink:0; }
+  #s11b .elig-title { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#1D4ED8; margin-bottom:6px; }
+  #s11b .elig-row { display:flex; gap:6px; align-items:center; font-size:10.5px; color:#374151; margin-bottom:3px; }
+  #s11b .elig-dot { width:6px; height:6px; border-radius:50%; background:#1a4a8a; flex-shrink:0; }
+  /* kpis */
+  #s11b .kpi-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; flex-shrink:0; }
+  #s11b .kpi-tile { background:#fff; border-radius:9px; border:1px solid #E2E8F0; padding:9px 11px; text-align:center; }
+  #s11b .kpi-tile-val { font-size:24px; font-weight:900; line-height:1; }
+  #s11b .kpi-tile-lbl { font-size:9px; font-weight:700; color:#6B7280; text-transform:uppercase; letter-spacing:.04em; margin-top:3px; }
+  #s11b .kpi-tile-sub { font-size:9px; color:#9CA3AF; margin-top:1px; }
+  /* motivos */
+  #s11b .motivo-row { display:flex; align-items:center; gap:7px; margin-bottom:5px; }
+  #s11b .motivo-lbl { font-size:10px; color:#374151; width:160px; flex-shrink:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #s11b .motivo-bar-wrap { flex:1; height:10px; background:#F1F5F9; border-radius:5px; overflow:hidden; }
+  #s11b .motivo-bar { height:100%; border-radius:5px; background:#1a4a8a; }
+  #s11b .motivo-pct { font-size:9.5px; font-weight:700; color:#1a4a8a; width:32px; text-align:right; flex-shrink:0; }
+  /* expansión */
+  #s11b .exp-card { background:#1a1a2e; border-radius:12px; padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; }
+  #s11b .exp-badge { background:#FFD000; color:#1a1a2e; font-size:9px; font-weight:900; padding:3px 10px; border-radius:10px; width:fit-content; letter-spacing:.04em; }
+  #s11b .exp-title { font-size:16px; font-weight:900; color:#fff; line-height:1.25; }
+  #s11b .exp-subtitle { font-size:11px; color:rgba(255,255,255,.5); }
+  #s11b .exp-items { display:flex; flex-direction:column; gap:7px; flex:1; }
+  #s11b .exp-item { display:flex; gap:8px; align-items:flex-start; }
+  #s11b .exp-icon { font-size:14px; flex-shrink:0; line-height:1.3; }
+  #s11b .exp-item-txt { font-size:11px; color:rgba(255,255,255,.8); line-height:1.4; }
+  #s11b .exp-item-txt b { color:#FFD000; }
+  #s11b .exp-cta { background:rgba(255,208,0,.12); border:1px solid rgba(255,208,0,.3); border-radius:8px; padding:9px 12px; flex-shrink:0; }
+  #s11b .exp-cta-lbl { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,208,0,.6); margin-bottom:3px; }
+  #s11b .exp-cta-val { font-size:14px; font-weight:900; color:#FFD000; }
+  </style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-teal">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">IBM MLC — Servicio presencial</span>
+  </div>
+  <div class="slide-title" style="padding:3px 20px 0;flex-shrink:0;">
+    IBM MLC: técnico en sitio diagnóstica y <b>repara en lugar de reemplazar</b> — <b>~1.130 visitas/mes</b> · 12% de dispositivos salvados
+  </div>
+
+  <div class="ibm-body">
+
+    <!-- COL 1: Cómo funciona -->
+    <div class="ibm-col">
+      <div class="ibm-section-lbl">¿Cómo funciona?</div>
+      <div class="flow-wrap">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-txt"><b>Seller abre solicitud</b><br>Vía Maxwell, CX o Help Portal · Motivo de falla del dispositivo</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-txt"><b>Sistema identifica elegibilidad</b><br>HILO, SMB o BS → asigna técnico IBM. Longtail → flujo convencional</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-txt"><b>Técnico IBM visita el establecimiento</b><br>Diagnóstico presencial · Sin necesidad de envío del device</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-outcome">
+          <div class="outcome-box" style="background:#F0FDF4;">
+            <div class="outcome-val" style="color:#16A34A;">12%</div>
+            <div class="outcome-lbl" style="color:#166534;">Reparado ✓</div>
+            <div style="font-size:9px;color:#6B7280;">Sin recambio</div>
+          </div>
+          <div class="outcome-box" style="background:#EFF6FF;">
+            <div class="outcome-val" style="color:#1a4a8a;">77%</div>
+            <div class="outcome-lbl" style="color:#1D4ED8;">Reemplazado</div>
+            <div style="font-size:9px;color:#6B7280;">Entrega nueva máq.</div>
+          </div>
+        </div>
+      </div>
+      <div class="elig-box">
+        <div class="elig-title">Elegibilidad IBM</div>
+        <div class="elig-row"><div class="elig-dot" style="background:#16A34A;"></div><span><b>HILO, SMB, BS</b> — visita técnica IBM</span></div>
+        <div class="elig-row"><div class="elig-dot" style="background:#9CA3AF;"></div><span>Longtail — flujo convencional (envío)</span></div>
+      </div>
+    </div>
+
+    <!-- COL 2: Resultados MLC -->
+    <div class="ibm-col">
+      <div class="ibm-section-lbl">Resultados MLC · abr/26</div>
+      <div class="kpi-grid">
+        <div class="kpi-tile">
+          <div class="kpi-tile-val" style="color:#1a4a8a;">1.136</div>
+          <div class="kpi-tile-lbl">Visitas/mes</div>
+          <div class="kpi-tile-sub">abr/26</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-val" style="color:#16A34A;">12%</div>
+          <div class="kpi-tile-lbl">Recuperados</div>
+          <div class="kpi-tile-sub">sin recambio</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-val" style="color:#4338CA;">~34%</div>
+          <div class="kpi-tile-lbl">Via Maxwell</div>
+          <div class="kpi-tile-sub">desde 05/03</div>
+        </div>
+      </div>
+
+      <div class="ibm-section-lbl" style="margin-top:4px;">Top motivos de visita</div>
+      <div style="flex:1;min-height:0;overflow:hidden;">
+        <div class="motivo-row">
+          <span class="motivo-lbl">No enciende / no carga</span>
+          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:100%;"></div></div>
+          <span class="motivo-pct">26%</span>
+        </div>
+        <div class="motivo-row">
+          <span class="motivo-lbl">Otros problemas</span>
+          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:74%;"></div></div>
+          <span class="motivo-pct">20%</span>
+        </div>
+        <div class="motivo-row">
+          <span class="motivo-lbl">No reconoce tarjeta</span>
+          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:50%;"></div></div>
+          <span class="motivo-pct">10%</span>
+        </div>
+        <div class="motivo-row">
+          <span class="motivo-lbl">Teclado/botón roto</span>
+          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:42%;background:#2A9D8F;"></div></div>
+          <span class="motivo-pct">7%</span>
+        </div>
+        <div class="motivo-row">
+          <span class="motivo-lbl">No imprime comprobante</span>
+          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:40%;background:#2A9D8F;"></div></div>
+          <span class="motivo-pct">7%</span>
+        </div>
+        <div class="motivo-row">
+          <span class="motivo-lbl">Chip / WiFi no funciona</span>
+          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:36%;background:#9CA3AF;"></div></div>
+          <span class="motivo-pct">6%</span>
+        </div>
+      </div>
+
+      <div style="background:#FFFBEB;border-radius:8px;padding:9px 12px;flex-shrink:0;border-left:3px solid #FFD000;">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;color:#92400E;margin-bottom:4px;">Tendencia abr/26 vs ene/26</div>
+        <div style="font-size:11px;color:#374151;">Visitas: <b>+15%</b> · Tasa recuperación: <b>+4pp</b> (73%→77%) · Maxwell como canal: <b>+34%</b> de solicitudes</div>
+      </div>
+    </div>
+
+    <!-- COL 3: Expansión MLM -->
+    <div class="ibm-col">
+      <div class="ibm-section-lbl">Próximo paso</div>
+      <div class="exp-card">
+        <div class="exp-badge">🚀 Expansión Q2/Q3'26</div>
+        <div class="exp-title">IBM<br>México</div>
+        <div class="exp-subtitle">Replicar modelo MLC en MLM</div>
+        <div class="exp-items">
+          <div class="exp-item">
+            <span class="exp-icon">📊</span>
+            <div class="exp-item-txt">Vol. actual MLM: <b>~9K recambios/mes</b> · 92% vía Maxwell</div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">🎯</span>
+            <div class="exp-item-txt">Segmentos objetivo: <b>HILO, SMB y BS</b> — misma lógica de elegibilidad</div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">⚡</span>
+            <div class="exp-item-txt">Impacto esperado: <b>↑ G1 MLM</b> (hoy 48%) + reducción de recambios en ~12%</div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">🔧</span>
+            <div class="exp-item-txt">Habilitador: <b>integración API IBM</b> — proveedores de servicio técnico en MX</div>
+          </div>
+        </div>
+        <div class="exp-cta">
+          <div class="exp-cta-lbl">Fecha objetivo</div>
+          <div class="exp-cta-val">fin Q2 / Q3 2026</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
      SLIDE 11 — Sameday MLB: Cobertura + Unitac + Alya
      ============================================================ -->
 <div class="slide content-slide" id="s12">
