@@ -1992,6 +1992,264 @@ html, body {
 </div>
 
 <!-- ============================================================
+     SLIDE FULL — Recambios vía Full MLB · Piloto 5 Etapas
+     ============================================================ -->
+<div class="slide content-slide" id="s11c">
+  <style>
+  #s11c { background:#F8FAFC; }
+  #s11c .full-body { flex:1; display:grid; grid-template-columns:52% 1px 48%; gap:0; padding:4px 20px 8px; min-height:0; overflow:hidden; }
+  #s11c .full-divider { background:#E2E8F0; }
+  #s11c .full-left { display:flex; flex-direction:column; gap:8px; min-height:0; padding-right:16px; }
+  #s11c .full-right { display:flex; flex-direction:column; gap:8px; min-height:0; padding-left:16px; }
+  #s11c .sec-lbl { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.09em; color:#6B7280; display:flex; align-items:center; gap:6px; flex-shrink:0; }
+  #s11c .sec-lbl::after { content:''; flex:1; height:1px; background:#E2E8F0; }
+  /* Timeline etapas */
+  #s11c .etapas { display:flex; flex-direction:column; gap:5px; flex:1; min-height:0; }
+  #s11c .etapa { display:flex; gap:10px; align-items:stretch; }
+  #s11c .etapa-num-wrap { display:flex; flex-direction:column; align-items:center; gap:0; flex-shrink:0; width:26px; }
+  #s11c .etapa-num { width:26px; height:26px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:11px; font-weight:900; color:#fff; flex-shrink:0; }
+  #s11c .etapa-line { width:2px; flex:1; background:#E2E8F0; margin:2px 0; }
+  #s11c .etapa-card { background:#fff; border-radius:9px; border:1px solid #E2E8F0; padding:7px 11px; flex:1; box-shadow:0 1px 4px rgba(0,0,0,.04); }
+  #s11c .etapa-card.active { border-color:#1a4a8a; box-shadow:0 0 0 2px rgba(26,74,138,.12); }
+  #s11c .etapa-top { display:flex; align-items:center; justify-content:space-between; margin-bottom:3px; }
+  #s11c .etapa-title { font-size:11px; font-weight:800; color:#111827; }
+  #s11c .etapa-vol { font-size:11px; font-weight:900; color:#1a4a8a; }
+  #s11c .etapa-devices { font-size:9.5px; color:#6B7280; margin-bottom:2px; }
+  #s11c .etapa-states { font-size:9.5px; color:#374151; font-weight:600; }
+  /* Prazo banner */
+  #s11c .prazo-banner { background:#1a1a2e; border-radius:9px; padding:8px 14px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  #s11c .prazo-lbl { font-size:10px; font-weight:700; color:rgba(255,255,255,.5); text-transform:uppercase; letter-spacing:.05em; }
+  #s11c .prazo-val { font-size:16px; font-weight:900; color:#FFD000; }
+  #s11c .prazo-sub { font-size:9.5px; color:rgba(255,255,255,.4); }
+  /* KPIs esperados */
+  #s11c .kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:7px; flex-shrink:0; }
+  #s11c .kpi-tile { background:#fff; border-radius:9px; border:1px solid #E2E8F0; padding:9px 12px; display:flex; flex-direction:column; gap:2px; }
+  #s11c .kpi-tile-arrow { font-size:9px; font-weight:700; color:#9CA3AF; }
+  #s11c .kpi-tile-vals { display:flex; align-items:baseline; gap:5px; }
+  #s11c .kpi-old { font-size:13px; font-weight:700; color:#9CA3AF; text-decoration:line-through; }
+  #s11c .kpi-new { font-size:20px; font-weight:900; line-height:1; }
+  #s11c .kpi-tile-lbl { font-size:9px; font-weight:700; color:#6B7280; text-transform:uppercase; letter-spacing:.04em; }
+  /* Volume final */
+  #s11c .vol-box { background:#EFF6FF; border-radius:9px; padding:10px 13px; flex-shrink:0; border-left:3px solid #1a4a8a; }
+  #s11c .vol-title { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#1D4ED8; margin-bottom:6px; }
+  #s11c .vol-row { display:flex; justify-content:space-between; font-size:11px; color:#1e3a6e; margin-bottom:3px; }
+  #s11c .vol-row b { font-weight:800; }
+  /* Outros sites */
+  #s11c .outros-box { background:#F8FAFC; border-radius:9px; padding:9px 12px; flex-shrink:0; border:1px solid #E2E8F0; }
+  #s11c .outros-title { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#6B7280; margin-bottom:7px; }
+  #s11c .outros-row { display:flex; align-items:center; gap:7px; margin-bottom:5px; }
+  #s11c .outros-flag { width:16px; height:16px; border-radius:50%; object-fit:cover; flex-shrink:0; }
+  #s11c .outros-site { font-size:11px; font-weight:800; color:#111827; width:36px; }
+  #s11c .outros-bar-wrap { flex:1; height:7px; background:#E2E8F0; border-radius:4px; overflow:hidden; }
+  #s11c .outros-bar { height:100%; border-radius:4px; }
+  #s11c .outros-date { font-size:10px; font-weight:700; color:#374151; white-space:nowrap; }
+  /* plus ventas/bonificado */
+  #s11c .plus-box { background:#FFFBEB; border-radius:8px; padding:8px 12px; flex-shrink:0; border-left:3px solid #FFD000; }
+  #s11c .plus-title { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#92400E; margin-bottom:5px; }
+  #s11c .plus-row { font-size:10px; color:#78350F; line-height:1.6; }
+  </style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-teal">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">FULL para Recambios — MLB Piloto</span>
+  </div>
+  <div class="slide-title" style="padding:3px 20px 0;flex-shrink:0;">
+    Recambios vía FULL MLB — piloto en <b>5 etapas</b> · lanzamiento esta semana · cobertura total en <b>2 semanas</b> · ~<b>511 pedidos/día útil</b>
+  </div>
+
+  <div class="full-body">
+
+    <!-- LEFT: 5 Etapas -->
+    <div class="full-left">
+      <div class="sec-lbl">Plan de piloto — expansión por estado y device</div>
+      <div class="etapas">
+
+        <div class="etapa">
+          <div class="etapa-num-wrap">
+            <div class="etapa-num" style="background:#16A34A;">1</div>
+            <div class="etapa-line"></div>
+          </div>
+          <div class="etapa-card active">
+            <div class="etapa-top">
+              <span class="etapa-title">Maranhão — AIR</span>
+              <span class="etapa-vol">~2 ped/día útil</span>
+            </div>
+            <div class="etapa-devices">Devices: Point AIR 1 y AIR 2</div>
+            <div class="etapa-states">📍 MA</div>
+          </div>
+        </div>
+
+        <div class="etapa">
+          <div class="etapa-num-wrap">
+            <div class="etapa-num" style="background:#2A9D8F;">2</div>
+            <div class="etapa-line"></div>
+          </div>
+          <div class="etapa-card">
+            <div class="etapa-top">
+              <span class="etapa-title">Maranhão — expansión devices</span>
+              <span class="etapa-vol">~14 ped/día útil</span>
+            </div>
+            <div class="etapa-devices">+ AIR 2, MINI, PRO 1/2, PRO 3</div>
+            <div class="etapa-states">📍 MA</div>
+          </div>
+        </div>
+
+        <div class="etapa">
+          <div class="etapa-num-wrap">
+            <div class="etapa-num" style="background:#1a4a8a;">3</div>
+            <div class="etapa-line"></div>
+          </div>
+          <div class="etapa-card">
+            <div class="etapa-top">
+              <span class="etapa-title">MA completo + Norte/Nordeste</span>
+              <span class="etapa-vol">~42 ped/día útil</span>
+            </div>
+            <div class="etapa-devices">+ SMART 1 y SMART 2 · todos los devices</div>
+            <div class="etapa-states">📍 MA · RR · AC · AP · RO · TO · PI</div>
+          </div>
+        </div>
+
+        <div class="etapa">
+          <div class="etapa-num-wrap">
+            <div class="etapa-num" style="background:#D97706;">4</div>
+            <div class="etapa-line"></div>
+          </div>
+          <div class="etapa-card">
+            <div class="etapa-top">
+              <span class="etapa-title">Centro-Oeste + Sur + Nordeste</span>
+              <span class="etapa-vol">~180 ped/día útil</span>
+            </div>
+            <div class="etapa-devices">Todos los devices</div>
+            <div class="etapa-states" style="font-size:9px;">📍 AL · MS · RN · RS · SC · PB · SE · MT · DF · AM · CE · GO</div>
+          </div>
+        </div>
+
+        <div class="etapa">
+          <div class="etapa-num-wrap">
+            <div class="etapa-num" style="background:#E53E3E;">5</div>
+          </div>
+          <div class="etapa-card">
+            <div class="etapa-top">
+              <span class="etapa-title">Grandes estados — cobertura total</span>
+              <span class="etapa-vol" style="color:#E53E3E;">~511 ped/día útil</span>
+            </div>
+            <div class="etapa-devices">Todos los devices</div>
+            <div class="etapa-states">📍 PR · ES · PE · PA · BA · MG · RJ · SP</div>
+          </div>
+        </div>
+
+      </div>
+      <div class="prazo-banner">
+        <div>
+          <div class="prazo-lbl">Objetivo del piloto</div>
+          <div class="prazo-val">5 etapas en ≤ 2 semanas</div>
+        </div>
+        <div style="text-align:right;">
+          <div class="prazo-sub">Etapa 1 — esta semana</div>
+          <div class="prazo-sub">Etapa 5 — fin mai/26</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="full-divider"></div>
+
+    <!-- RIGHT: Esperado + Outros sites -->
+    <div class="full-right">
+      <div class="sec-lbl">¿Qué esperamos?</div>
+      <div class="kpi-grid">
+        <div class="kpi-tile">
+          <div class="kpi-tile-vals">
+            <span class="kpi-old">7,5d</span>
+            <span class="kpi-new" style="color:#16A34A;">3,8d</span>
+          </div>
+          <div class="kpi-tile-lbl">Leadtime promedio</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-vals">
+            <span class="kpi-old">40%</span>
+            <span class="kpi-new" style="color:#16A34A;">80%</span>
+          </div>
+          <div class="kpi-tile-lbl">Recovery rate</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-vals">
+            <span class="kpi-old">$37,3</span>
+            <span class="kpi-new" style="color:#16A34A;">$25</span>
+          </div>
+          <div class="kpi-tile-lbl">Costo blended/op (USD)</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-vals">
+            <span class="kpi-new" style="color:#1a4a8a;font-size:16px;">~11.2k</span>
+          </div>
+          <div class="kpi-tile-lbl">Pedidos/mes en full rollout</div>
+        </div>
+      </div>
+
+      <div class="vol-box">
+        <div class="vol-title">Volumen proyectado — cobertura total (Etapa 5)</div>
+        <div class="vol-row"><span>Pedidos/día útil</span><b>~511</b></div>
+        <div class="vol-row"><span>Pedidos/mes estimados</span><b>~11.200 (54% del total MLB)</b></div>
+        <div class="vol-row"><span>Reducción de costo esperada</span><b>−33% vs Cross actual</b></div>
+      </div>
+
+      <div style="background:#F0FDF4;border-radius:9px;padding:9px 12px;flex-shrink:0;border:1px solid #BBF7D0;">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#166534;margin-bottom:5px;">Segmentación del piloto</div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;gap:6px;align-items:center;font-size:10.5px;color:#374151;">
+            <span style="background:#1a4a8a;color:#fff;font-size:9px;font-weight:800;padding:1px 7px;border-radius:4px;white-space:nowrap;">FULL</span>
+            <span>Sellers <b>prioritarios</b> (Big Sellers + SMB Priority)</span>
+          </div>
+          <div style="display:flex;gap:6px;align-items:center;font-size:10.5px;color:#374151;">
+            <span style="background:#9CA3AF;color:#fff;font-size:9px;font-weight:800;padding:1px 7px;border-radius:4px;white-space:nowrap;">CONV.</span>
+            <span>SMB estándar — solo <b>convencional</b> · sin Sameday</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="sec-lbl" style="margin-top:4px;">Roadmap cross-site</div>
+      <div class="outros-box">
+        <div class="outros-title">Recambios vía Full — fechas de rollout</div>
+        <div class="outros-row">
+          <img class="outros-flag" src="https://flagcdn.com/w40/br.png">
+          <span class="outros-site">MLB</span>
+          <div class="outros-bar-wrap"><div class="outros-bar" style="width:100%;background:#16A34A;"></div></div>
+          <span class="outros-date" style="color:#16A34A;">✓ Mai/26</span>
+        </div>
+        <div class="outros-row">
+          <img class="outros-flag" src="https://flagcdn.com/w40/mx.png">
+          <span class="outros-site">MLM</span>
+          <div class="outros-bar-wrap"><div class="outros-bar" style="width:60%;background:#D97706;"></div></div>
+          <span class="outros-date">Ago/26</span>
+        </div>
+        <div class="outros-row">
+          <img class="outros-flag" src="https://flagcdn.com/w40/ar.png">
+          <span class="outros-site">MLA</span>
+          <div class="outros-bar-wrap"><div class="outros-bar" style="width:35%;background:#9CA3AF;"></div></div>
+          <span class="outros-date">Nov/26</span>
+        </div>
+        <div class="outros-row">
+          <img class="outros-flag" src="https://flagcdn.com/w40/cl.png">
+          <span class="outros-site">MLC</span>
+          <div class="outros-bar-wrap"><div class="outros-bar" style="width:25%;background:#9CA3AF;"></div></div>
+          <span class="outros-date">Dic/26</span>
+        </div>
+      </div>
+
+      <div class="plus-box">
+        <div class="plus-title">+ Otras iniciativas Full en MLB</div>
+        <div class="plus-row">
+          <b>Ventas:</b> rollout MLB ✓ en curso · MLM abr/26 ✓ · MLA ago/26 · MLC dic/26<br>
+          <b>Bonificado:</b> MLM mai/26 · MLB sep/26 · MLA/MLC nov–dic/26
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
      SLIDE IBM — Operación IBM MLC · Expansión MLM
      ============================================================ -->
 <div class="slide content-slide" id="s11b">
