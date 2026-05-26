@@ -2333,7 +2333,7 @@ html, body {
         </div>
       </div>
       <!-- Chart: barras por tipo resultado + línea LT -->
-      <div style="flex:1;min-height:0;position:relative;">
+      <div style="flex:1;min-height:155px;position:relative;">
         <canvas id="chart-ibm-mlc"></canvas>
       </div>
       <!-- Ações do técnico -->
@@ -2376,12 +2376,16 @@ html, body {
           </div>
           <div class="exp-item">
             <span class="exp-icon">🔧</span>
-            <div class="exp-item-txt">Habilitador: <b>integración API IBM</b> en MX</div>
+            <div class="exp-item-txt">Habilitador: <b>integración API IBM</b> en MX · contrato con SDX <b>pendiente de firma</b></div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">⏱️</span>
+            <div class="exp-item-txt"><b>1–2 meses</b> para cerrar integración desde la firma del contrato</div>
           </div>
         </div>
         <div class="exp-cta">
-          <div class="exp-cta-lbl">Fecha objetivo</div>
-          <div class="exp-cta-val">fin Q2 / Q3 2026</div>
+          <div class="exp-cta-lbl">Fecha objetivo tras firma SDX</div>
+          <div class="exp-cta-val">+1–2 meses · Q3 2026</div>
         </div>
       </div>
     </div>
@@ -3107,10 +3111,10 @@ function initSlide(n) {
   if (n === 6) initSlide5();
   if (n === 10) initSlide10();
   if (n === 11) initSlide9();
-  // IBM MLC chart — posição 13
-  if (n === 13) initIBMChart();
-  // Sameday chart — agora na posição 14 (após FULL e IBM)
-  if (n === 14) initSlide12();
+  // IBM MLC chart — posição 12 (canal slide deletado, deslocou)
+  if (n === 12) initIBMChart();
+  // Sameday chart — posição 13
+  if (n === 13) initSlide12();
 }
 
 // ============================================================
