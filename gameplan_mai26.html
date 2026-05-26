@@ -3130,16 +3130,18 @@ html, body {
 // State
 // ============================================================
 let current = 1;
-const TOTAL = 16;
+const ALL_SLIDES = Array.from(document.querySelectorAll('.slide'));
+const TOTAL = ALL_SLIDES.length;
 const chartInited = {};
+
+function getSlide(n) { return ALL_SLIDES[n - 1]; }
 
 function navigate(dir) {
   const next = current + dir;
   if (next < 1 || next > TOTAL) return;
-  document.getElementById('s' + current).classList.remove('active');
+  getSlide(current).classList.remove('active');
   current = next;
-  const el = document.getElementById('s' + current);
-  el.classList.add('active');
+  getSlide(current).classList.add('active');
   document.getElementById('counter').textContent = current + ' / ' + TOTAL;
   document.getElementById('btn-prev').disabled = current === 1;
   document.getElementById('btn-next').disabled = current === TOTAL;
@@ -3154,7 +3156,7 @@ document.addEventListener('keydown', function(e) {
 });
 
 // Init first slide
-document.getElementById('s1').classList.add('active');
+getSlide(1).classList.add('active');
 initSlide(1);
 
 function initSlide(n) {
@@ -3164,7 +3166,8 @@ function initSlide(n) {
   if (n === 6) initSlide5();
   if (n === 10) initSlide10();
   if (n === 11) initSlide9();
-  if (n === 12) initSlide12();
+  // Sameday chart — agora na posição 14 (após FULL e IBM)
+  if (n === 14) initSlide12();
 }
 
 // ============================================================
