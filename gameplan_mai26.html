@@ -2255,8 +2255,11 @@ html, body {
 <div class="slide content-slide" id="s11b">
   <style>
   #s11b { background:#F8FAFC; }
-  #s11b .ibm-body { flex:1; display:grid; grid-template-columns:34% 38% 28%; gap:14px; padding:6px 20px 10px; min-height:0; overflow:hidden; }
-  #s11b .ibm-col { display:flex; flex-direction:column; gap:10px; min-height:0; }
+  #s11b .ibm-body { flex:1; display:grid; grid-template-columns:30% 1px 43% 1px 27%; gap:0; padding:4px 0 8px; min-height:0; overflow:hidden; }
+  #s11b .ibm-divider { background:#E2E8F0; }
+  #s11b .ibm-col { display:flex; flex-direction:column; gap:8px; min-height:0; padding:0 16px; }
+  #s11b .ibm-col:first-child { padding-left:20px; }
+  #s11b .ibm-col:last-child { padding-right:20px; }
   #s11b .ibm-section-lbl { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.09em; color:#6B7280; display:flex; align-items:center; gap:6px; flex-shrink:0; }
   #s11b .ibm-section-lbl::after { content:''; flex:1; height:1px; background:#E2E8F0; }
   /* flow */
@@ -2313,105 +2316,107 @@ html, body {
 
   <div class="ibm-body">
 
-    <!-- COL 1: Cómo funciona -->
+    <!-- COL 1: Cómo funciona + Elegibilidad -->
     <div class="ibm-col">
       <div class="ibm-section-lbl">¿Cómo funciona?</div>
       <div class="flow-wrap">
         <div class="flow-step">
           <div class="flow-num">1</div>
-          <div class="flow-txt"><b>Seller abre solicitud</b><br>Vía Maxwell, CX o Help Portal · Motivo de falla del dispositivo</div>
+          <div class="flow-txt"><b>Seller abre solicitud</b><br>Vía Maxwell, CX o Help Portal</div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
           <div class="flow-num">2</div>
-          <div class="flow-txt"><b>Sistema identifica elegibilidad</b><br>HILO, SMB o BS → asigna técnico IBM. Longtail → flujo convencional</div>
+          <div class="flow-txt"><b>Elegibilidad</b><br>HILO/SMB/BS → IBM · Longtail → convencional</div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-step">
           <div class="flow-num">3</div>
-          <div class="flow-txt"><b>Técnico IBM visita el establecimiento</b><br>Diagnóstico presencial · Sin necesidad de envío del device</div>
+          <div class="flow-txt"><b>Técnico visita en el día</b><br>Diagnóstico presencial · sin envío</div>
         </div>
         <div class="flow-arrow">↓</div>
         <div class="flow-outcome">
           <div class="outcome-box" style="background:#F0FDF4;">
             <div class="outcome-val" style="color:#16A34A;">12%</div>
-            <div class="outcome-lbl" style="color:#166534;">Reparado ✓</div>
-            <div style="font-size:9px;color:#6B7280;">Sin recambio</div>
+            <div class="outcome-lbl" style="color:#166534;">Reparado</div>
           </div>
           <div class="outcome-box" style="background:#EFF6FF;">
             <div class="outcome-val" style="color:#1a4a8a;">77%</div>
             <div class="outcome-lbl" style="color:#1D4ED8;">Reemplazado</div>
-            <div style="font-size:9px;color:#6B7280;">Entrega nueva máq.</div>
           </div>
         </div>
       </div>
-      <div class="elig-box">
-        <div class="elig-title">Elegibilidad IBM</div>
-        <div class="elig-row"><div class="elig-dot" style="background:#16A34A;"></div><span><b>HILO, SMB, BS</b> — visita técnica IBM</span></div>
-        <div class="elig-row"><div class="elig-dot" style="background:#9CA3AF;"></div><span>Longtail — flujo convencional (envío)</span></div>
+      <!-- Leadtime comparison -->
+      <div style="background:#1a1a2e;border-radius:10px;padding:11px 13px;flex-shrink:0;">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.5);margin-bottom:8px;">Leadtime — IBM vs Convencional</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div style="background:rgba(22,163,74,.15);border-radius:8px;padding:8px 10px;border:1px solid rgba(22,163,74,.3);">
+            <div style="font-size:9px;font-weight:700;color:#4ADE80;margin-bottom:4px;">IBM (IN_PERSON)</div>
+            <div style="font-size:22px;font-weight:900;color:#4ADE80;line-height:1;">~1d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.5);margin-top:2px;">P50=0d · P80=1d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);">mismo día en mayoría</div>
+          </div>
+          <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px 10px;">
+            <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:4px;">Convencional</div>
+            <div style="font-size:22px;font-weight:900;color:#9CA3AF;line-height:1;">~5d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:2px;">P50=2d · P80=5d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);">espera de envío</div>
+          </div>
+        </div>
       </div>
     </div>
 
-    <!-- COL 2: Resultados MLC -->
+    <div class="ibm-divider"></div>
+
+    <!-- COL 2: Evolución mensual -->
     <div class="ibm-col">
-      <div class="ibm-section-lbl">Resultados MLC · abr/26</div>
-      <div class="kpi-grid">
+      <div class="ibm-section-lbl">Evolución mensual MLC — ene/26 a mai/26</div>
+      <!-- KPI row -->
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;flex-shrink:0;">
         <div class="kpi-tile">
           <div class="kpi-tile-val" style="color:#1a4a8a;">1.136</div>
-          <div class="kpi-tile-lbl">Visitas/mes</div>
-          <div class="kpi-tile-sub">abr/26</div>
+          <div class="kpi-tile-lbl">Visitas abr/26</div>
         </div>
         <div class="kpi-tile">
-          <div class="kpi-tile-val" style="color:#16A34A;">12%</div>
-          <div class="kpi-tile-lbl">Recuperados</div>
-          <div class="kpi-tile-sub">sin recambio</div>
+          <div class="kpi-tile-val" style="color:#16A34A;">~12%</div>
+          <div class="kpi-tile-lbl">Reparadas abr</div>
         </div>
         <div class="kpi-tile">
-          <div class="kpi-tile-val" style="color:#4338CA;">~34%</div>
+          <div class="kpi-tile-val" style="color:#4338CA;">34%</div>
           <div class="kpi-tile-lbl">Via Maxwell</div>
-          <div class="kpi-tile-sub">desde 05/03</div>
         </div>
       </div>
-
-      <div class="ibm-section-lbl" style="margin-top:4px;">Top motivos de visita</div>
-      <div style="flex:1;min-height:0;overflow:hidden;">
-        <div class="motivo-row">
-          <span class="motivo-lbl">No enciende / no carga</span>
-          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:100%;"></div></div>
-          <span class="motivo-pct">26%</span>
-        </div>
-        <div class="motivo-row">
-          <span class="motivo-lbl">Otros problemas</span>
-          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:74%;"></div></div>
-          <span class="motivo-pct">20%</span>
-        </div>
-        <div class="motivo-row">
-          <span class="motivo-lbl">No reconoce tarjeta</span>
-          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:50%;"></div></div>
-          <span class="motivo-pct">10%</span>
-        </div>
-        <div class="motivo-row">
-          <span class="motivo-lbl">Teclado/botón roto</span>
-          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:42%;background:#2A9D8F;"></div></div>
-          <span class="motivo-pct">7%</span>
-        </div>
-        <div class="motivo-row">
-          <span class="motivo-lbl">No imprime comprobante</span>
-          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:40%;background:#2A9D8F;"></div></div>
-          <span class="motivo-pct">7%</span>
-        </div>
-        <div class="motivo-row">
-          <span class="motivo-lbl">Chip / WiFi no funciona</span>
-          <div class="motivo-bar-wrap"><div class="motivo-bar" style="width:36%;background:#9CA3AF;"></div></div>
-          <span class="motivo-pct">6%</span>
-        </div>
+      <!-- Chart -->
+      <div style="flex:1;min-height:0;position:relative;">
+        <canvas id="chart-ibm-mlc"></canvas>
       </div>
-
-      <div style="background:#FFFBEB;border-radius:8px;padding:9px 12px;flex-shrink:0;border-left:3px solid #FFD000;">
-        <div style="font-size:9px;font-weight:800;text-transform:uppercase;color:#92400E;margin-bottom:4px;">Tendencia abr/26 vs ene/26</div>
-        <div style="font-size:11px;color:#374151;">Visitas: <b>+15%</b> · Tasa recuperación: <b>+4pp</b> (73%→77%) · Maxwell como canal: <b>+34%</b> de solicitudes</div>
+      <!-- Tabla mensual -->
+      <div style="flex-shrink:0;overflow:hidden;">
+        <table style="width:100%;border-collapse:collapse;font-size:9.5px;">
+          <thead>
+            <tr style="border-bottom:2px solid #E2E8F0;">
+              <th style="text-align:left;padding:3px 6px;color:#6B7280;font-weight:700;">Mes</th>
+              <th style="text-align:right;padding:3px 6px;color:#6B7280;font-weight:700;">Pedidos</th>
+              <th style="text-align:right;padding:3px 6px;color:#1a4a8a;font-weight:700;">Reemplaz.</th>
+              <th style="text-align:right;padding:3px 6px;color:#16A34A;font-weight:700;">Reparados</th>
+              <th style="text-align:right;padding:3px 6px;color:#E53E3E;font-weight:700;">Cancel.</th>
+              <th style="text-align:right;padding:3px 6px;color:#276749;font-weight:700;">%Rep.</th>
+              <th style="text-align:right;padding:3px 6px;color:#4ADE80;font-weight:700;">LT avg</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:3px 6px;">ene/26</td><td style="text-align:right;padding:3px 6px;">984</td><td style="text-align:right;padding:3px 6px;color:#1a4a8a;">719</td><td style="text-align:right;padding:3px 6px;color:#16A34A;">224</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">41</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#16A34A;">22,8%</td><td style="text-align:right;padding:3px 6px;color:#4ADE80;font-weight:700;">0,6d</td></tr>
+            <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:3px 6px;">feb/26</td><td style="text-align:right;padding:3px 6px;">917</td><td style="text-align:right;padding:3px 6px;color:#1a4a8a;">667</td><td style="text-align:right;padding:3px 6px;color:#16A34A;">139</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">109</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#276749;">15,2%</td><td style="text-align:right;padding:3px 6px;color:#4ADE80;font-weight:700;">0,6d</td></tr>
+            <tr style="border-bottom:1px solid #F1F5F9;"><td style="padding:3px 6px;">mar/26</td><td style="text-align:right;padding:3px 6px;">1.131</td><td style="text-align:right;padding:3px 6px;color:#1a4a8a;">850</td><td style="text-align:right;padding:3px 6px;color:#16A34A;">172</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">109</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#276749;">15,2%</td><td style="text-align:right;padding:3px 6px;color:#4ADE80;font-weight:700;">0,6d</td></tr>
+            <tr style="border-bottom:1px solid #F1F5F9;background:#F8FAFC;"><td style="padding:3px 6px;font-weight:700;">abr/26</td><td style="text-align:right;padding:3px 6px;font-weight:700;">1.136</td><td style="text-align:right;padding:3px 6px;color:#1a4a8a;font-weight:700;">878</td><td style="text-align:right;padding:3px 6px;color:#16A34A;font-weight:700;">135</td><td style="text-align:right;padding:3px 6px;color:#E53E3E;font-weight:700;">123</td><td style="text-align:right;padding:3px 6px;font-weight:700;color:#D97706;">11,9%</td><td style="text-align:right;padding:3px 6px;color:#4ADE80;font-weight:700;">0,7d</td></tr>
+            <tr><td style="padding:3px 6px;color:#9CA3AF;">mai/26*</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">891</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">693</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">81</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">116</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">9,1%</td><td style="text-align:right;padding:3px 6px;color:#9CA3AF;">0,7d</td></tr>
+          </tbody>
+        </table>
+        <div style="font-size:8.5px;color:#9CA3AF;margin-top:3px;">* mai/26 parcial hasta 22/05</div>
       </div>
     </div>
+
+    <div class="ibm-divider"></div>
 
     <!-- COL 3: Expansión MLM -->
     <div class="ibm-col">
@@ -2423,19 +2428,19 @@ html, body {
         <div class="exp-items">
           <div class="exp-item">
             <span class="exp-icon">📊</span>
-            <div class="exp-item-txt">Vol. actual MLM: <b>~9K recambios/mes</b> · 92% vía Maxwell</div>
+            <div class="exp-item-txt">Vol. MLM: <b>~9K recambios/mes</b> · 92% vía Maxwell</div>
           </div>
           <div class="exp-item">
             <span class="exp-icon">🎯</span>
-            <div class="exp-item-txt">Segmentos objetivo: <b>HILO, SMB y BS</b> — misma lógica de elegibilidad</div>
+            <div class="exp-item-txt">Seg. objetivo: <b>HILO, SMB y BS</b></div>
           </div>
           <div class="exp-item">
             <span class="exp-icon">⚡</span>
-            <div class="exp-item-txt">Impacto esperado: <b>↑ G1 MLM</b> (hoy 48%) + reducción de recambios en ~12%</div>
+            <div class="exp-item-txt">Esperado: <b>↑ G1 MLM</b> (hoy 48%) · LT mismo día · −12% recambios</div>
           </div>
           <div class="exp-item">
             <span class="exp-icon">🔧</span>
-            <div class="exp-item-txt">Habilitador: <b>integración API IBM</b> — proveedores de servicio técnico en MX</div>
+            <div class="exp-item-txt">Habilitador: <b>integración API IBM</b> en MX</div>
           </div>
         </div>
         <div class="exp-cta">
@@ -3166,8 +3171,55 @@ function initSlide(n) {
   if (n === 6) initSlide5();
   if (n === 10) initSlide10();
   if (n === 11) initSlide9();
+  // IBM MLC chart — posição 13
+  if (n === 13) initIBMChart();
   // Sameday chart — agora na posição 14 (após FULL e IBM)
   if (n === 14) initSlide12();
+}
+
+// ============================================================
+// IBM MLC CHART
+// ============================================================
+function initIBMChart() {
+  const canvas = document.getElementById('chart-ibm-mlc');
+  if (!canvas) return;
+  const wrap = canvas.parentElement;
+  canvas.width = wrap.clientWidth || 380;
+  canvas.height = wrap.clientHeight || 160;
+  const labels = ['ene/26','feb/26','mar/26','abr/26','mai/26*'];
+  const entregadas = [719, 667, 850, 878, 693];
+  const reparadas  = [224, 139, 172, 135, 81];
+  const canceladas = [41,  109, 109, 123, 116];
+  const repRate    = [22.8, 15.2, 15.2, 11.9, 9.1];
+  new Chart(canvas, {
+    type: 'bar',
+    plugins: [ChartDataLabels],
+    data: {
+      labels,
+      datasets: [
+        { label: 'Reemplazadas', data: entregadas, backgroundColor: '#93C5FD', stack: 'a', datalabels: { display: false } },
+        { label: 'Reparadas', data: reparadas, backgroundColor: '#86EFAC', stack: 'a', datalabels: { display: false } },
+        { label: 'Canceladas', data: canceladas, backgroundColor: '#E2E8F0', stack: 'a', datalabels: { display: false } },
+        { label: '% Reparadas', data: repRate, type: 'line', yAxisID: 'y2',
+          borderColor: '#16A34A', backgroundColor: 'rgba(22,163,74,.1)',
+          borderWidth: 2, pointRadius: 4, pointBackgroundColor: '#16A34A', tension: 0.3, fill: false,
+          datalabels: { anchor: 'end', align: 'top', color: '#16A34A', font: { size: 9, weight: '700' },
+            formatter: v => v.toFixed(1) + '%' } }
+      ]
+    },
+    options: {
+      responsive: false, animation: false,
+      plugins: {
+        legend: { display: true, position: 'top', labels: { font: { size: 9 }, boxWidth: 10, padding: 8 } }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 9 }, color: '#64748B' } },
+        y: { stacked: true, grid: { color: '#F1F5F9' }, ticks: { font: { size: 9 }, callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v } },
+        y2: { position: 'right', grid: { display: false }, min: 0, max: 35,
+          ticks: { font: { size: 9 }, color: '#16A34A', callback: v => v + '%' } }
+      }
+    }
+  });
 }
 
 // ============================================================
