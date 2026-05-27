@@ -2004,142 +2004,135 @@ END SLIDE REMOVIDO -->
     Recambios vía FULL — sellers <b>sin cobertura Sameday</b> · LT 7,5d → <b>3,8d</b> · recovery 40% → <b>80%</b>
   </div>
 
-  <!-- ── LAYOUT VERTICAL: Timeline → Retorno → Piloto ── -->
-  <div style="flex:1;display:flex;flex-direction:column;gap:8px;padding:6px 20px 8px;min-height:0;overflow:hidden;">
+  <!-- ── LAYOUT 2 COLUNAS: Retorno (esq) + Gantt/Rollout (dir) ── -->
+  <div style="flex:1;display:grid;grid-template-columns:26% 1fr;gap:12px;padding:6px 20px 8px;min-height:0;overflow:hidden;">
 
-    <!-- ROW 1: TIMELINE CROSS-SITE -->
-    <div style="flex-shrink:0;background:#fff;border-radius:12px;border:1px solid #E2E8F0;padding:14px 20px;box-shadow:0 1px 6px rgba(0,0,0,.05);">
-      <div class="sec-lbl" style="margin-bottom:10px;">Roadmap cross-site — Recambios vía Full</div>
-      <!-- Timeline track -->
-      <div style="position:relative;padding-top:16px;padding-bottom:8px;">
-        <!-- Line -->
-        <div style="position:absolute;top:24px;left:60px;right:20px;height:3px;background:linear-gradient(to right,#16A34A 0% 20%,#D97706 20% 45%,#CBD5E1 45% 75%,#CBD5E1 75% 100%);border-radius:2px;"></div>
-        <!-- Sites -->
-        <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;position:relative;">
-          <!-- MLB -->
-          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
-            <div style="width:22px;height:22px;border-radius:50%;background:#16A34A;border:3px solid #fff;box-shadow:0 0 0 3px #16A34A;display:flex;align-items:center;justify-content:center;z-index:1;">
-              <span style="font-size:9px;color:#fff;font-weight:900;">✓</span>
-            </div>
-            <img style="width:24px;height:24px;border-radius:50%;border:2px solid #16A34A;" src="https://flagcdn.com/w40/br.png">
-            <div style="font-size:13px;font-weight:900;color:#111827;">MLB</div>
-            <div style="font-size:11px;font-weight:800;color:#16A34A;">Jun/26</div>
-            <div style="font-size:9px;color:#6B7280;text-align:center;">Piloto 5 etapas</div>
+    <!-- COL ESQUERDA: Retorno esperado (compacto) -->
+    <div style="display:flex;flex-direction:column;gap:7px;min-height:0;">
+      <div class="sec-lbl">¿Qué esperamos?</div>
+      <!-- 2x2 tiles compactos -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;flex-shrink:0;">
+        <div style="background:#F0FDF4;border-radius:9px;border:1px solid #BBF7D0;padding:9px 10px;">
+          <div style="font-size:8px;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:2px;">Leadtime</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="font-size:10px;color:#9CA3AF;text-decoration:line-through;">7,5d</span>
+            <span style="font-size:20px;font-weight:900;color:#16A34A;line-height:1;">3,8d</span>
           </div>
-          <!-- MLM -->
-          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
-            <div style="width:22px;height:22px;border-radius:50%;background:#D97706;border:3px solid #fff;box-shadow:0 0 0 3px #D97706;z-index:1;"></div>
-            <img style="width:24px;height:24px;border-radius:50%;border:2px solid #D97706;" src="https://flagcdn.com/w40/mx.png">
-            <div style="font-size:13px;font-weight:900;color:#111827;">MLM</div>
-            <div style="font-size:11px;font-weight:800;color:#D97706;">Ago/26</div>
-            <div style="font-size:9px;color:#6B7280;text-align:center;">Discovery Fiscal</div>
+          <div style="font-size:8px;color:#6B7280;">sin Sameday</div>
+        </div>
+        <div style="background:#F0FDF4;border-radius:9px;border:1px solid #BBF7D0;padding:9px 10px;">
+          <div style="font-size:8px;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:2px;">Recovery</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="font-size:10px;color:#9CA3AF;text-decoration:line-through;">40%</span>
+            <span style="font-size:20px;font-weight:900;color:#16A34A;line-height:1;">80%</span>
           </div>
-          <!-- MLA -->
-          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
-            <div style="width:22px;height:22px;border-radius:50%;background:#CBD5E1;border:3px solid #fff;box-shadow:0 0 0 3px #CBD5E1;z-index:1;"></div>
-            <img style="width:24px;height:24px;border-radius:50%;border:2px solid #CBD5E1;" src="https://flagcdn.com/w40/ar.png">
-            <div style="font-size:13px;font-weight:900;color:#111827;">MLA</div>
-            <div style="font-size:11px;font-weight:800;color:#9CA3AF;">Nov/26</div>
-            <div style="font-size:9px;color:#6B7280;text-align:center;">Discovery Fiscal</div>
+          <div style="font-size:8px;color:#6B7280;">D+1/D+3/D+7</div>
+        </div>
+        <div style="background:#EFF6FF;border-radius:9px;border:1px solid #BFDBFE;padding:9px 10px;">
+          <div style="font-size:8px;font-weight:700;color:#1D4ED8;text-transform:uppercase;margin-bottom:2px;">Costo</div>
+          <div style="display:flex;align-items:baseline;gap:4px;">
+            <span style="font-size:10px;color:#9CA3AF;text-decoration:line-through;">$37</span>
+            <span style="font-size:20px;font-weight:900;color:#1a4a8a;line-height:1;">$25</span>
           </div>
-          <!-- MLC -->
-          <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
-            <div style="width:22px;height:22px;border-radius:50%;background:#CBD5E1;border:3px solid #fff;box-shadow:0 0 0 3px #CBD5E1;z-index:1;"></div>
-            <img style="width:24px;height:24px;border-radius:50%;border:2px solid #CBD5E1;" src="https://flagcdn.com/w40/cl.png">
-            <div style="font-size:13px;font-weight:900;color:#111827;">MLC</div>
-            <div style="font-size:11px;font-weight:800;color:#9CA3AF;">Dic/26</div>
-            <div style="font-size:9px;color:#6B7280;text-align:center;">Preparación FULL</div>
+          <div style="font-size:8px;color:#6B7280;">USD/op · −33%</div>
+        </div>
+        <div style="background:#EFF6FF;border-radius:9px;border:1px solid #BFDBFE;padding:9px 10px;">
+          <div style="font-size:8px;font-weight:700;color:#1D4ED8;text-transform:uppercase;margin-bottom:2px;">Volumen</div>
+          <div style="font-size:20px;font-weight:900;color:#1a4a8a;line-height:1;">~11k</div>
+          <div style="font-size:8px;color:#6B7280;">pedidos/mes MLB</div>
+        </div>
+      </div>
+      <!-- Segmentação compacto -->
+      <div style="background:#F8FAFC;border-radius:8px;padding:7px 10px;border:1px solid #E2E8F0;flex-shrink:0;">
+        <div style="font-size:8px;font-weight:800;text-transform:uppercase;color:#6B7280;margin-bottom:4px;">Segmentación</div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;gap:5px;align-items:center;font-size:9.5px;color:#374151;">
+            <span style="background:#1a4a8a;color:#fff;font-size:7.5px;font-weight:800;padding:1px 5px;border-radius:3px;">FULL</span>
+            <span>Sin Sameday · todos segmentos</span>
           </div>
+          <div style="display:flex;gap:5px;align-items:center;font-size:9.5px;color:#374151;">
+            <span style="background:#16A34A;color:#fff;font-size:7.5px;font-weight:800;padding:1px 5px;border-radius:3px;">SAME</span>
+            <span>Con Sameday · 1 día</span>
+          </div>
+        </div>
+      </div>
+      <!-- Otras iniciativas -->
+      <div class="plus-box" style="margin:0;flex-shrink:0;">
+        <div class="plus-title">+ Otras Full</div>
+        <div class="plus-row" style="font-size:9px;">
+          <b>Ventas:</b> MLB ✓ · MLM abr ✓ · MLA ago · MLC dic<br>
+          <b>Bonif.:</b> MLM jun · MLB sep · MLA/MLC nov–dic
         </div>
       </div>
     </div>
 
-    <!-- ROW 2: RETORNO ESPERADO MLB -->
-    <div style="flex-shrink:0;">
-      <div class="sec-lbl" style="margin-bottom:6px;">¿Qué esperamos de retorno? — MLB</div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px;">
-        <div style="background:#F0FDF4;border-radius:10px;border:1px solid #BBF7D0;padding:10px 14px;">
-          <div style="font-size:9px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px;">Leadtime</div>
-          <div style="display:flex;align-items:baseline;gap:5px;">
-            <span style="font-size:12px;font-weight:700;color:#9CA3AF;text-decoration:line-through;">7,5d</span>
-            <span style="font-size:24px;font-weight:900;color:#16A34A;line-height:1;">3,8d</span>
-          </div>
-          <div style="font-size:9px;color:#6B7280;margin-top:1px;">sin Sameday</div>
-        </div>
-        <div style="background:#F0FDF4;border-radius:10px;border:1px solid #BBF7D0;padding:10px 14px;">
-          <div style="font-size:9px;font-weight:700;color:#166534;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px;">Recovery</div>
-          <div style="display:flex;align-items:baseline;gap:5px;">
-            <span style="font-size:12px;font-weight:700;color:#9CA3AF;text-decoration:line-through;">40%</span>
-            <span style="font-size:24px;font-weight:900;color:#16A34A;line-height:1;">80%</span>
-          </div>
-          <div style="font-size:9px;color:#6B7280;margin-top:1px;">D+1/D+3/D+7</div>
-        </div>
-        <div style="background:#EFF6FF;border-radius:10px;border:1px solid #BFDBFE;padding:10px 14px;">
-          <div style="font-size:9px;font-weight:700;color:#1D4ED8;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px;">Costo blended</div>
-          <div style="display:flex;align-items:baseline;gap:5px;">
-            <span style="font-size:12px;font-weight:700;color:#9CA3AF;text-decoration:line-through;">$37</span>
-            <span style="font-size:24px;font-weight:900;color:#1a4a8a;line-height:1;">$25</span>
-          </div>
-          <div style="font-size:9px;color:#6B7280;margin-top:1px;">USD/op · −33%</div>
-        </div>
-        <div style="background:#EFF6FF;border-radius:10px;border:1px solid #BFDBFE;padding:10px 14px;">
-          <div style="font-size:9px;font-weight:700;color:#1D4ED8;text-transform:uppercase;letter-spacing:.04em;margin-bottom:3px;">Volumen MLB</div>
-          <div style="font-size:24px;font-weight:900;color:#1a4a8a;line-height:1;">~11,2k</div>
-          <div style="font-size:9px;color:#6B7280;margin-top:1px;">pedidos/mes · 54%</div>
-        </div>
-      </div>
-    </div>
-
-    <!-- ROW 3: PLANO PILOTO MLB + Segmentação + Outras -->
-    <div style="flex:1;min-height:0;display:flex;flex-direction:column;gap:6px;">
-      <div class="sec-lbl">Plan del piloto MLB — 5 etapas · rollout jun/26</div>
-      <div style="display:flex;gap:5px;align-items:stretch;height:80px;flex-shrink:0;">
-        <div style="flex:1;background:#DCFCE7;border-radius:8px;padding:8px 10px;border-left:4px solid #16A34A;display:flex;flex-direction:column;gap:2px;">
-          <div style="font-size:10px;font-weight:900;color:#16A34A;">Etapa 1</div>
-          <div style="font-size:9px;font-weight:700;color:#111827;">Maranhão · AIR 1/2</div>
-          <div style="font-size:8.5px;color:#6B7280;">~2 ped/día útil</div>
-        </div>
-        <div style="flex:1;background:#F0FDFA;border-radius:8px;padding:8px 10px;border-left:4px solid #2A9D8F;display:flex;flex-direction:column;gap:2px;">
-          <div style="font-size:10px;font-weight:900;color:#2A9D8F;">Etapa 2</div>
-          <div style="font-size:9px;font-weight:700;color:#111827;">MA + devices</div>
-          <div style="font-size:8.5px;color:#6B7280;">AIR/MINI/PRO · ~14/d</div>
-        </div>
-        <div style="flex:1.2;background:#EFF6FF;border-radius:8px;padding:8px 10px;border-left:4px solid #1a4a8a;display:flex;flex-direction:column;gap:2px;">
-          <div style="font-size:10px;font-weight:900;color:#1a4a8a;">Etapa 3</div>
-          <div style="font-size:9px;font-weight:700;color:#111827;">MA + Norte/NE</div>
-          <div style="font-size:8.5px;color:#6B7280;">RR AC AP RO TO PI · ~42/d</div>
-        </div>
-        <div style="flex:2;background:#FFFBEB;border-radius:8px;padding:8px 10px;border-left:4px solid #D97706;display:flex;flex-direction:column;gap:2px;">
-          <div style="font-size:10px;font-weight:900;color:#D97706;">Etapa 4</div>
-          <div style="font-size:9px;font-weight:700;color:#111827;">Centro-Oeste + Sul + Nordeste</div>
-          <div style="font-size:8.5px;color:#6B7280;">AL MS RN RS SC PB SE MT DF AM CE GO · ~180/d</div>
-        </div>
-        <div style="flex:2;background:#FEF2F2;border-radius:8px;padding:8px 10px;border-left:4px solid #E53E3E;display:flex;flex-direction:column;gap:2px;">
-          <div style="font-size:10px;font-weight:900;color:#E53E3E;">Etapa 5</div>
-          <div style="font-size:9px;font-weight:700;color:#111827;">Grandes estados</div>
-          <div style="font-size:8.5px;color:#6B7280;">PR ES PE PA BA MG RJ SP · <b style="color:#E53E3E;">~511/d</b></div>
-        </div>
-      </div>
-      <!-- Segmentação + Outras em linha -->
-      <div style="display:flex;gap:8px;flex-shrink:0;">
-        <div style="flex:1;background:#F8FAFC;border-radius:8px;padding:7px 12px;border:1px solid #E2E8F0;display:flex;gap:12px;align-items:center;">
-          <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#6B7280;white-space:nowrap;">Segmentación:</div>
-          <div style="display:flex;gap:10px;flex-wrap:wrap;">
-            <div style="display:flex;gap:4px;align-items:center;font-size:10px;color:#374151;">
-              <span style="background:#1a4a8a;color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:3px;">FULL</span>
-              <span>Sin Sameday · todos los segmentos</span>
+    <!-- COL DIREITA: Gantt/Timeline + Etapas -->
+    <div style="display:flex;flex-direction:column;gap:8px;min-height:0;">
+      <!-- TIMELINE GRANDE -->
+      <div style="flex:1;background:#fff;border-radius:12px;border:1px solid #E2E8F0;padding:16px 24px;box-shadow:0 2px 8px rgba(0,0,0,.06);display:flex;flex-direction:column;gap:12px;">
+        <div class="sec-lbl">Roadmap cross-site — Recambios vía Full</div>
+        <div style="position:relative;padding-top:20px;padding-bottom:4px;">
+          <div style="position:absolute;top:29px;left:70px;right:30px;height:4px;background:linear-gradient(to right,#16A34A 0% 20%,#D97706 20% 48%,#CBD5E1 48% 100%);border-radius:2px;"></div>
+          <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;position:relative;">
+            <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <div style="width:28px;height:28px;border-radius:50%;background:#16A34A;border:3px solid #fff;box-shadow:0 0 0 3px #16A34A;display:flex;align-items:center;justify-content:center;z-index:1;"><span style="font-size:12px;color:#fff;font-weight:900;">✓</span></div>
+              <img style="width:28px;height:28px;border-radius:50%;border:2px solid #16A34A;" src="https://flagcdn.com/w40/br.png">
+              <div style="font-size:16px;font-weight:900;color:#111827;">MLB</div>
+              <div style="font-size:14px;font-weight:800;color:#16A34A;">Jun/26</div>
+              <div style="font-size:10px;color:#6B7280;text-align:center;">Piloto 5 etapas</div>
             </div>
-            <div style="display:flex;gap:4px;align-items:center;font-size:10px;color:#374151;">
-              <span style="background:#16A34A;color:#fff;font-size:8px;font-weight:800;padding:1px 6px;border-radius:3px;">SAME</span>
-              <span>Con Sameday · entrega en el día</span>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:#D97706;border:3px solid #fff;box-shadow:0 0 0 3px #D97706;z-index:1;"></div>
+              <img style="width:28px;height:28px;border-radius:50%;border:2px solid #D97706;" src="https://flagcdn.com/w40/mx.png">
+              <div style="font-size:16px;font-weight:900;color:#111827;">MLM</div>
+              <div style="font-size:14px;font-weight:800;color:#D97706;">Ago/26</div>
+              <div style="font-size:10px;color:#6B7280;text-align:center;">Discovery Fiscal</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:#CBD5E1;border:3px solid #fff;box-shadow:0 0 0 3px #CBD5E1;z-index:1;"></div>
+              <img style="width:28px;height:28px;border-radius:50%;border:2px solid #CBD5E1;" src="https://flagcdn.com/w40/ar.png">
+              <div style="font-size:16px;font-weight:900;color:#111827;">MLA</div>
+              <div style="font-size:14px;font-weight:800;color:#9CA3AF;">Nov/26</div>
+              <div style="font-size:10px;color:#6B7280;text-align:center;">Discovery Fiscal</div>
+            </div>
+            <div style="display:flex;flex-direction:column;align-items:center;gap:5px;">
+              <div style="width:26px;height:26px;border-radius:50%;background:#CBD5E1;border:3px solid #fff;box-shadow:0 0 0 3px #CBD5E1;z-index:1;"></div>
+              <img style="width:28px;height:28px;border-radius:50%;border:2px solid #CBD5E1;" src="https://flagcdn.com/w40/cl.png">
+              <div style="font-size:16px;font-weight:900;color:#111827;">MLC</div>
+              <div style="font-size:14px;font-weight:800;color:#9CA3AF;">Dic/26</div>
+              <div style="font-size:10px;color:#6B7280;text-align:center;">Preparación FULL</div>
             </div>
           </div>
         </div>
-        <div class="plus-box" style="flex:1;margin:0;">
-          <div class="plus-title">+ Otras iniciativas Full</div>
-          <div class="plus-row" style="font-size:9.5px;">
-            <b>Ventas:</b> MLB ✓ · MLM abr ✓ · MLA ago/26 · MLC dic/26 &nbsp;|&nbsp;
-            <b>Bonificado:</b> MLM jun/26 · MLB sep/26 · MLA/MLC nov–dic/26
+      </div>
+      <!-- 5 ETAPAS MLB (compacto) -->
+      <div style="flex-shrink:0;">
+        <div class="sec-lbl" style="margin-bottom:5px;">Plan piloto MLB — 5 etapas · rollout jun/26</div>
+        <div style="display:flex;gap:5px;height:70px;">
+          <div style="flex:1;background:#DCFCE7;border-radius:7px;padding:7px 8px;border-left:3px solid #16A34A;">
+            <div style="font-size:9px;font-weight:900;color:#16A34A;">E1</div>
+            <div style="font-size:8.5px;font-weight:700;color:#111827;">MA · AIR</div>
+            <div style="font-size:8px;color:#6B7280;">~2/d</div>
+          </div>
+          <div style="flex:1;background:#F0FDFA;border-radius:7px;padding:7px 8px;border-left:3px solid #2A9D8F;">
+            <div style="font-size:9px;font-weight:900;color:#2A9D8F;">E2</div>
+            <div style="font-size:8.5px;font-weight:700;color:#111827;">MA+devices</div>
+            <div style="font-size:8px;color:#6B7280;">~14/d</div>
+          </div>
+          <div style="flex:1.2;background:#EFF6FF;border-radius:7px;padding:7px 8px;border-left:3px solid #1a4a8a;">
+            <div style="font-size:9px;font-weight:900;color:#1a4a8a;">E3</div>
+            <div style="font-size:8.5px;font-weight:700;color:#111827;">Norte/NE</div>
+            <div style="font-size:8px;color:#6B7280;">~42/d</div>
+          </div>
+          <div style="flex:2;background:#FFFBEB;border-radius:7px;padding:7px 8px;border-left:3px solid #D97706;">
+            <div style="font-size:9px;font-weight:900;color:#D97706;">E4</div>
+            <div style="font-size:8.5px;font-weight:700;color:#111827;">Centro-Oeste+Sul+NE</div>
+            <div style="font-size:8px;color:#6B7280;">AL MS RN RS SC... · ~180/d</div>
+          </div>
+          <div style="flex:2;background:#FEF2F2;border-radius:7px;padding:7px 8px;border-left:3px solid #E53E3E;">
+            <div style="font-size:9px;font-weight:900;color:#E53E3E;">E5</div>
+            <div style="font-size:8.5px;font-weight:700;color:#111827;">Grandes estados</div>
+            <div style="font-size:8px;color:#6B7280;">PR ES PE PA BA MG RJ SP · <b style="color:#E53E3E;">~511/d</b></div>
           </div>
         </div>
       </div>
