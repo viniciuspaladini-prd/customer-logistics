@@ -1579,19 +1579,138 @@ END SLIDE REMOVIDO -->
       </div>
     </div>
 
-    <div class="mx-sec-lbl">Conversaciones Maxwell → Recambio % · evolución mensual</div>
-    <div style="background:#fff;border-radius:10px;border:1px solid #E2E8F0;padding:10px 14px 6px;flex-shrink:0;">
-      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:4px;">
-        <div style="font-size:9px;color:#6B7280;">% de conversaciones Point que resultan en pedido de recambio · nov/25 → abr/26</div>
-        <div style="display:flex;gap:12px;">
-          <span style="font-size:9px;font-weight:700;color:#1a4a8a;">■ MLB</span>
-          <span style="font-size:9px;font-weight:700;color:#E53E3E;">■ MLA</span>
-          <span style="font-size:9px;font-weight:700;color:#D97706;">■ MLM</span>
-          <span style="font-size:9px;font-weight:700;color:#2A9D8F;">■ MLC</span>
+    <div class="mx-sec-lbl">Conversaciones Maxwell → Recambio % · impacto de las implementaciones</div>
+    <div style="background:#fff;border-radius:10px;border:1px solid #E2E8F0;padding:10px 16px 10px;flex-shrink:0;">
+      <div style="font-size:9px;color:#6B7280;margin-bottom:8px;">% de conversaciones Point que resultan en pedido de recambio · línea base (nov/25) vs abr/26</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:12px;">
+        <!-- MLB -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/br.png">
+            <span style="font-size:11px;font-weight:800;color:#1a4a8a;">MLB</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−11,2pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#DBEAFE;border-radius:3px;position:relative;">
+                <div style="width:100%;height:100%;background:#93C5FD;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#1D4ED8;">20,4%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">ene/26</span>
+              <div style="flex:1;height:12px;background:#DBEAFE;border-radius:3px;position:relative;">
+                <div style="width:90%;height:100%;background:#93C5FD;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#1D4ED8;">18,3%</span>
+              </div>
+            </div>
+            <div style="font-size:8px;color:#16A34A;font-weight:700;padding:1px 0;">↓ Política jan/26</div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:45%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">9,2%</span>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div style="position:relative;height:90px;">
-        <canvas id="chart-conv-rec"></canvas>
+        <!-- MLA -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/ar.png">
+            <span style="font-size:11px;font-weight:800;color:#E53E3E;">MLA</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−13,8pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#FEE2E2;border-radius:3px;position:relative;">
+                <div style="width:83%;height:100%;background:#FCA5A5;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#DC2626;">26,8%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">feb/26</span>
+              <div style="flex:1;height:12px;background:#FEE2E2;border-radius:3px;position:relative;">
+                <div style="width:100%;height:100%;background:#F87171;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#DC2626;">32,7%</span>
+              </div>
+            </div>
+            <div style="font-size:8px;color:#16A34A;font-weight:700;padding:1px 0;">↓ Política mar/26</div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:40%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">13,1%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MLM -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/mx.png">
+            <span style="font-size:11px;font-weight:800;color:#D97706;">MLM</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−16,7pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#FEF3C7;border-radius:3px;position:relative;">
+                <div style="width:94%;height:100%;background:#FCD34D;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#D97706;">30,1%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">ene/26</span>
+              <div style="flex:1;height:12px;background:#FEF3C7;border-radius:3px;position:relative;">
+                <div style="width:94%;height:100%;background:#FCD34D;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#D97706;">30,1%</span>
+              </div>
+            </div>
+            <div style="font-size:8px;color:#16A34A;font-weight:700;padding:1px 0;">↓ Escala conversas +115%</div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:42%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">13,4%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MLC -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/cl.png">
+            <span style="font-size:11px;font-weight:800;color:#2A9D8F;">MLC</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−2,9pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#CCFBF1;border-radius:3px;position:relative;">
+                <div style="width:28%;height:100%;background:#5EEAD4;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#0D9488;">8,9%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">ene/26</span>
+              <div style="flex:1;height:12px;background:#CCFBF1;border-radius:3px;position:relative;">
+                <div style="width:41%;height:100%;background:#5EEAD4;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#0D9488;">13,3%</span>
+              </div>
+            </div>
+            <div style="font-size:8px;color:#9CA3AF;font-weight:700;padding:1px 0;">Sin barrera activa en abr/26</div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:18%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">5,9%</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
