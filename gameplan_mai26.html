@@ -1338,8 +1338,8 @@ END SLIDE REMOVIDO -->
                 <span class="s7-metric-val">33%</span>
               </div>
               <div class="s7-metric-row">
-                <span class="s7-metric-lbl">CSAT</span>
-                <span class="s7-metric-val">45,5%</span>
+                <span class="s7-metric-lbl">CSAT Maxwell</span>
+                <span class="s7-metric-val">4,12 <span class="s7-metric-mom" style="color:#9CA3AF;">(abr/26)</span></span>
               </div>
             </div>
             <div class="s7-post">
@@ -1374,8 +1374,8 @@ END SLIDE REMOVIDO -->
                 <span class="s7-metric-val">36,4% <span class="s7-metric-mom" style="color:#C53030;">(-1,5pp MoM)</span></span>
               </div>
               <div class="s7-metric-row">
-                <span class="s7-metric-lbl">CSAT</span>
-                <span class="s7-metric-val">43,3% <span class="s7-metric-mom" style="color:#C53030;">(-2,5pp MoM)</span></span>
+                <span class="s7-metric-lbl">CSAT Maxwell</span>
+                <span class="s7-metric-val">3,89 <span class="s7-metric-mom" style="color:#9CA3AF;">(abr/26)</span></span>
               </div>
             </div>
             <div class="s7-post">
@@ -2325,7 +2325,7 @@ END SLIDE REMOVIDO -->
           </div>
           <div class="exp-item">
             <span class="exp-icon">🎯</span>
-            <div class="exp-item-txt">Seg. objetivo: <b>HILO, SMB y BS</b></div>
+            <div class="exp-item-txt">Seg. inicial: <b>SMB y BS</b> · HILO en expansión posterior</div>
           </div>
           <div class="exp-item">
             <span class="exp-icon">⚡</span>
@@ -2853,9 +2853,18 @@ function initIBMChart() {
     data: {
       labels,
       datasets: [
-        { label: 'Sustituido', data: trocados,   backgroundColor: '#93C5FD', stack: 'a', datalabels: { display: false } },
-        { label: 'Salvado',    data: salvados,   backgroundColor: '#86EFAC', stack: 'a', datalabels: { display: false } },
-        { label: 'Cancelado',  data: cancelados, backgroundColor: '#E2E8F0', stack: 'a', datalabels: { display: false } },
+        { label: 'Sustituido', data: trocados, backgroundColor: '#93C5FD', stack: 'a',
+          datalabels: { display: true, anchor: 'center', align: 'center', color: '#1D4ED8',
+            font: { size: 9, weight: '700' },
+            formatter: (v, ctx) => { const t = totales[ctx.dataIndex]; return t > 0 && v/t > 0.05 ? Math.round(v/t*100)+'%' : ''; } } },
+        { label: 'Salvado', data: salvados, backgroundColor: '#86EFAC', stack: 'a',
+          datalabels: { display: true, anchor: 'center', align: 'center', color: '#166534',
+            font: { size: 9, weight: '700' },
+            formatter: (v, ctx) => { const t = totales[ctx.dataIndex]; return t > 0 && v/t > 0.04 ? Math.round(v/t*100)+'%' : ''; } } },
+        { label: 'Cancelado', data: cancelados, backgroundColor: '#E2E8F0', stack: 'a',
+          datalabels: { display: true, anchor: 'center', align: 'center', color: '#6B7280',
+            font: { size: 9, weight: '700' },
+            formatter: (v, ctx) => { const t = totales[ctx.dataIndex]; return t > 0 && v/t > 0.04 ? Math.round(v/t*100)+'%' : ''; } } },
         { label: 'LT medio (d)', data: ltAvg, type: 'line', yAxisID: 'y2',
           borderColor: '#16A34A', backgroundColor: 'transparent',
           borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#16A34A', tension: 0.2, fill: false,
@@ -2868,7 +2877,7 @@ function initIBMChart() {
     options: {
       responsive: false, animation: false,
       plugins: {
-        legend: { display: true, position: 'top', labels: { font: { size: 9 }, boxWidth: 10, padding: 6 } }
+        legend: { display: true, position: 'bottom', labels: { font: { size: 9 }, boxWidth: 10, padding: 8 } }
       },
       scales: {
         x: { stacked: true, grid: { display: false }, ticks: { font: { size: 9 }, color: '#64748B' } },
