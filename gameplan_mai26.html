@@ -407,6 +407,8 @@ html, body {
   line-height: 1.45;
   flex-shrink: 0;
 }
+.sec-lbl { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#374151; display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.sec-lbl::after { content:''; flex:1; height:1px; background:#E2E8F0; }
 .site-conclusion .alert { color: #C53030; font-weight: 700; }
 .site-conclusion .ok    { color: #276749; font-weight: 700; }
 .site-conclusion .warn  { color: #C05621; font-weight: 700; }
@@ -2063,8 +2065,9 @@ END SLIDE REMOVIDO -->
 
     <!-- COL 1: G1 por etapa -->
     <div style="display:flex;flex-direction:column;gap:6px;padding-right:14px;min-height:0;">
-      <div class="sec-lbl">Longtail G1 &lt;48h · hoy → por etapa FULL</div>
-      <div style="display:flex;flex-direction:column;gap:4px;flex:1;">
+      <div class="sec-lbl">Longtail G1 &lt;48h — acumulado por etapa FULL</div>
+      <div style="display:flex;flex-direction:column;gap:5px;flex:1;">
+        <!-- HOY baseline -->
         <div style="display:flex;align-items:center;gap:6px;">
           <span style="font-size:8.5px;font-weight:800;color:#E53E3E;width:44px;flex-shrink:0;">HOY</span>
           <div style="flex:1;height:14px;background:#FEE2E2;border-radius:4px;position:relative;">
@@ -2073,32 +2076,36 @@ END SLIDE REMOVIDO -->
           </div>
         </div>
         <div style="height:1px;background:#E2E8F0;margin:1px 0;"></div>
+        <!-- E1-E2: +3% vol, cumulativo ~28% -->
         <div style="display:flex;align-items:center;gap:6px;">
-          <span style="font-size:8.5px;font-weight:800;color:#16A34A;width:44px;flex-shrink:0;">E1–E2</span>
-          <div style="flex:1;height:16px;background:#DCFCE7;border-radius:4px;position:relative;">
-            <div style="width:92%;height:100%;background:#4ADE80;border-radius:4px;"></div>
-            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#166534;">92% · Maranhão</span>
+          <span style="font-size:8.5px;font-weight:800;color:#86EFAC;width:44px;flex-shrink:0;">E1–E2</span>
+          <div style="flex:1;height:15px;background:#F0FDF4;border-radius:4px;position:relative;">
+            <div style="width:28%;height:100%;background:#86EFAC;border-radius:4px;"></div>
+            <span style="position:absolute;left:30%;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#16A34A;">~28% <span style="font-size:8px;color:#9CA3AF;">MA ≈3% vol</span></span>
           </div>
         </div>
+        <!-- E3: +5% vol, cumulativo ~31% -->
         <div style="display:flex;align-items:center;gap:6px;">
-          <span style="font-size:8.5px;font-weight:800;color:#D97706;width:44px;flex-shrink:0;">E3</span>
-          <div style="flex:1;height:16px;background:#FEF3C7;border-radius:4px;position:relative;">
-            <div style="width:80%;height:100%;background:#FCD34D;border-radius:4px;"></div>
-            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#92400E;">~80% · + Norte</span>
+          <span style="font-size:8.5px;font-weight:800;color:#4ADE80;width:44px;flex-shrink:0;">E3</span>
+          <div style="flex:1;height:15px;background:#DCFCE7;border-radius:4px;position:relative;">
+            <div style="width:31%;height:100%;background:#4ADE80;border-radius:4px;"></div>
+            <span style="position:absolute;left:33%;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#166534;">~31% <span style="font-size:8px;color:#9CA3AF;">+Norte ≈8% vol</span></span>
           </div>
         </div>
+        <!-- E4: +27% vol, cumulativo ~52% -->
         <div style="display:flex;align-items:center;gap:6px;">
           <span style="font-size:8.5px;font-weight:800;color:#16A34A;width:44px;flex-shrink:0;">E4</span>
           <div style="flex:1;height:16px;background:#DCFCE7;border-radius:4px;position:relative;">
-            <div style="width:95%;height:100%;background:#22C55E;border-radius:4px;"></div>
-            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#166534;">95% · Central+Sul</span>
+            <div style="width:52%;height:100%;background:#22C55E;border-radius:4px;"></div>
+            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#fff;">~52% <span style="font-size:8px;">+Central+Sul ≈35% vol</span></span>
           </div>
         </div>
+        <!-- E5: 100% vol, cumulativo ~93% -->
         <div style="display:flex;align-items:center;gap:6px;">
           <span style="font-size:8.5px;font-weight:800;color:#1a4a8a;width:44px;flex-shrink:0;">E5</span>
           <div style="flex:1;height:18px;background:#EFF6FF;border-radius:4px;position:relative;border:1.5px solid #1a4a8a;">
-            <div style="width:97%;height:100%;background:#1a4a8a;border-radius:3px;"></div>
-            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:10px;font-weight:900;color:#fff;">~97% · SP RJ MG BA+</span>
+            <div style="width:93%;height:100%;background:#1a4a8a;border-radius:3px;"></div>
+            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:10px;font-weight:900;color:#fff;">~93% · +SP RJ MG BA PR <span style="font-size:8px;">≈100% vol</span></span>
           </div>
         </div>
         <div style="background:#F0FDF4;border-radius:7px;padding:6px 10px;margin-top:2px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
