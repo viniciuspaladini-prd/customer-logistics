@@ -1605,7 +1605,7 @@ END SLIDE REMOVIDO -->
                 <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#1D4ED8;">18,3%</span>
               </div>
             </div>
-            <div style="font-size:8px;color:#16A34A;font-weight:700;padding:1px 0;">↓ Política activa oct/25 + Maxwell ene/26</div>
+            <div style="font-size:8px;color:#16A34A;font-weight:700;padding:1px 0;">↓ Maxwell ene/26 + segmentación abr/26</div>
             <div style="display:flex;align-items:center;gap:5px;">
               <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
               <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
@@ -1748,48 +1748,59 @@ END SLIDE REMOVIDO -->
           <span class="mx-wip-badge" style="background:#EDE9FE;color:#7C3AED;">Objetivo: −20%+ contactos CX</span>
           <span style="font-size:9px;color:#6B7280;margin-left:auto;white-space:nowrap;">MLA · MLB · MLC · MLM · A910 · N950 · POS · mPOS</span>
         </div>
-        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:8px 12px;">
-          <div style="display:flex;gap:6px;align-items:flex-start;">
-            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">1</div>
-            <div>
-              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">No enciende</div>
-              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Analiza batería, días sin conexión y habilita troca según site</div>
+        <!-- Intro explicativo -->
+        <div style="padding:6px 12px 4px;border-bottom:1px solid #EDE9FE;font-size:9px;color:#4B5563;line-height:1.5;">
+          <b style="color:#7C3AED;">¿Qué son?</b> Flujos de diagnóstico guiado que Maxwell ejecuta <b>antes de abrir un recambio</b>. Consultan datos reales del dispositivo vía PTM para resolver el problema en el chat — sin escalar a CX ni crear ticket de recambio.
+        </div>
+        <!-- 6 árboles con campos PTM -->
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:6px 12px 8px;">
+          <!-- 1 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">No enciende</span>
             </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;">Última fecha conexión · nivel de batería · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">is_Alive</code> (SMART) · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">BATTERY_INEFF_FLAG</code></div>
           </div>
-          <div style="display:flex;gap:6px;align-items:flex-start;">
-            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">2</div>
-            <div>
-              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">No conecta carrier (SIM)</div>
-              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Revisa estado SIM (suspendida/cancelada/activa), historial y troca</div>
+          <!-- 2 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">No conecta SIM</span>
             </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;">Estado SIM (suspendida/cancelada/activa) · historial de conexiones al carrier · dispositivos cercanos con mejor señal</div>
           </div>
-          <div style="display:flex;gap:6px;align-items:flex-start;">
-            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">3</div>
-            <div>
-              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">Mensajes de error</div>
-              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Tamper/irreversibles, pantalla en blanco, problemas de firmware</div>
+          <!-- 3 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">Mensajes de error</span>
             </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">FIRMWARE_VERSION</code> vs. esperada · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">INIT_COUNT_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">BLACKLIST_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">is_Alive</code></div>
           </div>
-          <div style="display:flex;gap:6px;align-items:flex-start;">
-            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">4</div>
-            <div>
-              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">Cobro rechazado</div>
-              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Alto riesgo, fondos insuficientes, VALERA no registrado u otro</div>
+          <!-- 4 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">Cobro rechazado</span>
             </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">payment_result.status_detail</code> del último cobro · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">VALERA_NOT_REGISTERED</code></div>
           </div>
-          <div style="display:flex;gap:6px;align-items:flex-start;">
-            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">5</div>
-            <div>
-              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">Señal / cobros lentos</div>
-              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Analiza SIM o WiFi, proximidad de cobertura e intermitencia</div>
+          <!-- 5 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">5</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">Señal / cobros lentos</span>
             </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">SIM_USER</code> / <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">WIFI_USER</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">DISPLACEMENT_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">PTIME_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">API_ERROR_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">SIM_CONNECTIVITY</code></div>
           </div>
-          <div style="display:flex;gap:6px;align-items:flex-start;">
-            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">6</div>
-            <div>
-              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">No funciona / congela</div>
-              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Firmware pendiente, tipo de device, guía reinicio o troca</div>
+          <!-- 6 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">6</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">No funciona / congela</span>
             </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">FIRMWARE_VERSION</code> + módulos vs. esperada · PTM: ¿device conectado? · SIM card (si no hay WiFi) · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">is_Alive</code> (SMART)</div>
           </div>
         </div>
       </div>
