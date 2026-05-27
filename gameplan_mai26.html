@@ -3083,26 +3083,49 @@ function initIBMChart() {
   canvas.width = wrap.clientWidth || 380;
   canvas.height = wrap.clientHeight || 160;
   const labels    = ['ene/26','feb/26','mar/26','abr/26','mai/26*'];
-  const trocados  = [719, 667, 850, 878, 693];   // SHIPPING_DELIVERED
-  const salvados  = [224, 139, 172, 135, 81];    // EXCHANGE_DISMISSED (NFF + reparos)
+  const trocados  = [719, 667, 850, 878, 693];
+  const salvados  = [224, 139, 172, 135, 81];
   const cancelados= [41,  109, 109, 123, 116];
-  const ltAvg     = [0.6, 0.6, 0.6, 0.7, 0.7];  // avg leadtime dias
+  const ltAvg     = [0.6, 0.6, 0.6, 0.7, 0.7];
+  const totales   = trocados.map((v,i) => v + salvados[i] + cancelados[i]);
+  // [984, 915, 1131, 1136, 890]
+
+  // Plugin: total acima de cada coluna
+  const totalPlugin = {
+    id: 'ibmTotal',
+    afterDatasetsDraw(chart) {
+      const {ctx, scales: {x, y}} = chart;
+      if (!x || !y) return;
+      ctx.save();
+      ctx.font = '800 10px "Segoe UI",sans-serif';
+      ctx.fillStyle = '#1a1a2e';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      totales.forEach((t, i) => {
+        const px = x.getPixelForValue(i);
+        const py = y.getPixelForValue(t) - 4;
+        ctx.fillText(t.toLocaleString('pt-BR'), px, py);
+      });
+      ctx.restore();
+    }
+  };
+
   new Chart(canvas, {
     type: 'bar',
-    plugins: [ChartDataLabels],
+    plugins: [ChartDataLabels, totalPlugin],
     data: {
       labels,
       datasets: [
         { label: 'Sustituido', data: trocados,   backgroundColor: '#93C5FD', stack: 'a', datalabels: { display: false } },
-        { label: 'Salvado',    data: salvados,   backgroundColor: '#86EFAC', stack: 'a',
-          datalabels: { display: true, anchor: 'end', align: 'top', color: '#16A34A',
-            font: { size: 8, weight: '700' }, formatter: v => v > 0 ? v : '' } },
+        { label: 'Salvado',    data: salvados,   backgroundColor: '#86EFAC', stack: 'a', datalabels: { display: false } },
         { label: 'Cancelado',  data: cancelados, backgroundColor: '#E2E8F0', stack: 'a', datalabels: { display: false } },
         { label: 'LT medio (d)', data: ltAvg, type: 'line', yAxisID: 'y2',
-          borderColor: '#4ADE80', backgroundColor: 'transparent',
-          borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#4ADE80', tension: 0.2, fill: false,
-          datalabels: { anchor: 'end', align: 'top', color: '#059669', font: { size: 9, weight: '800' },
-            formatter: v => v.toFixed(1) + 'd' } }
+          borderColor: '#16A34A', backgroundColor: 'transparent',
+          borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#16A34A', tension: 0.2, fill: false,
+          datalabels: { anchor: 'end', align: 'top', color: '#059669',
+            font: { size: 10, weight: '900' },
+            formatter: v => v.toFixed(1) + 'd',
+            offset: 4 } }
       ]
     },
     options: {
@@ -3112,10 +3135,10 @@ function initIBMChart() {
       },
       scales: {
         x: { stacked: true, grid: { display: false }, ticks: { font: { size: 9 }, color: '#64748B' } },
-        y: { stacked: true, grid: { color: '#F1F5F9' },
+        y: { stacked: true, grid: { color: '#F1F5F9' }, max: 1600,
           ticks: { font: { size: 9 }, callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v } },
-        y2: { position: 'right', grid: { display: false }, min: 0.4, max: 1.0,
-          display: false }
+        y2: { position: 'right', grid: { display: false },
+          min: -1.5, max: 0.75, display: false }
       }
     }
   });
