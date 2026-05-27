@@ -3136,7 +3136,7 @@ function initIBMChart() {
       scales: {
         x: { stacked: true, grid: { display: false }, ticks: { font: { size: 9 }, color: '#64748B' } },
         y: { stacked: true, grid: { color: '#F1F5F9' }, max: 1600,
-          ticks: { font: { size: 9 }, callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v } },
+          display: false },
         y2: { position: 'right', grid: { display: false },
           min: -1.5, max: 0.75, display: false }
       }
