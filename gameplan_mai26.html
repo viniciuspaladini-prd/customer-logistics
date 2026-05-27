@@ -1714,32 +1714,10 @@ END SLIDE REMOVIDO -->
       </div>
     </div>
 
-    <div class="mx-sec-lbl">Oportunidades prioritarias</div>
-    <div class="mx-cards">
-      <!-- OPP 1 — Diagnóstico guiado -->
-      <div class="mx-card">
-        <div class="mx-card-hdr">
-          <div class="mx-pnum p1">1</div>
-          <div>
-            <div class="mx-card-ttl">Diagnóstico guiado — "No enciende"</div>
-            <div class="mx-card-site">MLB · motivo #1 · 48% del volumen total</div>
-          </div>
-        </div>
-        <div class="mx-card-body">
-          <div class="mx-bigstat">
-            <div class="mx-bigstat-val red">~11.200</div>
-            <div class="mx-bigstat-lbl">solicitudes/mes · estable hace 6 meses</div>
-          </div>
-          <div class="mx-sstat">Promedio ene–mar/26: <b>11.177 · 11.506 · 11.024</b></div>
-          <div class="mx-insight alert">Diagnóstico (reinicio, carga) <b>antes de habilitar la solicitud</b>. Est.: 20% de los casos resolubles sin cambio.</div>
-        </div>
-        <div class="mx-card-foot">
-          <div><div class="mx-impact-val">−2.200/mes</div><div class="mx-impact-lbl">estimación de reducción</div></div>
-          <div class="mx-pill danger">Fricción en el flujo</div>
-        </div>
-      </div>
+    <div class="mx-sec-lbl">Árboles de Decisión · Entregables</div>
+    <div class="mx-cards" style="grid-template-columns:55% 1fr;">
 
-      <!-- Bloco "Em construção com PTM" -->
+      <!-- ÁRBOLES (esquerda) -->
       <!-- ÁRBOLES DE DECISIÓN -->
       <div class="mx-wip-card" style="border-color:#7C3AED;background:#FAFAFF;">
         <div class="mx-wip-hdr" style="background:linear-gradient(90deg,#EDE9FE,#F5F3FF);">
@@ -1804,133 +1782,50 @@ END SLIDE REMOVIDO -->
           </div>
         </div>
       </div>
-    </div>
 
-    <div class="mx-sec-lbl" style="margin-top:8px;">Roadmap de entregables</div>
-    <div class="mx-tl-wrap">
-      <div class="mx-tl-row">
-        <div class="mx-tl-item">
-          <div class="mx-tl-dot done">✓</div>
-          <div class="mx-tl-card done">
-            <div class="mx-tl-date done">16 Ene 2026</div>
-            <span class="mx-tl-tag done">Entregado</span>
-            <ul class="mx-tl-items">
-              <li>Flujo de solicitud de cambio en Maxwell</li>
-              <li>Negativa de política al abrir solicitud</li>
-            </ul>
-            <div class="mx-tl-impact">
-              <div><div class="mx-tl-impact-val done">7.529 bloqueos/mes</div><div class="mx-tl-impact-lbl">MLB · mar/26 · resultado real</div></div>
-              <span class="mx-tl-badge real">Real</span>
-            </div>
-            <div style="margin-top:5px;display:flex;gap:4px;flex-wrap:wrap;">
-              <div style="flex:1;background:#F0FFF4;border-radius:5px;padding:3px 6px;display:flex;align-items:center;gap:4px;">
-                <span style="color:#276749;font-size:10px;font-weight:900;">↓ −4pp</span>
-                <span style="font-size:8px;color:#4B5563;">abandono</span>
-              </div>
-              <div style="flex:1;background:#EFF6FF;border-radius:5px;padding:3px 6px;display:flex;align-items:center;gap:4px;">
-                <span style="color:#1a4a8a;font-size:10px;font-weight:900;">↑ 153K</span>
-                <span style="font-size:8px;color:#4B5563;">TPV/mes</span>
-              </div>
-              <div style="flex:1;background:#F0FFF4;border-radius:5px;padding:3px 6px;display:flex;align-items:center;gap:4px;">
-                <span style="color:#276749;font-size:10px;font-weight:900;">↑ +6,4%</span>
-                <span style="font-size:8px;color:#4B5563;">CSAT 4,13</span>
-              </div>
-            </div>
-          </div>
+      <!-- ENTREGABLES — timeline vertical (direita) -->
+      <div style="background:#fff;border-radius:10px;border:1px solid #E2E8F0;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:8px 12px;border-bottom:1px solid #E2E8F0;background:#F8FAFC;display:flex;align-items:center;gap:7px;">
+          <span style="font-size:11px;">📋</span>
+          <span style="font-size:10.5px;font-weight:800;color:#1a1a2e;">Entregables Maxwell</span>
         </div>
-        <div class="mx-tl-item">
-          <div class="mx-tl-dot done">✓</div>
-          <div class="mx-tl-card done">
-            <div class="mx-tl-date done">29 Ene 2026</div>
-            <span class="mx-tl-tag done">Entregado</span>
-            <ul class="mx-tl-items">
-              <li>Tool <em>get-device-details</em>: descarga profunda</li>
-              <li>Limpieza de datos innecesarios</li>
-            </ul>
-            <div class="mx-tl-impact">
-              <div><div class="mx-tl-impact-val done">Habilitador</div><div class="mx-tl-impact-lbl">base para diagnóstico guiado</div></div>
-              <span class="mx-tl-badge real">Real</span>
-            </div>
+        <div style="flex:1;overflow:hidden;padding:8px 12px;display:flex;flex-direction:column;gap:0;position:relative;">
+          <!-- line -->
+          <div style="position:absolute;left:20px;top:16px;bottom:16px;width:2px;background:#E2E8F0;"></div>
+          <!-- items -->
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">16 Ene · Flujo recambio + política</div><div style="font-size:8px;color:#6B7280;">7.960 bloq/mes · −4pp abandono · ↑153K TPV</div></div>
           </div>
-        </div>
-        <div class="mx-tl-item">
-          <div class="mx-tl-dot done">✓</div>
-          <div class="mx-tl-card done">
-            <div class="mx-tl-date done">05 Mar 2026</div>
-            <span class="mx-tl-tag done">Entregado</span>
-            <ul class="mx-tl-items">
-              <li>Pedidos de visita presencial IBM desde Maxwell <span style="background:#EEF2FF;color:#4338CA;font-size:7.5px;font-weight:800;border-radius:3px;padding:1px 4px;vertical-align:middle;">MLC</span></li>
-            </ul>
-            <div class="mx-tl-impact">
-              <div><div class="mx-tl-impact-val done">Reduce CR</div><div class="mx-tl-impact-lbl">visitas IBM vía Maxwell · MLC</div></div>
-              <span class="mx-tl-badge real">Real</span>
-            </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">29 Ene · Tool get-device-details</div><div style="font-size:8px;color:#6B7280;">Habilitador: descarga profunda + datos PTM</div></div>
           </div>
-        </div>
-        <div class="mx-tl-item">
-          <div class="mx-tl-dot done">✓</div>
-          <div class="mx-tl-card done">
-            <div class="mx-tl-date done">14 Abr 2026</div>
-            <span class="mx-tl-tag done">Entregado</span>
-            <ul class="mx-tl-items">
-              <li>Cambio de dirección por el chat</li>
-            </ul>
-            <div class="mx-tl-impact">
-              <div><div class="mx-tl-impact-val done">Habilitador</div><div class="mx-tl-impact-lbl">dirección vía chat en Maxwell</div></div>
-              <span class="mx-tl-badge real">Real</span>
-            </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">05 Mar · IBM Maxwell MLC <span style="background:#EEF2FF;color:#4338CA;font-size:7px;font-weight:800;border-radius:3px;padding:1px 4px;">MLC</span></div><div style="font-size:8px;color:#6B7280;">1.136 visitas/mes · 12% salvados · 34% vía Maxwell</div></div>
           </div>
-        </div>
-        <div class="mx-tl-item">
-          <div class="mx-tl-dot done">✓</div>
-          <div class="mx-tl-card done">
-            <div class="mx-tl-date done">16 Abr 2026</div>
-            <span class="mx-tl-tag done">Entregado</span>
-            <ul class="mx-tl-items">
-              <li>Tool de segmentación por perfil</li>
-            </ul>
-            <div class="mx-tl-impact">
-              <div><div class="mx-tl-impact-val done">Reduce abandono</div><div class="mx-tl-impact-lbl">segmentación filtra no elegibles</div></div>
-              <span class="mx-tl-badge real">Real</span>
-            </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">14 Abr · Cambio de dirección chat</div><div style="font-size:8px;color:#6B7280;">Habilitador: dirección vía Maxwell</div></div>
           </div>
-        </div>
-        <div class="mx-tl-item">
-          <div class="mx-tl-dot done">✓</div>
-          <div class="mx-tl-card done">
-            <div class="mx-tl-date done">23 Abr 2026</div>
-            <span class="mx-tl-tag done">Entregado</span>
-            <ul class="mx-tl-items">
-              <li>PTM: WiFi → SIM card</li>
-              <li>PTM: registro para vouchers</li>
-            </ul>
-            <div class="mx-tl-impact">
-              <div><div class="mx-tl-impact-val done">Habilitador</div><div class="mx-tl-impact-lbl">desvío pre-solicitud vía PTM</div></div>
-              <span class="mx-tl-badge real">Real</span>
-            </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">16 Abr · Segmentación por perfil</div><div style="font-size:8px;color:#6B7280;">Reduce abandono · filtra inelegibles</div></div>
           </div>
-        </div>
-        <div class="mx-tl-item">
-          <div class="mx-tl-dot disc">?</div>
-          <div class="mx-tl-card disc">
-            <div class="mx-tl-date disc">Q2 2026 — En discusión</div>
-            <span class="mx-tl-tag disc">Backlog</span>
-            <ul class="mx-tl-items">
-              <li>Árbol de decisión PTM (funcionamiento)</li>
-              <li>Tool: comunicación directa con dispositivo</li>
-              <li>Reglas más estrictas p/ no prioritario</li>
-            </ul>
-            <div class="mx-tl-impact">
-              <div>
-                <div class="mx-tl-impact-val disc">~−2.200 sol/mes est.</div>
-                <div class="mx-tl-impact-lbl">MLB 0,86%→0,60% · MLA 1,24%→? · MLM 0,72%→? · MLC 0,92%→?</div>
-              </div>
-              <span class="mx-tl-badge tbd">A definir</span>
-            </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">23 Abr · PTM WiFi→SIM + Vouchers</div><div style="font-size:8px;color:#6B7280;">Desvío pre-solicitud vía PTM</div></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#CBD5E1;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #CBD5E1;border-style:dashed;"></div>
+            <div><div style="font-size:9px;font-weight:800;color:#6B7280;">Q2/26 · Árboles de decisión PTM</div><div style="font-size:8px;color:#9CA3AF;">6 árboles · −20%+ contactos CX · en desarrollo</div></div>
           </div>
         </div>
       </div>
     </div>
+
+    <!-- roadmap horizontal removido - agora vertical na direita -->
   </div>
 
   <div class="mx-footnote">
