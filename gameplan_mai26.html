@@ -1605,49 +1605,58 @@ END SLIDE REMOVIDO -->
       </div>
 
       <!-- Bloco "Em construção com PTM" -->
-      <div class="mx-wip-card">
-        <div class="mx-wip-hdr">
-          <span style="font-size:16px;">🔧</span>
-          <div class="mx-wip-ttl">En construcción con PTM</div>
-          <span class="mx-wip-badge">En desarrollo · abr/26</span>
+      <!-- ÁRBOLES DE DECISIÓN -->
+      <div class="mx-wip-card" style="border-color:#7C3AED;background:#FAFAFF;">
+        <div class="mx-wip-hdr" style="background:linear-gradient(90deg,#EDE9FE,#F5F3FF);">
+          <span style="font-size:15px;">🌳</span>
+          <div class="mx-wip-ttl" style="color:#7C3AED;">Árboles de Decisión — Point Contact</div>
+          <span class="mx-wip-badge" style="background:#EDE9FE;color:#7C3AED;">Objetivo: −20%+ contactos CX</span>
+          <span style="font-size:9px;color:#6B7280;margin-left:auto;white-space:nowrap;">MLA · MLB · MLC · MLM · A910 · N950 · POS · mPOS</span>
         </div>
-        <div class="mx-wip-body">
-          <div class="mx-wip-col">
-            <div class="mx-wip-col-lbl">Desvío pre-solicitud (PTM)</div>
-            <div class="mx-wip-item">
-              <div class="mx-wip-dot" style="background:#1a4a8a;"></div>
-              <div>
-                <div class="mx-wip-txt"><b>PTM: WiFi → SIM card</b><br>Redirige al usuario para resolver conectividad antes de abrir cambio</div>
-                <span class="mx-wip-date">Previsto 23/04</span>
-              </div>
-            </div>
-            <div class="mx-wip-item">
-              <div class="mx-wip-dot" style="background:#1a4a8a;"></div>
-              <div>
-                <div class="mx-wip-txt"><b>PTM: registro para vouchers</b><br>Desvío hacia activación de voucher antes de solicitar cambio</div>
-                <span class="mx-wip-date">Previsto 23/04</span>
-              </div>
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:6px;padding:8px 12px;">
+          <div style="display:flex;gap:6px;align-items:flex-start;">
+            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">1</div>
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">No enciende</div>
+              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Analiza batería, días sin conexión y habilita troca según site</div>
             </div>
           </div>
-          <div class="mx-wip-col">
-            <div class="mx-wip-col-lbl">Segmentación + árbol de decisión</div>
-            <div class="mx-wip-item">
-              <div class="mx-wip-dot" style="background:#16A34A;"></div>
-              <div>
-                <div class="mx-wip-txt"><b>Tool de segmentación por perfil</b><br>Filtra inelegibles antes de iniciar el flujo de solicitud</div>
-                <span class="mx-wip-date">16/04 — Hoy</span>
-              </div>
+          <div style="display:flex;gap:6px;align-items:flex-start;">
+            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">2</div>
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">No conecta carrier (SIM)</div>
+              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Revisa estado SIM (suspendida/cancelada/activa), historial y troca</div>
             </div>
-            <div class="mx-wip-item">
-              <div class="mx-wip-dot" style="background:#9CA3AF;border:1px dashed #9CA3AF;"></div>
-              <div>
-                <div class="mx-wip-txt"><b>Árbol de decisión PTM — "No enciende"</b><br>Diagnóstico guiado vía PTM: batería, descarga profunda, carga progresiva → resolve sin cambio o habilita TROCA según reglas por site</div>
-                <span class="mx-wip-date" style="background:#F3F4F6;color:#6B7280;">Q2 · En discusión</span>
-              </div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:flex-start;">
+            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">3</div>
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">Mensajes de error</div>
+              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Tamper/irreversibles, pantalla en blanco, problemas de firmware</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:flex-start;">
+            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">4</div>
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">Cobro rechazado</div>
+              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Alto riesgo, fondos insuficientes, VALERA no registrado u otro</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:flex-start;">
+            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">5</div>
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">Señal / cobros lentos</div>
+              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Analiza SIM o WiFi, proximidad de cobertura e intermitencia</div>
+            </div>
+          </div>
+          <div style="display:flex;gap:6px;align-items:flex-start;">
+            <div style="width:20px;height:20px;border-radius:50%;background:#7C3AED;color:#fff;font-size:9px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;">6</div>
+            <div>
+              <div style="font-size:10.5px;font-weight:800;color:#1a1a2e;line-height:1.2;">No funciona / congela</div>
+              <div style="font-size:9px;color:#6B7280;line-height:1.4;margin-top:1px;">Firmware pendiente, tipo de device, guía reinicio o troca</div>
             </div>
           </div>
         </div>
-        <div class="mx-wip-foot"></div>
       </div>
     </div>
 
