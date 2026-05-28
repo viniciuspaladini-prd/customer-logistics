@@ -1823,7 +1823,7 @@ END SLIDE REMOVIDO -->
           </div>
           <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
             <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
-            <div><div style="font-size:9px;font-weight:800;color:#374151;">05 Mar · IBM Maxwell MLC <span style="background:#EEF2FF;color:#4338CA;font-size:7px;font-weight:800;border-radius:3px;padding:1px 4px;">MLC</span></div><div style="font-size:8px;color:#6B7280;">1.136 visitas/mes · 12% salvados · 34% vía Maxwell</div></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">05 Mar · IBM Maxwell MLC <span style="background:#EEF2FF;color:#4338CA;font-size:7px;font-weight:800;border-radius:3px;padding:1px 4px;">MLC</span></div><div style="font-size:8px;color:#6B7280;">1.013 visitas/mes · 13% salvados · 34% vía Maxwell</div></div>
           </div>
           <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
             <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
@@ -2255,7 +2255,7 @@ END SLIDE REMOVIDO -->
     <span class="breadcrumb-page">IBM MLC — Servicio presencial</span>
   </div>
   <div class="slide-title" style="padding:3px 20px 0;flex-shrink:0;">
-    IBM MLC: desde el <b>04/03/2026</b> BS, SMB y HILO solicitan visita técnica desde Maxwell — técnico diagnostica en sitio · <b>~1.130 visitas/mes</b> · <b>12%</b> salvados (sin device nuevo) · LT <b>0,7d</b>
+    IBM MLC: desde el <b>04/03/2026</b> BS, SMB y HILO solicitan visita técnica desde Maxwell — técnico diagnostica en sitio · <b>~1.010 visitas/mes</b> · <b>13%</b> salvados (sin device nuevo) · LT <b>0,7d</b>
   </div>
 
   <div class="ibm-body">
@@ -2318,11 +2318,11 @@ END SLIDE REMOVIDO -->
       <!-- KPI row -->
       <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;flex-shrink:0;">
         <div class="kpi-tile">
-          <div class="kpi-tile-val" style="color:#1a4a8a;">1.136</div>
+          <div class="kpi-tile-val" style="color:#1a4a8a;">1.013</div>
           <div class="kpi-tile-lbl">Visitas abr/26</div>
         </div>
         <div class="kpi-tile">
-          <div class="kpi-tile-val" style="color:#16A34A;">~12%</div>
+          <div class="kpi-tile-val" style="color:#16A34A;">~13%</div>
           <div class="kpi-tile-lbl">Salvados abr/26</div>
         </div>
         <div class="kpi-tile">
@@ -2983,10 +2983,9 @@ function initIBMChart() {
   const labels    = ['ene/26','feb/26','mar/26','abr/26','mai/26*'];
   const trocados  = [719, 667, 850, 878, 693];
   const salvados  = [224, 139, 172, 135, 81];
-  const cancelados= [41,  109, 109, 123, 116];
   const ltAvg     = [0.6, 0.6, 0.6, 0.7, 0.7];
-  const totales   = trocados.map((v,i) => v + salvados[i] + cancelados[i]);
-  // [984, 915, 1131, 1136, 890]
+  const totales   = trocados.map((v,i) => v + salvados[i]);
+  // [943, 806, 1022, 1013, 774] — apenas visitas concluídas
 
   // Plugin: total acima de cada coluna
   const totalPlugin = {
@@ -3022,10 +3021,6 @@ function initIBMChart() {
           datalabels: { display: true, anchor: 'center', align: 'center', color: '#166534',
             font: { size: 9, weight: '700' },
             formatter: (v, ctx) => { const t = totales[ctx.dataIndex]; return t > 0 && v/t > 0.04 ? Math.round(v/t*100)+'%' : ''; } } },
-        { label: 'Cancelado', data: cancelados, backgroundColor: '#E2E8F0', stack: 'a',
-          datalabels: { display: true, anchor: 'center', align: 'center', color: '#6B7280',
-            font: { size: 9, weight: '700' },
-            formatter: (v, ctx) => { const t = totales[ctx.dataIndex]; return t > 0 && v/t > 0.04 ? Math.round(v/t*100)+'%' : ''; } } },
         { label: 'LT medio (d)', data: ltAvg, type: 'line', yAxisID: 'y2',
           borderColor: '#16A34A', backgroundColor: 'transparent',
           borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#16A34A', tension: 0.2, fill: false,
@@ -3045,7 +3040,7 @@ function initIBMChart() {
         y: { stacked: true, grid: { color: '#F1F5F9' }, max: 1600,
           display: false },
         y2: { position: 'right', grid: { display: false },
-          min: -1.5, max: 0.75, display: false }
+          min: -1.5, max: 1.2, display: false }
       }
     }
   });
