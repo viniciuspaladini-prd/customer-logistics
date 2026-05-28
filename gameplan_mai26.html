@@ -1226,6 +1226,36 @@ END SLIDE REMOVIDO -->
     <div class="legend-item"><span style="background:#FFD000;color:#111;font-size:9px;font-weight:800;padding:1px 7px;border-radius:9px;">0.0</span> Solicitudes Presenciales (k)</div>
     <div class="legend-item" style="margin-left:auto;font-size:9px;color:var(--muted);font-style:italic;">* Excluye CC+FDV de los cálculos de Sol/MAD y Fin/MAD</div>
   </div>
+
+  <!-- N950 Contexto -->
+  <div style="margin:0 20px 8px;flex-shrink:0;background:#FFF7ED;border:1px solid #FED7AA;border-radius:10px;padding:8px 14px;display:flex;gap:14px;align-items:flex-start;">
+    <div style="flex-shrink:0;display:flex;flex-direction:column;align-items:center;gap:2px;padding-top:1px;">
+      <span style="font-size:15px;">⚠️</span>
+      <span style="font-size:8px;font-weight:800;color:#C2410C;text-align:center;line-height:1.2;">N950<br>Bug</span>
+    </div>
+    <div style="flex:1;min-width:0;">
+      <div style="font-size:9px;font-weight:800;color:#92400E;text-transform:uppercase;letter-spacing:.08em;margin-bottom:4px;">Contexto — Bug firmware Newland (Point Smart 2 / N950) · dic/25 hispanos · ene/26 BR</div>
+      <div style="font-size:8.5px;color:#78350F;line-height:1.45;margin-bottom:5px;">Dispositivos fabricados a partir de dic/25 presentan falla de descarga profunda: si la batería llega a 0%, el device no vuelve a cargar. Afecta todo el parque activo de N950 (MLB 58K · MLA 63K · MLM 130K). Fix: actualización remota de firmware Newland — MLB ya en rollout (abr/26).</div>
+      <div style="display:flex;gap:8px;flex-wrap:wrap;">
+        <div style="background:#fff;border:1px solid #FED7AA;border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:8px;">
+          <img src="https://flagcdn.com/w20/ar.png" style="height:11px;border-radius:1px;">
+          <span style="font-size:8.5px;color:#374151;"><b>MLA</b> 0,78% → <span style="color:#16A34A;font-weight:800;">~0,62%</span> sem N950 <span style="font-size:7.5px;color:#9CA3AF;">(+896 incrementales · +0,16pp)</span></span>
+        </div>
+        <div style="background:#fff;border:1px solid #86EFAC;border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:8px;">
+          <img src="https://flagcdn.com/w20/br.png" style="height:11px;border-radius:1px;">
+          <span style="font-size:8.5px;color:#374151;"><b>MLB</b> 0,81% — <span style="color:#16A34A;font-weight:800;">recuperando ✅</span> <span style="font-size:7.5px;color:#9CA3AF;">(abr &lt; baseline nov/25 · FW fix rodando)</span></span>
+        </div>
+        <div style="background:#fff;border:1px solid #FED7AA;border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:8px;">
+          <img src="https://flagcdn.com/w20/mx.png" style="height:11px;border-radius:1px;">
+          <span style="font-size:8.5px;color:#374151;"><b>MLM</b> 0,70% → <span style="color:#16A34A;font-weight:800;">~0,51%</span> sem N950 <span style="font-size:7.5px;color:#9CA3AF;">(+2.434 incrementales · +0,19pp)</span></span>
+        </div>
+        <div style="background:#fff;border:1px solid #E2E8F0;border-radius:6px;padding:4px 10px;display:flex;align-items:center;gap:8px;">
+          <img src="https://flagcdn.com/w20/cl.png" style="height:11px;border-radius:1px;">
+          <span style="font-size:8.5px;color:#374151;"><b>MLC</b> 0,85% → <span style="color:#6B7280;font-weight:700;">~0,80%</span> sem N950 <span style="font-size:7.5px;color:#9CA3AF;">(+81 incrementales · +0,05pp)</span></span>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 <!-- ============================================================
