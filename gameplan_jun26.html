@@ -1,0 +1,3578 @@
+﻿<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=1280">
+<title>Gameplan de Recambios 2.0 — 2026</title>
+<script src="data.js"></script>
+<script src="chart.umd.min.js"></script>
+<script src="chartjs-plugin-datalabels.min.js"></script>
+<style>
+:root {
+  --yellow: #FFD000;
+  --dark: #1a1a1e;
+  --light: #F5F7FA;
+  --white: #ffffff;
+  --blue: #1a4a8a;
+  --red: #E53E3E;
+  --text: #1a1a2e;
+  --muted: #64748B;
+  --green: #276749;
+  --orange: #DD6B20;
+  --teal: #2A9D8F;
+  --border: #E2E8F0;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html, body {
+  width: 100%;
+  background: #2d2d2d;
+  font-family: 'Segoe UI', system-ui, -apple-system, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+  padding: 20px 0 24px;
+}
+
+/* ── Slide ── */
+.slide {
+  width: 1280px;
+  height: 720px;
+  position: relative;
+  overflow: hidden;
+  display: none;
+  flex-shrink: 0;
+}
+.slide.active { display: block; }
+
+/* ── Navigation ── */
+#nav {
+  width: 1280px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  background: #1a1a1a;
+  padding: 10px 20px;
+  border-radius: 0 0 10px 10px;
+  margin-top: 0;
+  flex-shrink: 0;
+}
+#nav button {
+  background: rgba(255,255,255,.15);
+  border: 1px solid rgba(255,255,255,.25);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  padding: 5px 18px;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background .15s;
+}
+#nav button:hover { background: rgba(255,255,255,.28); }
+#nav button:disabled { opacity: .35; cursor: default; }
+#counter { color: #fff; font-size: 12px; min-width: 50px; text-align: center; }
+
+/* ── DARK SLIDES ── */
+.dark {
+  background: var(--dark);
+  color: var(--white);
+}
+
+/* ── Dots decoration ── */
+.dots-deco {
+  position: absolute;
+  width: 260px;
+  height: 260px;
+  background-image: radial-gradient(circle, rgba(255,208,0,.35) 1.5px, transparent 1.5px);
+  background-size: 22px 22px;
+  border-radius: 50%;
+}
+
+/* ====================================================
+   SLIDE 1 — Cover
+   ==================================================== */
+#s1 {
+  display: none;
+  align-items: center;
+  justify-content: flex-start;
+}
+#s1.active { display: flex; }
+#s1 .dots-deco { top: -40px; left: -40px; }
+#s1 .dots-deco2 {
+  position: absolute;
+  bottom: -60px; right: -60px;
+  width: 320px; height: 320px;
+  background-image: radial-gradient(circle, rgba(255,208,0,.18) 1.5px, transparent 1.5px);
+  background-size: 26px 26px;
+  border-radius: 50%;
+}
+#s1 .cover-content {
+  margin-left: 90px;
+  z-index: 2;
+}
+#s1 .mp-pill {
+  display: inline-flex;
+  align-items: center;
+  background: var(--yellow);
+  color: #111;
+  font-size: 12px;
+  font-weight: 800;
+  padding: 5px 16px;
+  border-radius: 20px;
+  letter-spacing: .5px;
+  text-transform: uppercase;
+  margin-bottom: 28px;
+}
+#s1 .mp-pill span { margin-right: 6px; font-size: 15px; }
+#s1 h1 {
+  font-size: 56px;
+  font-weight: 800;
+  line-height: 1.1;
+  color: #fff;
+  letter-spacing: -1px;
+}
+#s1 h1 em { color: var(--yellow); font-style: normal; }
+#s1 .subtitle {
+  font-size: 20px;
+  color: rgba(255,255,255,.55);
+  margin-top: 16px;
+  font-weight: 400;
+}
+#s1 .bottom-date {
+  position: absolute;
+  bottom: 36px;
+  left: 90px;
+  font-size: 13px;
+  color: rgba(255,255,255,.35);
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+#s1 .yellow-line {
+  width: 60px;
+  height: 4px;
+  background: var(--yellow);
+  border-radius: 2px;
+  margin: 20px 0 24px;
+}
+
+/* ====================================================
+   SLIDE 2 — Agenda
+   ==================================================== */
+#s2 { display: none; }
+#s2.active { display: flex; }
+#s2 .col-left {
+  width: 32%;
+  background: var(--dark);
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 40px;
+}
+#s2 .col-right {
+  flex: 1;
+  background: #fff;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 50px 55px;
+}
+#s2 .chevrons {
+  font-size: 34px;
+  color: var(--yellow);
+  font-weight: 800;
+  letter-spacing: -4px;
+  margin-bottom: 16px;
+}
+#s2 .agenda-title {
+  font-size: 22px;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 8px;
+}
+#s2 .agenda-icon { font-size: 28px; margin-top: 10px; }
+#s2 .agenda-num {
+  font-size: 15px;
+  font-weight: 800;
+  color: var(--blue);
+  margin-bottom: 16px;
+}
+#s2 .agenda-item {
+  margin-bottom: 24px;
+}
+#s2 .agenda-item-title {
+  font-size: 16px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 8px;
+}
+#s2 .agenda-sub {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+#s2 .agenda-sub-item {
+  font-size: 13px;
+  color: var(--muted);
+  padding-left: 14px;
+  position: relative;
+}
+#s2 .agenda-sub-item::before {
+  content: '→';
+  position: absolute;
+  left: 0;
+  color: var(--yellow);
+  font-size: 11px;
+}
+#s2 .divider { width: 40px; height: 3px; background: var(--yellow); margin: 20px 0; border-radius: 2px; }
+
+/* ====================================================
+   SECTION DIVIDERS
+   ==================================================== */
+.section-div {
+  display: none;
+  align-items: center;
+  justify-content: center;
+}
+.section-div.active { display: flex; }
+.section-div .sec-content {
+  text-align: left;
+  padding: 0 90px;
+}
+.section-div .sec-label {
+  font-size: 13px;
+  font-weight: 700;
+  color: rgba(255,255,255,.35);
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  margin-bottom: 20px;
+}
+.section-div .sec-line {
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(to right, var(--blue), var(--yellow));
+  border-radius: 2px;
+  margin-bottom: 28px;
+}
+.section-div h2 {
+  font-size: 52px;
+  font-weight: 800;
+  color: #fff;
+  letter-spacing: -1.5px;
+  line-height: 1.1;
+}
+.section-div .sec-right {
+  position: absolute;
+  right: 90px;
+  font-size: 28px;
+  font-weight: 800;
+  color: rgba(255,255,255,.12);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+}
+.section-div .dots-deco { right: -40px; bottom: -40px; }
+
+/* ====================================================
+   CONTENT SLIDES — common
+   ==================================================== */
+.content-slide {
+  display: none;
+  flex-direction: column;
+  background: var(--light);
+}
+.content-slide.active { display: flex; }
+
+.slide-header {
+  background: #FFD000;
+  padding: 10px 32px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+.breadcrumb-pill {
+  font-size: 11px;
+  font-weight: 800;
+  padding: 4px 13px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+.bp-red  { background: #1a1a2e; color: #FFD000; }
+.bp-blue { background: #1a1a2e; color: #FFD000; }
+.bp-teal { background: #1a1a2e; color: #FFD000; }
+.breadcrumb-sep  { color: rgba(0,0,0,.3); font-size: 14px; }
+.breadcrumb-page { color: #1a1a2e; font-size: 13px; font-weight: 700; }
+
+.slide-body {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  padding: 14px 28px 10px;
+  overflow: hidden;
+}
+.slide-title {
+  font-size: 20px;
+  font-weight: 900;
+  color: var(--text);
+  margin-bottom: 8px;
+  line-height: 1.25;
+  letter-spacing: -0.3px;
+}
+.slide-subtitle {
+  font-size: 11px;
+  color: var(--muted);
+  margin-bottom: 10px;
+  font-weight: 500;
+}
+
+/* ── 4-column charts layout ── */
+.four-col {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 12px;
+  flex: 1;
+  min-height: 0;
+}
+.site-col {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  box-shadow: 0 1px 6px rgba(0,0,0,.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.site-col-hdr {
+  padding: 8px 12px 4px;
+  border-bottom: 1px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.site-name {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+}
+.site-flag { font-size: 22px; }
+.flag-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 6px rgba(0,0,0,.22);
+  flex-shrink: 0;
+}
+.flag-sm {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 1.5px solid #fff;
+  box-shadow: 0 1px 3px rgba(0,0,0,.2);
+  vertical-align: middle;
+  margin: 0 1px;
+}
+.site-chart-wrap {
+  flex: 1;
+  padding: 8px 8px 4px;
+  position: relative;
+  min-height: 0;
+}
+.site-chart-wrap canvas {
+  width: 100% !important;
+  height: 100% !important;
+}
+.site-stat-row {
+  padding: 6px 12px 8px;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-top: 1px solid var(--border);
+  background: #FAFCFF;
+}
+.site-conclusion {
+  background: #F1F5F9;
+  border-top: 2px solid #E2E8F0;
+  border-bottom: 2px solid #E2E8F0;
+  padding: 6px 12px 8px;
+  font-size: 10px;
+  color: #475569;
+  line-height: 1.45;
+  flex-shrink: 0;
+}
+.sec-lbl { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; color:#374151; display:flex; align-items:center; gap:6px; flex-shrink:0; }
+.sec-lbl::after { content:''; flex:1; height:1px; background:#E2E8F0; }
+.site-conclusion .alert { color: #C53030; font-weight: 700; }
+.site-conclusion .ok    { color: #276749; font-weight: 700; }
+.site-conclusion .warn  { color: #C05621; font-weight: 700; }
+.site-conclusion b      { color: #1a1a2e; }
+#s5  .site-conclusion { min-height: 110px; }
+#s6  .site-conclusion { min-height: 88px; }
+#s11 .site-conclusion { height: 80px; overflow: hidden; }
+#s12 .site-conclusion { height: 80px; overflow: hidden; }
+.site-kpi { display:flex; gap:6px; align-items:center; justify-content:space-around; padding:5px 12px 5px; border-bottom:1px solid #E2E8F0; flex-shrink:0; }
+.site-kpi-block { text-align:center; display:flex; flex-direction:column; align-items:center; }
+.site-kpi-pct { font-size:22px; font-weight:900; line-height:1; }
+.site-kpi-lbl { font-size:8px; font-weight:700; color:#9CA3AF; text-transform:uppercase; letter-spacing:.04em; margin-top:2px; }
+.site-kpi-meta { font-size:9px; color:#9CA3AF; text-align:center; }
+.pres-pills-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 4px 10px 4px;
+  background: #FAFCFF;
+  border-top: 1px solid #E2E8F0;
+  gap: 3px;
+}
+.pres-pills-row .pres-label {
+  font-size: 8px;
+  color: #94A3B8;
+  font-weight: 600;
+  white-space: nowrap;
+  flex-shrink: 0;
+  margin-right: 2px;
+}
+.pres-pill {
+  background: #FFD000;
+  color: #111;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 6px;
+  border-radius: 10px;
+  text-align: center;
+  flex: 1;
+  min-width: 0;
+}
+.pres-pill-empty {
+  background: #E2E8F0;
+  color: #94A3B8;
+}
+.stat-label { font-size: 10px; color: var(--muted); text-transform: uppercase; font-weight: 700; }
+.stat-val { font-size: 15px; font-weight: 800; color: var(--blue); }
+.stat-sub { font-size: 10px; color: var(--muted); }
+.chart-legend {
+  display: flex;
+  gap: 14px;
+  align-items: center;
+  padding: 6px 28px;
+  background: #EEF2F7;
+  border-top: 1px solid var(--border);
+  flex-shrink: 0;
+}
+.legend-item {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  font-size: 10px;
+  color: var(--muted);
+}
+.legend-dot { width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0; }
+.legend-line {
+  width: 16px;
+  height: 2px;
+  border-radius: 1px;
+  flex-shrink: 0;
+}
+
+/* ====================================================
+   SLIDE 6 — Policies table
+   ==================================================== */
+.policy-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13px;
+  height: 100%;
+  table-layout: fixed;
+}
+.policy-table th {
+  background: var(--yellow);
+  color: #111;
+  font-weight: 800;
+  padding: 11px 16px;
+  text-align: left;
+  font-size: 14px;
+}
+.policy-table th:first-child { width: 22%; }
+.policy-table td {
+  padding: 9px 16px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  line-height: 1.4;
+  color: var(--text);
+  font-size: 13px;
+  height: 1px; /* enables proportional row stretch */
+}
+.policy-table tr { height: auto; }
+.policy-table tr:last-child td { border-bottom: none; }
+.policy-table tr:nth-child(even) td { background: #F8FAFC; }
+.row-label {
+  font-weight: 800;
+  color: var(--text);
+  font-size: 13px;
+}
+.no-data { color: var(--muted); font-size: 16px; }
+.saving { color: var(--green); font-weight: 700; font-size: 16px; }
+.nps-val { color: var(--blue); font-weight: 700; font-size: 16px; }
+.blocked-num { color: var(--red); font-weight: 700; font-size: 17px; }
+.row-highlight td { background: rgba(255,208,0,0.14) !important; }
+.row-highlight td.row-label { background: rgba(255,208,0,0.32) !important; color: #7B4F00; }
+.mom-neg { color: #C53030; font-size: 11px; }
+.mom-pos { color: #276749; font-size: 11px; }
+.mom-neu { color: var(--muted); font-size: 11px; }
+.tap-val { color: #1a4a8a; font-weight: 700; font-size: 16px; }
+
+/* ====================================================
+   SLIDE 11 — Sameday Alya
+   ==================================================== */
+.kpi-box {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 14px 20px;
+  flex: 1;
+  box-shadow: 0 1px 5px rgba(0,0,0,.05);
+}
+.kpi-box-label {
+  font-size: 9px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .6px;
+  margin-bottom: 6px;
+}
+.kpi-box-val {
+  font-size: 28px;
+  font-weight: 800;
+  color: var(--blue);
+}
+.kpi-box-sub { font-size: 10px; color: var(--muted); margin-top: 3px; }
+.info-box {
+  background: #fff;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  padding: 20px 24px;
+  box-shadow: 0 1px 5px rgba(0,0,0,.05);
+}
+.info-box h4 {
+  font-size: 13px;
+  font-weight: 800;
+  color: var(--text);
+  margin-bottom: 12px;
+}
+.info-bullet {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  color: var(--text);
+  line-height: 1.5;
+}
+.info-bullet::before {
+  content: '•';
+  color: var(--yellow);
+  font-size: 16px;
+  flex-shrink: 0;
+  line-height: 1.3;
+}
+.alert-box {
+  background: #FFFBEB;
+  border: 1px solid #F6E05E;
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 11px;
+  color: #92400E;
+  margin-top: 10px;
+}
+
+/* ====================================================
+   SLIDE 12 — Sameday Cenários
+   ==================================================== */
+.scenario-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 16px;
+  flex: 1;
+  min-height: 0;
+}
+.scenario-card {
+  background: #fff;
+  border-radius: 12px;
+  border: 1px solid var(--border);
+  box-shadow: 0 2px 8px rgba(0,0,0,.06);
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  position: relative;
+}
+.scenario-card.highlight {
+  border: 2px solid var(--blue);
+  box-shadow: 0 4px 16px rgba(26,74,138,.15);
+}
+.sc-header {
+  padding: 14px 18px 12px;
+  border-bottom: 1px solid var(--border);
+}
+.sc-period {
+  font-size: 10px;
+  font-weight: 800;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: .8px;
+  margin-bottom: 4px;
+}
+.sc-title {
+  font-size: 14px;
+  font-weight: 800;
+  color: var(--text);
+}
+.sc-body { padding: 14px 18px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+.sc-cost-row { display: flex; align-items: center; gap: 10px; }
+.sc-cost-val {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--blue);
+}
+.sc-cost-arrow { font-size: 18px; color: var(--muted); }
+.sc-cost-new { font-size: 22px; font-weight: 800; color: var(--green); }
+.sc-saving {
+  font-size: 11px;
+  color: var(--muted);
+}
+.sc-saving b { color: var(--green); font-size: 13px; }
+.sc-footer {
+  padding: 10px 18px;
+  background: #F8FAFC;
+  border-top: 1px solid var(--border);
+  font-size: 10px;
+  color: var(--muted);
+}
+.timeline-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0;
+  margin: 12px 0 4px;
+  flex-shrink: 0;
+}
+.tl-d {
+  width: 12px; height: 12px;
+  border-radius: 50%;
+  flex-shrink: 0;
+}
+.tl-d.filled { background: var(--blue); }
+.tl-d.highlight-dot { background: var(--yellow); border: 2px solid var(--blue); }
+.tl-connector { flex: 1; height: 2px; background: linear-gradient(to right, var(--blue), var(--yellow)); }
+
+/* ====================================================
+   SLIDE 14 — Initiatives table
+   ==================================================== */
+.init-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 11.5px;
+}
+.init-table th {
+  background: var(--yellow);
+  color: #111;
+  font-weight: 800;
+  padding: 8px 10px;
+  text-align: left;
+  font-size: 11px;
+  white-space: nowrap;
+}
+.init-table td {
+  padding: 8px 10px;
+  border-bottom: 1px solid var(--border);
+  vertical-align: middle;
+  color: var(--text);
+  font-size: 11px;
+  line-height: 1.4;
+}
+.init-table tr:last-child td { border-bottom: none; }
+.init-table tr:nth-child(even) td { background: #F8FAFC; }
+.kpi-pill {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 800;
+  padding: 2px 10px;
+  border-radius: 10px;
+  text-transform: uppercase;
+  letter-spacing: .3px;
+}
+.kpi-pill-blue { background: #DBEAFE; color: #1D4ED8; }
+.kpi-pill-teal { background: #CCFBF1; color: #0F766E; }
+.status-badge {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: #DCFCE7;
+  color: #16A34A;
+}
+.status-badge-done {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: #1a4a8a;
+  color: #fff;
+}
+.status-badge-planned {
+  display: inline-block;
+  font-size: 9px;
+  font-weight: 700;
+  padding: 2px 9px;
+  border-radius: 10px;
+  background: #FEF9C3;
+  color: #854D0E;
+}
+
+/* ====================================================
+   SLIDE 15 — Closing
+   ==================================================== */
+#s16 { display: none; align-items: center; justify-content: center; }
+#s16.active { display: flex; }
+#s16 .closing-text {
+  font-size: 72px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-align: center;
+  letter-spacing: -2px;
+}
+#s16 .closing-text span { color: #fff; }
+#s16 .closing-text em { color: var(--yellow); font-style: normal; }
+#s16 .mp-logo-tr {
+  position: absolute;
+  top: 30px;
+  right: 40px;
+  background: var(--yellow);
+  color: #111;
+  font-size: 11px;
+  font-weight: 800;
+  padding: 6px 18px;
+  border-radius: 20px;
+  text-transform: uppercase;
+  letter-spacing: .5px;
+}
+#s16 .dots-deco { bottom: -40px; left: -40px; }
+
+/* ====================================================
+   Maxwell slide embedded styles
+   ==================================================== */
+.mx-slide {
+  display: none;
+  flex-direction: column;
+  background: #F0F4FA;
+}
+.mx-slide.active { display: flex; }
+
+/* ── Notes Panel ── */
+#notes-toggle {
+  position: fixed; right: 16px; top: 50%;
+  transform: translateY(-50%);
+  width: 38px; height: 38px;
+  background: rgba(0,0,0,.65); backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,.25); border-radius: 50%;
+  cursor: pointer; display: flex; align-items: center; justify-content: center;
+  font-size: 17px; z-index: 9998; color: #fff; transition: background .15s;
+}
+#notes-toggle:hover { background: rgba(255,255,255,.2); }
+#notes-badge {
+  position: absolute; top: -4px; right: -4px;
+  width: 16px; height: 16px;
+  background: #FFD000; color: #1a1a1a;
+  border-radius: 50%; font-size: 9px; font-weight: 700;
+  display: none; align-items: center; justify-content: center;
+}
+#notes-panel {
+  position: fixed; right: -320px; top: 0;
+  width: 300px; height: 100vh;
+  background: #1e2433; border-left: 1px solid rgba(255,255,255,.12);
+  z-index: 9997; display: flex; flex-direction: column;
+  transition: right .25s ease; font-family: inherit;
+}
+#notes-panel.open { right: 0; }
+#notes-header {
+  padding: 16px 14px 12px;
+  border-bottom: 1px solid rgba(255,255,255,.1);
+  display: flex; align-items: center; justify-content: space-between;
+}
+#notes-header h3 { color: #FFD000; font-size: 13px; font-weight: 700; margin: 0; }
+#notes-close {
+  background: none; border: none; color: rgba(255,255,255,.5);
+  cursor: pointer; font-size: 18px; padding: 0 4px; line-height: 1;
+}
+#notes-close:hover { color: #fff; }
+#notes-list {
+  flex: 1; overflow-y: auto; padding: 12px;
+  display: flex; flex-direction: column; gap: 10px;
+}
+.note-card {
+  background: rgba(255,255,255,.07); border-radius: 8px;
+  padding: 10px 12px; border: 1px solid rgba(255,255,255,.1);
+}
+.note-card-header {
+  display: flex; align-items: center;
+  justify-content: space-between; margin-bottom: 6px;
+}
+.note-author {
+  background: #FFD000; color: #1a1a1a;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 8px; border-radius: 10px;
+}
+.note-delete {
+  background: none; border: none; color: rgba(255,255,255,.35);
+  cursor: pointer; font-size: 14px; padding: 0; line-height: 1;
+}
+.note-delete:hover { color: #E53E3E; }
+.note-text { color: rgba(255,255,255,.8); font-size: 11.5px; line-height: 1.5; white-space: pre-wrap; }
+.notes-empty { color: rgba(255,255,255,.3); font-size: 12px; text-align: center; margin-top: 30px; font-style: italic; }
+#notes-add {
+  padding: 12px; border-top: 1px solid rgba(255,255,255,.1);
+  display: flex; flex-direction: column; gap: 8px;
+}
+#note-author-input, #note-text-input {
+  background: rgba(255,255,255,.08); border: 1px solid rgba(255,255,255,.15);
+  border-radius: 6px; color: #fff; font-size: 12px;
+  padding: 6px 10px; font-family: inherit; outline: none;
+}
+#note-author-input:focus, #note-text-input:focus { border-color: #FFD000; }
+#note-text-input { resize: vertical; min-height: 68px; }
+#note-save-btn {
+  background: #FFD000; color: #1a1a1a; border: none;
+  border-radius: 6px; font-size: 12px; font-weight: 700;
+  padding: 7px; cursor: pointer; transition: opacity .15s;
+}
+#note-save-btn:hover { opacity: .85; }
+
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     SLIDE 1 — Cover
+     ============================================================ -->
+<div class="slide dark" id="s1">
+  <div class="dots-deco"></div>
+  <div class="dots-deco2"></div>
+  <div class="cover-content">
+    <div class="mp-pill"><span>mp</span> mercado pago</div>
+    <h1>Gameplan de Recambios 2.0<br><em>2026</em></h1>
+    <div class="yellow-line"></div>
+    <p class="subtitle">Mercado Pago Point · Revisión estratégica</p>
+  </div>
+  <div class="bottom-date">Junio 2026</div>
+</div>
+
+<!-- ============================================================
+     SLIDE 2 — Agenda
+     ============================================================ -->
+<div class="slide" id="s2">
+  <div class="col-left">
+    <div class="chevrons">&gt;&gt;</div>
+    <div class="agenda-title">Agenda</div>
+    <div class="divider"></div>
+    <div class="agenda-icon">🎯</div>
+  </div>
+  <div class="col-right">
+    <div class="agenda-item">
+      <div class="agenda-num">01</div>
+      <div class="agenda-item-title">Solicitudes de Recambio</div>
+      <div class="agenda-sub">
+        <div class="agenda-sub-item">Resumen Sol/MAD por site — mai/26</div>
+        <div class="agenda-sub-item">Política activa en 4 sites · MLB, MLA, MLM &amp; MLC</div>
+        <div class="agenda-sub-item">Maxwell · Roadmap de herramientas</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="agenda-item">
+      <div class="agenda-num">02</div>
+      <div class="agenda-item-title">Lead Time</div>
+      <div class="agenda-sub">
+        <div class="agenda-sub-item">Leadtime SMB/BS y Longtail — 4 sites</div>
+        <div class="agenda-sub-item">FULL para Recambios MLB · piloto 5 etapas</div>
+        <div class="agenda-sub-item">IBM MLC · servicio presencial + expansión MLM</div>
+        <div class="agenda-sub-item">Sameday MLB · cobertura 63% abr/26 · próximo 08/06</div>
+      </div>
+    </div>
+    <div class="divider"></div>
+    <div class="agenda-item">
+      <div class="agenda-num">03</div>
+      <div class="agenda-item-title">Iniciativas</div>
+      <div class="agenda-sub">
+        <div class="agenda-sub-item">Roadmap de iniciativas cross-site Q2.26</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- s3 removido -->
+<!-- ============================================================
+     SLIDE 3 — Gameplan Overview / Visión General (REMOVIDO)
+     ============================================================ -->
+<!-- SLIDE REMOVIDO: s3
+<div class="slide content-slide" id="s3">
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Gameplan de Recambios 2.0</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Visión General</span>
+  </div>
+  <style>
+    #s3 .s3-body { flex:1; display:flex; flex-direction:column; overflow:hidden; }
+    /* Mission banner */
+    #s3 .s3-mission { background:linear-gradient(135deg,#1a1a2e 0%,#0F3460 100%); padding:16px 32px 14px; flex-shrink:0; }
+    #s3 .s3-mission-ttl { font-size:17px; font-weight:800; color:#fff; margin-bottom:8px; }
+    #s3 .s3-mission-ttl em { color:#FFD000; font-style:normal; }
+    #s3 .s3-mission p { font-size:12px; color:rgba(255,255,255,.82); line-height:1.55; margin-bottom:4px; }
+    #s3 .s3-mission p strong { color:#FFD000; }
+    #s3 .s3-pills { display:flex; gap:7px; margin-top:10px; flex-wrap:wrap; }
+    #s3 .s3-pill { background:rgba(255,255,255,.12); color:rgba(255,255,255,.9); font-size:10px; font-weight:700; padding:4px 12px; border-radius:12px; border:1px solid rgba(255,255,255,.2); }
+    /* Section headers */
+    #s3 .s3-sec { font-size:11px; font-weight:800; color:#1a1a2e; text-transform:uppercase; letter-spacing:.7px; padding:8px 32px 6px; flex-shrink:0; display:flex; align-items:center; gap:8px; background:#F8FAFF; border-bottom:2px solid #E2E8F0; border-top:2px solid #E2E8F0; }
+    #s3 .s3-sec-sub { font-size:10px; font-weight:600; color:#94A3B8; text-transform:none; letter-spacing:0; margin-left:auto; }
+    /* Pilares — flex:1 fills available space */
+    #s3 .s3-pilares { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; padding:10px 32px; flex:1; min-height:0; align-content:stretch; }
+    #s3 .s3-pilar { background:#fff; border:1px solid #E2E8F0; border-radius:12px; padding:14px 16px; border-top:4px solid #FFD000; display:flex; flex-direction:column; box-shadow:0 1px 6px rgba(0,0,0,.05); }
+    #s3 .s3-pilar-icon { font-size:22px; margin-bottom:6px; }
+    #s3 .s3-pilar-ttl { font-size:14px; font-weight:800; color:#1a1a2e; margin-bottom:6px; }
+    #s3 .s3-pilar-desc { font-size:11px; color:#475569; line-height:1.5; flex:1; margin-bottom:8px; }
+    #s3 .s3-pilar-tags { display:flex; gap:5px; flex-wrap:wrap; margin-top:auto; }
+    #s3 .s3-tag { background:#E2E8F0; color:#475569; font-size:9px; font-weight:700; padding:3px 8px; border-radius:8px; }
+    /* Metas — flex:1 fills available space */
+    #s3 .s3-metas { display:grid; grid-template-columns:repeat(4,1fr); gap:12px; padding:10px 32px 14px; flex:1; min-height:0; align-content:stretch; }
+    #s3 .s3-meta { background:#fff; border:1px solid #E2E8F0; border-radius:12px; padding:12px 15px; display:flex; flex-direction:column; box-shadow:0 1px 6px rgba(0,0,0,.05); }
+    #s3 .s3-meta.defined { border-top:4px solid #1a4a8a; }
+    #s3 .s3-meta-hdr { display:flex; justify-content:space-between; align-items:center; margin-bottom:10px; }
+    #s3 .s3-meta-site { font-size:15px; font-weight:800; color:#1a1a2e; }
+    #s3 .s3-badge { font-size:9px; font-weight:700; padding:3px 9px; border-radius:8px; }
+    #s3 .s3-badge.ok  { background:#DBEAFE; color:#1D4ED8; }
+    #s3 .s3-badge.exp { background:#FEF9C3; color:#854D0E; }
+    #s3 .s3-kpi { font-size:11.5px; color:#475569; margin-bottom:5px; display:flex; align-items:center; gap:5px; }
+    #s3 .s3-kpi b { color:#1a1a2e; font-weight:800; }
+    #s3 .s3-arr-up   { color:#1a4a8a; font-weight:800; font-size:13px; }
+    #s3 .s3-arr-down { color:#276749; font-weight:800; font-size:13px; }
+    #s3 .s3-note { font-size:11px; color:#64748B; line-height:1.5; flex:1; }
+  </style>
+  <div class="s3-body">
+    <div class="s3-mission">
+      <div class="s3-mission-ttl">📊 Gameplan de Recambios 2.0 — <em>Mercado Pago Point</em></div>
+      <p>Reducir el número de recambios de dispositivos <strong>innecesarios</strong>, realizando seguimiento mes a mes de las solicitudes por motivos, devices y canales, identificando outliers y transformando datos en oportunidades concretas de producto y operación.</p>
+      <p>Cuando el recambio es necesario, garantizar la <strong>mejor experiencia logística posible</strong>: reducir el leadtime de entrega, aumentar la efectividad y mejorar la eficiencia operacional.</p>
+      <div class="s3-pills">
+        <span class="s3-pill">📊 Reducción Recambios/MAD</span>
+        <span class="s3-pill">🚀 Logística &amp; Leadtime</span>
+        <span class="s3-pill">🔍 Análisis de Motivos</span>
+        <span class="s3-pill">📋 Política de Recambios</span>
+        <span class="s3-pill">🌐 MLA · MLB · MLM · MLC</span>
+      </div>
+    </div>
+
+    <div class="s3-sec">📌 Pilares de Trabajo</div>
+    <div class="s3-pilares">
+      <div class="s3-pilar">
+        <div class="s3-pilar-icon">🎯</div>
+        <div class="s3-pilar-ttl">Reducción de Recambios</div>
+        <div class="s3-pilar-desc">Monitorear la tasa Recambios/MAD mensualmente; identificar motivos recurrentes, detectar abuso, duplicidades y outliers de volumen por customer y serial number.</div>
+        <div class="s3-pilar-tags"><span class="s3-tag">Recambios/MAD</span><span class="s3-tag">Outliers</span><span class="s3-tag">Abuso</span></div>
+      </div>
+      <div class="s3-pilar">
+        <div class="s3-pilar-icon">🔍</div>
+        <div class="s3-pilar-ttl">Análisis &amp; Diagnóstico</div>
+        <div class="s3-pilar-desc">Investigar causas-raíz de picos de volumen; segmentar por canal, modelo y motivo; entregar oportunidades accionables de producto y operación.</div>
+        <div class="s3-pilar-tags"><span class="s3-tag">Canales</span><span class="s3-tag">Motivos</span><span class="s3-tag">Modelos</span></div>
+      </div>
+      <div class="s3-pilar">
+        <div class="s3-pilar-icon">🚀</div>
+        <div class="s3-pilar-ttl">Logística &amp; Leadtime</div>
+        <div class="s3-pilar-desc">Monitorear G1/G3/G4 por segmento (SMB vs Longtail); reducir el tiempo de entrega en los recambios necesarios y optimizar el costo operativo.</div>
+        <div class="s3-pilar-tags"><span class="s3-tag">Leadtime G1</span><span class="s3-tag">SMB/Longtail</span><span class="s3-tag">Costo Logístico</span></div>
+      </div>
+    </div>
+
+    <div class="s3-sec">🎯 Metas por Site <span class="s3-sec-sub">Vigencia: 2026</span></div>
+    <div class="s3-metas">
+      <div class="s3-meta defined">
+        <div class="s3-meta-hdr">
+          <span class="s3-meta-site">MLB 🇧🇷</span>
+          <span class="s3-badge ok">Metas Definidas</span>
+        </div>
+        <div class="s3-kpi"><span class="s3-arr-down">↓</span> Sol/MAD: <b>0,60%</b></div>
+        <div class="s3-kpi"><span class="s3-arr-down">↓</span> Finalizadas/MAD: <b>0,50%</b></div>
+        <div class="s3-kpi"><span class="s3-arr-up">↑</span> Leadtime SMB G1: <b>≥ 83%</b></div>
+        <div class="s3-kpi"><span class="s3-arr-up">↑</span> Leadtime Longtail G1: <b>≥ 90%</b></div>
+      </div>
+      <div class="s3-meta">
+        <div class="s3-meta-hdr">
+          <span class="s3-meta-site">MLA 🇦🇷</span>
+          <span class="s3-badge exp">En Exploración</span>
+        </div>
+        <div class="s3-note">Baseline en construcción para definición del target.</div>
+      </div>
+      <div class="s3-meta">
+        <div class="s3-meta-hdr">
+          <span class="s3-meta-site">MLM 🇲🇽</span>
+          <span class="s3-badge exp">En Exploración</span>
+        </div>
+        <div class="s3-note">Volumen onhold. Baseline en construcción para definición del target.</div>
+      </div>
+      <div class="s3-meta">
+        <div class="s3-meta-hdr">
+          <span class="s3-meta-site">MLC 🇨🇱</span>
+          <span class="s3-badge exp">En Exploración</span>
+        </div>
+        <div class="s3-note">Menor volumen entre los sites. Baseline en construcción para definición del target.</div>
+      </div>
+    </div>
+  </div>
+</div>
+END SLIDE REMOVIDO -->
+
+<!-- ============================================================
+     SLIDE 4 — Section: Pedidos de Trocas
+     ============================================================ -->
+<div class="slide dark section-div" id="s4">
+  <div class="dots-deco" style="top:-40px;left:-40px;"></div>
+  <div class="sec-content">
+    <div class="sec-label">Gameplan de Recambios 2.0</div>
+    <div class="sec-line"></div>
+    <h2>Solicitudes de<br>Recambio</h2>
+  </div>
+  <div class="sec-right">POINT</div>
+</div>
+
+<!-- ============================================================
+     SLIDE 4 — Overview Pedidos
+     ============================================================ -->
+<div class="slide content-slide" id="s5">
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Solicitudes de recambio</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">General</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-title">Mai/26: política activa nos 4 sites desde 22/05 — N950 FW fix em rollout MLB · N950 ainda impacta MLA/MLM</div>
+    <div class="four-col" id="overview-cols" style="align-content:stretch;grid-auto-rows:1fr;">
+      <!-- MLA -->
+      <div class="site-col">
+        <div class="site-col-hdr">
+          <span class="site-name">MLA</span>
+          <img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷">
+        </div>
+        <div class="site-conclusion">
+          Sol/MAD <b>~0,89%</b> mai/26 (est. · MAD pendiente DW). Política activa. <span class="warn">Bug N950: aún impacta MLA — FW fix en curso. Real estimado ~0,73% sin impacto.</span>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:160px;">
+          <canvas id="chart-mla"></canvas>
+        </div>
+        <div class="site-stat-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:5px 8px;">
+          <div>
+            <div class="stat-label">Solicitudes</div>
+            <div class="stat-val">4.785</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Finalizadas</div>
+            <div class="stat-val" style="color:#1a4a8a">4.258</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Sol/MAD</div>
+            <div class="stat-val" style="color:#E53E3E">~0,89%*</div>
+          </div>
+          <div style="text-align:right">
+            <div class="stat-label">Fin/MAD</div>
+            <div class="stat-val" style="color:#2A9D8F">~0,79%*</div>
+          </div>
+        </div>
+        <div class="pres-pills-row">
+          <span class="pres-label">Pres.k</span>
+          
+          <span class="pres-pill">0.9</span>
+          <span class="pres-pill">2.7</span>
+          <span class="pres-pill">2.1</span>
+        </div>
+      </div>
+      <!-- MLB -->
+      <div class="site-col">
+        <div class="site-col-hdr">
+          <span class="site-name">MLB</span>
+          <img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷">
+        </div>
+        <div class="site-conclusion">
+          <span class="alert">Sobre la meta</span> — Sol/MAD <b>~0,94%</b> mai/26 (est. · MAD pendiente DW) vs meta <b>0,60%</b>. <span class="ok">Bug N950: FW fix en rollout — mai/26 debería mostrar recuperación. Confirmar con MAD cerrado.</span>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:160px;">
+          <canvas id="chart-mlb"></canvas>
+        </div>
+        <div class="site-stat-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:5px 8px;">
+          <div>
+            <div class="stat-label">Solicitudes</div>
+            <div class="stat-val">24.036</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Finalizadas</div>
+            <div class="stat-val" style="color:#1a4a8a">15.268</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Sol/MAD</div>
+            <div class="stat-val" style="color:#E53E3E">~0,94%*</div>
+          </div>
+          <div style="text-align:right">
+            <div class="stat-label">Fin/MAD</div>
+            <div class="stat-val" style="color:#2A9D8F">~0,60%*</div>
+          </div>
+        </div>
+        <div class="pres-pills-row">
+          <span class="pres-label">Pres.k</span>
+          <span class="pres-pill">2.8</span>
+          <span class="pres-pill">2.8</span>
+          <span class="pres-pill">2.8</span>
+          <span class="pres-pill">2.7</span>
+          <span class="pres-pill">3.1</span>
+        </div>
+      </div>
+      <!-- MLC -->
+      <div class="site-col">
+        <div class="site-col-hdr">
+          <span class="site-name">MLC</span>
+          <img class="flag-circle" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱">
+        </div>
+        <div class="site-conclusion">
+          Sol/MAD <b>~1,00%</b> mai/26 (est. · MAD pendiente DW). <span class="alert">Política activa desde 22/05</span> — primeros bloqueos en curso. Impacto completo esperado en jun/26.
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:160px;">
+          <canvas id="chart-mlc"></canvas>
+        </div>
+        <div class="site-stat-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:5px 8px;">
+          <div>
+            <div class="stat-label">Solicitudes</div>
+            <div class="stat-val">1.618</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Finalizadas</div>
+            <div class="stat-val" style="color:#1a4a8a">1.264</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Sol/MAD</div>
+            <div class="stat-val" style="color:#E53E3E">~1,00%*</div>
+          </div>
+          <div style="text-align:right">
+            <div class="stat-label">Fin/MAD</div>
+            <div class="stat-val" style="color:#2A9D8F">~0,78%*</div>
+          </div>
+        </div>
+        <div class="pres-pills-row">
+          <span class="pres-label">Pres.k</span>
+          <span class="pres-pill pres-pill-empty">—</span>
+          <span class="pres-pill pres-pill-empty">—</span>
+          <span class="pres-pill pres-pill-empty">—</span>
+          <span class="pres-pill pres-pill-empty">—</span>
+          <span class="pres-pill pres-pill-empty">—</span>
+        </div>
+      </div>
+      <!-- MLM -->
+      <div class="site-col">
+        <div class="site-col-hdr">
+          <span class="site-name">MLM</span>
+          <img class="flag-circle" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽">
+        </div>
+        <div class="site-conclusion">
+          Sol/MAD <b>~0,86%</b> mai/26 (est. · MAD pendiente DW). 92% de solicitudes vía Maxwell. <span class="alert">Política activa desde 22/05</span> — primeros 10 días con ~2.3K bloqueos. <span class="warn">Bug N950: ainda impacta — FW fix pendente em MLM.</span>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:160px;">
+          <canvas id="chart-mlm"></canvas>
+        </div>
+        <div class="site-stat-row" style="display:grid;grid-template-columns:repeat(4,1fr);gap:2px;padding:5px 8px;">
+          <div>
+            <div class="stat-label">Solicitudes</div>
+            <div class="stat-val">11.185</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Finalizadas</div>
+            <div class="stat-val" style="color:#1a4a8a">7.897</div>
+          </div>
+          <div style="text-align:center">
+            <div class="stat-label">Sol/MAD</div>
+            <div class="stat-val" style="color:#DD6B20">~0,86%*</div>
+          </div>
+          <div style="text-align:right">
+            <div class="stat-label">Fin/MAD</div>
+            <div class="stat-val" style="color:#2A9D8F">~0,61%*</div>
+          </div>
+        </div>
+        <div class="pres-pills-row">
+          <span class="pres-label">Pres.k</span>
+          <span class="pres-pill">1.1</span>
+          <span class="pres-pill">0.5</span>
+          <span class="pres-pill">1.7</span>
+          <span class="pres-pill">1.5</span>
+          <span class="pres-pill">0.5</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="chart-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#94A3B8;border-radius:2px;width:12px;height:12px;"></div> Aperturas (dig.)</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#1a4a8a;border-radius:2px;width:12px;height:12px;"></div> Finalizadas (dig.)</div>
+    <div class="legend-item"><div class="legend-line" style="background:#1a4a8a;"></div> Sol/MAD %</div>
+    <div class="legend-item"><div class="legend-line" style="background:#2A9D8F;"></div> Fin/MAD %</div>
+    <div class="legend-item"><span style="background:#FFD000;color:#111;font-size:9px;font-weight:800;padding:1px 7px;border-radius:9px;">0.0</span> Solicitudes Presenciales (k)</div>
+    <div class="legend-item" style="margin-left:auto;font-size:9px;color:var(--muted);font-style:italic;">* Excluye CC+FDV de los cálculos de Sol/MAD y Fin/MAD</div>
+  </div>
+
+</div>
+
+<!-- ============================================================
+     SLIDE 6 — Políticas
+     ============================================================ -->
+<div class="slide content-slide" id="s7">
+  <style>
+  #s7 { background:#F8FAFC; }
+  #s7 .s7-body { flex:1; display:grid; grid-template-columns:58% 1fr; gap:14px; padding:6px 20px 10px; min-height:0; overflow:hidden; align-items:stretch; }
+
+  /* ── Left panel ── */
+  #s7 .s7-results { display:flex; flex-direction:column; gap:8px; height:100%; }
+  #s7 .s7-panel-hdr { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.7px; color:#fff; background:#1a4a8a; border-radius:8px 8px 0 0; padding:8px 16px; display:flex; align-items:center; gap:7px; flex-shrink:0; }
+  #s7 .s7-policy-strip { background:#fff; border:1px solid #E2E8F0; border-radius:0 0 8px 8px; padding:8px 16px; display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:11px; color:#64748B; flex-shrink:0; }
+  #s7 .s7-policy-site-name { font-size:13px; font-weight:800; color:#1a1a2e; margin-bottom:2px; }
+  #s7 .s7-kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; flex:1; min-height:0; }
+  #s7 .s7-site-card { background:#fff; border-radius:10px; border:1px solid #E2E8F0; padding:13px 15px; display:flex; flex-direction:column; gap:0; box-shadow:0 1px 6px rgba(0,0,0,.05); overflow:hidden; }
+  #s7 .s7-card-hdr { display:flex; align-items:center; gap:8px; padding-bottom:10px; border-bottom:2px solid #F1F5F9; flex-shrink:0; }
+  #s7 .s7-card-site { font-size:20px; font-weight:900; color:#1a1a2e; }
+  #s7 .s7-card-badge { font-size:9px; font-weight:800; background:#DBEAFE; color:#1D4ED8; padding:3px 9px; border-radius:8px; text-transform:uppercase; margin-left:auto; }
+  #s7 .s7-big-kpi { display:grid; grid-template-columns:1fr 1fr; gap:8px; flex:1; margin-top:10px; min-height:0; }
+  #s7 .s7-kpi-block { background:#F8FAFC; border-radius:9px; padding:9px 11px; display:flex; flex-direction:column; justify-content:center; }
+  #s7 .s7-kpi-lbl { font-size:11px; font-weight:700; color:#94A3B8; text-transform:uppercase; letter-spacing:.04em; margin-bottom:2px; }
+  #s7 .s7-kpi-num { font-size:28px; font-weight:900; line-height:1; }
+  #s7 .s7-kpi-sub { font-size:11px; color:#94A3B8; margin-top:2px; }
+  #s7 .s7-metrics { display:flex; flex-direction:column; gap:0; flex-shrink:0; margin-top:8px; }
+  #s7 .s7-metric-row { display:flex; align-items:center; justify-content:space-between; font-size:15px; padding:7px 0; border-bottom:1px solid #F1F5F9; }
+  #s7 .s7-metric-lbl { color:#64748B; font-weight:600; }
+  #s7 .s7-metric-val { font-weight:800; color:#1a4a8a; display:flex; align-items:center; gap:5px; }
+  #s7 .s7-metric-mom { font-size:11.5px; font-weight:600; }
+  #s7 .s7-post { background:#FFFBEB; border-radius:8px; padding:9px 11px; flex-shrink:0; margin-top:8px; }
+  #s7 .s7-post-lbl { font-size:10.5px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#92400E; margin-bottom:4px; }
+  #s7 .s7-post-row { display:flex; justify-content:space-between; font-size:14px; color:#78350F; font-weight:700; line-height:1.8; }
+
+  /* ── Right panel ── */
+  #s7 .s7-opp { display:flex; flex-direction:column; gap:0; height:100%; }
+  #s7 .s7-opp-hdr { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.7px; color:#fff; background:#276749; border-radius:8px 8px 0 0; padding:8px 16px; display:flex; align-items:center; gap:7px; flex-shrink:0; }
+  #s7 .s7-opp-inner { background:#fff; border:1px solid #E2E8F0; border-radius:0 0 10px 10px; padding:14px 16px; display:flex; flex-direction:column; gap:10px; flex:1; overflow:hidden; }
+  #s7 .s7-opp-site { background:#F8FAFC; border-radius:9px; padding:12px 14px; display:flex; flex-direction:column; gap:5px; flex:1; }
+  #s7 .s7-opp-site-hdr { display:flex; align-items:center; justify-content:space-between; margin-bottom:4px; }
+  #s7 .s7-opp-site-name { font-size:18px; font-weight:900; color:#1a1a2e; }
+  #s7 .s7-opp-badge { font-size:9.5px; font-weight:800; background:#FEE2E2; color:#991B1B; padding:3px 10px; border-radius:8px; text-transform:uppercase; }
+  #s7 .s7-opp-rules { font-size:11px; color:#475569; line-height:1.7; }
+  #s7 .s7-opp-rules b { color:#1a1a2e; }
+  #s7 .s7-opp-impact { background:#F0FFF4; border:1px solid #9AE6B4; border-radius:9px; padding:11px 14px; flex-shrink:0; }
+  #s7 .s7-opp-impact-ttl { font-size:9.5px; font-weight:800; text-transform:uppercase; letter-spacing:.05em; color:#276749; margin-bottom:7px; }
+  #s7 .s7-opp-impact-row { display:flex; justify-content:space-between; font-size:12px; color:#064E3B; margin-bottom:3px; line-height:1.5; }
+  #s7 .s7-opp-impact-row b { font-weight:800; }
+  #s7 .s7-cta { background:#1a1a2e; border-radius:9px; padding:13px 16px; display:flex; align-items:center; justify-content:space-between; flex-shrink:0; }
+  #s7 .s7-cta-lbl { font-size:10px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,255,255,.5); margin-bottom:3px; }
+  #s7 .s7-cta-val { font-size:18px; font-weight:900; color:#FFD000; }
+  </style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Solicitudes de recambio</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Políticas de recambios</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-title">MLA &amp; MLB: resultados abr/26 consolidados — MLM &amp; MLC activados <b>22/05/26</b> · ahorro estimado <b>~USD 505k/mes</b> (MLA+MLB)</div>
+
+    <div class="s7-body">
+
+      <!-- ── LEFT: Resultados ── -->
+      <div class="s7-results">
+        <div>
+          <div class="s7-panel-hdr">✅ Política Activa — Resultados abr/26 (MLA · MLB)</div>
+          <div class="s7-policy-strip" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+            <div>
+              <div class="s7-policy-site-name">MLA 🇦🇷</div>
+              BS &amp; SMB: garantizado · LT: TPV ≥ AR$1.8M/3m · Device ≤ 12m
+            </div>
+            <div>
+              <div class="s7-policy-site-name">MLB 🇧🇷</div>
+              BS &amp; SMB: garantizado · LT: TPV ≥ R$1.5k/3m · Device ≤ 3m
+            </div>
+            <div>
+              <div class="s7-policy-site-name" style="color:#276749;">MLM 🇲🇽 <span style="font-size:9px;font-weight:700;background:#DCFCE7;color:#166534;padding:1px 5px;border-radius:4px;">22/05 ✓</span></div>
+              BS/SMB/HILO: garantizado · MILO/LOLO: TPV ≥ MXN$5k · Device ≤ 12m
+            </div>
+            <div>
+              <div class="s7-policy-site-name" style="color:#276749;">MLC 🇨🇱 <span style="font-size:9px;font-weight:700;background:#DCFCE7;color:#166534;padding:1px 5px;border-radius:4px;">22/05 ✓</span></div>
+              BS/SMB/HILO: garantizado · Device ≤ 12m
+            </div>
+          </div>
+        </div>
+
+        <div class="s7-kpi-grid">
+          <!-- MLA -->
+          <div class="s7-site-card">
+            <div class="s7-card-hdr">
+              <img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷">
+              <span class="s7-card-site">MLA</span>
+              <span class="s7-card-badge">Política activa</span>
+            </div>
+            <div class="s7-big-kpi">
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Sellers bloqueados</div>
+                <div class="s7-kpi-num" style="color:#E53E3E;">~1.9K</div>
+                <div class="s7-kpi-sub">inelegibles/mes · mai/26</div>
+              </div>
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Ahorro estimado</div>
+                <div class="s7-kpi-num" style="color:#276749;">171k</div>
+                <div class="s7-kpi-sub">USD/mes</div>
+              </div>
+            </div>
+            <div class="s7-metrics">
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">NPS CS</span>
+                <span class="s7-metric-val">33%</span>
+              </div>
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">CSAT Maxwell</span>
+                <span class="s7-metric-val">4,12 <span class="s7-metric-mom" style="color:#9CA3AF;">(abr/26)</span></span>
+              </div>
+            </div>
+            <div class="s7-post">
+              <div class="s7-post-lbl">Post bloqueo</div>
+              <div class="s7-post-row"><span>Uso Point TAP</span><span>6%</span></div>
+              <div class="s7-post-row"><span>Compra de device</span><span>27,9%</span></div>
+            </div>
+          </div>
+
+          <!-- MLB -->
+          <div class="s7-site-card">
+            <div class="s7-card-hdr">
+              <img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷">
+              <span class="s7-card-site">MLB</span>
+              <span class="s7-card-badge">Política activa</span>
+            </div>
+            <div class="s7-big-kpi">
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Sellers bloqueados</div>
+                <div class="s7-kpi-num" style="color:#E53E3E;">~10.1K</div>
+                <div class="s7-kpi-sub">inelegibles/mes · mai/26</div>
+              </div>
+              <div class="s7-kpi-block">
+                <div class="s7-kpi-lbl">Ahorro estimado</div>
+                <div class="s7-kpi-num" style="color:#276749;">334k</div>
+                <div class="s7-kpi-sub">USD/mes</div>
+              </div>
+            </div>
+            <div class="s7-metrics">
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">NPS CS</span>
+                <span class="s7-metric-val">36,4% <span class="s7-metric-mom" style="color:#C53030;">(-1,5pp MoM)</span></span>
+              </div>
+              <div class="s7-metric-row">
+                <span class="s7-metric-lbl">CSAT Maxwell</span>
+                <span class="s7-metric-val">3,89 <span class="s7-metric-mom" style="color:#9CA3AF;">(abr/26)</span></span>
+              </div>
+            </div>
+            <div class="s7-post">
+              <div class="s7-post-lbl">Post bloqueo</div>
+              <div class="s7-post-row"><span>Uso Point TAP</span><span>8,8% <span style="font-size:8.5px;color:#C53030;">(-0,5pp)</span></span></div>
+              <div class="s7-post-row"><span>Compra de device</span><span>16,8% <span style="font-size:8.5px;color:#94A3B8;">(0pp)</span></span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ── RIGHT: Resultados MLM & MLC ── -->
+      <div class="s7-opp">
+        <div class="s7-opp-hdr" style="background:#276749;">✅ Activados — MLM &amp; MLC · 22/05/2026</div>
+        <div class="s7-opp-inner">
+          <div class="s7-opp-site">
+            <div class="s7-opp-site-hdr">
+              <span class="s7-opp-site-name">MLM 🇲🇽</span>
+              <span class="s7-opp-badge" style="background:#DCFCE7;color:#166534;">Activo 22/05</span>
+            </div>
+            <div class="s7-opp-rules">
+              <b>Regla:</b> BS, SMB &amp; HILO garantizado · MILO/LOLO: TPV ≥ MXN$5k/3m<br>
+              <b>Device:</b> age ≤ 12 meses<br>
+              <b>Vol. mai/26:</b> ~8.9K recambios/mes · 92% vía Maxwell
+            </div>
+          </div>
+          <div class="s7-opp-site">
+            <div class="s7-opp-site-hdr">
+              <span class="s7-opp-site-name">MLC 🇨🇱</span>
+              <span class="s7-opp-badge" style="background:#DCFCE7;color:#166534;">Activo 22/05</span>
+            </div>
+            <div class="s7-opp-rules">
+              <b>Regla:</b> BS, SMB &amp; HILO garantizado<br>
+              <b>Device:</b> age ≤ 12 meses<br>
+              <b>Vol. mai/26:</b> ~1.5K recambios/mes · Maxwell 42%
+            </div>
+          </div>
+          <div class="s7-opp-impact" style="background:#EFF6FF;border-color:#BFDBFE;">
+            <div class="s7-opp-impact-ttl" style="color:#1D4ED8;">Primeros resultados — mai/26 (22–28 may)</div>
+            <div class="s7-opp-impact-row" style="color:#1e3a6e;"><span>MLM — bloqueos mai/26 (22–31/mai)</span><b>2.279</b></div>
+            <div class="s7-opp-impact-row" style="color:#1e3a6e;"><span>MLC — bloqueos mai/26 (22–31/mai)</span><b>1.329</b></div>
+            <div class="s7-opp-impact-row" style="color:#6B7280;font-size:9px;"><span>~76/día MLM · ~133/día MLC · via Maxwell (10 días)</span><b style="color:#9CA3AF;">sin dato $</b></div>
+          </div>
+          <div class="s7-cta">
+            <div style="display:flex;flex-direction:column;gap:5px;">
+              <div>
+                <div class="s7-cta-lbl">Activado — MLA</div>
+                <div class="s7-cta-val" style="font-size:13px;">05/03/2026 ✓</div>
+              </div>
+              <div>
+                <div class="s7-cta-lbl">Activado — MLM &amp; MLC</div>
+                <div class="s7-cta-val" style="font-size:13px;">22/05/2026 ✓</div>
+              </div>
+            </div>
+            <div style="text-align:right;">
+              <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">Ahorro total 4 sites</div>
+              <div style="font-size:18px;font-weight:900;color:#FFD000;">~USD 505k<span style="font-size:11px;color:rgba(255,255,255,.5);">/mes</span></div>
+              <div style="font-size:8px;color:rgba(255,255,255,.35);margin-top:1px;">MLA + MLB · MLM/MLC sin dato</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Insight + Línea de acción -->
+    <div style="margin:0 20px 10px;flex-shrink:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
+      <div style="background:#EFF6FF;border-radius:8px;padding:9px 13px;border-left:3px solid #1D4ED8;">
+        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#1D4ED8;margin-bottom:4px;">💡 Insight</div>
+        <div style="font-size:9.5px;color:#1e3a6e;line-height:1.5;">Los sellers bloqueados por política que compran un nuevo dispositivo muestran <b>incremento de TPV post-compra</b> en MLA y MLB, con la mayoría siendo perfiles <b>longtail que compran sin descuento y por canal orgánico</b> — lo que sugiere una necesidad real y disposición genuina a invertir para continuar operando.</div>
+      </div>
+      <div style="background:#F0FDF4;border-radius:8px;padding:9px 13px;border-left:3px solid #16A34A;">
+        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#16A34A;margin-bottom:4px;">→ Línea de acción</div>
+        <div style="font-size:9.5px;color:#166534;line-height:1.5;">Activar <b>campañas de descuento en compra</b> orientadas a este segmento. Maxwell y CX: al comunicar la restricción, el agente ofrece proactivamente <b>TAP + Compra con descuento</b> como solución para retomar la actividad.</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SLIDE 7 — Maxwell + Oportunidades (embedded from maxwell_ppt.html)
+     ============================================================ -->
+<div class="slide content-slide" id="s8">
+
+  <style>
+  /* Scoped Maxwell styles */
+  #s8 { background:#F0F4FA; }
+  #s8 .mx-page { flex:1; }
+  #s8 .mx-page{flex:1;display:flex;flex-direction:column;gap:0;padding:12px 28px 6px;overflow:hidden;}
+  #s8 .mx-sec-lbl{font-size:9px;font-weight:800;color:#64748B;text-transform:uppercase;letter-spacing:.7px;margin-bottom:6px;}
+  #s8 .mx-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;}
+  #s8 .mx-kpi{background:#fff;border-radius:9px;padding:9px 14px;border:1px solid #E2E8F0;box-shadow:0 1px 5px rgba(0,0,0,.05);}
+  #s8 .mx-kpi-lbl{font-size:9px;font-weight:700;color:#64748B;text-transform:uppercase;letter-spacing:.5px;margin-bottom:2px;}
+  #s8 .mx-kpi-val{font-size:22px;font-weight:800;color:#1a4a8a;line-height:1.1;}
+  #s8 .mx-kpi-sub{font-size:9px;color:#64748B;margin-top:2px;}
+  #s8 .mx-kpi-breakdown{display:flex;gap:6px;margin-top:5px;flex-wrap:wrap;}
+  #s8 .mx-kpi-br-item{font-size:9px;color:#64748B;background:#F1F5F9;border-radius:4px;padding:2px 6px;white-space:nowrap;}
+  #s8 .mx-kpi-br-item b{color:#1a1a2e;}
+  #s8 .mx-cards{display:grid;grid-template-columns:36% 1fr;gap:14px;margin-bottom:14px;}
+  #s8 .mx-wip-card{background:#fff;border-radius:10px;border:1.5px dashed #1a4a8a;box-shadow:0 1px 6px rgba(0,0,0,.04);display:flex;flex-direction:column;overflow:hidden;}
+  #s8 .mx-wip-hdr{padding:9px 14px 8px;border-bottom:1px solid #E2E8F0;display:flex;align-items:center;gap:8px;background:linear-gradient(90deg,#EFF6FF,#F8FAFC);}
+  #s8 .mx-wip-ttl{font-size:12px;font-weight:800;color:#1a4a8a;}
+  #s8 .mx-wip-badge{font-size:8px;font-weight:700;background:#DBEAFE;color:#1D4ED8;border-radius:10px;padding:2px 8px;white-space:nowrap;}
+  #s8 .mx-wip-body{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px;}
+  #s8 .mx-wip-col{display:flex;flex-direction:column;gap:6px;}
+  #s8 .mx-wip-col-lbl{font-size:8.5px;font-weight:800;text-transform:uppercase;letter-spacing:.06em;color:#64748B;padding-bottom:4px;border-bottom:1px solid #E2E8F0;}
+  #s8 .mx-wip-item{display:flex;gap:7px;align-items:flex-start;}
+  #s8 .mx-wip-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:4px;}
+  #s8 .mx-wip-txt{font-size:10px;color:#374151;line-height:1.35;}
+  #s8 .mx-wip-date{font-size:8.5px;font-weight:700;color:#1a4a8a;background:#EFF6FF;border-radius:3px;padding:1px 5px;margin-top:2px;display:inline-block;}
+  #s8 .mx-wip-foot{padding:7px 14px 9px;border-top:1px solid #E2E8F0;background:#FAFCFF;font-size:9px;color:#64748B;}
+  #s8 .mx-card{background:#fff;border-radius:10px;border:1px solid #E2E8F0;box-shadow:0 1px 6px rgba(0,0,0,.05);display:flex;flex-direction:column;overflow:hidden;}
+  #s8 .mx-card-hdr{padding:9px 13px 8px;border-bottom:1px solid #E2E8F0;display:flex;align-items:flex-start;gap:8px;}
+  #s8 .mx-pnum{width:24px;height:24px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;}
+  #s8 .mx-pnum.p1{background:#FFF1F0;color:#C53030;}
+  #s8 .mx-pnum.p2{background:#FFF7ED;color:#C05621;}
+  #s8 .mx-pnum.p3{background:#F0FFF4;color:#276749;}
+  #s8 .mx-card-ttl{font-size:11.5px;font-weight:700;color:#1a1a2e;line-height:1.3;}
+  #s8 .mx-card-site{font-size:9px;color:#64748B;margin-top:2px;}
+  #s8 .mx-card-body{padding:9px 13px;flex:1;display:flex;flex-direction:column;gap:6px;}
+  #s8 .mx-bigstat{display:flex;align-items:baseline;gap:5px;}
+  #s8 .mx-bigstat-val{font-size:22px;font-weight:800;line-height:1;}
+  #s8 .mx-bigstat-val.red{color:#C53030;}
+  #s8 .mx-bigstat-val.orange{color:#C05621;}
+  #s8 .mx-bigstat-val.gray{color:#718096;}
+  #s8 .mx-bigstat-lbl{font-size:10px;color:#64748B;}
+  #s8 .mx-sstat{font-size:10px;color:#64748B;}
+  #s8 .mx-sstat b{color:#1a1a2e;}
+  #s8 .mx-insight{font-size:10px;color:#374151;background:#F8FAFF;border-radius:6px;padding:7px 10px;border-left:2px solid #1a4a8a;line-height:1.4;}
+  #s8 .mx-insight.warn{background:#FFFBEB;border-color:#C05621;}
+  #s8 .mx-insight.alert{background:#FFF5F5;border-color:#C53030;}
+  #s8 .mx-insight b{color:#1a1a2e;}
+  #s8 .mx-card-foot{padding:7px 13px 9px;display:flex;align-items:center;justify-content:space-between;border-top:1px solid #E2E8F0;background:#FAFCFF;}
+  #s8 .mx-impact-val{font-size:14px;font-weight:800;color:#1a4a8a;line-height:1;}
+  #s8 .mx-impact-lbl{font-size:9px;color:#64748B;}
+  #s8 .mx-pill{font-size:9px;font-weight:700;padding:3px 10px;border-radius:12px;text-transform:uppercase;letter-spacing:.3px;}
+  #s8 .mx-pill.danger{background:#FED7D7;color:#C53030;}
+  #s8 .mx-pill.warn{background:#FEEBC8;color:#C05621;}
+  #s8 .mx-pill.neutral{background:#E2E8F0;color:#4A5568;}
+  #s8 .mx-tl-wrap{position:relative;}
+  #s8 .mx-tl-row{display:flex;align-items:stretch;gap:0;position:relative;z-index:1;}
+  #s8 .mx-tl-row::before{content:'';position:absolute;top:9px;left:10px;right:10px;height:2px;background:#CBD5E1;z-index:0;}
+  #s8 .mx-tl-item{flex:1;display:flex;flex-direction:column;align-items:center;position:relative;z-index:1;align-self:stretch;}
+  #s8 .mx-tl-dot{width:18px;height:18px;border-radius:50%;border:2px solid;display:flex;align-items:center;justify-content:center;font-size:8px;font-weight:800;background:#fff;flex-shrink:0;margin-bottom:4px;}
+  #s8 .mx-tl-dot.done{border-color:#94A3B8;background:#94A3B8;color:#fff;}
+  #s8 .mx-tl-dot.next{border-color:#1a4a8a;background:#1a4a8a;color:#fff;box-shadow:0 0 0 3px rgba(26,74,138,.15);}
+  #s8 .mx-tl-dot.disc{border-color:#CBD5E1;border-style:dashed;color:#94A3B8;}
+  #s8 .mx-tl-card{background:#fff;border:1px solid #E2E8F0;border-radius:7px;padding:4px 6px;width:calc(100% - 8px);box-shadow:0 1px 3px rgba(0,0,0,.04);flex:1;display:flex;flex-direction:column;min-height:0;}
+  #s8 .mx-res-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:10px;}
+  #s8 .mx-res-kpi{background:#fff;border-radius:9px;padding:8px 14px;border:1px solid #E2E8F0;box-shadow:0 1px 5px rgba(0,0,0,.05);display:flex;align-items:center;gap:10px;}
+  #s8 .mx-res-arrow{font-size:18px;font-weight:900;flex-shrink:0;}
+  #s8 .mx-res-body{display:flex;flex-direction:column;gap:1px;}
+  #s8 .mx-res-val{font-size:18px;font-weight:800;line-height:1.1;}
+  #s8 .mx-res-lbl{font-size:9px;color:#64748B;font-weight:600;text-transform:uppercase;letter-spacing:.04em;}
+  #s8 .mx-tl-card.done{background:#F8FAFC;border-color:#E2E8F0;}
+  #s8 .mx-tl-card.next{background:#EFF6FF;border-color:rgba(26,74,138,.2);}
+  #s8 .mx-tl-card.disc{background:#FAFAFA;border-color:#E5E7EB;border-style:dashed;}
+  #s8 .mx-tl-date{font-size:8px;font-weight:800;margin-bottom:1px;}
+  #s8 .mx-tl-date.done{color:#94A3B8;}
+  #s8 .mx-tl-date.next{color:#1a4a8a;}
+  #s8 .mx-tl-date.disc{color:#9CA3AF;}
+  #s8 .mx-tl-tag{display:inline-block;font-size:7.5px;font-weight:700;padding:1px 5px;border-radius:8px;margin-bottom:3px;text-transform:uppercase;}
+  #s8 .mx-tl-tag.done{background:#E2E8F0;color:#64748B;}
+  #s8 .mx-tl-tag.next{background:#DBEAFE;color:#1D4ED8;}
+  #s8 .mx-tl-tag.disc{background:#F3F4F6;color:#9CA3AF;}
+  #s8 .mx-tl-items{list-style:none;display:flex;flex-direction:column;gap:2px;margin-bottom:4px;flex:1;}
+  #s8 .mx-tl-items li{font-size:9px;line-height:1.25;padding-left:8px;position:relative;}
+  #s8 .mx-tl-items li::before{content:'·';position:absolute;left:1px;}
+  #s8 .mx-tl-card.done .mx-tl-items li{color:#94A3B8;}
+  #s8 .mx-tl-card.next .mx-tl-items li{color:#1e3a6e;}
+  #s8 .mx-tl-card.disc .mx-tl-items li{color:#9CA3AF;}
+  #s8 .mx-tl-impact{border-top:1px solid rgba(0,0,0,.07);padding-top:3px;display:flex;align-items:center;justify-content:space-between;margin-top:auto;}
+  #s8 .mx-tl-impact-val{font-size:9.5px;font-weight:800;}
+  #s8 .mx-tl-impact-val.done{color:#64748B;}
+  #s8 .mx-tl-impact-val.next{color:#1a4a8a;}
+  #s8 .mx-tl-impact-val.disc{color:#9CA3AF;}
+  #s8 .mx-tl-impact-lbl{font-size:7.5px;color:#64748B;}
+  #s8 .mx-tl-badge{font-size:7.5px;font-weight:700;padding:1px 5px;border-radius:8px;}
+  #s8 .mx-tl-badge.real{background:#DCFCE7;color:#16A34A;}
+  #s8 .mx-tl-badge.est{background:#DBEAFE;color:#1D4ED8;}
+  #s8 .mx-tl-badge.tbd{background:#F3F4F6;color:#9CA3AF;}
+  #s8 .mx-footnote{flex-shrink:0;padding:4px 28px 6px;font-size:9px;color:#94A3B8;display:flex;gap:20px;}
+  </style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Solicitudes de recambio</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Maxwell — Oportunidades y Roadmap</span>
+  </div>
+
+  <div class="mx-page">
+    <div class="mx-sec-lbl">Contexto · mai/26</div>
+    <div class="mx-kpis">
+      <div class="mx-kpi">
+        <div class="mx-kpi-lbl">Solicitudes vía Maxwell — mai/26</div>
+        <div class="mx-kpi-val">30.303</div>
+        <div class="mx-kpi-sub">84,3% del total cross-site</div>
+        <div class="mx-kpi-breakdown">
+          <span class="mx-kpi-br-item"><b>MLB</b> 17.543 · 84%</span>
+          <span class="mx-kpi-br-item"><b>MLA</b> 3.883 · 86%</span>
+          <span class="mx-kpi-br-item"><b>MLM</b> 8.259 · 92%</span>
+          <span class="mx-kpi-br-item"><b>MLC</b> 618 · 42%</span>
+        </div>
+      </div>
+      <div class="mx-kpi">
+        <div class="mx-kpi-lbl">Canal principal</div>
+        <div class="mx-kpi-val">84,3%</div>
+        <div class="mx-kpi-sub">del total de solicitudes · mai/26</div>
+      </div>
+    </div>
+
+    <div class="mx-sec-lbl">Conversaciones Maxwell → Recambio % · impacto de las implementaciones</div>
+    <div style="background:#fff;border-radius:10px;border:1px solid #E2E8F0;padding:8px 14px 8px;flex-shrink:0;">
+      <div style="font-size:9px;color:#6B7280;margin-bottom:6px;">% de conversaciones Point que resultan en pedido de recambio · base (nov/25) vs abr/26</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:10px;">
+        <!-- MLB -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/br.png">
+            <span style="font-size:11px;font-weight:800;color:#1a4a8a;">MLB</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−11,2pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#DBEAFE;border-radius:3px;position:relative;">
+                <div style="width:100%;height:100%;background:#93C5FD;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#1D4ED8;">20,4%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">ene/26</span>
+              <div style="flex:1;height:12px;background:#DBEAFE;border-radius:3px;position:relative;">
+                <div style="width:90%;height:100%;background:#93C5FD;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#1D4ED8;">18,3%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">mar/26</span>
+              <div style="flex:1;height:11px;background:#E2E8F0;border-radius:3px;position:relative;">
+                <div style="width:47%;height:100%;background:#94A3B8;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#475569;">9,6%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:45%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">9,2% <span style="font-size:7px;font-weight:700;color:#16A34A;">−0,4pp</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MLA -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/ar.png">
+            <span style="font-size:11px;font-weight:800;color:#E53E3E;">MLA</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−13,8pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#FEE2E2;border-radius:3px;position:relative;">
+                <div style="width:83%;height:100%;background:#FCA5A5;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#DC2626;">26,8%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">feb/26</span>
+              <div style="flex:1;height:12px;background:#FEE2E2;border-radius:3px;position:relative;">
+                <div style="width:100%;height:100%;background:#F87171;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#DC2626;">32,7%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">mar/26</span>
+              <div style="flex:1;height:11px;background:#E2E8F0;border-radius:3px;position:relative;">
+                <div style="width:58%;height:100%;background:#94A3B8;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#475569;">19,0%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:40%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">13,1% <span style="font-size:7px;font-weight:700;color:#16A34A;">−5,9pp</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MLM -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/mx.png">
+            <span style="font-size:11px;font-weight:800;color:#D97706;">MLM</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−16,7pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#FEF3C7;border-radius:3px;position:relative;">
+                <div style="width:94%;height:100%;background:#FCD34D;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#D97706;">30,1%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">ene/26</span>
+              <div style="flex:1;height:12px;background:#FEF3C7;border-radius:3px;position:relative;">
+                <div style="width:94%;height:100%;background:#FCD34D;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#D97706;">30,1%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">mar/26</span>
+              <div style="flex:1;height:11px;background:#E2E8F0;border-radius:3px;position:relative;">
+                <div style="width:45%;height:100%;background:#94A3B8;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#475569;">14,5%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:42%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">13,4% <span style="font-size:7px;font-weight:700;color:#16A34A;">−1,1pp</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <!-- MLC -->
+        <div>
+          <div style="display:flex;align-items:center;gap:6px;margin-bottom:6px;">
+            <img style="width:16px;height:16px;border-radius:50%;" src="https://flagcdn.com/w40/cl.png">
+            <span style="font-size:11px;font-weight:800;color:#2A9D8F;">MLC</span>
+            <span style="font-size:9px;font-weight:800;color:#16A34A;margin-left:auto;">−2,9pp</span>
+          </div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">nov/25</span>
+              <div style="flex:1;height:12px;background:#CCFBF1;border-radius:3px;position:relative;">
+                <div style="width:28%;height:100%;background:#5EEAD4;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#0D9488;">8,9%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">ene/26</span>
+              <div style="flex:1;height:12px;background:#CCFBF1;border-radius:3px;position:relative;">
+                <div style="width:41%;height:100%;background:#5EEAD4;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#0D9488;">13,3%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">mar/26</span>
+              <div style="flex:1;height:11px;background:#E2E8F0;border-radius:3px;position:relative;">
+                <div style="width:19%;height:100%;background:#94A3B8;border-radius:3px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:8px;font-weight:700;color:#475569;">6,1%</span>
+              </div>
+            </div>
+            <div style="display:flex;align-items:center;gap:5px;">
+              <span style="font-size:8.5px;color:#9CA3AF;width:42px;">abr/26</span>
+              <div style="flex:1;height:14px;background:#DCFCE7;border-radius:3px;position:relative;border:1.5px solid #16A34A;">
+                <div style="width:18%;height:100%;background:#4ADE80;border-radius:2px;"></div>
+                <span style="position:absolute;right:4px;top:50%;transform:translateY(-50%);font-size:9px;font-weight:900;color:#166534;">5,9% <span style="font-size:7px;font-weight:700;color:#16A34A;">−0,2pp</span></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mx-sec-lbl">Árboles de Decisión · Entregables</div>
+    <div class="mx-cards" style="grid-template-columns:55% 1fr;">
+
+      <!-- ÁRBOLES (esquerda) -->
+      <!-- ÁRBOLES DE DECISIÓN -->
+      <div class="mx-wip-card" style="border-color:#7C3AED;background:#FAFAFF;">
+        <div class="mx-wip-hdr" style="background:linear-gradient(90deg,#EDE9FE,#F5F3FF);">
+          <span style="font-size:15px;">🌳</span>
+          <div class="mx-wip-ttl" style="color:#7C3AED;">Árboles de Decisión — Point Contact</div>
+          <span class="mx-wip-badge" style="background:#EDE9FE;color:#7C3AED;">Objetivo: −20%+ contactos CX</span>
+          <span style="font-size:9px;color:#6B7280;margin-left:auto;white-space:nowrap;">MLA · MLB · MLC · MLM · A910 · N950 · POS · mPOS</span>
+        </div>
+        <!-- Intro explicativo -->
+        <div style="padding:6px 12px 4px;border-bottom:1px solid #EDE9FE;font-size:9px;color:#4B5563;line-height:1.5;">
+          <b style="color:#7C3AED;">¿Qué son?</b> Flujos de diagnóstico guiado que Maxwell ejecuta <b>antes de abrir un recambio</b>. Consultan datos reales del dispositivo vía PTM para resolver el problema en el chat — sin escalar a CX ni crear ticket de recambio.
+        </div>
+        <!-- 6 árboles con campos PTM -->
+        <div style="flex:1;display:grid;grid-template-columns:1fr 1fr;gap:5px;padding:6px 12px 8px;">
+          <!-- 1 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">1</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">No enciende</span>
+            </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;">Última fecha conexión · nivel de batería · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">is_Alive</code> (SMART) · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">BATTERY_INEFF_FLAG</code></div>
+          </div>
+          <!-- 2 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">2</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">No conecta SIM</span>
+            </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;">Estado SIM (suspendida/cancelada/activa) · historial de conexiones al carrier · dispositivos cercanos con mejor señal</div>
+          </div>
+          <!-- 3 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">3</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">Mensajes de error</span>
+            </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">FIRMWARE_VERSION</code> vs. esperada · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">INIT_COUNT_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">BLACKLIST_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">is_Alive</code></div>
+          </div>
+          <!-- 4 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">4</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">Cobro rechazado</span>
+            </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">payment_result.status_detail</code> del último cobro · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">VALERA_NOT_REGISTERED</code></div>
+          </div>
+          <!-- 5 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">5</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">Señal / cobros lentos</span>
+            </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">SIM_USER</code> / <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">WIFI_USER</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">DISPLACEMENT_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">PTIME_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">API_ERROR_FLAG</code> · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">SIM_CONNECTIVITY</code></div>
+          </div>
+          <!-- 6 -->
+          <div style="background:#F5F3FF;border-radius:7px;padding:6px 9px;border-left:3px solid #7C3AED;">
+            <div style="display:flex;align-items:center;gap:5px;margin-bottom:3px;">
+              <div style="width:17px;height:17px;border-radius:50%;background:#7C3AED;color:#fff;font-size:8px;font-weight:900;display:flex;align-items:center;justify-content:center;flex-shrink:0;">6</div>
+              <span style="font-size:10px;font-weight:800;color:#1a1a2e;">No funciona / congela</span>
+            </div>
+            <div style="font-size:8.5px;color:#6B7280;line-height:1.45;"><code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">FIRMWARE_VERSION</code> + módulos vs. esperada · PTM: ¿device conectado? · SIM card (si no hay WiFi) · <code style="background:#EDE9FE;color:#7C3AED;padding:0 3px;border-radius:2px;font-size:8px;">is_Alive</code> (SMART)</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ENTREGABLES — timeline vertical (direita) -->
+      <div style="background:#fff;border-radius:10px;border:1px solid #E2E8F0;display:flex;flex-direction:column;overflow:hidden;">
+        <div style="padding:8px 12px;border-bottom:1px solid #E2E8F0;background:#F8FAFC;display:flex;align-items:center;gap:7px;">
+          <span style="font-size:11px;">📋</span>
+          <span style="font-size:10.5px;font-weight:800;color:#1a1a2e;">Entregables Maxwell</span>
+        </div>
+        <div style="flex:1;overflow:hidden;padding:8px 12px;display:flex;flex-direction:column;gap:0;position:relative;">
+          <!-- line -->
+          <div style="position:absolute;left:20px;top:16px;bottom:16px;width:2px;background:#E2E8F0;"></div>
+          <!-- items -->
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">16 Ene · Flujo recambio + política</div><div style="font-size:8px;color:#6B7280;">7.960 bloq/mes · −4pp abandono · ↑153K TPV</div></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">29 Ene · Tool get-device-details</div><div style="font-size:8px;color:#6B7280;">Habilitador: descarga profunda + datos PTM</div></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">05 Mar · IBM Maxwell MLC <span style="background:#EEF2FF;color:#4338CA;font-size:7px;font-weight:800;border-radius:3px;padding:1px 4px;">MLC</span></div><div style="font-size:8px;color:#6B7280;">1.013 visitas/mes · 13% salvados · 34% vía Maxwell</div></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">14 Abr · Cambio de dirección chat</div><div style="font-size:8px;color:#6B7280;">Habilitador: dirección vía Maxwell</div></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">16 Abr · Segmentación por perfil</div><div style="font-size:8px;color:#6B7280;">Reduce abandono · filtra inelegibles</div></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;margin-bottom:8px;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#94A3B8;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #94A3B8;display:flex;align-items:center;justify-content:center;"><span style="font-size:7px;color:#fff;font-weight:900;">✓</span></div>
+            <div><div style="font-size:9px;font-weight:800;color:#374151;">04 Mai · PTM WiFi→SIM + Vouchers</div><div style="font-size:8px;color:#6B7280;">Desvío pre-solicitud vía PTM</div></div>
+          </div>
+          <div style="display:flex;gap:8px;align-items:flex-start;position:relative;z-index:1;">
+            <div style="width:14px;height:14px;border-radius:50%;background:#CBD5E1;flex-shrink:0;margin-top:2px;border:2px solid #fff;box-shadow:0 0 0 2px #CBD5E1;border-style:dashed;"></div>
+            <div><div style="font-size:9px;font-weight:800;color:#6B7280;">Q2/26 · Árboles de decisión PTM</div><div style="font-size:8px;color:#9CA3AF;">6 árboles · −20%+ contactos CX · en desarrollo</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- roadmap horizontal removido - agora vertical na direita -->
+  </div>
+
+  <div class="mx-footnote">
+    <span>Fuente: BT_MP_POINT_SERVICE_ORDER · ene–mar/26 · MLB · canal FAQ = Maxwell</span>
+    <span>Estimaciones basadas en % de resolución por diagnóstico guiado y analogía con bloqueo MLB</span>
+  </div>
+</div>
+
+<!-- ============================================================
+     SLIDE 8 — Section: Lead Time
+     ============================================================ -->
+<div class="slide dark section-div" id="s9">
+  <div class="dots-deco" style="top:-40px;right:-40px;left:auto;"></div>
+  <div class="sec-content">
+    <div class="sec-label">Gameplan de Recambios 2.0</div>
+    <div class="sec-line"></div>
+    <h2>Lead Time</h2>
+  </div>
+  <div class="sec-right">LOGISTICS</div>
+</div>
+
+<!-- ============================================================
+     SLIDE 9 — Leadtimes Longtail
+     ============================================================ -->
+<div class="slide content-slide" id="s10">
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">SMB</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-title">MLB SMB: G1 al 41% · MLA 31% · MLC 83% · MLM 36% en abr/26 — <span style="font-size:14px;font-weight:600;color:#6B7280;">Meta 83% definida solo para MLB</span></div>
+    <div class="four-col" style="align-content:stretch;grid-auto-rows:1fr;">
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLA</span><img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"></div>
+        <div class="site-conclusion">
+          G1: <span class="alert">31%</span> — G4: <b>34%</b> — G3: <b>35%</b> via CC. Alto volumen CC/consultor impacta G3. <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLA.</span>
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#C53030;">31%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">34%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-smb-mla"></canvas></div>
+      </div>
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLB</span><img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"></div>
+        <div class="site-conclusion">
+          G1: <span class="alert">41%</span> — G4: <b>40%</b>. Por debajo de la meta (83%). Mejora progresiva (+18pp vs oct/25).
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#C53030;">41%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta">Meta: 83%</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">40%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-smb-mlb"></canvas></div>
+      </div>
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLC</span><img class="flag-circle" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"></div>
+        <div class="site-conclusion">
+          G1: <span class="ok">83%</span> abr/26 — G4: <b>12%</b>. Excelente. IBM en G3 (+4%). <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLC.</span>
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#276749;">83%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">12%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-smb-mlc"></canvas></div>
+      </div>
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLM</span><img class="flag-circle" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></div>
+        <div class="site-conclusion">
+          G1: <b>36%</b> — G4: <b>19%</b>. Mejora de +12pp vs nov/25. <span class="warn">IBM MLM: contrato SDX pendiente · +1–2m tras firma.</span> <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#DD6B20;">36%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">19%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-smb-mlm"></canvas></div>
+      </div>
+    </div>
+  </div>
+  <div class="chart-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#276749;"></div> G1 Dentro del objetivo</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#DD6B20;"></div> G2/G3 En cartera</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#E53E3E;"></div> G4 Fuera del objetivo</div>
+    <div class="legend-item"><div class="legend-line" style="background:#FFD000;height:2px;border-top:2px dashed #FFD000;"></div> Meta G1 83% <span style="color:#9CA3AF;font-style:italic;">(MLB only)</span></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SLIDE 10 — Leadtimes Longtail
+     ============================================================ -->
+<div class="slide content-slide" id="s11">
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Longtail</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-title">MLA Longtail G1 79% · MLC 88% · MLM 60% · MLB 26% en abr/26 — <span style="font-size:14px;font-weight:600;color:#6B7280;">Meta 90% definida solo para MLB</span></div>
+    <div class="four-col" style="align-content:stretch;grid-auto-rows:1fr;">
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLA</span><img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"></div>
+        <div class="site-conclusion">
+          G1: <span class="ok">79%</span> abr/26 — G4: <b>21%</b>. Performance sólida. <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLA.</span>
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#276749;">79%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">20%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-longtail-mla"></canvas></div>
+      </div>
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLB</span><img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"></div>
+        <div class="site-conclusion">
+          G1: <span class="alert">26%</span> — G4: <b>72%</b>. Cuello de botella logístico crítico. Meta 90%. <span class="alert">Principal foco de mejora.</span>
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#C53030;">26%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta">Meta: 90%</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">72%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-longtail-mlb"></canvas></div>
+      </div>
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLC</span><img class="flag-circle" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"></div>
+        <div class="site-conclusion">
+          G1: <span class="ok">88%</span> abr/26 — G4: <b>12%</b>. Leadtime Longtail excelente. <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLC.</span>
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#276749;">88%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">12%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-longtail-mlc"></canvas></div>
+      </div>
+      <div class="site-col">
+        <div class="site-col-hdr"><span class="site-name">MLM</span><img class="flag-circle" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></div>
+        <div class="site-conclusion">
+          G1: <b>60%</b> abr/26 — G4: <b>40%</b>. Estable vs nov/25. <span class="warn">IBM MLM pendiente contrato SDX · +1–2m tras firma.</span> <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
+        </div>
+        <div class="site-kpi">
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#DD6B20;">60%</div><div class="site-kpi-lbl">G1</div></div>
+          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">40%</div><div class="site-kpi-lbl">G4</div></div>
+        </div>
+        <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-longtail-mlm"></canvas></div>
+      </div>
+    </div>
+  </div>
+  <div class="chart-legend">
+    <div class="legend-item"><div class="legend-dot" style="background:#276749;"></div> G1 Dentro del objetivo</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#DD6B20;"></div> G2/G3 En cartera</div>
+    <div class="legend-item"><div class="legend-dot" style="background:#E53E3E;"></div> G4 Fuera del objetivo</div>
+    <div class="legend-item"><div class="legend-line" style="background:#FFD000;height:2px;border-top:2px dashed #FFD000;"></div> Meta G1 90% <span style="color:#9CA3AF;font-style:italic;">(MLB only)</span></div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SLIDE FULL — Recambios vía Full MLB · Piloto 5 Etapas
+     ============================================================ -->
+<div class="slide content-slide" id="s11c">
+  <style>#s11c { background:#F8FAFC; }</style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-teal">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">FULL para Recambios — MLB Piloto</span>
+  </div>
+  <div class="slide-title" style="padding:3px 20px 0;flex-shrink:0;">
+    Recambios vía FULL — sellers <b>sin cobertura Sameday</b> · LT 7,5d → <b>1,8d</b> · G1 26% → <b>~97%</b> · costo blended $37 → <b>$25</b>
+  </div>
+
+  <!-- GANTT FULL WIDTH -->
+  <div style="flex-shrink:0;background:#fff;border-radius:12px;border:1px solid #E2E8F0;padding:12px 24px;margin:4px 20px 0;box-shadow:0 1px 6px rgba(0,0,0,.05);">
+    <div class="sec-lbl" style="margin-bottom:10px;">Roadmap cross-site — Recambios vía Full</div>
+    <div style="position:relative;padding-top:18px;padding-bottom:4px;">
+      <div style="position:absolute;top:27px;left:60px;right:20px;height:4px;background:linear-gradient(to right,#16A34A 0% 20%,#D97706 20% 48%,#CBD5E1 48% 100%);border-radius:2px;"></div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:0;position:relative;">
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div style="width:26px;height:26px;border-radius:50%;background:#16A34A;border:3px solid #fff;box-shadow:0 0 0 3px #16A34A;display:flex;align-items:center;justify-content:center;z-index:1;"><span style="font-size:11px;color:#fff;font-weight:900;">&#10003;</span></div>
+          <img style="width:26px;height:26px;border-radius:50%;border:2px solid #16A34A;" src="https://flagcdn.com/w40/br.png">
+          <div style="font-size:15px;font-weight:900;color:#111827;">MLB</div>
+          <div style="font-size:13px;font-weight:800;color:#16A34A;">Jun/26</div>
+          <div style="font-size:9.5px;color:#6B7280;text-align:center;">Piloto 5 etapas</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div style="width:24px;height:24px;border-radius:50%;background:#D97706;border:3px solid #fff;box-shadow:0 0 0 3px #D97706;z-index:1;"></div>
+          <img style="width:26px;height:26px;border-radius:50%;border:2px solid #D97706;" src="https://flagcdn.com/w40/mx.png">
+          <div style="font-size:15px;font-weight:900;color:#111827;">MLM</div>
+          <div style="font-size:13px;font-weight:800;color:#D97706;">Ago/26</div>
+          <div style="font-size:9.5px;color:#6B7280;text-align:center;">Discovery Fiscal</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div style="width:24px;height:24px;border-radius:50%;background:#CBD5E1;border:3px solid #fff;box-shadow:0 0 0 3px #CBD5E1;z-index:1;"></div>
+          <img style="width:26px;height:26px;border-radius:50%;border:2px solid #CBD5E1;" src="https://flagcdn.com/w40/ar.png">
+          <div style="font-size:15px;font-weight:900;color:#111827;">MLA</div>
+          <div style="font-size:13px;font-weight:800;color:#9CA3AF;">Nov/26</div>
+          <div style="font-size:9.5px;color:#6B7280;text-align:center;">Discovery Fiscal</div>
+        </div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;">
+          <div style="width:24px;height:24px;border-radius:50%;background:#CBD5E1;border:3px solid #fff;box-shadow:0 0 0 3px #CBD5E1;z-index:1;"></div>
+          <img style="width:26px;height:26px;border-radius:50%;border:2px solid #CBD5E1;" src="https://flagcdn.com/w40/cl.png">
+          <div style="font-size:15px;font-weight:900;color:#111827;">MLC</div>
+          <div style="font-size:13px;font-weight:800;color:#9CA3AF;">Dic/26</div>
+          <div style="font-size:9.5px;color:#6B7280;text-align:center;">Preparación FULL</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 3 COLUNAS ABAIXO -->
+  <div style="flex:1;display:grid;grid-template-columns:33% 1px 34% 1px 33%;gap:0;padding:8px 20px 8px;min-height:0;overflow:hidden;">
+
+    <!-- COL 1: G1 por etapa -->
+    <div style="display:flex;flex-direction:column;gap:6px;padding-right:14px;min-height:0;">
+      <div class="sec-lbl">Longtail G1 &lt;48h — acumulado por etapa FULL</div>
+      <div style="display:flex;flex-direction:column;gap:5px;flex:1;">
+        <!-- HOY baseline -->
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:8.5px;font-weight:800;color:#E53E3E;width:44px;flex-shrink:0;">HOY</span>
+          <div style="flex:1;height:14px;background:#FEE2E2;border-radius:4px;position:relative;">
+            <div style="width:26%;height:100%;background:#E53E3E;border-radius:4px;"></div>
+            <span style="position:absolute;left:28%;top:50%;transform:translateY(-50%);font-size:10px;font-weight:900;color:#E53E3E;">26%</span>
+          </div>
+        </div>
+        <div style="height:1px;background:#E2E8F0;margin:1px 0;"></div>
+        <!-- E1-E2: +3% vol, cumulativo ~28% -->
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:8.5px;font-weight:800;color:#86EFAC;width:44px;flex-shrink:0;">E1–E2</span>
+          <div style="flex:1;height:15px;background:#F0FDF4;border-radius:4px;position:relative;">
+            <div style="width:28%;height:100%;background:#86EFAC;border-radius:4px;"></div>
+            <span style="position:absolute;left:30%;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#16A34A;">~28% <span style="font-size:8px;color:#9CA3AF;">MA ≈3% vol</span></span>
+          </div>
+        </div>
+        <!-- E3: +5% vol, cumulativo ~31% -->
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:8.5px;font-weight:800;color:#4ADE80;width:44px;flex-shrink:0;">E3</span>
+          <div style="flex:1;height:15px;background:#DCFCE7;border-radius:4px;position:relative;">
+            <div style="width:31%;height:100%;background:#4ADE80;border-radius:4px;"></div>
+            <span style="position:absolute;left:33%;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#166534;">~31% <span style="font-size:8px;color:#9CA3AF;">+Norte ≈8% vol</span></span>
+          </div>
+        </div>
+        <!-- E4: +27% vol, cumulativo ~52% -->
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:8.5px;font-weight:800;color:#16A34A;width:44px;flex-shrink:0;">E4</span>
+          <div style="flex:1;height:16px;background:#DCFCE7;border-radius:4px;position:relative;">
+            <div style="width:52%;height:100%;background:#22C55E;border-radius:4px;"></div>
+            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:9.5px;font-weight:900;color:#fff;">~52% <span style="font-size:8px;">+Central+Sul ≈35% vol</span></span>
+          </div>
+        </div>
+        <!-- E5: 100% vol, cumulativo ~93% -->
+        <div style="display:flex;align-items:center;gap:6px;">
+          <span style="font-size:8.5px;font-weight:800;color:#1a4a8a;width:44px;flex-shrink:0;">E5</span>
+          <div style="flex:1;height:18px;background:#EFF6FF;border-radius:4px;position:relative;border:1.5px solid #1a4a8a;">
+            <div style="width:93%;height:100%;background:#1a4a8a;border-radius:3px;"></div>
+            <span style="position:absolute;left:5px;top:50%;transform:translateY(-50%);font-size:10px;font-weight:900;color:#fff;">~93% · +SP RJ MG BA PR <span style="font-size:8px;">≈100% vol</span></span>
+          </div>
+        </div>
+        <div style="background:#F0FDF4;border-radius:7px;padding:6px 10px;margin-top:2px;display:flex;justify-content:space-between;align-items:center;flex-shrink:0;">
+          <span style="font-size:9px;color:#166534;font-weight:700;">TPV recuperado/mês</span>
+          <span style="font-size:12px;font-weight:900;color:#16A34A;">~R$1M</span>
+        </div>
+        <div style="font-size:7.5px;color:#9CA3AF;flex-shrink:0;">Proxy FULL Vendas MLB CHOP · G1=≤6d úteis</div>
+      </div>
+    </div>
+
+    <div style="background:#E2E8F0;"></div>
+
+    <!-- COL 2: 5 Etapas -->
+    <div style="display:flex;flex-direction:column;gap:6px;padding:0 14px;min-height:0;">
+      <div class="sec-lbl">Plan piloto MLB — 5 etapas · rollout jun/26</div>
+      <div style="display:flex;flex-direction:column;gap:5px;flex:1;">
+        <div style="background:#DCFCE7;border-radius:8px;padding:7px 10px;border-left:3px solid #16A34A;">
+          <div style="font-size:9.5px;font-weight:900;color:#16A34A;">E1 · Maranhão — AIR 1/2</div>
+          <div style="font-size:8.5px;color:#6B7280;margin-top:1px;">~2 ped/día útil</div>
+        </div>
+        <div style="background:#F0FDFA;border-radius:8px;padding:7px 10px;border-left:3px solid #2A9D8F;">
+          <div style="font-size:9.5px;font-weight:900;color:#2A9D8F;">E2 · MA + devices</div>
+          <div style="font-size:8.5px;color:#6B7280;margin-top:1px;">AIR 2 · MINI · PRO 1/2/3 · ~14/d</div>
+        </div>
+        <div style="background:#EFF6FF;border-radius:8px;padding:7px 10px;border-left:3px solid #1a4a8a;">
+          <div style="font-size:9.5px;font-weight:900;color:#1a4a8a;">E3 · MA + Norte/NE</div>
+          <div style="font-size:8.5px;color:#6B7280;margin-top:1px;">RR AC AP RO TO PI · ~42/d</div>
+        </div>
+        <div style="background:#FFFBEB;border-radius:8px;padding:7px 10px;border-left:3px solid #D97706;">
+          <div style="font-size:9.5px;font-weight:900;color:#D97706;">E4 · Centro-Oeste + Sul + Nordeste</div>
+          <div style="font-size:8.5px;color:#6B7280;margin-top:1px;">AL MS RN RS SC PB SE MT DF AM CE GO · ~180/d</div>
+        </div>
+        <div style="background:#FEF2F2;border-radius:8px;padding:7px 10px;border-left:3px solid #E53E3E;">
+          <div style="font-size:9.5px;font-weight:900;color:#E53E3E;">E5 · Grandes estados</div>
+          <div style="font-size:8.5px;color:#6B7280;margin-top:1px;">PR ES PE PA BA MG RJ SP · <b style="color:#E53E3E;">~511/d</b> · ~11.200/mes</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#E2E8F0;"></div>
+
+    <!-- COL 3: Segmentacao + Retorno -->
+    <div style="display:flex;flex-direction:column;gap:6px;padding-left:14px;min-height:0;">
+      <div class="sec-lbl">Segmentación · Retorno esperado</div>
+      <div style="background:#F8FAFC;border-radius:9px;padding:8px 11px;border:1px solid #E2E8F0;flex-shrink:0;">
+        <div style="font-size:8.5px;font-weight:800;text-transform:uppercase;color:#6B7280;margin-bottom:5px;">Segmentación</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div style="display:flex;gap:5px;align-items:center;font-size:10px;color:#374151;">
+            <span style="background:#1a4a8a;color:#fff;font-size:8px;font-weight:800;padding:2px 7px;border-radius:3px;">FULL</span>
+            <span><b>Todo Longtail</b> + SMB/BS sin Sameday</span>
+          </div>
+          <div style="display:flex;gap:5px;align-items:center;font-size:10px;color:#374151;">
+            <span style="background:#16A34A;color:#fff;font-size:8px;font-weight:800;padding:2px 7px;border-radius:3px;">SAME</span>
+            <span>Solo <b>SMB/BS</b> con cobertura Sameday</span>
+          </div>
+        </div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:5px;flex-shrink:0;">
+        <div style="background:#F0FDF4;border-radius:8px;padding:8px 10px;">
+          <div style="font-size:8px;font-weight:700;color:#166534;text-transform:uppercase;margin-bottom:2px;">Leadtime</div>
+          <div style="display:flex;align-items:baseline;gap:3px;"><span style="font-size:9px;color:#9CA3AF;text-decoration:line-through;">7,5d</span><span style="font-size:18px;font-weight:900;color:#16A34A;">1,8d</span></div>
+        </div>
+        <div style="background:#EFF6FF;border-radius:8px;padding:8px 10px;">
+          <div style="font-size:8px;font-weight:700;color:#1D4ED8;text-transform:uppercase;margin-bottom:2px;">Volumen</div>
+          <div style="font-size:18px;font-weight:900;color:#1a4a8a;">~11k</div>
+          <div style="font-size:7.5px;color:#6B7280;">pedidos/mes</div>
+        </div>
+      </div>
+      <div style="flex-shrink:0;background:#FFFBEB;border-radius:7px;padding:5px 10px;border-left:3px solid #FFD000;display:flex;align-items:center;gap:10px;">
+        <div>
+          <div style="font-size:7px;font-weight:800;text-transform:uppercase;color:#92400E;letter-spacing:.08em;">TPV recuperado (est.)</div>
+          <div style="font-size:18px;font-weight:900;color:#D97706;line-height:1.1;">~R$1M</div>
+        </div>
+        <div style="font-size:7.5px;color:#78350F;line-height:1.45;">3.057 ped/mes × 2,8d × R$122/dia<br><span style="color:#9CA3AF;">TPV médio: R$3.670/mes</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- OUTRAS INICIATIVAS FULL — barra full-width embaixo -->
+  <div class="plus-box" style="margin:0 20px 8px;flex-shrink:0;display:flex;align-items:center;gap:20px;">
+    <div class="plus-title" style="white-space:nowrap;">+ Otras iniciativas Full</div>
+    <div class="plus-row" style="font-size:9.5px;flex:1;">
+      <b>Ventas:</b> MLB &#10003; Done · MLM abr &#10003; · MLA ago/26 · MLC dic/26 &nbsp;|&nbsp;
+      <b>Bonificado:</b> MLM jun/26 · MLB sep/26 · MLA/MLC nov–dic/26
+    </div>
+  </div>
+</div>
+<!-- ============================================================
+     SLIDE IBM — Operación IBM MLC · Expansión MLM
+     ============================================================ -->
+<div class="slide content-slide" id="s11b">
+  <style>
+  #s11b { background:#F8FAFC; }
+  #s11b .ibm-body { flex:1; display:grid; grid-template-columns:30% 1px 43% 1px 27%; gap:0; padding:4px 0 8px; min-height:0; overflow:hidden; }
+  #s11b .ibm-divider { background:#E2E8F0; }
+  #s11b .ibm-col { display:flex; flex-direction:column; gap:8px; min-height:0; padding:0 16px; }
+  #s11b .ibm-col:first-child { padding-left:20px; }
+  #s11b .ibm-col:last-child { padding-right:20px; }
+  #s11b .ibm-section-lbl { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.09em; color:#6B7280; display:flex; align-items:center; gap:6px; flex-shrink:0; }
+  #s11b .ibm-section-lbl::after { content:''; flex:1; height:1px; background:#E2E8F0; }
+  /* flow */
+  #s11b .flow-wrap { display:flex; flex-direction:column; gap:6px; flex:1; }
+  #s11b .flow-step { background:#fff; border-radius:9px; border:1px solid #E2E8F0; padding:9px 13px; display:flex; align-items:flex-start; gap:9px; box-shadow:0 1px 4px rgba(0,0,0,.05); }
+  #s11b .flow-num { width:22px; height:22px; border-radius:50%; background:#1a4a8a; color:#fff; font-size:11px; font-weight:800; display:flex; align-items:center; justify-content:center; flex-shrink:0; }
+  #s11b .flow-txt { font-size:11px; color:#374151; line-height:1.4; }
+  #s11b .flow-txt b { color:#111827; }
+  #s11b .flow-arrow { text-align:center; font-size:14px; color:#CBD5E1; line-height:1; flex-shrink:0; }
+  #s11b .flow-outcome { display:grid; grid-template-columns:1fr 1fr; gap:6px; flex-shrink:0; }
+  #s11b .outcome-box { border-radius:8px; padding:8px 10px; display:flex; flex-direction:column; gap:2px; }
+  #s11b .outcome-val { font-size:22px; font-weight:900; line-height:1; }
+  #s11b .outcome-lbl { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.04em; }
+  /* elegibilidade */
+  #s11b .elig-box { background:#EFF6FF; border-radius:8px; padding:9px 12px; flex-shrink:0; }
+  #s11b .elig-title { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.06em; color:#1D4ED8; margin-bottom:6px; }
+  #s11b .elig-row { display:flex; gap:6px; align-items:center; font-size:10.5px; color:#374151; margin-bottom:3px; }
+  #s11b .elig-dot { width:6px; height:6px; border-radius:50%; background:#1a4a8a; flex-shrink:0; }
+  /* kpis */
+  #s11b .kpi-grid { display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; flex-shrink:0; }
+  #s11b .kpi-tile { background:#fff; border-radius:9px; border:1px solid #E2E8F0; padding:9px 11px; text-align:center; }
+  #s11b .kpi-tile-val { font-size:24px; font-weight:900; line-height:1; }
+  #s11b .kpi-tile-lbl { font-size:9px; font-weight:700; color:#6B7280; text-transform:uppercase; letter-spacing:.04em; margin-top:3px; }
+  #s11b .kpi-tile-sub { font-size:9px; color:#9CA3AF; margin-top:1px; }
+  /* motivos */
+  #s11b .motivo-row { display:flex; align-items:center; gap:7px; margin-bottom:5px; }
+  #s11b .motivo-lbl { font-size:10px; color:#374151; width:160px; flex-shrink:0; overflow:hidden; text-overflow:ellipsis; white-space:nowrap; }
+  #s11b .motivo-bar-wrap { flex:1; height:10px; background:#F1F5F9; border-radius:5px; overflow:hidden; }
+  #s11b .motivo-bar { height:100%; border-radius:5px; background:#1a4a8a; }
+  #s11b .motivo-pct { font-size:9.5px; font-weight:700; color:#1a4a8a; width:32px; text-align:right; flex-shrink:0; }
+  /* expansión */
+  #s11b .exp-card { background:#1a1a2e; border-radius:12px; padding:16px; flex:1; display:flex; flex-direction:column; gap:10px; }
+  #s11b .exp-badge { background:#FFD000; color:#1a1a2e; font-size:9px; font-weight:900; padding:3px 10px; border-radius:10px; width:fit-content; letter-spacing:.04em; }
+  #s11b .exp-title { font-size:16px; font-weight:900; color:#fff; line-height:1.25; }
+  #s11b .exp-subtitle { font-size:11px; color:rgba(255,255,255,.5); }
+  #s11b .exp-items { display:flex; flex-direction:column; gap:7px; flex:1; }
+  #s11b .exp-item { display:flex; gap:8px; align-items:flex-start; }
+  #s11b .exp-icon { font-size:14px; flex-shrink:0; line-height:1.3; }
+  #s11b .exp-item-txt { font-size:11px; color:rgba(255,255,255,.8); line-height:1.4; }
+  #s11b .exp-item-txt b { color:#FFD000; }
+  #s11b .exp-cta { background:rgba(255,208,0,.12); border:1px solid rgba(255,208,0,.3); border-radius:8px; padding:9px 12px; flex-shrink:0; }
+  #s11b .exp-cta-lbl { font-size:9px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; color:rgba(255,208,0,.6); margin-bottom:3px; }
+  #s11b .exp-cta-val { font-size:14px; font-weight:900; color:#FFD000; }
+  </style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-teal">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">IBM MLC — Servicio presencial</span>
+  </div>
+  <div class="slide-title" style="padding:3px 20px 0;flex-shrink:0;">
+    IBM MLC: desde el <b>04/03/2026</b> BS, SMB y HILO solicitan visita técnica desde Maxwell — técnico diagnostica en sitio · <b>~1.010 visitas/mes</b> · <b>13%</b> salvados (sin device nuevo) · LT <b>0,7d</b>
+  </div>
+
+  <div class="ibm-body">
+
+    <!-- COL 1: Cómo funciona + Elegibilidad -->
+    <div class="ibm-col">
+      <div class="ibm-section-lbl">¿Cómo funciona?</div>
+      <div class="flow-wrap">
+        <div class="flow-step">
+          <div class="flow-num">1</div>
+          <div class="flow-txt"><b>Seller abre solicitud</b><br>Vía Maxwell, CX o Help Portal</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-num">2</div>
+          <div class="flow-txt"><b>Elegibilidad</b><br>HILO/SMB/BS → IBM · Longtail → convencional</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-step">
+          <div class="flow-num">3</div>
+          <div class="flow-txt"><b>Técnico visita en el día</b><br>Diagnóstico presencial · sin envío</div>
+        </div>
+        <div class="flow-arrow">↓</div>
+        <div class="flow-outcome">
+          <div class="outcome-box" style="background:#F0FDF4;">
+            <div class="outcome-val" style="color:#16A34A;">12%</div>
+            <div class="outcome-lbl" style="color:#166534;">Reparado</div>
+          </div>
+          <div class="outcome-box" style="background:#EFF6FF;">
+            <div class="outcome-val" style="color:#1a4a8a;">77%</div>
+            <div class="outcome-lbl" style="color:#1D4ED8;">Reemplazado</div>
+          </div>
+        </div>
+      </div>
+      <!-- Leadtime comparison -->
+      <div style="background:#1a1a2e;border-radius:10px;padding:11px 13px;flex-shrink:0;">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:rgba(255,255,255,.5);margin-bottom:8px;">Leadtime — IBM vs Convencional</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:6px;">
+          <div style="background:rgba(22,163,74,.15);border-radius:8px;padding:8px 10px;border:1px solid rgba(22,163,74,.3);">
+            <div style="font-size:9px;font-weight:700;color:#4ADE80;margin-bottom:4px;">IBM (IN_PERSON)</div>
+            <div style="font-size:22px;font-weight:900;color:#4ADE80;line-height:1;">~1d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.5);margin-top:2px;">P50=0d · P80=1d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);">mismo día en mayoría</div>
+          </div>
+          <div style="background:rgba(255,255,255,.07);border-radius:8px;padding:8px 10px;">
+            <div style="font-size:9px;font-weight:700;color:rgba(255,255,255,.5);margin-bottom:4px;">Convencional</div>
+            <div style="font-size:22px;font-weight:900;color:#9CA3AF;line-height:1;">~5d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);margin-top:2px;">P50=2d · P80=5d</div>
+            <div style="font-size:9px;color:rgba(255,255,255,.4);">espera de envío</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ibm-divider"></div>
+
+    <!-- COL 2: Evolución mensual -->
+    <div class="ibm-col">
+      <div class="ibm-section-lbl">Evolución mensual — visitas · salvados · LT</div>
+      <!-- KPI row -->
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:5px;flex-shrink:0;">
+        <div class="kpi-tile">
+          <div class="kpi-tile-val" style="color:#1a4a8a;">~890</div>
+          <div class="kpi-tile-lbl">Visitas mai/26</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-val" style="color:#16A34A;">~13%</div>
+          <div class="kpi-tile-lbl">Salvados mai/26</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-val" style="color:#4ADE80;">0,7d</div>
+          <div class="kpi-tile-lbl">LT medio mai/26</div>
+        </div>
+        <div class="kpi-tile">
+          <div class="kpi-tile-val" style="color:#4338CA;">34%</div>
+          <div class="kpi-tile-lbl">Via Maxwell</div>
+        </div>
+      </div>
+      <!-- Chart: barras por tipo resultado + línea LT -->
+      <div style="flex:1;min-height:155px;position:relative;">
+        <canvas id="chart-ibm-mlc"></canvas>
+      </div>
+      <!-- Ações do técnico -->
+      <div style="flex-shrink:0;">
+        <div class="ibm-section-lbl" style="margin-bottom:5px;">Lo que hace el técnico (fuente: IBM IPCC)</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:4px;">
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#EFF6FF;border-radius:4px;"><span>🔄 Cambio de device</span><b style="color:#1a4a8a;">71%</b></div>
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#F0FDF4;border-radius:4px;"><span>✅ Operativo (NFF)</span><b style="color:#16A34A;">8,6%</b></div>
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#F0FDF4;border-radius:4px;"><span>📶 Cambio SIM card</span><b style="color:#16A34A;">3,0%</b></div>
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#F0FDF4;border-radius:4px;"><span>🔋 Cambio batería</span><b style="color:#16A34A;">2,3%</b></div>
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#F0FDF4;border-radius:4px;"><span>🔌 Cambio cargador</span><b style="color:#16A34A;">1,0%</b></div>
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#FEF2F2;border-radius:4px;"><span>❌ Sin éxito</span><b style="color:#E53E3E;">5,3%</b></div>
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#F0FDF4;border-radius:4px;"><span>📱 App/datos/APN</span><b style="color:#16A34A;">1,5%</b></div>
+          <div style="font-size:9.5px;color:#374151;display:flex;justify-content:space-between;padding:2px 6px;background:#F0FDF4;border-radius:4px;"><span>🧻 Rolo/ajuste</span><b style="color:#16A34A;">0,9%</b></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ibm-divider"></div>
+
+    <!-- COL 3: Expansión MLM -->
+    <div class="ibm-col">
+      <div class="ibm-section-lbl">Próximo paso</div>
+      <div class="exp-card">
+        <div class="exp-badge">🚀 Expansión Q2/Q3'26</div>
+        <div class="exp-title">IBM<br>México</div>
+        <div class="exp-subtitle">Replicar modelo MLC en MLM</div>
+        <div class="exp-items">
+          <div class="exp-item">
+            <span class="exp-icon">📊</span>
+            <div class="exp-item-txt">Vol. MLM: <b>~9K recambios/mes</b> · 92% vía Maxwell</div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">🎯</span>
+            <div class="exp-item-txt">Seg. inicial: <b>SMB y BS</b> · HILO en expansión posterior</div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">⚡</span>
+            <div class="exp-item-txt">Esperado: <b>↑ G1 MLM</b> (hoy 48%) → mismo día · leadtime −100% vs cross</div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">🔧</span>
+            <div class="exp-item-txt">Habilitador: <b>integración API IBM</b> en MX · contrato con SDX <b>pendiente de firma</b></div>
+          </div>
+          <div class="exp-item">
+            <span class="exp-icon">⏱️</span>
+            <div class="exp-item-txt"><b>1–2 meses</b> para cerrar integración desde la firma del contrato</div>
+          </div>
+        </div>
+        <!-- Impacto esperado recambios evitados -->
+        <div style="background:#0F172A;border-radius:8px;padding:8px 10px;margin:6px 0;border-left:3px solid #22C55E;">
+          <div style="font-size:7.5px;font-weight:800;text-transform:uppercase;color:#4ADE80;letter-spacing:.1em;margin-bottom:5px;">Recambios evitados (proxy MLC)</div>
+          <div style="display:flex;gap:6px;align-items:flex-end;flex-wrap:wrap;">
+            <div style="background:rgba(255,255,255,.07);border-radius:5px;padding:4px 7px;text-align:center;">
+              <div style="font-size:7px;color:rgba(255,255,255,.45);margin-bottom:1px;">Total MLM</div>
+              <div style="font-size:13px;font-weight:900;color:#fff;">~9K</div>
+              <div style="font-size:7px;color:rgba(255,255,255,.45);">pedidos/mes</div>
+            </div>
+            <div style="color:rgba(255,255,255,.3);font-size:11px;padding-bottom:4px;">−</div>
+            <div style="background:rgba(255,255,255,.07);border-radius:5px;padding:4px 7px;text-align:center;">
+              <div style="font-size:7px;color:rgba(255,255,255,.45);margin-bottom:1px;">Bloq. política</div>
+              <div style="font-size:13px;font-weight:900;color:#F59E0B;">~1K</div>
+              <div style="font-size:7px;color:rgba(255,255,255,.45);">est. −11%</div>
+            </div>
+            <div style="color:rgba(255,255,255,.3);font-size:11px;padding-bottom:4px;">×</div>
+            <div style="background:rgba(255,255,255,.07);border-radius:5px;padding:4px 7px;text-align:center;">
+              <div style="font-size:7px;color:rgba(255,255,255,.45);margin-bottom:1px;">Taxa salvados</div>
+              <div style="font-size:13px;font-weight:900;color:#60A5FA;">~19%</div>
+              <div style="font-size:7px;color:rgba(255,255,255,.45);">méd. Q1 MLC (jan–mar)</div>
+            </div>
+            <div style="color:rgba(255,255,255,.3);font-size:11px;padding-bottom:4px;">=</div>
+            <div style="background:rgba(34,197,94,.15);border-radius:5px;padding:4px 7px;text-align:center;border:1px solid rgba(34,197,94,.3);">
+              <div style="font-size:7px;color:#4ADE80;margin-bottom:1px;">Evitados est.</div>
+              <div style="font-size:13px;font-weight:900;color:#22C55E;">~1.5K</div>
+              <div style="font-size:7px;color:#4ADE80;">−17% recambios</div>
+            </div>
+          </div>
+          <div style="font-size:7px;color:rgba(255,255,255,.3);margin-top:4px;">Cálculo: (9K − 1K bloq) × 19% salvados IBM MLC Q1 · SMB+BS elegibles</div>
+        </div>
+        <div class="exp-cta">
+          <div class="exp-cta-lbl">Fecha objetivo tras firma SDX</div>
+          <div class="exp-cta-val">+1–2 meses · Q3 2026</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
+     SLIDE 11 — Sameday MLB: Cobertura + Unitac + Alya
+     ============================================================ -->
+<div class="slide content-slide" id="s12">
+  <style>
+  /* ── LAYOUT ── */
+  #s12{ background:#F8FAFC; }
+  #s12 .s12-covbar{display:flex;align-items:stretch;gap:0;flex-shrink:0;background:#1a1a2e;padding:0 20px;}
+  #s12 .s12-body{flex:1;display:grid;grid-template-columns:36% 1px 1fr;gap:0;padding:8px 0 8px;min-height:0;overflow:hidden;}
+  #s12 .s12-divider{background:#E2E8F0;width:1px;margin:0;}
+  #s12 .s12-col{display:flex;flex-direction:column;gap:8px;min-height:0;padding:0 16px;}
+  #s12 .s12-col:first-child{padding-left:20px;}
+  #s12 .s12-col:last-child{padding-right:20px;}
+  /* ── coverage bar ── */
+  #s12 .cov-stat{display:flex;flex-direction:column;align-items:center;justify-content:center;padding:8px 18px;gap:1px;border-right:1px solid rgba(255,255,255,.1);}
+  #s12 .cov-num{font-size:30px;font-weight:900;line-height:1;}
+  #s12 .cov-sub{font-size:10.5px;font-weight:600;opacity:.6;letter-spacing:.04em;}
+  #s12 .cov-arrow-wrap{display:flex;align-items:center;padding:0 10px;color:#FFD000;font-size:20px;font-weight:300;}
+  #s12 .cov-prog-area{flex:1;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:10px 18px 10px 8px;}
+  #s12 .cov-track{background:rgba(255,255,255,.12);height:12px;border-radius:6px;overflow:hidden;position:relative;}
+  #s12 .cov-fill-a{position:absolute;left:0;top:0;height:100%;width:55%;background:#1A56A0;border-radius:6px 0 0 6px;}
+  #s12 .cov-fill-b{position:absolute;left:55%;top:0;height:100%;width:8%;background:#16A34A;}
+  #s12 .cov-fill-c{position:absolute;left:63%;top:0;height:100%;width:6%;background:repeating-linear-gradient(90deg,#16A34A 0px,#16A34A 4px,transparent 4px,transparent 8px);border-radius:0 6px 6px 0;opacity:.6;}
+  #s12 .cov-track-labels{display:flex;justify-content:space-between;color:rgba(255,255,255,.5);font-size:10px;font-weight:700;padding:0 1px;}
+  #s12 .cov-chips{display:flex;gap:8px;flex-wrap:wrap;}
+  #s12 .cov-chip{font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;white-space:nowrap;}
+  /* ── left col (map) ── */
+  #s12 .col-ttl{font-size:10.5px;font-weight:800;text-transform:uppercase;letter-spacing:.09em;color:#6B7280;flex-shrink:0;display:flex;align-items:center;gap:6px;}
+  #s12 .col-ttl::after{content:'';flex:1;height:1px;background:#E2E8F0;}
+  #s12 .map-legend{display:flex;gap:8px;flex-wrap:wrap;flex-shrink:0;}
+  #s12 .leg-item{display:flex;align-items:center;gap:4px;font-size:10px;color:#6B7280;}
+  #s12 .leg-dot{width:10px;height:10px;border-radius:2px;flex-shrink:0;}
+  #s12 .map-outer{flex:1;min-height:0;position:relative;}
+  #s12 .tl-sect{flex-shrink:0;display:flex;flex-direction:column;gap:5px;}
+  #s12 .tl-item{display:flex;gap:7px;align-items:flex-start;}
+  #s12 .tl-date{background:#FFD000;color:#1a1a2e;font-size:10.5px;font-weight:800;padding:2px 9px;border-radius:4px;white-space:nowrap;flex-shrink:0;}
+  #s12 .tl-text{font-size:11px;color:#374151;line-height:1.35;}
+  #s12 .tl-warn{font-size:9.5px;color:#D97706;font-style:italic;margin-top:1px;}
+  /* ── center col (waterfall) ── */
+  #s12 .wf-hdr{flex-shrink:0;}
+  #s12 .wf-hdr h3{font-size:15px;font-weight:800;color:#111827;margin-bottom:2px;}
+  #s12 .wf-hdr p{font-size:10.5px;color:#9CA3AF;}
+  #s12 .wf-wrap{flex:1;min-height:0;position:relative;}
+  /* ── right col (findings) ── */
+  #s12 .finding{display:flex;gap:10px;align-items:flex-start;padding:9px 12px;border-radius:8px;flex-shrink:0;}
+  #s12 .f-badge{width:25px;height:25px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:12px;font-weight:800;color:#fff;flex-shrink:0;}
+  #s12 .f-main{font-size:12.5px;color:#111827;font-weight:700;line-height:1.3;}
+  #s12 .f-sub{font-size:10px;color:#6B7280;line-height:1.35;margin-top:2px;}
+  #s12 .f-action{font-size:10px;font-weight:700;margin-top:2px;}
+  #s12 .box-alya{border-left:3px solid #FFD000;background:#FFFBEB;border-radius:0 7px 7px 0;padding:9px 12px;flex-shrink:0;}
+  #s12 .box-alya-head{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+  #s12 .box-pill{font-size:9.5px;font-weight:800;padding:3px 9px;border-radius:4px;white-space:nowrap;}
+  #s12 .box-alya-txt{font-size:10.5px;color:#374151;line-height:1.45;}
+  #s12 .box-exp{border-left:3px solid #818CF8;background:#EEF2FF;border-radius:0 7px 7px 0;padding:9px 12px;flex-shrink:0;}
+  #s12 .box-exp-head{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+  #s12 .exp-mech{font-size:9.5px;color:#3730A3;font-weight:700;background:#C7D2FE;border-radius:5px;padding:3px 8px;margin-bottom:6px;flex-shrink:0;}
+  #s12 .exp-inner{display:flex;gap:9px;align-items:flex-start;}
+  #s12 .exp-results{flex:1;min-width:0;}
+  #s12 .exp-row{display:flex;align-items:center;gap:6px;margin-bottom:4px;}
+  #s12 .exp-delta{font-size:15px;font-weight:900;}
+  #s12 .exp-lbl{font-size:10.5px;color:#6B7280;}
+  #s12 .exp-ns{background:#E5E7EB;color:#6B7280;font-size:9px;font-weight:700;border-radius:3px;padding:1px 5px;}
+  #s12 .exp-note{font-size:9px;color:#4338CA;border-top:1px solid #C7D2FE;padding-top:4px;margin-top:3px;}
+  #s12 .push-phone{width:92px;flex-shrink:0;background:#e8e8e8;border-radius:14px;padding:7px 5px 8px;border:2px solid #c8c8c8;display:flex;flex-direction:column;align-items:center;gap:4px;}
+  #s12 .push-time{font-size:10px;font-weight:800;color:#1a1a2e;letter-spacing:.02em;}
+  #s12 .push-card{background:#fff;border-radius:9px;padding:6px 7px;box-shadow:0 1px 5px rgba(0,0,0,.12);width:100%;}
+  #s12 .push-card-head{display:flex;align-items:center;gap:3px;margin-bottom:3px;}
+  #s12 .push-logo{width:12px;height:12px;background:#FFD000;border-radius:3px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:6.5px;font-weight:900;color:#1a1a2e;}
+  #s12 .push-brand{font-size:7.5px;font-weight:700;color:#6B7280;}
+  #s12 .push-notif-title{font-size:8px;font-weight:800;color:#111827;line-height:1.25;margin-bottom:2px;}
+  #s12 .push-notif-body{font-size:7px;color:#4B5563;line-height:1.35;}
+  </style>
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Sameday MLB</span>
+  </div>
+  <div class="slide-title" style="padding:3px 20px 0;flex-shrink:0;">
+    Sameday MLB: <b>63% de cobertura</b> — GO Región Metropolitana (abr) y SE completados · 08/06: GO completo + RS · <span style="color:#16A34A;font-weight:800;">meta fin junio: 69%</span>
+  </div>
+
+  <!-- ══ COVERAGE BAR — navy Meli ══ -->
+  <div class="s12-covbar">
+    <div class="cov-stat">
+      <div class="cov-num" style="color:#fff;">63%</div>
+      <div class="cov-sub" style="color:rgba(255,255,255,.55);">abr/26</div>
+    </div>
+    <div class="cov-arrow-wrap">→</div>
+    <div class="cov-stat" style="border-right:none;border-left:1px solid rgba(255,255,255,.1);">
+      <div class="cov-num" style="color:#FFD000;">69%</div>
+      <div class="cov-sub" style="color:#FFD000;opacity:.85;">fin jun/26</div>
+    </div>
+    <div class="cov-prog-area">
+      <div class="cov-track-labels">
+        <span>0%</span><span style="color:#fff;">63%</span><span style="color:#FFD000;">69% jun</span><span>100%</span>
+      </div>
+      <div class="cov-track">
+        <div class="cov-fill-a"></div>
+        <div class="cov-fill-b"></div>
+        <div class="cov-fill-c"></div>
+      </div>
+      <div class="cov-chips">
+        <span class="cov-chip" style="background:rgba(26,86,160,.5);color:#93C5FD;">11 estados Unitac</span>
+        <span class="cov-chip" style="background:rgba(255,208,0,.15);color:#FFD000;">3 Alya · MG PE DF</span>
+        <span class="cov-chip" style="background:rgba(22,163,74,.2);color:#86EFAC;">✓ GO RM (abr) · SE (13/mai)</span>
+        <span class="cov-chip" style="background:rgba(255,208,0,.2);color:#FFD000;">⏳ GO completo + RS (08/jun)</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ BODY — 3 colunas ══ -->
+  <div class="s12-body">
+
+    <!-- ── COL 1: Mapa ── -->
+    <div class="s12-col" style="padding-left:20px;">
+      <div class="col-ttl">Cobertura por estado</div>
+      <div class="map-legend">
+        <div class="leg-item"><div class="leg-dot" style="background:#1A56A0;"></div>Unitac</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#1A56A0;box-shadow:0 0 0 1.5px #FFD000;"></div>+ Alya</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#FFD000;border:1px solid #B8960C;"></div>En expansión</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#E5E7EB;border:1.5px dashed #FFD000;"></div>Próximo (08/06)</div>
+        <div class="leg-item"><div class="leg-dot" style="background:#E5E7EB;"></div>Sin cobertura</div>
+      </div>
+      <div class="map-outer">
+        <svg viewBox="0 0 222 252" width="100%" height="100%" style="display:block;" preserveAspectRatio="xMidYMid meet">
+          <path d="M67,0 C90,3 120,4 131,5 L137,25 L143,33 L141,37 Q155,41 167,45 Q174,47 183,49 Q195,53 205,62 L219,65 L218,85 L215,96 L207,104 Q205,113 204,122 Q198,127 196,130 Q192,141 188,150 Q189,158 190,165 Q187,170 184,174 Q170,179 158,181 Q148,188 143,193 Q142,200 143,207 Q132,225 122,240 L114,252 L96,217 L93,159 L59,142 L0,95 L0,60 Q3,40 6,20 Q25,14 45,9 Q55,4 67,0 Z" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
+          <circle cx="18"  cy="89"  r="6" fill="#E5E7EB"/><text x="18"  y="89"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AC</text>
+          <circle cx="59"  cy="99"  r="6" fill="#E5E7EB"/><text x="59"  y="99"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">RO</text>
+          <circle cx="50"  cy="56"  r="6" fill="#E5E7EB"/><text x="50"  y="56"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AM</text>
+          <circle cx="72"  cy="21"  r="6" fill="#E5E7EB"/><text x="72"  y="21"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">RR</text>
+          <circle cx="122" cy="24"  r="6" fill="#E5E7EB"/><text x="122" y="24"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AP</text>
+          <circle cx="143" cy="94"  r="6" fill="#E5E7EB"/><text x="143" y="94"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">TO</text>
+          <circle cx="100" cy="108" r="7" fill="#E5E7EB"/><text x="100" y="108" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">MT</text>
+          <circle cx="107" cy="160" r="7" fill="#E5E7EB"/><text x="107" y="160" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">MS</text>
+          <circle cx="165" cy="62"  r="7" fill="#E5E7EB"/><text x="165" y="62"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">MA</text>
+          <circle cx="178" cy="76"  r="6" fill="#E5E7EB"/><text x="178" y="76"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">PI</text>
+          <circle cx="195" cy="60"  r="6" fill="#E5E7EB"/><text x="195" y="60"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">CE</text>
+          <circle cx="213" cy="65"  r="6" fill="#E5E7EB"/><text x="213" y="65"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">RN</text>
+          <circle cx="214" cy="76"  r="7" fill="#E5E7EB"/><text x="214" y="76"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">PB</text>
+          <circle cx="211" cy="92"  r="6" fill="#E5E7EB"/><text x="211" y="92"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AL</text>
+          <circle cx="121" cy="57"  r="8" fill="#D1D5DB"/>
+          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="121" y="55" font-size="6" font-weight="800" fill="#4B5563">PA</tspan><tspan x="121" y="62" font-size="5.5" font-weight="700" fill="#6B7280">5,2%</tspan></text>
+          <circle cx="175" cy="112" r="9" fill="#1A56A0"/>
+          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="175" y="110" font-size="6.5" font-weight="800" fill="white">BA</tspan><tspan x="175" y="117" font-size="5.5" font-weight="700" fill="rgba(255,255,255,.85)">6,6%</tspan></text>
+          <circle cx="188" cy="153" r="7" fill="#1A56A0"/><text x="188" y="153" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">ES</text>
+          <circle cx="174" cy="171" r="12" fill="#1A56A0"/>
+          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="174" y="168" font-size="7" font-weight="800" fill="white">RJ</tspan><tspan x="174" y="176" font-size="6" font-weight="700" fill="rgba(255,255,255,.85)">15%</tspan></text>
+          <circle cx="142" cy="170" r="16" fill="#1A56A0"/>
+          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="142" y="167" font-size="8" font-weight="800" fill="white">SP</tspan><tspan x="142" y="176" font-size="7" font-weight="700" fill="rgba(255,255,255,.85)">26%</tspan></text>
+          <circle cx="122" cy="188" r="7" fill="#1A56A0"/><text x="122" y="188" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">PR</text>
+          <circle cx="133" cy="202" r="7" fill="#1A56A0"/><text x="133" y="202" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">SC</text>
+          <circle cx="162" cy="149" r="9" fill="#1A56A0" stroke="#FFD000" stroke-width="2"/>
+          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="162" y="147" font-size="6.5" font-weight="800" fill="white">MG</tspan><tspan x="162" y="154" font-size="5.5" font-weight="700" fill="rgba(255,255,255,.85)">6,8%</tspan></text>
+          <circle cx="147" cy="134" r="7" fill="#1A56A0" stroke="#FFD000" stroke-width="1.5"/><text x="147" y="134" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">DF</text>
+          <circle cx="205" cy="85"  r="8" fill="#1A56A0" stroke="#FFD000" stroke-width="2"/>
+          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="205" y="83" font-size="6" font-weight="800" fill="white">PE</tspan><tspan x="205" y="90" font-size="5.5" font-weight="700" fill="rgba(255,255,255,.85)">4,0%</tspan></text>
+          <circle cx="117" cy="218" r="6" fill="#E5E7EB" stroke="#FFD000" stroke-width="1.5" stroke-dasharray="2,1.5"/><text x="117" y="218" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#92400E">RS</text>
+          <circle cx="130" cy="121" r="8" fill="#FFD000" stroke="#B8960C" stroke-width="1.5"/>
+          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="130" y="119" font-size="6" font-weight="800" fill="#1a1a2e">GO</tspan><tspan x="130" y="126" font-size="5.5" font-weight="700" fill="#5C4B00">5,1%</tspan></text>
+          <circle cx="207" cy="102" r="7" fill="#FFD000" stroke="#B8960C" stroke-width="1.5"/><text x="207" y="102" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#1a1a2e">SE</text>
+        </svg>
+      </div>
+      <div class="tl-sect">
+        <div class="col-ttl">Expansión 2026</div>
+        <div class="tl-item"><span class="tl-date" style="opacity:.55;">16/04</span><div class="tl-text" style="opacity:.7;"><b>Goiás</b> — Región Metropolitana ✓</div></div>
+        <div class="tl-item"><span class="tl-date" style="opacity:.55;">13/05</span><div class="tl-text" style="opacity:.7;"><b>Sergipe</b> — Estado completo ✓</div></div>
+        <div class="tl-item"><span class="tl-date">08/06</span><div><div class="tl-text"><b>Goiás</b> — Estado completo</div><div class="tl-text"><b>Rio Grande do Sul</b></div></div></div>
+        <div style="margin-top:4px;background:#F0FDF4;border-radius:5px;padding:4px 8px;border-left:2px solid #16A34A;">
+          <span style="font-size:9px;font-weight:800;color:#166534;">→ Fin de junio: <b>69% cobertura</b></span>
+        </div>
+      </div>
+    </div>
+
+    <div class="s12-divider"></div>
+
+    <!-- ── COL 2: Waterfall Unitac + Alya ── -->
+    <div class="s12-col" style="display:flex;flex-direction:column;gap:6px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;min-height:0;">
+        <!-- Unitac -->
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div class="wf-hdr" style="flex-shrink:0;">
+            <h3 style="font-size:13px;">Unitac</h3>
+            <p style="font-size:9px;">mai/26 · atualizar</p>
+          </div>
+          <div class="wf-wrap" style="flex:1;min-height:0;">
+            <canvas id="chart-unitac"></canvas>
+          </div>
+        </div>
+        <!-- Alya -->
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div class="wf-hdr" style="flex-shrink:0;">
+            <h3 style="font-size:13px;">Alya · Carrier 2</h3>
+            <p style="font-size:9px;">mai/26 · atualizar</p>
+          </div>
+          <div class="wf-wrap" style="flex:1;min-height:0;">
+            <canvas id="chart-alya"></canvas>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- ============================================================
+     SLIDE 13 — Section: Iniciativas
+     ============================================================ -->
+<div class="slide dark section-div" id="s14">
+  <div class="dots-deco" style="bottom:-40px;right:-40px;top:auto;left:auto;"></div>
+  <div class="sec-content">
+    <div class="sec-label">Gameplan de Recambios 2.0</div>
+    <div class="sec-line"></div>
+    <h2>Iniciativas</h2>
+  </div>
+  <div class="sec-right">ROADMAP</div>
+</div>
+
+<!-- ============================================================
+     SLIDE 14 — Iniciativas table
+     ============================================================ -->
+<div class="slide content-slide" id="s15">
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-blue">Iniciativas</span>
+  </div>
+  <div class="slide-body">
+    <div class="slide-title">Principales iniciativas de experiencia — Q2.26</div>
+    <div style="flex:1; overflow:auto;">
+      <table class="init-table">
+        <thead>
+          <tr>
+            <th>KPI</th>
+            <th>Iniciativa</th>
+            <th>Estado</th>
+            <th>Responsable</th>
+            <th>Fecha</th>
+            <th>Impacto esperado</th>
+            <th>Sitio</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ── Pedidos ── -->
+          <tr>
+            <td><span class="kpi-pill kpi-pill-blue">Solicitudes</span></td>
+            <td><b>Política de bloqueos — todos los canales</b><br><span style="font-size:10px;color:var(--muted);">Negativa de política en todos los canales de solicitud (Maxwell, CX, CC, FDV)</span></td>
+            <td><span class="status-badge-done">Entregado</span></td>
+            <td style="font-size:10px;">Vini Paladini e Icaro Florencio</td>
+            <td style="white-space:nowrap;font-weight:700;">22/05 ✓</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">Bloqueo ~30% inelegibles</td>
+            <td style="white-space:nowrap;"><img class="flag-sm" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
+          </tr>
+          <tr>
+            <td><span class="kpi-pill kpi-pill-blue">Solicitudes</span></td>
+            <td><b>PTM WiFi → SIM / Vouchers</b><br><span style="font-size:10px;color:var(--muted);">Desvío pre-solicitud via PTM: WiFi → SIM card y vouchers</span></td>
+            <td><span class="status-badge-done">Entregado</span></td>
+            <td style="font-size:10px;">Vini Paladini, Zarina Madelaine, Luisa Haddad e Icaro Florencio</td>
+            <td style="white-space:nowrap;font-weight:700;">04/05 ✓</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">−500 solicitudes/mes est.</td>
+            <td style="white-space:nowrap;"><img class="flag-sm" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"><img class="flag-sm" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"><img class="flag-sm" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
+          </tr>
+          <tr>
+            <td><span class="kpi-pill kpi-pill-blue">Solicitudes</span></td>
+            <td><b>Árbol de decisión en PTM — Funcionamiento</b><br><span style="font-size:10px;color:var(--muted);">Diagnóstico estructurado via PTM con accionables para resolver antes del cambio</span></td>
+            <td><span class="status-badge-planned">Piloto</span></td>
+            <td style="font-size:10px;">Vini Paladini, Zarina Madelaine, Ignacio Doring e Icaro Florencio</td>
+            <td style="white-space:nowrap;font-weight:700;">30/06</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">Resolver sin cambio ~15%</td>
+            <td style="white-space:nowrap;"><img class="flag-sm" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"><img class="flag-sm" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"><img class="flag-sm" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
+          </tr>
+          <tr>
+            <td><span class="kpi-pill kpi-pill-blue">Solicitudes</span></td>
+            <td><b>Nueva experiencia de solicitud via forms</b><br><span style="font-size:10px;color:var(--muted);">Formulario estructurado de solicitud de recambio cross-site</span></td>
+            <td><span class="status-badge">En curso</span></td>
+            <td style="font-size:10px;">Vini Paladini e Icaro Florencio</td>
+            <td style="white-space:nowrap;font-weight:700;">R3-Q2'26</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">↓ tasa especulativos</td>
+            <td style="white-space:nowrap;"><img class="flag-sm" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"><img class="flag-sm" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"><img class="flag-sm" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
+          </tr>
+          <!-- ── Leadtime ── -->
+
+          <tr>
+            <td><span class="kpi-pill kpi-pill-teal">Leadtime</span></td>
+            <td><b>Expansión Sameday MLB</b><br><span style="font-size:10px;color:var(--muted);">Piloto Alya → expansión a SP y otros estados. Meta: USD 191K de ahorro</span></td>
+            <td><span class="status-badge">En curso</span></td>
+            <td style="font-size:10px;">Felipe Roma e Vini Paladini</td>
+            <td style="white-space:nowrap;font-weight:700;">Q1–Q2'26</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">USD 191K ahorro/año</td>
+            <td><img class="flag-sm" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"></td>
+          </tr>
+          <tr>
+            <td><span class="kpi-pill kpi-pill-teal">Leadtime</span></td>
+            <td><b>Integración FULL para recambios</b><br><span style="font-size:10px;color:var(--muted);">Integración logística FULL para envío del dispositivo de sustitución en MLB</span></td>
+            <td><span class="status-badge">En curso</span></td>
+            <td style="font-size:10px;">Vini Paladini, Yuri Alcantara, Renan Scarpa e Danilo Monteiro</td>
+            <td style="white-space:nowrap;font-weight:700;">R3-Q2'26</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">LT recambio: 7,5d → 3,8d</td>
+            <td><img class="flag-sm" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"></td>
+          </tr>
+          <tr>
+            <td><span class="kpi-pill kpi-pill-blue">Solicitudes</span></td>
+            <td><b>Revisión de regla de Fraudes con PF</b><br><span style="font-size:10px;color:var(--muted);">Revisión y ajuste de la regla de fraudes junto al equipo de Prevención de Fraudes</span></td>
+            <td><span class="status-badge-planned">Planeado</span></td>
+            <td style="font-size:10px;">Felipe Roma</td>
+            <td style="white-space:nowrap;font-weight:700;">R3-Q2'26</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">~−300 solicitudes/mes est.</td>
+            <td><img class="flag-sm" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"></td>
+          </tr>
+          <tr>
+            <td><span class="kpi-pill kpi-pill-teal">Leadtime</span></td>
+            <td><b>Integración MP con IBM — MLM</b><br><span style="font-size:10px;color:var(--muted);">Integración Mercado Pago con IBM para mejorar G1 en México — finalización prevista fin de Q2</span></td>
+            <td><span class="status-badge">En curso</span></td>
+            <td style="font-size:10px;">Vini Paladini, Icaro Florencio e Olivia Martinez</td>
+            <td style="white-space:nowrap;font-weight:700;">fin Q2'26</td>
+            <td style="font-size:10px;color:#0F766E;font-weight:700;">G1 MLM ↑ hacia meta 83%</td>
+            <td><img class="flag-sm" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <div style="margin-top:10px; flex-shrink:0; background:#EFF6FF; border-radius:8px; padding:10px 16px; font-size:11px; color:#1e3a6e; border:1px solid rgba(26,74,138,.2);">
+      <b>Próximos pasos:</b> Integración FULL para recambios (MLB), árbol de decisión en PTM (all sites), nueva experiencia de solicitud via forms (cross-site) y escalar Sameday Alya en Q2.
+    </div>
+  </div>
+</div>
+
+<!-- ============================================================
+     SLIDE 15 — Closing
+     ============================================================ -->
+<div class="slide dark" id="s16">
+  <div class="dots-deco" style="bottom:-40px;left:-40px;top:auto;"></div>
+  <div class="dots-deco" style="top:-40px;right:-40px;left:auto;opacity:.5;"></div>
+  <div class="mp-logo-tr">mercado pago</div>
+  <div class="closing-text">
+    <span>¡MUCHAS<br></span>
+    <em>GRACIAS!</em>
+  </div>
+  <div style="position:absolute;bottom:36px;width:100%;text-align:center;font-size:13px;color:rgba(255,255,255,.3);letter-spacing:1px;text-transform:uppercase;">
+    Gameplan de Recambios 2.0 · Junio 2026
+  </div>
+</div>
+
+<!-- ============================================================
+     NAVIGATION
+     ============================================================ -->
+<div id="nav">
+  <button id="btn-prev" onclick="navigate(-1)" disabled>← Anterior</button>
+  <span id="counter">1 / 15</span>
+  <button id="btn-next" onclick="navigate(1)">Siguiente →</button>
+</div>
+
+<!-- ============================================================
+     NOTES
+     ============================================================ -->
+<button id="notes-toggle" onclick="toggleNotes()" title="Notas del slide">
+  📝<span id="notes-badge"></span>
+</button>
+<div id="notes-panel">
+  <div id="notes-header">
+    <h3>📝 Notas — Slide <span id="notes-slide-num">1</span></h3>
+    <button id="notes-close" onclick="toggleNotes()">✕</button>
+  </div>
+  <div id="notes-list"></div>
+  <div id="notes-add">
+    <input id="note-author-input" type="text" placeholder="Tu nombre o gmail" autocomplete="off">
+    <textarea id="note-text-input" placeholder="Escribe una nota para esta diapositiva..."></textarea>
+    <button id="note-save-btn" onclick="saveNote()">Guardar nota</button>
+  </div>
+</div>
+
+<script>
+// ============================================================
+// State
+// ============================================================
+let current = 1;
+const ALL_SLIDES = Array.from(document.querySelectorAll('.slide'));
+const TOTAL = ALL_SLIDES.length;
+const chartInited = {};
+
+function getSlide(n) { return ALL_SLIDES[n - 1]; }
+
+function navigate(dir) {
+  const next = current + dir;
+  if (next < 1 || next > TOTAL) return;
+  getSlide(current).classList.remove('active');
+  current = next;
+  getSlide(current).classList.add('active');
+  document.getElementById('counter').textContent = current + ' / ' + TOTAL;
+  document.getElementById('btn-prev').disabled = current === 1;
+  document.getElementById('btn-next').disabled = current === TOTAL;
+  initSlide(current);
+  renderNotesBadge();
+  if (notesOpen) renderNotes();
+}
+
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'ArrowRight' || e.key === 'ArrowDown') navigate(1);
+  if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') navigate(-1);
+});
+
+// Init first slide
+getSlide(1).classList.add('active');
+initSlide(1);
+
+function initSlide(n) {
+  if (chartInited[n]) return;
+  chartInited[n] = true;
+  // Posições após remoção de s3 (Visión General) e s6 (Canal):
+  // s5=4, s10=8, s11=9, s11b=11, s12=12
+  if (n === 4) setTimeout(initSlide4, 50);
+  if (n === 6) setTimeout(initConvRecChart, 50);
+  if (n === 8) setTimeout(initSlide10, 50);
+  if (n === 9) setTimeout(initSlide9, 50);
+  if (n === 11) setTimeout(initIBMChart, 50);
+  if (n === 12) setTimeout(initSlide12, 50);
+}
+
+// ============================================================
+// IBM MLC CHART
+// ============================================================
+// ============================================================
+// MAXWELL CONV→RECAMBIO CHART
+// ============================================================
+function initConvRecChart() {
+  const canvas = document.getElementById('chart-conv-rec');
+  if (!canvas) return;
+  const wrap = canvas.parentElement;
+  canvas.width = wrap.clientWidth || 700;
+  canvas.height = 90;
+
+  const labels = ['dic/25','ene/26','feb/26','mar/26','abr/26','mai/26'];
+  const datasets = [
+    { label:'MLB', data:[20.44,19.81,18.32,11.32,9.56,9.20],  borderColor:'#1a4a8a', backgroundColor:'rgba(26,74,138,.06)', borderWidth:2, pointRadius:4, pointBackgroundColor:'#1a4a8a', tension:0.3, fill:true },
+    { label:'MLA', data:[26.83,21.80,28.59,32.71,19.00,13.08], borderColor:'#E53E3E', backgroundColor:'rgba(229,62,62,.05)', borderWidth:2, pointRadius:4, pointBackgroundColor:'#E53E3E', tension:0.3, fill:true },
+    { label:'MLM', data:[30.10,22.94,30.13,23.88,14.54,13.36], borderColor:'#D97706', backgroundColor:'rgba(217,119,6,.05)', borderWidth:2, pointRadius:4, pointBackgroundColor:'#D97706', tension:0.3, fill:true },
+    { label:'MLC', data:[8.86,5.54,13.26,8.70,6.08,5.90],      borderColor:'#2A9D8F', backgroundColor:'rgba(42,157,143,.05)', borderWidth:2, pointRadius:4, pointBackgroundColor:'#2A9D8F', tension:0.3, fill:true },
+  ];
+
+  // Plugin: anotações de milestones
+  const annotPlugin = {
+    id: 'annot',
+    afterDraw(chart) {
+      const {ctx, scales: {x, y}} = chart;
+      if (!x) return;
+      const milestones = [
+        { xIdx: 2, label: '↓ Política MLB', color: '#1a4a8a' },
+        { xIdx: 4, label: '↓ Política MLA', color: '#E53E3E' },
+        { xIdx: 5, label: '↓ Segmentación', color: '#276749' },
+      ];
+      ctx.save();
+      milestones.forEach(m => {
+        const px = x.getPixelForValue(m.xIdx);
+        ctx.beginPath();
+        ctx.strokeStyle = m.color;
+        ctx.lineWidth = 1.5;
+        ctx.setLineDash([4,3]);
+        ctx.moveTo(px, y.top);
+        ctx.lineTo(px, y.bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle = m.color;
+        ctx.font = '700 8px Segoe UI';
+        ctx.textAlign = 'center';
+        ctx.fillText(m.label, px, y.top - 2);
+      });
+      ctx.restore();
+    }
+  };
+
+  new Chart(canvas, {
+    type: 'line',
+    plugins: [ChartDataLabels, annotPlugin],
+    data: { labels, datasets },
+    options: {
+      responsive: false, animation: false,
+      plugins: {
+        legend: { display: false },
+        datalabels: { display: false }
+      },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 8 }, color: '#94A3B8' } },
+        y: { grid: { color: '#F8FAFC' }, min: 0, max: 38,
+          ticks: { font: { size: 8 }, color: '#94A3B8', callback: v => v + '%' } }
+      }
+    }
+  });
+}
+
+function initIBMChart() {
+  const canvas = document.getElementById('chart-ibm-mlc');
+  if (!canvas) return;
+  const wrap = canvas.parentElement;
+  canvas.width = wrap.clientWidth || 380;
+  canvas.height = wrap.clientHeight || 160;
+  const labels    = ['feb/26','mar/26','abr/26','mai/26','jun/26*'];
+  const trocados  = [719, 667, 850, 878, 693];
+  const salvados  = [224, 139, 172, 135, 81];
+  const ltAvg     = [0.6, 0.6, 0.6, 0.7, 0.7];
+  const totales   = trocados.map((v,i) => v + salvados[i]);
+  // [943, 806, 1022, 1013, 774] — apenas visitas concluídas
+
+  // Plugin: total acima de cada coluna
+  const totalPlugin = {
+    id: 'ibmTotal',
+    afterDatasetsDraw(chart) {
+      const {ctx, scales: {x, y}} = chart;
+      if (!x || !y) return;
+      ctx.save();
+      ctx.font = '800 10px "Segoe UI",sans-serif';
+      ctx.fillStyle = '#1a1a2e';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      totales.forEach((t, i) => {
+        const px = x.getPixelForValue(i);
+        const py = y.getPixelForValue(t) - 4;
+        ctx.fillText(t.toLocaleString('pt-BR'), px, py);
+      });
+      ctx.restore();
+    }
+  };
+
+  new Chart(canvas, {
+    type: 'bar',
+    plugins: [ChartDataLabels, totalPlugin],
+    data: {
+      labels,
+      datasets: [
+        { label: 'Sustituido', data: trocados, backgroundColor: '#93C5FD', stack: 'a',
+          datalabels: { display: true, anchor: 'center', align: 'center', color: '#1D4ED8',
+            font: { size: 9, weight: '700' },
+            formatter: (v, ctx) => { const t = totales[ctx.dataIndex]; return t > 0 && v/t > 0.05 ? Math.round(v/t*100)+'%' : ''; } } },
+        { label: 'Salvado', data: salvados, backgroundColor: '#86EFAC', stack: 'a',
+          datalabels: { display: true, anchor: 'center', align: 'center', color: '#166534',
+            font: { size: 9, weight: '700' },
+            formatter: (v, ctx) => { const t = totales[ctx.dataIndex]; return t > 0 && v/t > 0.04 ? Math.round(v/t*100)+'%' : ''; } } },
+        { label: 'LT medio (d)', data: ltAvg, type: 'line', yAxisID: 'y2',
+          borderColor: '#16A34A', backgroundColor: 'transparent',
+          borderWidth: 2.5, pointRadius: 5, pointBackgroundColor: '#16A34A', tension: 0.2, fill: false,
+          datalabels: { anchor: 'end', align: 'top', color: '#059669',
+            font: { size: 10, weight: '900' },
+            formatter: v => v.toFixed(1) + 'd',
+            offset: 4 } }
+      ]
+    },
+    options: {
+      responsive: false, animation: false,
+      plugins: {
+        legend: { display: true, position: 'bottom', labels: { font: { size: 9 }, boxWidth: 10, padding: 8 } }
+      },
+      scales: {
+        x: { stacked: true, grid: { display: false }, ticks: { font: { size: 9 }, color: '#64748B' } },
+        y: { stacked: true, grid: { color: '#F1F5F9' }, max: 1600,
+          display: false },
+        y2: { position: 'right', grid: { display: false },
+          min: -1.5, max: 1.2, display: false }
+      }
+    }
+  });
+}
+
+// ============================================================
+// CHART DEFAULTS
+// ============================================================
+const MONTHS_LABEL = ['dic/25','ene/26','feb/26','mar/26','abr/26','mai/26'];
+
+function baseChartOpts(yLabel, y2Label) {
+  return {
+    responsive: false,
+    animation: false,
+    plugins: {
+      legend: { display: false },
+      tooltip: {
+        callbacks: {
+          label: function(ctx) {
+            if (ctx.dataset.type === 'line') return ctx.dataset.label + ': ' + ctx.parsed.y.toFixed(2) + '%';
+            return ctx.dataset.label + ': ' + ctx.parsed.y.toLocaleString('pt-BR');
+          }
+        }
+      }
+    },
+    scales: {
+      x: {
+        grid: { display: false },
+        ticks: { font: { size: 9 }, color: '#64748B' }
+      },
+      y: {
+        position: 'left',
+        grid: { color: '#F1F5F9' },
+        ticks: { font: { size: 9 }, color: '#64748B',
+          callback: v => v >= 1000 ? (v/1000).toFixed(0)+'k' : v
+        },
+        title: { display: true, text: yLabel || '', font: { size: 8 }, color: '#94A3B8' }
+      },
+      y2: {
+        position: 'right',
+        grid: { display: false },
+        ticks: { font: { size: 9 }, color: '#1a4a8a',
+          callback: v => v.toFixed(1) + '%'
+        },
+        title: { display: true, text: y2Label || '', font: { size: 8 }, color: '#94A3B8' }
+      }
+    }
+  };
+}
+
+// ============================================================
+// SLIDE 4 — Overview Pedidos
+// ============================================================
+function fmtK(v) {
+  if (v == null) return '';
+  if (v >= 1000) return (v/1000).toFixed(1).replace('.0','') + 'K';
+  return String(v);
+}
+
+function initSlide4() {
+  const LABELS = ['dic/25','ene/26','feb/26','mar/26','abr/26','mai/26'];
+  const sites = [
+    {
+      id: 'chart-mla',
+      aberturas:   [775,  842,  1205, 1232,  736,  378],
+      finalizadas: [3735, 3952, 5690, 13342, 6573, 4138],
+      totDigital:  [4510, 4794, 6895, 14574, 7309, 4516],
+      pedMad:      [0.77, 0.79, 1.19, 2.47,  1.24, 0.78],
+      finMad:      [0.64, 0.65, 0.98, 2.26,  1.12, 0.71],
+      hasMeta: false
+    },
+    {
+      id: 'chart-mlb',
+      aberturas:   [4910,  8179,  6474,  5523,  7127,  6557],
+      finalizadas: [16536, 17462, 20465, 18190, 15465, 14434],
+      totDigital:  [21446, 25641, 26939, 23713, 22592, 20991],
+      pedMad:      [0.79,  0.96,  1.04,  0.92,  0.86,  0.81],
+      finMad:      [0.61,  0.65,  0.79,  0.71,  0.59,  0.56],
+      hasMeta: true
+    },
+    {
+      id: 'chart-mlc',
+      aberturas:   [459,  335,  321,  328,  364,  316],
+      finalizadas: [917,  1176, 1607, 1220, 1207, 1159],
+      totDigital:  [1376, 1511, 1928, 1548, 1571, 1475],
+      pedMad:      [0.93, 0.96, 1.22, 0.95, 0.92, 0.85],
+      finMad:      [0.62, 0.74, 1.01, 0.75, 0.71, 0.66],
+      hasMeta: false
+    },
+    {
+      id: 'chart-mlm',
+      aberturas:   [1870, 1913, 2295, 2070, 2155, 2485],
+      finalizadas: [4499, 4781, 6819, 8845, 6886, 6474],
+      totDigital:  [6369, 6694, 9114, 10915, 9041, 8959],
+      pedMad:      [0.59, 0.59, 0.80, 0.92,  0.72, 0.70],
+      finMad:      [0.42, 0.42, 0.60, 0.74,  0.55, 0.51],
+      hasMeta: false
+    }
+  ];
+
+  // Plugin: draw total digital volume above each stacked bar
+  const overviewTotalPlugin = {
+    id: 'overviewTotal',
+    afterDatasetsDraw(chart) {
+      const {ctx, scales: {x, yVol}} = chart;
+      if (!x || !yVol) return;
+      const totals = chart.config.options._totals;
+      if (!totals) return;
+      ctx.save();
+      ctx.font = '700 9px "Segoe UI",system-ui,sans-serif';
+      ctx.fillStyle = '#1a1a2e';
+      ctx.textAlign = 'center';
+      ctx.textBaseline = 'bottom';
+      totals.forEach((t, i) => {
+        if (!t) return;
+        const px = x.getPixelForValue(i);
+        const py = yVol.getPixelForValue(t) - 3;
+        ctx.fillText(fmtK(t), px, py);
+      });
+      ctx.restore();
+    }
+  };
+
+  // Plugin: draw % values on line curve points
+  const lineLabelPlugin = {
+    id: 'lineLabel',
+    afterDatasetsDraw(chart) {
+      const {ctx} = chart;
+      // [datasetIndex, color, yOffset from point center]
+      [[2, '#1a4a8a', -13], [3, '#2A9D8F', 13]].forEach(function(cfg) {
+        var di = cfg[0], color = cfg[1], yOff = cfg[2];
+        var meta = chart.getDatasetMeta(di);
+        if (!meta || meta.hidden) return;
+        ctx.save();
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = '800 11px "Segoe UI",system-ui,sans-serif';
+        ctx.fillStyle = color;
+        meta.data.forEach(function(pt, i) {
+          var v = chart.data.datasets[di].data[i];
+          if (v == null) return;
+          ctx.fillText(v.toFixed(2) + '%', pt.x, pt.y + yOff);
+        });
+        ctx.restore();
+      });
+    }
+  };
+
+  // Plugin: draw % of total inside each bar segment (replaces chartjs-plugin-datalabels for these charts)
+  const barPctPlugin = {
+    id: 'barPct',
+    afterDatasetsDraw(chart) {
+      const {ctx} = chart;
+      const totals = chart.config.options._totals;
+      if (!totals) return;
+      // [datasetIndex, textColor, fontSize]
+      [[0, '#FFFFFF', 10], [1, '#1a1a2e', 8]].forEach(function(cfg) {
+        var di = cfg[0], color = cfg[1], fz = cfg[2];
+        var meta = chart.getDatasetMeta(di);
+        if (!meta || meta.hidden) return;
+        ctx.save();
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        ctx.font = '800 ' + fz + 'px "Segoe UI",system-ui,sans-serif';
+        ctx.fillStyle = color;
+        meta.data.forEach(function(bar, i) {
+          var barH = Math.abs(bar.base - bar.y);
+          if (barH < fz + 6) return;          // skip if bar too short
+          var v = chart.data.datasets[di].data[i];
+          var total = totals[i];
+          if (!v || !total) return;
+          ctx.fillText((v / total * 100).toFixed(0) + '%', bar.x, (bar.y + bar.base) / 2);
+        });
+        ctx.restore();
+      });
+    }
+  };
+
+  sites.forEach(function(s) {
+    const canvas = document.getElementById(s.id);
+    const wrap = canvas.parentElement;
+    canvas.width  = wrap.clientWidth  || 270;
+    canvas.height = wrap.clientHeight || 200;
+
+    const totalMax  = Math.max(...s.totDigital);
+    const allRates  = [...s.pedMad, ...s.finMad];
+    const rMax      = Math.max(...allRates);
+    const rMin      = Math.min(...allRates);
+    const rRange    = Math.max(rMax - rMin, 0.2);
+
+    // bars fill bottom ~58% of chart area
+    const yVolMax  = Math.ceil(totalMax / 0.58);
+    // lines float between 60% and ~88% from bottom; span = rRange / 0.28
+    const rSpan    = rRange / 0.28;
+    const yRateMin = rMin - 0.60 * rSpan;
+    const yRateMax = yRateMin + rSpan;
+
+    const datasets = [
+      {
+        type: 'bar', label: 'Finalizadas',   // same in Spanish
+        data: s.finalizadas, backgroundColor: '#1a4a8a',
+        stack: 'a', yAxisID: 'yVol', order: 2
+      },
+      {
+        type: 'bar', label: 'Aperturas',
+        data: s.aberturas, backgroundColor: '#94A3B8',
+        stack: 'a', yAxisID: 'yVol', order: 2
+      },
+      {
+        type: 'line', label: 'Sol/MAD%',
+        data: s.pedMad,
+        borderColor: '#1a4a8a', backgroundColor: 'transparent',
+        pointBackgroundColor: '#1a4a8a', pointRadius: 4,
+        borderWidth: 2.5, tension: 0.3, clip: false,
+        yAxisID: 'yRate', order: 1
+      },
+      {
+        type: 'line', label: 'Fin/MAD%',
+        data: s.finMad,
+        borderColor: '#2A9D8F', backgroundColor: 'transparent',
+        pointBackgroundColor: '#2A9D8F', pointRadius: 4,
+        borderWidth: 2, tension: 0.3, clip: false,
+        yAxisID: 'yRate', order: 1
+      }
+    ];
+
+    new Chart(canvas, {
+      type: 'bar',
+      plugins: [overviewTotalPlugin, barPctPlugin, lineLabelPlugin],
+      data: { labels: LABELS, datasets },
+      options: {
+        responsive: false, animation: false,
+        _totals: s.totDigital,
+        plugins: {
+          legend: { display: false },
+          tooltip: { enabled: true }
+        },
+        scales: {
+          x: {
+            stacked: true,
+            grid: { display: false },
+            ticks: { font: { size: 9 }, color: '#64748B' }
+          },
+          yVol: {
+            type: 'linear', position: 'left',
+            min: 0, max: yVolMax,
+            display: false
+          },
+          yRate: {
+            type: 'linear', position: 'right',
+            min: yRateMin, max: yRateMax,
+            display: false
+          }
+        }
+      }
+    });
+  });
+}
+
+// ============================================================
+// SLIDE 5 — Canal de Solicitud
+// ============================================================
+function initSlide5() {
+  const CANAL_MONTHS = ['2025-12','2026-01','2026-02','2026-03','2026-04','2026-05'];
+  const CANAL_LABELS = ['dic/25','ene/26','feb/26','mar/26','abr/26','mai/26'];
+  const SITES = ['MLA','MLB','MLC','MLM'];
+  const CANVAS_IDS = ['chart-canal-mla','chart-canal-mlb','chart-canal-mlc','chart-canal-mlm'];
+
+  SITES.forEach(function(site, si) {
+    // Build monthly totals and canal %
+    const monthData = {};
+    CANAL_MONTHS.forEach(m => { monthData[m] = { FAQ:0, CX:0, CC:0, FDV:0, OTHER:0, TOTAL:0 }; });
+
+    DATA.byCanal.forEach(function(row) {
+      if (row.site !== site) return;
+      if (!CANAL_MONTHS.includes(row.mes)) return;
+      const d = monthData[row.mes];
+      const canal = row.canal;
+      const q = row.qtd_trocas || 0;
+      d.TOTAL += q;
+      if (canal === 'FAQ') d.FAQ += q;
+      else if (canal === 'CX' || canal === 'CX_NIVEL_2') d.CX += q;
+      else if (canal === 'CERTIFIED_CONSULTANT') d.CC += q;
+      else if (canal === 'FDV') d.FDV += q;
+      else d.OTHER += q;
+    });
+
+    const pct = (key) => CANAL_MONTHS.map(m => {
+      const d = monthData[m];
+      return d.TOTAL > 0 ? Math.round(d[key] / d.TOTAL * 100) : 0;
+    });
+
+    const canvas = document.getElementById(CANVAS_IDS[si]);
+    const wrap = canvas.parentElement;
+    canvas.width = wrap.clientWidth || 260;
+    canvas.height = wrap.clientHeight || 255;
+
+    const dlOpts = {
+      anchor: 'center', align: 'center',
+      color: '#fff', font: { size: 10, weight: '700' },
+      formatter: function(v) { return v > 4 ? v + '%' : ''; }
+    };
+
+    new Chart(canvas, {
+      type: 'bar',
+      plugins: [ChartDataLabels],
+      data: {
+        labels: CANAL_LABELS,
+        datasets: [
+          { label: 'Autogestión', data: pct('FAQ'), backgroundColor: '#94A3B8', stack: 'a', datalabels: dlOpts },
+          { label: 'CX',        data: pct('CX'),  backgroundColor: '#2A9D8F', stack: 'a', datalabels: dlOpts },
+          { label: 'Consultor', data: pct('CC'),  backgroundColor: '#276749', stack: 'a', datalabels: dlOpts },
+          { label: 'FDV',       data: pct('FDV'), backgroundColor: '#1a4a8a', stack: 'a', datalabels: dlOpts },
+        ]
+      },
+      options: {
+        responsive: false, animation: false,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + '%' } }
+        },
+        scales: {
+          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748B' } },
+          y: { stacked: true, max: 100, display: false }
+        }
+      }
+    });
+  });
+}
+
+// ============================================================
+// SLIDE 9 — Leadtimes Longtail
+// ============================================================
+function initSlide9() {
+  const data = [
+    { id: 'chart-lt-longtail-mla', site: 'MLA',
+      g1: [66,72,52,69,65,79], g3: [1,1,2,1,1,0], g4: [33,28,46,30,34,21],
+      totals: [3177,3386,4580,8066,3247,2176] },
+    { id: 'chart-lt-longtail-mlb', site: 'MLB',
+      g1: [32,26,32,33,31,35], g3: [4,2,2,2,2,1], g4: [64,71,66,66,67,63],
+      totals: [11718,12700,14157,12356,9878,16285] },
+    { id: 'chart-lt-longtail-mlc', site: 'MLC',
+      g1: [96,90,95,95,95,88], g3: [1,0,0,0,0,0], g4: [3,10,5,5,5,12],
+      totals: [662,82,42,135,106,134] },
+    { id: 'chart-lt-longtail-mlm', site: 'MLM',
+      g1: [61,58,63,62,68,60], g3: [1,1,1,1,1,1], g4: [39,41,36,37,32,40],
+      totals: [3509,3329,4527,5822,4682,4951] },
+  ];
+  buildLeadtimeCharts(data, 90);
+}
+
+// ============================================================
+// SLIDE 10 — Leadtimes SMB
+// ============================================================
+function initSlide10() {
+  const data = [
+    { id: 'chart-lt-smb-mla', site: 'MLA',
+      g1: [45,25,17,20,21,31], g3: [33,49,53,47,39,35], g4: [23,25,30,33,40,34],
+      totals: [1354,1991,7994,5503,3283,2096] },
+    { id: 'chart-lt-smb-mlb', site: 'MLB',
+      g1: [35,36,40,43,40,44], g3: [23,22,22,20,20,17], g4: [41,41,38,37,40,38],
+      totals: [7071,6838,8549,7933,7137,12244] },
+    { id: 'chart-lt-smb-mlc', site: 'MLC',
+      g1: [74,76,66,71,81,83], g3: [3,3,3,3,4,4], g4: [23,21,31,26,16,12],
+      totals: [256,1094,1565,1087,1109,1026] },
+    { id: 'chart-lt-smb-mlm', site: 'MLM',
+      g1: [24,21,17,21,32,36], g3: [41,51,51,50,47,45], g4: [35,27,32,29,21,19],
+      totals: [2127,1917,3974,4531,2759,2169] },
+  ];
+  buildLeadtimeCharts(data, 83);
+}
+
+function buildWaterfall(canvasId, labels, values, pcts, colors) {
+  var canvasEl = document.getElementById(canvasId);
+  if (!canvasEl) return;
+  var wfLines = {
+    id: 'wfLines_'+canvasId,
+    afterDatasetsDraw: function(chart) {
+      var c = chart.ctx, meta = chart.getDatasetMeta(0); c.save();
+      c.strokeStyle = '#CBD5E1'; c.lineWidth = 1; c.setLineDash([4, 3]);
+      for (var i = 0; i < meta.data.length - 1; i++) {
+        var b1 = meta.data[i], b2 = meta.data[i+1];
+        var hw1 = (b1.width||24)/2, hw2 = (b2.width||24)/2;
+        c.beginPath(); c.moveTo(b1.x+hw1, b1.y); c.lineTo(b2.x-hw2, b2.y); c.stroke();
+      }
+      c.restore();
+    }
+  };
+  var wfLabels = {
+    id: 'wfLabels_'+canvasId,
+    afterDatasetsDraw: function(chart) {
+      var c = chart.ctx, meta = chart.getDatasetMeta(0);
+      meta.data.forEach(function(bar, i) {
+        c.save(); c.textAlign = 'center'; c.textBaseline = 'bottom';
+        if (pcts[i]) {
+          c.font = '800 11px "Segoe UI",system-ui,sans-serif'; c.fillStyle = '#1a1a2e';
+          c.fillText(values[i].toLocaleString('pt-BR'), bar.x, bar.y - 14);
+          c.font = '700 10px "Segoe UI",system-ui,sans-serif'; c.fillStyle = colors[i];
+          c.fillText(pcts[i], bar.x, bar.y - 2);
+        } else {
+          c.font = '800 11px "Segoe UI",system-ui,sans-serif'; c.fillStyle = '#1a1a2e';
+          c.fillText(values[i].toLocaleString('pt-BR'), bar.x, bar.y - 4);
+        }
+        c.restore();
+      });
+    }
+  };
+  new Chart(canvasEl.getContext('2d'), {
+    type: 'bar',
+    data: { labels: labels, datasets: [{ data: values, backgroundColor: colors, borderRadius: 4, borderSkipped: false, barPercentage: 0.72 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false,
+      plugins: { legend: { display: false }, tooltip: { enabled: false } },
+      scales: {
+        x: { grid: { display: false }, ticks: { font: { size: 9, weight: '700' }, color: '#374151', callback: function(val, i) { return labels[i].split('\n'); } } },
+        y: { display: false, max: Math.max.apply(null, values) * 1.35, grid: { display: false } }
+      },
+      layout: { padding: { top: 32, bottom: 5, left: 4, right: 4 } }
+    },
+    plugins: [wfLines, wfLabels]
+  });
+}
+
+function initSlide12() {
+  // UNITAC
+  buildWaterfall('chart-unitac',
+    ['Cobertura\nUnitac', 'Entregado\n< 24h', 'No entregado\n1ª visita', 'No\nentregado', 'Entregado\n> 24h'],
+    [3420, 2514, 149, 191, 566],
+    ['', '73,5%', '4,4%', '5,6%', '16,5%'],
+    ['#1A56A0', '#16A34A', '#D97706', '#DC2626', '#5BA4CF']
+  );
+  // ALYA
+  buildWaterfall('chart-alya',
+    ['Cobertura\nAlya', 'Entregado\n< 24h', 'No entregado\n1ª visita', 'No\nentregado', 'Entregado\n> 24h'],
+    [277, 151, 1, 33, 92],
+    ['', '54,5%', '0,4%', '11,9%', '33,2%'],
+    ['#1A56A0', '#16A34A', '#D97706', '#DC2626', '#5BA4CF']
+  );
+
+}
+
+// Plugin: total volume above each stacked bar
+const totalAbovePlugin = {
+  id: 'totalAbove',
+  afterDatasetsDraw(chart) {
+    const {ctx, data, scales: {x, y}} = chart;
+    if (!x || !y) return;
+    const totals = chart.config.options._totals;
+    if (!totals) return;
+    ctx.save();
+    ctx.font = '700 10px "Segoe UI",system-ui,sans-serif';
+    ctx.fillStyle = '#1a1a2e';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'bottom';
+    totals.forEach((t, i) => {
+      if (!t) return;
+      const px = x.getPixelForValue(i);
+      const py = y.getPixelForValue(100) - 4;
+      ctx.fillText(fmtK(t), px, py);
+    });
+    ctx.restore();
+  }
+};
+
+function buildLeadtimeCharts(dataArr, metaG1) {
+  dataArr.forEach(function(s) {
+    const canvas = document.getElementById(s.id);
+    const wrap = canvas.parentElement;
+    canvas.width  = wrap.clientWidth  || 260;
+    canvas.height = wrap.clientHeight || 320;
+
+    const dlPct = {
+      anchor: 'center', align: 'center',
+      color: '#fff', font: { size: 13, weight: '700' },
+      formatter: function(v) { return v > 5 ? v + '%' : ''; }
+    };
+
+    new Chart(canvas, {
+      type: 'bar',
+      plugins: [ChartDataLabels, totalAbovePlugin],
+      data: {
+        labels: MONTHS_LABEL,
+        datasets: [
+          { label: 'G4 — Fuera del objetivo',    data: s.g4, backgroundColor: '#E53E3E', stack: 'a', datalabels: dlPct },
+          { label: 'G2/G3 — En cartera CC', data: s.g3, backgroundColor: '#DD6B20', stack: 'a', datalabels: dlPct },
+          { label: 'G1 — Dentro del objetivo',  data: s.g1, backgroundColor: '#276749', stack: 'a', datalabels: dlPct }
+        ]
+      },
+      options: {
+        responsive: false, animation: false,
+        _totals: s.totals,
+        plugins: {
+          legend: { display: false },
+          tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + '%' } }
+        },
+        scales: {
+          x: { stacked: true, grid: { display: false }, ticks: { font: { size: 10 }, color: '#64748B' } },
+          y: { stacked: true, min: 0, max: 115, display: false }
+        }
+      }
+    });
+  });
+}
+
+// ============================================================
+// Notes System
+// ============================================================
+let notesOpen = false;
+
+function _notesKey(slide) { return 'gp_notes_s' + slide; }
+
+function _loadNotes(slide) {
+  try { return JSON.parse(localStorage.getItem(_notesKey(slide)) || '[]'); }
+  catch(e) { return []; }
+}
+
+function _saveNotes(slide, notes) {
+  localStorage.setItem(_notesKey(slide), JSON.stringify(notes));
+}
+
+function _esc(s) {
+  return s.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+}
+
+function renderNotesBadge() {
+  const notes = _loadNotes(current);
+  const badge = document.getElementById('notes-badge');
+  if (notes.length > 0) {
+    badge.textContent = notes.length;
+    badge.style.display = 'flex';
+  } else {
+    badge.style.display = 'none';
+  }
+}
+
+function renderNotes() {
+  const notes = _loadNotes(current);
+  document.getElementById('notes-slide-num').textContent = current;
+  renderNotesBadge();
+  const list = document.getElementById('notes-list');
+  if (notes.length === 0) {
+    list.innerHTML = '<div class="notes-empty">Sin notas para esta diapositiva</div>';
+    return;
+  }
+  list.innerHTML = notes.map((n, i) => `
+    <div class="note-card">
+      <div class="note-card-header">
+        <span class="note-author">${_esc(n.author)}</span>
+        <button class="note-delete" onclick="deleteNote(${i})" title="Excluir">✕</button>
+      </div>
+      <div class="note-text">${_esc(n.text)}</div>
+    </div>`).join('');
+}
+
+function deleteNote(idx) {
+  const notes = _loadNotes(current);
+  notes.splice(idx, 1);
+  _saveNotes(current, notes);
+  renderNotes();
+}
+
+function saveNote() {
+  const author = document.getElementById('note-author-input').value.trim();
+  const text = document.getElementById('note-text-input').value.trim();
+  if (!author || !text) return;
+  const notes = _loadNotes(current);
+  notes.push({ author, text });
+  _saveNotes(current, notes);
+  document.getElementById('note-text-input').value = '';
+  renderNotes();
+}
+
+function toggleNotes() {
+  notesOpen = !notesOpen;
+  document.getElementById('notes-panel').classList.toggle('open', notesOpen);
+  if (notesOpen) renderNotes();
+}
+</script>
+</body>
+</html>
+
+
