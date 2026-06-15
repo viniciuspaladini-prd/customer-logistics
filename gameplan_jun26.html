@@ -1235,14 +1235,14 @@ END SLIDE REMOVIDO -->
 <div class="slide content-slide" id="s7">
   <style>
   #s7 { background:#F8FAFC; }
-  #s7 .s7-body { flex:1; display:grid; grid-template-columns:58% 1fr; gap:14px; padding:6px 20px 10px; min-height:0; overflow:hidden; align-items:stretch; }
+  #s7 .s7-body { flex:1; display:flex; flex-direction:column; gap:6px; padding:4px 20px 6px; min-height:0; overflow:hidden; }
 
   /* ── Left panel ── */
   #s7 .s7-results { display:flex; flex-direction:column; gap:8px; height:100%; }
   #s7 .s7-panel-hdr { font-size:11px; font-weight:800; text-transform:uppercase; letter-spacing:.7px; color:#fff; background:#1a4a8a; border-radius:8px 8px 0 0; padding:8px 16px; display:flex; align-items:center; gap:7px; flex-shrink:0; }
   #s7 .s7-policy-strip { background:#fff; border:1px solid #E2E8F0; border-radius:0 0 8px 8px; padding:8px 16px; display:grid; grid-template-columns:1fr 1fr; gap:8px; font-size:11px; color:#64748B; flex-shrink:0; }
   #s7 .s7-policy-site-name { font-size:13px; font-weight:800; color:#1a1a2e; margin-bottom:2px; }
-  #s7 .s7-kpi-grid { display:grid; grid-template-columns:1fr 1fr; gap:10px; flex:1; min-height:0; }
+  #s7 .s7-kpi-grid { display:grid; grid-template-columns:1fr 1fr 1fr 1fr; gap:8px; flex:1; min-height:0; }
   #s7 .s7-site-card { background:#fff; border-radius:10px; border:1px solid #E2E8F0; padding:13px 15px; display:flex; flex-direction:column; gap:0; box-shadow:0 1px 6px rgba(0,0,0,.05); overflow:hidden; }
   #s7 .s7-card-hdr { display:flex; align-items:center; gap:8px; padding-bottom:10px; border-bottom:2px solid #F1F5F9; flex-shrink:0; }
   #s7 .s7-card-site { font-size:20px; font-weight:900; color:#1a1a2e; }
@@ -1286,164 +1286,94 @@ END SLIDE REMOVIDO -->
     <span class="breadcrumb-page">Políticas de recambios</span>
   </div>
   <div class="slide-body">
-    <div class="slide-title">MLA &amp; MLB: resultados abr/26 consolidados — MLM &amp; MLC activados <b>22/05/26</b> · ahorro estimado <b>~USD 505k/mes</b> (MLA+MLB)</div>
+    <div class="slide-title">Política activa 4 sites · mai/26: MLB <b>11.1K</b> bloqueados · MLA <b>1.0K</b> · MLM+MLC <b>1º mes completo</b> · ahorro est. <b>~USD 563k/mes</b> (MLA+MLB)</div>
 
     <div class="s7-body">
 
-      <!-- ── LEFT: Resultados ── -->
-      <div class="s7-results">
-        <div>
-          <div class="s7-panel-hdr">✅ Política Activa — Resultados abr/26 (MLA · MLB)</div>
-          <div class="s7-policy-strip" style="grid-template-columns:1fr 1fr 1fr 1fr;">
-            <div>
-              <div class="s7-policy-site-name">MLA 🇦🇷</div>
-              BS &amp; SMB: garantizado · LT: TPV ≥ AR$1.8M/3m · Device ≤ 12m
-            </div>
-            <div>
-              <div class="s7-policy-site-name">MLB 🇧🇷</div>
-              BS &amp; SMB: garantizado · LT: TPV ≥ R$1.5k/3m · Device ≤ 3m
-            </div>
-            <div>
-              <div class="s7-policy-site-name" style="color:#276749;">MLM 🇲🇽 <span style="font-size:9px;font-weight:700;background:#DCFCE7;color:#166534;padding:1px 5px;border-radius:4px;">22/05 ✓</span></div>
-              BS/SMB/HILO: garantizado · MILO/LOLO: TPV ≥ MXN$5k · Device ≤ 12m
-            </div>
-            <div>
-              <div class="s7-policy-site-name" style="color:#276749;">MLC 🇨🇱 <span style="font-size:9px;font-weight:700;background:#DCFCE7;color:#166534;padding:1px 5px;border-radius:4px;">22/05 ✓</span></div>
-              BS/SMB/HILO: garantizado · Device ≤ 12m
-            </div>
-          </div>
-        </div>
-
-        <div class="s7-kpi-grid">
-          <!-- MLA -->
-          <div class="s7-site-card">
-            <div class="s7-card-hdr">
-              <img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷">
-              <span class="s7-card-site">MLA</span>
-              <span class="s7-card-badge">Política activa</span>
-            </div>
-            <div class="s7-big-kpi">
-              <div class="s7-kpi-block">
-                <div class="s7-kpi-lbl">Sellers bloqueados</div>
-                <div class="s7-kpi-num" style="color:#E53E3E;">~1.9K</div>
-                <div class="s7-kpi-sub">inelegibles/mes · mai/26</div>
-              </div>
-              <div class="s7-kpi-block">
-                <div class="s7-kpi-lbl">Ahorro estimado</div>
-                <div class="s7-kpi-num" style="color:#276749;">171k</div>
-                <div class="s7-kpi-sub">USD/mes</div>
-              </div>
-            </div>
-            <div class="s7-metrics">
-              <div class="s7-metric-row">
-                <span class="s7-metric-lbl">NPS CS</span>
-                <span class="s7-metric-val">33%</span>
-              </div>
-              <div class="s7-metric-row">
-                <span class="s7-metric-lbl">CSAT Maxwell</span>
-                <span class="s7-metric-val">4,12 <span class="s7-metric-mom" style="color:#9CA3AF;">(abr/26)</span></span>
-              </div>
-            </div>
-            <div class="s7-post">
-              <div class="s7-post-lbl">Post bloqueo</div>
-              <div class="s7-post-row"><span>Uso Point TAP</span><span>6%</span></div>
-              <div class="s7-post-row"><span>Compra de device</span><span>27,9%</span></div>
-            </div>
-          </div>
-
-          <!-- MLB -->
-          <div class="s7-site-card">
-            <div class="s7-card-hdr">
-              <img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷">
-              <span class="s7-card-site">MLB</span>
-              <span class="s7-card-badge">Política activa</span>
-            </div>
-            <div class="s7-big-kpi">
-              <div class="s7-kpi-block">
-                <div class="s7-kpi-lbl">Sellers bloqueados</div>
-                <div class="s7-kpi-num" style="color:#E53E3E;">~10.1K</div>
-                <div class="s7-kpi-sub">inelegibles/mes · mai/26</div>
-              </div>
-              <div class="s7-kpi-block">
-                <div class="s7-kpi-lbl">Ahorro estimado</div>
-                <div class="s7-kpi-num" style="color:#276749;">334k</div>
-                <div class="s7-kpi-sub">USD/mes</div>
-              </div>
-            </div>
-            <div class="s7-metrics">
-              <div class="s7-metric-row">
-                <span class="s7-metric-lbl">NPS CS</span>
-                <span class="s7-metric-val">36,4% <span class="s7-metric-mom" style="color:#C53030;">(-1,5pp MoM)</span></span>
-              </div>
-              <div class="s7-metric-row">
-                <span class="s7-metric-lbl">CSAT Maxwell</span>
-                <span class="s7-metric-val">3,89 <span class="s7-metric-mom" style="color:#9CA3AF;">(abr/26)</span></span>
-              </div>
-            </div>
-            <div class="s7-post">
-              <div class="s7-post-lbl">Post bloqueo</div>
-              <div class="s7-post-row"><span>Uso Point TAP</span><span>8,8% <span style="font-size:8.5px;color:#C53030;">(-0,5pp)</span></span></div>
-              <div class="s7-post-row"><span>Compra de device</span><span>16,8% <span style="font-size:8.5px;color:#94A3B8;">(0pp)</span></span></div>
-            </div>
-          </div>
+      <!-- Policy strip 4 sites -->
+      <div>
+        <div class="s7-panel-hdr">✅ Política Activa — 4 Sites · Resultados mai/26 · ahorro estimado ~USD 563k/mes (MLA+MLB)</div>
+        <div class="s7-policy-strip" style="grid-template-columns:1fr 1fr 1fr 1fr;">
+          <div><div class="s7-policy-site-name">MLA 🇦🇷</div>BS &amp; SMB: garantizado · LT: TPV ≥ AR$1.8M/3m · Device ≤ 12m</div>
+          <div><div class="s7-policy-site-name">MLB 🇧🇷</div>BS &amp; SMB: garantizado · LT: TPV ≥ R$1.5k/3m · Device ≤ 3m</div>
+          <div><div class="s7-policy-site-name" style="color:#276749;">MLM 🇲🇽 <span style="font-size:9px;font-weight:700;background:#DCFCE7;color:#166534;padding:1px 5px;border-radius:4px;">22/05 ✓</span></div>BS/SMB/HILO: garantizado · MILO/LOLO: TPV ≥ MXN$5k · Device ≤ 12m</div>
+          <div><div class="s7-policy-site-name" style="color:#276749;">MLC 🇨🇱 <span style="font-size:9px;font-weight:700;background:#DCFCE7;color:#166534;padding:1px 5px;border-radius:4px;">22/05 ✓</span></div>BS/SMB/HILO: garantizado · Device ≤ 12m</div>
         </div>
       </div>
 
-      <!-- ── RIGHT: Resultados MLM & MLC ── -->
-      <div class="s7-opp">
-        <div class="s7-opp-hdr" style="background:#276749;">✅ Activados — MLM &amp; MLC · 22/05/2026</div>
-        <div class="s7-opp-inner">
-          <div class="s7-opp-site">
-            <div class="s7-opp-site-hdr">
-              <span class="s7-opp-site-name">MLM 🇲🇽</span>
-              <span class="s7-opp-badge" style="background:#DCFCE7;color:#166534;">Activo 22/05</span>
-            </div>
-            <div class="s7-opp-rules">
-              <b>Regla:</b> BS, SMB &amp; HILO garantizado · MILO/LOLO: TPV ≥ MXN$5k/3m<br>
-              <b>Device:</b> age ≤ 12 meses<br>
-              <b>Vol. mai/26:</b> ~8.9K recambios/mes · 92% vía Maxwell
-            </div>
+      <!-- 4 cards iguais -->
+      <div class="s7-kpi-grid">
+
+        <!-- MLA -->
+        <div class="s7-site-card">
+          <div class="s7-card-hdr"><img class="flag-circle" src="https://flagcdn.com/w40/ar.png" alt="🇦🇷"><span class="s7-card-site">MLA</span><span class="s7-card-badge">Política activa</span></div>
+          <div class="s7-big-kpi">
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Sellers bloqueados</div><div class="s7-kpi-num" style="color:#E53E3E;">1.020</div><div class="s7-kpi-sub">inelegibles/mes · mai/26</div></div>
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Ahorro estimado</div><div class="s7-kpi-num" style="color:#276749;">~97k</div><div class="s7-kpi-sub">USD/mes</div></div>
           </div>
-          <div class="s7-opp-site">
-            <div class="s7-opp-site-hdr">
-              <span class="s7-opp-site-name">MLC 🇨🇱</span>
-              <span class="s7-opp-badge" style="background:#DCFCE7;color:#166534;">Activo 22/05</span>
-            </div>
-            <div class="s7-opp-rules">
-              <b>Regla:</b> BS, SMB &amp; HILO garantizado<br>
-              <b>Device:</b> age ≤ 12 meses<br>
-              <b>Vol. mai/26:</b> ~1.5K recambios/mes · Maxwell 42%
-            </div>
+          <div class="s7-metrics">
+            <div class="s7-metric-row"><span class="s7-metric-lbl">NPS CS</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente mai</span></div>
+            <div class="s7-metric-row"><span class="s7-metric-lbl">CSAT Maxwell</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente mai</span></div>
           </div>
-          <div class="s7-opp-impact" style="background:#EFF6FF;border-color:#BFDBFE;">
-            <div class="s7-opp-impact-ttl" style="color:#1D4ED8;">Primeros resultados — mai/26 (22–28 may)</div>
-            <div class="s7-opp-impact-row" style="color:#1e3a6e;"><span>MLM — bloqueos mai/26 (22–31/mai)</span><b>2.279</b></div>
-            <div class="s7-opp-impact-row" style="color:#1e3a6e;"><span>MLC — bloqueos mai/26 (22–31/mai)</span><b>1.329</b></div>
-            <div class="s7-opp-impact-row" style="color:#6B7280;font-size:9px;"><span>~76/día MLM · ~133/día MLC · via Maxwell (10 días)</span><b style="color:#9CA3AF;">sin dato $</b></div>
-          </div>
-          <div class="s7-cta">
-            <div style="display:flex;flex-direction:column;gap:5px;">
-              <div>
-                <div class="s7-cta-lbl">Activado — MLA</div>
-                <div class="s7-cta-val" style="font-size:13px;">05/03/2026 ✓</div>
-              </div>
-              <div>
-                <div class="s7-cta-lbl">Activado — MLM &amp; MLC</div>
-                <div class="s7-cta-val" style="font-size:13px;">22/05/2026 ✓</div>
-              </div>
-            </div>
-            <div style="text-align:right;">
-              <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">Ahorro total 4 sites</div>
-              <div style="font-size:18px;font-weight:900;color:#FFD000;">~USD 505k<span style="font-size:11px;color:rgba(255,255,255,.5);">/mes</span></div>
-              <div style="font-size:8px;color:rgba(255,255,255,.35);margin-top:1px;">MLA + MLB · MLM/MLC sin dato</div>
-            </div>
-          </div>
+          <div class="s7-post"><div class="s7-post-lbl">Post bloqueo</div><div class="s7-post-row"><span>Uso Point TAP</span><span style="color:#9CA3AF;">—</span></div><div class="s7-post-row"><span>Compra de device</span><span style="color:#9CA3AF;">—</span></div></div>
         </div>
+
+        <!-- MLB -->
+        <div class="s7-site-card">
+          <div class="s7-card-hdr"><img class="flag-circle" src="https://flagcdn.com/w40/br.png" alt="🇧🇷"><span class="s7-card-site">MLB</span><span class="s7-card-badge">Política activa</span></div>
+          <div class="s7-big-kpi">
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Sellers bloqueados</div><div class="s7-kpi-num" style="color:#E53E3E;">11.1K</div><div class="s7-kpi-sub">inelegibles/mes · mai/26</div></div>
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Ahorro estimado</div><div class="s7-kpi-num" style="color:#276749;">~466k</div><div class="s7-kpi-sub">USD/mes</div></div>
+          </div>
+          <div class="s7-metrics">
+            <div class="s7-metric-row"><span class="s7-metric-lbl">NPS CS</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente mai</span></div>
+            <div class="s7-metric-row"><span class="s7-metric-lbl">CSAT Maxwell</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente mai</span></div>
+          </div>
+          <div class="s7-post"><div class="s7-post-lbl">Post bloqueo</div><div class="s7-post-row"><span>Uso Point TAP</span><span style="color:#9CA3AF;">—</span></div><div class="s7-post-row"><span>Compra de device</span><span style="color:#9CA3AF;">—</span></div></div>
+        </div>
+
+        <!-- MLM -->
+        <div class="s7-site-card">
+          <div class="s7-card-hdr"><img class="flag-circle" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"><span class="s7-card-site">MLM</span><span class="s7-card-badge" style="background:#DCFCE7;color:#166534;">Activo 22/05</span></div>
+          <div class="s7-big-kpi">
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Sellers bloqueados</div><div class="s7-kpi-num" style="color:#E53E3E;">2.527</div><div class="s7-kpi-sub">acum. mai/26 · 10 días</div></div>
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Ahorro estimado</div><div class="s7-kpi-num" style="color:#94A3B8;font-size:18px;">—</div><div class="s7-kpi-sub">sin dato ($/troca)</div></div>
+          </div>
+          <div class="s7-metrics">
+            <div class="s7-metric-row"><span class="s7-metric-lbl">NPS CS</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente</span></div>
+            <div class="s7-metric-row"><span class="s7-metric-lbl">CSAT Maxwell</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente</span></div>
+          </div>
+          <div class="s7-post"><div class="s7-post-lbl">Post bloqueo</div><div class="s7-post-row"><span>Uso Point TAP</span><span style="color:#9CA3AF;">—</span></div><div class="s7-post-row"><span>Compra de device</span><span style="color:#9CA3AF;">—</span></div></div>
+        </div>
+
+        <!-- MLC -->
+        <div class="s7-site-card">
+          <div class="s7-card-hdr"><img class="flag-circle" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"><span class="s7-card-site">MLC</span><span class="s7-card-badge" style="background:#DCFCE7;color:#166534;">Activo 22/05</span></div>
+          <div class="s7-big-kpi">
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Sellers bloqueados</div><div class="s7-kpi-num" style="color:#E53E3E;">1.371</div><div class="s7-kpi-sub">acum. mai/26 · 10 días</div></div>
+            <div class="s7-kpi-block"><div class="s7-kpi-lbl">Ahorro estimado</div><div class="s7-kpi-num" style="color:#94A3B8;font-size:18px;">—</div><div class="s7-kpi-sub">sin dato ($/troca)</div></div>
+          </div>
+          <div class="s7-metrics">
+            <div class="s7-metric-row"><span class="s7-metric-lbl">NPS CS</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente</span></div>
+            <div class="s7-metric-row"><span class="s7-metric-lbl">CSAT Maxwell</span><span class="s7-metric-val" style="color:#9CA3AF;">pendiente</span></div>
+          </div>
+          <div class="s7-post"><div class="s7-post-lbl">Post bloqueo</div><div class="s7-post-row"><span>Uso Point TAP</span><span style="color:#9CA3AF;">—</span></div><div class="s7-post-row"><span>Compra de device</span><span style="color:#9CA3AF;">—</span></div></div>
+        </div>
+
+      </div>
+
+      <!-- Saving total -->
+      <div style="flex-shrink:0;background:#1a1a2e;border-radius:8px;padding:8px 16px;display:flex;justify-content:space-between;align-items:center;">
+        <div style="display:flex;gap:20px;">
+          <div style="font-size:9px;color:rgba(255,255,255,.5);">MLA activado <b style="color:#fff;">05/03/26 ✓</b></div>
+          <div style="font-size:9px;color:rgba(255,255,255,.5);">MLB activado <b style="color:#fff;">05/03/26 ✓</b></div>
+          <div style="font-size:9px;color:rgba(255,255,255,.5);">MLM &amp; MLC activados <b style="color:#FFD000;">22/05/26 ✓</b></div>
+        </div>
+        <div style="text-align:right;"><div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;letter-spacing:.05em;">Ahorro total MLA+MLB</div><div style="font-size:20px;font-weight:900;color:#FFD000;">~USD 563k<span style="font-size:11px;color:rgba(255,255,255,.5);">/mes</span></div></div>
       </div>
 
     </div>
-
-    <!-- Insight + Línea de acción -->
+<!-- Insight + Línea de acción -->
     <div style="margin:0 20px 10px;flex-shrink:0;display:grid;grid-template-columns:1fr 1fr;gap:10px;">
       <div style="background:#EFF6FF;border-radius:8px;padding:9px 13px;border-left:3px solid #1D4ED8;">
         <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.1em;color:#1D4ED8;margin-bottom:4px;">💡 Insight</div>
@@ -3770,5 +3700,7 @@ function toggleNotes() {
 </script>
 </body>
 </html>
+
+
 
 
