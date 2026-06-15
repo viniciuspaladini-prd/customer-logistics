@@ -1459,6 +1459,202 @@ END SLIDE REMOVIDO -->
 </div>
 
 <!-- ============================================================
+     SLIDE ABANDONO — Comportamiento Post-Solicitud (NO_FINALIZADO)
+     ============================================================ -->
+<div class="slide content-slide" id="s-abandono">
+<style>
+#s-abandono { background:#F8FAFC; }
+#s-abandono .cpt-matrix { flex:1; display:flex; flex-direction:column; gap:0; padding:0 20px; min-height:0; overflow:hidden; }
+#s-abandono .cpt-hdr-row { display:grid; grid-template-columns:220px 1fr 1fr 1fr 1fr; gap:0; padding:6px 0 4px; border-bottom:2px solid #E2E8F0; flex-shrink:0; }
+#s-abandono .cpt-hdr-site { display:flex; flex-direction:column; align-items:center; gap:2px; }
+#s-abandono .cpt-hdr-flag { width:28px; height:28px; border-radius:50%; object-fit:cover; }
+#s-abandono .cpt-hdr-name { font-size:13px; font-weight:900; color:#1a1a2e; }
+#s-abandono .cpt-row { display:grid; grid-template-columns:220px 1fr 1fr 1fr 1fr; gap:0; border-bottom:1px solid #F1F5F9; flex:1; min-height:0; align-items:center; padding:4px 0; }
+#s-abandono .cpt-label { display:flex; align-items:center; gap:10px; padding-right:12px; }
+#s-abandono .cpt-icon { font-size:22px; flex-shrink:0; }
+#s-abandono .cpt-name { font-size:11px; font-weight:800; color:#1a1a2e; line-height:1.25; }
+#s-abandono .cpt-desc { font-size:8.5px; color:#6B7280; margin-top:1px; line-height:1.3; }
+#s-abandono .cpt-cell { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:4px; padding:0 10px; }
+#s-abandono .cpt-pct { font-size:22px; font-weight:900; line-height:1; }
+#s-abandono .cpt-bar-wrap { width:100%; height:7px; background:#F1F5F9; border-radius:4px; overflow:hidden; }
+#s-abandono .cpt-bar-fill { height:100%; border-radius:4px; }
+#s-abandono .cpt-sub { font-size:8px; color:#9CA3AF; }
+#s-abandono .cpt-conclusions { flex-shrink:0; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:6px 20px 8px; }
+#s-abandono .cpt-clu { border-radius:8px; padding:8px 11px; }
+#s-abandono .cpt-clu-ttl { font-size:8.5px; font-weight:800; margin-bottom:3px; }
+#s-abandono .cpt-clu-txt { font-size:8px; line-height:1.45; color:#374151; }
+</style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-dark">Pedidos</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Comportamiento Post-Solicitud</span>
+  </div>
+  <div class="slide-title" style="padding:2px 20px 0;flex-shrink:0;">
+    ¿Qué hace el seller cuando la troca <b>NO se finaliza</b>? · NO_FINALIZADO · referencia abr/26
+  </div>
+
+  <!-- Insights en la parte superior -->
+  <div class="cpt-conclusions" style="padding:5px 20px 4px;">
+    <div class="cpt-clu" style="background:#EFF6FF;border-left:3px solid #1A56A0;">
+      <div class="cpt-clu-ttl" style="color:#1D4ED8;">🇨🇱 MLC — máxima urgencia</div>
+      <div class="cpt-clu-txt">87% reconecta · 51% logra TPV · pero <b>solo 2% tiene otro device</b>. Seller mono-device: cuando falla, depende 100% del recambio para cobrar.</div>
+    </div>
+    <div class="cpt-clu" style="background:#F0FDF4;border-left:3px solid #16A34A;">
+      <div class="cpt-clu-ttl" style="color:#166534;">📱 MLB + MLM — TTP como válvula</div>
+      <div class="cpt-clu-txt">18% (MLB) y 17% (MLM) adoptaron TTP en 30d post-pedido. <b>El recambio NO_FIN actúa como driver real de adopción</b> del cobro por app.</div>
+    </div>
+    <div class="cpt-clu" style="background:#FFFBEB;border-left:3px solid #D97706;">
+      <div class="cpt-clu-ttl" style="color:#92400E;">🇦🇷 MLA — multi-device mitiga el impacto</div>
+      <div class="cpt-clu-txt">64% tiene otro device activo. La operación <b>no para</b>, pero el device del recambio queda bloqueado en el proceso logístico.</div>
+    </div>
+  </div>
+
+  <div class="cpt-matrix">
+
+    <!-- Header row: sites -->
+    <div class="cpt-hdr-row">
+      <div style="font-size:9px;font-weight:800;color:#94A3B8;text-transform:uppercase;align-self:center;">Comportamiento</div>
+      <div class="cpt-hdr-site"><img class="cpt-hdr-flag" src="https://flagcdn.com/w40/ar.png"><span class="cpt-hdr-name">MLA</span></div>
+      <div class="cpt-hdr-site"><img class="cpt-hdr-flag" src="https://flagcdn.com/w40/br.png"><span class="cpt-hdr-name">MLB</span></div>
+      <div class="cpt-hdr-site"><img class="cpt-hdr-flag" src="https://flagcdn.com/w40/cl.png"><span class="cpt-hdr-name">MLC</span></div>
+      <div class="cpt-hdr-site"><img class="cpt-hdr-flag" src="https://flagcdn.com/w40/mx.png"><span class="cpt-hdr-name">MLM</span></div>
+    </div>
+
+    <!-- ROW 1: Reconexión PTM -->
+    <div class="cpt-row">
+      <div class="cpt-label">
+        <span class="cpt-icon">📡</span>
+        <div>
+          <div class="cpt-name">Reconectó el device</div>
+          <div class="cpt-desc">Device voltou online após o pedido<br>(PTM · LK_PTM_POINT_DEVICE)</div>
+        </div>
+      </div>
+      <!-- MLA: 100-58 = 42% reconnected abr/26 -->
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#1A56A0;">42%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:42%;background:#1A56A0;"></div></div>
+        <span class="cpt-sub">58% no reconectado</span>
+      </div>
+      <!-- MLB: 100-65 = 35% -->
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#1A56A0;">35%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:35%;background:#1A56A0;"></div></div>
+        <span class="cpt-sub">65% no reconectado</span>
+      </div>
+      <!-- MLC: 100-13 = 87% -->
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#1A56A0;font-size:26px;">87%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:87%;background:#1A56A0;"></div></div>
+        <span class="cpt-sub">13% no reconectado</span>
+      </div>
+      <!-- MLM: 100-53 = 47% -->
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#1A56A0;">47%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:47%;background:#1A56A0;"></div></div>
+        <span class="cpt-sub">53% no reconectado</span>
+      </div>
+    </div>
+
+    <!-- ROW 2: TPV Post-pedido -->
+    <div class="cpt-row">
+      <div class="cpt-label">
+        <span class="cpt-icon">💳</span>
+        <div>
+          <div class="cpt-name">Tuvo TPV post-pedido</div>
+          <div class="cpt-desc">Transaccionó en los 30d con ese device<br>(BT_MP_PAY_PAYMENTS_ALL)</div>
+        </div>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#DC2626;">7%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:7%;background:#DC2626;"></div></div>
+        <span class="cpt-sub">93% sin TPV</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#D97706;">14%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:14%;background:#D97706;"></div></div>
+        <span class="cpt-sub">86% sin TPV</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#16A34A;font-size:26px;">51%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:51%;background:#16A34A;"></div></div>
+        <span class="cpt-sub">49% sin TPV</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#D97706;">25%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:25%;background:#D97706;"></div></div>
+        <span class="cpt-sub">75% sin TPV</span>
+      </div>
+    </div>
+
+    <!-- ROW 3: Adopción TTP -->
+    <div class="cpt-row">
+      <div class="cpt-label">
+        <span class="cpt-icon">📱</span>
+        <div>
+          <div class="cpt-name">Adoptó Point TAP</div>
+          <div class="cpt-desc">Usó TTP en 30d post-pedido<br>(LK_MP_MASTER_SELLERS)</div>
+        </div>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#7C3AED;">2%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:2%;background:#7C3AED;"></div></div>
+        <span class="cpt-sub">alto TPV/seller</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#7C3AED;font-size:26px;">18%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:18%;background:#7C3AED;"></div></div>
+        <span class="cpt-sub">↑ creciente</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#9CA3AF;">0%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:0%;background:#9CA3AF;"></div></div>
+        <span class="cpt-sub">TTP no disponible</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#7C3AED;">17%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:17%;background:#7C3AED;"></div></div>
+        <span class="cpt-sub">↑ desde mar/26</span>
+      </div>
+    </div>
+
+    <!-- ROW 4: Otro device -->
+    <div class="cpt-row" style="border-bottom:none;">
+      <div class="cpt-label">
+        <span class="cpt-icon">📟</span>
+        <div>
+          <div class="cpt-name">Usó otro device</div>
+          <div class="cpt-desc">Cobró con device diferente en 30d<br>(BT_MP_PAY_PAYMENTS_ALL · device ≠)</div>
+        </div>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#D97706;font-size:26px;">64%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:64%;background:#D97706;"></div></div>
+        <span class="cpt-sub">mercado multi-device</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#D97706;">30%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:30%;background:#D97706;"></div></div>
+        <span class="cpt-sub">1 de cada 3</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#DC2626;">2%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:2%;background:#DC2626;"></div></div>
+        <span class="cpt-sub">mono-device crítico</span>
+      </div>
+      <div class="cpt-cell">
+        <span class="cpt-pct" style="color:#D97706;">17%</span>
+        <div class="cpt-bar-wrap"><div class="cpt-bar-fill" style="width:17%;background:#D97706;"></div></div>
+        <span class="cpt-sub">↓ vs feb/26 35%</span>
+      </div>
+    </div>
+
+  </div>
+
+
+</div>
+
+<!-- ============================================================
      SLIDE 7 — Maxwell + Oportunidades (embedded from maxwell_ppt.html)
      ============================================================ -->
 <div class="slide content-slide" id="s8">
@@ -2849,11 +3045,11 @@ function initSlide(n) {
   // Posições após remoção de s3 (Visión General) e s6 (Canal):
   // s5=4, s10=8, s11=9, s11b=11, s12=12
   if (n === 4) setTimeout(initSlide4, 50);
-  if (n === 6) setTimeout(initConvRecChart, 50);
-  if (n === 8) setTimeout(initSlide10, 50);
-  if (n === 9) setTimeout(initSlide9, 50);
-  if (n === 11) setTimeout(initIBMChart, 50);
-  if (n === 12) setTimeout(initSlide12, 50);
+  if (n === 7) setTimeout(initConvRecChart, 50);
+  if (n === 9) setTimeout(initSlide10, 50);
+  if (n === 10) setTimeout(initSlide9, 50);
+  if (n === 12) setTimeout(initIBMChart, 50);
+  if (n === 13) setTimeout(initSlide12, 50);
 }
 
 // ============================================================
