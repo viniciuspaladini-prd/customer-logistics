@@ -1436,10 +1436,10 @@ END SLIDE REMOVIDO -->
       <div style="font-size:8px;color:#374151;line-height:1.5;"><b>Dado:</b> 87% (MLC) e 47% (MLM) reconectam o device. 51% (MLC) e 25% (MLM) têm TPV → <b>device funciona</b>.<br><b>Ação:</b> Árvore de decisão Maxwell deve checar LAST_CONNECTED (PTM) antes de aprovar troca. Se device ativo → forçar diagnóstico guiado.<br><span style="display:inline-block;margin-top:3px;background:#DBEAFE;color:#1D4ED8;font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;">→ Iniciativa: Árbol decisión Maxwell</span></div>
     </div>
 
-    <!-- Ação 2: Bloquear se device ativo -->
+    <!-- Ação 2: Cancelar automaticamente se device voltou a funcionar -->
     <div style="background:#FEF2F2;border-radius:8px;padding:8px 11px;border-left:3px solid #DC2626;">
-      <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#DC2626;margin-bottom:3px;">🚫 Ação 2 · Bloquear troca se device em uso</div>
-      <div style="font-size:8px;color:#374151;line-height:1.5;"><b>Dado:</b> 14% (MLB) e 25% (MLM) fizeram TPV com o device do recambio nos 30d pós-pedido.<br><b>Ação:</b> Cruzar com BT_MP_PAY_PAYMENTS_ALL: se device transacionou pós-pedido → exigir evidência do problema antes de avançar na troca.<br><span style="display:inline-block;margin-top:3px;background:#FEE2E2;color:#DC2626;font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;">→ Iniciativa: Política de trocas + regras duras Maxwell</span></div>
+      <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#DC2626;margin-bottom:3px;">✉️ Ação 2 · Cancelar troca se device voltou a funcionar</div>
+      <div style="font-size:8px;color:#374151;line-height:1.5;"><b>Dado:</b> 14% (MLB) e 25% (MLM) fizeram TPV com o device do recambio nos 30d pós-pedido — device claramente voltou a operar.<br><b>Ação:</b> Detectar via PTM + pagamentos que o device voltou a funcionar → enviar mensagem proativa ao seller cancelando a solicitação de troca com explicação clara.<br><span style="display:inline-block;margin-top:3px;background:#FEE2E2;color:#DC2626;font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;margin-right:3px;">→ Iniciativa: Maxwell + cancelamento automático</span><span style="display:inline-block;margin-top:3px;background:#FEF2F2;color:#9B1C1C;font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;border:1px solid #FCA5A5;">⚖️ Pendiente alineación legal</span></div>
     </div>
 
     <!-- Ação 3: TTP como oferta ativa no fluxo -->
