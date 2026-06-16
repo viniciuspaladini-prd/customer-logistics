@@ -1427,19 +1427,27 @@ END SLIDE REMOVIDO -->
   </div>
 
   <!-- Insights en la parte superior -->
-  <div class="cpt-conclusions" style="padding:5px 20px 4px;">
-    <div class="cpt-clu" style="background:#EFF6FF;border-left:3px solid #1A56A0;">
-      <div class="cpt-clu-ttl" style="color:#1D4ED8;">🇨🇱 MLC — máxima urgencia</div>
-      <div class="cpt-clu-txt">87% reconecta · 51% logra TPV · pero <b>solo 2% tiene otro device</b>. Seller mono-device: cuando falla, depende 100% del recambio para cobrar.</div>
+  <!-- Insights → Acionáveis conectados às iniciativas -->
+  <div style="flex-shrink:0;padding:5px 20px 6px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;">
+
+    <!-- Ação 1: Troubleshooting obrigatório -->
+    <div style="background:#EFF6FF;border-radius:8px;padding:8px 11px;border-left:3px solid #1D4ED8;">
+      <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#1D4ED8;margin-bottom:3px;">🔍 Ação 1 · Troubleshoot antes da troca</div>
+      <div style="font-size:8px;color:#374151;line-height:1.5;"><b>Dado:</b> 87% (MLC) e 47% (MLM) reconectam o device. 51% (MLC) e 25% (MLM) têm TPV → <b>device funciona</b>.<br><b>Ação:</b> Árvore de decisão Maxwell deve checar LAST_CONNECTED (PTM) antes de aprovar troca. Se device ativo → forçar diagnóstico guiado.<br><span style="display:inline-block;margin-top:3px;background:#DBEAFE;color:#1D4ED8;font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;">→ Iniciativa: Árbol decisión Maxwell</span></div>
     </div>
-    <div class="cpt-clu" style="background:#F0FDF4;border-left:3px solid #16A34A;">
-      <div class="cpt-clu-ttl" style="color:#166534;">📱 MLB + MLM — TTP como válvula</div>
-      <div class="cpt-clu-txt">18% (MLB) y 17% (MLM) adoptaron TTP en 30d post-pedido. <b>El recambio NO_FIN actúa como driver real de adopción</b> del cobro por app.</div>
+
+    <!-- Ação 2: Bloquear se device ativo -->
+    <div style="background:#FEF2F2;border-radius:8px;padding:8px 11px;border-left:3px solid #DC2626;">
+      <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#DC2626;margin-bottom:3px;">🚫 Ação 2 · Bloquear troca se device em uso</div>
+      <div style="font-size:8px;color:#374151;line-height:1.5;"><b>Dado:</b> 14% (MLB) e 25% (MLM) fizeram TPV com o device do recambio nos 30d pós-pedido.<br><b>Ação:</b> Cruzar com BT_MP_PAY_PAYMENTS_ALL: se device transacionou pós-pedido → exigir evidência do problema antes de avançar na troca.<br><span style="display:inline-block;margin-top:3px;background:#FEE2E2;color:#DC2626;font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;">→ Iniciativa: Política de trocas + regras duras Maxwell</span></div>
     </div>
-    <div class="cpt-clu" style="background:#FFFBEB;border-left:3px solid #D97706;">
-      <div class="cpt-clu-ttl" style="color:#92400E;">🇦🇷 MLA — multi-device mitiga el impacto</div>
-      <div class="cpt-clu-txt">64% tiene otro device activo. La operación <b>no para</b>, pero el device del recambio queda bloqueado en el proceso logístico.</div>
+
+    <!-- Ação 3: TTP como oferta ativa no fluxo -->
+    <div style="background:#F0FDF4;border-radius:8px;padding:8px 11px;border-left:3px solid #16A34A;">
+      <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.07em;color:#16A34A;margin-bottom:3px;">📱 Ação 3 · TTP proativo no momento do bloqueio</div>
+      <div style="font-size:8px;color:#374151;line-height:1.5;"><b>Dado:</b> 18% (MLB) e 17% (MLM) adotaram TTP após recambio não finalizado. A fricção do processo <b>já está gerando adoção orgânica</b>.<br><b>Ação:</b> Maxwell deve oferecer TTP ativamente no momento em que a troca é denegada ou remetida a diagnóstico. MLA 64% com outro device → oferecer TTP ao invés de troca.<br><span style="display:inline-block;margin-top:3px;background:#DCFCE7;color:#166534;font-size:7px;font-weight:800;padding:1px 6px;border-radius:3px;">→ Iniciativa: Maxwell CX nudge TTP + campanha desconto</span></div>
     </div>
+
   </div>
 
   <div class="cpt-matrix">
