@@ -1389,119 +1389,8 @@ END SLIDE REMOVIDO -->
 
   </div>
 </div>
-
 <!-- ============================================================
-     SLIDE ABANDONO — Comportamiento Post-Solicitud (NO_FINALIZADO)
-     ============================================================ -->
-<div class="slide content-slide" id="s-abandono">
-<style>
-#s-abandono { background:#F8FAFC; }
-#s-abandono .cpt-matrix { flex:1; display:flex; flex-direction:column; gap:0; min-height:0; overflow:hidden; }
-#s-abandono .cpt-hdr-row { display:grid; grid-template-columns:200px 1fr 1fr 1fr 1fr; gap:0; padding:5px 0 5px; border-bottom:2px solid #E2E8F0; flex-shrink:0; }
-#s-abandono .cpt-hdr-site { display:flex; flex-direction:column; align-items:center; gap:3px; }
-#s-abandono .cpt-hdr-flag { width:32px; height:32px; border-radius:50%; object-fit:cover; }
-#s-abandono .cpt-hdr-name { font-size:14px; font-weight:900; color:#1a1a2e; }
-#s-abandono .cpt-row { display:grid; grid-template-columns:200px 1fr 1fr 1fr 1fr; gap:0; border-bottom:1px solid #F1F5F9; flex:1; min-height:0; align-items:center; padding:2px 0; }
-#s-abandono .cpt-label { display:flex; align-items:center; gap:10px; padding-right:10px; }
-#s-abandono .cpt-icon { font-size:26px; flex-shrink:0; }
-#s-abandono .cpt-name { font-size:11px; font-weight:800; color:#1a1a2e; line-height:1.25; }
-#s-abandono .cpt-desc { font-size:8px; color:#6B7280; margin-top:2px; line-height:1.35; }
-#s-abandono .cpt-cell { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; padding:0 12px; }
-#s-abandono .cpt-pct { font-size:26px; font-weight:900; line-height:1; }
-#s-abandono .cpt-bar-wrap { width:100%; height:10px; background:#F1F5F9; border-radius:5px; overflow:hidden; }
-#s-abandono .cpt-bar-fill { height:100%; border-radius:5px; }
-#s-abandono .cpt-sub { font-size:10px; color:#9CA3AF; }
-#s-abandono .cpt-conclusions { flex-shrink:0; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:6px 20px 8px; }
-#s-abandono .cpt-clu { border-radius:8px; padding:8px 11px; }
-#s-abandono .cpt-clu-ttl { font-size:8.5px; font-weight:800; margin-bottom:3px; }
-#s-abandono .cpt-clu-txt { font-size:8px; line-height:1.45; color:#374151; }
-</style>
-
-  <div class="slide-header">
-    <span class="breadcrumb-pill bp-red">Solicitudes de recambio</span>
-    <span class="breadcrumb-sep">|</span>
-    <span class="breadcrumb-page">Comportamiento Post-Solicitud</span>
-  </div>
-  <div class="slide-title" style="padding:2px 20px 0;flex-shrink:0;">
-    ¿Qué hace el seller cuando la troca <b>NO se finaliza</b>? · NO_FINALIZADO · referencia abr/26
-  </div>
-
-  <!-- Main body: LEFT data matrix + RIGHT action cards -->
-  <div style="flex:1;display:flex;gap:14px;padding:6px 20px 8px;min-height:0;overflow:hidden;">
-
-    <!-- ── LEFT: Behavior matrix ── -->
-    <div style="flex:1;display:flex;flex-direction:column;gap:0;min-height:0;overflow:hidden;">
-
-      <!-- Header row: sites -->
-      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;padding:5px 0 4px;border-bottom:2px solid #E2E8F0;flex-shrink:0;">
-        <div style="font-size:9px;font-weight:800;color:#94A3B8;text-transform:uppercase;align-self:center;">Comportamiento</div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/ar.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLA</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/br.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLB</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/cl.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLC</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/mx.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLM</span></div>
-      </div>
-
-      <!-- ROW 1: Reconexión PTM -->
-      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid #F1F5F9;flex:1;min-height:0;align-items:center;padding:2px 0;">
-        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">📡</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Reconectó el device</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Device voltou online (PTM)</div></div></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">42%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:42%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">58% no reconectado</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">35%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:35%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">65% no reconectado</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">87%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:87%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">13% no reconectado</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">47%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:47%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">53% no reconectado</span></div>
-      </div>
-
-      <!-- ROW 2: TPV -->
-      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid #F1F5F9;flex:1;min-height:0;align-items:center;padding:2px 0;">
-        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">💳</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Tuvo TPV post-pedido</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Transaccionó 30d con ese device<br>(BT_MP_PAY_PAYMENTS_ALL)</div></div></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#DC2626;">7%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:7%;height:100%;background:#DC2626;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">93% sin TPV</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">14%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:14%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">86% sin TPV</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#16A34A;">51%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:51%;height:100%;background:#16A34A;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">49% sin TPV</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">25%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:25%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">75% sin TPV</span></div>
-      </div>
-
-      <!-- ROW 3: TTP -->
-      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid #F1F5F9;flex:1;min-height:0;align-items:center;padding:2px 0;">
-        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">📱</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Adoptó Point TAP</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Usó TTP 30d post-pedido<br>(LK_MP_MASTER_SELLERS)</div></div></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#7C3AED;">2%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:2%;height:100%;background:#7C3AED;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">alto TPV/seller</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#7C3AED;">18%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:18%;height:100%;background:#7C3AED;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">↑ creciente</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#9CA3AF;">0%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:0%;height:100%;background:#9CA3AF;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">TTP no disponible</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#7C3AED;">17%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:17%;height:100%;background:#7C3AED;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">↑ desde mar/26</span></div>
-      </div>
-
-      <!-- ROW 4: Otro device -->
-      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;flex:1;min-height:0;align-items:center;padding:2px 0;">
-        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">📟</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Usó otro device</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Cobró con device diferente 30d<br>(BT_MP_PAY_PAYMENTS_ALL · ≠)</div></div></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">64%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:64%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">mercado multi-device</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">30%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:30%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">1 de cada 3</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#DC2626;">2%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:2%;height:100%;background:#DC2626;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">mono-device crítico</span></div>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">17%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:17%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">↓ vs feb/26 35%</span></div>
-      </div>
-
-    </div>
-
-    <!-- ── RIGHT: 3 Action cards stacked ── -->
-    <div style="width:370px;flex-shrink:0;display:flex;flex-direction:column;gap:7px;">
-
-      <div style="background:#EFF6FF;border-radius:9px;padding:10px 13px;border-left:3px solid #1D4ED8;flex:1;">
-        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#1D4ED8;margin-bottom:5px;">🔍 Ação 1 · Troubleshoot antes da troca</div>
-        <div style="font-size:8.5px;color:#374151;line-height:1.6;"><b>Dado:</b> 87% (MLC) e 47% (MLM) reconectam. 51% (MLC) e 25% (MLM) têm TPV → <b>device funciona</b> mas pedido permanece aberto.<br><b>Ação:</b> Árvore de decisão Maxwell checa LAST_CONNECTED (PTM) antes de aprovar a troca. Se device ativo nos últimos 7d → forçar diagnóstico guiado antes de avançar.<br><div style="margin-top:6px;"><span style="background:#DBEAFE;color:#1D4ED8;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;">→ Árbol decisión Maxwell</span></div></div>
-      </div>
-
-      <div style="background:#FEF2F2;border-radius:9px;padding:10px 13px;border-left:3px solid #DC2626;flex:1;">
-        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:5px;">✉️ Ação 2 · Cancelar troca se device voltou a funcionar</div>
-        <div style="font-size:8.5px;color:#374151;line-height:1.6;"><b>Dado:</b> 14% (MLB) e 25% (MLM) fizeram TPV com o device do recambio nos 30d pós-pedido — device claramente voltou a operar.<br><b>Ação:</b> Detectar via PTM + pagamentos que o device está ativo → enviar mensagem proativa ao seller cancelando a solicitação com explicação clara.<br><div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;"><span style="background:#FEE2E2;color:#DC2626;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;">→ Maxwell + cancelamento automático</span><span style="background:#FEF2F2;color:#9B1C1C;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;border:1px solid #FCA5A5;">⚖️ Pendiente legal</span></div></div>
-      </div>
-
-      <div style="background:#F0FDF4;border-radius:9px;padding:10px 13px;border-left:3px solid #16A34A;flex:1;">
-        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:5px;">📱 Ação 3 · TTP proativo no momento do bloqueio</div>
-        <div style="font-size:8.5px;color:#374151;line-height:1.6;"><b>Dado:</b> 18% (MLB) e 17% (MLM) adotaram TTP após recambio não finalizado. A fricção <b>já gera adoção orgânica</b>. MLA: 64% multi-device.<br><b>Ação:</b> Maxwell oferece TTP ativamente ao denegado ou redirecionado a diagnóstico. Para MLA → propor TTP/outro device ao invés de troca.<br><div style="margin-top:6px;"><span style="background:#DCFCE7;color:#166534;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;">→ Maxwell CX nudge TTP + campanha desconto</span></div></div>
-      </div>
-
-    </div>
-
-  </div>
-<!-- ============================================================
-     SLIDE 8 — Section: Lead Time
+     SLIDE 11 — Sameday MLB: Cobertura + Unitac + Alya
      ============================================================ -->
 <div class="slide dark section-div" id="s9">
   <div class="dots-deco" style="top:-40px;right:-40px;left:auto;"></div>
@@ -1840,8 +1729,9 @@ END SLIDE REMOVIDO -->
   </div>
 </div>
 
+
 <!-- ============================================================
-     SLIDE 11 — Sameday MLB: Cobertura + Unitac + Alya
+     SLIDE 13 — Section: Iniciativas
      ============================================================ -->
 <div class="slide content-slide" id="s12">
   <style>
@@ -2027,8 +1917,117 @@ END SLIDE REMOVIDO -->
 
 
 <!-- ============================================================
-     SLIDE 13 — Section: Iniciativas
+     SLIDE ABANDONO — Comportamiento Post-Solicitud (NO_FINALIZADO)
      ============================================================ -->
+<div class="slide content-slide" id="s-abandono">
+<style>
+#s-abandono { background:#F8FAFC; }
+#s-abandono .cpt-matrix { flex:1; display:flex; flex-direction:column; gap:0; min-height:0; overflow:hidden; }
+#s-abandono .cpt-hdr-row { display:grid; grid-template-columns:200px 1fr 1fr 1fr 1fr; gap:0; padding:5px 0 5px; border-bottom:2px solid #E2E8F0; flex-shrink:0; }
+#s-abandono .cpt-hdr-site { display:flex; flex-direction:column; align-items:center; gap:3px; }
+#s-abandono .cpt-hdr-flag { width:32px; height:32px; border-radius:50%; object-fit:cover; }
+#s-abandono .cpt-hdr-name { font-size:14px; font-weight:900; color:#1a1a2e; }
+#s-abandono .cpt-row { display:grid; grid-template-columns:200px 1fr 1fr 1fr 1fr; gap:0; border-bottom:1px solid #F1F5F9; flex:1; min-height:0; align-items:center; padding:2px 0; }
+#s-abandono .cpt-label { display:flex; align-items:center; gap:10px; padding-right:10px; }
+#s-abandono .cpt-icon { font-size:26px; flex-shrink:0; }
+#s-abandono .cpt-name { font-size:11px; font-weight:800; color:#1a1a2e; line-height:1.25; }
+#s-abandono .cpt-desc { font-size:8px; color:#6B7280; margin-top:2px; line-height:1.35; }
+#s-abandono .cpt-cell { display:flex; flex-direction:column; align-items:center; justify-content:center; gap:5px; padding:0 12px; }
+#s-abandono .cpt-pct { font-size:26px; font-weight:900; line-height:1; }
+#s-abandono .cpt-bar-wrap { width:100%; height:10px; background:#F1F5F9; border-radius:5px; overflow:hidden; }
+#s-abandono .cpt-bar-fill { height:100%; border-radius:5px; }
+#s-abandono .cpt-sub { font-size:10px; color:#9CA3AF; }
+#s-abandono .cpt-conclusions { flex-shrink:0; display:grid; grid-template-columns:1fr 1fr 1fr; gap:8px; padding:6px 20px 8px; }
+#s-abandono .cpt-clu { border-radius:8px; padding:8px 11px; }
+#s-abandono .cpt-clu-ttl { font-size:8.5px; font-weight:800; margin-bottom:3px; }
+#s-abandono .cpt-clu-txt { font-size:8px; line-height:1.45; color:#374151; }
+</style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Solicitudes de recambio</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Comportamiento Post-Solicitud</span>
+  </div>
+  <div class="slide-title" style="padding:2px 20px 0;flex-shrink:0;">
+    ¿Qué hace el seller cuando la troca <b>NO se finaliza</b>? · NO_FINALIZADO · referencia abr/26
+  </div>
+
+  <!-- Main body: LEFT data matrix + RIGHT action cards -->
+  <div style="flex:1;display:flex;gap:14px;padding:6px 20px 8px;min-height:0;overflow:hidden;">
+
+    <!-- ── LEFT: Behavior matrix ── -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:0;min-height:0;overflow:hidden;">
+
+      <!-- Header row: sites -->
+      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;padding:5px 0 4px;border-bottom:2px solid #E2E8F0;flex-shrink:0;">
+        <div style="font-size:9px;font-weight:800;color:#94A3B8;text-transform:uppercase;align-self:center;">Comportamiento</div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/ar.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLA</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/br.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLB</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/cl.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLC</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:2px;"><img style="width:32px;height:32px;border-radius:50%;object-fit:cover;" src="https://flagcdn.com/w40/mx.png"><span style="font-size:14px;font-weight:900;color:#1a1a2e;">MLM</span></div>
+      </div>
+
+      <!-- ROW 1: Reconexión PTM -->
+      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid #F1F5F9;flex:1;min-height:0;align-items:center;padding:2px 0;">
+        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">📡</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Reconectó el device</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Device voltou online (PTM)</div></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">42%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:42%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">58% no reconectado</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">35%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:35%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">65% no reconectado</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">87%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:87%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">13% no reconectado</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#1A56A0;">47%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:47%;height:100%;background:#1A56A0;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">53% no reconectado</span></div>
+      </div>
+
+      <!-- ROW 2: TPV -->
+      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid #F1F5F9;flex:1;min-height:0;align-items:center;padding:2px 0;">
+        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">💳</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Tuvo TPV post-pedido</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Transaccionó 30d con ese device<br>(BT_MP_PAY_PAYMENTS_ALL)</div></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#DC2626;">7%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:7%;height:100%;background:#DC2626;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">93% sin TPV</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">14%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:14%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">86% sin TPV</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#16A34A;">51%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:51%;height:100%;background:#16A34A;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">49% sin TPV</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">25%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:25%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">75% sin TPV</span></div>
+      </div>
+
+      <!-- ROW 3: TTP -->
+      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;border-bottom:1px solid #F1F5F9;flex:1;min-height:0;align-items:center;padding:2px 0;">
+        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">📱</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Adoptó Point TAP</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Usó TTP 30d post-pedido<br>(LK_MP_MASTER_SELLERS)</div></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#7C3AED;">2%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:2%;height:100%;background:#7C3AED;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">alto TPV/seller</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#7C3AED;">18%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:18%;height:100%;background:#7C3AED;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">↑ creciente</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#9CA3AF;">0%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:0%;height:100%;background:#9CA3AF;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">TTP no disponible</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#7C3AED;">17%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:17%;height:100%;background:#7C3AED;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">↑ desde mar/26</span></div>
+      </div>
+
+      <!-- ROW 4: Otro device -->
+      <div style="display:grid;grid-template-columns:190px 1fr 1fr 1fr 1fr;gap:0;flex:1;min-height:0;align-items:center;padding:2px 0;">
+        <div style="display:flex;align-items:center;gap:8px;padding-right:8px;"><span style="font-size:22px;flex-shrink:0;">📟</span><div><div style="font-size:11px;font-weight:800;color:#1a1a2e;line-height:1.2;">Usó otro device</div><div style="font-size:7.5px;color:#6B7280;margin-top:1px;line-height:1.3;">Cobró con device diferente 30d<br>(BT_MP_PAY_PAYMENTS_ALL · ≠)</div></div></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">64%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:64%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">mercado multi-device</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">30%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:30%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">1 de cada 3</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#DC2626;">2%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:2%;height:100%;background:#DC2626;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">mono-device crítico</span></div>
+        <div style="display:flex;flex-direction:column;align-items:center;gap:4px;padding:0 8px;"><span style="font-size:26px;font-weight:900;color:#D97706;">17%</span><div style="width:100%;height:8px;background:#F1F5F9;border-radius:4px;overflow:hidden;"><div style="width:17%;height:100%;background:#D97706;border-radius:4px;"></div></div><span style="font-size:9px;color:#9CA3AF;">↓ vs feb/26 35%</span></div>
+      </div>
+
+    </div>
+
+    <!-- ── RIGHT: 3 Action cards stacked ── -->
+    <div style="width:370px;flex-shrink:0;display:flex;flex-direction:column;gap:7px;">
+
+      <div style="background:#EFF6FF;border-radius:9px;padding:10px 13px;border-left:3px solid #1D4ED8;flex:1;">
+        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#1D4ED8;margin-bottom:5px;">🔍 Ação 1 · Troubleshoot antes da troca</div>
+        <div style="font-size:8.5px;color:#374151;line-height:1.6;"><b>Dado:</b> 87% (MLC) e 47% (MLM) reconectam. 51% (MLC) e 25% (MLM) têm TPV → <b>device funciona</b> mas pedido permanece aberto.<br><b>Ação:</b> Árvore de decisão Maxwell checa LAST_CONNECTED (PTM) antes de aprovar a troca. Se device ativo nos últimos 7d → forçar diagnóstico guiado antes de avançar.<br><div style="margin-top:6px;"><span style="background:#DBEAFE;color:#1D4ED8;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;">→ Árbol decisión Maxwell</span></div></div>
+      </div>
+
+      <div style="background:#FEF2F2;border-radius:9px;padding:10px 13px;border-left:3px solid #DC2626;flex:1;">
+        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#DC2626;margin-bottom:5px;">✉️ Ação 2 · Cancelar troca se device voltou a funcionar</div>
+        <div style="font-size:8.5px;color:#374151;line-height:1.6;"><b>Dado:</b> 14% (MLB) e 25% (MLM) fizeram TPV com o device do recambio nos 30d pós-pedido — device claramente voltou a operar.<br><b>Ação:</b> Detectar via PTM + pagamentos que o device está ativo → enviar mensagem proativa ao seller cancelando a solicitação com explicação clara.<br><div style="margin-top:6px;display:flex;gap:5px;flex-wrap:wrap;"><span style="background:#FEE2E2;color:#DC2626;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;">→ Maxwell + cancelamento automático</span><span style="background:#FEF2F2;color:#9B1C1C;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;border:1px solid #FCA5A5;">⚖️ Pendiente legal</span></div></div>
+      </div>
+
+      <div style="background:#F0FDF4;border-radius:9px;padding:10px 13px;border-left:3px solid #16A34A;flex:1;">
+        <div style="font-size:8px;font-weight:800;text-transform:uppercase;letter-spacing:.08em;color:#16A34A;margin-bottom:5px;">📱 Ação 3 · TTP proativo no momento do bloqueio</div>
+        <div style="font-size:8.5px;color:#374151;line-height:1.6;"><b>Dado:</b> 18% (MLB) e 17% (MLM) adotaram TTP após recambio não finalizado. A fricção <b>já gera adoção orgânica</b>. MLA: 64% multi-device.<br><b>Ação:</b> Maxwell oferece TTP ativamente ao denegado ou redirecionado a diagnóstico. Para MLA → propor TTP/outro device ao invés de troca.<br><div style="margin-top:6px;"><span style="background:#DCFCE7;color:#166534;font-size:7.5px;font-weight:800;padding:2px 7px;border-radius:3px;">→ Maxwell CX nudge TTP + campanha desconto</span></div></div>
+      </div>
+
+    </div>
+
+  </div>
+<!-- ============================================================
+     SLIDE 8 — Section: Lead Time
 <div class="slide dark section-div" id="s14">
   <div class="dots-deco" style="bottom:-40px;right:-40px;top:auto;left:auto;"></div>
   <div class="sec-content">
@@ -2230,9 +2229,10 @@ function initSlide(n) {
   // Posições após remoção de s3 (Visión General) e s6 (Canal):
   // s5=4, s10=8, s11=9, s11b=11, s12=12
   if (n === 4) setTimeout(initSlide4, 50);
-  if (n === 8) setTimeout(initSlide10, 50);
-  if (n === 9) setTimeout(initSlide9, 50);
-  if (n === 11) setTimeout(initSlide12, 50);
+  if (n === 7) setTimeout(initSlide10, 50);
+  if (n === 8) setTimeout(initSlide9, 50);
+  if (n === 10) setTimeout(initSlide12, 50);
+  // s-abandono at n=11 (no charts, no init needed)
 }
 
 // ============================================================
