@@ -2574,7 +2574,7 @@ END SLIDE REMOVIDO -->
   /* ── LAYOUT ── */
   #s12{ background:#F8FAFC; }
   #s12 .s12-covbar{display:flex;align-items:stretch;gap:0;flex-shrink:0;background:#1a1a2e;padding:0 20px;}
-  #s12 .s12-body{flex:1;display:grid;grid-template-columns:36% 1px 1fr;gap:0;padding:8px 0 8px;min-height:0;overflow:hidden;}
+  #s12 .s12-body{flex:1;display:grid;grid-template-columns:58% 1px 1fr;gap:0;padding:8px 0 8px;min-height:0;overflow:hidden;}
   #s12 .s12-divider{background:#E2E8F0;width:1px;margin:0;}
   #s12 .s12-col{display:flex;flex-direction:column;gap:8px;min-height:0;padding:0 16px;}
   #s12 .s12-col:first-child{padding-left:20px;}
@@ -2676,79 +2676,17 @@ END SLIDE REMOVIDO -->
     </div>
   </div>
 
-  <!-- ══ BODY — 3 colunas ══ -->
+  <!-- ══ BODY ══ -->
   <div class="s12-body">
 
-    <!-- ── COL 1: Mapa ── -->
-    <div class="s12-col" style="padding-left:20px;">
-      <div class="col-ttl">Cobertura por estado</div>
-      <div class="map-legend">
-        <div class="leg-item"><div class="leg-dot" style="background:#1A56A0;"></div>Unitac</div>
-        <div class="leg-item"><div class="leg-dot" style="background:#1A56A0;box-shadow:0 0 0 1.5px #FFD000;"></div>+ Alya</div>
-        <div class="leg-item"><div class="leg-dot" style="background:#FFD000;border:1px solid #B8960C;"></div>En expansión</div>
-        <div class="leg-item"><div class="leg-dot" style="background:#E5E7EB;border:1.5px dashed #FFD000;"></div>Próximo (08/06)</div>
-        <div class="leg-item"><div class="leg-dot" style="background:#E5E7EB;"></div>Sin cobertura</div>
-      </div>
-      <div class="map-outer">
-        <svg viewBox="0 0 222 252" width="100%" height="100%" style="display:block;" preserveAspectRatio="xMidYMid meet">
-          <path d="M67,0 C90,3 120,4 131,5 L137,25 L143,33 L141,37 Q155,41 167,45 Q174,47 183,49 Q195,53 205,62 L219,65 L218,85 L215,96 L207,104 Q205,113 204,122 Q198,127 196,130 Q192,141 188,150 Q189,158 190,165 Q187,170 184,174 Q170,179 158,181 Q148,188 143,193 Q142,200 143,207 Q132,225 122,240 L114,252 L96,217 L93,159 L59,142 L0,95 L0,60 Q3,40 6,20 Q25,14 45,9 Q55,4 67,0 Z" fill="#EFF6FF" stroke="#BFDBFE" stroke-width="1.5"/>
-          <circle cx="18"  cy="89"  r="6" fill="#E5E7EB"/><text x="18"  y="89"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AC</text>
-          <circle cx="59"  cy="99"  r="6" fill="#E5E7EB"/><text x="59"  y="99"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">RO</text>
-          <circle cx="50"  cy="56"  r="6" fill="#E5E7EB"/><text x="50"  y="56"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AM</text>
-          <circle cx="72"  cy="21"  r="6" fill="#E5E7EB"/><text x="72"  y="21"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">RR</text>
-          <circle cx="122" cy="24"  r="6" fill="#E5E7EB"/><text x="122" y="24"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AP</text>
-          <circle cx="143" cy="94"  r="6" fill="#E5E7EB"/><text x="143" y="94"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">TO</text>
-          <circle cx="100" cy="108" r="7" fill="#E5E7EB"/><text x="100" y="108" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">MT</text>
-          <circle cx="107" cy="160" r="7" fill="#E5E7EB"/><text x="107" y="160" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">MS</text>
-          <circle cx="165" cy="62"  r="7" fill="#E5E7EB"/><text x="165" y="62"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">MA</text>
-          <circle cx="178" cy="76"  r="6" fill="#E5E7EB"/><text x="178" y="76"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">PI</text>
-          <circle cx="195" cy="60"  r="6" fill="#E5E7EB"/><text x="195" y="60"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">CE</text>
-          <circle cx="213" cy="65"  r="6" fill="#E5E7EB"/><text x="213" y="65"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">RN</text>
-          <circle cx="214" cy="76"  r="7" fill="#E5E7EB"/><text x="214" y="76"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">PB</text>
-          <circle cx="211" cy="92"  r="6" fill="#E5E7EB"/><text x="211" y="92"  font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#9CA3AF">AL</text>
-          <circle cx="121" cy="57"  r="8" fill="#D1D5DB"/>
-          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="121" y="55" font-size="6" font-weight="800" fill="#4B5563">PA</tspan><tspan x="121" y="62" font-size="5.5" font-weight="700" fill="#6B7280">5,2%</tspan></text>
-          <circle cx="175" cy="112" r="9" fill="#1A56A0"/>
-          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="175" y="110" font-size="6.5" font-weight="800" fill="white">BA</tspan><tspan x="175" y="117" font-size="5.5" font-weight="700" fill="rgba(255,255,255,.85)">6,6%</tspan></text>
-          <circle cx="188" cy="153" r="7" fill="#1A56A0"/><text x="188" y="153" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">ES</text>
-          <circle cx="174" cy="171" r="12" fill="#1A56A0"/>
-          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="174" y="168" font-size="7" font-weight="800" fill="white">RJ</tspan><tspan x="174" y="176" font-size="6" font-weight="700" fill="rgba(255,255,255,.85)">15%</tspan></text>
-          <circle cx="142" cy="170" r="16" fill="#1A56A0"/>
-          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="142" y="167" font-size="8" font-weight="800" fill="white">SP</tspan><tspan x="142" y="176" font-size="7" font-weight="700" fill="rgba(255,255,255,.85)">26%</tspan></text>
-          <circle cx="122" cy="188" r="7" fill="#1A56A0"/><text x="122" y="188" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">PR</text>
-          <circle cx="133" cy="202" r="7" fill="#1A56A0"/><text x="133" y="202" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">SC</text>
-          <circle cx="162" cy="149" r="9" fill="#1A56A0" stroke="#FFD000" stroke-width="2"/>
-          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="162" y="147" font-size="6.5" font-weight="800" fill="white">MG</tspan><tspan x="162" y="154" font-size="5.5" font-weight="700" fill="rgba(255,255,255,.85)">6,8%</tspan></text>
-          <circle cx="147" cy="134" r="7" fill="#1A56A0" stroke="#FFD000" stroke-width="1.5"/><text x="147" y="134" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="white">DF</text>
-          <circle cx="205" cy="85"  r="8" fill="#1A56A0" stroke="#FFD000" stroke-width="2"/>
-          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="205" y="83" font-size="6" font-weight="800" fill="white">PE</tspan><tspan x="205" y="90" font-size="5.5" font-weight="700" fill="rgba(255,255,255,.85)">4,0%</tspan></text>
-          <circle cx="117" cy="218" r="6" fill="#E5E7EB" stroke="#FFD000" stroke-width="1.5" stroke-dasharray="2,1.5"/><text x="117" y="218" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#92400E">RS</text>
-          <circle cx="130" cy="121" r="8" fill="#FFD000" stroke="#B8960C" stroke-width="1.5"/>
-          <text font-family="'Segoe UI',sans-serif" text-anchor="middle"><tspan x="130" y="119" font-size="6" font-weight="800" fill="#1a1a2e">GO</tspan><tspan x="130" y="126" font-size="5.5" font-weight="700" fill="#5C4B00">5,1%</tspan></text>
-          <circle cx="207" cy="102" r="7" fill="#FFD000" stroke="#B8960C" stroke-width="1.5"/><text x="207" y="102" font-size="6" font-weight="800" font-family="'Segoe UI',sans-serif" text-anchor="middle" dominant-baseline="central" fill="#1a1a2e">SE</text>
-        </svg>
-      </div>
-      <div class="tl-sect">
-        <div class="col-ttl">Expansión 2026</div>
-        <div class="tl-item"><span class="tl-date" style="opacity:.55;">16/04</span><div class="tl-text" style="opacity:.7;"><b>Goiás</b> — Región Metropolitana ✓</div></div>
-        <div class="tl-item"><span class="tl-date" style="opacity:.55;">13/05</span><div class="tl-text" style="opacity:.7;"><b>Sergipe</b> — Estado completo ✓</div></div>
-        <div class="tl-item"><span class="tl-date">08/06</span><div><div class="tl-text"><b>Goiás</b> — Estado completo</div><div class="tl-text"><b>Rio Grande do Sul</b></div></div></div>
-        <div style="margin-top:4px;background:#F0FDF4;border-radius:5px;padding:4px 8px;border-left:2px solid #16A34A;">
-          <span style="font-size:9px;font-weight:800;color:#166534;">→ Fin de junio: <b>69% cobertura</b></span>
-        </div>
-      </div>
-    </div>
-
-    <div class="s12-divider"></div>
-
-    <!-- ── COL 2: Waterfall Unitac + Alya ── -->
-    <div class="s12-col" style="display:flex;flex-direction:column;gap:6px;">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px;flex:1;min-height:0;">
+    <!-- ── COL 1: 2 Waterfalls ── -->
+    <div class="s12-col" style="padding-left:20px;display:flex;flex-direction:column;gap:6px;">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;min-height:0;">
         <!-- Unitac -->
         <div style="display:flex;flex-direction:column;gap:4px;">
           <div class="wf-hdr" style="flex-shrink:0;">
-            <h3 style="font-size:13px;">Unitac</h3>
-            <p style="font-size:9px;">mai/26 · atualizar</p>
+            <h3>Unitac</h3>
+            <p>mai/26 · 4.006 pedidos · 11 estados</p>
           </div>
           <div class="wf-wrap" style="flex:1;min-height:0;">
             <canvas id="chart-unitac"></canvas>
@@ -2757,14 +2695,57 @@ END SLIDE REMOVIDO -->
         <!-- Alya -->
         <div style="display:flex;flex-direction:column;gap:4px;">
           <div class="wf-hdr" style="flex-shrink:0;">
-            <h3 style="font-size:13px;">Alya · Carrier 2</h3>
-            <p style="font-size:9px;">mai/26 · atualizar</p>
+            <h3>Alya · Carrier 2</h3>
+            <p>mai/26 · 328 pedidos · MG PE DF</p>
           </div>
           <div class="wf-wrap" style="flex:1;min-height:0;">
             <canvas id="chart-alya"></canvas>
           </div>
         </div>
       </div>
+    </div>
+
+    <div class="s12-divider"></div>
+
+    <!-- ── COL 2: Resultados + Ações ── -->
+    <div class="s12-col" style="padding-right:20px;gap:8px;">
+      <div class="col-ttl">Resultados · mai/26</div>
+
+      <!-- Unitac findings -->
+      <div style="background:#F0FDF4;border-radius:8px;padding:9px 12px;border-left:3px solid #16A34A;">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;color:#166534;letter-spacing:.07em;margin-bottom:5px;">Unitac — 4.006 pedidos</div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">72,8%</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,3%</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">6,6%</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">17,3%</b></div>
+        </div>
+        <div style="margin-top:5px;font-size:9px;color:#D97706;font-weight:700;">Meta: &gt;95% entrega 1ª visita &lt;24h — gap de 22pp</div>
+      </div>
+
+      <!-- Alya findings -->
+      <div style="background:#FFF7ED;border-radius:8px;padding:9px 12px;border-left:3px solid #F59E0B;">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;color:#92400E;letter-spacing:.07em;margin-bottom:5px;">Alya Carrier 2 — 328 pedidos</div>
+        <div style="display:flex;flex-direction:column;gap:3px;">
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">60,7%</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,0%</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">13,4%</b></div>
+          <div style="display:flex;justify-content:space-between;font-size:10px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">22,9%</b></div>
+        </div>
+        <div style="margin-top:5px;font-size:9px;color:#DC2626;font-weight:700;">Cancelado 2× Unitac (13,4%) — revisar SLA e comunicação Alya</div>
+      </div>
+
+      <!-- Expansão + Ações -->
+      <div style="background:#EFF6FF;border-radius:8px;padding:9px 12px;border-left:3px solid #1A56A0;">
+        <div style="font-size:9px;font-weight:800;text-transform:uppercase;color:#1D4ED8;letter-spacing:.07em;margin-bottom:6px;">Próximos passos</div>
+        <div style="display:flex;flex-direction:column;gap:5px;font-size:10px;color:#374151;">
+          <div>📅 <b>08/06:</b> GO estado completo + Rio Grande do Sul → <b>69% cobertura</b></div>
+          <div>📋 Mapear causas raíz do cancelado Alya (13,4%) com equipe logística</div>
+          <div>📲 Comunicação pré-entrega Seller (endereço + disponibilidade)</div>
+          <div>🎯 Revisão meta 1ª visita: Unitac 72,8% → plano para ≥95%</div>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -3546,18 +3527,18 @@ function buildWaterfall(canvasId, labels, values, pcts, colors) {
 }
 
 function initSlide12() {
-  // UNITAC
+  // UNITAC · mai/26
   buildWaterfall('chart-unitac',
-    ['Cobertura\nUnitac', 'Entregado\n< 24h', 'No entregado\n1ª visita', 'No\nentregado', 'Entregado\n> 24h'],
-    [3420, 2514, 149, 191, 566],
-    ['', '73,5%', '4,4%', '5,6%', '16,5%'],
+    ['Total\ncobertura', 'Entregado\n<24h', 'No entreg.\n1ª visita', 'No entreg.\n(cancel.)', 'Entregado\n>24h'],
+    [4006, 2918, 132, 264, 692],
+    ['', '72,8%', '3,3%', '6,6%', '17,3%'],
     ['#1A56A0', '#16A34A', '#D97706', '#DC2626', '#5BA4CF']
   );
-  // ALYA
+  // ALYA · mai/26
   buildWaterfall('chart-alya',
-    ['Cobertura\nAlya', 'Entregado\n< 24h', 'No entregado\n1ª visita', 'No\nentregado', 'Entregado\n> 24h'],
-    [277, 151, 1, 33, 92],
-    ['', '54,5%', '0,4%', '11,9%', '33,2%'],
+    ['Total\ncobertura', 'Entregado\n<24h', 'No entreg.\n1ª visita', 'No entreg.\n(cancel.)', 'Entregado\n>24h'],
+    [328, 199, 10, 44, 75],
+    ['', '60,7%', '3,0%', '13,4%', '22,9%'],
     ['#1A56A0', '#16A34A', '#D97706', '#DC2626', '#5BA4CF']
   );
 
@@ -3700,9 +3681,8 @@ function toggleNotes() {
   if (notesOpen) renderNotes();
 }
 </script>
-<!-- v2 --></body>
+</body>
 </html>
-
 
 
 
