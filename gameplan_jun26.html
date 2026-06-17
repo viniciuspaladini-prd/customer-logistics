@@ -1679,7 +1679,7 @@ END SLIDE REMOVIDO -->
   #s12 .cov-track{background:rgba(255,255,255,.12);height:12px;border-radius:6px;overflow:hidden;position:relative;}
   #s12 .cov-fill-a{position:absolute;left:0;top:0;height:100%;width:55%;background:#1A56A0;border-radius:6px 0 0 6px;}
   #s12 .cov-fill-b{position:absolute;left:55%;top:0;height:100%;width:8%;background:#16A34A;}
-  #s12 .cov-fill-c{position:absolute;left:63%;top:0;height:100%;width:2%;background:repeating-linear-gradient(90deg,#16A34A 0px,#16A34A 4px,transparent 4px,transparent 8px);border-radius:0 6px 6px 0;opacity:.6;}
+  #s12 .cov-fill-c{position:absolute;left:63%;top:0;height:100%;width:6%;background:repeating-linear-gradient(90deg,#16A34A 0px,#16A34A 4px,transparent 4px,transparent 8px);border-radius:0 6px 6px 0;opacity:.6;}
   #s12 .cov-track-labels{display:flex;justify-content:space-between;color:rgba(255,255,255,.5);font-size:10px;font-weight:700;padding:0 1px;}
   #s12 .cov-chips{display:flex;gap:8px;flex-wrap:wrap;}
   #s12 .cov-chip{font-size:10px;font-weight:700;padding:3px 10px;border-radius:10px;white-space:nowrap;}
@@ -1742,7 +1742,7 @@ END SLIDE REMOVIDO -->
   <div class="s12-covbar">
     <div class="cov-stat">
       <div class="cov-num" style="color:#fff;">63%</div>
-      <div class="cov-sub" style="color:rgba(255,255,255,.55);">abr/26</div>
+      <div class="cov-sub" style="color:rgba(255,255,255,.55);">mai/26</div>
     </div>
     <div class="cov-arrow-wrap">→</div>
     <div class="cov-stat" style="border-right:none;border-left:1px solid rgba(255,255,255,.1);">
@@ -1751,7 +1751,7 @@ END SLIDE REMOVIDO -->
     </div>
     <div class="cov-prog-area">
       <div class="cov-track-labels">
-        <span>0%</span><span style="color:#fff;">63%</span><span style="color:#FFD000;">65% jun</span><span>100%</span>
+        <span>0%</span><span style="color:#fff;">63%</span><span style="color:#FFD000;">69% jul</span><span>100%</span>
       </div>
       <div class="cov-track">
         <div class="cov-fill-a"></div>
@@ -1767,87 +1767,78 @@ END SLIDE REMOVIDO -->
     </div>
   </div>
 
-  <!-- ══ BODY — resultado acima, waterfalls abaixo ══ -->
-  <div style="flex:1;display:flex;flex-direction:column;gap:6px;padding:6px 20px 8px;min-height:0;overflow:hidden;">
+  <!-- ══ BODY — LEFT: resultados+waterfalls | RIGHT: ações ══ -->
+  <div style="flex:1;display:flex;gap:12px;padding:6px 20px 8px;min-height:0;overflow:hidden;">
 
-    <!-- ROW 1: 2 resultado boxes lado a lado -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;">
+    <!-- LEFT (65%): resultado boxes + waterfall charts -->
+    <div style="flex:1;display:flex;flex-direction:column;gap:6px;min-height:0;">
 
-      <!-- Unitac findings -->
-      <div style="background:#F0FDF4;border-radius:8px;padding:9px 12px;border-left:3px solid #16A34A;">
-        <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#166534;letter-spacing:.07em;margin-bottom:5px;">Unitac — 4.006 pedidos · 11 estados</div>
-        <div style="display:flex;flex-direction:column;gap:3px;">
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">72,8%</b></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,3%</b></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">6,6%</b></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">17,3%</b></div>
+      <!-- resultado boxes -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;">
+        <div style="background:#F0FDF4;border-radius:8px;padding:9px 12px;border-left:3px solid #16A34A;">
+          <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#166534;letter-spacing:.07em;margin-bottom:5px;">Unitac — 4.006 pedidos · 11 estados</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">72,8%</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,3%</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">6,6%</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">17,3%</b></div>
+          </div>
+          <div style="margin-top:5px;font-size:9.5px;color:#D97706;font-weight:700;">Meta: &gt;95% 1ª visita &lt;24h — gap de 22pp</div>
         </div>
-        <div style="margin-top:5px;font-size:9.5px;color:#D97706;font-weight:700;">Meta: &gt;95% entrega 1ª visita &lt;24h — gap de 22pp</div>
+        <div style="background:#FFF7ED;border-radius:8px;padding:9px 12px;border-left:3px solid #F59E0B;">
+          <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#92400E;letter-spacing:.07em;margin-bottom:5px;">Alya Carrier 2 — 328 pedidos · MG PE DF</div>
+          <div style="display:flex;flex-direction:column;gap:3px;">
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">60,7%</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,0%</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">13,4%</b></div>
+            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">22,9%</b></div>
+          </div>
+          <div style="margin-top:5px;font-size:9.5px;color:#DC2626;font-weight:700;">Cancelado 2× Unitac (13,4%) — revisar SLA e comunicação Alya</div>
+        </div>
       </div>
 
-      <!-- Alya findings -->
-      <div style="background:#FFF7ED;border-radius:8px;padding:9px 12px;border-left:3px solid #F59E0B;">
-        <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#92400E;letter-spacing:.07em;margin-bottom:5px;">Alya Carrier 2 — 328 pedidos · MG PE DF</div>
-        <div style="display:flex;flex-direction:column;gap:3px;">
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">60,7%</b></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,0%</b></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">13,4%</b></div>
-          <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">22,9%</b></div>
+      <!-- waterfall charts -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;min-height:0;">
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div class="wf-hdr" style="flex-shrink:0;"><h3>Unitac</h3><p>mai/26 · 4.006 pedidos</p></div>
+          <div class="wf-wrap" style="flex:1;min-height:0;"><canvas id="chart-unitac"></canvas></div>
         </div>
-        <div style="margin-top:5px;font-size:9.5px;color:#DC2626;font-weight:700;">Cancelado 2× Unitac (13,4%) — revisar SLA e comunicação Alya</div>
+        <div style="display:flex;flex-direction:column;gap:4px;">
+          <div class="wf-hdr" style="flex-shrink:0;"><h3>Alya · Carrier 2</h3><p>mai/26 · 328 pedidos · Jul/26: CE + RS</p></div>
+          <div class="wf-wrap" style="flex:1;min-height:0;"><canvas id="chart-alya"></canvas></div>
+        </div>
       </div>
 
     </div>
 
-    <!-- ROW 2: Acciones para reducir gap Cobertura vs Entrega efectiva -->
-    <div style="flex-shrink:0;background:#1a1a2e;border-radius:8px;padding:7px 12px;">
-      <div style="font-size:8px;font-weight:800;text-transform:uppercase;color:rgba(255,255,255,.4);letter-spacing:.1em;margin-bottom:6px;">Acciones · reducir gap cobertura vs entrega efectiva</div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr 1fr;gap:8px;">
-        <div style="background:rgba(22,163,74,.12);border-radius:6px;padding:6px 9px;border-left:2px solid #16A34A;">
-          <div style="font-size:8px;font-weight:800;color:#4ADE80;margin-bottom:3px;">✅ Point HUB Starter · 16/06</div>
-          <div style="font-size:8.5px;color:rgba(255,255,255,.75);line-height:1.4;">Comunicação STARTER entregue — resultados en análisis</div>
-          <div style="font-size:7.5px;color:#4ADE80;margin-top:3px;">Entregado · en análisis</div>
-        </div>
-        <div style="background:rgba(96,165,250,.1);border-radius:6px;padding:6px 9px;border-left:2px solid #60A5FA;">
-          <div style="font-size:8px;font-weight:800;color:#93C5FD;margin-bottom:3px;">🔄 Maxwell · Confirmación dirección</div>
-          <div style="font-size:8.5px;color:rgba(255,255,255,.75);line-height:1.4;">Validar dirección antes de crear pedido — migración MCP a skill</div>
-          <div style="font-size:7.5px;color:#93C5FD;margin-top:3px;">Resp: Vini · ETA 23/06</div>
-        </div>
-        <div style="background:rgba(96,165,250,.1);border-radius:6px;padding:6px 9px;border-left:2px solid #60A5FA;">
-          <div style="font-size:8px;font-weight:800;color:#93C5FD;margin-bottom:3px;">🔄 Maxwell · Disclaimer entrega 24h</div>
-          <div style="font-size:8.5px;color:rgba(255,255,255,.75);line-height:1.4;">Reforçar que pedido chega em &lt;24h — pedir presença do seller no local</div>
-          <div style="font-size:7.5px;color:#93C5FD;margin-top:3px;">Resp: Vini · ETA 23/06</div>
-        </div>
-        <div style="background:rgba(251,191,36,.08);border-radius:6px;padding:6px 9px;border-left:2px solid #F59E0B;">
-          <div style="font-size:8px;font-weight:800;color:#FCD34D;margin-bottom:3px;">⏳ API Standard · Telefone Alya</div>
-          <div style="font-size:8.5px;color:rgba(255,255,255,.75);line-height:1.4;">Incluir teléfono para contacto via chatbot Alya</div>
-          <div style="font-size:7.5px;color:#FCD34D;margin-top:3px;">Resp: Vini + Yuri · ETA TBD</div>
-        </div>
-      </div>
-    </div>
+    <!-- RIGHT (35%): Ações para reducir gap -->
+    <div style="width:340px;flex-shrink:0;display:flex;flex-direction:column;gap:7px;">
+      <div style="font-size:9px;font-weight:800;text-transform:uppercase;color:#6B7280;letter-spacing:.08em;display:flex;align-items:center;gap:6px;">Acciones · reducir gap<span style="flex:1;height:1px;background:#E2E8F0;"></span></div>
 
-    <!-- ROW 3: 2 waterfall charts -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;flex:1;min-height:0;">
-      <!-- Unitac chart -->
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <div class="wf-hdr" style="flex-shrink:0;">
-          <h3>Unitac</h3>
-          <p>mai/26 · 4.006 pedidos</p>
-        </div>
-        <div class="wf-wrap" style="flex:1;min-height:0;">
-          <canvas id="chart-unitac"></canvas>
-        </div>
+      <div style="background:#F0FDF4;border-radius:9px;padding:10px 13px;border-left:3px solid #16A34A;flex:1;">
+        <div style="font-size:9px;font-weight:800;color:#16A34A;margin-bottom:4px;">✅ Point HUB Starter · 16/06</div>
+        <div style="font-size:9.5px;color:#374151;line-height:1.5;">Comunicação STARTER entregue en Point HUB — resultados en análisis</div>
+        <div style="margin-top:5px;font-size:8px;color:#16A34A;font-weight:700;">Entregado · en análisis</div>
       </div>
-      <!-- Alya chart -->
-      <div style="display:flex;flex-direction:column;gap:4px;">
-        <div class="wf-hdr" style="flex-shrink:0;">
-          <h3>Alya · Carrier 2</h3>
-          <p>mai/26 · 328 pedidos · Jul/26: CE + RS</p>
-        </div>
-        <div class="wf-wrap" style="flex:1;min-height:0;">
-          <canvas id="chart-alya"></canvas>
-        </div>
+
+      <div style="background:#EFF6FF;border-radius:9px;padding:10px 13px;border-left:3px solid #1D4ED8;flex:1;">
+        <div style="font-size:9px;font-weight:800;color:#1D4ED8;margin-bottom:4px;">🔄 Maxwell · Confirmación de dirección</div>
+        <div style="font-size:9.5px;color:#374151;line-height:1.5;">Validar dirección antes de crear el pedido — migración MCP a skill</div>
+        <div style="margin-top:5px;font-size:8px;color:#1D4ED8;font-weight:700;">Resp: Vini · ETA 23/06</div>
       </div>
+
+      <div style="background:#EFF6FF;border-radius:9px;padding:10px 13px;border-left:3px solid #1D4ED8;flex:1;">
+        <div style="font-size:9px;font-weight:800;color:#1D4ED8;margin-bottom:4px;">🔄 Maxwell · Disclaimer entrega &lt;24h</div>
+        <div style="font-size:9.5px;color:#374151;line-height:1.5;">Reforçar que pedido chega em &lt;24h — pedir presença do seller no local indicado</div>
+        <div style="margin-top:5px;font-size:8px;color:#1D4ED8;font-weight:700;">Resp: Vini · ETA 23/06</div>
+      </div>
+
+      <div style="background:#FFFBEB;border-radius:9px;padding:10px 13px;border-left:3px solid #F59E0B;flex:1;">
+        <div style="font-size:9px;font-weight:800;color:#D97706;margin-bottom:4px;">⏳ API Standard · Telefone Alya</div>
+        <div style="font-size:9.5px;color:#374151;line-height:1.5;">Incluir teléfono en API standard para contacto via chatbot da Alya</div>
+        <div style="margin-top:5px;font-size:8px;color:#D97706;font-weight:700;">Resp: Vini + Yuri · ETA TBD</div>
+      </div>
+
     </div>
 
   </div>
@@ -2975,6 +2966,7 @@ function toggleNotes() {
 </script>
 </body>
 </html>
+
 
 
 
