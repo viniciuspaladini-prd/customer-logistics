@@ -2724,10 +2724,10 @@ function initSlide9() {
     { id: 'chart-lt-longtail-mlb', site: 'MLB',
       g1: [26,32,33,31,35,35], g3: [3,2,2,2,1,1], g4: [71,66,66,67,63,64],
       totals: [12700,14157,12356,9878,16285,14000] },
-    { id: 'chart-lt-longtail-mlc', site: 'MLC',
+    { id: 'chart-lt-longtail-mlc', site: 'MLC', meta: 92,
       g1: [90,95,94,95,88,88], g3: [0,0,0,0,0,0], g4: [10,5,6,5,12,12],
       totals: [82,42,135,106,134,130] },
-    { id: 'chart-lt-longtail-mlm', site: 'MLM',
+    { id: 'chart-lt-longtail-mlm', site: 'MLM', meta: 60,
       g1: [58,63,62,67,60,57], g3: [1,1,1,1,0,0], g4: [41,36,37,32,40,43],
       totals: [3329,4527,5822,4682,4951,4500] },
   ];
@@ -2746,10 +2746,10 @@ function initSlide10() {
     { id: 'chart-lt-smb-mlb', site: 'MLB',
       g1: [36,40,43,40,44,46], g3: [22,22,20,20,17,15], g4: [41,38,37,40,38,39],
       totals: [6838,8549,7933,7137,12244,10000] },
-    { id: 'chart-lt-smb-mlc', site: 'MLC',
+    { id: 'chart-lt-smb-mlc', site: 'MLC', meta: 88,
       g1: [76,66,71,81,83,80], g3: [3,3,3,4,5,6], g4: [21,31,26,16,12,14],
       totals: [1094,1565,1087,1109,1026,1000] },
-    { id: 'chart-lt-smb-mlm', site: 'MLM',
+    { id: 'chart-lt-smb-mlm', site: 'MLM', meta: 60,
       g1: [21,17,21,32,36,34], g3: [51,51,50,47,45,43], g4: [27,32,29,21,19,24],
       totals: [1917,3974,4531,2759,2169,2000] },
   ];
@@ -2849,11 +2849,38 @@ const totalAbovePlugin = {
 };
 
 function buildLeadtimeCharts(dataArr, metaG1) {
+  // Plugin: meta line per chart
+  const metaLinePlugin = {
+    id: 'metaLine',
+    afterDraw: function(chart) {
+      const meta = chart.config.options._meta;
+      if (!meta) return;
+      const {ctx, scales: {x, y}, chartArea} = chart;
+      if (!y) return;
+      const yPx = y.getPixelForValue(meta);
+      ctx.save();
+      ctx.strokeStyle = '#FFD000';
+      ctx.lineWidth = 2;
+      ctx.setLineDash([5, 4]);
+      ctx.beginPath();
+      ctx.moveTo(chartArea.left, yPx);
+      ctx.lineTo(chartArea.right, yPx);
+      ctx.stroke();
+      ctx.setLineDash([]);
+      ctx.fillStyle = '#FFD000';
+      ctx.font = '700 9px "Segoe UI",sans-serif';
+      ctx.textAlign = 'right';
+      ctx.fillText('Meta ' + meta + '%', chartArea.right - 2, yPx - 3);
+      ctx.restore();
+    }
+  };
+
   dataArr.forEach(function(s) {
     const canvas = document.getElementById(s.id);
     const wrap = canvas.parentElement;
     canvas.width  = wrap.clientWidth  || 260;
     canvas.height = wrap.clientHeight || 320;
+    const siteMeta = s.meta || metaG1;
 
     const dlPct = {
       anchor: 'center', align: 'center',
@@ -2863,7 +2890,7 @@ function buildLeadtimeCharts(dataArr, metaG1) {
 
     new Chart(canvas, {
       type: 'bar',
-      plugins: [ChartDataLabels, totalAbovePlugin],
+      plugins: [ChartDataLabels, totalAbovePlugin, metaLinePlugin],
       data: {
         labels: MONTHS_LABEL,
         datasets: [
@@ -2875,6 +2902,7 @@ function buildLeadtimeCharts(dataArr, metaG1) {
       options: {
         responsive: false, animation: false,
         _totals: s.totals,
+        _meta: siteMeta,
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + '%' } }
