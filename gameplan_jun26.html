@@ -1783,7 +1783,7 @@ END SLIDE REMOVIDO -->
             <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">6,6%</b></div>
             <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">17,3%</b></div>
           </div>
-          <div style="margin-top:5px;font-size:9.5px;color:#D97706;font-weight:700;">Meta: &gt;95% 1ª visita &lt;24h — gap de 22pp</div>
+          <div style="margin-top:5px;font-size:9.5px;color:#D97706;font-weight:700;">Meta: &gt;95% 1ª visita &lt;24h — gap de 19pp</div>
         </div>
         <div style="background:#FFF7ED;border-radius:8px;padding:9px 12px;border-left:3px solid #F59E0B;">
           <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#92400E;letter-spacing:.07em;margin-bottom:5px;">Alya Carrier 2 — 328 pedidos · MG PE DF</div>
@@ -1793,7 +1793,7 @@ END SLIDE REMOVIDO -->
             <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">13,4%</b></div>
             <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">22,9%</b></div>
           </div>
-          <div style="margin-top:5px;font-size:9.5px;color:#DC2626;font-weight:700;">Cancelado 2× Unitac (13,4%) — revisar SLA e comunicação Alya</div>
+          <div style="margin-top:5px;font-size:9.5px;color:#DC2626;font-weight:700;">Cancelado 13,4% (vs Unitac 6,6%) · >24h melhorou 11,3% → 4,3% (corrigido)</div>
         </div>
       </div>
 
@@ -2814,15 +2814,15 @@ function initSlide12() {
   // UNITAC · mai/26
   buildWaterfall('chart-unitac',
     ['Total\ncobertura', 'Entregado\n<24h', 'No entreg.\n1ª visita', 'No entreg.\n(cancel.)', 'Entregado\n>24h'],
-    [4006, 2918, 132, 264, 692],
-    ['', '72,8%', '3,3%', '6,6%', '17,3%'],
+    [4006, 3049, 494, 264, 199],
+    ['', '76,1%', '12,3%', '6,6%', '5,0%'],
     ['#1A56A0', '#16A34A', '#D97706', '#DC2626', '#5BA4CF']
   );
   // ALYA · mai/26
   buildWaterfall('chart-alya',
     ['Total\ncobertura', 'Entregado\n<24h', 'No entreg.\n1ª visita', 'No entreg.\n(cancel.)', 'Entregado\n>24h'],
-    [328, 199, 10, 44, 75],
-    ['', '60,7%', '3,0%', '13,4%', '22,9%'],
+    [328, 232, 38, 44, 14],
+    ['', '70,7%', '11,6%', '13,4%', '4,3%'],
     ['#1A56A0', '#16A34A', '#D97706', '#DC2626', '#5BA4CF']
   );
 
@@ -2967,6 +2967,8 @@ function toggleNotes() {
 </script>
 </body>
 </html>
+
+
 
 
 
