@@ -1555,11 +1555,11 @@ END SLIDE REMOVIDO -->
       <div class="site-col">
         <div class="site-col-hdr"><span class="site-name">MLC</span><img class="flag-circle" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"></div>
         <div class="site-conclusion">
-          G1: <span class="ok">83%</span> abr/26 — G4: <b>12%</b>. Excelente. IBM en G3 (+4%). <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLC.</span>
+          G1: <span class="ok">83%</span> abr/26 — G4: <b>12%</b>. Excelente. IBM en G3 (+4%).
         </div>
         <div class="site-kpi">
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#276749;">83%</div><div class="site-kpi-lbl">G1</div></div>
-          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-meta" style="color:#FFD000;font-weight:800;">Meta: 88%</div>
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">12%</div><div class="site-kpi-lbl">G4</div></div>
         </div>
         <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-smb-mlc"></canvas></div>
@@ -1567,11 +1567,11 @@ END SLIDE REMOVIDO -->
       <div class="site-col">
         <div class="site-col-hdr"><span class="site-name">MLM</span><img class="flag-circle" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></div>
         <div class="site-conclusion">
-          G1: <b>36%</b> — G4: <b>19%</b>. Mejora de +12pp vs nov/25. <span class="warn">IBM MLM: contrato SDX pendiente · +1–2m tras firma.</span> <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
+          G1: <b>36%</b> — G4: <b>19%</b>. Mejora de +12pp vs nov/25. <span class="warn">IBM MLM: contrato SDX pendiente.</span>
         </div>
         <div class="site-kpi">
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#DD6B20;">36%</div><div class="site-kpi-lbl">G1</div></div>
-          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-meta" style="color:#FFD000;font-weight:800;">Meta: 60%</div>
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">19%</div><div class="site-kpi-lbl">G4</div></div>
         </div>
         <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-smb-mlm"></canvas></div>
@@ -1625,11 +1625,11 @@ END SLIDE REMOVIDO -->
       <div class="site-col">
         <div class="site-col-hdr"><span class="site-name">MLC</span><img class="flag-circle" src="https://flagcdn.com/w40/cl.png" alt="🇨🇱"></div>
         <div class="site-conclusion">
-          G1: <span class="ok">88%</span> abr/26 — G4: <b>12%</b>. Leadtime Longtail excelente. <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLC.</span>
+          G1: <span class="ok">88%</span> abr/26 — G4: <b>12%</b>. Leadtime Longtail excelente.
         </div>
         <div class="site-kpi">
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#276749;">88%</div><div class="site-kpi-lbl">G1</div></div>
-          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-meta" style="color:#FFD000;font-weight:800;">Meta: 92%</div>
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">12%</div><div class="site-kpi-lbl">G4</div></div>
         </div>
         <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-longtail-mlc"></canvas></div>
@@ -1637,11 +1637,11 @@ END SLIDE REMOVIDO -->
       <div class="site-col">
         <div class="site-col-hdr"><span class="site-name">MLM</span><img class="flag-circle" src="https://flagcdn.com/w40/mx.png" alt="🇲🇽"></div>
         <div class="site-conclusion">
-          G1: <b>60%</b> abr/26 — G4: <b>40%</b>. Estable vs nov/25. <span class="warn">IBM MLM pendiente contrato SDX · +1–2m tras firma.</span> <span style="color:#9CA3AF;font-style:italic;">Objetivo no definido para MLM.</span>
+          G1: <b>60%</b> abr/26 — G4: <b>40%</b>. Estable vs nov/25. <span class="warn">IBM MLM pendiente contrato SDX.</span>
         </div>
         <div class="site-kpi">
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#DD6B20;">60%</div><div class="site-kpi-lbl">G1</div></div>
-          <div class="site-kpi-meta" style="color:#D1D5DB;font-style:italic;">sin objetivo</div>
+          <div class="site-kpi-meta" style="color:#FFD000;font-weight:800;">Meta: 60%</div>
           <div class="site-kpi-block"><div class="site-kpi-pct" style="color:#E53E3E;">40%</div><div class="site-kpi-lbl">G4</div></div>
         </div>
         <div class="site-chart-wrap" style="flex:1;min-height:100px;"><canvas id="chart-lt-longtail-mlm"></canvas></div>
@@ -2849,38 +2849,11 @@ const totalAbovePlugin = {
 };
 
 function buildLeadtimeCharts(dataArr, metaG1) {
-  // Plugin: meta line per chart
-  const metaLinePlugin = {
-    id: 'metaLine',
-    afterDraw: function(chart) {
-      const meta = chart.config.options._meta;
-      if (!meta) return;
-      const {ctx, scales: {x, y}, chartArea} = chart;
-      if (!y) return;
-      const yPx = y.getPixelForValue(meta);
-      ctx.save();
-      ctx.strokeStyle = '#FFD000';
-      ctx.lineWidth = 2;
-      ctx.setLineDash([5, 4]);
-      ctx.beginPath();
-      ctx.moveTo(chartArea.left, yPx);
-      ctx.lineTo(chartArea.right, yPx);
-      ctx.stroke();
-      ctx.setLineDash([]);
-      ctx.fillStyle = '#FFD000';
-      ctx.font = '700 9px "Segoe UI",sans-serif';
-      ctx.textAlign = 'right';
-      ctx.fillText('Meta ' + meta + '%', chartArea.right - 2, yPx - 3);
-      ctx.restore();
-    }
-  };
-
   dataArr.forEach(function(s) {
     const canvas = document.getElementById(s.id);
     const wrap = canvas.parentElement;
     canvas.width  = wrap.clientWidth  || 260;
     canvas.height = wrap.clientHeight || 320;
-    const siteMeta = s.meta || metaG1;
 
     const dlPct = {
       anchor: 'center', align: 'center',
@@ -2890,7 +2863,7 @@ function buildLeadtimeCharts(dataArr, metaG1) {
 
     new Chart(canvas, {
       type: 'bar',
-      plugins: [ChartDataLabels, totalAbovePlugin, metaLinePlugin],
+      plugins: [ChartDataLabels, totalAbovePlugin],
       data: {
         labels: MONTHS_LABEL,
         datasets: [
@@ -2902,7 +2875,6 @@ function buildLeadtimeCharts(dataArr, metaG1) {
       options: {
         responsive: false, animation: false,
         _totals: s.totals,
-        _meta: siteMeta,
         plugins: {
           legend: { display: false },
           tooltip: { callbacks: { label: ctx => ctx.dataset.label + ': ' + ctx.parsed.y + '%' } }
@@ -2992,6 +2964,7 @@ function toggleNotes() {
 </script>
 </body>
 </html>
+
 
 
 
