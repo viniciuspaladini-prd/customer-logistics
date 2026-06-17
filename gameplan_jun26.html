@@ -1773,28 +1773,81 @@ END SLIDE REMOVIDO -->
     <!-- LEFT (65%): resultado boxes + waterfall charts -->
     <div style="flex:1;display:flex;flex-direction:column;gap:6px;min-height:0;">
 
-      <!-- resultado boxes -->
+      <!-- resultado boxes com motivos -->
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;flex-shrink:0;">
-        <div style="background:#F0FDF4;border-radius:8px;padding:9px 12px;border-left:3px solid #16A34A;">
-          <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#166534;letter-spacing:.07em;margin-bottom:5px;">Unitac — 4.006 pedidos · 11 estados</div>
-          <div style="display:flex;flex-direction:column;gap:3px;">
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">72,8%</b></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,3%</b></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">6,6%</b></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">17,3%</b></div>
+
+        <!-- UNITAC -->
+        <div style="background:#F8FAFC;border-radius:8px;padding:8px 11px;border-left:3px solid #16A34A;display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:10px;font-weight:800;color:#166534;text-transform:uppercase;letter-spacing:.06em;">Unitac · 4.006 ped · <span style="color:#16A34A;">76,1% &lt;24h</span> · <span style="color:#D97706;">12,3% falha</span> · <span style="color:#DC2626;">6,6% cancel.</span> · <span style="color:#5BA4CF;">5,0% &gt;24h</span></div>
+          <!-- Falha 1ª visita -->
+          <div>
+            <div style="font-size:8.5px;font-weight:800;color:#D97706;margin-bottom:3px;">⚠️ Falha 1ª visita — motivos</div>
+            <div style="height:14px;border-radius:4px;overflow:hidden;display:flex;">
+              <div style="width:45%;background:#3B82F6;" title="Dest. Ausente 45%"></div>
+              <div style="width:26%;background:#8B5CF6;" title="Comércio Fechado 26%"></div>
+              <div style="width:13%;background:#10B981;" title="Sem Máquina 13%"></div>
+              <div style="width:5%;background:#F59E0B;" title="End. Incorreto 5%"></div>
+              <div style="width:5%;background:#14B8A6;" title="Erro Sistêmico 5%"></div>
+              <div style="width:6%;background:#94A3B8;" title="Outros 6%"></div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:3px;">
+              <span style="font-size:8px;color:#3B82F6;font-weight:700;">■ Dest. Ausente 45%</span>
+              <span style="font-size:8px;color:#8B5CF6;font-weight:700;">■ Com. Fechado 26%</span>
+              <span style="font-size:8px;color:#10B981;font-weight:700;">■ Sem Máquina 13%</span>
+              <span style="font-size:8px;color:#94A3B8;font-weight:700;">■ Otros 16%</span>
+            </div>
           </div>
-          <div style="margin-top:5px;font-size:9.5px;color:#D97706;font-weight:700;">Meta: &gt;95% 1ª visita &lt;24h — gap de 19pp</div>
-        </div>
-        <div style="background:#FFF7ED;border-radius:8px;padding:9px 12px;border-left:3px solid #F59E0B;">
-          <div style="font-size:10px;font-weight:800;text-transform:uppercase;color:#92400E;letter-spacing:.07em;margin-bottom:5px;">Alya Carrier 2 — 328 pedidos · MG PE DF</div>
-          <div style="display:flex;flex-direction:column;gap:3px;">
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>✅ Entregado &lt;24h (1ª visita)</span><b style="color:#16A34A;">60,7%</b></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>⚠️ No entregado 1ª visita</span><b style="color:#D97706;">3,0%</b></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>❌ No entregado (cancelado)</span><b style="color:#DC2626;">13,4%</b></div>
-            <div style="display:flex;justify-content:space-between;font-size:11px;"><span>🕐 Entregado &gt;24h</span><b style="color:#5BA4CF;">22,9%</b></div>
+          <!-- Cancelados -->
+          <div>
+            <div style="font-size:8.5px;font-weight:800;color:#DC2626;margin-bottom:3px;">❌ Cancelados — motivos</div>
+            <div style="height:14px;border-radius:4px;overflow:hidden;display:flex;">
+              <div style="width:33%;background:#3B82F6;" title="Dest. Ausente 33%"></div>
+              <div style="width:21%;background:#EF4444;" title="Recusa Cliente 21%"></div>
+              <div style="width:14%;background:#F59E0B;" title="End. Incorreto 14%"></div>
+              <div style="width:12%;background:#10B981;" title="Sem Máquina 12%"></div>
+              <div style="width:20%;background:#94A3B8;" title="Otros 20%"></div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:3px;">
+              <span style="font-size:8px;color:#3B82F6;font-weight:700;">■ Dest. Ausente 33%</span>
+              <span style="font-size:8px;color:#EF4444;font-weight:700;">■ Recusa 21%</span>
+              <span style="font-size:8px;color:#F59E0B;font-weight:700;">■ End. Incorreto 14%</span>
+              <span style="font-size:8px;color:#10B981;font-weight:700;">■ Sem Máquina 12%</span>
+            </div>
           </div>
-          <div style="margin-top:5px;font-size:9.5px;color:#DC2626;font-weight:700;">Cancelado 13,4% (vs Unitac 6,6%) · >24h melhorou 11,3% → 4,3% (corrigido)</div>
         </div>
+
+        <!-- ALYA -->
+        <div style="background:#F8FAFC;border-radius:8px;padding:8px 11px;border-left:3px solid #F59E0B;display:flex;flex-direction:column;gap:5px;">
+          <div style="font-size:10px;font-weight:800;color:#92400E;text-transform:uppercase;letter-spacing:.06em;">Alya · 328 ped · <span style="color:#16A34A;">70,7% &lt;24h</span> · <span style="color:#D97706;">11,6% falha</span> · <span style="color:#DC2626;">13,4% cancel.</span> · <span style="color:#5BA4CF;">4,3% &gt;24h</span></div>
+          <!-- Falha 1ª visita -->
+          <div>
+            <div style="font-size:8.5px;font-weight:800;color:#D97706;margin-bottom:3px;">⚠️ Falha 1ª visita — motivos</div>
+            <div style="height:14px;border-radius:4px;overflow:hidden;display:flex;">
+              <div style="width:97%;background:#3B82F6;" title="Dest. Ausente 97%"></div>
+              <div style="width:3%;background:#F59E0B;" title="End. Incorreto 3%"></div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:3px;">
+              <span style="font-size:8px;color:#3B82F6;font-weight:700;">■ Dest. Ausente 97%</span>
+              <span style="font-size:8px;color:#F59E0B;font-weight:700;">■ End. Incorreto 3%</span>
+            </div>
+          </div>
+          <!-- Cancelados -->
+          <div>
+            <div style="font-size:8.5px;font-weight:800;color:#DC2626;margin-bottom:3px;">❌ Cancelados — motivos</div>
+            <div style="height:14px;border-radius:4px;overflow:hidden;display:flex;">
+              <div style="width:41%;background:#F59E0B;" title="End. Incorreto 41%"></div>
+              <div style="width:26%;background:#3B82F6;" title="Dest. Ausente 26%"></div>
+              <div style="width:18%;background:#8B5CF6;" title="Incidente Alya 18%"></div>
+              <div style="width:15%;background:#94A3B8;" title="Otros 15%"></div>
+            </div>
+            <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:3px;">
+              <span style="font-size:8px;color:#F59E0B;font-weight:700;">■ End. Incorreto 41%</span>
+              <span style="font-size:8px;color:#3B82F6;font-weight:700;">■ Dest. Ausente 26%</span>
+              <span style="font-size:8px;color:#8B5CF6;font-weight:700;">■ Incidente Alya 18%</span>
+            </div>
+          </div>
+        </div>
+
       </div>
 
       <!-- waterfall charts -->
