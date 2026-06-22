@@ -2037,6 +2037,161 @@ END SLIDE REMOVIDO -->
 
 
 <!-- ============================================================
+     SLIDE ROI SAMEDAY — Inversión y Retorno
+     ============================================================ -->
+<div class="slide content-slide" id="s-roi-sameday">
+<style>
+#s-roi-sameday { background:#F8FAFC; }
+#s-roi-sameday .roi-col { display:flex; flex-direction:column; gap:6px; }
+#s-roi-sameday .roi-ttl { font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.08em; padding:4px 10px; border-radius:5px; flex-shrink:0; }
+#s-roi-sameday .wf-row { display:flex; align-items:center; gap:8px; padding:3px 0; }
+#s-roi-sameday .wf-lbl { font-size:9.5px; color:#374151; width:110px; flex-shrink:0; line-height:1.3; }
+#s-roi-sameday .wf-bar-wrap { flex:1; height:18px; background:#F1F5F9; border-radius:4px; overflow:hidden; position:relative; }
+#s-roi-sameday .wf-bar { height:100%; border-radius:4px; display:flex; align-items:center; padding:0 5px; }
+#s-roi-sameday .wf-val { font-size:9px; font-weight:800; white-space:nowrap; width:90px; flex-shrink:0; text-align:right; }
+#s-roi-sameday .wf-pct { font-size:8.5px; color:#9CA3AF; width:40px; flex-shrink:0; text-align:right; }
+#s-roi-sameday .net-box { background:#1a1a2e; border-radius:7px; padding:8px 12px; display:flex; justify-content:space-between; align-items:center; flex-shrink:0; }
+</style>
+
+  <div class="slide-header">
+    <span class="breadcrumb-pill bp-red">Leadtimes</span>
+    <span class="breadcrumb-sep">|</span>
+    <span class="breadcrumb-page">Sameday MLB — ROI</span>
+  </div>
+  <div class="slide-title" style="padding:2px 20px 0;flex-shrink:0;">
+    ROI Sameday MLB — análisis de inversión y retorno · ene–may/26 · <span style="color:#FFD000;">87% del retorno = devolución del device</span>
+  </div>
+
+  <div style="flex:1;display:grid;grid-template-columns:1fr 1px 1fr 1px 1fr;gap:0;padding:6px 20px 8px;min-height:0;overflow:hidden;">
+
+    <!-- ═══ BLOCO 1: Sameday vs Convencional ═══ -->
+    <div class="roi-col" style="padding-right:14px;">
+      <div class="roi-ttl" style="background:#1a1a2e;color:#fff;">📊 Bloco 1 · Sameday vs Convencional (Cross)</div>
+      <div style="font-size:9px;color:#6B7280;margin-bottom:2px;">Análisis ene–may/26 · situación actual</div>
+
+      <div class="wf-row">
+        <div class="wf-lbl">Costo incremental<br><span style="font-size:8px;color:#9CA3AF;">Sameday vs Cross</span></div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:100%;background:#DC2626;"><span style="font-size:8.5px;font-weight:800;color:#fff;">-USD 708.180</span></div></div>
+        <div class="wf-pct" style="color:#DC2626;font-weight:700;">−</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-lbl">Devolución<br>devices</div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:86.8%;background:#16A34A;"><span style="font-size:8.5px;font-weight:800;color:#fff;">+USD 975.635</span></div></div>
+        <div class="wf-pct" style="color:#16A34A;font-weight:800;">86,8%</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-lbl">Mejora de TPV</div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:13.1%;background:#1A56A0;"><span style="font-size:8px;font-weight:800;color:#fff;">+146.628</span></div></div>
+        <div class="wf-pct" style="color:#1A56A0;font-weight:700;">13,1%</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-lbl">Mejora de Churn</div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:2%;background:#14B8A6;"><span style="font-size:7.5px;color:#fff;padding-left:4px;">+302</span></div></div>
+        <div class="wf-pct" style="color:#9CA3AF;">0,03%</div>
+      </div>
+
+      <div class="net-box" style="margin-top:4px;">
+        <div>
+          <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;">Impacto neto</div>
+          <div style="font-size:22px;font-weight:900;color:#16A34A;">+USD 414.385</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:8px;color:rgba(255,255,255,.4);">Período</div>
+          <div style="font-size:11px;font-weight:700;color:#fff;">ene–may/26</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.4);">~USD 83k/mes</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#E2E8F0;"></div>
+
+    <!-- ═══ BLOCO 2: Sameday vs FULL ═══ -->
+    <div class="roi-col" style="padding:0 14px;">
+      <div class="roi-ttl" style="background:#1a4a8a;color:#fff;">🚀 Bloco 2 · Sameday vs FULL (a partir jul/26)</div>
+      <div style="font-size:9px;color:#6B7280;margin-bottom:2px;">Proyección con FULL como base de comparación</div>
+
+      <div class="wf-row">
+        <div class="wf-lbl">Costo incremental<br><span style="font-size:8px;color:#9CA3AF;">Sameday vs FULL</span></div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:100%;background:#DC2626;"><span style="font-size:8.5px;font-weight:800;color:#fff;">-USD 715.359</span></div></div>
+        <div class="wf-pct" style="color:#DC2626;font-weight:700;">−</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-lbl">Devolución<br>devices</div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:93.9%;background:#16A34A;"><span style="font-size:8.5px;font-weight:800;color:#fff;">+USD 975.635</span></div></div>
+        <div class="wf-pct" style="color:#16A34A;font-weight:800;">93,9%</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-lbl">Mejora de TPV</div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:6.1%;background:#1A56A0;"></div></div>
+        <div class="wf-val" style="color:#1A56A0;font-size:8.5px;font-weight:700;">+USD 63.009</div>
+        <div class="wf-pct" style="color:#1A56A0;font-weight:700;">6,1%</div>
+      </div>
+      <div class="wf-row">
+        <div class="wf-lbl">Mejora de Churn</div>
+        <div class="wf-bar-wrap"><div class="wf-bar" style="width:2%;background:#14B8A6;"></div></div>
+        <div class="wf-pct" style="color:#9CA3AF;">0,03%</div>
+      </div>
+
+      <div class="net-box" style="margin-top:4px;">
+        <div>
+          <div style="font-size:8px;font-weight:700;color:rgba(255,255,255,.4);text-transform:uppercase;">Impacto neto</div>
+          <div style="font-size:22px;font-weight:900;color:#16A34A;">+USD 323.587</div>
+        </div>
+        <div style="text-align:right;">
+          <div style="font-size:8px;color:rgba(255,255,255,.4);">Base</div>
+          <div style="font-size:11px;font-weight:700;color:#FFD000;">FULL jul/26 →</div>
+          <div style="font-size:9px;color:rgba(255,255,255,.4);">~USD 65k/mes est.</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="background:#E2E8F0;"></div>
+
+    <!-- ═══ BLOCO 3: Provocações ═══ -->
+    <div class="roi-col" style="padding-left:14px;">
+      <div class="roi-ttl" style="background:#7C3AED;color:#fff;">💡 Bloco 3 · Provocaciones estratégicas</div>
+
+      <!-- Costo unitario comparison -->
+      <div style="background:#1a1a2e;border-radius:7px;padding:8px 11px;flex-shrink:0;">
+        <div style="font-size:9px;font-weight:800;color:rgba(255,255,255,.5);text-transform:uppercase;margin-bottom:6px;">Costo unitario por recambio</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;font-size:9px;">
+          <div style="color:rgba(255,255,255,.4);font-weight:700;padding-bottom:3px;border-bottom:1px solid rgba(255,255,255,.1);"></div>
+          <div style="color:#60A5FA;font-weight:700;text-align:center;padding-bottom:3px;border-bottom:1px solid rgba(255,255,255,.1);">FULL</div>
+          <div style="color:#FFD000;font-weight:700;text-align:center;padding-bottom:3px;border-bottom:1px solid rgba(255,255,255,.1);">Sameday</div>
+          <div style="color:rgba(255,255,255,.6);padding:3px 0;">Colecta</div>
+          <div style="color:#60A5FA;text-align:center;padding:3px 0;">USD 5,24</div>
+          <div style="color:#9CA3AF;text-align:center;padding:3px 0;">—</div>
+          <div style="color:rgba(255,255,255,.6);padding:3px 0;">Entrega</div>
+          <div style="color:#60A5FA;text-align:center;padding:3px 0;">USD 4,85</div>
+          <div style="color:#9CA3AF;text-align:center;padding:3px 0;">—</div>
+          <div style="color:#fff;font-weight:800;padding:4px 0;border-top:1px solid rgba(255,255,255,.1);">Total</div>
+          <div style="color:#60A5FA;font-weight:900;text-align:center;font-size:12px;padding:4px 0;border-top:1px solid rgba(255,255,255,.1);">USD 10,09</div>
+          <div style="color:#FFD000;font-weight:900;text-align:center;font-size:12px;padding:4px 0;border-top:1px solid rgba(255,255,255,.1);">USD 42,85</div>
+        </div>
+        <div style="margin-top:5px;text-align:center;font-size:10px;color:#FCA5A5;font-weight:800;">Sameday = 3,2× más caro que FULL (324%↑)</div>
+      </div>
+
+      <!-- Provocaciones -->
+      <div style="display:flex;flex-direction:column;gap:5px;flex:1;">
+        <div style="background:#FEF2F2;border-radius:7px;padding:7px 10px;border-left:3px solid #DC2626;">
+          <div style="font-size:9px;font-weight:800;color:#9B1C1C;margin-bottom:3px;">🔴 El retorno viene de RECUPERAR el device, no de la velocidad</div>
+          <div style="font-size:9.5px;color:#374151;line-height:1.45;">87–94% del ROI es devolución de devices. La entrega en &lt;24h agrega solo el 6–13% restante (TPV).</div>
+        </div>
+        <div style="background:#FFFBEB;border-radius:7px;padding:7px 10px;border-left:3px solid #F59E0B;">
+          <div style="font-size:9px;font-weight:800;color:#92400E;margin-bottom:3px;">⚠️ Con FULL desde jul/26: ¿necesitamos pagar 3,2× por la primera visita &lt;24h?</div>
+          <div style="font-size:9.5px;color:#374151;line-height:1.45;">Si retrasamos la 1ª visita (no exigir &lt;24h), podemos negociar tarifas más bajas con el carrier y mejorar el ROI.</div>
+        </div>
+        <div style="background:#EFF6FF;border-radius:7px;padding:7px 10px;border-left:3px solid #1D4ED8;">
+          <div style="font-size:9px;font-weight:800;color:#1D4ED8;margin-bottom:3px;">💬 Pregunta: ¿reposicionamos el foco de Sameday?</div>
+          <div style="font-size:9.5px;color:#374151;line-height:1.45;">Inicialmente el foco era posicionamiento (trocar rápido). Los datos muestran que el ROI está en recuperar el device. ¿Optimizamos para eso?</div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============================================================
      SLIDE ABANDONO — Comportamiento Post-Solicitud (NO_FINALIZADO)
      ============================================================ -->
 <!-- ============================================================
