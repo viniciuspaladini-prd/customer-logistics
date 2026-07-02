@@ -117,6 +117,9 @@
     .no-data-box{text-align:center;padding:60px 20px;color:var(--muted);}
     .no-data-box h2{font-size:20px;font-weight:700;margin-bottom:12px;color:var(--text);}
     .no-data-box p{font-size:14px;line-height:1.7;max-width:500px;margin:0 auto;}
+    #no-data-overlay{display:none;position:absolute;top:0;left:0;width:100%;min-height:100%;
+      background:rgba(240,242,248,.97);z-index:50;align-items:flex-start;
+      justify-content:center;padding-top:80px;}
   </style>
 </head>
 <body>
@@ -145,7 +148,13 @@
   <div class="tab" onclick="show(4)">📍 Aba 5 — Análise por Estado</div>
 </div>
 
-<div class="content">
+<div class="content" style="position:relative">
+<div id="no-data-overlay">
+  <div class="no-data-box">
+    <h2 id="ndo-title"></h2>
+    <p id="ndo-msg"></p>
+  </div>
+</div>
 
 <!-- ═══ ABA 1 — Contexto ═══ -->
 <div class="pane active" id="p0">
@@ -698,17 +707,13 @@ function renderEstado(mesLabel) {
 // ── No-data rendering ─────────────────────────────────────────────────────────
 function renderNoData(S) {
   const site_lbl = S.siteId === 'MLM' ? '🇲🇽 MLM (México)' : '🇧🇷 MLB (Brasil)';
-  const noDataHTML = `<div class="no-data-box">
-    <h2>📅 Aguardando dados — ${site_lbl}</h2>
-    <p>O rollout FULL foi iniciado em <strong>${S.dataInicio}</strong>.<br>
-    Os dados estarão disponíveis após as primeiras entregas serem processadas no BigQuery.<br>
-    Rode novamente o script após ${S.dataInicio} para ver os resultados.</p>
-  </div>`;
-  ['p1','p2','p3','p4'].forEach(id => {
-    document.getElementById(id).innerHTML = noDataHTML;
-  });
-  document.getElementById('aba2-kpis').innerHTML = '';
-  document.getElementById('ch-tbody').innerHTML = '<tr><td colspan="7" style="text-align:center;color:#9CA3AF;padding:20px">Sem dados disponíveis</td></tr>';
+  document.getElementById('ndo-title').textContent = '📅 Aguardando dados — ' + site_lbl;
+  document.getElementById('ndo-msg').innerHTML =
+    'O rollout FULL foi iniciado em <strong>' + S.dataInicio + '</strong>.<br>' +
+    'Os dados estarão disponíveis após as primeiras entregas serem processadas no BigQuery.<br>' +
+    'Rode novamente o script após ' + S.dataInicio + ' para ver os resultados.';
+  const ov = document.getElementById('no-data-overlay');
+  ov.style.display = 'flex';
 }
 
 // ── Switch site ───────────────────────────────────────────────────────────────
@@ -728,6 +733,7 @@ function loadSite(S) {
     initEstadoFilter({estMesLabels:['Todos'],estMesData:{},estMesDataCapRM:{},estMesDataInt:{}});
     return;
   }
+  document.getElementById('no-data-overlay').style.display = 'none';
   renderAba2KPIs(S);
   initCharts(S);
   document.getElementById('weekly-tbody').innerHTML  = S.tableWeeklyHTML  || '';
