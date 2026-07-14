@@ -1597,6 +1597,7 @@ function renderOpps() {
     (oppFilterSeg ? ` — <span style="color:${SEG_HDR_COLORS[oppFilterSeg]||'#333'}">${SEG_ICON[oppFilterSeg]||''} ${oppFilterSeg}</span>` : '') +
     '</div>' +
     activeMatrixSegs.map(seg=>buildSegMatrix(seg)).join('') +
+    '<div id="opp-detail-panel" style="display:none;margin-top:12px"></div>' +
     '</div>';
 
   
@@ -1830,15 +1831,24 @@ function openOppCard(seg, prod, uc) {
       ${idsHtml}
     </div>`;
 
-  // Insert focused card right after matrixHtml (before scoreExplainHtml)
-  const scoreBox = document.querySelector('#opps-content > div:first-child');
-  if(scoreBox) scoreBox.after(focusedCard);
-  else document.getElementById('opps-content').prepend(focusedCard);
-
-  // Scroll to focused card
-  setTimeout(()=>{
-    focusedCard.scrollIntoView({behavior:'smooth', block:'start'});
-  }, 100);
+  // Show in dedicated panel right after the matrix
+  const panel = document.getElementById('opp-detail-panel');
+  if(panel) {
+    panel.style.display = 'block';
+    panel.innerHTML = '';
+    panel.appendChild(focusedCard);
+    // Scroll to panel
+    setTimeout(()=>{
+      panel.scrollIntoView({behavior:'smooth', block:'start'});
+    }, 100);
+  } else {
+    // Fallback: insert at top of content
+    const content = document.getElementById('opps-content');
+    const existing = document.getElementById('focused-opp-card');
+    if(existing) existing.remove();
+    if(content) content.prepend(focusedCard);
+    setTimeout(()=>{ focusedCard.scrollIntoView({behavior:'smooth', block:'start'}); }, 100);
+  }
 }
 
 function clearOppFilter() {
