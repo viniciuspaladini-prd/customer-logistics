@@ -1560,8 +1560,10 @@ function renderOpps() {
           const itpv=item.tpv_mi>=1000?(item.tpv_mi/1000).toFixed(0)+'B':item.tpv_mi>0?item.tpv_mi.toFixed(0)+'M':'';
           const isc=item.score;
           const iprio=isc>=70?'🔴':isc>=50?'🟡':'🟢';
-          return `<div style="padding:5px 0;${idx>0?'border-top:1px solid #e7e9f3;margin-top:5px':''}">
-            <div style="font-size:10px;font-weight:700;color:#282834">${iprio} ${item.uc}</div>
+          return `<div style="padding:5px 0;${idx>0?'border-top:1px solid #e7e9f3;margin-top:5px':''};cursor:pointer;border-radius:5px;transition:.15s"
+            onclick="openOppCard('${seg}','${prod}','${item.uc.replace(/'/g,"\\'")}')"
+            onmouseover="this.style.background='#f0f4ff'" onmouseout="this.style.background=''">
+            <div style="font-size:10px;font-weight:700;color:#282834">${iprio} ${item.uc} <span style="font-size:9px;color:#9c9ebf">→ ver detalhes</span></div>
             <div style="font-size:9px;color:#646587;margin-top:2px">CX:${item.cx}% · CSAT:${item.csat?item.csat.toFixed(0)+'%':'—'} · Score:${isc}</div>
             ${itpv?`<div style="font-size:9px;color:#3b5bdb;font-weight:700">TPV: USD ${itpv}</div>`:''}
           </div>`;
@@ -1747,6 +1749,42 @@ function setOppSeg(seg, btn) {
   document.querySelectorAll('#panel-opps .ctrl-bar .m-btn').forEach(b=>b.classList.remove('active'));
   if(btn) btn.classList.add('active');
   renderOpps();
+}
+
+function openOppCard(seg, prod, uc) {
+  // Set filters
+  oppFilterSeg = seg;
+  oppFilterProd = prod;
+  // Update segment filter buttons
+  document.querySelectorAll('#panel-opps .ctrl-bar .m-btn').forEach(b=>b.classList.remove('active'));
+  // Render with filters
+  renderOpps();
+  // After render, find the card and open it
+  setTimeout(()=>{
+    // Find all accordion headers and look for matching uc
+    const headers = document.querySelectorAll('#opps-content .acc-hdr');
+    for(const hdr of headers){
+      const nameEl = hdr.querySelector('.acc-name');
+      if(nameEl && nameEl.textContent.trim()===uc.trim()){
+        // Open this accordion
+        hdr.classList.add('open');
+        const bodyId = hdr.getAttribute('onclick').match(/document\.getElementById\('([^']+)'\)/);
+        if(bodyId){
+          const body = document.getElementById(bodyId[1]);
+          if(body) body.style.display='block';
+        }
+        // Scroll to it
+        hdr.scrollIntoView({behavior:'smooth', block:'start'});
+        // Highlight briefly
+        hdr.style.background='#fff9db';
+        setTimeout(()=>{ hdr.style.background=''; }, 2000);
+        break;
+      }
+    }
+    // Also scroll anchor
+    const anchor = document.getElementById('opps-cards');
+    if(anchor) anchor.scrollIntoView({behavior:'smooth', block:'start'});
+  }, 300);
 }
 
 function clearOppFilter() {
