@@ -1530,12 +1530,21 @@ function renderOpps() {
       const prioLabel = sc>=70?'🔴 Crítico':sc>=50?'🟡 Atención':sc>0?'🟢 OK':'';
       const _ps = PROD_DIV_STYLE[prod]||{bg:'#434ce4',text:'#fff'};
       const _buBC={'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#e67700'};const _bbc=_buBC[prod]||'#999';
-        return `<td style="padding:10px 12px;border:1px solid #e7e9f3;border-top:3px solid ${_bbc};background:${bg};vertical-align:top;cursor:pointer;width:33.3%" onclick="selectOppCell('${seg}','${prod}')">
-        ${items[0]?`<div style="font-size:11px;font-weight:700;color:#282834;margin-bottom:4px">${items[0].uc}</div>
-        <div style="font-size:10px;color:#646587">CX:${items[0].cx}% · CSAT:${items[0].csat?items[0].csat.toFixed(0)+'%':'—'}</div>
-        ${tpvStr?`<div style="font-size:10px;color:#3b5bdb;font-weight:700;margin-top:2px">TPV: USD ${tpvStr}</div>`:''}
-        <div style="margin-top:6px"><span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;background:${sc>=70?'#ffe3e3':sc>=50?'#fff3bf':'#d3f9d8'};color:${sc>=70?'#9e0015':sc>=50?'#7a6000':'#1e7e34'}">${prioLabel}</span></div>`
-        :'<div style="font-size:10px;color:#c0c0c0;font-style:italic">Sin datos</div>'}
+        // Get top 3 items for this cell
+        const top3 = byProd[prod].slice(0,3);
+        const cellScore = top3[0]?top3[0].score:0;
+        const cellBg = cellScore>=70?'#fff5f5':cellScore>=50?'#fffdf0':cellScore>0?'#f5fff5':'#f8f9fa';
+        return `<td style="padding:10px 12px;border:1px solid #e7e9f3;border-top:3px solid ${_bbc};background:${cellBg};vertical-align:top;cursor:pointer;width:33.3%" onclick="selectOppCell('${seg}','${prod}')">
+        ${top3.length>0?top3.map((item,idx)=>{
+          const itpv=item.tpv_mi>=1000?(item.tpv_mi/1000).toFixed(0)+'B':item.tpv_mi>0?item.tpv_mi.toFixed(0)+'M':'';
+          const isc=item.score;
+          const iprio=isc>=70?'🔴':isc>=50?'🟡':'🟢';
+          return `<div style="padding:5px 0;${idx>0?'border-top:1px solid #e7e9f3;margin-top:5px':''}">
+            <div style="font-size:10px;font-weight:700;color:#282834">${iprio} ${item.uc}</div>
+            <div style="font-size:9px;color:#646587;margin-top:2px">CX:${item.cx}% · CSAT:${item.csat?item.csat.toFixed(0)+'%':'—'} · Score:${isc}</div>
+            ${itpv?`<div style="font-size:9px;color:#3b5bdb;font-weight:700">TPV: USD ${itpv}</div>`:''}
+          </div>`;
+        }).join(''):'<div style="font-size:10px;color:#c0c0c0;font-style:italic">Sin datos</div>'}
       </td>`;
     }).join('');
 
@@ -1706,6 +1715,17 @@ function selectOppCell(seg, prod) {
       panel.scrollTo({top:offset,behavior:'smooth'});
     }
   },200);
+}
+
+function setOppSeg(seg, btn) {
+  oppFilterSeg = (seg==='ALL') ? null : seg;
+  document.querySelectorAll('#panel-opps .ctrl-bar .m-btn').forEach(b=>{
+    b.classList.remove('active');
+    b.style.background='';
+    b.style.color=b.getAttribute('data-orig-color')||'';
+  });
+  if(btn) { btn.classList.add('active'); }
+  renderOpps();
 }
 
 function clearOppFilter() {
