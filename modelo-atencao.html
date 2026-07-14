@@ -497,7 +497,7 @@ body{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;background:#f4f5f9;
 <div class="panel" id="panel-opps">
   <div class="ph">
     <h2>💡 Oportunidades — Maxwell + CX</h2>
-    <p>Score = CSAT%(-30~+30) + CX%(-30~+30) + Unresolved%(-20~+20) + TPV(-20~+20). Las 3 BUs: 📟 Instore · 💳 Online Payments · 🏦 Conta</p>
+    <p>Oportunidades priorizadas por impacto. Clique em qualquer item da matriz para ver os detalhes. A regra do score aparece abaixo da matriz.</p>
   </div>
   <div class="ctrl-bar">
     <span class="ctrl-lbl">Segmento:</span>
@@ -1599,13 +1599,17 @@ function renderOpps() {
     activeMatrixSegs.map(seg=>buildSegMatrix(seg)).join('') +
     '</div>';
 
-    const filterBadge = (oppFilterSeg||oppFilterProd) ? `
+  
+  // Score explanation below matrix
+  const scoreExplainHtml = '<div style="background:#fff;border:1px solid #e7e9f3;border-radius:10px;padding:14px 16px;margin-bottom:16px"><div style="font-size:11px;font-weight:700;color:#282834;margin-bottom:10px">📐 Regla del Score de Prioridad <span style=\"font-size:10px;font-weight:400;color:#9c9ebf\">(máx 100pts)</span></div><div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px"><div style="background:#fff0f0;border-radius:8px;padding:10px 12px;border:1px solid #f0a0a0"><div style="font-size:10px;font-weight:700;color:#9e0015;margin-bottom:5px">CSAT%</div><div style="font-size:10px;line-height:1.8"><span style="background:#e03131;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+30</span> &lt;50% &nbsp; <span style="background:#e67700;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+15</span> &lt;75%</div></div><div style="background:#fff0f0;border-radius:8px;padding:10px 12px;border:1px solid #f0a0a0"><div style="font-size:10px;font-weight:700;color:#9e0015;margin-bottom:5px">CX%</div><div style="font-size:10px;line-height:1.8"><span style="background:#e03131;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+30</span> &gt;20% &nbsp; <span style="background:#e67700;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+15</span> &gt;10%</div></div><div style="background:#fff4e6;border-radius:8px;padding:10px 12px;border:1px solid #f0c080"><div style="font-size:10px;font-weight:700;color:#e67700;margin-bottom:5px">Unresolved%</div><div style="font-size:10px;line-height:1.8"><span style="background:#e67700;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+20</span> &gt;70% &nbsp; <span style="background:#f0a040;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+10</span> &gt;50%</div></div><div style="background:#e9f1ff;border-radius:8px;padding:10px 12px;border:1px solid #b0bef5"><div style="font-size:10px;font-weight:700;color:#3b5bdb;margin-bottom:5px">TPV USD</div><div style="font-size:10px;line-height:1.8"><span style="background:#3b5bdb;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+20</span> &gt;$100B &nbsp; <span style="background:#5c78e0;color:#fff;border-radius:3px;padding:1px 4px;font-size:8px;font-weight:700">+10</span> &gt;$10B</div></div></div><div style="margin-top:8px;display:flex;gap:8px;font-size:10px"><span style="background:#ffe3e3;padding:3px 8px;border-radius:5px;font-weight:700;color:#9e0015">🔴 ≥70 Crítico</span><span style="background:#fff3bf;padding:3px 8px;border-radius:5px;font-weight:700;color:#7a6000">🟡 50–69 Atención</span><span style="background:#d3f9d8;padding:3px 8px;border-radius:5px;font-weight:700;color:#1e7e34">🟢 &lt;50 Monitorear</span></div></div>';
+
+  const filterBadge = (oppFilterSeg||oppFilterProd) ? `
     <div style="display:flex;align-items:center;gap:10px;background:#1e2235;border-radius:9px;padding:8px 14px;margin-bottom:14px">
       <span style="font-size:13px">&#128269;</span>
       <span style="font-size:12px;color:#c8cfe0">Filtrando: <strong style="color:#ffe600">${oppFilterSeg||'Todos'}</strong> &times; <strong style="color:#ffe600">${oppFilterProd||'Todos'}</strong></span>
       <button onclick="clearOppFilter()" style="margin-left:auto;background:#e03131;color:#fff;border:none;border-radius:5px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer">&times; Limpiar</button>
     </div>` : '';
-    let cardsHtml = filterBadge;
+    let cardsHtml = scoreExplainHtml + filterBadge;
   const activeSegs = oppFilterSeg ? segs.filter(s=>s===oppFilterSeg) : segs;
   for(const seg of activeSegs) {
     const items = (segMap[seg]||[]).filter(o=>o.score>=45 && o.vol>=100);
