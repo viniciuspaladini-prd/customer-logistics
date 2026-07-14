@@ -988,7 +988,7 @@ function buildList(seg, rows) {
               <th style="padding:4px 7px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:#9c9ebf">CSAT</th>
               <th style="padding:4px 7px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.3px;color:#9c9ebf">Data</th>
             </tr></thead>
-            <tbody>${rawIds.slice(0,6).map(entry=>{
+            <tbody>${rawIds.slice(0,8).map(entry=>{
               const id = typeof entry==='string'?entry:entry.id;
               const site = typeof entry==='object'?entry.site:'—';
               const seg = typeof entry==='object'?entry.seg:'—';
@@ -1703,7 +1703,7 @@ function renderOpps() {
           ${(()=>{
             const rawIds = CONV_IDS[o.uc]||[];
             if(!rawIds.length) return '';
-            const sample = rawIds.slice(0,4);
+            const sample = rawIds.slice(0,8);
             const rows2 = sample.map(entry=>{
               const id=typeof entry==='string'?entry:entry.id;
               const site=typeof entry==='object'?entry.site:'—';
@@ -1794,7 +1794,7 @@ function openOppCard(seg, prod, uc) {
     .replace('{daily}',Math.round(monthly/30)):'';
 
   // Conversation IDs
-  const rawIds=(CONV_IDS[opp.uc]||[]).slice(0,3);
+  const rawIds=(CONV_IDS[opp.uc]||[]).slice(0,8);
   const idsHtml=rawIds.length?`<div style="margin-top:8px">
     <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#9c9ebf;margin-bottom:4px">Conversation IDs — ejemplos (clic para copiar)</div>
     ${rawIds.map(e=>{const id=typeof e==='string'?e:e.id;const site=typeof e==='object'?e.site:'—';const out=typeof e==='object'?e.outcome:'—';const outC=out==='resolved'?'#2f9e44':'#e03131';return `<button style="font-family:monospace;font-size:9px;cursor:pointer;color:#3b5bdb;background:#e9f1ff;border:none;border-radius:4px;padding:2px 6px;margin:2px" onclick="navigator.clipboard.writeText('${id}');this.textContent='✅';setTimeout(()=>this.textContent='${id.substring(0,12)}...',1500)" title="${id}">${id.substring(0,12)}... <span style="color:${outC};font-weight:700">${out}</span> <span style="background:#e9f1ff;padding:0 4px;border-radius:3px">${site}</span></button>`;}).join('')}
