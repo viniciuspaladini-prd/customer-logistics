@@ -108,7 +108,7 @@ body{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;background:#f4f5f9;
 .list-area{background:#fafbfc;border-top:1px solid #e7e9f3}
 
 /* PRODUCT SECTIONS */
-.prod-hdr{padding:7px 12px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;display:flex;align-items:center;gap:5px;position:sticky;top:0;z-index:10}
+.prod-hdr{padding:10px 14px;font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.8px;display:flex;align-items:center;gap:7px;position:sticky;top:0;z-index:10}
 
 /* ACCORDION */
 .acc-item{border-bottom:1px solid #f0f0f0}
@@ -843,7 +843,7 @@ function buildList(seg, rows) {
   for(const prod of PRODS){
     if(!pm[prod]||!pm[prod].length) continue;
     const _ps=PROD_DIV_STYLE[prod]||{bg:'#c5d4f0',text:'#1a1a2e'};
-    html+=`<div class="prod-hdr" style="background:${_ps.bg};color:${_ps.text};padding:7px 12px">${PROD_ICON[prod]||''} ${prod}</div>`;
+    html+=`<div class="prod-hdr" style="background:${_ps.bg};color:${_ps.text};padding:10px 14px;font-size:12px;font-weight:800;letter-spacing:.8px">${PROD_ICON[prod]||''} ${prod}</div>`;
     for(const r of pm[prod]){
       const defl_key=r.seg+'|'+r.uc;
       const dm=DEFL_META[defl_key]||{defl:null,unres:null};
