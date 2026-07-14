@@ -496,8 +496,15 @@ body{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;background:#f4f5f9;
 <!-- ══ OPORTUNIDADES ════════════════════════════════════ -->
 <div class="panel" id="panel-opps">
   <div class="ph">
-    <h2>💡 Oportunidades por Segmento &amp; Produto</h2>
-    <p>Mapeo de oportunidades priorizadas por impacto (TPV, sellers, CSAT) com detalle de experiencia e próximos pasos.</p>
+    <h2>💡 Oportunidades — Maxwell + CX</h2>
+    <p>Score = CSAT%(-30~+30) + CX%(-30~+30) + Unresolved%(-20~+20) + TPV(-20~+20). Las 3 BUs: 📟 Instore · 💳 Online Payments · 🏦 Conta</p>
+  </div>
+  <div class="ctrl-bar">
+    <span class="ctrl-lbl">Segmento:</span>
+    <button class="m-btn active" onclick="setOppSeg('ALL',this)">Todos</button>
+    <button class="m-btn" onclick="setOppSeg('Big Seller',this)" style="border-color:#e64b17;color:#e64b17">🔴 Big Seller</button>
+    <button class="m-btn" onclick="setOppSeg('SMB',this)" style="border-color:#d99000;color:#d99000">🟠 SMB</button>
+    <button class="m-btn" onclick="setOppSeg('Longtail',this)" style="border-color:#1e7e34;color:#1e7e34">🟢 Longtail</button>
   </div>
   <div style="padding:14px 14px 40px" id="opps-content"></div>
 </div>
