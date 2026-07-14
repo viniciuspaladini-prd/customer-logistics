@@ -465,11 +465,6 @@ body{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;background:#f4f5f9;
     <button class="m-btn" onclick="setMonth('2026-04',this)">Abr/26</button>
     <button class="m-btn" onclick="setMonth('2026-05',this)">May/26</button>
     <button class="m-btn" onclick="setMonth('2026-06',this)">Jun/26</button>
-    <span class="ctrl-lbl" style="margin-left:12px">BU:</span>
-    <button class="m-btn active" id="bu-all" onclick="setBU('ALL',this)">Todas</button>
-    <button class="m-btn" id="bu-instore" onclick="setBU('Instore (Point)',this)" style="border-color:#434ce4;color:#434ce4">&#x1F4DF; Instore</button>
-    <button class="m-btn" id="bu-online" onclick="setBU('Online Payments',this)" style="border-color:#2f9e44;color:#2f9e44">&#x1F4B3; Online</button>
-    <button class="m-btn" id="bu-conta" onclick="setBU('Conta',this)" style="border-color:#e67700;color:#e67700">&#x1F3E6; Conta</button>
     <span class="ctrl-lbl" style="margin-left:10px">Site:</span>
     <button class="m-btn active" onclick="setSite('ALL',this)">Todos</button>
     <button class="m-btn" onclick="setSite('MLB',this)">🇧🇷 MLB</button>
@@ -1593,9 +1588,13 @@ function renderOpps() {
     </div>`;
   }
 
+  // Filter by active segment
+  const activeMatrixSegs = oppFilterSeg ? segs.filter(s=>s===oppFilterSeg) : segs;
   let matrixHtml = '<div style="margin-bottom:20px">' +
-    '<div style="font-size:12px;font-weight:700;color:#646587;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px">Mapa de Prioridades por Segmento</div>' +
-    segs.map(seg=>buildSegMatrix(seg)).join('') +
+    '<div style="font-size:12px;font-weight:700;color:#646587;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px">Mapa de Prioridades por Segmento' +
+    (oppFilterSeg ? ` — <span style="color:${SEG_HDR_COLORS[oppFilterSeg]||'#333'}">${SEG_ICON[oppFilterSeg]||''} ${oppFilterSeg}</span>` : '') +
+    '</div>' +
+    activeMatrixSegs.map(seg=>buildSegMatrix(seg)).join('') +
     '</div>';
 
     const filterBadge = (oppFilterSeg||oppFilterProd) ? `
@@ -1745,12 +1744,8 @@ function selectOppCell(seg, prod) {
 
 function setOppSeg(seg, btn) {
   oppFilterSeg = (seg==='ALL') ? null : seg;
-  document.querySelectorAll('#panel-opps .ctrl-bar .m-btn').forEach(b=>{
-    b.classList.remove('active');
-    b.style.background='';
-    b.style.color=b.getAttribute('data-orig-color')||'';
-  });
-  if(btn) { btn.classList.add('active'); }
+  document.querySelectorAll('#panel-opps .ctrl-bar .m-btn').forEach(b=>b.classList.remove('active'));
+  if(btn) btn.classList.add('active');
   renderOpps();
 }
 
