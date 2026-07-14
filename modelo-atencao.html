@@ -1792,14 +1792,17 @@ setTimeout(()=>{ if(document.getElementById('panel-opps').classList.contains('ac
 </script>
 
 <style id='scroll-fix'>
-html, body { height: 100% !important; margin: 0; overflow: hidden !important; }
-.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 50px; }
-.body-wrap { position: fixed; top: 50px; left: 0; right: 0; bottom: 0; display: flex !important; overflow: hidden !important; }
-.sidebar { width: 200px; flex-shrink: 0 !important; overflow-y: auto !important; height: 100% !important; }
-.main { flex: 1 !important; overflow-y: auto !important; height: 100% !important; }
+/* Natural browser scroll — the most reliable approach */
+html { height: auto !important; overflow: auto !important; }
+body { height: auto !important; overflow: auto !important; min-height: 100vh; padding-top: 50px !important; padding-left: 200px !important; }
+.topbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 50px !important; z-index: 9999 !important; }
+.body-wrap { display: block !important; position: relative !important; overflow: visible !important; height: auto !important; }
+.sidebar { position: fixed !important; top: 50px !important; left: 0 !important; bottom: 0 !important; width: 200px !important; overflow-y: auto !important; z-index: 100 !important; }
+.main { display: block !important; overflow: visible !important; height: auto !important; min-height: calc(100vh - 50px) !important; }
 .panel { display: none !important; }
 .panel.active { display: block !important; }
 .seg-content { display: none !important; }
 .seg-content.active { display: block !important; }
+.seg-tabs, .ctrl-bar, .ph, .mx-leg { position: sticky !important; top: 50px !important; z-index: 90 !important; }
 </style></body>
 </html>
