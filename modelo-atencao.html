@@ -782,7 +782,7 @@ function renderChart(seg, rows) {
   const PROD_COLORS_CHART = {
     'Instore (Point)': {bg:'rgba(67,76,228,0.82)', bd:'rgba(67,76,228,1)'},
     'Online Payments': {bg:'rgba(47,158,68,0.82)', bd:'rgba(47,158,68,1)'},
-    'Conta':           {bg:'rgba(112,72,232,0.82)', bd:'rgba(112,72,232,1)'},
+    'Conta':           {bg:'rgba(230,119,0,0.82)', bd:'rgba(230,119,0,1)'},
   };
   const datasets = PRODS.map(prod=>{
     const pts = rows.filter(r=>(UC_TO_PROD[r.uc]||'Online Payments')===prod && r.csat!=null && r.csat>0);
@@ -1166,7 +1166,7 @@ function renderCxChart(cduRows, totalCases) {
   const CX_CAT_COLORS = {
     'Instore (Point)': {bg:'rgba(67,76,228,0.82)',bd:'rgba(67,76,228,1)'},
     'Online Payments': {bg:'rgba(47,158,68,0.82)',bd:'rgba(47,158,68,1)'},
-    'Conta':           {bg:'rgba(112,72,232,0.82)',bd:'rgba(112,72,232,1)'},
+    'Conta':           {bg:'rgba(230,119,0,0.82)',bd:'rgba(230,119,0,1)'},
   };
   const catDatasets = {};
   for(const cat of CX_CAT_ORDER) catDatasets[cat]=[];
@@ -1278,7 +1278,7 @@ function renderCx(){
 
   // Group cduRows by the 3 categories
   const CAT_ORDER = ['Instore (Point)','Online Payments','Conta'];
-  const CAT_COLORS = {'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#7048e8'};
+  const CAT_COLORS = {'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#e67700'};
   const CAT_ICONS  = {'Instore (Point)':'📟','Online Payments':'💳','Conta':'🏦'};
   const catMap = {};
   for(const cat of CAT_ORDER) catMap[cat]=[];
@@ -1465,12 +1465,12 @@ let oppFilterSeg = null;
 let oppFilterProd = null;
 const OPP_DETAIL = {"Transaction Declined": {"problema": "Seller nao entende o motivo do rechazo — sem categorização do tipo de falha (3DS, fundos, risco MP). Maxwell mostra mensagem generica sem proximos passos.", "hoje": "Skill Activities retorna status de rechazo sem categorizar causa. Seller liga pro CX. A transacao ja foi perdida.", "melhorar": ["Categorizar rechazos: 3DS / Fondos insuficientes / Risco MP / Cartao virtual / Erro tecnico", "Para cada tipo: mensagem especifica + CTA (retente, troque de cartao, contate banco)", "Integrar com skill Activities — enviar motivo estruturado ao Maxwell", "Notificacao proativa apos 3+ rechazos do mesmo seller em 7 dias", "Para 3DS: oferecer remedio direto no Maxwell (OTP/link de retry)"], "impacto": "TPV perdido estimado: 5-15% do cluster mensal em rechazos recorrentes. Reducao de CX de 18% para <8% = -500 casos/mes SMB.", "owner": "Tomas Cruz Oneto (Approvals) + Maxwell/Activities squad", "tpv_context": "TPV DO CLUSTER (sellers que contactaram): {tpv_monthly}M USD/mes · {sellers} sellers afetados. TPV EM RISCO: rechazos recorrentes podem representar 5-15% = {risco_low}M-{risco_high}M USD/mes em transacoes nao completadas.", "risco_pct": [0.05, 0.15]}, "Failed Transaction": {"problema": "Transacao falhou mas seller nao sabe se houve cobranca, se o pagamento chegou ou o que fazer. Diferente do rechazo — a transacao foi iniciada mas nao confirmada.", "hoje": "Maxwell mostra erro generico. Seller vai ao CX para confirmar se precisa recobrar.", "melhorar": ["Confirmar imediatamente via skill se houve cobranca ou nao", "Se nao houve: CTA para recobrar com link direto", "Diferenciar Failed Transaction de Transaction Declined na comunicacao", "Integrar com log de transacoes para dar status em tempo real"], "impacto": "Reducao de CX de 10% para <4%. Seller ganha confianca sem ligar.", "owner": "Tomas Cruz Oneto (Approvals) + Maxwell squad", "tpv_context": "Cluster SMB: {tpv_monthly}M USD/mes · {sellers} sellers. Transacoes falhas = TPV nao capturado imediatamente. Risco: seller recobra manualmente fora do canal MP.", "risco_pct": [0.03, 0.1]}, "Money Held": {"problema": "Maxwell nao consegue liberar fundos nem dar prazo. Skill userrestrictions falha 40% das vezes. CSAT 2.75 — pior da base.", "hoje": "Seller abre Maxwell → skill falha → conversa fecha como unresolved → seller liga CX. 77% unresolved.", "melhorar": ["Corrigir instabilidade da skill userrestrictions (40% non-response)", "Mostrar prazo estimado de liberacao baseado no historico do caso", "Permitir seller enviar documentacao diretamente via Maxwell", "Notificacao proativa quando os fundos forem liberados", "Dashboard de status de saldo retido acessivel via Maxwell"], "impacto": "TPV LITERALMENTE BLOQUEADO — o valor do cluster representa fundos retidos ativos. CSAT potencial: de 2.75 para 3.8+. Reducao CX de 32% para <12%.", "owner": "Tomas Hernandez (Restricciones) + Maxwell squad", "tpv_context": "TPV BLOQUEADO ATIVO: {tpv_monthly}M USD/mes em fundos retidos de {sellers} sellers. Este e o TPV que LITERALMENTE nao circula — nao e estimativa, e o valor real dos sellers com saldo retido.", "risco_pct": [0.8, 1.0]}, "Blocked or Suspended": {"problema": "Conta bloqueada sem visibilidade do motivo, prazo ou caminho de resolucao. Seller nao pode cobrar — 100% do seu TPV esta em risco durante o bloqueio.", "hoje": "Skill userrestrictions instavel. Seller recebe informacao mas sem acao possivel. 77% unresolved.", "melhorar": ["Exibir motivo especifico do bloqueio (OP Fraude, AML, Fondeo, Fin. Indebido)", "Para cada casuistica: documentacao necessaria + prazo padrao", "Upload de documentos inline no Maxwell sem precisar de CX humano", "Acompanhamento de status em tempo real", "Notificacao proativa quando desbloqueado"], "impacto": "100% do TPV do seller bloqueado durante a restricao. Risco de principalidade — sellers bloqueados migram para concorrentes.", "owner": "Tomas Hernandez (Restricciones) + Maxwell squad", "tpv_context": "SELLERS COM OPERACAO 100% PARADA: {sellers} sellers · TPV TOTAL BLOQUEADO: {tpv_monthly}M USD/mes. Cada dia a mais de bloqueio = TPV diario perdido = {tpv_monthly}M/30 = {daily}M USD/dia.", "risco_pct": [0.8, 1.0]}, "Product Not Received": {"problema": "Seller nao sabe onde esta o device encomendado. Maxwell nao tem visibilidade de status logistico.", "hoje": "Maxwell confirma pedido mas nao tem tracking em tempo real. Seller vai ao CX. CX 29%.", "melhorar": ["Integrar tracking logistico na skill Maxwell (via Fury/API logistica)", "Status em tempo real: confirmado → em transporte → entregue", "Notificacao proativa em delays acima do prazo padrao", "CTA para abrir troca se nao chegou em X dias", "Visibilidade de prazo estimado de entrega por CEP"], "impacto": "Reducao de CX de 29% para <10%. CSAT deve subir de 3.39 para >4.0. Reduz abertura de trocas desnecessarias.", "owner": "Ana Clara Irazu (Point) + squad logistica", "tpv_context": "RISCO DE CHURN: {sellers} sellers sem device = vendas paradas. Cluster TPV: {tpv_monthly}M USD/mes. Cada semana sem device = TPV nao processado via Point.", "risco_pct": [0.15, 0.4]}, "Fees and Commissions": {"problema": "Seller questiona taxas sem entender a estrutura. Maxwell nao explica de forma proativa nem compara com o plano atual.", "hoje": "Seller recebe valor cobrado mas nao entende de onde vem. CX 20%. Risco de churn por percepcao de custo.", "melhorar": ["Skill de consulta de tarifas por tipo de transacao/dispositivo/plano", "Breakdown claro: taxa processamento + aluguel + outros", "Comparativo com planos alternativos disponíveis", "Notificacao proativa quando taxa muda (upgrade de plano, etc.)", "Simulador de economias por volume dentro do Maxwell"], "impacto": "Reducao de CX de 20% para <6%. Oportunidade de upsell de plano mais adequado.", "owner": "Squad de pricing + Maxwell squad", "tpv_context": "RISCO DE CHURN: {sellers} sellers questionando custos · Cluster TPV: {tpv_monthly}M USD/mes. Sellers insatisfeitos com taxas tem 2-3x mais churn nos proximos 90 dias.", "risco_pct": [0.05, 0.2]}, "Refund Not Received": {"problema": "Comprador reclamou e seller nao sabe o status do reembolso. Maxwell nao tem visibilidade do estado da operacao.", "hoje": "Maxwell confirma que existe um reclamo mas nao da prazo nem status detalhado. CX 12%.", "melhorar": ["Exibir status do reembolso em tempo real (pendente, processando, concluido)", "Mostrar prazo estimado baseado no metodo de pagamento", "Diferenciar claim de chargeback no Maxwell (terminologia)", "Notificacao proativa quando reembolso for processado"], "impacto": "Reducao de CX de 12% para <5%. Melhora CSAT do seller sobre o processo pos-venda.", "owner": "Squad de Chargebacks + Maxwell squad", "tpv_context": "Cluster: {sellers} sellers com reembolsos pendentes · TPV: {tpv_monthly}M USD/mes. Reembolsos nao visíveis afetam o capital de giro do seller.", "risco_pct": [0.02, 0.08]}, "Account Recovery": {"problema": "Maxwell nao tem capacidade de recuperacao de conta. 100% unresolved. Seller perde acesso ao negocio.", "hoje": "Seller tenta recuperar → Maxwell encerra sem resolver → CX humano → processo manual demorado.", "melhorar": ["Flow de verificacao de identidade inline (selfie + documento via SDK)", "Integrar com processo KYC existente", "Confirmacao imediata se verificacao ok ou prazo claro se manual", "Status tracking da recuperacao"], "impacto": "CRITICO: seller sem conta = 100% do seu TPV bloqueado. Prioridade Q3.", "owner": "Squad de identity/KYC + Maxwell squad", "tpv_context": "SELLER SEM ACESSO = ZERO TPV: {sellers} sellers sem conta ativa · Cluster TPV: {tpv_monthly}M USD/mes potencial nao realizado.", "risco_pct": [0.7, 1.0]}, "Access Issues": {"problema": "Sellers sin acceso a funcionalidades especificas — inclui T&Cs nao aceitos, MFA bloqueado, acesso a novos produtos.", "hoje": "Maxwell informa o problema mas nao resolve. CX 17%. Caso identificado: T&Cs nao aceitos = seller nao pode cobrar.", "melhorar": ["Detectar tipo de Access Issue: T&Cs / MFA / produto especifico", "Para T&Cs: exibir e permitir aceite direto no Maxwell", "Para MFA: flow de verificacao inline", "Acesso a novos produtos: explicar requisitos e como habilitar"], "impacto": "T&Cs nao aceitos = seller nao processa = TPV parado. Resolucao em <2min pelo Maxwell vs CX humano.", "owner": "Maxwell squad + squad de produtos", "tpv_context": "FUNCIONALIDADE BLOQUEADA: {sellers} sellers com acesso restrito · Cluster TPV: {tpv_monthly}M USD/mes. Em casos de T&Cs: 100% das novas vendas bloqueadas ate aceite.", "risco_pct": [0.1, 0.5]}, "Incorrect Charge": {"problema": "Seller acredita ter sido cobrado incorretamente — pode ser chargeback, refund ou cobranca de taxa. Maxwell nao diferencia os tres.", "hoje": "Mensagem generica. Seller vai ao CX sem entender se e um reclamo, chargeback ou ajuste de taxa.", "melhorar": ["Classificar: chargeback vs refund vs ajuste de taxa vs duplicata", "Para chargeback: guiar o seller no processo de contestacao", "Para taxa: mostrar breakdown detalhado", "Educacao terminologica no inicio da conversa"], "impacto": "Reducao de erros de routing. CX de 6% para <2%.", "owner": "Chargebacks squad + Maxwell", "tpv_context": "Cluster: {sellers} sellers questionando cobranças · TPV: {tpv_monthly}M USD/mes. Cobranças incorretas nao resolvidas → churn de sellers de alto valor.", "risco_pct": [0.01, 0.05]}};
 const TPV_RISCO = {"Big Seller|Transaction Declined": {"monthly_mi": 25.099999999999998, "sellers": 185}, "SMB|Transaction Declined": {"monthly_mi": 33.40000000000002, "sellers": 12777}, "SMB|Fees and Commissions": {"monthly_mi": 28.999999999999996, "sellers": 12800}, "Big Seller|Refund Not Received": {"monthly_mi": 25.7, "sellers": 153}, "Big Seller|Access Issues": {"monthly_mi": 11.5, "sellers": 55}, "SMB|Product Not Received": {"monthly_mi": 10.399999999999999, "sellers": 5241}, "Big Seller|Fees and Commissions": {"monthly_mi": 10.0, "sellers": 307}, "SMB|Refund Not Received": {"monthly_mi": 12.499999999999998, "sellers": 4962}, "SMB|Failed Transaction": {"monthly_mi": 12.899999999999995, "sellers": 4674}, "Big Seller|Product Not Received": {"monthly_mi": 4.5, "sellers": 88}, "SMB|Blocked or Suspended": {"monthly_mi": 6.6000000000000005, "sellers": 3825}, "SMB|Money Held": {"monthly_mi": 9.199999999999996, "sellers": 6789}, "Big Seller|Failed Transaction": {"monthly_mi": 6.5, "sellers": 89}, "Longtail|Fees and Commissions": {"monthly_mi": 2.1, "sellers": 104166}, "SMB|Access Issues": {"monthly_mi": 4.500000000000001, "sellers": 1832}, "SMB|Incorrect Charge": {"monthly_mi": 6.500000000000002, "sellers": 3040}, "Longtail|Transaction Declined": {"monthly_mi": 2.1999999999999997, "sellers": 107576}, "SMB|Account Recovery": {"monthly_mi": 1.7, "sellers": 1059}, "Big Seller|Blocked or Suspended": {"monthly_mi": 1.2, "sellers": 60}, "Big Seller|Account Recovery": {"monthly_mi": 0.7, "sellers": 22}, "Big Seller|Money Held": {"monthly_mi": 2.6000000000000005, "sellers": 92}, "Big Seller|Incorrect Charge": {"monthly_mi": 1.5, "sellers": 67}, "Longtail|Failed Transaction": {"monthly_mi": 0.8999999999999999, "sellers": 38074}, "Longtail|Blocked or Suspended": {"monthly_mi": 0.3, "sellers": 30735}, "Longtail|Money Held": {"monthly_mi": 0.6000000000000001, "sellers": 37411}, "Longtail|Access Issues": {"monthly_mi": 0.4, "sellers": 15908}, "Longtail|Incorrect Charge": {"monthly_mi": 0.2, "sellers": 42389}, "Longtail|Product Not Received": {"monthly_mi": 0.2, "sellers": 44442}, "Longtail|Refund Not Received": {"monthly_mi": 0.2, "sellers": 77151}, "Longtail|Account Recovery": {"monthly_mi": 0.0, "sellers": 12573}};
-const PROD_COLOR_MAP = {'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#7048e8'};
+const PROD_COLOR_MAP = {'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#e67700'};
 // Product divider colors (background + text) for section headers in lists
 const PROD_DIV_STYLE = {
   'Instore (Point)':   {bg:'#434ce4', text:'#ffffff'},
   'Online Payments':   {bg:'#2f9e44', text:'#ffffff'},
-  'Conta':             {bg:'#7048e8', text:'#ffffff'},
+  'Conta':             {bg:'#e67700', text:'#ffffff'},
 };
 
 function renderOpps() {
@@ -1510,129 +1510,54 @@ function renderOpps() {
     return '#bbb';
   }
 
-  // Build matrix
-  let matrixHtml = `<div style="margin-bottom:16px">
-    <div style="font-size:12px;font-weight:700;color:#646587;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">
-      Mapa de Prioridades — Segmento × Producto
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:11px;table-layout:fixed">
-      <thead><tr style="background:#282834">
-        <th style="padding:8px 12px;color:#fff;font-size:10px;text-align:left;font-weight:700">Segmento</th>
-        ${prods.map(p=>`<th style="padding:8px 12px;color:#fff;font-size:10px;text-align:center;font-weight:700">${p}</th>`).join('')}
-      </tr></thead>
-      <tbody>${segs.map(seg=>`<tr>
-        <td style="padding:8px 12px;font-weight:700;border-bottom:1px solid #e7e9f3">${SEG_ICON[seg]} ${seg}</td>
-        ${prods.map(prod=>{
-          const sc=cellScore(seg,prod);
-          const items=(segMap[seg]||[]).filter(o=>o.prod===prod).slice(0,1);
-          const topItem = items[0]||null;
-          const topUc = topItem?topItem.uc:'—';
-          const topCx = topItem?topItem.cx:null;
-          const topCsat = topItem?topItem.csat:null;
-          const tpvStr = topItem&&topItem.tpv_mi>0?(topItem.tpv_mi>=1000?(topItem.tpv_mi/1000).toFixed(0)+'B':topItem.tpv_mi.toFixed(0)+'M'):'';
-          const bg=cellColor(sc); const bd=cellBorder(sc);
-          const prioLabel = sc>=70?'🔴 Crítico':sc>=50?'🟡 Atención':sc>0?'🟢 OK':'';
-          return `<td style="padding:8px 10px;border:1px solid #e7e9f3;background:${bg};vertical-align:top;cursor:pointer;min-width:220px" onclick="selectOppCell('${seg}','${prod}')" id="cell-${seg.replace(' ','_')}-${prod.replace(/[^a-z0-9]/gi,'_')}">
-            ${sc>0?`<div style="font-size:10px;font-weight:700;color:#282834;margin-bottom:3px">${topUc}</div>
-            <div style="font-size:9px;color:#646587;margin-bottom:3px">${topCx!=null?'CX:'+topCx+'% ':''}${topCsat!=null?'CSAT:'+topCsat:''}</div>
-            ${tpvStr?`<div style="font-size:9px;color:#3b5bdb;font-weight:700">TPV: USD ${tpvStr}</div>`:''}
-            <div style="margin-top:5px"><span style="background:${bd};border-radius:4px;padding:2px 7px;font-size:9px;font-weight:700;color:#282834">${prioLabel}</span></div>`
-            :'<div style="font-size:10px;color:#c8cfe0;font-style:italic">Sin datos suficientes<br><span style="font-size:9px;color:#d0d4e6">Vol. Maxwell muy bajo<br>Gestionado via CC/KAM</span></div>'}
-          </td>`;
-        }).join('')}
-      </tr>`).join('')}
-      </tbody>
-    </table>
-    <div style="display:flex;gap:8px;margin-top:8px;flex-wrap:wrap;align-items:center">
-      <span style="background:#ffe3e3;padding:2px 8px;border-radius:4px;font-size:10px">🔴 Crítico (score ≥70)</span>
-      <span style="background:#fff3bf;padding:2px 8px;border-radius:4px;font-size:10px">🟡 Atención (score 50-69)</span>
-      <span style="background:#d3f9d8;padding:2px 8px;border-radius:4px;font-size:10px">🟢 OK (score &lt;50)</span>
-    </div>
-    <div style="margin-top:10px;background:#fff;border:1px solid #d0d4e6;border-radius:10px;padding:14px 16px">
-      <div style="font-size:11px;font-weight:700;color:#282834;margin-bottom:10px;display:flex;align-items:center;gap:6px">
-        📐 ¿Cómo se calcula el Score de Prioridad?
-        <span style="font-size:10px;font-weight:400;color:#9c9ebf">(score máximo = 100pts · cuanto mayor, más urgente)</span>
-      </div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:8px">
-        <div style="background:#fff0f0;border-radius:8px;padding:10px 12px;border:1px solid #f0a0a0">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#9e0015;margin-bottom:6px">CSAT</div>
-          <div style="font-size:11px;color:#282834;line-height:1.8">
-            <span style="display:block"><span style="background:#e03131;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+30</span> CSAT% &lt; 50%</span>
-            <span style="display:block"><span style="background:#e67700;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+15</span> CSAT% &lt; 75%</span>
-            <span style="display:block;color:#9c9ebf"><span style="background:#aaa;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+0</span> CSAT% ≥ 75%</span>
-          </div>
-        </div>
-        <div style="background:#fff0f0;border-radius:8px;padding:10px 12px;border:1px solid #f0a0a0">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#9e0015;margin-bottom:6px">CX Escalación</div>
-          <div style="font-size:11px;color:#282834;line-height:1.8">
-            <span style="display:block"><span style="background:#e03131;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+30</span> CX% &gt; 20%</span>
-            <span style="display:block"><span style="background:#e67700;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+15</span> CX% &gt; 10%</span>
-            <span style="display:block;color:#9c9ebf"><span style="background:#aaa;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+0</span> CX% ≤ 10%</span>
-          </div>
-        </div>
-        <div style="background:#fff4e6;border-radius:8px;padding:10px 12px;border:1px solid #f0c080">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#e67700;margin-bottom:6px">Sin Resolver</div>
-          <div style="font-size:11px;color:#282834;line-height:1.8">
-            <span style="display:block"><span style="background:#e67700;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+20</span> Unres &gt; 70%</span>
-            <span style="display:block"><span style="background:#f0a040;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+10</span> Unres &gt; 50%</span>
-            <span style="display:block;color:#9c9ebf"><span style="background:#aaa;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+0</span> Unres ≤ 50%</span>
-          </div>
-        </div>
-        <div style="background:#e9f1ff;border-radius:8px;padding:10px 12px;border:1px solid #b0bef5">
-          <div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:.4px;color:#3b5bdb;margin-bottom:6px">TPV USD en Risco</div>
-          <div style="font-size:11px;color:#282834;line-height:1.8">
-            <span style="display:block"><span style="background:#3b5bdb;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+20</span> TPV &gt; $100B</span>
-            <span style="display:block"><span style="background:#5c78e0;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+10</span> TPV &gt; $10B</span>
-            <span style="display:block;color:#9c9ebf"><span style="background:#aaa;color:#fff;border-radius:3px;padding:1px 5px;font-size:9px;font-weight:700">+0</span> TPV ≤ $10B</span>
-          </div>
-        </div>
-      </div>
-      <div style="margin-top:8px;display:flex;gap:10px;font-size:10px">
-        <span style="background:#ffe3e3;border:1px solid #f0a0a0;padding:3px 10px;border-radius:5px;font-weight:700;color:#9e0015">🔴 Score ≥ 70 → CRÍTICO</span>
-        <span style="background:#fff3bf;border:1px solid #e0c060;padding:3px 10px;border-radius:5px;font-weight:700;color:#7a6000">🟡 Score 50–69 → ATENCIÓN</span>
-        <span style="background:#d3f9d8;border:1px solid #a0e8a6;padding:3px 10px;border-radius:5px;font-weight:700;color:#1e7e34">🟢 Score &lt; 50 → MONITOREAR</span>
-      </div>
-    </div>
-  </div>`;
+  // Build 3 separate matrices (one per segment)
+  const SEG_HDR_COLORS = {'Big Seller':'#e64b17','SMB':'#d99000','Longtail':'#1e7e34'};
 
-  // Segment cards
-  // Build CX summary map (CDU → cases + NPS) for enrichment
-  const cxSummary = {};
-  for(const r of CX_RAW) {
-    const k = (r.cdu||'').toLowerCase().trim();
-    if(!cxSummary[k]) cxSummary[k]={cases:0,prom:0,det:0,pass_:0,prod:r.prod};
-    cxSummary[k].cases+=r.cases; cxSummary[k].prom+=r.prom;
-    cxSummary[k].det+=r.det; cxSummary[k].pass_+=r.pass_;
-  }
-  function getCxForUc(uc) {
-    const k=(uc||'').toLowerCase().trim();
-    // exact or partial match
-    if(cxSummary[k]) return cxSummary[k];
-    for(const [mk,mv] of Object.entries(cxSummary)){
-      if(k.includes(mk)||mk.includes(k)) return mv;
-    }
-    return null;
+  function buildSegMatrix(seg) {
+    const segColor = SEG_HDR_COLORS[seg]||'#333';
+    const segOppsList = (segMap[seg]||[]);
+    // Group by product
+    const byProd = {};
+    for(const p of prods) byProd[p]=[];
+    for(const o of segOppsList) { if(byProd[o.prod]) byProd[o.prod].push(o); }
+
+    const prodCells = prods.map(prod=>{
+      const items = byProd[prod].slice(0,2);
+      const sc = items[0]?items[0].score:0;
+      const bg = sc>=70?'#ffe3e3':sc>=50?'#fff3bf':sc>0?'#f4f9f4':'#f8f9fa';
+      const tpvStr = items[0]&&items[0].tpv_mi>0?(items[0].tpv_mi>=1000?(items[0].tpv_mi/1000).toFixed(0)+'B':items[0].tpv_mi.toFixed(0)+'M'):'';
+      const prioLabel = sc>=70?'🔴 Crítico':sc>=50?'🟡 Atención':sc>0?'🟢 OK':'';
+      const _ps = PROD_DIV_STYLE[prod]||{bg:'#434ce4',text:'#fff'};
+      return `<td style="padding:10px 12px;border:1px solid #e7e9f3;background:${bg};vertical-align:top;cursor:pointer;width:33.3%" onclick="selectOppCell('${seg}','${prod}')">
+        ${items[0]?`<div style="font-size:11px;font-weight:700;color:#282834;margin-bottom:4px">${items[0].uc}</div>
+        <div style="font-size:10px;color:#646587">CX:${items[0].cx}% · CSAT:${items[0].csat?items[0].csat.toFixed(0)+'%':'—'}</div>
+        ${tpvStr?`<div style="font-size:10px;color:#3b5bdb;font-weight:700;margin-top:2px">TPV: USD ${tpvStr}</div>`:''}
+        <div style="margin-top:6px"><span style="font-size:9px;font-weight:700;padding:2px 8px;border-radius:4px;background:${sc>=70?'#ffe3e3':sc>=50?'#fff3bf':'#d3f9d8'};color:${sc>=70?'#9e0015':sc>=50?'#7a6000':'#1e7e34'}">${prioLabel}</span></div>`
+        :'<div style="font-size:10px;color:#c0c0c0;font-style:italic">Sin datos</div>'}
+      </td>`;
+    }).join('');
+
+    return `<div style="margin-bottom:16px;border-radius:12px;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.1)">
+      <div style="background:${segColor};padding:10px 14px;display:flex;align-items:center;gap:8px">
+        <span style="font-size:16px">${SEG_ICON[seg]||''}</span>
+        <span style="color:#fff;font-size:14px;font-weight:700">${seg}</span>
+        <span style="background:rgba(255,255,255,.2);color:#fff;font-size:10px;font-weight:700;padding:2px 8px;border-radius:9999px;margin-left:auto">${segOppsList.length} oportunidades</span>
+      </div>
+      <table style="width:100%;border-collapse:collapse;table-layout:fixed">
+        <thead><tr>
+          ${prods.map(p=>{const _ps=PROD_DIV_STYLE[p]||{bg:'#444',text:'#fff'};return `<th style="padding:8px 12px;background:${_ps.bg};color:${_ps.text};font-size:10px;font-weight:700;text-align:center">${PROD_ICON[p]||''} ${p}</th>`;}).join('')}
+        </tr></thead>
+        <tbody><tr>${prodCells}</tr></tbody>
+      </table>
+    </div>`;
   }
 
-  // Active cell highlight
-  document.querySelectorAll('[id^="cell-"]').forEach(c=>{
-    c.style.outline='none'; c.style.boxShadow='none';
-  });
-  if(oppFilterSeg&&oppFilterProd){
-    const cellId='cell-'+oppFilterSeg.replace(/ /g,'_')+'-'+oppFilterProd.replace(/[^a-z0-9]/gi,'_');
-    const cell=document.getElementById(cellId);
-    if(cell){cell.style.outline='3px solid #282834';cell.style.boxShadow='0 0 0 2px #ffe600';}
-  }
+  let matrixHtml = '<div style="margin-bottom:20px">' +
+    '<div style="font-size:12px;font-weight:700;color:#646587;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px">Mapa de Prioridades por Segmento</div>' +
+    segs.map(seg=>buildSegMatrix(seg)).join('') +
+    '</div>';
 
-  // Filter badge HTML
-  const filterBadge = (oppFilterSeg||oppFilterProd) ? `
-    <div style="display:flex;align-items:center;gap:10px;background:#1e2235;border-radius:9px;padding:8px 14px;margin-bottom:14px">
-      <span style="font-size:13px">🔍</span>
-      <span style="font-size:12px;color:#c8cfe0">Filtrando: <strong style="color:#ffe600">${oppFilterSeg||'Todos'}</strong> × <strong style="color:#ffe600">${oppFilterProd||'Todos'}</strong></span>
-      <button onclick="clearOppFilter()" style="margin-left:auto;background:#e03131;color:#fff;border:none;border-radius:5px;padding:3px 10px;font-size:11px;font-weight:700;cursor:pointer">✕ Limpiar</button>
-    </div>` : '';
-
-  let cardsHtml = filterBadge;
+    let cardsHtml = filterBadge;
   const activeSegs = oppFilterSeg ? segs.filter(s=>s===oppFilterSeg) : segs;
   for(const seg of activeSegs) {
     const items = (segMap[seg]||[]).filter(o=>o.score>=45 && o.vol>=100);
