@@ -108,7 +108,7 @@ body{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;background:#f4f5f9;
 .list-area{background:#fafbfc;border-top:1px solid #e7e9f3}
 
 /* PRODUCT SECTIONS */
-.prod-hdr{background:#f4f5f9;padding:6px 14px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.5px;color:#646587;display:flex;align-items:center;gap:5px;position:sticky;top:0;z-index:10;border-bottom:1px solid #e7e9f3}
+.prod-hdr{padding:7px 12px;font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;display:flex;align-items:center;gap:5px;position:sticky;top:0;z-index:10}
 
 /* ACCORDION */
 .acc-item{border-bottom:1px solid #f0f0f0}
@@ -183,22 +183,7 @@ body{font-family:'Inter',-apple-system,'Segoe UI',sans-serif;background:#f4f5f9;
 .site-MLM{background:#d3f9d8;color:#1e7e34}
 .site-MLC{background:#f3f0ff;color:#7048e8}
 </style>
-<style id='scroll-fix'>
-html, body { height: auto !important; overflow-y: auto !important; margin: 0 !important; }
-body { padding-top: 50px !important; padding-left: 200px !important; background: #f4f5f9 !important; }
-.topbar { position: fixed !important; top: 0 !important; left: 0 !important; right: 0 !important; height: 50px !important; z-index: 9999 !important; }
-.body-wrap { display: block !important; }
-.sidebar { position: fixed !important; top: 50px !important; left: 0 !important; bottom: 0 !important; width: 200px !important; overflow-y: auto !important; z-index: 500 !important; }
-.main { display: block !important; width: 100% !important; overflow: visible !important; }
-.panel { display: none !important; }
-.panel.active { display: block !important; min-height: 200vh !important; }
-.seg-content { display: none !important; }
-.seg-content.active { display: block !important; }
-.ph { position: sticky !important; top: 0 !important; z-index: 200 !important; }
-.seg-tabs { position: sticky !important; top: 0 !important; z-index: 200 !important; }
-.ctrl-bar { position: sticky !important; top: 42px !important; z-index: 199 !important; }
-.mx-leg { position: sticky !important; top: 82px !important; z-index: 198 !important; }
-</style></head>
+</head>
 <body>
 
 <div class="topbar">
@@ -857,7 +842,8 @@ function buildList(seg, rows) {
   let html='';
   for(const prod of PRODS){
     if(!pm[prod]||!pm[prod].length) continue;
-    html+=`<div class="prod-hdr">${PROD_ICON[prod]} ${prod}</div>`;
+    const _ps=PROD_DIV_STYLE[prod]||{bg:'#c5d4f0',text:'#1a1a2e'};
+    html+=`<div class="prod-hdr" style="background:${_ps.bg};color:${_ps.text};padding:7px 12px">${PROD_ICON[prod]||''} ${prod}</div>`;
     for(const r of pm[prod]){
       const defl_key=r.seg+'|'+r.uc;
       const dm=DEFL_META[defl_key]||{defl:null,unres:null};
@@ -1309,7 +1295,8 @@ function renderCx(){
     const catRows = catMap[cat]||[];
     if(!catRows.length) continue;
     const catTotal = catRows.reduce((s,r)=>s+r.cases,0);
-    tblHtml+=`<div style="background:${CAT_COLORS[cat]};padding:7px 14px;display:flex;align-items:center;gap:8px">
+    const _catStyle = PROD_DIV_STYLE[cat]||{bg:CAT_COLORS[cat]||'#c5d4f0',text:'#ffffff'};
+    tblHtml+=`<div style="background:${_catStyle.bg};padding:7px 14px;display:flex;align-items:center;gap:8px">
       <span style="font-size:14px">${CAT_ICONS[cat]}</span>
       <span style="color:#fff;font-size:12px;font-weight:700">${cat}</span>
       <span style="background:rgba(255,255,255,.2);color:#fff;font-size:10px;font-weight:700;padding:1px 8px;border-radius:9999px;margin-left:auto">${fmtN(catTotal)} casos</span>
@@ -1479,6 +1466,12 @@ let oppFilterProd = null;
 const OPP_DETAIL = {"Transaction Declined": {"problema": "Seller nao entende o motivo do rechazo — sem categorização do tipo de falha (3DS, fundos, risco MP). Maxwell mostra mensagem generica sem proximos passos.", "hoje": "Skill Activities retorna status de rechazo sem categorizar causa. Seller liga pro CX. A transacao ja foi perdida.", "melhorar": ["Categorizar rechazos: 3DS / Fondos insuficientes / Risco MP / Cartao virtual / Erro tecnico", "Para cada tipo: mensagem especifica + CTA (retente, troque de cartao, contate banco)", "Integrar com skill Activities — enviar motivo estruturado ao Maxwell", "Notificacao proativa apos 3+ rechazos do mesmo seller em 7 dias", "Para 3DS: oferecer remedio direto no Maxwell (OTP/link de retry)"], "impacto": "TPV perdido estimado: 5-15% do cluster mensal em rechazos recorrentes. Reducao de CX de 18% para <8% = -500 casos/mes SMB.", "owner": "Tomas Cruz Oneto (Approvals) + Maxwell/Activities squad", "tpv_context": "TPV DO CLUSTER (sellers que contactaram): {tpv_monthly}M USD/mes · {sellers} sellers afetados. TPV EM RISCO: rechazos recorrentes podem representar 5-15% = {risco_low}M-{risco_high}M USD/mes em transacoes nao completadas.", "risco_pct": [0.05, 0.15]}, "Failed Transaction": {"problema": "Transacao falhou mas seller nao sabe se houve cobranca, se o pagamento chegou ou o que fazer. Diferente do rechazo — a transacao foi iniciada mas nao confirmada.", "hoje": "Maxwell mostra erro generico. Seller vai ao CX para confirmar se precisa recobrar.", "melhorar": ["Confirmar imediatamente via skill se houve cobranca ou nao", "Se nao houve: CTA para recobrar com link direto", "Diferenciar Failed Transaction de Transaction Declined na comunicacao", "Integrar com log de transacoes para dar status em tempo real"], "impacto": "Reducao de CX de 10% para <4%. Seller ganha confianca sem ligar.", "owner": "Tomas Cruz Oneto (Approvals) + Maxwell squad", "tpv_context": "Cluster SMB: {tpv_monthly}M USD/mes · {sellers} sellers. Transacoes falhas = TPV nao capturado imediatamente. Risco: seller recobra manualmente fora do canal MP.", "risco_pct": [0.03, 0.1]}, "Money Held": {"problema": "Maxwell nao consegue liberar fundos nem dar prazo. Skill userrestrictions falha 40% das vezes. CSAT 2.75 — pior da base.", "hoje": "Seller abre Maxwell → skill falha → conversa fecha como unresolved → seller liga CX. 77% unresolved.", "melhorar": ["Corrigir instabilidade da skill userrestrictions (40% non-response)", "Mostrar prazo estimado de liberacao baseado no historico do caso", "Permitir seller enviar documentacao diretamente via Maxwell", "Notificacao proativa quando os fundos forem liberados", "Dashboard de status de saldo retido acessivel via Maxwell"], "impacto": "TPV LITERALMENTE BLOQUEADO — o valor do cluster representa fundos retidos ativos. CSAT potencial: de 2.75 para 3.8+. Reducao CX de 32% para <12%.", "owner": "Tomas Hernandez (Restricciones) + Maxwell squad", "tpv_context": "TPV BLOQUEADO ATIVO: {tpv_monthly}M USD/mes em fundos retidos de {sellers} sellers. Este e o TPV que LITERALMENTE nao circula — nao e estimativa, e o valor real dos sellers com saldo retido.", "risco_pct": [0.8, 1.0]}, "Blocked or Suspended": {"problema": "Conta bloqueada sem visibilidade do motivo, prazo ou caminho de resolucao. Seller nao pode cobrar — 100% do seu TPV esta em risco durante o bloqueio.", "hoje": "Skill userrestrictions instavel. Seller recebe informacao mas sem acao possivel. 77% unresolved.", "melhorar": ["Exibir motivo especifico do bloqueio (OP Fraude, AML, Fondeo, Fin. Indebido)", "Para cada casuistica: documentacao necessaria + prazo padrao", "Upload de documentos inline no Maxwell sem precisar de CX humano", "Acompanhamento de status em tempo real", "Notificacao proativa quando desbloqueado"], "impacto": "100% do TPV do seller bloqueado durante a restricao. Risco de principalidade — sellers bloqueados migram para concorrentes.", "owner": "Tomas Hernandez (Restricciones) + Maxwell squad", "tpv_context": "SELLERS COM OPERACAO 100% PARADA: {sellers} sellers · TPV TOTAL BLOQUEADO: {tpv_monthly}M USD/mes. Cada dia a mais de bloqueio = TPV diario perdido = {tpv_monthly}M/30 = {daily}M USD/dia.", "risco_pct": [0.8, 1.0]}, "Product Not Received": {"problema": "Seller nao sabe onde esta o device encomendado. Maxwell nao tem visibilidade de status logistico.", "hoje": "Maxwell confirma pedido mas nao tem tracking em tempo real. Seller vai ao CX. CX 29%.", "melhorar": ["Integrar tracking logistico na skill Maxwell (via Fury/API logistica)", "Status em tempo real: confirmado → em transporte → entregue", "Notificacao proativa em delays acima do prazo padrao", "CTA para abrir troca se nao chegou em X dias", "Visibilidade de prazo estimado de entrega por CEP"], "impacto": "Reducao de CX de 29% para <10%. CSAT deve subir de 3.39 para >4.0. Reduz abertura de trocas desnecessarias.", "owner": "Ana Clara Irazu (Point) + squad logistica", "tpv_context": "RISCO DE CHURN: {sellers} sellers sem device = vendas paradas. Cluster TPV: {tpv_monthly}M USD/mes. Cada semana sem device = TPV nao processado via Point.", "risco_pct": [0.15, 0.4]}, "Fees and Commissions": {"problema": "Seller questiona taxas sem entender a estrutura. Maxwell nao explica de forma proativa nem compara com o plano atual.", "hoje": "Seller recebe valor cobrado mas nao entende de onde vem. CX 20%. Risco de churn por percepcao de custo.", "melhorar": ["Skill de consulta de tarifas por tipo de transacao/dispositivo/plano", "Breakdown claro: taxa processamento + aluguel + outros", "Comparativo com planos alternativos disponíveis", "Notificacao proativa quando taxa muda (upgrade de plano, etc.)", "Simulador de economias por volume dentro do Maxwell"], "impacto": "Reducao de CX de 20% para <6%. Oportunidade de upsell de plano mais adequado.", "owner": "Squad de pricing + Maxwell squad", "tpv_context": "RISCO DE CHURN: {sellers} sellers questionando custos · Cluster TPV: {tpv_monthly}M USD/mes. Sellers insatisfeitos com taxas tem 2-3x mais churn nos proximos 90 dias.", "risco_pct": [0.05, 0.2]}, "Refund Not Received": {"problema": "Comprador reclamou e seller nao sabe o status do reembolso. Maxwell nao tem visibilidade do estado da operacao.", "hoje": "Maxwell confirma que existe um reclamo mas nao da prazo nem status detalhado. CX 12%.", "melhorar": ["Exibir status do reembolso em tempo real (pendente, processando, concluido)", "Mostrar prazo estimado baseado no metodo de pagamento", "Diferenciar claim de chargeback no Maxwell (terminologia)", "Notificacao proativa quando reembolso for processado"], "impacto": "Reducao de CX de 12% para <5%. Melhora CSAT do seller sobre o processo pos-venda.", "owner": "Squad de Chargebacks + Maxwell squad", "tpv_context": "Cluster: {sellers} sellers com reembolsos pendentes · TPV: {tpv_monthly}M USD/mes. Reembolsos nao visíveis afetam o capital de giro do seller.", "risco_pct": [0.02, 0.08]}, "Account Recovery": {"problema": "Maxwell nao tem capacidade de recuperacao de conta. 100% unresolved. Seller perde acesso ao negocio.", "hoje": "Seller tenta recuperar → Maxwell encerra sem resolver → CX humano → processo manual demorado.", "melhorar": ["Flow de verificacao de identidade inline (selfie + documento via SDK)", "Integrar com processo KYC existente", "Confirmacao imediata se verificacao ok ou prazo claro se manual", "Status tracking da recuperacao"], "impacto": "CRITICO: seller sem conta = 100% do seu TPV bloqueado. Prioridade Q3.", "owner": "Squad de identity/KYC + Maxwell squad", "tpv_context": "SELLER SEM ACESSO = ZERO TPV: {sellers} sellers sem conta ativa · Cluster TPV: {tpv_monthly}M USD/mes potencial nao realizado.", "risco_pct": [0.7, 1.0]}, "Access Issues": {"problema": "Sellers sin acceso a funcionalidades especificas — inclui T&Cs nao aceitos, MFA bloqueado, acesso a novos produtos.", "hoje": "Maxwell informa o problema mas nao resolve. CX 17%. Caso identificado: T&Cs nao aceitos = seller nao pode cobrar.", "melhorar": ["Detectar tipo de Access Issue: T&Cs / MFA / produto especifico", "Para T&Cs: exibir e permitir aceite direto no Maxwell", "Para MFA: flow de verificacao inline", "Acesso a novos produtos: explicar requisitos e como habilitar"], "impacto": "T&Cs nao aceitos = seller nao processa = TPV parado. Resolucao em <2min pelo Maxwell vs CX humano.", "owner": "Maxwell squad + squad de produtos", "tpv_context": "FUNCIONALIDADE BLOQUEADA: {sellers} sellers com acesso restrito · Cluster TPV: {tpv_monthly}M USD/mes. Em casos de T&Cs: 100% das novas vendas bloqueadas ate aceite.", "risco_pct": [0.1, 0.5]}, "Incorrect Charge": {"problema": "Seller acredita ter sido cobrado incorretamente — pode ser chargeback, refund ou cobranca de taxa. Maxwell nao diferencia os tres.", "hoje": "Mensagem generica. Seller vai ao CX sem entender se e um reclamo, chargeback ou ajuste de taxa.", "melhorar": ["Classificar: chargeback vs refund vs ajuste de taxa vs duplicata", "Para chargeback: guiar o seller no processo de contestacao", "Para taxa: mostrar breakdown detalhado", "Educacao terminologica no inicio da conversa"], "impacto": "Reducao de erros de routing. CX de 6% para <2%.", "owner": "Chargebacks squad + Maxwell", "tpv_context": "Cluster: {sellers} sellers questionando cobranças · TPV: {tpv_monthly}M USD/mes. Cobranças incorretas nao resolvidas → churn de sellers de alto valor.", "risco_pct": [0.01, 0.05]}};
 const TPV_RISCO = {"Big Seller|Transaction Declined": {"monthly_mi": 25.099999999999998, "sellers": 185}, "SMB|Transaction Declined": {"monthly_mi": 33.40000000000002, "sellers": 12777}, "SMB|Fees and Commissions": {"monthly_mi": 28.999999999999996, "sellers": 12800}, "Big Seller|Refund Not Received": {"monthly_mi": 25.7, "sellers": 153}, "Big Seller|Access Issues": {"monthly_mi": 11.5, "sellers": 55}, "SMB|Product Not Received": {"monthly_mi": 10.399999999999999, "sellers": 5241}, "Big Seller|Fees and Commissions": {"monthly_mi": 10.0, "sellers": 307}, "SMB|Refund Not Received": {"monthly_mi": 12.499999999999998, "sellers": 4962}, "SMB|Failed Transaction": {"monthly_mi": 12.899999999999995, "sellers": 4674}, "Big Seller|Product Not Received": {"monthly_mi": 4.5, "sellers": 88}, "SMB|Blocked or Suspended": {"monthly_mi": 6.6000000000000005, "sellers": 3825}, "SMB|Money Held": {"monthly_mi": 9.199999999999996, "sellers": 6789}, "Big Seller|Failed Transaction": {"monthly_mi": 6.5, "sellers": 89}, "Longtail|Fees and Commissions": {"monthly_mi": 2.1, "sellers": 104166}, "SMB|Access Issues": {"monthly_mi": 4.500000000000001, "sellers": 1832}, "SMB|Incorrect Charge": {"monthly_mi": 6.500000000000002, "sellers": 3040}, "Longtail|Transaction Declined": {"monthly_mi": 2.1999999999999997, "sellers": 107576}, "SMB|Account Recovery": {"monthly_mi": 1.7, "sellers": 1059}, "Big Seller|Blocked or Suspended": {"monthly_mi": 1.2, "sellers": 60}, "Big Seller|Account Recovery": {"monthly_mi": 0.7, "sellers": 22}, "Big Seller|Money Held": {"monthly_mi": 2.6000000000000005, "sellers": 92}, "Big Seller|Incorrect Charge": {"monthly_mi": 1.5, "sellers": 67}, "Longtail|Failed Transaction": {"monthly_mi": 0.8999999999999999, "sellers": 38074}, "Longtail|Blocked or Suspended": {"monthly_mi": 0.3, "sellers": 30735}, "Longtail|Money Held": {"monthly_mi": 0.6000000000000001, "sellers": 37411}, "Longtail|Access Issues": {"monthly_mi": 0.4, "sellers": 15908}, "Longtail|Incorrect Charge": {"monthly_mi": 0.2, "sellers": 42389}, "Longtail|Product Not Received": {"monthly_mi": 0.2, "sellers": 44442}, "Longtail|Refund Not Received": {"monthly_mi": 0.2, "sellers": 77151}, "Longtail|Account Recovery": {"monthly_mi": 0.0, "sellers": 12573}};
 const PROD_COLOR_MAP = {'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#7048e8'};
+// Product divider colors (background + text) for section headers in lists
+const PROD_DIV_STYLE = {
+  'Instore (Point)':   {bg:'#434ce4', text:'#ffffff'},
+  'Online Payments':   {bg:'#2f9e44', text:'#ffffff'},
+  'Conta':             {bg:'#7048e8', text:'#ffffff'},
+};
 
 function renderOpps() {
   const el = document.getElementById('opps-content');
@@ -1806,7 +1799,17 @@ setTimeout(()=>{ render('ALL','ALL'); },0);
 setTimeout(()=>{ if(document.getElementById('panel-opps').classList.contains('active')) renderOpps(); },100);
 </script>
 
-
+<style id='scroll-fix'>
+html, body { height: 100% !important; margin: 0; overflow: hidden !important; }
+.topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 300; height: 50px; }
+.body-wrap { position: fixed; top: 50px; left: 0; right: 0; bottom: 0; display: flex !important; overflow: hidden !important; }
+.sidebar { width: 200px; flex-shrink: 0 !important; overflow-y: auto !important; height: 100% !important; }
+.main { flex: 1 !important; overflow-y: auto !important; height: 100% !important; }
+.panel { display: none !important; }
+.panel.active { display: block !important; min-height: 200vh !important; }
+.seg-content { display: none !important; }
+.seg-content.active { display: block !important; }
+</style>
 <script>
 // Catch all JS errors
 window.onerror = function(msg, src, line, col, err) {
