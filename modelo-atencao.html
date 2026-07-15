@@ -846,7 +846,7 @@ function buildList(seg, rows) {
   // Merge duplicate UC names: keep highest-vol prod_category, sum volumes
   const _ucMerge={};
   for(const r of rows){
-    const k=r.uc;
+    const k=r.uc+'|'+(r.prod_category||'');
     if(!_ucMerge[k]){
       _ucMerge[k]={...r};
     } else {
