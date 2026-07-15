@@ -843,9 +843,26 @@ function buildList(seg, rows) {
   const listId = (seg==null||seg==='ALL') ? 'ALL' : seg;
   const el = document.getElementById('list-'+listId);
   if(!el) return;
+  // Merge duplicate UC names: keep highest-vol prod_category, sum volumes
+  const _ucMerge={};
+  for(const r of rows){
+    const k=r.uc;
+    if(!_ucMerge[k]){
+      _ucMerge[k]={...r};
+    } else {
+      if(r.vol>_ucMerge[k].vol){
+        _ucMerge[k].prod_category=r.prod_category;
+        _ucMerge[k].prod_subgroup=r.prod_subgroup;
+      }
+      _ucMerge[k].vol+=r.vol;
+      _ucMerge[k].csat_n=(_ucMerge[k].csat_n||0)+(r.csat_n||0);
+      _ucMerge[k].csat_prom=(_ucMerge[k].csat_prom||0)+(r.csat_prom||0);
+    }
+  }
+  const mergedRows=Object.values(_ucMerge);
   const pm={};
   for(const p of PRODS) pm[p]=[];
-  for(const r of [...rows].sort((a,b)=>b.vol-a.vol)){
+  for(const r of [...mergedRows].sort((a,b)=>b.vol-a.vol)){
     const p=r.prod_category||(UC_TO_PROD[r.uc]||'Online Payments');
     if(pm[p]) pm[p].push(r);
   }
