@@ -843,16 +843,19 @@ function buildList(seg, rows) {
   const listId = (seg==null||seg==='ALL') ? 'ALL' : seg;
   const el = document.getElementById('list-'+listId);
   if(!el) return;
-  // Merge duplicate UC names: keep highest-vol prod_category, sum volumes
+  // Each UC appears exactly once: merge all instances by UC name,
+  // assign to BU with highest individual-row volume
   const _ucMerge={};
   for(const r of rows){
-    const k=r.uc+'|'+(r.prod_category||'');
+    const _cat=r.prod_category||(UC_TO_PROD[r.uc]||'Online Payments');
+    const k=r.uc;
     if(!_ucMerge[k]){
-      _ucMerge[k]={...r};
+      _ucMerge[k]={...r, prod_category:_cat, _topVol:r.vol};
     } else {
-      if(r.vol>_ucMerge[k].vol){
-        _ucMerge[k].prod_category=r.prod_category;
+      if(r.vol>_ucMerge[k]._topVol){
+        _ucMerge[k].prod_category=_cat;
         _ucMerge[k].prod_subgroup=r.prod_subgroup;
+        _ucMerge[k]._topVol=r.vol;
       }
       _ucMerge[k].vol+=r.vol;
       _ucMerge[k].csat_n=(_ucMerge[k].csat_n||0)+(r.csat_n||0);
@@ -863,8 +866,8 @@ function buildList(seg, rows) {
   const pm={};
   for(const p of PRODS) pm[p]=[];
   for(const r of [...mergedRows].sort((a,b)=>b.vol-a.vol)){
-    const p=r.prod_category||(UC_TO_PROD[r.uc]||'Online Payments');
-    if(pm[p]) pm[p].push(r);
+    const _p=r.prod_category||'Online Payments';
+    if(pm[_p]) pm[_p].push(r);
   }
   let html='';
   for(const prod of PRODS){
