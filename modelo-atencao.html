@@ -875,8 +875,22 @@ function buildList(seg, rows) {
     const _prodColors={'Instore (Point)':{bg:'#434ce4',tx:'#fff'},'Online Payments':{bg:'#2f9e44',tx:'#fff'},'Conta':{bg:'#e67700',tx:'#fff'}};
     const _pc=_prodColors[prod]||{bg:'#555',tx:'#fff'};
     html+=`<div style="background:${_pc.bg};color:${_pc.tx};padding:10px 14px;font-size:12px;font-weight:800;letter-spacing:.8px;text-transform:uppercase;display:flex;align-items:center;gap:7px;position:sticky;top:0;z-index:10">${PROD_ICON[prod]||''} ${prod}</div>`;
+    // For Conta: sort rows by (subgroup total DESC, row vol DESC) to group subgroups
+    let _prodRows=pm[prod];
+    if(prod==='Conta'){
+      const _sgTot={};
+      for(const r of _prodRows){
+        const _sg=r.prod_subgroup||'Conta & Gestão';
+        _sgTot[_sg]=(_sgTot[_sg]||0)+r.vol;
+      }
+      _prodRows=[..._prodRows].sort((a,b)=>{
+        const sa=a.prod_subgroup||'Conta & Gestão', sb=b.prod_subgroup||'Conta & Gestão';
+        if(sa!==sb) return (_sgTot[sb]||0)-(_sgTot[sa]||0);
+        return b.vol-a.vol;
+      });
+    }
     let _prevSg=null;
-    for(const r of pm[prod]){
+    for(const r of _prodRows){
       // L2 sub-divider for Conta
       if(prod==='Conta'){
         const sg=r.prod_subgroup||'Conta & Gestão';
