@@ -1095,6 +1095,8 @@ function buildList(seg, rows) {
           </table>
         </div>` : '';
 
+      // Diagnostic panel
+      const diagHtml = renderDiag(r.uc);
       // Conv IDs — rich format with site, segment, outcome, CSAT
       const rawIds = CONV_IDS[r.uc]||[];
       const idHtml = rawIds.length ? `
@@ -1151,6 +1153,7 @@ function buildList(seg, rows) {
           ${sparkHtml}
           ${opp?`<div class="acc-opp">💡 ${opp}</div>`:''}
           ${idHtml}
+          ${diagHtml}
         </div>
       </div>`;
     }
@@ -1821,7 +1824,6 @@ function renderOpps() {
                 </div>
               </div>`
             :`<div style="font-size:11px;color:#9c9ebf;padding:8px">Detalle de experiencia próximamente.</div>`}
-          ${renderDiag(r.uc)}
           ${renderDiag(o.uc)}
           ${(()=>{
             const rawIds = CONV_IDS[o.uc]||[];
