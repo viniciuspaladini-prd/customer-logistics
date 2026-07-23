@@ -548,11 +548,21 @@ function renderDiag(uc){
   const d=DIAG[uc];
   if(!d) return '';
   // Failure paths
+  const FP_LABELS_OVERRIDE = {
+    'escalated_to_human': 'Escalou p/ CX (Maxwell não resolveu)',
+    'deflected_to_self_service': 'Mandou p/ autoatendimento sem resolver',
+    'not_eligible': 'Seller marcado como não elegível',
+    'user_abandoned_missing_data': 'Seller abandonou — faltou informação',
+    'user_abandoned': 'Seller desistiu da conversa',
+    'pending_external_process': 'Processo externo pendente',
+    'other': 'Outro motivo',
+  };
   const fpHtml = (d.failure_paths||[]).map(fp=>{
+    const label = FP_LABELS_OVERRIDE[fp.reason] || fp.label || fp.reason;
     const bar=Math.round(fp.pct);
     return `<div style="margin-bottom:6px">
       <div style="display:flex;justify-content:space-between;font-size:10px;margin-bottom:2px">
-        <span style="color:#444">${fp.label}</span>
+        <span style="color:#444">${label}</span>
         <span style="font-weight:700;color:#c05000">${fp.pct}%</span>
       </div>
       <div style="background:#f0f0f0;border-radius:4px;height:6px">
