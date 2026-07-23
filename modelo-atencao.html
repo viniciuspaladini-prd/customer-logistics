@@ -544,7 +544,7 @@ const SG_MAP = {
   'pagamentos & reembolsos': 'Pagamentos & Reembolsos',
   'seguros': 'Seguros',
 };
-function renderDiag(uc){
+function renderDiag(uc, seg){
   const d=DIAG[uc];
   if(!d) return '';
   // Failure paths
@@ -575,7 +575,8 @@ function renderDiag(uc){
     `<span style="display:inline-block;background:#e9f1ff;color:#3b5bdb;border-radius:12px;padding:2px 8px;font-size:9px;font-weight:600;margin:2px">${sk.name}</span>`
   ).join('');
   // Summaries
-  const smHtml = (d.summaries||[]).slice(0,6).map(s=>{
+  const _sums = (d.summaries||[]).filter(s=>!seg||seg==='ALL'||!s.role||s.seg===seg);
+  const smHtml = (_sums.length?_sums:d.summaries||[]).slice(0,6).map(s=>{
     const oc=s.outcome==='unresolved'?'#e03131':s.outcome==='resolved'?'#2f9e44':'#9c9ebf';
     const site=s.site||'—';
     const siteBg={'MLB':'#e9f1ff','MLA':'#fff4e6','MLM':'#d3f9d8','MLC':'#f3f0ff'}[site]||'#f4f5f9';
@@ -1062,7 +1063,7 @@ function buildList(seg, rows) {
         </div>` : '';
 
       // Diagnostic panel
-      const diagHtml = renderDiag(r.uc);
+      const diagHtml = renderDiag(r.uc, currentSeg);
       // Conv IDs — rich format with site, segment, outcome, CSAT
       const rawIds = CONV_IDS[r.uc]||[];
       const idHtml = rawIds.length ? `
@@ -1790,7 +1791,7 @@ function renderOpps() {
                 </div>
               </div>`
             :`<div style="font-size:11px;color:#9c9ebf;padding:8px">Detalle de experiencia próximamente.</div>`}
-          ${renderDiag(o.uc)}
+          ${renderDiag(o.uc, seg)}
           ${(()=>{
             const rawIds = CONV_IDS[o.uc]||[];
             if(!rawIds.length) return '';
@@ -1931,7 +1932,7 @@ function openOppCard(seg, prod, uc) {
       <div style="background:#d3f9d8;border-radius:7px;padding:7px 10px;font-size:10px;color:#1e5e2a"><strong>Impacto:</strong> ${det.impacto}</div>
       <div style="font-size:10px;color:#646587;margin-top:6px"><strong>Owner:</strong> ${det.owner}</div>`:''}
       ${idsHtml}
-      ${renderDiag(opp.uc)}
+      ${renderDiag(opp.uc, seg)}
     </div>`;
 
   // Show in dedicated panel right after the matrix
