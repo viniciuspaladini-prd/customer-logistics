@@ -1196,6 +1196,11 @@ function goMaxwellSeg(seg, btn) {
   document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
   document.getElementById('panel-maxwell').classList.add('active');
   document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  // Auto-find sidebar button if not passed
+  if(!btn && seg && seg!=='ALL') {
+    btn = [...document.querySelectorAll('.nav-item')].find(
+      el => el.getAttribute('onclick') && el.getAttribute('onclick').includes("'"+seg+"'"));
+  }
   if(btn) btn.classList.add('active');
   // Update segment filter badge
   const badge = document.getElementById('seg-filter-badge');
