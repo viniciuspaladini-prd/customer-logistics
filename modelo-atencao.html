@@ -308,8 +308,12 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
         <div class="ch ch-mx" onclick="goMaxwellSeg('Big Seller',null)"><span class="ch-icon">🤖</span>Maxwell<span class="ch-sub">Ver dolores →</span></div>
 
-        <div class="ch-lbl" style="margin-top:6px">Pendente</div>
-        <div class="ch ch-gray" style="border-style:dashed"><span class="ch-icon">⏳</span>Entender direcionamento dos canais atualmente</div>
+        <div class="ch-lbl" style="margin-top:6px">Análise disponível</div>
+        <div class="ch ch-yes" style="border-style:solid;cursor:pointer;background:#e9f1ff;border-color:#3b5bdb" onclick="showPanel('unified',null)">
+          <span class="ch-icon">🔀</span>
+          <span>Visão unificada: qual canal resolve cada problema</span>
+          <span class="ch-sub" style="color:#3b5bdb">Ver análise →</span>
+        </div>
 
         <div style="margin-top:10px;background:#1e2235;border-radius:8px;padding:10px 12px;border-left:3px solid #ffe600">
           <div style="font-size:9px;font-weight:700;text-transform:uppercase;letter-spacing:.6px;color:#ffe600;margin-bottom:5px">📋 1er Deep Dive — Equipo Hunting Big Seller MLA</div>
@@ -509,8 +513,8 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 <!-- ══ UNIFIED SMB PANEL ══════════════════════════════════════ -->
 <div class="panel" id="panel-unified">
   <div class="ph">
-    <h2>🔀 SMB — Visão Unificada de Canales</h2>
-    <p>Maxwell · Consultor Certificado · CX — MLB Ene–Jun 2026 · Volume por canal para cada tema de problema</p>
+    <h2>🔀 SMB — Direcionamento por Canal e Problema</h2>
+    <p>Quais canais os sellers SMB utilizam para cada tipo de problema · Canales mapeados: Maxwell · Consultor Certificado (FAST/presencial) · CX Célula Exclusiva (WA/C2C/Email) · MLB Ene–Jun 2026</p>
   </div>
   <div style="padding:18px 20px" id="unified-content"></div>
 </div>
@@ -2001,9 +2005,9 @@ function renderUnified() {
   if(!el || !UNIFIED_SMB) return;
   const d = UNIFIED_SMB;
   const CH = {
-    maxwell: {label:'Maxwell', color:'#3b5bdb', bg:'#e9f1ff'},
-    cc:      {label:'Consultor CC', color:'#e67700', bg:'#fff4e6'},
-    cx:      {label:'CX Humano', color:'#2f9e44', bg:'#d3f9d8'}
+    maxwell: {label:'Maxwell', color:'#3b5bdb', bg:'#e9f1ff', sub:'Autogestão digital'},
+    cc:      {label:'Consultor Certificado', color:'#e67700', bg:'#fff4e6', sub:'FAST · Visita presencial'},
+    cx:      {label:'CX — Célula Exclusiva', color:'#2f9e44', bg:'#d3f9d8', sub:'WhatsApp · C2C · E-mail · Chat'}
   };
   const maxVol = Math.max(...d.themes.map(t=>t.total));
   let html = `
