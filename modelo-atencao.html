@@ -236,7 +236,353 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
   </div>
   <!-- Sub-tab content areas -->
   <div id="sub-bs-ma"   class="sub-content" style="display:block">
-    <div id="sub-bs-ma-inner" style="padding:0"></div>
+    <div id="sub-bs-ma-inner" style="padding:0">
+<div style="display:flex;flex-direction:column;gap:14px;max-width:1100px;margin:0 auto;padding:20px 24px">
+
+  <!-- HEADER INTERNO -->
+  <div style="background:linear-gradient(135deg,#1A56DB 0%,#1e3a8a 100%);color:white;border-radius:12px;padding:14px 24px;display:flex;justify-content:space-between;align-items:center">
+    <div>
+      <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:3px">MODELO DE ATENÇÃO — BIG SELLER POINT</div>
+      <div style="font-size:17px;font-weight:800">Como os Big Sellers nos buscam — e o que sabemos sobre sua experiência</div>
+    </div>
+    <div style="background:rgba(255,255,255,.15);border-radius:20px;padding:6px 14px;font-size:10px;font-weight:700;flex-shrink:0;margin-left:20px;text-align:right">
+      17.994 sellers ativos<br><span style="opacity:.7">MLA·MLB·MLM·MLC · Mai–Jul 2026</span>
+    </div>
+  </div>
+
+  <!-- FILTRO DE SITE -->
+  <div style="background:white;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,0,0,.07)">
+    <span style="font-size:10px;font-weight:700;color:#6b7280">Filtrar por site:</span>
+    <button class="bs-site-btn active" onclick="bsFilterSite('TODOS',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #1A56DB;background:#1A56DB;color:white;font-size:10px;font-weight:700;cursor:pointer">Todos</button>
+    <button class="bs-site-btn" onclick="bsFilterSite('MLA',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇦🇷 MLA</button>
+    <button class="bs-site-btn" onclick="bsFilterSite('MLB',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇧🇷 MLB</button>
+    <button class="bs-site-btn" onclick="bsFilterSite('MLM',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇲🇽 MLM</button>
+    <button class="bs-site-btn" onclick="bsFilterSite('MLC',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇨🇱 MLC</button>
+    <span style="font-size:9px;color:#9ca3af;margin-left:8px">Base por site: MLA 10.080 · MLB 2.850 · MLC 2.605 · MLM 2.459</span>
+  </div>
+
+  <!-- 00 HOOK EXECUTIVO -->
+  <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);padding:22px 26px">
+    <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:8px">00 — Hook executivo</div>
+    <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:20px">
+      <div style="flex:1">
+        <div style="font-size:60px;font-weight:900;color:#dc2626;line-height:1;letter-spacing:-2px" id="bs-inv-pct">56,6%</div>
+        <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos Big Sellers Point não deixam nenhum rastro nos canais que medimos</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:4px">Não sabemos se é <strong>autossuficiência</strong> (bom sinal) ou <strong>canal não capturado</strong> — especialmente WhatsApp direto com KAM, ainda fora da medição oficial.</div>
+        <div style="margin-top:10px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:10px;color:#713f12">
+          <strong>⚠️ WhatsApp fora da medição oficial:</strong> piloto Jul/26 registrou 77.910 mensagens (MLB·MLC·MCO·MLM — MLA ainda fora). 2.254 sellers únicos · 5.833 msgs. Volume real de KAM pode ser maior.
+        </div>
+      </div>
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:16px 20px;text-align:center;flex-shrink:0;min-width:140px">
+        <div style="display:flex;align-items:center;justify-content:center;gap:5px;margin-bottom:4px">
+          <div style="font-size:9px;font-weight:700;color:#dc2626">Invisíveis</div>
+          <span style="font-size:7px;font-weight:700;color:#dc2626;background:white;border:1px solid #fecaca;border-radius:8px;padding:1px 5px" title="Sellers sem nenhum contato registrado em KAM, Maxwell ou CX no período">achado 1</span>
+        </div>
+        <div style="font-size:32px;font-weight:900;color:#dc2626" id="bs-inv-n">10.137</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:2px">de 17.904 ativos</div>
+        <div style="font-size:8px;color:#9ca3af;margin-top:4px;font-style:italic">base: 17.904<br>ver nota em Fontes</div>
+      </div>
+    </div>
+
+    <!-- Barras de alcance -->
+    <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Canales medidos — Mai–Jul 2026</div>
+    <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:16px">
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:120px;flex-shrink:0"><div style="font-size:10px;font-weight:700;color:#374151">👔 KAM / Consultor</div><div style="font-size:8px;color:#9ca3af">DM_INCOMING_BIG_SELLERS_KAM</div></div>
+        <div style="flex:1;background:#e5e7eb;height:20px;border-radius:5px;overflow:hidden"><div id="bs-kam-bar" style="background:#1A56DB;width:10.3%;height:20px;border-radius:5px;display:flex;align-items:center;padding-left:6px"><span style="font-size:8px;font-weight:700;color:white" id="bs-kam-sellers">1.850</span></div></div>
+        <div style="width:90px;text-align:right"><span style="font-size:14px;font-weight:800;color:#1A56DB" id="bs-kam-pct">10,3%</span><span style="font-size:9px;color:#9ca3af;margin-left:2px">da base</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:120px;flex-shrink:0"><div style="font-size:10px;font-weight:700;color:#374151">🤖 Maxwell</div><div style="font-size:8px;color:#9ca3af">BT_MAXWELL_CONVERSATION_DETAILS</div></div>
+        <div style="flex:1;background:#e5e7eb;height:20px;border-radius:5px;overflow:hidden"><div id="bs-mx-bar" style="background:#f59e0b;width:38%;height:20px;border-radius:5px;display:flex;align-items:center;padding-left:6px"><span style="font-size:8px;font-weight:700;color:white" id="bs-mx-sellers">6.802</span></div></div>
+        <div style="width:90px;text-align:right"><span style="font-size:14px;font-weight:800;color:#f59e0b" id="bs-mx-pct">38,0%</span><span style="font-size:9px;color:#9ca3af;margin-left:2px">da base</span></div>
+      </div>
+      <div style="display:flex;align-items:center;gap:10px">
+        <div style="width:120px;flex-shrink:0"><div style="font-size:10px;font-weight:700;color:#374151">📞 CX / Top-off</div><div style="font-size:8px;color:#9ca3af">BT_CX_CONTACTS (7 filas)</div></div>
+        <div style="flex:1;background:#e5e7eb;height:20px;border-radius:5px;overflow:hidden"><div id="bs-cx-bar" style="background:#16a34a;width:14.4%;height:20px;border-radius:5px;display:flex;align-items:center;padding-left:6px"><span style="font-size:8px;font-weight:700;color:white" id="bs-cx-sellers">2.583</span></div></div>
+        <div style="width:90px;text-align:right"><span style="font-size:14px;font-weight:800;color:#16a34a" id="bs-cx-pct">14,4%</span><span style="font-size:9px;color:#9ca3af;margin-left:2px">da base</span></div>
+      </div>
+    </div>
+
+    <!-- Overlaps -->
+    <div style="padding-top:12px;border-top:1px solid #f3f4f6">
+      <div style="font-size:9px;color:#6b7280;margin-bottom:8px">
+        <strong style="color:#374151">Sellers em 2+ canais:</strong> 2.431 (13,5%) ·
+        KAM+Maxwell: ~1.200 · KAM+CX: ~580 · Maxwell+CX: ~900 · Todos 3: ~250
+        <span style="font-size:8px;color:#9ca3af">&nbsp;·&nbsp;estimativa por inclusão-exclusão</span>
+      </div>
+      <div style="background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:8px 12px;display:flex;gap:8px">
+        <span style="font-size:8px;font-weight:700;color:#dc2626;background:white;border:1px solid #fecaca;border-radius:8px;padding:1px 6px;flex-shrink:0" title="80 de 1.850 sellers que passam pelo KAM não têm nenhum outro canal registrado — KAM é canal único para apenas 4,3%">achado 2</span>
+        <div style="font-size:10px;color:#7f1d1d"><strong>KAM quase nunca é canal único:</strong> só 80 de 1.850 sellers (4,3%) só têm KAM — os demais também passam por Maxwell ou CX</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 01 SELLERS ÚNICOS -->
+  <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow:hidden">
+    <div style="padding:14px 20px;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;letter-spacing:1px;text-transform:uppercase">01 — Sellers únicos por canal</div>
+      <div style="font-size:14px;font-weight:800;color:#111827;margin-top:2px">Em um mês típico, ~21% dos Big Sellers nos contata por algum canal</div>
+      <div style="margin-top:6px;background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:6px 10px;display:flex;gap:6px;align-items:flex-start">
+        <span style="font-size:8px;font-weight:700;color:#0369a1;background:white;border:1px solid #bae6fd;border-radius:8px;padding:1px 6px;flex-shrink:0" title="Média mensal (mai 18,7% / jun 24,0% / jul 20,9%) = 21,2%. Acumulado 3 meses = 43,8% (7.877/17.994). Usamos média mensal por ser mais representativo de um mês típico.">achado 3</span>
+        <div style="font-size:9px;color:#0c4a6e">Alcance médio mensal: <strong>21,2%</strong> (mai 18,7% / jun 24,0% / jul 20,9%) vs. acumulado 3 meses: <strong>43,8%</strong> (7.877/17.994). O título usa a média mensal — mais conservador e mais representativo de um mês típico.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+      <div style="border-right:1px solid #f3f4f6;padding:20px;text-align:center">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px">
+          <div style="width:36px;height:36px;background:#eff6ff;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">👔</div>
+          <div style="text-align:left"><div style="font-size:12px;font-weight:700;color:#1A56DB">KAM / Consultor</div><div style="font-size:8px;color:#9ca3af">Mai–Jul 2026</div></div>
+        </div>
+        <div style="font-size:42px;font-weight:900;color:#1A56DB;line-height:1" id="bs-kam-sellers-01">1.850</div>
+        <div style="font-size:12px;color:#6b7280;margin-top:6px"><strong style="color:#1A56DB" id="bs-kam-pct-01">10,3%</strong> da base ativa</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:4px">6.887 contatos · 3,7/seller</div>
+      </div>
+      <div style="border-right:1px solid #f3f4f6;padding:20px;text-align:center">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px">
+          <div style="width:36px;height:36px;background:#fffbeb;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">🤖</div>
+          <div style="text-align:left"><div style="font-size:12px;font-weight:700;color:#b45309">Maxwell</div><div style="font-size:8px;color:#9ca3af">Mai–Jul 2026</div></div>
+        </div>
+        <div style="font-size:42px;font-weight:900;color:#f59e0b;line-height:1" id="bs-mx-sellers-01">6.802</div>
+        <div style="font-size:12px;color:#6b7280;margin-top:6px"><strong style="color:#f59e0b" id="bs-mx-pct-01">38,0%</strong> da base ativa</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:4px">16.241 conversas · 2,4/seller</div>
+      </div>
+      <div style="padding:20px;text-align:center">
+        <div style="display:flex;align-items:center;justify-content:center;gap:8px;margin-bottom:12px">
+          <div style="width:36px;height:36px;background:#f0fdf4;border-radius:10px;display:flex;align-items:center;justify-content:center;font-size:18px">📞</div>
+          <div style="text-align:left"><div style="font-size:12px;font-weight:700;color:#16a34a">CX / Top-off</div><div style="font-size:8px;color:#9ca3af">7 filas · Mai–Jul 2026</div></div>
+        </div>
+        <div style="font-size:42px;font-weight:900;color:#16a34a;line-height:1" id="bs-cx-sellers-01">2.583</div>
+        <div style="font-size:12px;color:#6b7280;margin-top:6px"><strong style="color:#16a34a" id="bs-cx-pct-01">14,4%</strong> da base ativa</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:4px">5.125 contatos · 2,0/seller</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 02 QUANTIDADE DE CONTATOS -->
+  <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow:hidden">
+    <div style="padding:14px 20px;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;letter-spacing:1px;text-transform:uppercase">02 — Quantidade de contatos por canal</div>
+      <div style="font-size:14px;font-weight:800;color:#111827;margin-top:2px">O canal que menos alcança sellers é o que mais se repete por seller</div>
+      <div style="font-size:10px;color:#6b7280;margin-top:4px">Intensidade: <strong style="color:#1A56DB">KAM 3,7</strong> · <strong style="color:#f59e0b">Maxwell 2,4</strong> · <strong style="color:#16a34a">CX 2,0</strong> contatos/seller alcançado</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+      <div style="border-right:1px solid #f3f4f6;padding:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <div style="width:32px;height:32px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div>
+          <div style="font-size:12px;font-weight:700;color:#1A56DB">KAM / Consultor</div>
+        </div>
+        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">6.887</div>
+        <div style="font-size:11px;font-weight:700;color:#1A56DB;margin-top:2px">24,3% do volume total</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:10px">Mai–Jul · DM_INCOMING_BIG_SELLERS_KAM</div>
+        <div style="font-size:9px;color:#374151;margin-bottom:6px">Split por tipo:</div>
+        <div style="font-size:9px;color:#374151;line-height:1.8">📧 E-mail: <strong>82%</strong><br>🤝 Reunião: <strong>18%</strong><br>📱 WhatsApp: <strong>↓ nota piloto</strong></div>
+        <div style="margin-top:8px;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:6px 10px;display:flex;gap:6px">
+          <span style="font-size:7px;font-weight:700;color:#dc2626;background:white;border:1px solid #fecaca;border-radius:8px;padding:1px 5px;flex-shrink:0" title="974 de 1.883 sellers que aparecem no KAM têm OWNER_MPAGO__C='Sin Asignar' no BT_SALESFORCE_ACCOUNT — não têm dono de conta no CRM">achado 4</span>
+          <div style="font-size:9px;color:#7f1d1d"><strong>51,7% sem KAM atribuído:</strong> 974 de 1.883 sellers com "Sin Asignar" no CRM · geram 2.931 casos (vs. 4.027 dos 909 com KAM nomeado)</div>
+        </div>
+      </div>
+      <div style="border-right:1px solid #f3f4f6;padding:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <div style="width:32px;height:32px;background:#fffbeb;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🤖</div>
+          <div style="font-size:12px;font-weight:700;color:#b45309">Maxwell</div>
+        </div>
+        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">16.241</div>
+        <div style="font-size:11px;font-weight:700;color:#f59e0b;margin-top:2px">57,5% do volume total</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:10px">Mai–Jul · BT_MAXWELL_CONVERSATION_DETAILS</div>
+        <div style="font-size:9px;color:#374151;line-height:1.8">🤖 Autoatendimento digital<br>📱 App MP · Web · WAI Q3/26</div>
+        <div style="margin-top:8px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:6px 10px;display:flex;gap:6px">
+          <span style="font-size:7px;font-weight:700;color:#dc2626;background:white;border:1px solid #fecaca;border-radius:8px;padding:1px 5px;flex-shrink:0" title="CSAT de 64% baseado em apenas 72 respostas (0,44% de taxa de resposta sobre 16.241 conversas) — amostra insuficiente para confiar no número">achado 5</span>
+          <div style="font-size:9px;color:#713f12"><strong>CSAT 64% — N baixo, não confiar:</strong> 72 respostas / 16.241 conversas = 0,44% taxa de resposta</div>
+        </div>
+      </div>
+      <div style="padding:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px">
+          <div style="width:32px;height:32px;background:#f0fdf4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📞</div>
+          <div style="font-size:12px;font-weight:700;color:#16a34a">CX / Top-off</div>
+        </div>
+        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">5.125</div>
+        <div style="font-size:11px;font-weight:700;color:#16a34a;margin-top:2px">18,1% do volume total</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:10px">Mai–Jul · BT_CX_CONTACTS (7 filas)</div>
+        <div style="font-size:9px;color:#374151;line-height:1.8">💬 Chat: <strong>3.457 (66,8%)</strong><br>📞 C2C: <strong>1.717 (33,2%)</strong><br><em style="color:#9ca3af">Sem canal e-mail nas 7 filas</em></div>
+        <div style="margin-top:8px;background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:6px 10px;font-size:9px;color:#166534"><strong>NPS 72 (N=519) — confiável</strong><br>MLA 74 · MLM 83 · MLB 65 · MLC 62</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 03 MOTIVOS DE CONTATO -->
+  <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow:hidden">
+    <div style="padding:14px 20px;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;letter-spacing:1px;text-transform:uppercase">03 — Motivos de contato por canal</div>
+      <div style="font-size:14px;font-weight:800;color:#111827;margin-top:2px">Cada canal descreve a dor com um vocabulário próprio — mas o padrão se repete: hardware Point</div>
+    </div>
+    <div style="padding:8px 20px;border-bottom:1px solid #f3f4f6;display:flex;flex-direction:column;gap:4px">
+      <div style="display:flex;gap:6px;align-items:center">
+        <span style="font-size:8px;font-weight:700;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1px 6px;flex-shrink:0" title="As 3 taxonomias vêm de sistemas distintos: KAM = categorias temáticas do CRM, Maxwell = classification.use_case da IA, CX = CDU operacional. Não são somáveis.">achado 6</span>
+        <div style="font-size:9px;color:#9ca3af">As 3 taxonomias (CRM/KAM, Maxwell use cases, CX CDU) vêm de sistemas distintos — não são somáveis entre si.</div>
+      </div>
+      <div style="display:flex;gap:6px;align-items:center">
+        <span style="font-size:8px;font-weight:700;color:#dc2626;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:1px 6px;flex-shrink:0" title="'Suporte Técnico' (KAM) / 'Malfunction' (Maxwell) / 'Point no funciona' (CX) apontam para a mesma dor de fundo com vocabulários distintos">achado 7</span>
+        <div style="font-size:9px;color:#9ca3af">"Suporte Técnico" (KAM) / "Malfunction" (Maxwell) / "Point no funciona" (CX) — mesma dor, três vocabulários.</div>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+      <div style="border-right:1px solid #f3f4f6;padding:16px 18px">
+        <div style="font-size:11px;font-weight:700;color:#1A56DB;margin-bottom:12px">👔 KAM — top 5</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:8px;color:#9ca3af;margin-bottom:2px">base: ~6.887 contatos</div>
+          <!-- Bar rows: label + bar + pct -->
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Suporte Técnico</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#1A56DB;width:100%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#1A56DB">20,1% · 1.386</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Comercial/Taxas</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#1A56DB;width:79%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#1A56DB">15,9% · 1.097</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Faturamento</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#1A56DB;width:64%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#1A56DB">12,9% · 889</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Logística</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#1A56DB;width:54%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#1A56DB">10,9% · 751</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Relacional</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#1A56DB;width:45%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#1A56DB">9,0% · 620</div></div>
+        </div>
+      </div>
+      <div style="border-right:1px solid #f3f4f6;padding:16px 18px">
+        <div style="font-size:11px;font-weight:700;color:#b45309;margin-bottom:12px">🤖 Maxwell — top 5 use cases</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:8px;color:#9ca3af;margin-bottom:2px">base: 16.272 conversas</div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">How To / Usage</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:100%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#b45309">17,6% · 2.863</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Transaction Req.</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:40%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#b45309">7,1% · 1.148</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Periodic Stmt.</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:40%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#b45309">7,1% · 1.148</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Payment Status</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:37%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#b45309">6,5% · 1.062</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Malfunction</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:31%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#b45309">5,5% · 900</div></div>
+        </div>
+      </div>
+      <div style="padding:16px 18px">
+        <div style="font-size:11px;font-weight:700;color:#16a34a;margin-bottom:12px">📞 CX — top 5 CDU</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:8px;color:#9ca3af;margin-bottom:2px">base: 5.125 contatos</div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Point no funciona</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:100%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#16a34a">15,6% · 800</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Cobro rechazado</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:78%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#16a34a">12,2% · 625</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Troca / RMA</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:62%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#16a34a">9,7% · 497</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Saldo/Repasse</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:50%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#16a34a">7,8% · 400</div></div>
+          <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Conta bloqueada</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:39%;height:100%"></div></div><div style="width:72px;flex-shrink:0;text-align:right;font-size:9px;font-weight:700;color:#16a34a">6,1% · 313</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- 04 GAPS DE SATISFAÇÃO -->
+  <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow:hidden">
+    <div style="padding:14px 20px;border-bottom:1px solid #f3f4f6">
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;letter-spacing:1px;text-transform:uppercase">04 — O que não conseguimos medir</div>
+      <div style="font-size:14px;font-weight:800;color:#111827;margin-top:2px">Satisfação do seller por canal — gaps de mensuração</div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+      <div style="border-right:1px solid #f3f4f6;padding:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><div style="font-size:16px">👔</div><div style="font-size:12px;font-weight:700;color:#1A56DB">KAM / Consultor</div></div>
+        <div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:10px;padding:14px;text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;color:#c2410c;margin-bottom:6px">SEM PESQUISA CONTÍNUA</div>
+          <div style="font-size:36px;font-weight:900;color:#c2410c">~60</div>
+          <div style="font-size:9px;color:#9ca3af;margin-top:3px">NPS · amostra pontual Q3/2025<br>n≈750 · não é métrica corrente</div>
+        </div>
+        <div style="font-size:9px;color:#374151;line-height:1.6">Por site (Q3/2025): MLA 65 · MLB 64 · MLM 64 · MLU 57 · MLC 50</div>
+      </div>
+      <div style="border-right:1px solid #f3f4f6;padding:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><div style="font-size:16px">🤖</div><div style="font-size:12px;font-weight:700;color:#b45309">Maxwell</div></div>
+        <div style="background:#fef3c7;border:2px solid #fde68a;border-radius:10px;padding:14px;text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;color:#92400e;margin-bottom:6px">CSAT EXISTE MAS N BAIXÍSSIMO</div>
+          <div style="font-size:36px;font-weight:900;color:#f59e0b">64%</div>
+          <div style="font-size:9px;color:#9ca3af;margin-top:3px">N=72 de 16.241 convs<br>0,44% taxa de resposta</div>
+        </div>
+        <div style="font-size:9px;color:#374151;background:#fef2f2;border:1px solid #fecaca;border-radius:8px;padding:8px 10px"><strong style="color:#dc2626">⚠️ Não confiar neste número.</strong> Amostra de 72 respostas é estatisticamente insuficiente para representar 6.802 sellers.</div>
+      </div>
+      <div style="padding:20px">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:14px"><div style="font-size:16px">📞</div><div style="font-size:12px;font-weight:700;color:#16a34a">CX / Top-off</div></div>
+        <div style="background:#f0fdf4;border:2px solid #86efac;border-radius:10px;padding:14px;text-align:center;margin-bottom:10px">
+          <div style="font-size:9px;font-weight:700;color:#166534;margin-bottom:6px">NPS CONTÍNUO E CONFIÁVEL ✓</div>
+          <div style="font-size:36px;font-weight:900;color:#16a34a">72</div>
+          <div style="font-size:9px;color:#9ca3af;margin-top:3px">N=519 surveys · 7 filas Point/Topoff</div>
+        </div>
+        <div style="font-size:9px;color:#374151;line-height:1.8">Por site: MLA 74 · MLM 83 · MLB 65 · MLC 62<br>Por canal: Chat 72,2 (N=392) · C2C 71,7 (N=127)</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SÍNTESE -->
+  <div style="background:linear-gradient(135deg,#111827,#1f2937);color:white;border-radius:12px;padding:22px 28px">
+    <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:4px">O QUE ESSE DIAGNÓSTICO MOSTRA</div>
+    <div style="font-size:9px;opacity:.55;margin-bottom:14px;font-style:italic">Compilado dos 7 achados sinalizados nas seções 00–04 — nada novo introduzido aqui.</div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:16px">
+      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">1. Maioria invisível <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 00</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">56,6% sem rastro — autossuficiência ou canal não capturado (WA fora da medição)</div></div>
+      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">2. KAM raramente canal único <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 00</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">Só 80 de 1.850 sellers (4,3%) têm KAM como único canal</div></div>
+      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">3. Mensal vs. acumulado <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 01</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">21,2%/mês típico vs. 43,8% acumulado 3 meses — métrica depende do período</div></div>
+      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">4. KAM sem dono de conta <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 02</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">51,7% dos sellers que passam pelo KAM não têm KAM atribuído no CRM</div></div>
+      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">5. CSAT Maxwell não confiável <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 02</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">0,44% taxa de resposta — 72 respostas de 16.241 conversas</div></div>
+      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">6. Taxonomias distintas <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 03</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">KAM/Maxwell/CX não somáveis — cada um classifica a dor com vocabulário próprio</div></div>
+      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">7. Mesma dor, três nomes <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 03</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">"Suporte Técnico" = "Malfunction" = "Point no funciona" — hardware domina os três canais</div></div>
+    </div>
+    <div style="border-left:3px solid #fca5a5;padding-left:14px;margin-bottom:12px">
+      <div style="font-size:11px;opacity:.9;line-height:1.7">Contexto: entrevistas com KAMs indicam que volume real de WhatsApp é substancialmente maior do que o medido — o piloto de Jul/26 capturou 77.910 mensagens mas MLA ainda está fora. Fica a provocação: <strong>centralizar tudo em um canal único é sustentado pelos dados que temos hoje?</strong></div>
+    </div>
+    <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,.15);font-size:11px;opacity:.75;font-style:italic">
+      Este é um diagnóstico do problema, não uma proposta de solução — o objetivo é alinhar o que sabemos, o que não sabemos e onde está a maior lacuna de visibilidade.
+    </div>
+  </div>
+
+  <!-- FONTES (colapsado) -->
+  <details style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07)">
+    <summary style="padding:14px 20px;font-size:11px;font-weight:700;color:#374151;cursor:pointer">📂 Fontes & Queries BigQuery (clique para expandir)</summary>
+    <div style="padding:14px 20px;border-top:1px solid #f3f4f6;font-size:9px;color:#374151;line-height:1.8">
+      <strong>Billing project:</strong> meli-bi-data · Validado via MCP bigquery-insight (LDAP lalima)<br><br>
+      <strong>BASE — 17.994 sellers ativos:</strong><br>
+      <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM BT_MP_ACQ_MASTER_POINT WHERE CUST_SEGMENT_CROSS='BIG SELLERS' AND MONTH_TRANSACTION BETWEEN '2026-05-01' AND '2026-07-31' AND SIT_SITE_ID IN ('MLA','MLB','MLM','MLC')</code>
+      Resultado original 28/07: 17.904 · Reexecutado 30/07: 17.994 (drift +90). ⚠️ KAM/Maxwell/CX/overlaps NÃO recalculados — inconsistência de 0,3% documentada e aceita.<br><br>
+      <strong>ACHADO 3 — Alcance mensal vs. acumulado:</strong> mai 3.360 (18,7%) · jun 4.326 (24,0%) · jul 3.765 (20,9%) · média 21,2% · acumulado 7.877 (43,8%)<br><br>
+      <strong>KAM:</strong> DM_INCOMING_BIG_SELLERS_KAM · 1.850 sellers Point · 6.887 contatos · split: E-mail 82% / Reunião 18%<br>
+      <strong>Maxwell:</strong> BT_MAXWELL_CONVERSATION_DETAILS · 6.802 sellers · 16.241 convs · CSAT 64% (N=72, 0,44% resp.)<br>
+      <strong>CX:</strong> BT_CX_CONTACTS (7 filas HSP/BR Top-off + BigSellers) · 2.583 sellers · 5.125 contatos · NPS 72 (N=519)<br>
+      <strong>Achado 4:</strong> BT_SALESFORCE_ACCOUNT.OWNER_MPAGO__C · 974 sellers 'Sin Asignar' / 909 com KAM nomeado<br>
+      <strong>WhatsApp piloto:</strong> pdme000285-hhnldgi4gna-furyid.wp_piloto_resumen · Jul/26: 2.254 sellers · 5.833 msgs · MLB·MLC·MCO·MLM
+    </div>
+  </details>
+
+</div>
+
+<script>
+// Big Seller site filter data
+var bsKamData = {
+  TODOS: {sellers:1850, pct:'10,3%', bar:'10.3'},
+  MLA:   {sellers:1067, pct:'10,6%', bar:'10.6'},
+  MLB:   {sellers:189,  pct:'6,6%',  bar:'6.6'},
+  MLM:   {sellers:254,  pct:'10,3%', bar:'10.3'},
+  MLC:   {sellers:373,  pct:'14,3%', bar:'14.3'},
+};
+var bsMxData = {
+  TODOS: {sellers:6802, pct:'38,0%', bar:'38'},
+  MLA:   {sellers:4012, pct:'39,8%', bar:'39.8'},
+  MLB:   {sellers:1057, pct:'37,1%', bar:'37.1'},
+  MLM:   {sellers:986,  pct:'40,1%', bar:'40.1'},
+  MLC:   {sellers:747,  pct:'28,7%', bar:'28.7'},
+};
+var bsCxData = {
+  TODOS: {sellers:2583, pct:'14,4%', bar:'14.4'},
+  MLA:   {sellers:1487, pct:'14,8%', bar:'14.8'},
+  MLB:   {sellers:414,  pct:'14,5%', bar:'14.5'},
+  MLM:   {sellers:388,  pct:'15,8%', bar:'15.8'},
+  MLC:   {sellers:294,  pct:'11,3%', bar:'11.3'},
+};
+function bsFilterSite(site, btn) {
+  document.querySelectorAll('.bs-site-btn').forEach(b=>{
+    b.style.background=b===btn?'#1A56DB':'white';
+    b.style.color=b===btn?'white':'#374151';
+    b.style.borderColor=b===btn?'#1A56DB':'#d1d5db';
+  });
+  var k=bsKamData[site], m=bsMxData[site], cx=bsCxData[site];
+  ['bs-kam-sellers','bs-kam-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=k.sellers.toLocaleString('es');});
+  ['bs-kam-pct','bs-kam-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=k.pct;});
+  var kb=document.getElementById('bs-kam-bar');if(kb)kb.style.width=k.bar.replace(',','.')+'%';
+  ['bs-mx-sellers','bs-mx-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=m.sellers.toLocaleString('es');});
+  ['bs-mx-pct','bs-mx-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=m.pct;});
+  var mb=document.getElementById('bs-mx-bar');if(mb)mb.style.width=m.bar.replace(',','.')+'%';
+  ['bs-cx-sellers','bs-cx-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=cx.sellers.toLocaleString('es');});
+  ['bs-cx-pct','bs-cx-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=cx.pct;});
+  var cb=document.getElementById('bs-cx-bar');if(cb)cb.style.width=cx.bar.replace(',','.')+'%';
+}
+</script>
+</div>
   </div>
   <div id="sub-bs-mx"   class="sub-content" style="display:none">
     <div id="sub-bs-mx-inner"></div>
