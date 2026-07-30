@@ -698,40 +698,21 @@ function bsFilterSite(site, btn) {
 
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
       <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
-        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📋 Estrutura da análise</div>
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📋 Estrutura da exploração</div>
         <div style="display:flex;flex-direction:column;gap:8px">
-          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#f8f9fa;border-radius:8px;cursor:pointer" onclick="showPanel('canais',null)">
-            <span style="font-size:16px">🗺️</span>
-            <div><div style="font-size:11px;font-weight:700">Modelo de Atenção</div><div style="font-size:9px;color:#9ca3af">Visão geral dos 3 segmentos — canais, sellers ativos, produtos</div></div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#fef2f2;border-radius:8px;cursor:pointer" onclick="showSegPanel('bs',null)">
-            <span style="font-size:16px">🔴</span>
-            <div><div style="font-size:11px;font-weight:700">Big Seller</div><div style="font-size:9px;color:#9ca3af">Modelo de Atenção · Maxwell · CX · Oportunidades</div></div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#fff7ed;border-radius:8px;cursor:pointer" onclick="showSegPanel('smb',null)">
-            <span style="font-size:16px">🟠</span>
-            <div><div style="font-size:11px;font-weight:700">SMB</div><div style="font-size:9px;color:#9ca3af">Modelo de Atenção · Maxwell · CX · Oportunidades</div></div>
-          </div>
-          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#f0fdf4;border-radius:8px;cursor:pointer" onclick="showSegPanel('lt',null)">
-            <span style="font-size:16px">🟢</span>
-            <div><div style="font-size:11px;font-weight:700">Longtail</div><div style="font-size:9px;color:#9ca3af">Modelo de Atenção · Maxwell · CX · Oportunidades</div></div>
-          </div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#f8f9fa;border-radius:8px;cursor:pointer" onclick="showPanel('canais',null)"><span style="font-size:18px;flex-shrink:0">🗺️</span><div><div style="font-size:11px;font-weight:700">Modelo de Atenção</div><div style="font-size:9px;color:#9ca3af">Esquema: segmentos, canais e ferramentas · clique para o diagnóstico</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#fef2f2;border-radius:8px;cursor:pointer" onclick="showSegPanel('bs',null)"><span style="font-size:18px;flex-shrink:0">🔴</span><div><div style="font-size:11px;font-weight:700">Big Seller</div><div style="font-size:9px;color:#9ca3af;line-height:1.6"><span style="color:#1A56DB;font-weight:600">📊 MA</span> Mesa Senior: KAM+Maxwell+CX, 7 achados &nbsp;·&nbsp; <span style="color:#3b5bdb;font-weight:600">🤖 Maxwell</span> UCs+CSAT+convIDs &nbsp;·&nbsp; <span style="color:#2f9e44;font-weight:600">📞 CX</span> CDU+NPS &nbsp;·&nbsp; <span style="color:#e67700;font-weight:600">💡 Opps</span></div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#fff7ed;border-radius:8px;cursor:pointer" onclick="showSegPanel('smb',null)"><span style="font-size:18px;flex-shrink:0">🟠</span><div><div style="font-size:11px;font-weight:700">SMB</div><div style="font-size:9px;color:#9ca3af;line-height:1.6"><span style="color:#92400e;font-weight:600">📊 MA</span> 3 canais: Maxwell+CX+CC FAST &nbsp;·&nbsp; <span style="color:#3b5bdb;font-weight:600">🤖 Maxwell</span> UCs+CSAT &nbsp;·&nbsp; <span style="color:#2f9e44;font-weight:600">📞 CX</span> &nbsp;·&nbsp; <span style="color:#e67700;font-weight:600">💡 Opps</span> Money Held+Blocked</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#f0fdf4;border-radius:8px;cursor:pointer" onclick="showSegPanel('lt',null)"><span style="font-size:18px;flex-shrink:0">🟢</span><div><div style="font-size:11px;font-weight:700">Longtail</div><div style="font-size:9px;color:#9ca3af;line-height:1.6"><span style="color:#14532d;font-weight:600">📊 MA</span> Maxwell canal principal &nbsp;·&nbsp; <span style="color:#3b5bdb;font-weight:600">🤖 Maxwell</span> maior volume &nbsp;·&nbsp; <span style="color:#2f9e44;font-weight:600">📞 CX</span> &nbsp;·&nbsp; <span style="color:#e67700;font-weight:600">💡 Opps</span></div></div></div>
         </div>
       </div>
       <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
-        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🔬 Fontes e metodologia</div>
-        <div style="display:flex;flex-direction:column;gap:6px;font-size:10px;color:#374151">
-          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#3b5bdb">Base sellers</span> — LK_MP_SEGMENTATION_SELLERS · SELL_ACTIVE_MTD_FLAG=1 · jun/26</div>
-          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#3b5bdb">Maxwell</span> — BT_MAXWELL_CONVERSATION_DETAILS · ene–jun 2026 · % média mensal de sellers ativos que contataram o canal</div>
-          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#2f9e44">CX</span> — BT_CX_CONTACTS_WITH_MIX · FLAG_EXCLUDE_NUMERATOR_CR=0 · ene–jun 2026</div>
-          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#e67700">CC</span> — SBOX_SELLERSGROWTHMP.MULTICHANNEL_TASKS · channel=CC · ene–jun 2026</div>
-          <div style="padding:5px 0"><span style="font-weight:700">Segmentação</span> — BT_MP_ACQ_MASTER_POINT · CUST_SEGMENT_CROSS</div>
-        </div>
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🔍 Fontes e Metodologia</div>
+        <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:9px 12px;margin-bottom:8px"><div style="font-size:9px;font-weight:700;color:#0369a1;margin-bottom:4px">💬 Conversas já realizadas</div><div style="font-size:9px;color:#0c4a6e;line-height:1.8">✓ <strong>CX Fintech</strong> — scope e contact rate<br>✓ <strong>Maxwell Squad</strong> — arquitetura, skills, policy tags<br>✓ <strong>Flor Stanley</strong> — experiência fragmentada SMB, ETA Q3/26</div></div>
+        <div style="background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:9px 12px;margin-bottom:8px"><div style="font-size:9px;font-weight:700;color:#713f12;margin-bottom:4px">⏳ Conversas pendentes</div><div style="font-size:9px;color:#713f12;line-height:1.8">○ <strong>Consultor CC / FAST</strong> — workflow de tasks e motivos<br>○ <strong>KAM Big Seller</strong> — validar motivos, entender WA informal<br>○ <strong>Risk / Restrições</strong> — fluxo liberação Money Held e Blocked</div></div>
+        <div style="font-size:9px;color:#6b7280;margin-bottom:8px;line-height:1.6">Métricas = <strong>média mensal</strong> de sellers que contataram o canal ÷ base <strong>LK_MP_SEGMENTATION_SELLERS</strong> (SELL_ACTIVE_MTD_FLAG=1).</div>
+        <details style="border:1px solid #e7e9f3;border-radius:8px;overflow:hidden"><summary style="padding:7px 12px;font-size:9px;font-weight:700;color:#374151;cursor:pointer;background:#f8f9fa">📋 Tabelas BigQuery</summary><div style="padding:8px 12px;font-size:9px;color:#374151;line-height:2"><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">LK_MP_SEGMENTATION_SELLERS</code> — base ativos · SELL_ACTIVE_MTD_FLAG=1</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">BT_MP_ACQ_MASTER_POINT</code> — segmentação BIG SELLERS/SMB/LONGTAIL</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">BT_MAXWELL_CONVERSATION_DETAILS</code> — conversas Maxwell · jan–jun/26</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#2f9e44">BT_CX_CONTACTS_WITH_MIX</code> — casos CX · FLAG_EXCLUDE_NUMERATOR_CR=0</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#2f9e44">BT_CX_NPS_DETAIL</code> — NPS · Big Seller 7 filas HSP/BR</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#e67700">SBOX_SELLERSGROWTHMP.MULTICHANNEL_TASKS</code> — tasks CC</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#e67700">BT_MP_POINT_SERVICE_ORDER</code> — SOs via CC</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#1A56DB">DM_INCOMING_BIG_SELLERS_KAM</code> — contatos KAM</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#1A56DB">BT_SALESFORCE_ACCOUNT</code> — OWNER_MPAGO__C</div><div><code style="color:#9c36b5">BT_MAXWELL_SKILL_EXECUTIONS</code> — skills · desde abr/26</div></div></details>
       </div>
-    </div>
-
-    <div style="background:#f8f9fa;border-radius:10px;padding:12px 16px;font-size:10px;color:#6b7280;line-height:1.7">
-      <strong style="color:#374151">Nota metodológica:</strong> % de alcance dos canais = sellers ativos no mês que tiveram ao menos 1 contato naquele canal ÷ total de sellers ativos em adquirência (Point + QR + Link) naquele mês · base jun/26 via LK_MP_SEGMENTATION_SELLERS
     </div>
 
   </div>
