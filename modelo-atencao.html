@@ -194,92 +194,198 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
 <div class="body-wrap">
 <aside class="sidebar">
-  <div class="sb-sec">Visão Geral</div>
   <div class="nav-item active" onclick="showPanel('home',this)"><span class="nav-icon">🎯</span>Objetivo</div>
+  <div class="nav-item" onclick="showPanel('canais',this)"><span class="nav-icon">🗺️</span>Modelo de Atenção</div>
 
-  <div class="sb-sec" style="margin-top:10px">Modelo de Atenção</div>
-  <div class="nav-item" onclick="showPanel('canais',this)"><span class="nav-icon">🗺️</span>Canales por Segmento</div>
-  <div class="nav-item" onclick="showPanel('ma-bs',this)"><span class="nav-icon">🔴</span>Big Seller</div>
-  <div class="nav-item" onclick="showPanel('ma-smb',this)"><span class="nav-icon">🟠</span>SMB</div>
-  <div class="nav-item" onclick="showPanel('ma-lt',this)"><span class="nav-icon">🟢</span>Longtail</div>
+  <div class="sb-sec" style="margin-top:12px">Por Segmento</div>
+  <div class="nav-item" onclick="showSegPanel('bs',this)"><span class="nav-icon">🔴</span>Big Seller</div>
+  <div class="nav-item" onclick="showSegPanel('smb',this)"><span class="nav-icon">🟠</span>SMB</div>
+  <div class="nav-item" onclick="showSegPanel('lt',this)"><span class="nav-icon">🟢</span>Longtail</div>
 
-  <div class="sb-sec" style="margin-top:10px">Maxwell — Exploração</div>
-  <div class="nav-item" onclick="showPanel('maxwell',this)"><span class="nav-icon">🤖</span>Visão Geral</div>
-  <div class="nav-item" onclick="goMaxwellSeg('Big Seller',this)"><span class="nav-icon">🔴</span>Big Seller</div>
-  <div class="nav-item" onclick="goMaxwellSeg('SMB',this)"><span class="nav-icon">🟠</span>SMB</div>
-  <div class="nav-item" onclick="goMaxwellSeg('Longtail',this)"><span class="nav-icon">🟢</span>Longtail</div>
-
-  <div class="sb-sec" style="margin-top:10px">CX — Exploração</div>
-  <div class="nav-item" onclick="showPanel('cx',this)"><span class="nav-icon">📞</span>Visão Geral</div>
-  <div class="nav-item" onclick="showCxSeg('Big Seller',this)"><span class="nav-icon">🔴</span>Big Seller</div>
-  <div class="nav-item" onclick="showCxSeg('SMB',this)"><span class="nav-icon">🟠</span>SMB</div>
-  <div class="nav-item" onclick="showCxSeg('Longtail',this)"><span class="nav-icon">🟢</span>Longtail</div>
-
-  <div class="sb-sec" style="margin-top:10px">Oportunidades</div>
-  <div class="nav-item" onclick="showPanel('opps',this)"><span class="nav-icon">💡</span>Matriz de Prioridades</div>
-
-  <div class="sb-foot">BigQuery · Ene–Jun 2026<br>CX Fintech · Adquiring MP</div>
+  <div class="sb-foot">BigQuery · Jun 2026<br>CX Fintech · Adquiring MP</div>
 </aside>
 
 <div class="main">
 
+
+<!-- SEGMENT PANEL: Big Seller -->
+<div class="panel" id="panel-seg-bs">
+  <!-- Segment header -->
+  <div style="background:linear-gradient(135deg,#7f1d1d,#dc2626);padding:14px 22px;display:flex;align-items:center;justify-content:space-between">
+    <div>
+      <div style="font-size:18px;font-weight:800;color:white">🔴 Big Seller</div>
+      <div style="font-size:10px;color:rgba(255,255,255,.7);margin-top:2px">29K sellers ativos cross-site · 4K MLB · jun/26 · Point 53% · QR 52% · Link 22%</div>
+    </div>
+    <div style="display:flex;gap:8px"><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">🤖 Maxwell</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">Autogestão digital · App · Web</div>
+        </div><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">📞 CX Célula Exclusiva</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">WA Inbound · C2C · E-mail · Chat</div>
+        </div><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">👔 KAM / Consultor</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">Gestor dedicado · Presencial</div>
+        </div></div>
+  </div>
+  <!-- Sub-tab navigation -->
+  <div style="background:#1e2235;display:flex;gap:0;padding:0 22px">
+    <button class="sub-tab-btn active" id="stb-bs-ma"    onclick="showSubTab('bs','ma')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid #ffe600;color:#ffe600;font-size:11px;font-weight:700;cursor:pointer">📊 Modelo de Atenção</button>
+    <button class="sub-tab-btn"        id="stb-bs-mx"    onclick="showSubTab('bs','mx')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">🤖 Maxwell</button>
+    <button class="sub-tab-btn"        id="stb-bs-cx"    onclick="showSubTab('bs','cx')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">📞 CX</button>
+    <button class="sub-tab-btn"        id="stb-bs-opps"  onclick="showSubTab('bs','opps')"   style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">💡 Oportunidades</button>
+  </div>
+  <!-- Sub-tab content areas -->
+  <div id="sub-bs-ma"   class="sub-content" style="display:block">
+    <div id="sub-bs-ma-inner" style="padding:0"></div>
+  </div>
+  <div id="sub-bs-mx"   class="sub-content" style="display:none">
+    <div id="sub-bs-mx-inner"></div>
+  </div>
+  <div id="sub-bs-cx"   class="sub-content" style="display:none">
+    <div id="sub-bs-cx-inner"></div>
+  </div>
+  <div id="sub-bs-opps" class="sub-content" style="display:none">
+    <div id="sub-bs-opps-inner"></div>
+  </div>
+</div>
+
+<!-- SEGMENT PANEL: SMB -->
+<div class="panel" id="panel-seg-smb">
+  <!-- Segment header -->
+  <div style="background:linear-gradient(135deg,#92400e,#d97706);padding:14px 22px;display:flex;align-items:center;justify-content:space-between">
+    <div>
+      <div style="font-size:18px;font-weight:800;color:white">🟠 SMB</div>
+      <div style="font-size:10px;color:rgba(255,255,255,.7);margin-top:2px">859K sellers ativos cross-site · 561K MLB · jun/26 · Point 62% · QR 38% · Link 14%</div>
+    </div>
+    <div style="display:flex;gap:8px"><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">🤖 Maxwell</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">Autogestão digital · App · Web · WAI Q3/26</div>
+        </div><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">📞 CX Célula Exclusiva</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">WA Inbound · C2C · E-mail · Chat</div>
+        </div><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">👔 Consultor CC</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">FAST · Presencial · Proativo</div>
+        </div></div>
+  </div>
+  <!-- Sub-tab navigation -->
+  <div style="background:#1e2235;display:flex;gap:0;padding:0 22px">
+    <button class="sub-tab-btn active" id="stb-smb-ma"    onclick="showSubTab('smb','ma')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid #ffe600;color:#ffe600;font-size:11px;font-weight:700;cursor:pointer">📊 Modelo de Atenção</button>
+    <button class="sub-tab-btn"        id="stb-smb-mx"    onclick="showSubTab('smb','mx')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">🤖 Maxwell</button>
+    <button class="sub-tab-btn"        id="stb-smb-cx"    onclick="showSubTab('smb','cx')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">📞 CX</button>
+    <button class="sub-tab-btn"        id="stb-smb-opps"  onclick="showSubTab('smb','opps')"   style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">💡 Oportunidades</button>
+  </div>
+  <!-- Sub-tab content areas -->
+  <div id="sub-smb-ma"   class="sub-content" style="display:block">
+    <div id="sub-smb-ma-inner" style="padding:0"></div>
+  </div>
+  <div id="sub-smb-mx"   class="sub-content" style="display:none">
+    <div id="sub-smb-mx-inner"></div>
+  </div>
+  <div id="sub-smb-cx"   class="sub-content" style="display:none">
+    <div id="sub-smb-cx-inner"></div>
+  </div>
+  <div id="sub-smb-opps" class="sub-content" style="display:none">
+    <div id="sub-smb-opps-inner"></div>
+  </div>
+</div>
+
+<!-- SEGMENT PANEL: Longtail -->
+<div class="panel" id="panel-seg-lt">
+  <!-- Segment header -->
+  <div style="background:linear-gradient(135deg,#14532d,#16a34a);padding:14px 22px;display:flex;align-items:center;justify-content:space-between">
+    <div>
+      <div style="font-size:18px;font-weight:800;color:white">🟢 Longtail</div>
+      <div style="font-size:10px;color:rgba(255,255,255,.7);margin-top:2px">12.2M sellers ativos cross-site · 5.1M MLB · jun/26 · Point 41% · QR 12% · Link 7%</div>
+    </div>
+    <div style="display:flex;gap:8px"><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">🤖 Maxwell</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">Canal principal · Autogestão · App · Web · WAI Q3/26</div>
+        </div><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">📞 CX</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">Escalação do Maxwell</div>
+        </div><div style="flex:1;background:rgba(255,255,255,.12);border-radius:10px;padding:10px 12px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:4px">👔 CC Virtual</div>
+          <div style="font-size:9px;opacity:.8;line-height:1.6">WA Outbound · Proativo</div>
+        </div></div>
+  </div>
+  <!-- Sub-tab navigation -->
+  <div style="background:#1e2235;display:flex;gap:0;padding:0 22px">
+    <button class="sub-tab-btn active" id="stb-lt-ma"    onclick="showSubTab('lt','ma')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid #ffe600;color:#ffe600;font-size:11px;font-weight:700;cursor:pointer">📊 Modelo de Atenção</button>
+    <button class="sub-tab-btn"        id="stb-lt-mx"    onclick="showSubTab('lt','mx')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">🤖 Maxwell</button>
+    <button class="sub-tab-btn"        id="stb-lt-cx"    onclick="showSubTab('lt','cx')"     style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">📞 CX</button>
+    <button class="sub-tab-btn"        id="stb-lt-opps"  onclick="showSubTab('lt','opps')"   style="padding:10px 18px;background:none;border:none;border-bottom:3px solid transparent;color:#7a85a0;font-size:11px;font-weight:600;cursor:pointer">💡 Oportunidades</button>
+  </div>
+  <!-- Sub-tab content areas -->
+  <div id="sub-lt-ma"   class="sub-content" style="display:block">
+    <div id="sub-lt-ma-inner" style="padding:0"></div>
+  </div>
+  <div id="sub-lt-mx"   class="sub-content" style="display:none">
+    <div id="sub-lt-mx-inner"></div>
+  </div>
+  <div id="sub-lt-cx"   class="sub-content" style="display:none">
+    <div id="sub-lt-cx-inner"></div>
+  </div>
+  <div id="sub-lt-opps" class="sub-content" style="display:none">
+    <div id="sub-lt-opps-inner"></div>
+  </div>
+</div>
+
 <!-- ══ HOME ══════════════════════════════════════════════ -->
 <div class="panel active" id="panel-home">
   <div class="ph">
-    <h2>🎯 Modelo de Atenção Adquiring MP</h2>
-    <p>Mapeamento estratégico de canais, dores e oportunidades por segmento de seller · MLB · Ene–Jun 2026</p>
+    <h2>🎯 Modelo de Atenção — Adquiring MP</h2>
+    <p>Mapeamento do suporte ao seller por segmento · Big Seller · SMB · Longtail · MLB + MLA + MLM + MLC</p>
   </div>
-  <div style="padding:18px 22px;max-width:1100px">
+  <div style="padding:20px 24px;max-width:900px">
 
-    <!-- HERO -->
-    <div style="background:linear-gradient(135deg,#1A1A2E,#16213e);color:white;border-radius:14px;padding:20px 26px;margin-bottom:14px">
-      <div style="font-size:11px;font-weight:700;opacity:.5;letter-spacing:1.5px;margin-bottom:6px">OBJETIVO</div>
-      <div style="font-size:16px;font-weight:800;line-height:1.4;margin-bottom:14px">Mapear como sellers MP buscam suporte — quais canais existem, onde estão as dores e qual o impacto financeiro — por segmento (Big Seller · SMB · Longtail) e vertical (Instore · Online · Conta)</div>
-      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
-        <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('canais',null)"><div style="font-size:16px;margin-bottom:4px">🗺️</div><div style="font-size:11px;font-weight:700">Modelo de Atenção</div><div style="font-size:9px;opacity:.6;margin-top:2px">Canales · Ferramentas · Diagnóstico</div></div>
-        <div style="background:rgba(59,91,219,.25);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('maxwell',null)"><div style="font-size:16px;margin-bottom:4px">🤖</div><div style="font-size:11px;font-weight:700">Maxwell</div><div style="font-size:9px;opacity:.6;margin-top:2px">Volume · CSAT · Dores · UC</div></div>
-        <div style="background:rgba(47,158,68,.25);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('cx',null)"><div style="font-size:16px;margin-bottom:4px">📞</div><div style="font-size:11px;font-weight:700">CX Célula Exclusiva</div><div style="font-size:9px;opacity:.6;margin-top:2px">CDU · NPS · Contact Rate</div></div>
-        <div style="background:rgba(230,119,0,.25);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('opps',null)"><div style="font-size:16px;margin-bottom:4px">💡</div><div style="font-size:11px;font-weight:700">Oportunidades</div><div style="font-size:9px;opacity:.6;margin-top:2px">Matriz · Sub-opps · Evidências</div></div>
+    <div style="background:linear-gradient(135deg,#1A1A2E,#16213e);color:white;border-radius:14px;padding:22px 28px;margin-bottom:16px">
+      <div style="font-size:11px;font-weight:700;opacity:.5;letter-spacing:1.5px;margin-bottom:8px">OBJETIVO</div>
+      <div style="font-size:17px;font-weight:800;line-height:1.5;margin-bottom:14px">Entender como sellers MP de adquirência buscam suporte — quais canais existem, como os utilizam e onde estão as maiores dores — para priorizar melhorias com maior impacto por segmento</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:10px;opacity:.8">
+        <div>📍 Quais canais o seller tem disponíveis em cada segmento?</div>
+        <div>📍 Que % dos sellers ativos contata algum canal por mês?</div>
+        <div>📍 Quais são os temas de maior volume e pior experiência?</div>
+        <div>📍 Onde o Maxwell não resolve e o seller vai para CX humano?</div>
       </div>
     </div>
 
-    <!-- ALERTAS + ESCOPO -->
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
       <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
-        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">⚠️ Alertas críticos</div>
-        <div style="display:flex;flex-direction:column;gap:7px">
-          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fef2f2;border-radius:8px;border-left:3px solid #e03131"><span style="font-size:9px;font-weight:700;color:#dc2626;flex-shrink:0">CSAT 42%</span><span style="font-size:10px;color:#374151"><strong>Money Held</strong> — Maxwell não libera fundos · 62% unresolved · TOP-1 SMB/Longtail</span></div>
-          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fef2f2;border-radius:8px;border-left:3px solid #e03131"><span style="font-size:9px;font-weight:700;color:#dc2626;flex-shrink:0">77% unres.</span><span style="font-size:10px;color:#374151"><strong>Blocked/Suspended</strong> — escala 100% sem diagnóstico · skill 40% non-response</span></div>
-          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fff4e6;border-radius:8px;border-left:3px solid #e67700"><span style="font-size:9px;font-weight:700;color:#2f9e44;flex-shrink:0">69%</span><span style="font-size:10px;color:#374151"><strong>SMB sem fricção</strong> — não geraram contato em nenhum canal no mês (tratado como não tiveram problema)</span></div>
-          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fff4e6;border-radius:8px;border-left:3px solid #e67700"><span style="font-size:9px;font-weight:700;color:#c05000;flex-shrink:0">98% gap</span><span style="font-size:10px;color:#374151"><strong>CC sem CSAT</strong> — 1.87M tasks/ano sem dado de satisfação</span></div>
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📋 Estrutura da análise</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#f8f9fa;border-radius:8px;cursor:pointer" onclick="showPanel('canais',null)">
+            <span style="font-size:16px">🗺️</span>
+            <div><div style="font-size:11px;font-weight:700">Modelo de Atenção</div><div style="font-size:9px;color:#9ca3af">Visão geral dos 3 segmentos — canais, sellers ativos, produtos</div></div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#fef2f2;border-radius:8px;cursor:pointer" onclick="showSegPanel('bs',null)">
+            <span style="font-size:16px">🔴</span>
+            <div><div style="font-size:11px;font-weight:700">Big Seller</div><div style="font-size:9px;color:#9ca3af">Modelo de Atenção · Maxwell · CX · Oportunidades</div></div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#fff7ed;border-radius:8px;cursor:pointer" onclick="showSegPanel('smb',null)">
+            <span style="font-size:16px">🟠</span>
+            <div><div style="font-size:11px;font-weight:700">SMB</div><div style="font-size:9px;color:#9ca3af">Modelo de Atenção · Maxwell · CX · Oportunidades</div></div>
+          </div>
+          <div style="display:flex;gap:10px;align-items:center;padding:8px 10px;background:#f0fdf4;border-radius:8px;cursor:pointer" onclick="showSegPanel('lt',null)">
+            <span style="font-size:16px">🟢</span>
+            <div><div style="font-size:11px;font-weight:700">Longtail</div><div style="font-size:9px;color:#9ca3af">Modelo de Atenção · Maxwell · CX · Oportunidades</div></div>
+          </div>
         </div>
       </div>
       <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
-        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📋 Escopo desta análise</div>
-        <div style="display:flex;flex-direction:column;gap:6px">
-          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#3b5bdb;font-weight:700;flex-shrink:0">Maxwell</span>1.6M conversas · 3 segmentos · CSAT, CX%, Deflection%, Unresolved% por UC</div>
-          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#e67700;font-weight:700;flex-shrink:0">CC</span>1.87M tasks SMB · Service orders · Diagnóstico de motivos por canal</div>
-          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#2f9e44;font-weight:700;flex-shrink:0">CX</span>~59K casos/mês SMB · CDU · NPS · Contact Rate por segmento</div>
-          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#9c36b5;font-weight:700;flex-shrink:0">Opps</span>248 oportunidades · sub-opps com evidências reais de conversas</div>
-          <div style="font-size:10px;color:#374151;padding:5px 0;display:flex;gap:8px"><span style="color:#374151;font-weight:700;flex-shrink:0">Fonte</span>BigQuery meli-bi-data · Ene–Jun 2026 · MLB · SMB / Big Seller / Longtail</div>
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🔬 Fontes e metodologia</div>
+        <div style="display:flex;flex-direction:column;gap:6px;font-size:10px;color:#374151">
+          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#3b5bdb">Base sellers</span> — LK_MP_SEGMENTATION_SELLERS · SELL_ACTIVE_MTD_FLAG=1 · jun/26</div>
+          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#3b5bdb">Maxwell</span> — BT_MAXWELL_CONVERSATION_DETAILS · ene–jun 2026 · % média mensal de sellers ativos que contataram o canal</div>
+          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#2f9e44">CX</span> — BT_CX_CONTACTS_WITH_MIX · FLAG_EXCLUDE_NUMERATOR_CR=0 · ene–jun 2026</div>
+          <div style="padding:5px 0;border-bottom:1px solid #f3f4f6"><span style="font-weight:700;color:#e67700">CC</span> — SBOX_SELLERSGROWTHMP.MULTICHANNEL_TASKS · channel=CC · ene–jun 2026</div>
+          <div style="padding:5px 0"><span style="font-weight:700">Segmentação</span> — BT_MP_ACQ_MASTER_POINT · CUST_SEGMENT_CROSS</div>
         </div>
       </div>
     </div>
 
-    <!-- Segmentos nav cards -->
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
-      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;cursor:pointer" onclick="showPanel('ma-bs',null)">
-        <div style="background:linear-gradient(135deg,#7f1d1d,#dc2626);padding:12px 16px;color:white"><div style="font-size:14px;font-weight:800">🔴 Big Seller</div><div style="font-size:9px;opacity:.7;margin-top:2px">CX dedicado · KAM · Maxwell</div></div>
-        <div style="padding:12px 16px;font-size:9px;color:#374151;line-height:1.7">Célula CX exclusiva · Gestor dedicado · Maxwell como autogestão complementar<div style="margin-top:6px;color:#3b5bdb;font-weight:600">Ver diagnóstico →</div></div>
-      </div>
-      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;cursor:pointer" onclick="showPanel('ma-smb',null)">
-        <div style="background:linear-gradient(135deg,#92400e,#d97706);padding:12px 16px;color:white"><div style="font-size:14px;font-weight:800">🟠 SMB</div><div style="font-size:9px;opacity:.7;margin-top:2px">CX Célula Excl. · Consultor CC · Maxwell</div></div>
-        <div style="padding:12px 16px;font-size:9px;color:#374151;line-height:1.7">629K sellers ativos · 29.3% invisíveis · experiência fragmentada sem orquestração<div style="margin-top:6px;color:#3b5bdb;font-weight:600">Ver diagnóstico completo →</div></div>
-      </div>
-      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;cursor:pointer" onclick="showPanel('ma-lt',null)">
-        <div style="background:linear-gradient(135deg,#14532d,#16a34a);padding:12px 16px;color:white"><div style="font-size:14px;font-weight:800">🟢 Longtail</div><div style="font-size:9px;opacity:.7;margin-top:2px">Maxwell · CX · CC (limitado)</div></div>
-        <div style="padding:12px 16px;font-size:9px;color:#374151;line-height:1.7">Maxwell como canal dominante · sem KAM dedicado · maior volume do dashboard<div style="margin-top:6px;color:#3b5bdb;font-weight:600">Ver diagnóstico →</div></div>
-      </div>
+    <div style="background:#f8f9fa;border-radius:10px;padding:12px 16px;font-size:10px;color:#6b7280;line-height:1.7">
+      <strong style="color:#374151">Nota metodológica:</strong> % de alcance dos canais = sellers ativos no mês que tiveram ao menos 1 contato naquele canal ÷ total de sellers ativos em adquirência (Point + QR + Link) naquele mês · base jun/26 via LK_MP_SEGMENTATION_SELLERS
     </div>
 
   </div>
@@ -1697,6 +1803,213 @@ function renderNps(){
   });
   tblHtml+='</div>';
   el.innerHTML=kpiHtml+tblHtml;
+}
+
+function showSegPanel(seg_id, btn) {
+  // Show the segment panel and activate sidebar item
+  document.querySelectorAll('.panel').forEach(p=>p.classList.remove('active'));
+  const panel = document.getElementById('panel-seg-'+seg_id);
+  if(panel) panel.classList.add('active');
+  document.querySelectorAll('.nav-item').forEach(b=>b.classList.remove('active'));
+  if(!btn) {
+    btn = [...document.querySelectorAll('.nav-item')].find(
+      el => el.getAttribute('onclick') && el.getAttribute('onclick').includes("'"+seg_id+"'"));
+  }
+  if(btn) btn.classList.add('active');
+  // Render the default sub-tab (ma)
+  renderSubTab(seg_id, 'ma');
+}
+
+function showSubTab(seg_id, tab) {
+  // Switch sub-tab within a segment panel
+  ['ma','mx','cx','opps'].forEach(t => {
+    const content = document.getElementById('sub-'+seg_id+'-'+t);
+    const btn = document.getElementById('stb-'+seg_id+'-'+t);
+    if(content) content.style.display = t===tab ? 'block' : 'none';
+    if(btn) {
+      btn.style.borderBottomColor = t===tab ? '#ffe600' : 'transparent';
+      btn.style.color = t===tab ? '#ffe600' : '#7a85a0';
+    }
+  });
+  renderSubTab(seg_id, tab);
+}
+
+const SEG_KEYS = {bs:'Big Seller', smb:'SMB', lt:'Longtail'};
+const CX_SEGS  = {bs:'BIG SELLERS', smb:'SMB', lt:'LONGTAIL'};
+const MA_PANELS = {bs:'ma-bs', smb:'ma-smb', lt:'ma-lt'};
+let renderedSubTabs = {};
+
+function renderSubTab(seg_id, tab) {
+  const key = seg_id+'_'+tab;
+  const seg = SEG_KEYS[seg_id];
+
+  if(tab === 'ma') {
+    // Show the MA panel content inline
+    const inner = document.getElementById('sub-'+seg_id+'-ma-inner');
+    const maPanel = document.getElementById('panel-'+MA_PANELS[seg_id]);
+    if(inner && maPanel && !renderedSubTabs[key]) {
+      inner.innerHTML = maPanel.querySelector('.ph').outerHTML +
+        (maPanel.querySelector('[style*="padding:20px"]') || maPanel.lastElementChild).outerHTML;
+      renderedSubTabs[key] = true;
+    }
+    return;
+  }
+
+  if(tab === 'mx') {
+    const inner = document.getElementById('sub-'+seg_id+'-mx-inner');
+    if(!inner) return;
+    if(!renderedSubTabs[key]) {
+      // Render Maxwell content for this segment
+      inner.innerHTML = '<div class="ctrl-bar" style="background:#fff;padding:7px 18px;border-bottom:1px solid #d0d4e6;display:flex;align-items:center;gap:6px;flex-wrap:wrap">' +
+        '<span style="font-size:10px;color:#646587;font-weight:600">Mes:</span>' +
+        MONTHS.map(m=>`<button class="m-btn ${currentMonth===m?'active':''}" onclick="setSubMxMonth('${seg_id}','${m}',this)">${MONTH_LBL[m]}</button>`).join('') +
+        '<button class="m-btn ' + (currentMonth==='ALL'?'active':'') + '" onclick="setSubMxMonth(''+seg_id+'','ALL',this)" style="margin-left:4px">Todos</button>' +
+        '</div>' +
+        '<div id="sub-'+seg_id+'-kpi-bar" class="seg-kpi-bar"></div>' +
+        '<div class="chart-area"><div class="chart-title">VOLUME vs CSAT — '+seg+'</div>' +
+        '<div class="chart-wrap"><canvas id="chart-'+seg_id+'"></canvas></div>' +
+        '<div id="chart-'+seg_id+'-legend" style="display:flex;gap:12px;padding:6px 18px;flex-wrap:wrap"></div></div>' +
+        '<div class="list-area" id="list-'+seg_id+'"></div>';
+      renderedSubTabs[key] = true;
+    }
+    // Render data for this segment
+    const rows = aggregate(currentMonth, seg);
+    renderKpiBarInto('sub-'+seg_id+'-kpi-bar', seg);
+    renderChartInto('chart-'+seg_id, rows, 'chart-'+seg_id+'-legend');
+    buildList(seg_id, rows);
+    return;
+  }
+
+  if(tab === 'cx') {
+    const inner = document.getElementById('sub-'+seg_id+'-cx-inner');
+    if(!inner) return;
+    if(!renderedSubTabs[key]) {
+      inner.innerHTML = '<div class="ctrl-bar" style="background:#fff;padding:7px 18px;border-bottom:1px solid #d0d4e6;display:flex;align-items:center;gap:6px">' +
+        '<span style="font-size:10px;color:#646587;font-weight:600">Mes:</span>' +
+        ['ALL','2026-01','2026-02','2026-03','2026-04','2026-05','2026-06'].map((m,i)=>
+          `<button class="m-btn ${m==='ALL'?'active':''}" onclick="setSubCxMonth('${seg_id}','${m}',this)">${['Todos','Jan','Fev','Mar','Abr','Mai','Jun'][i]}</button>`).join('') +
+        '</div>' +
+        '<div style="padding:14px" id="sub-'+seg_id+'-cx-content"></div>';
+      renderedSubTabs[key] = true;
+    }
+    // Set CX seg filter and render
+    const prevSeg = cxSeg;
+    cxSeg = CX_SEGS[seg_id];
+    const prevEl = document.getElementById('cx-content');
+    // Temporarily redirect renderCx output
+    const fakeEl = document.getElementById('sub-'+seg_id+'-cx-content');
+    if(fakeEl) {
+      const origGetById = document.getElementById.bind(document);
+      const origCxContent = origGetById('cx-content');
+      if(origCxContent) origCxContent.id = '__cx_hidden';
+      fakeEl.id = 'cx-content';
+      renderCx();
+      fakeEl.id = 'sub-'+seg_id+'-cx-content';
+      if(origCxContent) origCxContent.id = 'cx-content';
+    }
+    cxSeg = prevSeg;
+    return;
+  }
+
+  if(tab === 'opps') {
+    const inner = document.getElementById('sub-'+seg_id+'-opps-inner');
+    if(!inner) return;
+    if(!renderedSubTabs[key]) {
+      inner.innerHTML = '<div style="padding:14px" id="sub-'+seg_id+'-opps-content"></div>';
+      renderedSubTabs[key] = true;
+    }
+    // Set opps filter and render into seg content
+    const prevSeg = oppFilterSeg;
+    oppFilterSeg = seg;
+    const origEl = document.getElementById('opps-content');
+    if(origEl) origEl.id = '__opps_hidden';
+    const fakeEl = document.getElementById('sub-'+seg_id+'-opps-content');
+    if(fakeEl) {
+      fakeEl.id = 'opps-content';
+      renderOpps();
+      fakeEl.id = 'sub-'+seg_id+'-opps-content';
+    }
+    if(origEl) origEl.id = 'opps-content';
+    oppFilterSeg = prevSeg;
+    return;
+  }
+}
+
+function setSubMxMonth(seg_id, m, btn) {
+  currentMonth = m;
+  // Update button states within this sub-tab
+  const panel = document.getElementById('panel-seg-'+seg_id);
+  if(panel) panel.querySelectorAll('.m-btn').forEach(b=>{
+    if(b.onclick && b.onclick.toString().includes('setSubMxMonth')) b.classList.remove('active');
+  });
+  if(btn) btn.classList.add('active');
+  renderedSubTabs[seg_id+'_mx'] = true; // already rendered structure
+  const seg = SEG_KEYS[seg_id];
+  const rows = aggregate(m, seg);
+  renderKpiBarInto('sub-'+seg_id+'-kpi-bar', seg);
+  renderChartInto('chart-'+seg_id, rows, 'chart-'+seg_id+'-legend');
+  buildList(seg_id, rows);
+}
+
+function setSubCxMonth(seg_id, m, btn) {
+  const panel = document.getElementById('panel-seg-'+seg_id);
+  if(panel) panel.querySelectorAll('.m-btn').forEach(b=>{
+    if(b.onclick && b.onclick.toString().includes('setSubCxMonth')) b.classList.remove('active');
+  });
+  if(btn) btn.classList.add('active');
+  cxMonth = m;
+  cxSeg = CX_SEGS[seg_id];
+  const origEl = document.getElementById('cx-content');
+  if(origEl) origEl.id = '__cx_hidden2';
+  const fakeEl = document.getElementById('sub-'+seg_id+'-cx-content');
+  if(fakeEl) {
+    fakeEl.id = 'cx-content';
+    renderCx();
+    fakeEl.id = 'sub-'+seg_id+'-cx-content';
+  }
+  if(origEl) origEl.id = 'cx-content';
+}
+
+function renderKpiBarInto(elId, seg) {
+  const el = document.getElementById(elId);
+  if(!el) return;
+  const segFilter = (seg==='ALL') ? null : seg;
+  const rows = aggregate(currentMonth, segFilter);
+  const totalV = rows.reduce((s,r)=>s+r.vol,0);
+  const totalCsat = rows.filter(r=>r.csat!=null);
+  const avgCsat = totalCsat.length ? Math.round(totalCsat.reduce((s,r)=>s+r.csat*r.csat_n,0)/totalCsat.reduce((s,r)=>s+r.csat_n,0)*10)/10 : null;
+  const totalCx = rows.reduce((s,r)=>s+r.cx*r.vol,0)/Math.max(totalV,1);
+  el.innerHTML = `<div style="display:flex;gap:20px;padding:8px 18px">
+    <div class="skpi"><div class="skpi-val">${(totalV/1000).toFixed(0)}K</div><div class="skpi-lbl">Conversaciones Maxwell</div></div>
+    <div class="skpi-div"></div>
+    <div class="skpi"><div class="skpi-val" style="color:${avgCsat&&avgCsat<3.2?'#e03131':avgCsat&&avgCsat<3.8?'#e67700':'#2f9e44'}">${avgCsat||'—'}</div><div class="skpi-lbl">CSAT Médio</div></div>
+    <div class="skpi-div"></div>
+    <div class="skpi"><div class="skpi-val" style="color:${totalCx>20?'#e03131':totalCx>10?'#e67700':'#2f9e44'}">${Math.round(totalCx)}%</div><div class="skpi-lbl">CX%</div></div>
+  </div>`;
+}
+
+function renderChartInto(canvasId, rows, legendId) {
+  const canvas = document.getElementById(canvasId);
+  if(!canvas) return;
+  // Reuse existing renderChart logic but with specific canvas
+  const existingChart = Chart.getChart(canvas);
+  if(existingChart) existingChart.destroy();
+  const BU_COLORS = {'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#e67700'};
+  const datasets = rows.filter(r=>r.csat!=null&&r.vol>0).map(r=>({
+    label:r.uc, x:r.csat, y:Math.log10(r.vol+1),
+    r:Math.max(Math.sqrt(r.vol)/20,3),
+    backgroundColor: (BU_COLORS[r.prod_category]||'#9c9ebf')+'aa',
+    borderColor: BU_COLORS[r.prod_category]||'#9c9ebf',
+    borderWidth:1, _row:r
+  }));
+  new Chart(canvas, {type:'bubble',data:{datasets:[{data:datasets}]},
+    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:d=>d.raw._row?`${d.raw._row.uc} | ${d.raw.x}% CSAT | ${(d.raw._row.vol/1000).toFixed(0)}K convs`:''}}},
+    scales:{x:{title:{display:true,text:'CSAT% (promotores 4-5/total)'},min:0,max:105},y:{title:{display:true,text:'Volume (log)'},min:0}}}});
+  if(legendId) {
+    const legEl = document.getElementById(legendId);
+    if(legEl) legEl.innerHTML = Object.entries(BU_COLORS).map(([k,c])=>
+      `<span style="display:flex;align-items:center;gap:4px;font-size:10px"><span style="width:10px;height:10px;border-radius:2px;background:${c};display:inline-block"></span>${k}</span>`).join('');
+  }
 }
 
 function showCxSeg(seg, btn) {
