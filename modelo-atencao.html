@@ -3462,49 +3462,8 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 </div>
 
 <script>
-// Big Seller site filter data
-var bsKamData = {
-  TODOS: {sellers:1850, pct:'10,3%', bar:'10.3'},
-  MLA:   {sellers:1067, pct:'10,6%', bar:'10.6'},
-  MLB:   {sellers:189,  pct:'6,6%',  bar:'6.6'},
-  MLM:   {sellers:254,  pct:'10,3%', bar:'10.3'},
-  MLC:   {sellers:373,  pct:'14,3%', bar:'14.3'},
-};
-var bsMxData = {
-  TODOS: {sellers:6802, pct:'38,0%', bar:'38'},
-  MLA:   {sellers:4012, pct:'39,8%', bar:'39.8'},
-  MLB:   {sellers:1057, pct:'37,1%', bar:'37.1'},
-  MLM:   {sellers:986,  pct:'40,1%', bar:'40.1'},
-  MLC:   {sellers:747,  pct:'28,7%', bar:'28.7'},
-};
-var bsCxData = {
-  TODOS: {sellers:2583, pct:'14,4%', bar:'14.4'},
-  MLA:   {sellers:1487, pct:'14,8%', bar:'14.8'},
-  MLB:   {sellers:414,  pct:'14,5%', bar:'14.5'},
-  MLM:   {sellers:388,  pct:'15,8%', bar:'15.8'},
-  MLC:   {sellers:294,  pct:'11,3%', bar:'11.3'},
-};
-function bsFilterSite(site, btn) {
-  document.querySelectorAll('.bs-site-btn').forEach(b=>{
-    b.style.background=b===btn?'#1A56DB':'white';
-    b.style.color=b===btn?'white':'#374151';
-    b.style.borderColor=b===btn?'#1A56DB':'#d1d5db';
-  });
-  var k=bsKamData[site], m=bsMxData[site], cx=bsCxData[site];
-  ['bs-kam-sellers','bs-kam-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=k.sellers.toLocaleString('es');});
-  ['bs-kam-pct','bs-kam-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=k.pct;});
-  var kb=document.getElementById('bs-kam-bar');if(kb)kb.style.width=k.bar.replace(',','.')+'%';
-  ['bs-mx-sellers','bs-mx-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=m.sellers.toLocaleString('es');});
-  ['bs-mx-pct','bs-mx-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=m.pct;});
-  var mb=document.getElementById('bs-mx-bar');if(mb)mb.style.width=m.bar.replace(',','.')+'%';
-  ['bs-cx-sellers','bs-cx-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=cx.sellers.toLocaleString('es');});
-  ['bs-cx-pct','bs-cx-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=cx.pct;});
-  var cb=document.getElementById('bs-cx-bar');if(cb)cb.style.width=cx.bar.replace(',','.')+'%';
-}
-
 
 // BS Mesa Senior filter
->
 // Big Seller site filter data
 var bsKamData = {
   TODOS: {sellers:1850, pct:'10,3%', bar:'10.3'},
