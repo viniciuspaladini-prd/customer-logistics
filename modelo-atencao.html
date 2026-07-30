@@ -432,21 +432,50 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
     </div>
 
   <div style="background:linear-gradient(135deg,#111827,#1f2937);color:white;border-radius:12px;padding:22px 28px">
-    <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:4px">O QUE ESSE DIAGNÓSTICO MOSTRA</div>
-    <div style="font-size:9px;opacity:.55;margin-bottom:14px;font-style:italic">Compilado dos 7 achados sinalizados nas seções 00–04 — nada novo introduzido aqui.</div>
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px 24px;margin-bottom:16px">
-      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">1. Maioria invisível <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 00</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">56,6% sem rastro — autossuficiência ou canal não capturado (WA fora da medição)</div></div>
-      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">2. KAM raramente canal único <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 00</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">Só 80 de 1.850 sellers (4,3%) têm KAM como único canal</div></div>
-      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">3. Mensal vs. acumulado <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 01</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">21,2%/mês típico vs. 43,8% acumulado 3 meses — métrica depende do período</div></div>
-      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">4. KAM sem dono de conta <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 02</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">51,7% dos sellers que passam pelo KAM não têm KAM atribuído no CRM</div></div>
-      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">5. CSAT Maxwell não confiável <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 02</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">0,44% taxa de resposta — 72 respostas de 16.241 conversas</div></div>
-      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">6. Taxonomias distintas <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 03</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">KAM/Maxwell/CX não somáveis — cada um classifica a dor com vocabulário próprio</div></div>
-      <div><div style="font-size:12px;font-weight:800;color:#fca5a5;margin-bottom:3px">7. Mesma dor, três nomes <span style="opacity:.5;font-weight:400;font-size:10px">→ seção 03</span></div><div style="font-size:10px;opacity:.85;line-height:1.5">"Suporte Técnico" = "Malfunction" = "Point no funciona" — hardware domina os três canais</div></div>
+    <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:12px">O QUE ESSE DIAGNÓSTICO MOSTRA</div>
+
+    <div style="display:flex;flex-direction:column;gap:14px">
+
+      <!-- Insight 1: 20% alcance -->
+      <div style="border-left:3px solid #60a5fa;padding-left:16px">
+        <div style="font-size:13px;font-weight:700;color:#93c5fd;margin-bottom:4px">~21% dos Big Sellers entram em contato com algum canal por mês</div>
+        <div style="font-size:11px;opacity:.85;line-height:1.7">
+          Em um mês típico, apenas 1 em cada 5 Big Sellers registra contato em algum canal medido (Maxwell, KAM ou CX).
+          Não sabemos se os demais 79% são autossuficientes ou simplesmente não chegam aos canais que medimos.
+          <span style="color:#fbbf24;font-weight:600">Ponto em aberto:</span> para SMB e Longtail, esse percentual é diferente? É ruim estar abaixo de 20% ou é sinal positivo de autossuficiência?
+        </div>
+      </div>
+
+      <!-- Insight 2: Maxwell volume alto, satisfação invisível -->
+      <div style="border-left:3px solid #fbbf24;padding-left:16px">
+        <div style="font-size:13px;font-weight:700;color:#fde68a;margin-bottom:4px">Maxwell é o canal de maior volume — mas satisfação é praticamente invisível</div>
+        <div style="font-size:11px;opacity:.85;line-height:1.7">
+          57,5% de todos os contatos passam pelo Maxwell (16.241 conversas), mas apenas 72 sellers responderam a pesquisa de CSAT (0,44% de taxa de resposta).
+          Com uma amostra tão reduzida, o CSAT de 64% não é representativo — não sabemos se o Maxwell está resolvendo ou frustrando os Big Sellers.
+        </div>
+      </div>
+
+      <!-- Insight 3: KAM sem medição -->
+      <div style="border-left:3px solid #a78bfa;padding-left:16px">
+        <div style="font-size:13px;font-weight:700;color:#c4b5fd;margin-bottom:4px">KAM: canal de alta intensidade, mas sem medição de satisfação ativa</div>
+        <div style="font-size:11px;opacity:.85;line-height:1.7">
+          Quando um seller usa o KAM, usa com alta frequência (3,7 contatos/seller — maior intensidade entre os três canais).
+          Mas não temos NPS ou CSAT contínuo para o KAM — a única referência é uma pesquisa pontual de Q3/2025 (NPS ≈ 60, não é métrica corrente).
+        </div>
+      </div>
+
+      <!-- Insight 4: KAM não resolve sozinho -->
+      <div style="border-left:3px solid #34d399;padding-left:16px">
+        <div style="font-size:13px;font-weight:700;color:#6ee7b7;margin-bottom:4px">95,7% dos sellers que usam KAM também precisam de outro canal</div>
+        <div style="font-size:11px;opacity:.85;line-height:1.7">
+          Apenas 80 de 1.850 sellers (4,3%) têm o KAM como canal único — os demais também passam pelo Maxwell ou CX.
+          O KAM, quando utilizado, é o canal mais frequente por seller (3,7/contato), mas não sabemos se isso indica preferência, maior resolutividade ou simplesmente que o KAM é acionado para demandas que já passaram por outro canal sem resolução.
+        </div>
+      </div>
+
     </div>
-    <div style="border-left:3px solid #fca5a5;padding-left:14px;margin-bottom:12px">
-      <div style="font-size:11px;opacity:.9;line-height:1.7">Contexto: entrevistas com KAMs indicam que volume real de WhatsApp é substancialmente maior do que o medido — o piloto de Jul/26 capturou 77.910 mensagens mas MLA ainda está fora. Fica a provocação: <strong>centralizar tudo em um canal único é sustentado pelos dados que temos hoje?</strong></div>
-    </div>
-    <div style="padding-top:12px;border-top:1px solid rgba(255,255,255,.15);font-size:11px;opacity:.75;font-style:italic">
+
+    <div style="margin-top:16px;padding-top:14px;border-top:1px solid rgba(255,255,255,.15);font-size:11px;opacity:.75;font-style:italic">
       Este é um diagnóstico do problema, não uma proposta de solução — o objetivo é alinhar o que sabemos, o que não sabemos e onde está a maior lacuna de visibilidade.
     </div>
   </div>
