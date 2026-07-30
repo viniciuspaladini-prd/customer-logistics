@@ -195,7 +195,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 <div class="body-wrap">
 <aside class="sidebar">
   <div class="sb-sec">Visão Geral</div>
-  <div class="nav-item active" onclick="showPanel('home',this)"><span class="nav-icon">🏠</span>Capa</div>
+  <div class="nav-item active" onclick="showPanel('home',this)"><span class="nav-icon">🎯</span>Objetivo</div>
 
   <div class="sb-sec" style="margin-top:10px">Modelo de Atenção</div>
   <div class="nav-item" onclick="showPanel('canais',this)"><span class="nav-icon">🗺️</span>Canales por Segmento</div>
@@ -227,45 +227,60 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 <!-- ══ HOME ══════════════════════════════════════════════ -->
 <div class="panel active" id="panel-home">
   <div class="ph">
-    <h2>🗺️ Mapeo de Oportunidades — Adquiring MP</h2>
-    <p>Visión estratégica cross-segmento: canales de atención, dolores en Maxwell e impacto en negocio.</p>
+    <h2>🎯 Modelo de Atenção Adquiring MP</h2>
+    <p>Mapeamento estratégico de canais, dores e oportunidades por segmento de seller · MLB · Ene–Jun 2026</p>
   </div>
-  <div class="obj-section">
+  <div style="padding:18px 22px;max-width:1100px">
 
-    <div class="obj-card" style="border-top:4px solid #3b5bdb">
-      <h3>🎯 Objetivo desta Exploração</h3>
-      <p>Mapear, para cada segmento de seller MP (Big Seller, SMB, Longtail), <strong>quais canais de atendimento existem</strong>, <strong>onde estão as principais dores no Maxwell e CX</strong> e <strong>qual o impacto financeiro</strong> — cruzando volume de conversas, CSAT, NPS, CX escalation, Deflection e TPV em risco.</p>
-      <p style="margin-top:8px">As <strong>3 verticais de análise</strong>: 📟 Instore (Point) · 💳 Online Payments · 🏦 Conta (inclui conta geral, crédito, investimentos, restricciones & bloqueos)</p>
-      <p style="margin-top:8px">Produto final: <strong>matriz de relevância e impacto</strong> consolidando Maxwell + CX, apresentada ao negócio com visão integral do ciclo de vida do seller.</p>
+    <!-- HERO -->
+    <div style="background:linear-gradient(135deg,#1A1A2E,#16213e);color:white;border-radius:14px;padding:20px 26px;margin-bottom:14px">
+      <div style="font-size:11px;font-weight:700;opacity:.5;letter-spacing:1.5px;margin-bottom:6px">OBJETIVO</div>
+      <div style="font-size:16px;font-weight:800;line-height:1.4;margin-bottom:14px">Mapear como sellers MP buscam suporte — quais canais existem, onde estão as dores e qual o impacto financeiro — por segmento (Big Seller · SMB · Longtail) e vertical (Instore · Online · Conta)</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:10px">
+        <div style="background:rgba(255,255,255,.08);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('canais',null)"><div style="font-size:16px;margin-bottom:4px">🗺️</div><div style="font-size:11px;font-weight:700">Modelo de Atenção</div><div style="font-size:9px;opacity:.6;margin-top:2px">Canales · Ferramentas · Diagnóstico</div></div>
+        <div style="background:rgba(59,91,219,.25);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('maxwell',null)"><div style="font-size:16px;margin-bottom:4px">🤖</div><div style="font-size:11px;font-weight:700">Maxwell</div><div style="font-size:9px;opacity:.6;margin-top:2px">Volume · CSAT · Dores · UC</div></div>
+        <div style="background:rgba(47,158,68,.25);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('cx',null)"><div style="font-size:16px;margin-bottom:4px">📞</div><div style="font-size:11px;font-weight:700">CX Célula Exclusiva</div><div style="font-size:9px;opacity:.6;margin-top:2px">CDU · NPS · Contact Rate</div></div>
+        <div style="background:rgba(230,119,0,.25);border-radius:10px;padding:12px;cursor:pointer" onclick="showPanel('opps',null)"><div style="font-size:16px;margin-bottom:4px">💡</div><div style="font-size:11px;font-weight:700">Oportunidades</div><div style="font-size:9px;opacity:.6;margin-top:2px">Matriz · Sub-opps · Evidências</div></div>
+      </div>
     </div>
 
-
+    <!-- ALERTAS + ESCOPO -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:14px">
+      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">⚠️ Alertas críticos</div>
+        <div style="display:flex;flex-direction:column;gap:7px">
+          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fef2f2;border-radius:8px;border-left:3px solid #e03131"><span style="font-size:9px;font-weight:700;color:#dc2626;flex-shrink:0">CSAT 42%</span><span style="font-size:10px;color:#374151"><strong>Money Held</strong> — Maxwell não libera fundos · 62% unresolved · TOP-1 SMB/Longtail</span></div>
+          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fef2f2;border-radius:8px;border-left:3px solid #e03131"><span style="font-size:9px;font-weight:700;color:#dc2626;flex-shrink:0">77% unres.</span><span style="font-size:10px;color:#374151"><strong>Blocked/Suspended</strong> — escala 100% sem diagnóstico · skill 40% non-response</span></div>
+          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fff4e6;border-radius:8px;border-left:3px solid #e67700"><span style="font-size:9px;font-weight:700;color:#c05000;flex-shrink:0">29.3%</span><span style="font-size:10px;color:#374151"><strong>SMB invisíveis</strong> — sem rastro em nenhum canal medido</span></div>
+          <div style="display:flex;gap:8px;align-items:flex-start;padding:7px 10px;background:#fff4e6;border-radius:8px;border-left:3px solid #e67700"><span style="font-size:9px;font-weight:700;color:#c05000;flex-shrink:0">98% gap</span><span style="font-size:10px;color:#374151"><strong>CC sem CSAT</strong> — 1.87M tasks/ano sem dado de satisfação</span></div>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📋 Escopo desta análise</div>
+        <div style="display:flex;flex-direction:column;gap:6px">
+          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#3b5bdb;font-weight:700;flex-shrink:0">Maxwell</span>1.6M conversas · 3 segmentos · CSAT, CX%, Deflection%, Unresolved% por UC</div>
+          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#e67700;font-weight:700;flex-shrink:0">CC</span>1.87M tasks SMB · Service orders · Diagnóstico de motivos por canal</div>
+          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#2f9e44;font-weight:700;flex-shrink:0">CX</span>351K casos SMB · CDU · NPS · Contact Rate por segmento</div>
+          <div style="font-size:10px;color:#374151;padding:5px 0;border-bottom:1px solid #f3f4f6;display:flex;gap:8px"><span style="color:#9c36b5;font-weight:700;flex-shrink:0">Opps</span>248 oportunidades · sub-opps com evidências reais de conversas</div>
+          <div style="font-size:10px;color:#374151;padding:5px 0;display:flex;gap:8px"><span style="color:#374151;font-weight:700;flex-shrink:0">Fonte</span>BigQuery meli-bi-data · Ene–Jun 2026 · MLB · SMB / Big Seller / Longtail</div>
+        </div>
+      </div>
     </div>
 
-    <div class="obj-card">
-      <h3>📡 O que mapeamos</h3>
-      <ul>
-        <li><strong>Canales de atendimento</strong> por segmento: CX/Top Off, Consultor Certificado (CC), WhatsApp Inbound, Maxwell, Notificações, App</li>
-        <li><strong>Lacunas</strong>: quais canais não estão mapeados (cinza) ou sin acceso (Longtail sem CC)</li>
-        <li><strong>Dores no Maxwell</strong>: volume, CSAT, CX%, Deflection% e Unresolved% por use case — dados reais BigQuery Ene–Jun 2026</li>
-        <li><strong>Oportunidades</strong>: para cada use case crítico, qual melhoria pode ser feita e qual impacto esperado em NPS / CX / TPV</li>
-      </ul>
-    </div>
-
-    <div class="obj-card" style="border-left:4px solid #e03131">
-      <h3>🔴 Principais Alertas Identificados</h3>
-      <ul>
-        <li><strong>Skill userrestrictions com 40% de non-response</strong> — causa direta do CSAT baixo em Blocked/Suspended e Money Held</li>
-        <li><strong>Deflection ≠ Resolution</strong>: 64% deflectado do CX, mas 77% termina com outcome=unresolved (Conta)</li>
-        <li><strong>Money Held</strong>: pior CSAT de toda a base (2.75–2.91). Maxwell não consegue liberar fundos — impacto direto em principalidade</li>
-        <li><strong>Transaction Declined</strong>: skill Activities com informação imprecisa — seller não entende motivo do rechazo nem próximos pasos. Impacto em TPV perdido</li>
-      </ul>
-    </div>
-
-    <div class="obj-card">
-      <h3>🧭 Como navegar</h3>
-      <p><strong>📡 Canales de Atención</strong> — visão de quais canais cada segmento acessa, com Maxwell como canal clicável que leva às dores</p>
-      <p style="margin-top:4px"><strong>🤖 Maxwell — Dolores</strong> — bubble chart (Volume vs CSAT) + accordion por use case com tendência mensal, deflection, unresolved e oportunidade</p>
+    <!-- Segmentos nav cards -->
+    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;cursor:pointer" onclick="showPanel('ma-bs',null)">
+        <div style="background:linear-gradient(135deg,#7f1d1d,#dc2626);padding:12px 16px;color:white"><div style="font-size:14px;font-weight:800">🔴 Big Seller</div><div style="font-size:9px;opacity:.7;margin-top:2px">CX dedicado · KAM · Maxwell</div></div>
+        <div style="padding:12px 16px;font-size:9px;color:#374151;line-height:1.7">Célula CX exclusiva · Gestor dedicado · Maxwell como autogestão complementar<div style="margin-top:6px;color:#3b5bdb;font-weight:600">Ver diagnóstico →</div></div>
+      </div>
+      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;cursor:pointer" onclick="showPanel('ma-smb',null)">
+        <div style="background:linear-gradient(135deg,#92400e,#d97706);padding:12px 16px;color:white"><div style="font-size:14px;font-weight:800">🟠 SMB</div><div style="font-size:9px;opacity:.7;margin-top:2px">CX Célula Excl. · Consultor CC · Maxwell</div></div>
+        <div style="padding:12px 16px;font-size:9px;color:#374151;line-height:1.7">629K sellers ativos · 29.3% invisíveis · experiência fragmentada sem orquestração<div style="margin-top:6px;color:#3b5bdb;font-weight:600">Ver diagnóstico completo →</div></div>
+      </div>
+      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;cursor:pointer" onclick="showPanel('ma-lt',null)">
+        <div style="background:linear-gradient(135deg,#14532d,#16a34a);padding:12px 16px;color:white"><div style="font-size:14px;font-weight:800">🟢 Longtail</div><div style="font-size:9px;opacity:.7;margin-top:2px">Maxwell · CX · CC (limitado)</div></div>
+        <div style="padding:12px 16px;font-size:9px;color:#374151;line-height:1.7">Maxwell como canal dominante · sem KAM dedicado · maior volume do dashboard<div style="margin-top:6px;color:#3b5bdb;font-weight:600">Ver diagnóstico →</div></div>
+      </div>
     </div>
 
   </div>
