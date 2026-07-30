@@ -987,7 +987,7 @@ function bsFilterSite(site, btn) {
               <div style="width:32px;height:32px;background:#fff7ed;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div>
               <div style="font-size:12px;font-weight:700;color:#e67700">KAM / Consultor</div>
             </div>
-            <div style="font-size:10px;color:#6b7280;line-height:1.8">🤝 Gestor dedicado<br>📱 WhatsApp direto</div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">🤝 Gestor dedicado<br>📱 WhatsApp direto<br>📧 E-mail</div>
           </div>
         </div>
       </div>
@@ -1019,9 +1019,9 @@ function bsFilterSite(site, btn) {
           <div style="padding:16px 20px">
             <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
               <div style="width:32px;height:32px;background:#fff7ed;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div>
-              <div style="font-size:12px;font-weight:700;color:#e67700">Consultor CC</div>
+              <div style="font-size:12px;font-weight:700;color:#e67700">Consultor (Virtual + Presencial)</div>
             </div>
-            <div style="font-size:10px;color:#6b7280;line-height:1.8">🤝 FAST (presencial)<br>🤖 Virtual Consultant<br>⏳ Proativo</div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">🤝 FAST</div>
           </div>
         </div>
       </div>
@@ -2327,6 +2327,7 @@ function renderSegMx(seg_id, month, btn) {
     btn.classList.add("active");
   }
   const seg = SEG_KEYS[seg_id];
+  currentSeg = seg; // ensure seg filter for getSegSiteBreakdown
   const rows = aggregate(month, seg);
   const kpiEl = document.getElementById("smx-kpi-"+seg_id);
   if(kpiEl) {
