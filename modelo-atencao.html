@@ -1839,178 +1839,133 @@ const CX_SEGS  = {bs:'BIG SELLERS', smb:'SMB', lt:'LONGTAIL'};
 const MA_PANELS = {bs:'ma-bs', smb:'ma-smb', lt:'ma-lt'};
 let renderedSubTabs = {};
 
+const SEG_KEYS  = {bs:"Big Seller", smb:"SMB", lt:"Longtail"};
+const CX_SEGS   = {bs:"BIG SELLERS", smb:"SMB", lt:"LONGTAIL"};
+const MA_PANELS = {bs:"ma-bs", smb:"ma-smb", lt:"ma-lt"};
+
 function renderSubTab(seg_id, tab) {
-  const key = seg_id+'_'+tab;
   const seg = SEG_KEYS[seg_id];
-
-  if(tab === 'ma') {
-    // Show the MA panel content inline
-    const inner = document.getElementById('sub-'+seg_id+'-ma-inner');
-    const maPanel = document.getElementById('panel-'+MA_PANELS[seg_id]);
-    if(inner && maPanel && !renderedSubTabs[key]) {
-      inner.innerHTML = maPanel.querySelector('.ph').outerHTML +
-        (maPanel.querySelector('[style*="padding:20px"]') || maPanel.lastElementChild).outerHTML;
-      renderedSubTabs[key] = true;
+  try {
+    if(tab === "ma") {
+      const inner = document.getElementById("sub-"+seg_id+"-ma-inner");
+      const maPanel = document.getElementById("panel-"+MA_PANELS[seg_id]);
+      if(inner && maPanel && !inner.hasChildNodes()) {
+        [...maPanel.children].forEach(c => inner.appendChild(c.cloneNode(true)));
+      }
+      return;
     }
-    return;
-  }
-
-  if(tab === 'mx') {
-    const inner = document.getElementById('sub-'+seg_id+'-mx-inner');
-    if(!inner) return;
-    if(!renderedSubTabs[key]) {
-      // Render Maxwell content for this segment
-      inner.innerHTML = '<div class="ctrl-bar" style="background:#fff;padding:7px 18px;border-bottom:1px solid #d0d4e6;display:flex;align-items:center;gap:6px;flex-wrap:wrap">' +
-        '<span style="font-size:10px;color:#646587;font-weight:600">Mes:</span>' +
-        MONTHS.map(m=>`<button class="m-btn ${currentMonth===m?'active':''}" onclick="setSubMxMonth('${seg_id}','${m}',this)">${MONTH_LBL[m]}</button>`).join('') +
-        '<button class="m-btn ' + (currentMonth==='ALL'?'active':'') + '" onclick="setSubMxMonth(''+seg_id+'','ALL',this)" style="margin-left:4px">Todos</button>' +
-        '</div>' +
-        '<div id="sub-'+seg_id+'-kpi-bar" class="seg-kpi-bar"></div>' +
-        '<div class="chart-area"><div class="chart-title">VOLUME vs CSAT — '+seg+'</div>' +
-        '<div class="chart-wrap"><canvas id="chart-'+seg_id+'"></canvas></div>' +
-        '<div id="chart-'+seg_id+'-legend" style="display:flex;gap:12px;padding:6px 18px;flex-wrap:wrap"></div></div>' +
-        '<div class="list-area" id="list-'+seg_id+'"></div>';
-      renderedSubTabs[key] = true;
+    if(tab === "mx") {
+      const inner = document.getElementById("sub-"+seg_id+"-mx-inner");
+      if(inner && !inner.hasChildNodes()) {
+        inner.innerHTML =
+          "<div class=\"ctrl-bar\" id=\"smx-ctrl-"+seg_id+"\"></div>" +
+          "<div class=\"seg-kpi-bar\" id=\"smx-kpi-"+seg_id+"\"></div>" +
+          "<div class=\"chart-area\"><div class=\"chart-title\">VOLUME vs CSAT — "+seg+"</div>" +
+          "<div class=\"chart-wrap\"><canvas id=\"smx-chart-"+seg_id+"\"></canvas></div>" +
+          "<div id=\"smx-leg-"+seg_id+"\" style=\"display:flex;gap:12px;padding:6px 18px;flex-wrap:wrap\"></div></div>" +
+          "<div class=\"mx-leg\" id=\"smx-legend-"+seg_id+"\"></div>" +
+          "<div class=\"list-area\" id=\"list-"+seg_id+"\"></div>";
+        const ctrl = document.getElementById("smx-ctrl-"+seg_id);
+        if(ctrl) ctrl.innerHTML =
+          "<span class=\"ctrl-lbl\">M\u00eas:</span>" +
+          "<button class=\"m-btn active\" onclick=\"renderSegMx('"+seg_id+"','ALL',this)\">Todos</button>" +
+          MONTHS.map(m=>"<button class=\"m-btn\" onclick=\"renderSegMx('"+seg_id+"','"+m+"',this)\">"+MONTH_LBL[m]+"</button>").join("");
+      }
+      renderSegMx(seg_id, "ALL", null);
+      return;
     }
-    // Render data for this segment
-    const rows = aggregate(currentMonth, seg);
-    renderKpiBarInto('sub-'+seg_id+'-kpi-bar', seg);
-    renderChartInto('chart-'+seg_id, rows, 'chart-'+seg_id+'-legend');
-    buildList(seg_id, rows);
-    return;
-  }
-
-  if(tab === 'cx') {
-    const inner = document.getElementById('sub-'+seg_id+'-cx-inner');
-    if(!inner) return;
-    if(!renderedSubTabs[key]) {
-      inner.innerHTML = '<div class="ctrl-bar" style="background:#fff;padding:7px 18px;border-bottom:1px solid #d0d4e6;display:flex;align-items:center;gap:6px">' +
-        '<span style="font-size:10px;color:#646587;font-weight:600">Mes:</span>' +
-        ['ALL','2026-01','2026-02','2026-03','2026-04','2026-05','2026-06'].map((m,i)=>
-          `<button class="m-btn ${m==='ALL'?'active':''}" onclick="setSubCxMonth('${seg_id}','${m}',this)">${['Todos','Jan','Fev','Mar','Abr','Mai','Jun'][i]}</button>`).join('') +
-        '</div>' +
-        '<div style="padding:14px" id="sub-'+seg_id+'-cx-content"></div>';
-      renderedSubTabs[key] = true;
+    if(tab === "cx") {
+      const inner = document.getElementById("sub-"+seg_id+"-cx-inner");
+      if(inner && !inner.hasChildNodes()) {
+        const months = ["2026-01","2026-02","2026-03","2026-04","2026-05","2026-06"];
+        const lbls = ["Jan","Fev","Mar","Abr","Mai","Jun"];
+        inner.innerHTML =
+          "<div class=\"ctrl-bar\"><span class=\"ctrl-lbl\">M\u00eas:</span>" +
+          "<button class=\"m-btn active\" onclick=\"renderSegCx('"+seg_id+"','ALL',this)\">Todos</button>" +
+          months.map((m,i)=>"<button class=\"m-btn\" onclick=\"renderSegCx('"+seg_id+"','"+m+"',this)\">"+lbls[i]+"</button>").join("") +
+          "</div><div id=\"scx-content-"+seg_id+"\" style=\"padding:14px\"></div>";
+      }
+      renderSegCx(seg_id, "ALL", null);
+      return;
     }
-    // Set CX seg filter and render
-    const prevSeg = cxSeg;
-    cxSeg = CX_SEGS[seg_id];
-    const prevEl = document.getElementById('cx-content');
-    // Temporarily redirect renderCx output
-    const fakeEl = document.getElementById('sub-'+seg_id+'-cx-content');
-    if(fakeEl) {
-      const origGetById = document.getElementById.bind(document);
-      const origCxContent = origGetById('cx-content');
-      if(origCxContent) origCxContent.id = '__cx_hidden';
-      fakeEl.id = 'cx-content';
-      renderCx();
-      fakeEl.id = 'sub-'+seg_id+'-cx-content';
-      if(origCxContent) origCxContent.id = 'cx-content';
+    if(tab === "opps") {
+      const inner = document.getElementById("sub-"+seg_id+"-opps-inner");
+      if(inner && !inner.hasChildNodes()) {
+        inner.innerHTML = "<div id=\"sopps-content-"+seg_id+"\" style=\"padding:14px 18px\"></div>";
+      }
+      renderSegOpps(seg_id);
+      return;
     }
-    cxSeg = prevSeg;
-    return;
-  }
-
-  if(tab === 'opps') {
-    const inner = document.getElementById('sub-'+seg_id+'-opps-inner');
-    if(!inner) return;
-    if(!renderedSubTabs[key]) {
-      inner.innerHTML = '<div style="padding:14px" id="sub-'+seg_id+'-opps-content"></div>';
-      renderedSubTabs[key] = true;
-    }
-    // Set opps filter and render into seg content
-    const prevSeg = oppFilterSeg;
-    oppFilterSeg = seg;
-    const origEl = document.getElementById('opps-content');
-    if(origEl) origEl.id = '__opps_hidden';
-    const fakeEl = document.getElementById('sub-'+seg_id+'-opps-content');
-    if(fakeEl) {
-      fakeEl.id = 'opps-content';
-      renderOpps();
-      fakeEl.id = 'sub-'+seg_id+'-opps-content';
-    }
-    if(origEl) origEl.id = 'opps-content';
-    oppFilterSeg = prevSeg;
-    return;
-  }
+  } catch(e) { console.error("renderSubTab error", seg_id, tab, e); }
 }
 
-function setSubMxMonth(seg_id, m, btn) {
-  currentMonth = m;
-  // Update button states within this sub-tab
-  const panel = document.getElementById('panel-seg-'+seg_id);
-  if(panel) panel.querySelectorAll('.m-btn').forEach(b=>{
-    if(b.onclick && b.onclick.toString().includes('setSubMxMonth')) b.classList.remove('active');
-  });
-  if(btn) btn.classList.add('active');
-  renderedSubTabs[seg_id+'_mx'] = true; // already rendered structure
+function renderSegMx(seg_id, month, btn) {
+  if(btn) {
+    const ctrl = document.getElementById("smx-ctrl-"+seg_id);
+    if(ctrl) ctrl.querySelectorAll(".m-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
+  }
   const seg = SEG_KEYS[seg_id];
-  const rows = aggregate(m, seg);
-  renderKpiBarInto('sub-'+seg_id+'-kpi-bar', seg);
-  renderChartInto('chart-'+seg_id, rows, 'chart-'+seg_id+'-legend');
+  const rows = aggregate(month, seg);
+  const kpiEl = document.getElementById("smx-kpi-"+seg_id);
+  if(kpiEl) {
+    const totalV = rows.reduce((s,r)=>s+r.vol,0);
+    const csatRows = rows.filter(r=>r.csat_n>0);
+    const avgCsat = csatRows.length ? Math.round(csatRows.reduce((s,r)=>s+r.csat*(r.csat_n||0),0)/csatRows.reduce((s,r)=>s+(r.csat_n||0),0)*10)/10 : null;
+    const avgCx = rows.length ? Math.round(rows.reduce((s,r)=>s+r.cx*r.vol,0)/Math.max(totalV,1)*10)/10 : 0;
+    kpiEl.innerHTML = "<div style=\"display:flex;gap:20px;padding:8px 18px\">" +
+      "<div class=\"skpi\"><div class=\"skpi-val\">"+(totalV/1000).toFixed(0)+"K</div><div class=\"skpi-lbl\">Conversas</div></div>" +
+      "<div class=\"skpi-div\"></div>" +
+      "<div class=\"skpi\"><div class=\"skpi-val\" style=\"color:"+(avgCsat&&avgCsat<3.2?"#e03131":avgCsat&&avgCsat<3.8?"#e67700":"#2f9e44")+"\">"+( avgCsat||"\u2014")+"</div><div class=\"skpi-lbl\">CSAT</div></div>" +
+      "<div class=\"skpi-div\"></div>" +
+      "<div class=\"skpi\"><div class=\"skpi-val\" style=\"color:"+(avgCx>20?"#e03131":avgCx>10?"#e67700":"#2f9e44")+"\">"+(avgCx)+"%" +
+      "</div><div class=\"skpi-lbl\">CX%</div></div></div>";
+  }
+  const canvas = document.getElementById("smx-chart-"+seg_id);
+  if(canvas) {
+    const ec = Chart.getChart(canvas); if(ec) ec.destroy();
+    const BU_C = {"Instore (Point)":"#434ce4","Online Payments":"#2f9e44","Conta":"#e67700"};
+    const ds = rows.filter(r=>r.csat!=null&&r.vol>0).map(r=>({
+      label:r.uc, x:r.csat, y:Math.log10(r.vol+1), r:Math.max(Math.sqrt(r.vol)/20,3),
+      backgroundColor:(BU_C[r.prod_category]||"#9c9ebf")+"aa",
+      borderColor:BU_C[r.prod_category]||"#9c9ebf", borderWidth:1, _row:r
+    }));
+    new Chart(canvas,{type:"bubble",data:{datasets:[{data:ds}]},options:{responsive:true,maintainAspectRatio:false,
+      plugins:{legend:{display:false},tooltip:{callbacks:{label:d=>d.raw._row?d.raw._row.uc+" | "+d.raw.x+"% | "+(d.raw._row.vol/1000).toFixed(0)+"K":""}}},
+      scales:{x:{min:0,max:105,title:{display:true,text:"CSAT%"}},y:{min:0,title:{display:true,text:"Volume (log)"}}}}});
+    const legEl = document.getElementById("smx-leg-"+seg_id);
+    if(legEl) legEl.innerHTML = Object.entries(BU_C).map(([k,c])=>`<span style="display:flex;align-items:center;gap:4px;font-size:10px"><span style="width:10px;height:10px;border-radius:2px;background:${c};display:inline-block"></span>${k}</span>`).join("");
+  }
   buildList(seg_id, rows);
 }
 
-function setSubCxMonth(seg_id, m, btn) {
-  const panel = document.getElementById('panel-seg-'+seg_id);
-  if(panel) panel.querySelectorAll('.m-btn').forEach(b=>{
-    if(b.onclick && b.onclick.toString().includes('setSubCxMonth')) b.classList.remove('active');
-  });
-  if(btn) btn.classList.add('active');
-  cxMonth = m;
-  cxSeg = CX_SEGS[seg_id];
-  const origEl = document.getElementById('cx-content');
-  if(origEl) origEl.id = '__cx_hidden2';
-  const fakeEl = document.getElementById('sub-'+seg_id+'-cx-content');
-  if(fakeEl) {
-    fakeEl.id = 'cx-content';
-    renderCx();
-    fakeEl.id = 'sub-'+seg_id+'-cx-content';
+function renderSegCx(seg_id, month, btn) {
+  if(btn) {
+    const inner = document.getElementById("sub-"+seg_id+"-cx-inner");
+    if(inner) inner.querySelectorAll(".m-btn").forEach(b=>b.classList.remove("active"));
+    btn.classList.add("active");
   }
-  if(origEl) origEl.id = 'cx-content';
+  const prevMonth = cxMonth, prevSeg = cxSeg;
+  cxMonth = month||"ALL"; cxSeg = CX_SEGS[seg_id];
+  const orig = document.getElementById("cx-content");
+  const el = document.getElementById("scx-content-"+seg_id);
+  if(orig) orig.id="__cx_tmp"; if(el) el.id="cx-content";
+  try { renderCx(); } catch(e) { console.error(e); }
+  if(el) el.id="scx-content-"+seg_id; if(orig) orig.id="cx-content";
+  cxMonth=prevMonth; cxSeg=prevSeg;
 }
 
-function renderKpiBarInto(elId, seg) {
-  const el = document.getElementById(elId);
-  if(!el) return;
-  const segFilter = (seg==='ALL') ? null : seg;
-  const rows = aggregate(currentMonth, segFilter);
-  const totalV = rows.reduce((s,r)=>s+r.vol,0);
-  const totalCsat = rows.filter(r=>r.csat!=null);
-  const avgCsat = totalCsat.length ? Math.round(totalCsat.reduce((s,r)=>s+r.csat*r.csat_n,0)/totalCsat.reduce((s,r)=>s+r.csat_n,0)*10)/10 : null;
-  const totalCx = rows.reduce((s,r)=>s+r.cx*r.vol,0)/Math.max(totalV,1);
-  el.innerHTML = `<div style="display:flex;gap:20px;padding:8px 18px">
-    <div class="skpi"><div class="skpi-val">${(totalV/1000).toFixed(0)}K</div><div class="skpi-lbl">Conversaciones Maxwell</div></div>
-    <div class="skpi-div"></div>
-    <div class="skpi"><div class="skpi-val" style="color:${avgCsat&&avgCsat<3.2?'#e03131':avgCsat&&avgCsat<3.8?'#e67700':'#2f9e44'}">${avgCsat||'—'}</div><div class="skpi-lbl">CSAT Médio</div></div>
-    <div class="skpi-div"></div>
-    <div class="skpi"><div class="skpi-val" style="color:${totalCx>20?'#e03131':totalCx>10?'#e67700':'#2f9e44'}">${Math.round(totalCx)}%</div><div class="skpi-lbl">CX%</div></div>
-  </div>`;
+function renderSegOpps(seg_id) {
+  const prevSeg = oppFilterSeg;
+  oppFilterSeg = SEG_KEYS[seg_id];
+  const orig = document.getElementById("opps-content");
+  const el = document.getElementById("sopps-content-"+seg_id);
+  if(orig) orig.id="__opps_tmp"; if(el) el.id="opps-content";
+  try { renderOpps(); } catch(e) { console.error(e); }
+  if(el) el.id="sopps-content-"+seg_id; if(orig) orig.id="opps-content";
+  oppFilterSeg=prevSeg;
 }
 
-function renderChartInto(canvasId, rows, legendId) {
-  const canvas = document.getElementById(canvasId);
-  if(!canvas) return;
-  // Reuse existing renderChart logic but with specific canvas
-  const existingChart = Chart.getChart(canvas);
-  if(existingChart) existingChart.destroy();
-  const BU_COLORS = {'Instore (Point)':'#434ce4','Online Payments':'#2f9e44','Conta':'#e67700'};
-  const datasets = rows.filter(r=>r.csat!=null&&r.vol>0).map(r=>({
-    label:r.uc, x:r.csat, y:Math.log10(r.vol+1),
-    r:Math.max(Math.sqrt(r.vol)/20,3),
-    backgroundColor: (BU_COLORS[r.prod_category]||'#9c9ebf')+'aa',
-    borderColor: BU_COLORS[r.prod_category]||'#9c9ebf',
-    borderWidth:1, _row:r
-  }));
-  new Chart(canvas, {type:'bubble',data:{datasets:[{data:datasets}]},
-    options:{responsive:true,maintainAspectRatio:false,plugins:{legend:{display:false},tooltip:{callbacks:{label:d=>d.raw._row?`${d.raw._row.uc} | ${d.raw.x}% CSAT | ${(d.raw._row.vol/1000).toFixed(0)}K convs`:''}}},
-    scales:{x:{title:{display:true,text:'CSAT% (promotores 4-5/total)'},min:0,max:105},y:{title:{display:true,text:'Volume (log)'},min:0}}}});
-  if(legendId) {
-    const legEl = document.getElementById(legendId);
-    if(legEl) legEl.innerHTML = Object.entries(BU_COLORS).map(([k,c])=>
-      `<span style="display:flex;align-items:center;gap:4px;font-size:10px"><span style="width:10px;height:10px;border-radius:2px;background:${c};display:inline-block"></span>${k}</span>`).join('');
-  }
-}
 
 function showCxSeg(seg, btn) {
   currentCxSeg = seg;
