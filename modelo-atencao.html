@@ -324,8 +324,8 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
           <div style="width:32px;height:32px;background:#fffbeb;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🤖</div>
           <div style="font-size:12px;font-weight:700;color:#b45309">Maxwell</div>
         </div>
-        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">16.241</div>
-        <div style="font-size:11px;font-weight:700;color:#f59e0b;margin-top:2px">57,5% do volume total</div>
+        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1" id="bs-mx-vol">16.241</div>
+        <div style="font-size:11px;font-weight:700;color:#f59e0b;margin-top:2px" id="bs-mx-share">57,5% do volume total</div>
         <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:12px">Autoatendimento digital · App MP · Web</div>
         <div style="background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 10px;font-size:9px;color:#713f12">
           <strong>CSAT 64% — N baixo:</strong> 72 respostas / 16.241 conversas = 0,44% taxa de resposta
@@ -338,8 +338,8 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
           <div style="width:32px;height:32px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div>
           <div style="font-size:12px;font-weight:700;color:#1A56DB">KAM / Consultor</div>
         </div>
-        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">6.887</div>
-        <div style="font-size:11px;font-weight:700;color:#1A56DB;margin-top:2px">24,3% do volume total</div>
+        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1" id="bs-kam-vol">6.887</div>
+        <div style="font-size:11px;font-weight:700;color:#1A56DB;margin-top:2px" id="bs-kam-share">24,3% do volume total</div>
         <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:12px">E-mail 82% · Reunião 18% · WhatsApp (piloto)</div>
         <div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:8px;padding:8px 10px;font-size:9px;color:#92400e">
           <strong>NPS ≈ 60 — one-shot Q3/2025</strong><br>
@@ -354,8 +354,8 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
           <div style="width:32px;height:32px;background:#f0fdf4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📞</div>
           <div style="font-size:12px;font-weight:700;color:#16a34a">CX / Top-off</div>
         </div>
-        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">5.198</div>
-        <div style="font-size:11px;font-weight:700;color:#16a34a;margin-top:2px">18,1% do volume total</div>
+        <div style="font-size:28px;font-weight:900;color:#374151;line-height:1" id="bs-cx-vol">5.198</div>
+        <div style="font-size:11px;font-weight:700;color:#16a34a;margin-top:2px" id="bs-cx-share">18,1% do volume total</div>
         <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:12px">Chat 66,8% · C2C 33,2% · 7 filas Point/Topoff</div>
         <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:8px 10px;font-size:9px;color:#166534">
           <strong>NPS 72  — confiável</strong><br>
@@ -5799,44 +5799,61 @@ function renderUnified() {
 
 
 // BS Mesa Senior filter
-// Big Seller site filter data
+// Per-site data: sellers unique, pct, bar%, vol contacts, share%
 var bsKamData = {
-  TODOS: {sellers:1850, pct:'10,3%', bar:'10.3'},
-  MLA:   {sellers:1067, pct:'10,6%', bar:'10.6'},
-  MLB:   {sellers:189,  pct:'6,6%',  bar:'6.6'},
-  MLM:   {sellers:254,  pct:'10,3%', bar:'10.3'},
-  MLC:   {sellers:373,  pct:'14,3%', bar:'14.3'},
+  TODOS: {sellers:882,  pct:'3,1%',  bar:'3.1',  vol:'13.865', share:'24,3'},
+  MLA:   {sellers:1814, pct:'18,5%', bar:'18.5', vol:'5.943',  share:'28.7'},
+  MLB:   {sellers:535,  pct:'12,7%', bar:'12.7', vol:'2.885',  share:'37.9'},
+  MLM:   {sellers:382,  pct:'12,1%', bar:'12.1', vol:'1.585',  share:'27.3'},
+  MLC:   {sellers:529,  pct:'17,8%', bar:'17.8', vol:'3.452',  share:'28.4'},
 };
 var bsMxData = {
-  TODOS: {sellers:6802, pct:'38,0%', bar:'38'},
-  MLA:   {sellers:4012, pct:'39,8%', bar:'39.8'},
-  MLB:   {sellers:1057, pct:'37,1%', bar:'37.1'},
-  MLM:   {sellers:986,  pct:'40,1%', bar:'40.1'},
-  MLC:   {sellers:747,  pct:'28,7%', bar:'28.7'},
+  TODOS: {sellers:4724, pct:'16,6%', bar:'16.6', vol:'26.360', share:'57,5'},
+  MLA:   {sellers:7513, pct:'74,5%', bar:'74.5', vol:'17.062', share:'56,2'},
+  MLB:   {sellers:1630, pct:'38,8%', bar:'38.8', vol:'4.347',  share:'54.4'},
+  MLM:   {sellers:940,  pct:'29,8%', bar:'29.8', vol:'2.087',  share:'36,0'},
+  MLC:   {sellers:1126, pct:'37,9%', bar:'37.9', vol:'2.864',  share:'35,5'},
 };
 var bsCxData = {
-  TODOS: {sellers:2583, pct:'14,4%', bar:'14.4'},
-  MLA:   {sellers:1487, pct:'14,8%', bar:'14.8'},
-  MLB:   {sellers:414,  pct:'14,5%', bar:'14.5'},
-  MLM:   {sellers:388,  pct:'15,8%', bar:'15.8'},
-  MLC:   {sellers:294,  pct:'11,3%', bar:'11.3'},
+  TODOS: {sellers:4411, pct:'15,5%', bar:'15.5', vol:'10.075', share:'18,1'},
+  MLA:   {sellers:2492, pct:'24,7%', bar:'24.7', vol:'4.704',  share:'15,5'},
+  MLB:   {sellers:756,  pct:'18,0%', bar:'18.0', vol:'2.413',  share:'30,2'},
+  MLM:   {sellers:429,  pct:'13,6%', bar:'13.6', vol:'904',    share:'15,6'},
+  MLC:   {sellers:750,  pct:'25,2%', bar:'25.2', vol:'2.054',  share:'25,5'},
 };
+
 function bsFilterSite(site, btn) {
-  document.querySelectorAll('.bs-site-btn').forEach(b=>{
-    b.style.background=b===btn?'#1A56DB':'white';
-    b.style.color=b===btn?'white':'#374151';
-    b.style.borderColor=b===btn?'#1A56DB':'#d1d5db';
+  document.querySelectorAll('.bs-site-btn').forEach(function(b){
+    b.style.background = b===btn ? '#1A56DB' : 'white';
+    b.style.color      = b===btn ? 'white'   : '#374151';
+    b.style.borderColor= b===btn ? '#1A56DB' : '#d1d5db';
   });
-  var k=bsKamData[site], m=bsMxData[site], cx=bsCxData[site];
-  ['bs-kam-sellers','bs-kam-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=k.sellers.toLocaleString('es');});
-  ['bs-kam-pct','bs-kam-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=k.pct;});
-  var kb=document.getElementById('bs-kam-bar');if(kb)kb.style.width=k.bar.replace(',','.')+'%';
-  ['bs-mx-sellers','bs-mx-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=m.sellers.toLocaleString('es');});
-  ['bs-mx-pct','bs-mx-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=m.pct;});
-  var mb=document.getElementById('bs-mx-bar');if(mb)mb.style.width=m.bar.replace(',','.')+'%';
-  ['bs-cx-sellers','bs-cx-sellers-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=cx.sellers.toLocaleString('es');});
-  ['bs-cx-pct','bs-cx-pct-01'].forEach(id=>{var e=document.getElementById(id);if(e)e.textContent=cx.pct;});
-  var cb=document.getElementById('bs-cx-bar');if(cb)cb.style.width=cx.bar.replace(',','.')+'%';
+  var k  = bsKamData[site] || bsKamData['TODOS'];
+  var m  = bsMxData[site]  || bsMxData['TODOS'];
+  var cx = bsCxData[site]  || bsCxData['TODOS'];
+
+  function fmtV(n){ var v=parseInt(String(n).replace(/[^0-9]/g,'')); return v>=1000?(v/1000).toFixed(1)+'K':String(v); }
+
+  // Section 00 — channel bars
+  ['bs-kam-sellers','bs-kam-sellers-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=String(k.sellers).replace(/\B(?=(\d{3})+(?!\d))/g,'.');});
+  ['bs-kam-pct','bs-kam-pct-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=k.pct;});
+  var kb=document.getElementById('bs-kam-bar'); if(kb) kb.style.width=k.bar+'%';
+
+  ['bs-mx-sellers','bs-mx-sellers-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=String(m.sellers).replace(/\B(?=(\d{3})+(?!\d))/g,'.');});
+  ['bs-mx-pct','bs-mx-pct-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=m.pct;});
+  var mb=document.getElementById('bs-mx-bar'); if(mb) mb.style.width=m.bar+'%';
+
+  ['bs-cx-sellers','bs-cx-sellers-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=String(cx.sellers).replace(/\B(?=(\d{3})+(?!\d))/g,'.');});
+  ['bs-cx-pct','bs-cx-pct-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=cx.pct;});
+  var cb=document.getElementById('bs-cx-bar'); if(cb) cb.style.width=cx.bar+'%';
+
+  // Section 02 — volumes
+  var mxv=document.getElementById('bs-mx-vol');    if(mxv) mxv.textContent=fmtV(m.vol);
+  var mxs=document.getElementById('bs-mx-share');  if(mxs) mxs.textContent=m.share+'% do volume';
+  var cxv=document.getElementById('bs-cx-vol');    if(cxv) cxv.textContent=fmtV(cx.vol);
+  var cxs=document.getElementById('bs-cx-share');  if(cxs) cxs.textContent=cx.share+'% do volume';
+  var kv =document.getElementById('bs-kam-vol');   if(kv)  kv.textContent=fmtV(k.vol);
+  var ks =document.getElementById('bs-kam-share'); if(ks)  ks.textContent=k.share+'% do volume';
 }
 </script>
 
