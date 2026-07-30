@@ -246,7 +246,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="font-size:17px;font-weight:800">Como os Big Sellers nos buscam — e o que sabemos sobre sua experiência</div>
     </div>
     <div style="background:rgba(255,255,255,.15);border-radius:20px;padding:6px 14px;font-size:10px;font-weight:700;flex-shrink:0;margin-left:20px;text-align:right">
-      28.465 sellers/mês<br><span style="opacity:.7">MLA·MLB·MLM·MLC · Mai–Jul 2026</span>
+      29K sellers/mês<br><span style="opacity:.7">MLA·MLB·MLM·MLC · Mai–Jul 2026</span>
     </div>
   </div>
 
@@ -258,7 +258,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="flex:1">
         <div style="font-size:60px;font-weight:900;color:#1A56DB;line-height:1;letter-spacing:-2px">~29%</div>
         <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos Big Sellers buscam suporte em algum canal por mês</div>
-        <div style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 27,7%</strong> · <strong>jun 31,2%</strong> · <strong>jul 27,9%</strong> · média <strong>28,9%</strong> · base 28.465 sellers/mês (LK_MP_SEGMENTATION_SELLERS).</div>
+        <div style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 27,7%</strong> · <strong>jun 31,2%</strong> · <strong>jul 27,9%</strong> · média <strong>28,9%</strong> · base 29K sellers/mês (LK_MP_SEGMENTATION_SELLERS).</div>
         <div style="margin-top:10px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:10px;color:#713f12">
           <strong>⚠️ WhatsApp fora da medição oficial:</strong> piloto Jul/26 — 77.910 mensagens (MLB·MLC·MCO·MLM, MLA ainda fora) · 2.254 sellers únicos. Volume real de KAM pode ser maior do que o medido.
         </div>
@@ -478,7 +478,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
     <summary style="padding:14px 20px;font-size:11px;font-weight:700;color:#374151;cursor:pointer">📂 Fontes & Queries BigQuery (clique para expandir)</summary>
     <div style="padding:14px 20px;border-top:1px solid #f3f4f6;font-size:9px;color:#374151;line-height:1.8">
       <strong>Billing project:</strong> meli-bi-data · Validado via MCP bigquery-insight (LDAP lalima)<br><br>
-      <strong>BASE — 28.465 sellers/mês:</strong><br>
+      <strong>BASE — 29K sellers/mês:</strong><br>
       <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM BT_MP_ACQ_MASTER_POINT WHERE CUST_SEGMENT_CROSS='BIG SELLERS' AND MONTH_TRANSACTION BETWEEN '2026-05-01' AND '2026-07-31' AND SIT_SITE_ID IN ('MLA','MLB','MLM','MLC')</code>
       Resultado original 28/07: 17.904 · Reexecutado 30/07: 17.994 (drift +90). ⚠️ KAM/Maxwell/CX/overlaps NÃO recalculados — inconsistência de 0,3% documentada e aceita.<br><br>
       <strong>ACHADO 3 — Alcance mensal vs. acumulado:</strong> mai 3.360 (18,7%) · jun 4.326 (24,0%) · jul 3.765 (20,9%) · média 21,2% · acumulado 7.877 (43,8%)<br><br>
