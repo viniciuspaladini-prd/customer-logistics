@@ -626,11 +626,120 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 <!-- ══ CANAIS ═════════════════════════════════════════════ -->
 <div class="panel" id="panel-canais">
   <div class="ph">
-    <h2>🗺️ Canales por Segmento — Visão Cross-Site</h2>
-    <p>Sellers alcançados por canal · MLB · MLA · MLM · MLC · Ene–Jun 2026 · Clique num segmento para expandir</p>
+    <h2>🗺️ Modelo de Atenção — Adquiring MP</h2>
+    <p>Canales e ferramentas de atendimento por segmento de seller · clique num segmento para entrar no detalhe</p>
   </div>
-  <div style="padding:18px 22px" id="canais-content"></div>
+  <div style="padding:24px 28px;max-width:1100px">
+
+    <!-- VISUAL SCHEMA -->
+    <div style="display:flex;flex-direction:column;gap:16px">
+
+      <!-- BIG SELLER -->
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);cursor:pointer" onclick="showSegPanel('bs',null)">
+        <div style="background:linear-gradient(135deg,#7f1d1d,#dc2626);padding:16px 24px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-size:20px;font-weight:800;color:white">🔴 Big Seller</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.6);margin-top:3px">Alta dedicação · KAM atribuído · Célula CX exclusiva</div>
+          </div>
+          <div style="background:rgba(255,255,255,.15);color:white;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700">Ver detalhe →</div>
+        </div>
+        <div style="background:white;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #f3f4f6">
+          <div style="padding:16px 20px;border-right:1px solid #f3f4f6">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🤖</div>
+              <div style="font-size:12px;font-weight:700;color:#3b5bdb">Maxwell</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">📱 App MP<br>🌐 Web<br>💬 WAI (Q3/26)</div>
+          </div>
+          <div style="padding:16px 20px;border-right:1px solid #f3f4f6">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#f0fdf4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📞</div>
+              <div style="font-size:12px;font-weight:700;color:#2f9e44">CX Célula Exclusiva</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">📱 WhatsApp Inbound<br>💬 C2C<br>📧 E-mail · Chat</div>
+          </div>
+          <div style="padding:16px 20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#fff7ed;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div>
+              <div style="font-size:12px;font-weight:700;color:#e67700">KAM / Consultor</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">🤝 Gestor dedicado<br>📍 Visita presencial<br>📱 WhatsApp direto</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SMB -->
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);cursor:pointer" onclick="showSegPanel('smb',null)">
+        <div style="background:linear-gradient(135deg,#92400e,#d97706);padding:16px 24px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-size:20px;font-weight:800;color:white">🟠 SMB</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.6);margin-top:3px">Atendimento estruturado · 3 canais · Consultor FAST + CX Exclusiva + Maxwell</div>
+          </div>
+          <div style="background:rgba(255,255,255,.15);color:white;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700">Ver detalhe →</div>
+        </div>
+        <div style="background:white;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #f3f4f6">
+          <div style="padding:16px 20px;border-right:1px solid #f3f4f6">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🤖</div>
+              <div style="font-size:12px;font-weight:700;color:#3b5bdb">Maxwell</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">📱 App MP<br>🌐 Web<br>💬 WAI (Q3/26)</div>
+          </div>
+          <div style="padding:16px 20px;border-right:1px solid #f3f4f6">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#f0fdf4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📞</div>
+              <div style="font-size:12px;font-weight:700;color:#2f9e44">CX Célula Exclusiva</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">📱 WhatsApp Inbound<br>💬 C2C<br>📧 E-mail · Chat</div>
+          </div>
+          <div style="padding:16px 20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#fff7ed;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div>
+              <div style="font-size:12px;font-weight:700;color:#e67700">Consultor CC</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">🤝 FAST<br>📍 Visita presencial<br>⏳ Proativo</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- LONGTAIL -->
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);cursor:pointer" onclick="showSegPanel('lt',null)">
+        <div style="background:linear-gradient(135deg,#14532d,#16a34a);padding:16px 24px;display:flex;align-items:center;justify-content:space-between">
+          <div>
+            <div style="font-size:20px;font-weight:800;color:white">🟢 Longtail</div>
+            <div style="font-size:10px;color:rgba(255,255,255,.6);margin-top:3px">Autogestão como canal principal · sem KAM dedicado · CX via escalação</div>
+          </div>
+          <div style="background:rgba(255,255,255,.15);color:white;border-radius:8px;padding:6px 14px;font-size:11px;font-weight:700">Ver detalhe →</div>
+        </div>
+        <div style="background:white;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #f3f4f6">
+          <div style="padding:16px 20px;border-right:1px solid #f3f4f6">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#eff6ff;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🤖</div>
+              <div style="font-size:12px;font-weight:700;color:#3b5bdb">Maxwell <span style="font-size:9px;background:#3b5bdb;color:white;border-radius:8px;padding:1px 6px">PRINCIPAL</span></div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">📱 App MP<br>🌐 Web<br>💬 WAI (Q3/26)</div>
+          </div>
+          <div style="padding:16px 20px;border-right:1px solid #f3f4f6">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#f0fdf4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📞</div>
+              <div style="font-size:12px;font-weight:700;color:#2f9e44">CX</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">🔄 Escalação do Maxwell<br>💬 Sem célula exclusiva<br>💬 Fila compartilhada</div>
+          </div>
+          <div style="padding:16px 20px">
+            <div style="display:flex;align-items:center;gap:8px;margin-bottom:10px">
+              <div style="width:32px;height:32px;background:#fff7ed;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div>
+              <div style="font-size:12px;font-weight:700;color:#e67700">CC Virtual</div>
+            </div>
+            <div style="font-size:10px;color:#6b7280;line-height:1.8">📤 WA Outbound (proativo)<br>🤖 Virtual Consultant<br><span style="color:#9ca3af;font-style:italic">Não inbound</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
 </div>
+
 
 <!-- ══ MAXWELL ════════════════════════════════════════════ -->
 <div class="panel" id="panel-maxwell">
