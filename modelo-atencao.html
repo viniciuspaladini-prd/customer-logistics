@@ -1329,7 +1329,7 @@ function getSegSiteBreakdown(uc, month, seg) {
 // Monthly trend per segment for a given use case
 function getSegTrend(uc, month) {
   const res = {};
-  const segs = ['Big Seller','SMB','Longtail'];
+  const segs = (currentSeg && currentSeg!=='ALL') ? [currentSeg] : ['Big Seller','SMB','Longtail'];
   for (const s of segs) {
     res[s] = {};
     for (const m of MONTHS) res[s][m] = {vol:0,csat_n:0,csat_s:0,n:0};
