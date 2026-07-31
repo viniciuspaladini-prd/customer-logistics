@@ -1337,10 +1337,10 @@ function aggregate(month, seg) {
     cx:   d.n>0?Math.round(d.cx_s/d.n*10)/10:0,
     defl: d.n>0?Math.round(d.defl_s/d.n*10)/10:0,
     unres:d.n>0?Math.round(d.unres_s/d.n*10)/10:0,
-    // CSAT-nota: average score (1-5)
-    csat_nota: d.csat_n>0?Math.round(d.csat_s/d.csat_n*100)/100:null,
-    // CSAT%: promotors (score 4-5) / total * 100
-    csat: d.csat_n>0?Math.round(d.csat_prom_sum/d.csat_n*1000)/10:null,
+    // CSAT%: % de notas 4+5 (média ponderada do pré-calculado)
+    csat: d.csat_n>0?Math.round(d.csat_s/d.csat_n*10)/10:null,
+    // NOTA: média da escala 1-5
+    csat_nota: d.csat_n>0?Math.round(d.csat_prom_sum/d.csat_n*100)/100:null,
     prod_subgroup: d.prod_subgroup,
   }));
 }
@@ -1356,8 +1356,8 @@ function getTrend(seg,uc){
   }
   return MONTHS.map(m=>({m,vol:res[m].vol,
     cx:res[m].n>0?Math.round(res[m].cx_s/res[m].n*10)/10:null,
-    csat:res[m].csat_n>0?Math.round(res[m].csat_prom_sum/res[m].csat_n*1000)/10:null,
-    csat_nota:res[m].csat_n>0?Math.round(res[m].csat_s/res[m].csat_n*100)/100:null
+    csat:res[m].csat_n>0?Math.round(res[m].csat_s/res[m].csat_n*10)/10:null,
+    csat_nota:res[m].csat_n>0?Math.round(res[m].csat_prom_sum/res[m].csat_n*100)/100:null
   }));
 }
 
@@ -1541,7 +1541,7 @@ function buildList(seg, rows) {
       const maxV=Math.max(...trend.map(t=>t.vol),1);
       const uid=(r.seg+r.uc).replace(/\W/g,'_');
       const volK=r.vol>=1000?(r.vol/1000).toFixed(1)+'K':r.vol;
-      const csatStr = r.csat!=null ? r.csat : '—';
+      const csatStr = r.csat!=null ? r.csat.toFixed(1) : '—';
       const dot=r.csat!=null?ucDot(r.csat,r.cx):'acc-g';
       const lowSample = r.csat_n!=null && r.csat_n<30;
       const opp=OPP[r.uc]||'';
@@ -1559,8 +1559,8 @@ function buildList(seg, rows) {
       let prevSeg = null;
       const crossRows = crossData.map(d=>{
         const volK = d.vol>=1000?(d.vol/1000).toFixed(1)+'K':d.vol;
-        const csatStr = d.csat!=null?d.csat.toFixed(2):'—';
-        const csatCls = d.csat==null?'csat-na':d.csat<3.2?'csat-bad':d.csat<3.8?'csat-mid':'csat-good';
+        const csatStr = d.csat!=null?d.csat.toFixed(1)+'%':'—';
+        const csatCls = d.csat==null?'csat-na':d.csat<50?'csat-bad':d.csat<70?'csat-mid':'csat-good';
         const cxColor = d.cx>20?'color:#e03131':d.cx>10?'color:#e67700':'color:#2f9e44';
         const segShow = d.seg !== prevSeg;
         prevSeg = d.seg;
@@ -1623,8 +1623,8 @@ function buildList(seg, rows) {
       // Site breakdown (L3)
       const sites = getSiteBreakdown(seg==null?null:r.seg, r.uc, currentMonth);
       const siteRows = sites.map(s=>{
-        const csatStr = s.csat!=null?s.csat.toFixed(2):'—';
-        const csatColor = s.csat==null?'#9c9ebf':s.csat<3.2?'#e03131':s.csat<3.8?'#e67700':'#2f9e44';
+        const csatStr = s.csat!=null?s.csat.toFixed(1)+'%':'—';
+        const csatColor = s.csat==null?'#9c9ebf':s.csat<50?'#e03131':s.csat<70?'#e67700':'#2f9e44';
         const cxColor = s.cx>20?'#e03131':s.cx>10?'#e67700':'#2f9e44';
         const sVolK = s.vol>=1000?(s.vol/1000).toFixed(1)+'K':s.vol;
         return `<tr>
