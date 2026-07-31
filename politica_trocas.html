@@ -233,6 +233,10 @@ html, body {
     <div class="trend-wrap">
       <canvas id="chart-trend"></canvas>
     </div>
+    <div style="margin-top:12px;background:#FEF2F2;border:1px solid #FECACA;border-left:4px solid #DC2626;border-radius:6px;padding:10px 14px;font-size:11px;color:#7F1D1D;line-height:1.6;">
+      <strong>⚠ Datos incompletos — mai/26 y jun/26</strong><br>
+      La caída visual en mai/26 y jun/26 <strong>no refleja una reducción real de bloqueos</strong>. La fuente principal (tabla Maxwell — <code>BT_MAXWELL_TOOL_EXECUTIONS</code>) perdió acceso por restricción de PII en la columna <code>RESPONSE_EVENT_DATA</code>. Esta tabla capturaba ~80% del volumen de bloqueos vía Maxwell Chat. Mai/26 solo contiene datos de MELIDATA + CX. Jun/26 solo cubre 5 días (26–30) por la nueva fuente (<code>LK_MP_CCC_POINT_SERVICE_ORDER_RULE_VALIDATION_BLOCK</code>, disponible desde 26/06). Los datos de jul/26 (1–15) son completos y representativos.
+    </div>
   </div>
 
   <!-- SITE CARDS -->
@@ -257,9 +261,9 @@ html, body {
           <div class="kpi-box-sub">+240% vs jun (15d vs 5d)</div>
         </div>
         <div class="kpi-box">
-          <div class="kpi-box-lbl">Jun/26 (26–30)</div>
+          <div class="kpi-box-lbl">Jun/26 (26–30) †</div>
           <div class="kpi-box-val" style="color:#D97706">3.408</div>
-          <div class="kpi-box-sub">nova fonte desde 26/06</div>
+          <div class="kpi-box-sub">5 dias · nova fonte</div>
         </div>
       </div>
       <div class="canal-section">
@@ -305,9 +309,9 @@ html, body {
           <div class="kpi-box-sub">+292% vs jun (15d vs 5d)</div>
         </div>
         <div class="kpi-box">
-          <div class="kpi-box-lbl">Jun/26 (26–30)</div>
+          <div class="kpi-box-lbl">Jun/26 (26–30) †</div>
           <div class="kpi-box-val" style="color:#D97706">673</div>
-          <div class="kpi-box-sub">nova fonte desde 26/06</div>
+          <div class="kpi-box-sub">5 dias · nova fonte</div>
         </div>
       </div>
       <div class="canal-section">
