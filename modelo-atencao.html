@@ -946,6 +946,221 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
   </div>
 </div>
 
+<!-- ══ APRESENTAÇÃO EXECUTIVA ══════════════════════════════════ -->
+<div class="panel" id="panel-exec" style="display:none">
+  <div class="ph">
+    <h2>📊 Apresentação Executiva — Modelo de Atenção Adquiring MP</h2>
+    <p>3 slides · diagnóstico por segmento · Mai–Jul 2026</p>
+  </div>
+  <div style="padding:24px;max-width:1100px;display:flex;flex-direction:column;gap:32px">
+
+    <!-- ═══ SLIDE 1: O QUE FIZEMOS ═══════════════════════════════ -->
+    <div style="background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden">
+      <div style="background:linear-gradient(135deg,#1A56DB,#1e3a8a);padding:18px 28px;display:flex;align-items:center;gap:16px">
+        <div style="background:rgba(255,255,255,.2);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:white;flex-shrink:0">1</div>
+        <div>
+          <div style="font-size:10px;font-weight:700;opacity:.7;letter-spacing:1.5px;margin-bottom:2px">SLIDE 1</div>
+          <div style="font-size:18px;font-weight:800;color:white">O que fizemos</div>
+        </div>
+        <div style="margin-left:auto;background:rgba(255,255,255,.15);border-radius:20px;padding:5px 14px;font-size:10px;font-weight:700;color:white">Mai–Jul 2026 · LK Base</div>
+      </div>
+      <div style="padding:24px 28px">
+        <div style="font-size:14px;font-weight:700;color:#111827;margin-bottom:16px">Mapeamos como cada segmento de seller busca suporte — e o que sabemos sobre a qualidade desse suporte</div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;margin-bottom:20px">
+          <div style="background:#f0f9ff;border-radius:10px;padding:14px">
+            <div style="font-size:10px;font-weight:700;color:#0369a1;margin-bottom:8px">📐 BASE E METODOLOGIA</div>
+            <ul style="font-size:11px;color:#374151;line-height:1.9;padding-left:14px;margin:0">
+              <li>Base: <strong>LK_MP_SEGMENTATION_SELLERS</strong></li>
+              <li>Filtro: SELL_ACTIVE_MTD_FLAG = 1</li>
+              <li>Período: <strong>Mai–Jul 2026</strong> (3 meses)</li>
+              <li>Sites: MLB · MLA · MLM · MLC</li>
+            </ul>
+          </div>
+          <div style="background:#fef9c3;border-radius:10px;padding:14px">
+            <div style="font-size:10px;font-weight:700;color:#92400e;margin-bottom:8px">📡 CANAIS ANALISADOS</div>
+            <ul style="font-size:11px;color:#374151;line-height:1.9;padding-left:14px;margin:0">
+              <li>🤖 <strong>Maxwell</strong> — autoatendimento IA</li>
+              <li>📞 <strong>CX</strong> — BT_CX_CONTACTS BU=MP</li>
+              <li>👔 <strong>KAM/CC</strong> — consultor presencial</li>
+              <li>⚠️ WAI (WA IA) fora da medição</li>
+            </ul>
+          </div>
+          <div style="background:#f0fdf4;border-radius:10px;padding:14px">
+            <div style="font-size:10px;font-weight:700;color:#166534;margin-bottom:8px">👥 SEGMENTOS</div>
+            <div style="font-size:11px;color:#374151;line-height:2">
+              <div>🔴 <strong>Big Seller</strong> — 29K sellers/mês</div>
+              <div>🟠 <strong>SMB</strong> — 852K sellers/mês</div>
+              <div>🟢 <strong>Longtail</strong> — 12,1M sellers/mês</div>
+            </div>
+          </div>
+        </div>
+        <div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:12px 16px;font-size:11px;color:#475569">
+          <strong style="color:#1e293b">Pergunta central:</strong> O suporte que oferecemos hoje resolve o problema de cada perfil de seller? Diagnosticar, por segmento e por canal, onde o modelo falha em alcance ou qualidade — para decidir onde agir primeiro.
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SLIDE 2: PRINCIPAIS ACHADOS ══════════════════════════ -->
+    <div style="background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden">
+      <div style="background:linear-gradient(135deg,#92400e,#d97706);padding:18px 28px;display:flex;align-items:center;gap:16px">
+        <div style="background:rgba(255,255,255,.2);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:white;flex-shrink:0">2</div>
+        <div>
+          <div style="font-size:10px;font-weight:700;opacity:.7;letter-spacing:1.5px;margin-bottom:2px">SLIDE 2</div>
+          <div style="font-size:18px;font-weight:800;color:white">Principais Achados</div>
+        </div>
+      </div>
+      <div style="padding:24px 28px">
+        <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+
+          <!-- Big Seller -->
+          <div style="border:2px solid #fecaca;border-radius:12px;padding:16px">
+            <div style="font-size:11px;font-weight:700;color:#7f1d1d;margin-bottom:10px">🔴 Big Seller · 29K sellers/mês</div>
+            <div style="font-size:24px;font-weight:900;color:#dc2626;margin-bottom:2px">~29%</div>
+            <div style="font-size:10px;color:#6b7280;margin-bottom:12px">alcance mensal (algum canal)</div>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:10px">
+              <div style="background:#fef2f2;border-radius:6px;padding:6px 8px">
+                ⚠️ <strong>CSAT 34%</strong> no Maxwell — N=50 respostas (0,37% taxa)
+              </div>
+              <div style="background:#fff7ed;border-radius:6px;padding:6px 8px">
+                📊 KAM: <strong>7,8 contatos/seller</strong> · maior intensidade · sem CSAT contínuo
+              </div>
+              <div style="background:#f0fdf4;border-radius:6px;padding:6px 8px">
+                ✓ Maxwell 13,4K · CX 13,1K · KAM 6,9K (3 meses)
+              </div>
+            </div>
+          </div>
+
+          <!-- SMB -->
+          <div style="border:2px solid #fed7aa;border-radius:12px;padding:16px">
+            <div style="font-size:11px;font-weight:700;color:#92400e;margin-bottom:10px">🟠 SMB · 852K sellers/mês</div>
+            <div style="font-size:24px;font-weight:900;color:#d97706;margin-bottom:2px">~40%</div>
+            <div style="font-size:10px;color:#6b7280;margin-bottom:12px">alcance mensal (algum canal)</div>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:10px">
+              <div style="background:#fef2f2;border-radius:6px;padding:6px 8px">
+                ⚠️ <strong>Payment Status CSAT 34%</strong> — 15K/mês sem resolução adequada
+              </div>
+              <div style="background:#fff7ed;border-radius:6px;padding:6px 8px">
+                📊 CC FAST: <strong>85K sellers/mês</strong> recebem visita · sem CSAT por contato
+              </div>
+              <div style="background:#f0fdf4;border-radius:6px;padding:6px 8px">
+                ✓ Maxwell 710K · CX 157K · CC ~360K (3 meses)
+              </div>
+            </div>
+          </div>
+
+          <!-- Longtail -->
+          <div style="border:2px solid #bbf7d0;border-radius:12px;padding:16px">
+            <div style="font-size:11px;font-weight:700;color:#14532d;margin-bottom:10px">🟢 Longtail · 12,1M sellers/mês</div>
+            <div style="font-size:24px;font-weight:900;color:#16a34a;margin-bottom:2px">~17%</div>
+            <div style="font-size:10px;color:#6b7280;margin-bottom:12px">alcance Maxwell (único canal reativo)</div>
+            <div style="display:flex;flex-direction:column;gap:6px;font-size:10px">
+              <div style="background:#fef2f2;border-radius:6px;padding:6px 8px">
+                ⚠️ <strong>Limit Inquiry CSAT 59%</strong> · Eligibility Check 55% — sem solução adequada
+              </div>
+              <div style="background:#fff7ed;border-radius:6px;padding:6px 8px">
+                📊 Maxwell é o <strong>único canal de entrada reativa</strong> — CX só escalação (0,6%)
+              </div>
+              <div style="background:#fef9c3;border-radius:6px;padding:6px 8px">
+                🔬 Em exploração — dados parciais
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Insight global -->
+        <div style="margin-top:16px;background:#1e2235;color:white;border-radius:10px;padding:14px 18px;font-size:11px;line-height:1.7">
+          <strong style="color:#93c5fd">Insight transversal:</strong> Em todos os segmentos, o principal gap não é alcance — é <strong style="color:#fbbf24">qualidade de resolução</strong>. Chegamos ao seller (Maxwell 17–40%), mas não sabemos sistematicamente se o problema foi resolvido. CSAT baixo e CC sem medição são os maiores pontos cegos.
+        </div>
+      </div>
+    </div>
+
+    <!-- ═══ SLIDE 3: IMPACTOS E ONDE FOCAR ═══════════════════════ -->
+    <div style="background:white;border-radius:16px;box-shadow:0 2px 8px rgba(0,0,0,.08);overflow:hidden">
+      <div style="background:linear-gradient(135deg,#14532d,#16a34a);padding:18px 28px;display:flex;align-items:center;gap:16px">
+        <div style="background:rgba(255,255,255,.2);border-radius:50%;width:36px;height:36px;display:flex;align-items:center;justify-content:center;font-size:16px;font-weight:900;color:white;flex-shrink:0">3</div>
+        <div>
+          <div style="font-size:10px;font-weight:700;opacity:.7;letter-spacing:1.5px;margin-bottom:2px">SLIDE 3</div>
+          <div style="font-size:18px;font-weight:800;color:white">Impactos e Onde Focar</div>
+        </div>
+      </div>
+      <div style="padding:24px 28px">
+        <div style="font-size:13px;font-weight:700;color:#111827;margin-bottom:16px">Priorizações baseadas em volume × impacto na experiência</div>
+
+        <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:20px">
+
+          <div style="display:flex;gap:12px;align-items:flex-start;background:#fef2f2;border:1px solid #fecaca;border-radius:10px;padding:14px 16px">
+            <div style="background:#dc2626;color:white;border-radius:6px;padding:3px 8px;font-size:9px;font-weight:800;flex-shrink:0;margin-top:1px">P1</div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#7f1d1d;margin-bottom:3px">Medir resolução no Maxwell — SMB e BS</div>
+              <div style="font-size:11px;color:#374151;line-height:1.6">Payment Status (CSAT 34%, 15K/mês SMB) e outros temas críticos não têm feedback confiável. CSAT response rate de 0,37% é insuficiente para decisão. Instrumentar pesquisa pós-conversa ou proxy de resolução.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;background:#fff7ed;border:1px solid #fed7aa;border-radius:10px;padding:14px 16px">
+            <div style="background:#d97706;color:white;border-radius:6px;padding:3px 8px;font-size:9px;font-weight:800;flex-shrink:0;margin-top:1px">P2</div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#92400e;margin-bottom:3px">Instrumentar CSAT/NPS no Consultor CC (FAST) — SMB</div>
+              <div style="font-size:11px;color:#374151;line-height:1.6">85K sellers/mês recebem visita de consultor sem nenhuma medição de satisfação. Canal de maior volume relativo no SMB (~360K contatos/3mo) e completamente cego para qualidade.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;background:#fefce8;border:1px solid #fde68a;border-radius:10px;padding:14px 16px">
+            <div style="background:#ca8a04;color:white;border-radius:6px;padding:3px 8px;font-size:9px;font-weight:800;flex-shrink:0;margin-top:1px">P3</div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#713f12;margin-bottom:3px">Resolver Limit Inquiry e Eligibility no Maxwell — Longtail</div>
+              <div style="font-size:11px;color:#374151;line-height:1.6">2,5M conversas/mês com CSAT abaixo de 60% — sellers buscam crédito e elegibilidade mas não encontram resposta. WAI Q3/26 vai ampliar alcance; definir modelo antes da expansão.</div>
+            </div>
+          </div>
+
+          <div style="display:flex;gap:12px;align-items:flex-start;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:14px 16px">
+            <div style="background:#0369a1;color:white;border-radius:6px;padding:3px 8px;font-size:9px;font-weight:800;flex-shrink:0;margin-top:1px">P4</div>
+            <div>
+              <div style="font-size:12px;font-weight:700;color:#0c4a6e;margin-bottom:3px">KAM: CSAT contínuo — Big Seller</div>
+              <div style="font-size:11px;color:#374151;line-height:1.6">Canal de maior intensidade (7,8 contatos/seller/mês) sem medição contínua. One-shot de 2025 (NPS ≈ 60) não é suficiente para gestão. Implementar CSAT pós-interação ou NPS trimestral.</div>
+            </div>
+          </div>
+
+        </div>
+
+        <div style="background:#f8fafc;border-radius:10px;padding:14px 18px;display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px;font-size:10px">
+          <div>
+            <div style="font-weight:700;color:#374151;margin-bottom:6px">✅ Já sabemos</div>
+            <ul style="color:#6b7280;padding-left:14px;line-height:1.8;margin:0">
+              <li>Alcance por segmento e canal</li>
+              <li>Volumes de contato (3 meses)</li>
+              <li>Top CDUs por canal</li>
+              <li>CSAT Maxwell (N baixo)</li>
+              <li>NPS CX por CDU (SMB)</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-weight:700;color:#374151;margin-bottom:6px">❓ Não sabemos ainda</div>
+            <ul style="color:#6b7280;padding-left:14px;line-height:1.8;margin:0">
+              <li>Taxa de resolução real</li>
+              <li>CSAT CC/KAM contínuo</li>
+              <li>% sellers que não chegam</li>
+              <li>Modelo completo Longtail</li>
+              <li>Impacto WAI Q3/26</li>
+            </ul>
+          </div>
+          <div>
+            <div style="font-weight:700;color:#374151;margin-bottom:6px">🚀 Próximos passos</div>
+            <ul style="color:#6b7280;padding-left:14px;line-height:1.8;margin:0">
+              <li>Instrumentar CSAT CC FAST</li>
+              <li>Definir proxy de resolução</li>
+              <li>Completar diagnóstico LT</li>
+              <li>Alinhar com time WAI</li>
+              <li>KAM NPS trimestral</li>
+            </ul>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+</div>
+
 <!-- ══ HOME ══════════════════════════════════════════════ -->
 <div class="panel active" id="panel-home">
   <div class="ph">
