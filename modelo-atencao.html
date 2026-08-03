@@ -194,11 +194,11 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
 <div class="body-wrap">
 <aside class="sidebar">
-  <div class="nav-item" onclick="showPanel('cross',this)"><span class="nav-icon">📊</span>Cross-Segmentos</div>
   <div class="nav-item active" onclick="showPanel('home',this)"><span class="nav-icon">🎯</span>Objetivo</div>
   <div class="nav-item" onclick="showPanel('canais',this)"><span class="nav-icon">🗺️</span>Modelo de Atenção</div>
 
   <div class="sb-sec" style="margin-top:12px">Por Segmento</div>
+  <div class="nav-item" onclick="showPanel('cross',this)"><span class="nav-icon">📊</span>Cross-Segmentos</div>
   <div class="nav-item" onclick="showSegPanel('bs',this)"><span class="nav-icon">🔴</span>Big Seller</div>
   <div class="nav-item" onclick="showSegPanel('smb',this)"><span class="nav-icon">🟠</span>SMB</div>
   <div class="nav-item" onclick="showSegPanel('lt',this)"><span class="nav-icon">🟢</span>Longtail</div>
@@ -3529,105 +3529,104 @@ function bsFilterSite(site, btn) {
   var ks =document.getElementById('bs-kam-share'); if(ks)  ks.textContent=k.share+'% do volume';
 }
 
-// ── Cross-segment site filter data ───────────────────────────────────
+
+
+// Cross-segment site filter
 var crossSiteData = {
   TODOS: {
-    bs:  {base:'29K sellers/m\u00eas',alcance:'~29%',mx_pct:'16,6%',mx_sellers:'4.724 sellers/m\u00eas',cx_pct:'10,9%',cx_sellers:'3.283 sellers/m\u00eas',kam_pct:'3,1%',kam_sellers:'882 sellers/m\u00eas'},
-    smb: {base:'852K sellers/m\u00eas',alcance:'~40%',mx_pct:'22,9%',mx_sellers:'195K sellers/m\u00eas',cx_pct:'12,6%',cx_sellers:'108K sellers/m\u00eas',cc_pct:'10,0%'},
-    lt:  {base:'12,1M sellers/m\u00eas',alcance:'~17%',mx_pct:'17%',mx_sellers:'2M sellers/m\u00eas',cx_pct:'0,6%',cx_sellers:'80K sellers/m\u00eas'}
+    bs:  {base:'29K sellers/mês',  alcance:'~29%',  sub:'mai 27,7% · jun 31,2% · jul 27,9%',  mx:'16,6%', mx_s:'4.724 sellers/mês',  cx:'10,9%', cx_s:'3.283 sellers/mês',  kam:'3,1%',  kam_s:'882 sellers/mês'},
+    smb: {base:'852K sellers/mês', alcance:'~40%',  sub:'mai 38,7% · jun 41,6% · jul 38,7%',  mx:'22,9%', mx_s:'195K sellers/mês',    cx:'12,6%', cx_s:'108K sellers/mês',   cc:'10,0%'},
+    lt:  {base:'12,1M sellers/mês',alcance:'~17%',  sub:'mai 13,4% · jun 18,3% · jul 17,9%',  mx:'17%',   mx_s:'2M sellers/mês',       cx:'0,6%',  cx_s:'80K sellers/mês'}
   },
   MLA: {
-    bs:  {base:'9.813 sellers/m\u00eas',alcance:'~74%',mx_pct:'74,5%',mx_sellers:'7.513 sellers',cx_pct:'24,7%',cx_sellers:'2.492 sellers',kam_pct:'18,5%',kam_sellers:'1.814 sellers'},
-    smb: {base:'126K sellers/m\u00eas',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'em desenvolvimento',cx_pct:'\u2014',cx_sellers:'\u2014',cc_pct:'\u2014'},
-    lt:  {base:'\u2014',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'\u2014',cx_pct:'\u2014',cx_sellers:'\u2014'}
+    bs:  {base:'9.813 sellers/mês', alcance:'~75%', sub:'MX 74,5% · CX 24,7% · KAM 18,5%',   mx:'74,5%', mx_s:'7.513 sellers', cx:'24,7%', cx_s:'2.492 sellers', kam:'18,5%', kam_s:'1.814 sellers'},
+    smb: {base:'126K sellers/mês'},
+    lt:  {}
   },
   MLB: {
-    bs:  {base:'4.204 sellers/m\u00eas',alcance:'~54%',mx_pct:'38,8%',mx_sellers:'1.630 sellers',cx_pct:'18,0%',cx_sellers:'756 sellers',kam_pct:'12,7%',kam_sellers:'535 sellers'},
-    smb: {base:'561K sellers/m\u00eas',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'em desenvolvimento',cx_pct:'\u2014',cx_sellers:'\u2014',cc_pct:'\u2014'},
-    lt:  {base:'\u2014',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'\u2014',cx_pct:'\u2014',cx_sellers:'\u2014'}
+    bs:  {base:'4.204 sellers/mês', alcance:'~50%', sub:'MX 38,8% · CX 18,0% · KAM 12,7%',   mx:'38,8%', mx_s:'1.630 sellers', cx:'18,0%', cx_s:'756 sellers',   kam:'12,7%', kam_s:'535 sellers'},
+    smb: {base:'561K sellers/mês'},
+    lt:  {}
   },
   MLM: {
-    bs:  {base:'3.156 sellers/m\u00eas',alcance:'~43%',mx_pct:'29,8%',mx_sellers:'940 sellers',cx_pct:'13,6%',cx_sellers:'429 sellers',kam_pct:'12,1%',kam_sellers:'382 sellers'},
-    smb: {base:'122K sellers/m\u00eas',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'em desenvolvimento',cx_pct:'\u2014',cx_sellers:'\u2014',cc_pct:'\u2014'},
-    lt:  {base:'\u2014',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'\u2014',cx_pct:'\u2014',cx_sellers:'\u2014'}
+    bs:  {base:'3.156 sellers/mês', alcance:'~43%', sub:'MX 29,8% · CX 13,6% · KAM 12,1%',   mx:'29,8%', mx_s:'940 sellers',   cx:'13,6%', cx_s:'429 sellers',   kam:'12,1%', kam_s:'382 sellers'},
+    smb: {base:'122K sellers/mês'},
+    lt:  {}
   },
   MLC: {
-    bs:  {base:'2.971 sellers/m\u00eas',alcance:'~64%',mx_pct:'37,9%',mx_sellers:'1.126 sellers',cx_pct:'25,2%',cx_sellers:'750 sellers',kam_pct:'17,8%',kam_sellers:'529 sellers'},
-    smb: {base:'50K sellers/m\u00eas',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'em desenvolvimento',cx_pct:'\u2014',cx_sellers:'\u2014',cc_pct:'\u2014'},
-    lt:  {base:'\u2014',alcance:'\u2014',mx_pct:'\u2014',mx_sellers:'\u2014',cx_pct:'\u2014',cx_sellers:'\u2014'}
+    bs:  {base:'2.971 sellers/mês', alcance:'~62%', sub:'MX 37,9% · CX 25,2% · KAM 17,8%',   mx:'37,9%', mx_s:'1.126 sellers', cx:'25,2%', cx_s:'750 sellers',   kam:'17,8%', kam_s:'529 sellers'},
+    smb: {base:'50K sellers/mês'},
+    lt:  {}
   }
 };
 
 function crossFilterSite(site, btn) {
+  // Update filter button styles
   document.querySelectorAll('.cross-site-btn').forEach(function(b) {
     b.style.background = b===btn ? '#374151' : 'white';
     b.style.color      = b===btn ? 'white'   : '#374151';
     b.style.borderColor= b===btn ? '#374151' : '#d1d5db';
   });
+
   var note = document.getElementById('cross-site-detail');
-  if(note) note.style.display = site !== 'TODOS' ? 'block' : 'none';
+  var todos = crossSiteData['TODOS'];
+  var site_d = crossSiteData[site] || todos;
 
-  var dSite  = crossSiteData[site]  || crossSiteData['TODOS'];
-  var dTodos = crossSiteData['TODOS'];
+  // Helper: use site value if available, else TODOS fallback
+  function v(siteVal, todosVal) { return (siteVal && siteVal.length > 0) ? siteVal : todosVal; }
 
-  // Use site data if available (not '—'), otherwise fall back to TODOS
-  function val(siteVal, todosVal) { return (siteVal && siteVal !== '\u2014' && siteVal !== '\u2014') ? siteVal : todosVal; }
+  var bs  = site_d.bs  || {};
+  var smb = site_d.smb || {};
+  var lt  = site_d.lt  || {};
 
-  var bs  = dSite.bs;
-  // SMB/LT: only use site data if real (not '—'), else TODOS
-  var smb = {
-    base:        val(dSite.smb.base,        dTodos.smb.base),
-    alcance:     val(dSite.smb.alcance,     dTodos.smb.alcance),
-    mx_pct:      val(dSite.smb.mx_pct,      dTodos.smb.mx_pct),
-    mx_sellers:  val(dSite.smb.mx_sellers,  dTodos.smb.mx_sellers),
-    cx_pct:      val(dSite.smb.cx_pct,      dTodos.smb.cx_pct),
-    cx_sellers:  val(dSite.smb.cx_sellers,  dTodos.smb.cx_sellers),
-    cc_pct:      val(dSite.smb.cc_pct,      dTodos.smb.cc_pct)
-  };
-  var lt = {
-    base:        val(dSite.lt.base,         dTodos.lt.base),
-    alcance:     val(dSite.lt.alcance,       dTodos.lt.alcance),
-    mx_pct:      val(dSite.lt.mx_pct,       dTodos.lt.mx_pct),
-    mx_sellers:  val(dSite.lt.mx_sellers,   dTodos.lt.mx_sellers),
-    cx_pct:      val(dSite.lt.cx_pct,       dTodos.lt.cx_pct),
-    cx_sellers:  val(dSite.lt.cx_sellers,   dTodos.lt.cx_sellers)
-  };
+  function set(id, val) { var e = document.getElementById(id); if(e && val) e.textContent = val; }
 
-  function set(id, v) { var e = document.getElementById(id); if(e && v) e.textContent = v; }
+  // BS — always has per-site data
+  set('cross-bs-base',    v(bs.base,    todos.bs.base));
+  set('cross-bs-alcance', v(bs.alcance, todos.bs.alcance));
 
-  set('cross-bs-base',      bs.base);
-  set('cross-smb-base',     smb.base + (dSite.smb.alcance === '\u2014' && site !== 'TODOS' ? ' *' : ''));
-  set('cross-lt-base',      lt.base  + (dSite.lt.alcance  === '\u2014' && site !== 'TODOS' ? ' *' : ''));
-  set('cross-bs-alcance',   bs.alcance);
-  set('cross-smb-alcance',  smb.alcance);
-  set('cross-lt-alcance',   lt.alcance);
-  set('cross-bs-mx-pct',    bs.mx_pct);     set('cross-bs-mx-sellers',  bs.mx_sellers);
-  set('cross-smb-mx-pct',   smb.mx_pct);    set('cross-smb-mx-sellers', smb.mx_sellers);
-  set('cross-lt-mx-pct',    lt.mx_pct);     set('cross-lt-mx-sellers',  lt.mx_sellers);
-  set('cross-bs-cx-pct',    bs.cx_pct);     set('cross-bs-cx-sellers',  bs.cx_sellers);
-  set('cross-smb-cx-pct',   smb.cx_pct);    set('cross-smb-cx-sellers', smb.cx_sellers);
-  set('cross-lt-cx-pct',    lt.cx_pct);     set('cross-lt-cx-sellers',  lt.cx_sellers);
-  set('cross-bs-kam-pct',   bs.kam_pct || '\u2014');
-  set('cross-bs-kam-sellers', bs.kam_sellers || '');
-  set('cross-smb-cc-pct',   smb.cc_pct || '\u2014');
+  // SMB — only base per-site, rest fallback to TODOS
+  set('cross-smb-base',    v(smb.base, todos.smb.base) + (site!=='TODOS' && !smb.alcance ? ' *' : ''));
+  set('cross-smb-alcance', todos.smb.alcance);
+  set('cross-smb-mx-pct',  todos.smb.mx);
+  set('cross-smb-mx-sellers', todos.smb.mx_s);
+  set('cross-smb-cx-pct',  todos.smb.cx);
+  set('cross-smb-cx-sellers', todos.smb.cx_s);
+  set('cross-smb-cc-pct',  todos.smb.cc);
 
-  // Update note text based on what's missing
-  if(note && site !== 'TODOS') {
-    var missing = [];
-    if(dSite.smb.alcance === '\u2014') missing.push('SMB');
-    if(dSite.lt.alcance  === '\u2014') missing.push('Longtail');
-    if(missing.length > 0)
-      note.innerHTML = '<strong>Filtro de site ativo.</strong> BS: dados reais por site. <strong>' + missing.join(', ') + ':</strong> dados por site em desenvolvimento — exibindo total (TODOS). * = total cross-site.';
-    else
-      note.innerHTML = '<strong>Filtro de site ativo.</strong> Todos os segmentos com dados reais por site.';
+  // LT — all fallback to TODOS
+  set('cross-lt-base',    v(lt.base, todos.lt.base) + (site!=='TODOS' && !lt.alcance ? ' *' : ''));
+  set('cross-lt-alcance', todos.lt.alcance);
+  set('cross-lt-mx-pct',  todos.lt.mx);
+  set('cross-lt-mx-sellers', todos.lt.mx_s);
+  set('cross-lt-cx-pct',  todos.lt.cx);
+  set('cross-lt-cx-sellers', todos.lt.cx_s);
+
+  // BS channel bars
+  set('cross-bs-mx-pct',     v(bs.mx,  todos.bs.mx));
+  set('cross-bs-mx-sellers', v(bs.mx_s,todos.bs.mx_s));
+  set('cross-bs-cx-pct',     v(bs.cx,  todos.bs.cx));
+  set('cross-bs-cx-sellers', v(bs.cx_s,todos.bs.cx_s));
+  set('cross-bs-kam-pct',    v(bs.kam, todos.bs.kam));
+  set('cross-bs-kam-sellers',v(bs.kam_s||'', todos.bs.kam_s));
+
+  // Note
+  if(note) {
+    if(site === 'TODOS') {
+      note.style.display = 'none';
+    } else {
+      note.style.display = 'block';
+      note.innerHTML = '<strong>Filtro por ' + site + ' ativo.</strong> BS: dados reais por site. SMB e Longtail: exibindo média TODOS (dados por site em desenvolvimento). * = total cross-site.';
+    }
   }
 
-  // Sync BS segment filter
+  // Sync BS panel filter if buttons exist
   if(typeof bsFilterSite === 'function') {
     var bsBtn = document.querySelector('.bs-site-btn[onclick*="' + site + '"]');
     if(bsBtn) bsFilterSite(site, bsBtn);
   }
 }
+
 </script>
 
 </body>
