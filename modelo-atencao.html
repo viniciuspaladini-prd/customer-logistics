@@ -481,18 +481,42 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
   <details style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07)">
     <summary style="padding:14px 20px;font-size:11px;font-weight:700;color:#374151;cursor:pointer">📂 Fontes & Queries BigQuery (clique para expandir)</summary>
     <div style="padding:14px 20px;border-top:1px solid #f3f4f6;font-size:9px;color:#374151;line-height:1.8">
-      <strong>Billing project:</strong> meli-bi-data · Validado via MCP bigquery-insight (LDAP lalima)<br><br>
-      <strong>BASE — 29K sellers/mês:</strong><br>
-      <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM BT_MP_ACQ_MASTER_POINT WHERE CUST_SEGMENT_CROSS='BIG SELLERS' AND MONTH_TRANSACTION BETWEEN '2026-05-01' AND '2026-07-31' AND SIT_SITE_ID IN ('MLA','MLB','MLM','MLC')</code>
-      Resultado original 28/07: 17.904 · Reexecutado 30/07: 17.994 (drift +90). ⚠️ KAM/Maxwell/CX/overlaps NÃO recalculados — inconsistência de 0,3% documentada e aceita.<br><br>
-      <strong>ACHADO 3 — Alcance mensal vs. acumulado:</strong> mai 3.360 (18,7%) · jun 4.326 (24,0%) · jul 3.765 (20,9%) · média 21,2% · acumulado 7.877 (43,8%)<br><br>
-      <strong>KAM:</strong> DM_INCOMING_BIG_SELLERS_KAM · 1.850 sellers Point · 6.887 contatos · split: E-mail 82% / Reunião 18%<br>
-      <strong>Maxwell:</strong> BT_MAXWELL_CONVERSATION_DETAILS · 6.802 sellers · 16.241 convs · CSAT 64% (N=72, 0,44% resp.)<br>
-      <strong>CX:</strong> BT_CX_CONTACTS (7 filas HSP/BR Top-off + BigSellers) · 2.583 sellers · 5.125 contatos · NPS 72 <br>
-      <strong>Achado 4:</strong> BT_SALESFORCE_ACCOUNT.OWNER_MPAGO__C · 974 sellers 'Sin Asignar' / 909 com KAM nomeado<br>
-      <strong>WhatsApp piloto:</strong> pdme000285-hhnldgi4gna-furyid.wp_piloto_resumen · Jul/26: 2.254 sellers · 5.833 msgs · MLB·MLC·MCO·MLM
+
+      <strong>Billing project:</strong> meli-bi-data · Período: <strong>Mai–Jul 2026</strong><br>
+      <strong>Base padrão:</strong> LK_MP_SEGMENTATION_SELLERS (SELL_ACTIVE_MTD_FLAG=1) · média mensal<br>
+      <strong>CX padrão:</strong> BT_CX_CONTACTS · BU_REPORTING='MP' · join via CUS_CUST_ID<br><br>
+
+      <div style="background:#7f1d1d;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🔴 Big Seller — LM1+LM2+CORP</div>
+      <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('LM1','LM2','CORP') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
+      Resultado: <strong>mai 27.408 · jun 30.012 · jul 31.185 · média 29K sellers/mês</strong><br>
+      <strong>Alcance Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS (COUNT_IN_METRICS=TRUE, IS_DELETED=FALSE) · <strong>4.724 sellers/mês (16,6%)</strong> · 13.384 convs · CSAT 34% (N=50)<br>
+      <strong>Alcance CX:</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>3.283 sellers/mês (10,9%)</strong> · 13.100 casos · NPS 74<br>
+      <strong>KAM:</strong> DM_INCOMING_BIG_SELLERS_KAM · <strong>882 sellers/mês (3,1%)</strong> · 6.887 contatos · E-mail 82% / Reunião 18%<br>
+      <strong>Alcance total (união):</strong> mai 27,7% · jun 31,2% · jul 27,9% · <strong>média ~29%</strong><br><br>
+
+      <div style="background:#78350f;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🟠 SMB — SMB1+SMB2+SMB3</div>
+      <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('SMB1','SMB2','SMB3') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
+      Resultado: <strong>mai 814.277 · jun 859.284 · jul 881.456 · média 852K sellers/mês</strong><br>
+      <strong>Alcance Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>195K sellers/mês (22,9%)</strong> · 709K convs (3mo) · CSAT 62% (N=3.180)<br>
+      <strong>Alcance CX:</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>108K sellers/mês (12,6%)</strong> · 157K casos (3mo) · NPS 68<br>
+      <strong>CC FAST:</strong> estimativa a partir da taxa de alcance LK · <strong>85K sellers/mês (10,0%)</strong> · ~360K tarefas proativas (3mo) · <em>sem CSAT por contato</em><br>
+      <strong>Alcance total (união):</strong> mai 38,7% · jun 41,6% · jul 38,7% · <strong>média ~40%</strong><br><br>
+
+      <div style="background:#14532d;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🟢 Longtail — LOLO+HILO+MILO</div>
+      <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('LOLO','HILO','MILO') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
+      Resultado: <strong>mai 12.006.059 · jun 12.269.037 · jul 12.126.407 · média 12,1M sellers/mês</strong><br>
+      <strong>Alcance Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>2M sellers/mês (~17%)</strong> · 44,8M convs (3mo) · CSAT 70% (N=425K)<br>
+      <strong>Alcance CX (escalação):</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>80K sellers/mês (0,6%)</strong> · 434K casos (3mo) · NPS 62<br>
+      <strong>Alcance total (Maxwell):</strong> mai 13,4% · jun 18,3% · jul 17,9% · <strong>média ~17%</strong> · <em>Em exploração — dados parciais</em><br><br>
+
+      <div style="background:#f0f9ff;border-radius:6px;padding:8px 10px;font-size:8px;color:#0369a1;margin-top:8px">
+        <strong>Mudanças metodológicas vs. versão anterior:</strong><br>
+        • Base: BT_MP_ACQ_MASTER_POINT → <strong>LK_MP_SEGMENTATION_SELLERS</strong> (cobre todo Adquiring, não apenas Point)<br>
+        • CX: 7 filas HSP/Top-off → <strong>BT_CX_CONTACTS BU_REPORTING='MP'</strong> (todo CX Mercado Pago)<br>
+        • Período: Jan–Jun/26 → <strong>Mai–Jul 2026</strong> (3 meses mais recentes)
+      </div>
     </div>
-  </details>
+
 
 </div>
 
