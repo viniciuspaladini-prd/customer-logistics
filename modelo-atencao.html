@@ -3566,26 +3566,69 @@ function crossFilterSite(site, btn) {
   });
   var note = document.getElementById('cross-site-detail');
   if(note) note.style.display = site !== 'TODOS' ? 'block' : 'none';
-  var d = crossSiteData[site] || crossSiteData['TODOS'];
-  var bs = d.bs, smb = d.smb, lt = d.lt;
-  function set(id, v) { var e = document.getElementById(id); if(e && v !== undefined) e.textContent = v; }
-  set('cross-bs-base', bs.base); set('cross-smb-base', smb.base); set('cross-lt-base', lt.base);
-  set('cross-bs-alcance', bs.alcance); set('cross-smb-alcance', smb.alcance); set('cross-lt-alcance', lt.alcance);
-  set('cross-bs-mx-pct', bs.mx_pct); set('cross-bs-mx-sellers', bs.mx_sellers);
-  set('cross-smb-mx-pct', smb.mx_pct); set('cross-smb-mx-sellers', smb.mx_sellers);
-  set('cross-lt-mx-pct', lt.mx_pct); set('cross-lt-mx-sellers', lt.mx_sellers);
-  set('cross-bs-cx-pct', bs.cx_pct); set('cross-bs-cx-sellers', bs.cx_sellers);
-  set('cross-smb-cx-pct', smb.cx_pct); set('cross-smb-cx-sellers', smb.cx_sellers);
-  set('cross-lt-cx-pct', lt.cx_pct); set('cross-lt-cx-sellers', lt.cx_sellers);
-  set('cross-bs-kam-pct', bs.kam_pct || '\u2014'); set('cross-bs-kam-sellers', bs.kam_sellers || '');
-  set('cross-smb-cc-pct', smb.cc_pct || '\u2014');
+
+  var dSite  = crossSiteData[site]  || crossSiteData['TODOS'];
+  var dTodos = crossSiteData['TODOS'];
+
+  // Use site data if available (not '—'), otherwise fall back to TODOS
+  function val(siteVal, todosVal) { return (siteVal && siteVal !== '\u2014' && siteVal !== '\u2014') ? siteVal : todosVal; }
+
+  var bs  = dSite.bs;
+  // SMB/LT: only use site data if real (not '—'), else TODOS
+  var smb = {
+    base:        val(dSite.smb.base,        dTodos.smb.base),
+    alcance:     val(dSite.smb.alcance,     dTodos.smb.alcance),
+    mx_pct:      val(dSite.smb.mx_pct,      dTodos.smb.mx_pct),
+    mx_sellers:  val(dSite.smb.mx_sellers,  dTodos.smb.mx_sellers),
+    cx_pct:      val(dSite.smb.cx_pct,      dTodos.smb.cx_pct),
+    cx_sellers:  val(dSite.smb.cx_sellers,  dTodos.smb.cx_sellers),
+    cc_pct:      val(dSite.smb.cc_pct,      dTodos.smb.cc_pct)
+  };
+  var lt = {
+    base:        val(dSite.lt.base,         dTodos.lt.base),
+    alcance:     val(dSite.lt.alcance,       dTodos.lt.alcance),
+    mx_pct:      val(dSite.lt.mx_pct,       dTodos.lt.mx_pct),
+    mx_sellers:  val(dSite.lt.mx_sellers,   dTodos.lt.mx_sellers),
+    cx_pct:      val(dSite.lt.cx_pct,       dTodos.lt.cx_pct),
+    cx_sellers:  val(dSite.lt.cx_sellers,   dTodos.lt.cx_sellers)
+  };
+
+  function set(id, v) { var e = document.getElementById(id); if(e && v) e.textContent = v; }
+
+  set('cross-bs-base',      bs.base);
+  set('cross-smb-base',     smb.base + (dSite.smb.alcance === '\u2014' && site !== 'TODOS' ? ' *' : ''));
+  set('cross-lt-base',      lt.base  + (dSite.lt.alcance  === '\u2014' && site !== 'TODOS' ? ' *' : ''));
+  set('cross-bs-alcance',   bs.alcance);
+  set('cross-smb-alcance',  smb.alcance);
+  set('cross-lt-alcance',   lt.alcance);
+  set('cross-bs-mx-pct',    bs.mx_pct);     set('cross-bs-mx-sellers',  bs.mx_sellers);
+  set('cross-smb-mx-pct',   smb.mx_pct);    set('cross-smb-mx-sellers', smb.mx_sellers);
+  set('cross-lt-mx-pct',    lt.mx_pct);     set('cross-lt-mx-sellers',  lt.mx_sellers);
+  set('cross-bs-cx-pct',    bs.cx_pct);     set('cross-bs-cx-sellers',  bs.cx_sellers);
+  set('cross-smb-cx-pct',   smb.cx_pct);    set('cross-smb-cx-sellers', smb.cx_sellers);
+  set('cross-lt-cx-pct',    lt.cx_pct);     set('cross-lt-cx-sellers',  lt.cx_sellers);
+  set('cross-bs-kam-pct',   bs.kam_pct || '\u2014');
+  set('cross-bs-kam-sellers', bs.kam_sellers || '');
+  set('cross-smb-cc-pct',   smb.cc_pct || '\u2014');
+
+  // Update note text based on what's missing
+  if(note && site !== 'TODOS') {
+    var missing = [];
+    if(dSite.smb.alcance === '\u2014') missing.push('SMB');
+    if(dSite.lt.alcance  === '\u2014') missing.push('Longtail');
+    if(missing.length > 0)
+      note.innerHTML = '<strong>Filtro de site ativo.</strong> BS: dados reais por site. <strong>' + missing.join(', ') + ':</strong> dados por site em desenvolvimento — exibindo total (TODOS). * = total cross-site.';
+    else
+      note.innerHTML = '<strong>Filtro de site ativo.</strong> Todos os segmentos com dados reais por site.';
+  }
+
+  // Sync BS segment filter
   if(typeof bsFilterSite === 'function') {
-    var bsBtn = document.querySelector('.bs-site-btn[onclick*="\'' + site + '\'"]');
+    var bsBtn = document.querySelector('.bs-site-btn[onclick*="' + site + '"]');
     if(bsBtn) bsFilterSite(site, bsBtn);
   }
 }
 </script>
 
 </body>
-</html<div class="nav-item" onclick="showPanel('exec',this)"><span class="nav-icon">📊</span>Apresentação Executiva</div>
-  >
+</html>
