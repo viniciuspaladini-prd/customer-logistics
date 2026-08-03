@@ -1103,6 +1103,440 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 </div>
 
 
+<div class="panel active" id="panel-home">
+  <div class="ph">
+    <h2>🎯 Modelo de Atenção — Adquiring MP</h2>
+    <p>O suporte que oferecemos hoje resolve o problema de cada perfil de seller?</p>
+  </div>
+  <div style="padding:20px 24px;max-width:900px">
+
+    <div style="background:linear-gradient(135deg,#1A1A2E,#16213e);color:white;border-radius:14px;padding:22px 28px;margin-bottom:16px">
+      <div style="font-size:11px;font-weight:700;opacity:.5;letter-spacing:1.5px;margin-bottom:8px">OBJETIVO</div>
+      <div style="font-size:17px;font-weight:800;line-height:1.5;margin-bottom:14px">O suporte que oferecemos hoje resolve o problema de cada perfil de seller? Diagnosticar, por segmento (Big Sellers, SMB, Longtail) e por canal, onde o modelo de atenção falha em alcance ou qualidade — para decidir onde agir primeiro</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;font-size:10px;opacity:.8">
+        <div>📍 Quais canais o seller tem disponíveis em cada segmento?</div>
+        <div>📍 Que % dos sellers ativos contata algum canal por mês?</div>
+        <div>📍 Quais são os temas de maior volume e pior experiência?</div>
+        <div>📍 Onde o Maxwell não resolve e o seller vai para CX humano?</div>
+      </div>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:16px">
+      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">📋 Estrutura da exploração</div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#f8f9fa;border-radius:8px;cursor:pointer" onclick="showPanel('canais',null)"><span style="font-size:18px;flex-shrink:0">🗺️</span><div><div style="font-size:11px;font-weight:700">Modelo de Atenção</div><div style="font-size:9px;color:#9ca3af">Esquema: segmentos, canais e ferramentas · clique para o diagnóstico</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#fef2f2;border-radius:8px;cursor:pointer" onclick="showSegPanel('bs',null)"><span style="font-size:18px;flex-shrink:0">🔴</span><div><div style="font-size:11px;font-weight:700">Big Seller</div><div style="font-size:9px;color:#9ca3af;line-height:1.6"><span style="color:#1A56DB;font-weight:600">📊 MA</span> Mesa Senior: KAM+Maxwell+CX, 7 achados &nbsp;·&nbsp; <span style="color:#3b5bdb;font-weight:600">🤖 Maxwell</span> UCs+CSAT+convIDs &nbsp;·&nbsp; <span style="color:#2f9e44;font-weight:600">📞 CX</span> CDU+NPS &nbsp;·&nbsp; <span style="color:#e67700;font-weight:600">💡 Opps</span></div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#fff7ed;border-radius:8px;cursor:pointer" onclick="showSegPanel('smb',null)"><span style="font-size:18px;flex-shrink:0">🟠</span><div><div style="font-size:11px;font-weight:700">SMB</div><div style="font-size:9px;color:#9ca3af;line-height:1.6"><span style="color:#92400e;font-weight:600">📊 MA</span> 3 canais: Maxwell+CX+CC FAST &nbsp;·&nbsp; <span style="color:#3b5bdb;font-weight:600">🤖 Maxwell</span> UCs+CSAT &nbsp;·&nbsp; <span style="color:#2f9e44;font-weight:600">📞 CX</span> &nbsp;·&nbsp; <span style="color:#e67700;font-weight:600">💡 Opps</span> Money Held+Blocked</div></div></div>
+          <div style="display:flex;gap:10px;align-items:flex-start;padding:8px 10px;background:#f0fdf4;border-radius:8px;cursor:pointer" onclick="showSegPanel('lt',null)"><span style="font-size:18px;flex-shrink:0">🟢</span><div><div style="font-size:11px;font-weight:700">Longtail</div><div style="font-size:9px;color:#9ca3af;line-height:1.6"><span style="color:#14532d;font-weight:600">📊 MA</span> Maxwell canal principal &nbsp;·&nbsp; <span style="color:#3b5bdb;font-weight:600">🤖 Maxwell</span> maior volume &nbsp;·&nbsp; <span style="color:#2f9e44;font-weight:600">📞 CX</span> &nbsp;·&nbsp; <span style="color:#e67700;font-weight:600">💡 Opps</span></div></div></div>
+        </div>
+      </div>
+      <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);padding:16px 18px">
+        <div style="font-size:10px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px;margin-bottom:10px">🔍 Fontes e Metodologia</div>
+        <div style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:8px;padding:9px 12px;margin-bottom:8px"><div style="font-size:9px;font-weight:700;color:#0369a1;margin-bottom:4px">💬 Conversas já realizadas</div><div style="font-size:9px;color:#0c4a6e;line-height:1.8">✓ <strong>CX Fintech</strong> — scope e contact rate<br>✓ <strong>Maxwell Squad</strong> — arquitetura, skills, policy tags<br>✓ <strong>KAM Big Seller</strong> — validação de motivos e WA informal · <span style="background:#d3f9d8;color:#166534;border-radius:8px;padding:1px 6px;font-size:8px;font-weight:700">ALL SITES</span></div></div>
+        <div style="background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:9px 12px;margin-bottom:8px"><div style="font-size:9px;font-weight:700;color:#713f12;margin-bottom:4px">⏳ Conversas pendentes</div><div style="font-size:9px;color:#713f12;line-height:1.8">○ <strong>Consultor CC / FAST</strong> — aprofundar satisfação, serviços utilizados e ferramentas disponíveis<br>○ <strong>Risk / Restrições</strong> — fóruns para coleta de insights gerais</div></div>
+        <div style="font-size:9px;color:#6b7280;margin-bottom:8px;line-height:1.6">Métricas = <strong>média mensal</strong> de sellers que contataram o canal ÷ base <strong>LK_MP_SEGMENTATION_SELLERS</strong> (SELL_ACTIVE_MTD_FLAG=1).</div>
+        <details style="border:1px solid #e7e9f3;border-radius:8px;overflow:hidden"><summary style="padding:7px 12px;font-size:9px;font-weight:700;color:#374151;cursor:pointer;background:#f8f9fa">📋 Tabelas BigQuery</summary><div style="padding:8px 12px;font-size:9px;color:#374151;line-height:2"><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">LK_MP_SEGMENTATION_SELLERS</code> — base ativos · SELL_ACTIVE_MTD_FLAG=1</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">BT_MP_ACQ_MASTER_POINT</code> — segmentação BIG SELLERS/SMB/LONGTAIL</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">BT_MAXWELL_CONVERSATION_DETAILS</code> — conversas Maxwell · jan–jun/26</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#2f9e44">BT_CX_CONTACTS_WITH_MIX</code> — casos CX · FLAG_EXCLUDE_NUMERATOR_CR=0</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#2f9e44">BT_CX_NPS_DETAIL</code> — NPS · Big Seller 7 filas HSP/BR</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#e67700">SBOX_SELLERSGROWTHMP.MULTICHANNEL_TASKS</code> — tasks CC</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#e67700">BT_MP_POINT_SERVICE_ORDER</code> — SOs via CC</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#1A56DB">DM_INCOMING_BIG_SELLERS_KAM</code> — contatos KAM</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#1A56DB">BT_SALESFORCE_ACCOUNT</code> — OWNER_MPAGO__C</div><div><code style="color:#9c36b5">BT_MAXWELL_SKILL_EXECUTIONS</code> — skills · desde abr/26</div></div></details>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+
+<!-- MODELO ATENCAO BIG SELLER -->
+<!-- MODELO DE ATENCAO OVERVIEW -->
+<div class="panel" id="panel-canais">
+  <div class="ph">
+    <h2>🗺️ Modelo de Atenção</h2>
+    <p>Canais e ferramentas de atendimento por segmento · clique em um segmento para o diagnóstico completo</p>
+  </div>
+  <div style="padding:22px 26px;max-width:1100px">
+    <div style="display:flex;flex-direction:column;gap:14px">
+
+      <!-- BIG SELLER -->
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);cursor:pointer" onclick="showSegPanel('bs',null)">
+        <div style="background:linear-gradient(135deg,#7f1d1d,#dc2626);padding:14px 22px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-size:18px;font-weight:800;color:white">🔴 Big Seller</div>
+          <div style="background:rgba(255,255,255,.15);color:white;border-radius:8px;padding:5px 14px;font-size:11px;font-weight:700">Ver diagnóstico →</div>
+        </div>
+        <div style="background:white;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #f3f4f6">
+          <div style="padding:14px 18px;border-right:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#eff6ff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">🤖</div><div style="font-size:11px;font-weight:700;color:#3b5bdb">Maxwell</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">📱 App MP · Web</div></div>
+          <div style="padding:14px 18px;border-right:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#f0fdf4;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">📞</div><div style="font-size:11px;font-weight:700;color:#2f9e44">CX Célula Exclusiva</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">WA Inbound · C2C · Chat</div></div>
+          <div style="padding:14px 18px"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#fff7ed;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">👔</div><div style="font-size:11px;font-weight:700;color:#e67700">KAM / Consultor</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">Gestor dedicado · WA · E-mail</div></div>
+        </div>
+      </div>
+
+      <!-- SMB -->
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);cursor:pointer" onclick="showSegPanel('smb',null)">
+        <div style="background:linear-gradient(135deg,#92400e,#d97706);padding:14px 22px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-size:18px;font-weight:800;color:white">🟠 SMB</div>
+          <div style="background:rgba(255,255,255,.15);color:white;border-radius:8px;padding:5px 14px;font-size:11px;font-weight:700">Ver diagnóstico →</div>
+        </div>
+        <div style="background:white;display:grid;grid-template-columns:1fr 1fr 1fr;border-top:1px solid #f3f4f6">
+          <div style="padding:14px 18px;border-right:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#eff6ff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">🤖</div><div style="font-size:11px;font-weight:700;color:#3b5bdb">Maxwell</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">📱 App MP · Web</div></div>
+          <div style="padding:14px 18px;border-right:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#f0fdf4;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">📞</div><div style="font-size:11px;font-weight:700;color:#2f9e44">CX Célula Exclusiva</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">WA Inbound · C2C · Chat</div></div>
+          <div style="padding:14px 18px"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#fff7ed;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">👔</div><div style="font-size:11px;font-weight:700;color:#e67700">Consultor (Virtual + Presencial)</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">FAST</div></div>
+        </div>
+      </div>
+
+      <!-- LONGTAIL -->
+      <div style="border-radius:14px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1);cursor:pointer" onclick="showSegPanel('lt',null)">
+        <div style="background:linear-gradient(135deg,#14532d,#16a34a);padding:14px 22px;display:flex;align-items:center;justify-content:space-between">
+          <div style="font-size:18px;font-weight:800;color:white">🟢 Longtail</div>
+          <div style="background:rgba(255,255,255,.15);color:white;border-radius:8px;padding:5px 14px;font-size:11px;font-weight:700">Ver diagnóstico →</div>
+        </div>
+        <div style="background:white;display:grid;grid-template-columns:1fr 1fr;border-top:1px solid #f3f4f6">
+          <div style="padding:14px 18px;border-right:1px solid #f3f4f6"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#eff6ff;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">🤖</div><div style="font-size:11px;font-weight:700;color:#3b5bdb">Maxwell</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">📱 App MP · Web</div></div>
+          <div style="padding:14px 18px"><div style="display:flex;align-items:center;gap:6px;margin-bottom:8px"><div style="width:28px;height:28px;background:#f0fdf4;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:14px">📞</div><div style="font-size:11px;font-weight:700;color:#2f9e44">CX</div></div><div style="font-size:9px;color:#6b7280;line-height:1.8">C2C · Chat · WA Outbound · E-mail</div></div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="panel" id="panel-ma-bs">
+  <div class="ph" style="border-bottom:4px solid #e03131">
+    <h2>🔴 Big Seller — Modelo de Atenção</h2>
+    <p>Canal prioritário: CX dedicado (Célula Exclusiva) + Consultor KAM atribuído · MLB · Ene–Jun 2026</p>
+  </div>
+  <div style="padding:20px 24px;max-width:1100px">
+    <!-- VISUAL HERO -->
+    <div style="background:linear-gradient(135deg,#7f1d1d,#dc2626);border-radius:14px;padding:20px 26px;margin-bottom:16px;color:white">
+      <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:6px">DIAGNÓSTICO — BIG SELLER MLB 2026</div>
+      <div style="font-size:18px;font-weight:800;line-height:1.3;margin-bottom:12px">Canal de alta dedicação — CX exclusivo + KAM atribuído</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="background:rgba(59,91,219,.3);border-radius:10px;padding:12px 14px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:6px">🤖 Maxwell</div>
+          <div style="font-size:9px;opacity:.85;line-height:1.8">Autogestão digital<br>App · Web<br><strong>Exploração completa disponível</strong></div>
+        </div>
+        <div style="background:rgba(47,158,68,.3);border-radius:10px;padding:12px 14px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:6px">📞 CX Célula Exclusiva</div>
+          <div style="font-size:9px;opacity:.85;line-height:1.8">WA · C2C · E-mail · Chat<br>Atendimento dedicado<br><strong>Canal principal reativo</strong></div>
+        </div>
+        <div style="background:rgba(230,119,0,.3);border-radius:10px;padding:12px 14px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:6px">👔 KAM / Consultor</div>
+          <div style="font-size:9px;opacity:.85;line-height:1.8">Gestor dedicado<br>Atendimento personalizado<br><strong>Não instrumentado completamente</strong></div>
+        </div>
+      </div>
+    </div>
+    <div style="background:white;border-radius:12px;padding:20px;text-align:center;color:#9ca3af;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+      <div style="font-size:13px;font-weight:600;color:#374151;margin-bottom:12px">Análises disponíveis para Big Seller</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button onclick="goMaxwellSeg('Big Seller',null)" style="background:#3b5bdb;color:white;border:none;border-radius:10px;padding:12px 20px;cursor:pointer;font-size:11px;font-weight:700">🤖 Maxwell Big Seller →</button>
+        <button onclick="showCxSeg('Big Seller',null)" style="background:#2f9e44;color:white;border:none;border-radius:10px;padding:12px 20px;cursor:pointer;font-size:11px;font-weight:700">📞 CX Big Seller →</button>
+        <button onclick="showPanel('opps',null)" style="background:#e67700;color:white;border:none;border-radius:10px;padding:12px 20px;cursor:pointer;font-size:11px;font-weight:700">💡 Oportunidades →</button>
+      </div>
+      <div style="margin-top:14px;font-size:10px;color:#9ca3af">Diagnóstico completo (seções 00–04) em desenvolvimento · dados de sellers únicos e volume por canal pendentes de validação</div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODELO ATENCAO LONGTAIL -->
+<div class="panel" id="panel-ma-lt">
+  <div class="ph" style="border-bottom:4px solid #2f9e44">
+    <h2>🟢 Longtail — Modelo de Atenção</h2>
+    <p>Canal principal: Maxwell (autogestão) · MLB · Ene–Jun 2026 · CX e CC com participação menor</p>
+  </div>
+  <div style="padding:20px 24px;max-width:1100px">
+    <!-- VISUAL HERO -->
+    <div style="background:linear-gradient(135deg,#14532d,#16a34a);border-radius:14px;padding:20px 26px;margin-bottom:16px;color:white">
+      <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:6px">DIAGNÓSTICO — LONGTAIL MLB 2026</div>
+      <div style="font-size:18px;font-weight:800;line-height:1.3;margin-bottom:12px">Autogestão como canal primário — Maxwell é o ponto de entrada</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px">
+        <div style="background:rgba(59,91,219,.5);border-radius:10px;padding:12px 14px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:6px">🤖 Maxwell <span style="font-size:8px;background:rgba(255,255,255,.2);border-radius:8px;padding:1px 6px">PRINCIPAL</span></div>
+          <div style="font-size:9px;opacity:.85;line-height:1.8">Autogestão digital<br>App · Web · WAI (Q3/26)<br><strong>Canal dominante para Longtail</strong></div>
+        </div>
+        <div style="background:rgba(47,158,68,.2);border-radius:10px;padding:12px 14px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:6px">📞 CX</div>
+          <div style="font-size:9px;opacity:.85;line-height:1.8">Escalação do Maxwell<br>Sem célula exclusiva<br><strong>Participação menor</strong></div>
+        </div>
+        <div style="background:rgba(230,119,0,.2);border-radius:10px;padding:12px 14px">
+          <div style="font-size:11px;font-weight:800;margin-bottom:6px">👔 CC (limitado)</div>
+          <div style="font-size:9px;opacity:.85;line-height:1.8">Cobertura parcial<br>Virtual Consultant<br><strong>Sem KAM dedicado</strong></div>
+        </div>
+      </div>
+    </div>
+    <div style="background:white;border-radius:12px;padding:20px;text-align:center;color:#9ca3af;box-shadow:0 1px 4px rgba(0,0,0,.08)">
+      <div style="font-size:13px;font-weight:600;color:#374151;margin-bottom:12px">Exploração Longtail — foco em Maxwell</div>
+      <div style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+        <button onclick="goMaxwellSeg('Longtail',null)" style="background:#2f9e44;color:white;border:none;border-radius:10px;padding:12px 20px;cursor:pointer;font-size:11px;font-weight:700">🤖 Maxwell Longtail →</button>
+        <button onclick="showPanel('opps',null)" style="background:#e67700;color:white;border:none;border-radius:10px;padding:12px 20px;cursor:pointer;font-size:11px;font-weight:700">💡 Oportunidades →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<!-- MODELO ATENCAO SMB -->
+<div class="panel" id="panel-ma-smb">
+  <div style="padding:0 0 0 0">
+  <div style="padding:20px 24px;max-width:1100px">
+    <!-- HEADER INTERNO MESA SENIOR -->
+    <div style="background:linear-gradient(135deg,#92400e 0%,#d97706 100%);color:white;border-radius:12px;padding:14px 24px;display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+      <div>
+        <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:3px">MODELO DE ATENÇÃO — SMB ADQUIRING</div>
+        <div style="font-size:17px;font-weight:800">Como os SMBs nos buscam — e o que sabemos sobre sua experiência</div>
+      </div>
+      <div style="background:rgba(0,0,0,.2);border-radius:10px;padding:8px 14px;text-align:right;flex-shrink:0;margin-left:20px">
+        <div style="font-size:12px;font-weight:700">492K sellers ativos</div>
+        <div style="font-size:9px;opacity:.7">MLA·MLB·MLM·MLC · Mai–Jul 2026</div>
+      </div>
+    </div>
+
+
+    <!-- HOOK: % sem frição + barras -->
+    <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);padding:22px 26px;margin-bottom:14px">
+      <div style="display:flex;align-items:flex-start;gap:24px;margin-bottom:20px">
+        <div style="flex:1">
+          <div style="font-size:52px;font-weight:900;color:#2f9e44;line-height:1;letter-spacing:-2px" id="smb-free-pct">~41%</div>
+          <div style="font-size:14px;font-weight:700;color:#111827;margin-top:6px">dos SMBs contatam algum canal por mês</div>
+          <div style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 47,3%</strong> / <strong>jun 50,6%</strong> / <strong>jul 44,2%</strong> · média <strong>47,4%</strong> · base ~531K/mês (union única Maxwell+CX+CC)</div>
+          <div style="margin-top:10px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:10px;color:#713f12">
+            <strong>⚠️ WAI (WhatsApp IA)</strong> sendo instrumentado — ETA Q3/26. Volume atual pode estar subcontado.
+          </div>
+        </div>
+      </div>
+
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:10px">Canais medidos — média mensal Mai–Jul 2026</div>
+      <div style="display:flex;flex-direction:column;gap:9px;margin-bottom:16px">
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:120px;flex-shrink:0"><div style="font-size:10px;font-weight:700;color:#374151">🤖 Maxwell</div></div>
+          <div style="flex:1;background:#e5e7eb;height:20px;border-radius:5px;overflow:hidden"><div id="smb-mx-bar" style="background:#f59e0b;width:31.6%;height:20px;border-radius:5px;display:flex;align-items:center;padding-left:6px"><span style="font-size:8px;font-weight:700;color:white" id="smb-mx-sellers">168K</span></div></div>
+          <div style="width:90px;text-align:right"><span style="font-size:14px;font-weight:800;color:#f59e0b" id="smb-mx-pct">31,6%</span><span style="font-size:9px;color:#9ca3af;margin-left:2px">da base</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:120px;flex-shrink:0"><div style="font-size:10px;font-weight:700;color:#374151">📞 CX Célula Excl.</div></div>
+          <div style="flex:1;background:#e5e7eb;height:20px;border-radius:5px;overflow:hidden"><div id="smb-cx-bar" style="background:#16a34a;width:8.1%;height:20px;border-radius:5px;display:flex;align-items:center;padding-left:6px"><span style="font-size:8px;font-weight:700;color:white" id="smb-cx-sellers">43K</span></div></div>
+          <div style="width:90px;text-align:right"><span style="font-size:14px;font-weight:800;color:#16a34a" id="smb-cx-pct">8,1%</span><span style="font-size:9px;color:#9ca3af;margin-left:2px">da base</span></div>
+        </div>
+        <div style="display:flex;align-items:center;gap:10px">
+          <div style="width:120px;flex-shrink:0"><div style="font-size:10px;font-weight:700;color:#374151">👔 Consultor CC</div></div>
+          <div style="flex:1;background:#e5e7eb;height:20px;border-radius:5px;overflow:hidden"><div id="smb-cc-bar" style="background:#e67700;width:16.7%;height:20px;border-radius:5px;display:flex;align-items:center;padding-left:6px"><span style="font-size:8px;font-weight:700;color:white" id="smb-cc-sellers">88K</span></div></div>
+          <div style="width:90px;text-align:right"><span style="font-size:14px;font-weight:800;color:#e67700" id="smb-cc-pct">16,7%</span><span style="font-size:9px;color:#9ca3af;margin-left:2px">da base</span></div>
+        </div>
+      </div>
+
+      <div style="padding-top:12px;border-top:1px solid #f3f4f6;font-size:9px;color:#6b7280">
+        <strong style="color:#374151">Sellers em 2+ canais:</strong>
+        Maxwell+CX 111K · Maxwell+CC 59K · CX+CC 25K · Todos 3: ~20K
+        <span style="font-size:8px;color:#9ca3af">&nbsp;·&nbsp;MLB Jan–Jun • inclusão-exclusão</span>
+      </div>
+      <div style="margin-top:8px;font-size:10px;color:#374151;background:#fff7ed;border-radius:8px;padding:8px 12px;border-left:3px solid #e67700">
+        53,7% dos sellers que usam CC também passam por Maxwell ou CX — 46,3% usam CC como canal único
+      </div>
+    </div>
+
+    <!-- SEÇÃO 02: VOLUMES -->
+    <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow:hidden;margin-bottom:14px">
+      <div style="padding:14px 20px;border-bottom:1px solid #f3f4f6">
+        <span style="display:inline-block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:2px 8px;font-size:8px;font-weight:600;color:#64748b;letter-spacing:.3px;margin-bottom:6px">📅 Mai–Jul 2026</span>
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px">Volume de contatos por canal</div>
+        <div style="font-size:14px;font-weight:800;color:#111827;margin-top:2px">Maxwell lidera o volume reativo — CC tem maior intensidade por seller</div>
+        <div style="font-size:10px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26 · base ~299K contatos/mês · Maxwell cresce (147K→185K→171K)</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+        <div style="border-right:1px solid #f3f4f6;padding:20px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><div style="width:32px;height:32px;background:#fff7ed;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">👔</div><div style="font-size:12px;font-weight:700;color:#e67700">Consultor CC</div></div>
+          <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">88K</div>
+          <div style="font-size:11px;font-weight:700;color:#e67700;margin-top:2px">29,4% do volume mês</div>
+          <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:12px">Mai: 92K · Jun: 97K · Jul: 76K</div>
+          <div style="background:#fff7ed;border:2px solid #fed7aa;border-radius:8px;padding:8px 10px;font-size:9px;color:#92400e">
+            <strong>Sem CSAT por task</strong> — gap crítico de medição<br>98% das tasks sem dado de satisfação
+          </div>
+        </div>
+        <div style="border-right:1px solid #f3f4f6;padding:20px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><div style="width:32px;height:32px;background:#fffbeb;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">🤖</div><div style="font-size:12px;font-weight:700;color:#b45309">Maxwell</div></div>
+          <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">168K</div>
+          <div style="font-size:11px;font-weight:700;color:#f59e0b;margin-top:2px">56,2% do volume mês</div>
+          <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:12px">Mai: 147K · Jun: 185K · Jul: 171K</div>
+          <div style="background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 10px;font-size:9px;color:#713f12">
+            <strong>CSAT 52%</strong> agregado SMB · Money Held 42% · Blocked 44%
+          </div>
+        </div>
+        <div style="padding:20px">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:12px"><div style="width:32px;height:32px;background:#f0fdf4;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px">📞</div><div style="font-size:12px;font-weight:700;color:#16a34a">CX Célula Exclusiva</div></div>
+          <div style="font-size:28px;font-weight:900;color:#374151;line-height:1">43K</div>
+          <div style="font-size:11px;font-weight:700;color:#16a34a;margin-top:2px">14,4% do volume mês</div>
+          <div style="font-size:9px;color:#9ca3af;margin-top:4px;margin-bottom:12px">Mai: 47K · Jun: 42K · Jul: 40K</div>
+          <div style="background:#f0fdf4;border:1px solid #86efac;border-radius:8px;padding:8px 10px;font-size:9px;color:#166534">
+            <strong>NPS parcial (~70%)</strong> · ~30% dos casos sem NPS<br>CDUs: Cobro rechazado · Point no funciona
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- SEÇÃO 03: TOP MOTIVOS -->
+    <div style="background:white;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);overflow:hidden;margin-bottom:14px">
+      <div style="padding:14px 20px;border-bottom:1px solid #f3f4f6">
+        <span style="display:inline-block;background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:2px 8px;font-size:8px;font-weight:600;color:#64748b;letter-spacing:.3px;margin-bottom:6px">📅 Mai–Jul 2026</span>
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:1px">Principais temas por canal</div>
+        <div style="font-size:14px;font-weight:800;color:#111827;margin-top:2px">Money Held e Failed Transaction dominam os canais reativos</div>
+        <div style="font-size:9px;color:#9ca3af;margin-top:4px">As 3 taxonomias (Maxwell, CX CDU, CC task types) vêm de sistemas distintos — não são somáveis.</div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr">
+        <div style="border-right:1px solid #f3f4f6;padding:16px 18px">
+          <div style="font-size:11px;font-weight:700;color:#e67700;margin-bottom:4px">👔 CC — top 5 task types</div>
+          <div style="font-size:8px;color:#9ca3af;margin-bottom:10px">base: 1,87M tasks</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Open Finance</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#e67700;width:100%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#e67700">22,0% · 411K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Software</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#e67700;width:77%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#e67700">17,0% · 317K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Taxas/Balanço</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#e67700;width:64%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#e67700">14,0% · 262K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Investimentos</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#e67700;width:51%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#e67700">11,3% · 210K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Devices</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#e67700;width:50%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#e67700">10,9% · 203K</div></div>
+          </div>
+        </div>
+        <div style="border-right:1px solid #f3f4f6;padding:16px 18px">
+          <div style="font-size:11px;font-weight:700;color:#b45309;margin-bottom:4px">🤖 Maxwell — top 5 UCs</div>
+          <div style="font-size:8px;color:#9ca3af;margin-bottom:10px">base: 596K · CSAT 52% agregado</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Transaction Req.</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:100%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#f59e0b">18,0% · 107K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">How To / Usage</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:88%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#f59e0b">15,8% · 94K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Payment Status</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:37%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#f59e0b">6,6% · 39K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Malfunction</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:32%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#f59e0b">5,7% · 34K</div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Money Held</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#f59e0b;width:28%;height:100%"></div></div><div style="width:90px;text-align:right;font-size:9px;font-weight:700;color:#f59e0b">4,7% · 28K <span style="font-size:8px;background:#fef3c7;color:#92400e;border-radius:4px;padding:1px 3px">CSAT 42%</span></div></div>
+          </div>
+        </div>
+        <div style="padding:16px 18px">
+          <div style="font-size:11px;font-weight:700;color:#16a34a;margin-bottom:4px">📞 CX — top 5 CDU</div>
+          <div style="font-size:8px;color:#9ca3af;margin-bottom:10px">base: 352K · NPS por CDU</div>
+          <div style="display:flex;flex-direction:column;gap:5px">
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Cobro rechazado</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:100%;height:100%"></div></div><div style="width:100px;text-align:right;font-size:9px;font-weight:700;color:#16a34a">5,1% · 18K <span style="font-size:8px;color:#9ca3af">NPS 37</span></div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">HT - Ventas</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:89%;height:100%"></div></div><div style="width:100px;text-align:right;font-size:9px;font-weight:700;color:#16a34a">4,6% · 16K <span style="font-size:8px;color:#9ca3af">NPS 78</span></div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Reclamos</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:88%;height:100%"></div></div><div style="width:100px;text-align:right;font-size:9px;font-weight:700;color:#16a34a">4,5% · 16K <span style="font-size:8px;color:#9ca3af">NPS 72</span></div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Point no funciona</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:66%;height:100%"></div></div><div style="width:100px;text-align:right;font-size:9px;font-weight:700;color:#16a34a">3,4% · 12K <span style="font-size:8px;color:#9ca3af">NPS 79</span></div></div>
+            <div style="display:flex;align-items:center;gap:6px"><div style="width:92px;flex-shrink:0;font-size:9px;color:#374151">Of. crédito</div><div style="flex:1;background:#f3f4f6;border-radius:3px;height:13px;overflow:hidden"><div style="background:#16a34a;width:61%;height:100%"></div></div><div style="width:100px;text-align:right;font-size:9px;font-weight:700;color:#16a34a">3,2% · 11K <span style="font-size:8px;color:#9ca3af">NPS 60</span></div></div>
+          </div>
+        </div>
+      </div>
+
+    <!-- TABELA EXPLICATIVA SEC 03 -->
+    <div style="background:#f8f9fa;border-radius:12px;box-shadow:0 1px 3px rgba(0,0,0,.07);padding:18px 22px;margin-bottom:14px">
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px">O que cada categoria representa</div>
+      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:16px">
+
+        <div>
+          <div style="font-size:10px;font-weight:700;color:#e67700;margin-bottom:8px">👔 CC — Task Types</div>
+          <table style="width:100%;border-collapse:collapse;font-size:9px">
+            <tr style="background:#fff3e0"><th style="padding:4px 8px;text-align:left;font-weight:700;color:#374151">Task Type</th><th style="padding:4px 8px;text-align:left;font-weight:700;color:#374151">O que envolve</th></tr>
+            <tr style="border-bottom:1px solid #f3f4f6"><td style="padding:4px 8px;font-weight:600">Open Finance</td><td style="padding:4px 8px;color:#6b7280">Consentimentos, conexões com outras instituições, portabilidade</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6;background:#fafafa"><td style="padding:4px 8px;font-weight:600">Software</td><td style="padding:4px 8px;color:#6b7280">Problemas com app, sistema, integração</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6"><td style="padding:4px 8px;font-weight:600">Taxas/Balanço</td><td style="padding:4px 8px;color:#6b7280">Dúvidas sobre tarifas, extrato, saldo disponível</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6;background:#fafafa"><td style="padding:4px 8px;font-weight:600">Investimentos</td><td style="padding:4px 8px;color:#6b7280">CDB, fundos, rendimentos — dúvidas e operações</td></tr>
+            <tr><td style="padding:4px 8px;font-weight:600">Devices</td><td style="padding:4px 8px;color:#6b7280">Maquininhas Point: defeito, configuração, dúvidas</td></tr>
+          </table>
+        </div>
+
+        <div>
+          <div style="font-size:10px;font-weight:700;color:#b45309;margin-bottom:8px">🤖 Maxwell — Use Cases</div>
+          <table style="width:100%;border-collapse:collapse;font-size:9px">
+            <tr style="background:#fef3c7"><th style="padding:4px 8px;text-align:left;font-weight:700;color:#374151">UC</th><th style="padding:4px 8px;text-align:left;font-weight:700;color:#374151">O que envolve</th></tr>
+            <tr style="border-bottom:1px solid #f3f4f6"><td style="padding:4px 8px;font-weight:600">Transaction Req.</td><td style="padding:4px 8px;color:#6b7280">Contestações e solicitações sobre cobranças específicas</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6;background:#fafafa"><td style="padding:4px 8px;font-weight:600">How To / Usage</td><td style="padding:4px 8px;color:#6b7280">"Como usar" — tutoriais, funcionalidades, primeiros passos</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6"><td style="padding:4px 8px;font-weight:600">Payment Status</td><td style="padding:4px 8px;color:#6b7280">Consulta de status de pagamentos pendentes</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6;background:#fafafa"><td style="padding:4px 8px;font-weight:600">Malfunction</td><td style="padding:4px 8px;color:#6b7280">Dispositivo ou sistema com falha/mau funcionamento</td></tr>
+            <tr><td style="padding:4px 8px;font-weight:600;color:#dc2626">Money Held</td><td style="padding:4px 8px;color:#6b7280">Dinheiro retido ou bloqueado na conta — <strong>CSAT 42% (pior)</strong></td></tr>
+          </table>
+        </div>
+
+        <div>
+          <div style="font-size:10px;font-weight:700;color:#16a34a;margin-bottom:8px">📞 CX — CDU</div>
+          <table style="width:100%;border-collapse:collapse;font-size:9px">
+            <tr style="background:#dcfce7"><th style="padding:4px 8px;text-align:left;font-weight:700;color:#374151">CDU</th><th style="padding:4px 8px;text-align:left;font-weight:700;color:#374151">O que envolve</th></tr>
+            <tr style="border-bottom:1px solid #f3f4f6"><td style="padding:4px 8px;font-weight:600;color:#dc2626">Cobro rechazado</td><td style="padding:4px 8px;color:#6b7280">Cobrança recusada — cartão não passou (NPS 37, o pior)</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6;background:#fafafa"><td style="padding:4px 8px;font-weight:600">HT - Ventas</td><td style="padding:4px 8px;color:#6b7280">Como vender, configurar maquininha (NPS 78)</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6"><td style="padding:4px 8px;font-weight:600">Reclamos</td><td style="padding:4px 8px;color:#6b7280">Reclamações gerais — contestações (NPS 72)</td></tr>
+            <tr style="border-bottom:1px solid #f3f4f6;background:#fafafa"><td style="padding:4px 8px;font-weight:600">Point no funciona</td><td style="padding:4px 8px;color:#6b7280">Maquininha com falha (NPS 79)</td></tr>
+            <tr><td style="padding:4px 8px;font-weight:600">Of. crédito</td><td style="padding:4px 8px;color:#6b7280">Dúvidas sobre empréstimos, limites (NPS 60)</td></tr>
+          </table>
+        </div>
+
+      </div>
+      <div style="margin-top:12px;font-size:10px;color:#374151;line-height:1.7">
+        <strong>Ponto de atenção:</strong> <strong style="color:#dc2626">Money Held</strong> (Maxwell, CSAT 42%) e <strong style="color:#dc2626">Cobro rechazado</strong> (CX, NPS 37) têm os piores indicadores de satisfação nos dois canais reativos — são os temas mais críticos de experiência para o SMB.
+      </div>
+    </div>
+
+    </div>
+
+    <!-- SÍNTESE -->
+    <div style="background:linear-gradient(135deg,#111827,#1f2937);color:white;border-radius:12px;padding:20px 26px">
+      <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:12px">O QUE ESSE DIAGNÓSTICO MOSTRA — SMB</div>
+      <div style="display:flex;flex-direction:column;gap:12px">
+        <div style="border-left:3px solid #60a5fa;padding-left:14px">
+          <div style="font-size:12px;font-weight:700;color:#93c5fd;margin-bottom:3px">~31% dos SMBs contatam algum canal por mês</div>
+          <div style="font-size:10px;opacity:.85;line-height:1.6">69% resolvem sem suporte. Ponto em aberto: esse nível é diferente de BS e Longtail? É bom ou ruim?</div>
+        </div>
+        <div style="border-left:3px solid #fbbf24;padding-left:14px">
+          <div style="font-size:12px;font-weight:700;color:#fde68a;margin-bottom:3px">Maxwell: alto volume, CSAT mensurável mas crítico</div>
+          <div style="font-size:10px;opacity:.85;line-height:1.6">596K convs, CSAT 52% agregado. Money Held (CSAT 42%) e Blocked (44%) são as maiores dores não resolvidas.</div>
+        </div>
+        <div style="border-left:3px solid #fb923c;padding-left:14px">
+          <div style="font-size:12px;font-weight:700;color:#fdba74;margin-bottom:3px">CC: canal proativo dominante em volume, sem medição</div>
+          <div style="font-size:10px;opacity:.85;line-height:1.6">1,87M tasks/ano mas 98% sem CSAT. Não sabemos se o CC é efetivo para o seller SMB.</div>
+        </div>
+        <div style="border-left:3px solid #34d399;padding-left:14px">
+          <div style="font-size:12px;font-weight:700;color:#6ee7b7;margin-bottom:3px">95,7% que usam CC também precisam de outro canal</div>
+          <div style="font-size:10px;opacity:.85;line-height:1.6">O CC não resolve sozinho. Não sabemos se é preferido ou se o seller busca outro canal porque o CC não resolveu.</div>
+        </div>
+      </div>
+      <div style="margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.15);font-size:10px;opacity:.65;font-style:italic">
+        Diagnóstico — não proposta de solução.
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<div class="panel" id="panel-maxwell">
+  <div class="ph">
+    <h2>🤖 Maxwell — Volumen vs CSAT</h2>
+    <p>Vista general cross-segmento. Usa el sidebar para filtrar por segmento específico.
+      <span id="seg-filter-badge" style="display:none;align-items:center;gap:4px;margin-left:10px;background:#e9f1ff;color:#3b5bdb;border:1px solid #b0bef5;border-radius:9999px;padding:2px 10px;font-size:11px;font-weight:700"></span>
+    </p>
+  </div>
+  <!-- sem tabs de segmento — visão geral, segmentos aparecem no breakdown de cada use case -->
+  <div class="ctrl-bar">
+    <span class="ctrl-lbl">Mes:</span>
+    <button class="m-btn active" onclick="setMonth('ALL',this)">Todos</button>
+    <button class="m-btn" onclick="setMonth('2026-01',this)">Ene/26</button>
+    <button class="m-btn" onclick="setMonth('2026-02',this)">Feb/26</button>
+    <button class="m-btn" onclick="setMonth('2026-03',this)">Mar/26</button>
+    <button class="m-btn" onclick="setMonth('2026-04',this)">Abr/26</button>
+    <button class="m-btn" onclick="setMonth('2026-05',this)">May/26</button>
+    <button class="m-btn" onclick="setMonth('2026-06',this)">Jun/26</button>
+    <span class="ctrl-lbl" style="margin-left:10px">Site:</span>
+    <button class="m-btn active" onclick="setSite('ALL',this)">Todos</button>
+    <button class="m-btn" onclick="setSite('MLB',this)">🇧🇷 MLB</button>
+    <button class="m-btn" onclick="setSite('MLA',this)">🇦🇷 MLA</button>
+    <button class="m-btn" onclick="setSite('MLM',this)">🇲🇽 MLM</button>
+    <button class="m-btn" onclick="setSite('MLC',this)">🇨🇱 MLC</button>
+  </div>
+  <div class="mx-leg">
+    <span class="leg-lbl">Legenda:</span>
+    <span class="leg lg">● Resolve bem — CSAT≥3.8 e CX&lt;10%</span>
+    <span class="leg ly">● Atenção — CX 10–20% ou CSAT 3.2–3.8</span>
+    <span class="leg lr">● Crítico — CX&gt;20% ou CSAT&lt;3.2</span>
+    <span style="font-size:10px;color:#9c9ebf;margin-left:8px">Tamaño burbuja = volumen · Línea vertical = CSAT prom. ponderado</span>
+  </div>
+
+  <!-- VISÃO GERAL — todos os segmentos, breakdown por segmento e site dentro de cada use case -->
+  <div class="seg-content active" id="sc-ALL">
+    <div class="seg-kpi-bar" id="kpi-ALL"></div>
+    <div class="chart-area">
+      <div class="chart-title">VOLUMEN DE CONVERSACIONES VS CSAT — TODOS OS SEGMENTOS</div>
+      <div class="chart-sub">Burbuja = volumen total · Color = producto · Eje Y log · Línea vertical = CSAT prom. ponderado · Segmentos en el detalle</div>
+      <div class="chart-wrap"><canvas id="chart-ALL"></canvas></div>
+    </div>
+    <div class="list-area" id="list-ALL"></div>
+  </div>
+</div>
+
+
+
 <div class="panel" id="panel-canais">
   <div class="ph">
     <h2>🗺️ Modelo de Atenção</h2>
