@@ -260,7 +260,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
         <div style="display:inline-block;background:#eff6ff;border:1px solid #bfdbfe;border-radius:20px;padding:3px 10px;font-size:9px;font-weight:700;color:#1d4ed8;margin-bottom:12px;letter-spacing:.3px">📅 Média mensal · Mai–Jul 2026</div>
 
   <div style="font-size:60px;font-weight:900;color:#1A56DB;line-height:1;letter-spacing:-2px" id="bs-total-pct">~29%</div>
-        <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos Big Sellers buscam suporte em algum canal por mês</div>
+        <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos Big Sellers buscaram suporte (Help Rate médio)</div>
         <div id="bs-total-sub" style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 27,7%</strong> · <strong>jun 31,2%</strong> · <strong>jul 27,9%</strong> · média <strong>28,9%</strong> · base 29K sellers/mês (LK_MP_SEGMENTATION_SELLERS).</div>
         <div style="margin-top:10px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:10px;color:#713f12">
           <strong>⚠️ WhatsApp fora da medição oficial:</strong> piloto Jul/26 — 77.910 mensagens (MLB·MLC·MCO·MLM, MLA ainda fora) · 2.254 sellers únicos. Volume real de KAM pode ser maior do que o medido.
@@ -489,7 +489,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="background:#7f1d1d;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🔴 Big Seller — LM1+LM2+CORP</div>
       <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('LM1','LM2','CORP') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
       Resultado: <strong>mai 27.408 · jun 30.012 · jul 31.185 · média 29K sellers/mês</strong><br>
-      <strong>Alcance Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS (COUNT_IN_METRICS=TRUE, IS_DELETED=FALSE) · <strong>4.724 sellers/mês (16,6%)</strong> · 13.384 convs · CSAT 34% (N=50)<br>
+      <strong>Help Rate Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS (COUNT_IN_METRICS=TRUE, IS_DELETED=FALSE) · <strong>4.724 sellers/mês (16,6%)</strong> · 13.384 convs · CSAT 34% (N=50)<br>
       <strong>Alcance CX:</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>3.283 sellers/mês (10,9%)</strong> · 13.100 casos · NPS 74<br>
       <strong>KAM:</strong> DM_INCOMING_BIG_SELLERS_KAM · <strong>882 sellers/mês (3,1%)</strong> · 6.887 contatos · E-mail 82% / Reunião 18%<br>
       <strong>Alcance total (união):</strong> mai 27,7% · jun 31,2% · jul 27,9% · <strong>média ~29%</strong><br><br>
@@ -497,7 +497,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="background:#78350f;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🟠 SMB — SMB1+SMB2+SMB3</div>
       <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('SMB1','SMB2','SMB3') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
       Resultado: <strong>mai 814.277 · jun 859.284 · jul 881.456 · média 852K sellers/mês</strong><br>
-      <strong>Alcance Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>195K sellers/mês (22,9%)</strong> · 709K convs (3mo) · CSAT 62% (N=3.180)<br>
+      <strong>Help Rate Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>195K sellers/mês (22,9%)</strong> · 709K convs (3mo) · CSAT 62% (N=3.180)<br>
       <strong>Alcance CX:</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>108K sellers/mês (12,6%)</strong> · 157K casos (3mo) · NPS 68<br>
       <strong>CC FAST:</strong> estimativa a partir da taxa de alcance LK · <strong>85K sellers/mês (10,0%)</strong> · ~360K tarefas proativas (3mo) · <em>sem CSAT por contato</em><br>
       <strong>Alcance total (união):</strong> mai 38,7% · jun 41,6% · jul 38,7% · <strong>média ~40%</strong><br><br>
@@ -505,7 +505,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="background:#14532d;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🟢 Longtail — LOLO+HILO+MILO</div>
       <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('LOLO','HILO','MILO') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
       Resultado: <strong>mai 12.006.059 · jun 12.269.037 · jul 12.126.407 · média 12,1M sellers/mês</strong><br>
-      <strong>Alcance Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>2M sellers/mês (~17%)</strong> · 44,8M convs (3mo) · CSAT 70% (N=425K)<br>
+      <strong>Help Rate Maxwell:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>2M sellers/mês (~17%)</strong> · 44,8M convs (3mo) · CSAT 70% (N=425K)<br>
       <strong>Alcance CX (escalação):</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>80K sellers/mês (0,6%)</strong> · 434K casos (3mo) · NPS 62<br>
       <strong>Alcance total (Maxwell):</strong> mai 13,4% · jun 18,3% · jul 17,9% · <strong>média ~17%</strong> · <em>Em exploração — dados parciais</em><br><br>
 
@@ -581,7 +581,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
         <div style="display:inline-block;background:#fffbeb;border:1px solid #fde68a;border-radius:20px;padding:3px 10px;font-size:9px;font-weight:700;color:#92400e;margin-bottom:12px;letter-spacing:.3px">📅 Média mensal · Mai–Jul 2026</div>
 
   <div style="font-size:60px;font-weight:900;color:#d97706;line-height:1;letter-spacing:-2px" id="smb-total-pct">~40%</div>
-        <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos SMBs buscam suporte em algum canal por mês</div>
+        <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos SMBs buscaram suporte (Help Rate médio)</div>
         <div style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 38,7%</strong> · <strong>jun 41,6%</strong> · <strong>jul 38,7%</strong> · média <strong>39,7%</strong> · base 852K sellers/mês (LK_MP_SEGMENTATION_SELLERS · SELL_ACTIVE_MTD_FLAG=1).</div>
         <div style="margin-top:10px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:10px;color:#713f12">
           <strong>⚠️ WAI (WhatsApp IA)</strong> em instrumentação — ETA Q3/26. Volume atual pode estar subcontado. CC = Consultor FAST (proativo).
@@ -804,7 +804,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
   <div style="font-size:22px;font-weight:900;color:#14532d;margin-bottom:8px;letter-spacing:-0.5px">Em Exploração</div>
   <div style="font-size:14px;color:#166534;font-weight:600;margin-bottom:12px">Esta análise está em construção — dados parciais, podem mudar</div>
   <div style="font-size:12px;color:#15803d;line-height:1.7;max-width:600px;margin:0 auto">
-    O diagnóstico do Longtail está sendo desenvolvido. Os números apresentados abaixo são uma primeira exploração com base nos dados disponíveis. Alcance Maxwell (~17%) e CX (~0,6%) validados. Volumes, CDUs e síntese em revisão.
+    O diagnóstico do Longtail está sendo desenvolvido. Os números apresentados abaixo são uma primeira exploração com base nos dados disponíveis. Help Rate Maxwell (~17%) e CX (~0,6%) validados. Volumes, CDUs e síntese em revisão.
   </div>
   <div style="margin-top:16px;display:inline-block;background:#16a34a;color:white;border-radius:20px;padding:6px 18px;font-size:11px;font-weight:700;letter-spacing:.5px">
     Mai–Jul 2026 · Base LK 12,1M sellers/mês
@@ -1004,17 +1004,17 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
     <!-- ROW 2: Alcance centralizado -->
     <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:3px solid #dc2626;text-align:center">
-      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Alcance Mensal</div>
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Help Rate</div>
       <div style="font-size:52px;font-weight:900;color:#dc2626;line-height:1" id="cross-bs-alcance">~29%</div>
       <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-bs-alcance-sub">mai 27,7% · jun 31,2% · jul 27,9%</div>
     </div>
     <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:3px solid #d97706;text-align:center">
-      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Alcance Mensal</div>
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Help Rate</div>
       <div style="font-size:52px;font-weight:900;color:#d97706;line-height:1" id="cross-smb-alcance">~40%</div>
       <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-smb-alcance-sub">mai 38,7% · jun 41,6% · jul 38,7%</div>
     </div>
     <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:3px solid #16a34a;text-align:center">
-      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Alcance Maxwell</div>
+      <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Help Rate Maxwell</div>
       <div style="font-size:52px;font-weight:900;color:#16a34a;line-height:1" id="cross-lt-alcance">~17%</div>
       <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-lt-alcance-sub">mai 13,4% · jun 18,3% · jul 17,9%</div>
     </div>
@@ -1172,6 +1172,14 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
         <div style="font-size:9px;color:#6b7280;margin-bottom:8px;line-height:1.6">Métricas = <strong>média mensal</strong> de sellers que contataram o canal ÷ base <strong>LK_MP_SEGMENTATION_SELLERS</strong> (SELL_ACTIVE_MTD_FLAG=1).</div>
         <details style="border:1px solid #e7e9f3;border-radius:8px;overflow:hidden"><summary style="padding:7px 12px;font-size:9px;font-weight:700;color:#374151;cursor:pointer;background:#f8f9fa">📋 Tabelas BigQuery</summary><div style="padding:8px 12px;font-size:9px;color:#374151;line-height:2"><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">LK_MP_SEGMENTATION_SELLERS</code> — base ativos · SELL_ACTIVE_MTD_FLAG=1</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">BT_MP_ACQ_MASTER_POINT</code> — segmentação BIG SELLERS/SMB/LONGTAIL</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#3b5bdb">BT_MAXWELL_CONVERSATION_DETAILS</code> — conversas Maxwell · jan–jun/26</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#2f9e44">BT_CX_CONTACTS_WITH_MIX</code> — casos CX · FLAG_EXCLUDE_NUMERATOR_CR=0</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#2f9e44">BT_CX_NPS_DETAIL</code> — NPS · Big Seller 7 filas HSP/BR</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#e67700">SBOX_SELLERSGROWTHMP.MULTICHANNEL_TASKS</code> — tasks CC</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#e67700">BT_MP_POINT_SERVICE_ORDER</code> — SOs via CC</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#1A56DB">DM_INCOMING_BIG_SELLERS_KAM</code> — contatos KAM</div><div style="border-bottom:1px solid #f3f4f6"><code style="color:#1A56DB">BT_SALESFORCE_ACCOUNT</code> — OWNER_MPAGO__C</div><div><code style="color:#9c36b5">BT_MAXWELL_SKILL_EXECUTIONS</code> — skills · desde abr/26</div></div></details>
       </div>
+    </div>
+
+    <!-- Help Rate definition -->
+    <div style="grid-column:1/-1;background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:10px 16px;font-size:9px;color:#0369a1">
+      <strong>Help Rate</strong> = % de sellers ativos que contataram ao menos um canal de suporte medido no mês.
+      Base: <strong>LK_MP_SEGMENTATION_SELLERS</strong> (SELL_ACTIVE_MTD_FLAG=1) ·
+      Canais: Maxwell + CX (BT_CX_CONTACTS BU=MP) + KAM/CC ·
+      Período: <strong>Mai–Jul 2026</strong>
     </div>
 
   </div>
