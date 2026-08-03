@@ -1088,7 +1088,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">👔 Consultor CC</div>
       <div style="display:flex;align-items:baseline;gap:8px">
         <span style="font-size:28px;font-weight:900;color:#e67700" id="cross-smb-cc-pct">10,0%</span>
-        <span style="font-size:11px;color:#9ca3af">85K/mês proativo</span>
+        <span style="font-size:11px;color:#9ca3af" id="cross-smb-cc-sellers">85K/mês proativo</span>
       </div>
       <div style="font-size:10px;color:#dc2626;font-weight:600;margin-top:6px">Sem CSAT — gap crítico</div>
     </div>
@@ -3960,6 +3960,7 @@ function crossFilterSite(site, btn) {
   set('cross-smb-mx-pct',   smb.mx);    set('cross-smb-mx-sellers',smb.mx_s);
   set('cross-smb-cx-pct',   smb.cx);    set('cross-smb-cx-sellers',smb.cx_s);
   set('cross-smb-cc-pct',   smb.cc);
+  set('cross-smb-cc-sellers', smb.cc_s || '85K/mês proativo');
   // LT
   set('cross-lt-base',      lt.base);
   set('cross-lt-alcance',   lt.alcance);
@@ -3977,7 +3978,15 @@ function crossFilterSite(site, btn) {
   setBar('cross-smb-mx-bar', smb.mx); setBar('cross-smb-cx-bar', smb.cx);
   setBar('cross-lt-mx-bar', lt.mx); setBar('cross-lt-cx-bar', lt.cx);
 
-  // CSAT Maxwell
+  // CSAT Maxwell (using existing var-based updates — no changes needed)
+  // Also wire missing CSAT via set():
+  set('cross-bs-csat',   bs.csat_mx || '');
+  set('cross-bs-csat-n', bs.csat_n  || '');
+  set('cross-smb-csat',  smb.csat_mx || '');
+  set('cross-smb-csat-n',smb.csat_n  || '');
+  set('cross-lt-csat',   lt.csat_mx  || '');
+  set('cross-lt-csat-n', lt.csat_n   || '');
+  // CSAT color
   function csatColor(pct) { return pct>=70?'#16a34a':pct>=50?'#f59e0b':'#dc2626'; }
   var bcsat=document.getElementById('cross-bs-csat');   if(bcsat&&bs.csat_mx){bcsat.textContent=bs.csat_mx;bcsat.style.color=csatColor(parseInt(bs.csat_mx));}
   var bcsatn=document.getElementById('cross-bs-csat-n');if(bcsatn&&bs.csat_n) bcsatn.textContent=bs.csat_n;
