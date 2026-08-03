@@ -194,6 +194,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
 <div class="body-wrap">
 <aside class="sidebar">
+  <div class="nav-item" onclick="showPanel('cross',this)"><span class="nav-icon">📊</span>Cross-Segmentos</div>
   <div class="nav-item" onclick="showPanel('exec',this)"><span class="nav-icon">📊</span>Apresentação Executiva</div>
   <div class="nav-item active" onclick="showPanel('home',this)"><span class="nav-icon">🎯</span>Objetivo</div>
   <div class="nav-item" onclick="showPanel('canais',this)"><span class="nav-icon">🗺️</span>Modelo de Atenção</div>
@@ -1153,6 +1154,142 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
         </div>
 
       </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ══ CROSS-SEGMENT MODEL OF ATTENTION ══════════════════════════════ -->
+<div class="panel" id="panel-cross" style="display:none">
+  <div style="padding:16px 20px 0">
+    <!-- Header -->
+    <div style="background:linear-gradient(135deg,#111827,#1f2937);border-radius:12px;padding:16px 24px;display:flex;align-items:center;justify-content:space-between;margin-bottom:16px">
+      <div>
+        <div style="font-size:10px;font-weight:700;opacity:.6;letter-spacing:1.5px;margin-bottom:4px;color:white">MODELO DE ATENÇÃO — CROSS-SEGMENTOS</div>
+        <div style="font-size:18px;font-weight:800;color:white">Visão unificada: Big Seller · SMB · Longtail</div>
+      </div>
+      <div style="background:rgba(255,255,255,.12);border-radius:20px;padding:6px 14px;font-size:10px;font-weight:700;color:white">Mai–Jul 2026 · LK Base</div>
+    </div>
+
+    <!-- Site filter -->
+    <div style="background:white;border-radius:10px;padding:10px 16px;display:flex;align-items:center;gap:8px;box-shadow:0 1px 3px rgba(0,0,0,.07);margin-bottom:16px" id="cross-filter-bar">
+      <span style="font-size:10px;font-weight:700;color:#6b7280">Filtrar por site:</span>
+      <button class="cross-site-btn active" onclick="crossFilterSite('TODOS',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #374151;background:#374151;color:white;font-size:10px;font-weight:700;cursor:pointer">Todos</button>
+      <button class="cross-site-btn" onclick="crossFilterSite('MLA',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇦🇷 MLA</button>
+      <button class="cross-site-btn" onclick="crossFilterSite('MLB',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇧🇷 MLB</button>
+      <button class="cross-site-btn" onclick="crossFilterSite('MLM',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇲🇽 MLM</button>
+      <button class="cross-site-btn" onclick="crossFilterSite('MLC',this)" style="padding:4px 12px;border-radius:20px;border:1px solid #d1d5db;background:white;color:#374151;font-size:10px;font-weight:600;cursor:pointer">🇨🇱 MLC</button>
+      <span id="cross-site-note" style="font-size:9px;color:#9ca3af;margin-left:8px">Base LK_MP_SEGMENTATION_SELLERS</span>
+    </div>
+
+    <!-- Main table -->
+    <div style="background:white;border-radius:12px;box-shadow:0 1px 4px rgba(0,0,0,.08);overflow:hidden;margin-bottom:16px">
+      <table style="width:100%;border-collapse:collapse">
+        <thead>
+          <tr style="background:#111827">
+            <th style="padding:12px 14px;text-align:left;font-size:10px;font-weight:700;color:#9ca3af;letter-spacing:.5px;width:140px">MÉTRICA</th>
+            <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:800;color:white">
+              <span style="color:#ef4444">●</span> Big Seller
+              <div style="font-size:9px;color:#9ca3af;font-weight:400;margin-top:2px" id="cross-bs-base">29K sellers/mês</div>
+            </th>
+            <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:800;color:white">
+              <span style="color:#f59e0b">●</span> SMB
+              <div style="font-size:9px;color:#9ca3af;font-weight:400;margin-top:2px" id="cross-smb-base">852K sellers/mês</div>
+            </th>
+            <th style="padding:12px 14px;text-align:left;font-size:11px;font-weight:800;color:white">
+              <span style="color:#22c55e">●</span> Longtail
+              <div style="font-size:9px;color:#9ca3af;font-weight:400;margin-top:2px" id="cross-lt-base">12,1M sellers/mês</div>
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- ALCANCE -->
+          <tr style="background:#f1f5f9"><td colspan="4" style="padding:8px 14px;font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">Alcance mensal — % da base que buscou algum canal</td></tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:10px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Alcance total</td>
+            <td style="padding:10px 14px"><div style="font-size:28px;font-weight:900;color:#1A56DB;line-height:1" id="cross-bs-alcance">~29%</div><div style="font-size:9px;color:#9ca3af;margin-top:2px">mai 27,7% · jun 31,2% · jul 27,9%</div></td>
+            <td style="padding:10px 14px"><div style="font-size:28px;font-weight:900;color:#d97706;line-height:1" id="cross-smb-alcance">~40%</div><div style="font-size:9px;color:#9ca3af;margin-top:2px">mai 38,7% · jun 41,6% · jul 38,7%</div></td>
+            <td style="padding:10px 14px"><div style="font-size:28px;font-weight:900;color:#16a34a;line-height:1" id="cross-lt-alcance">~17%</div><div style="font-size:9px;color:#9ca3af;margin-top:2px">mai 13,4% · jun 18,3% · jul 17,9%</div><div style="font-size:8px;color:#d97706;margin-top:2px">Maxwell apenas</div></td>
+          </tr>
+
+          <!-- MAXWELL -->
+          <tr style="background:#f1f5f9"><td colspan="4" style="padding:8px 14px;font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">🤖 Maxwell — autoatendimento IA</td></tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Alcance Maxwell</td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#f59e0b" id="cross-bs-mx-pct">16,6%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px" id="cross-bs-mx-sellers">4.724 sellers/mês</span></td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#f59e0b" id="cross-smb-mx-pct">22,9%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px" id="cross-smb-mx-sellers">195K sellers/mês</span></td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#f59e0b" id="cross-lt-mx-pct">17%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px" id="cross-lt-mx-sellers">2M sellers/mês</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Volume Maxwell</td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#374151">13,4K</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">3 meses</span></td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#374151">710K</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">3 meses</span></td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#374151">44,8M</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">3 meses · 14,9M/mês</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">CSAT Maxwell</td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#dc2626">34%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">N=50 · baixo</span></td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#dc2626">34%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">Payment Status · crítico</span></td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#f59e0b">78%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">How To · 59% Limit Inquiry</span></td>
+          </tr>
+
+          <!-- CX -->
+          <tr style="background:#f1f5f9"><td colspan="4" style="padding:8px 14px;font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">📞 CX — BT_CX_CONTACTS · BU=MP</td></tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Alcance CX</td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#16a34a" id="cross-bs-cx-pct">10,9%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px" id="cross-bs-cx-sellers">3.283 sellers/mês</span></td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#16a34a" id="cross-smb-cx-pct">12,6%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px" id="cross-smb-cx-sellers">108K sellers/mês</span></td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#16a34a" id="cross-lt-cx-pct">0,6%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px" id="cross-lt-cx-sellers">80K sellers/mês</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Volume CX</td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#374151">13,1K</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">3 meses</span></td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#374151">157K</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">3 meses</span></td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#374151">434K</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">3 meses</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Top CDU CX</td>
+            <td style="padding:8px 14px;font-size:10px;color:#374151">Anulações Célula Excl. · Exceções Top Sellers</td>
+            <td style="padding:8px 14px;font-size:10px;color:#374151">Point Mantenimiento <span style="color:#16a34a;font-weight:700">NPS 81</span> · Restricciones <span style="color:#e67700;font-weight:700">NPS 48</span></td>
+            <td style="padding:8px 14px;font-size:10px;color:#374151">Acreditacion del cobro · Cards · Transferencias</td>
+          </tr>
+
+          <!-- KAM / CC / CC Virtual -->
+          <tr style="background:#f1f5f9"><td colspan="4" style="padding:8px 14px;font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">👔 KAM / Consultor</td></tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Alcance KAM/CC</td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#1A56DB" id="cross-bs-kam-pct">3,1%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px" id="cross-bs-kam-sellers">882 sellers/mês</span></td>
+            <td style="padding:8px 14px"><span style="font-size:18px;font-weight:800;color:#e67700" id="cross-smb-cc-pct">10,0%</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">85K sellers/mês · proativo FAST</span></td>
+            <td style="padding:8px 14px"><span style="font-size:14px;font-weight:700;color:#9ca3af">—</span><span style="font-size:9px;color:#9ca3af;margin-left:6px">sem canal ativo</span></td>
+          </tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Freq. KAM/CC</td>
+            <td style="padding:8px 14px;font-size:10px;color:#374151"><strong>7,8 contatos/seller</strong> · E-mail · Reunião · WA</td>
+            <td style="padding:8px 14px;font-size:10px;color:#374151">Proativo (FAST) · sem CSAT por contato</td>
+            <td style="padding:8px 14px;font-size:10px;color:#9ca3af;font-style:italic">N/A</td>
+          </tr>
+          <tr style="border-bottom:1px solid #f3f4f6">
+            <td style="padding:8px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">NPS / CSAT</td>
+            <td style="padding:8px 14px;font-size:10px;color:#374151">NPS ≈60 <span style="color:#9ca3af">(one-shot Q3/25)</span></td>
+            <td style="padding:8px 14px;font-size:10px;color:#dc2626">Sem medição — gap crítico</td>
+            <td style="padding:8px 14px;font-size:10px;color:#9ca3af;font-style:italic">N/A</td>
+          </tr>
+
+          <!-- GAPS -->
+          <tr style="background:#f1f5f9"><td colspan="4" style="padding:8px 14px;font-size:9px;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:1px">Gaps de medição identificados</td></tr>
+          <tr>
+            <td style="padding:10px 14px;font-size:10px;font-weight:700;color:#6b7280;background:#fafafa">Principal gap</td>
+            <td style="padding:10px 14px;background:#fef2f2;font-size:10px;color:#7f1d1d">CSAT Maxwell N=50 · KAM sem CSAT contínuo</td>
+            <td style="padding:10px 14px;background:#fef2f2;font-size:10px;color:#7f1d1d">CC FAST sem CSAT · Payment Status CSAT 34%</td>
+            <td style="padding:10px 14px;background:#fef9c3;font-size:10px;color:#713f12">Em exploração · dados parciais</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Note about site filter -->
+    <div id="cross-site-detail" style="background:#f0f9ff;border:1px solid #bae6fd;border-radius:10px;padding:12px 16px;font-size:10px;color:#0369a1;margin-bottom:16px;display:none">
+      <strong>Filtro de site ativo.</strong> BS: dados por site disponíveis (LK base). SMB e Longtail: dados por site em desenvolvimento — mostrado total (TODOS) enquanto consultas estão pendentes.
     </div>
 
   </div>
