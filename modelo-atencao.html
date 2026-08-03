@@ -259,9 +259,9 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="flex:1">
         <div style="display:inline-block;background:#eff6ff;border:1px solid #bfdbfe;border-radius:20px;padding:3px 10px;font-size:9px;font-weight:700;color:#1d4ed8;margin-bottom:12px;letter-spacing:.3px">📅 Média mensal · Mai–Jul 2026</div>
 
-  <div style="font-size:60px;font-weight:900;color:#1A56DB;line-height:1;letter-spacing:-2px">~29%</div>
+  <div style="font-size:60px;font-weight:900;color:#1A56DB;line-height:1;letter-spacing:-2px" id="bs-total-pct">~29%</div>
         <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos Big Sellers buscam suporte em algum canal por mês</div>
-        <div style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 27,7%</strong> · <strong>jun 31,2%</strong> · <strong>jul 27,9%</strong> · média <strong>28,9%</strong> · base 29K sellers/mês (LK_MP_SEGMENTATION_SELLERS).</div>
+        <div id="bs-total-sub" style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 27,7%</strong> · <strong>jun 31,2%</strong> · <strong>jul 27,9%</strong> · média <strong>28,9%</strong> · base 29K sellers/mês (LK_MP_SEGMENTATION_SELLERS).</div>
         <div style="margin-top:10px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:10px;color:#713f12">
           <strong>⚠️ WhatsApp fora da medição oficial:</strong> piloto Jul/26 — 77.910 mensagens (MLB·MLC·MCO·MLM, MLA ainda fora) · 2.254 sellers únicos. Volume real de KAM pode ser maior do que o medido.
         </div>
@@ -556,7 +556,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <div style="flex:1">
         <div style="display:inline-block;background:#fffbeb;border:1px solid #fde68a;border-radius:20px;padding:3px 10px;font-size:9px;font-weight:700;color:#92400e;margin-bottom:12px;letter-spacing:.3px">📅 Média mensal · Mai–Jul 2026</div>
 
-  <div style="font-size:60px;font-weight:900;color:#d97706;line-height:1;letter-spacing:-2px">~40%</div>
+  <div style="font-size:60px;font-weight:900;color:#d97706;line-height:1;letter-spacing:-2px" id="smb-total-pct">~40%</div>
         <div style="font-size:15px;font-weight:700;color:#111827;margin-top:6px">dos SMBs buscam suporte em algum canal por mês</div>
         <div style="font-size:11px;color:#6b7280;margin-top:4px">Média mensal Mai–Jul/26: <strong>mai 38,7%</strong> · <strong>jun 41,6%</strong> · <strong>jul 38,7%</strong> · média <strong>39,7%</strong> · base 852K sellers/mês (LK_MP_SEGMENTATION_SELLERS · SELL_ACTIVE_MTD_FLAG=1).</div>
         <div style="margin-top:10px;background:#fef9c3;border:1px solid #fde047;border-radius:8px;padding:8px 12px;font-size:10px;color:#713f12">
@@ -3461,6 +3461,13 @@ function renderUnified() {
 
 // BS Mesa Senior filter
 // Per-site data: sellers unique, pct, bar%, vol contacts, share%
+var bsAlcanceData = {
+  TODOS: {pct:'~29%', sub:'mai 27,7% · jun 31,2% · jul 27,9% · média 28,9% · base 29K/mês'},
+  MLA:   {pct:'~75%', sub:'base 9.813 sellers · MX 74,5% · CX 24,7% · KAM 18,5%'},
+  MLB:   {pct:'~50%', sub:'base 4.204 sellers · MX 38,8% · CX 18,0% · KAM 12,7%'},
+  MLM:   {pct:'~43%', sub:'base 3.156 sellers · MX 29,8% · CX 13,6% · KAM 12,1%'},
+  MLC:   {pct:'~62%', sub:'base 2.971 sellers · MX 37,9% · CX 25,2% · KAM 17,8%'},
+};
 var bsKamData = {
   TODOS: {sellers:882,  pct:'3,1%',  bar:'3.1',  vol:'13.865', share:'24,3'},
   MLA:   {sellers:1814, pct:'18,5%', bar:'18.5', vol:'5.943',  share:'28.7'},
@@ -3507,6 +3514,11 @@ function bsFilterSite(site, btn) {
   ['bs-cx-sellers','bs-cx-sellers-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=String(cx.sellers).replace(/\B(?=(\d{3})+(?!\d))/g,'.');});
   ['bs-cx-pct','bs-cx-pct-01'].forEach(function(id){var e=document.getElementById(id);if(e)e.textContent=cx.pct;});
   var cb=document.getElementById('bs-cx-bar'); if(cb) cb.style.width=cx.bar+'%';
+
+  // Alcance total
+  var alc = bsAlcanceData[site] || bsAlcanceData['TODOS'];
+  var tp = document.getElementById('bs-total-pct'); if(tp) tp.textContent = alc.pct;
+  var ts = document.getElementById('bs-total-sub'); if(ts) ts.textContent = alc.sub;
 
   // Section 02 — volumes
   var mxv=document.getElementById('bs-mx-vol');    if(mxv) mxv.textContent=fmtV(m.vol);
