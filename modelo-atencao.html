@@ -1012,8 +1012,8 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
       </div>
       <div style="background:white;border-radius:8px;border:1px solid #f1f5f9;display:flex;margin-top:8px"><div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9"><div style="font-size:8px;color:#9ca3af">🤖 Maxwell CSAT</div><div style="font-size:14px;font-weight:900;color:#e67700;margin-top:2px"><span id="cross-bs-csat">55%</span></div></div>
-<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9"><div style="font-size:8px;color:#9ca3af">📞 CX NPS</div><div style="font-size:14px;font-weight:900;color:#16a34a;margin-top:2px">72</div></div>
-<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9;border-right:none"><div style="font-size:8px;color:#9ca3af">👔 KAM NPS</div><div style="font-size:14px;font-weight:900;color:#9ca3af;margin-top:2px">≈60</div></div>
+<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9"><div style="font-size:8px;color:#9ca3af">📞 CX NPS</div><div id="cross-bs-cx-nps" style="font-size:14px;font-weight:900;color:#16a34a;margin-top:2px">74</div>74</div></div>
+<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9;border-right:none"><div style="font-size:8px;color:#9ca3af">👔 KAM NPS</div><div id="cross-bs-kam-nps" style="font-size:14px;font-weight:900;color:#9ca3af;margin-top:2px">≈60</div></div>
 </div>
 
     </div>
@@ -1034,7 +1034,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
       </div>
       <div style="background:white;border-radius:8px;border:1px solid #f1f5f9;display:flex;margin-top:8px"><div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9"><div style="font-size:8px;color:#9ca3af">🤖 Maxwell CSAT</div><div style="font-size:14px;font-weight:900;color:#e67700;margin-top:2px"><span id="cross-smb-csat">62%</span></div></div>
-<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9"><div style="font-size:8px;color:#9ca3af">📞 CX NPS</div><div style="font-size:14px;font-weight:900;color:#9ca3af;margin-top:2px">varia</div></div>
+<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9"><div style="font-size:8px;color:#9ca3af">📞 CX NPS</div><div id="cross-smb-cx-nps" style="font-size:14px;font-weight:900;color:#16a34a;margin-top:2px">68</div></div>
 <div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9;border-right:none"><div style="font-size:8px;color:#9ca3af">👔 CC CSAT</div><div style="font-size:14px;font-weight:900;color:#dc2626;margin-top:2px">—</div></div>
 </div>
 
@@ -1052,7 +1052,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 
       </div>
       <div style="background:white;border-radius:8px;border:1px solid #f1f5f9;display:flex;margin-top:8px"><div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9"><div style="font-size:8px;color:#9ca3af">🤖 Maxwell CSAT</div><div style="font-size:14px;font-weight:900;color:#16a34a;margin-top:2px"><span id="cross-lt-csat">70%</span></div></div>
-<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9;border-right:none"><div style="font-size:8px;color:#9ca3af">📞 CX NPS</div><div style="font-size:14px;font-weight:900;color:#9ca3af;margin-top:2px">varia</div></div>
+<div style="flex:1;text-align:center;padding:6px 4px;border-right:1px solid #f1f5f9;border-right:none"><div style="font-size:8px;color:#9ca3af">📞 CX NPS</div><div id="cross-lt-cx-nps" style="font-size:14px;font-weight:900;color:#16a34a;margin-top:2px">62</div></div>
 </div>
 
     </div>
@@ -1113,7 +1113,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
 </div>
 
 
-id="panel-home">
+<div class="panel active" id="panel-home">
   <div class="ph">
     <h2>🎯 Modelo de Atenção — Adquiring MP</h2>
     <p>O suporte que oferecemos hoje resolve o problema de cada perfil de seller?</p>
@@ -5122,29 +5122,29 @@ function bsFilterSite(site, btn) {
 // Cross-segment site filter — per-site data (Mai-Jul/26 averages, LK base)
 var crossSiteData = {
   TODOS: {
-    bs:  {base:'29K sellers/mês', csat_mx:'55%', csat_n:'N=31 (baixo)',   alcance:'~29%',  sub:'mai 27,7% · jun 31,2% · jul 27,9%',  mx:'16,6%', mx_s:'4.724 sellers/mês',  cx:'10,9%', cx_s:'3.283 sellers/mês', kam:'3,1%',  kam_s:'882 sellers/mês'},
-    smb: {base:'852K sellers/mês', csat_mx:'62%', csat_n:'N=3.180',  alcance:'~40%',  sub:'mai 38,7% · jun 41,6% · jul 38,7%',  mx:'22,9%', mx_s:'195K sellers/mês',   cx:'12,6%', cx_s:'108K sellers/mês', cc:'10,0%'},
-    lt:  {base:'12,1M sellers/mês', csat_mx:'70%', csat_n:'N=425K', alcance:'~17%',  sub:'mai 13,4% · jun 18,3% · jul 17,9%',  mx:'17%',   mx_s:'2M sellers/mês',      cx:'0,6%',  cx_s:'80K sellers/mês'}
+    bs:  {base:'29K sellers/mês', nps_cx:'74', nps_kam:'≈60', csat_mx:'55%', csat_n:'N=31 (baixo)',   alcance:'~29%',  sub:'mai 27,7% · jun 31,2% · jul 27,9%',  mx:'16,6%', mx_s:'4.724 sellers/mês',  cx:'10,9%', cx_s:'3.283 sellers/mês', kam:'3,1%',  kam_s:'882 sellers/mês'},
+    smb: {base:'852K sellers/mês', nps_cx:'68', csat_mx:'62%', csat_n:'N=3.180',  alcance:'~40%',  sub:'mai 38,7% · jun 41,6% · jul 38,7%',  mx:'22,9%', mx_s:'195K sellers/mês',   cx:'12,6%', cx_s:'108K sellers/mês', cc:'10,0%'},
+    lt:  {base:'12,1M sellers/mês', nps_cx:'62', csat_mx:'70%', csat_n:'N=425K', alcance:'~17%',  sub:'mai 13,4% · jun 18,3% · jul 17,9%',  mx:'17%',   mx_s:'2M sellers/mês',      cx:'0,6%',  cx_s:'80K sellers/mês'}
   },
   MLA: {
-    bs:  {base:'9.813 sellers/mês', csat_mx:'48%', csat_n:'N=23 (baixo)', alcance:'~75%', sub:'MX 74,5% · CX 24,7% · KAM 18,5%', mx:'74,5%', mx_s:'7.513 sellers', cx:'24,7%', cx_s:'2.492 sellers', kam:'18,5%', kam_s:'1.814 sellers'},
-    smb: {base:'149K sellers/mês', csat_mx:'71%', csat_n:'N=330',  alcance:'~43%', sub:'MX 41,4% · CX 6,5%',                   mx:'41,4%', mx_s:'61K sellers',   cx:'6,5%',  cx_s:'10K sellers',   cc:'10,0%'},
-    lt:  {base:'6,4M sellers/mês', csat_mx:'70%', csat_n:'N=164K',  alcance:'~29%', sub:'MX 28,4% · CX 1,2%',                   mx:'28,4%', mx_s:'1,8M sellers',  cx:'1,2%',  cx_s:'77K sellers'}
+    bs:  {base:'9.813 sellers/mês', nps_cx:'71', nps_kam:'≈60', csat_mx:'48%', csat_n:'N=23 (baixo)', alcance:'~75%', sub:'MX 74,5% · CX 24,7% · KAM 18,5%', mx:'74,5%', mx_s:'7.513 sellers', cx:'24,7%', cx_s:'2.492 sellers', kam:'18,5%', kam_s:'1.814 sellers'},
+    smb: {base:'149K sellers/mês', nps_cx:'68', csat_mx:'71%', csat_n:'N=330',  alcance:'~43%', sub:'MX 41,4% · CX 6,5%',                   mx:'41,4%', mx_s:'61K sellers',   cx:'6,5%',  cx_s:'10K sellers',   cc:'10,0%'},
+    lt:  {base:'6,4M sellers/mês', nps_cx:'60', csat_mx:'70%', csat_n:'N=164K',  alcance:'~29%', sub:'MX 28,4% · CX 1,2%',                   mx:'28,4%', mx_s:'1,8M sellers',  cx:'1,2%',  cx_s:'77K sellers'}
   },
   MLB: {
-    bs:  {base:'4.204 sellers/mês', csat_mx:'75%', csat_n:'N=4 (baixo)', alcance:'~50%', sub:'MX 38,8% · CX 18,0% · KAM 12,7%', mx:'38,8%', mx_s:'1.630 sellers', cx:'18,0%', cx_s:'756 sellers',   kam:'12,7%', kam_s:'535 sellers'},
-    smb: {base:'704K sellers/mês', csat_mx:'61%', csat_n:'N=2.359',  alcance:'~43%', sub:'MX 41,5% · CX 8,3%',                   mx:'41,5%', mx_s:'292K sellers',  cx:'8,3%',  cx_s:'58K sellers',   cc:'10,0%'},
-    lt:  {base:'6,8M sellers/mês', csat_mx:'68%', csat_n:'N=160K',  alcance:'~29%', sub:'MX 28,9% · CX 2,2%',                   mx:'28,9%', mx_s:'2,0M sellers',  cx:'2,2%',  cx_s:'150K sellers'}
+    bs:  {base:'4.204 sellers/mês', nps_cx:'74', nps_kam:'≈60', csat_mx:'75%', csat_n:'N=4 (baixo)', alcance:'~50%', sub:'MX 38,8% · CX 18,0% · KAM 12,7%', mx:'38,8%', mx_s:'1.630 sellers', cx:'18,0%', cx_s:'756 sellers',   kam:'12,7%', kam_s:'535 sellers'},
+    smb: {base:'704K sellers/mês', nps_cx:'64', csat_mx:'61%', csat_n:'N=2.359',  alcance:'~43%', sub:'MX 41,5% · CX 8,3%',                   mx:'41,5%', mx_s:'292K sellers',  cx:'8,3%',  cx_s:'58K sellers',   cc:'10,0%'},
+    lt:  {base:'6,8M sellers/mês', nps_cx:'64', csat_mx:'68%', csat_n:'N=160K',  alcance:'~29%', sub:'MX 28,9% · CX 2,2%',                   mx:'28,9%', mx_s:'2,0M sellers',  cx:'2,2%',  cx_s:'150K sellers'}
   },
   MLM: {
-    bs:  {base:'3.156 sellers/mês', csat_mx:'100%', csat_n:'N=2 (baixo)', alcance:'~43%', sub:'MX 29,8% · CX 13,6% · KAM 12,1%', mx:'29,8%', mx_s:'940 sellers',   cx:'13,6%', cx_s:'429 sellers',   kam:'12,1%', kam_s:'382 sellers'},
-    smb: {base:'148K sellers/mês', csat_mx:'71%', csat_n:'N=318',  alcance:'~42%', sub:'MX 37,8% · CX 10,5%',                  mx:'37,8%', mx_s:'56K sellers',   cx:'10,5%', cx_s:'16K sellers',   cc:'10,0%'},
-    lt:  {base:'2,5M sellers/mês', csat_mx:'75%', csat_n:'N=91K',  alcance:'~35%', sub:'MX 34,3% · CX 2,2%',                   mx:'34,3%', mx_s:'842K sellers',  cx:'2,2%',  cx_s:'54K sellers'}
+    bs:  {base:'3.156 sellers/mês', nps_cx:'79', nps_kam:'≈60', csat_mx:'100%', csat_n:'N=2 (baixo)', alcance:'~43%', sub:'MX 29,8% · CX 13,6% · KAM 12,1%', mx:'29,8%', mx_s:'940 sellers',   cx:'13,6%', cx_s:'429 sellers',   kam:'12,1%', kam_s:'382 sellers'},
+    smb: {base:'148K sellers/mês', nps_cx:'84', csat_mx:'71%', csat_n:'N=318',  alcance:'~42%', sub:'MX 37,8% · CX 10,5%',                  mx:'37,8%', mx_s:'56K sellers',   cx:'10,5%', cx_s:'16K sellers',   cc:'10,0%'},
+    lt:  {base:'2,5M sellers/mês', nps_cx:'66', csat_mx:'75%', csat_n:'N=91K',  alcance:'~35%', sub:'MX 34,3% · CX 2,2%',                   mx:'34,3%', mx_s:'842K sellers',  cx:'2,2%',  cx_s:'54K sellers'}
   },
   MLC: {
-    bs:  {base:'2.971 sellers/mês', csat_mx:'50%', csat_n:'N=2 (baixo)', alcance:'~62%', sub:'MX 37,9% · CX 25,2% · KAM 17,8%', mx:'37,9%', mx_s:'1.126 sellers', cx:'25,2%', cx_s:'750 sellers',   kam:'17,8%', kam_s:'529 sellers'},
-    smb: {base:'59K sellers/mês', csat_mx:'52%', csat_n:'N=173',   alcance:'~43%', sub:'MX 37,2% · CX 16,5%',                  mx:'37,2%', mx_s:'22K sellers',   cx:'16,5%', cx_s:'10K sellers',   cc:'10,0%'},
-    lt:  {base:'349K sellers/mês', csat_mx:'62%', csat_n:'N=10K',  alcance:'~26%', sub:'MX 25,0% · CX 3,2%',                   mx:'25,0%', mx_s:'87K sellers',   cx:'3,2%',  cx_s:'11K sellers'}
+    bs:  {base:'2.971 sellers/mês', nps_cx:'66', nps_kam:'≈60', csat_mx:'50%', csat_n:'N=2 (baixo)', alcance:'~62%', sub:'MX 37,9% · CX 25,2% · KAM 17,8%', mx:'37,9%', mx_s:'1.126 sellers', cx:'25,2%', cx_s:'750 sellers',   kam:'17,8%', kam_s:'529 sellers'},
+    smb: {base:'59K sellers/mês', nps_cx:'68', csat_mx:'52%', csat_n:'N=173',   alcance:'~43%', sub:'MX 37,2% · CX 16,5%',                  mx:'37,2%', mx_s:'22K sellers',   cx:'16,5%', cx_s:'10K sellers',   cc:'10,0%'},
+    lt:  {base:'349K sellers/mês', nps_cx:'49', csat_mx:'62%', csat_n:'N=10K',  alcance:'~26%', sub:'MX 25,0% · CX 3,2%',                   mx:'25,0%', mx_s:'87K sellers',   cx:'3,2%',  cx_s:'11K sellers'}
   }
 };
 
@@ -5179,6 +5179,19 @@ function crossFilterSite(site, btn) {
   set('cross-lt-alcance',   lt.alcance);
   set('cross-lt-mx-pct',    lt.mx);     set('cross-lt-mx-sellers', lt.mx_s);
   set('cross-lt-cx-pct',    lt.cx);     set('cross-lt-cx-sellers', lt.cx_s);
+  // Update NPS CX and KAM values
+  function setNPS(id, val, color) {
+    var e = document.getElementById(id);
+    if(e && val) { e.textContent = val; e.style.color = color||'#374151'; }
+  }
+  var bsNps = crossSiteData[site]&&crossSiteData[site].bs||{};
+  var smbNps = crossSiteData[site]&&crossSiteData[site].smb||{};
+  var ltNps  = crossSiteData[site]&&crossSiteData[site].lt||{};
+  setNPS('cross-bs-cx-nps',  bsNps.nps_cx  || crossSiteData.TODOS.bs.nps_cx,  '#16a34a');
+  setNPS('cross-bs-kam-nps', bsNps.nps_kam  || crossSiteData.TODOS.bs.nps_kam, '#9ca3af');
+  setNPS('cross-smb-cx-nps', smbNps.nps_cx  || crossSiteData.TODOS.smb.nps_cx, '#16a34a');
+  setNPS('cross-lt-cx-nps',  ltNps.nps_cx   || crossSiteData.TODOS.lt.nps_cx,  '#16a34a');
+
   // Note
   if(note) {
     note.style.display = site !== 'TODOS' ? 'block' : 'none';
