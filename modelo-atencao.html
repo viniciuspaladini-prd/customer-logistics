@@ -5259,129 +5259,88 @@ function crossFilterSite(site, btn) {
 
 // ── i18n: PT / ES ──────────────────────────────────────────────────────
 var _lang = 'pt';
-
-// Full dictionary: PT → ES (add more as needed)
-var _dict = {
-  // Navigation
-  'Objetivo': 'Objetivo',
-  'Modelo de Aten\u00e7\u00e3o': 'Modelo de Atenci\u00f3n',
-  'Por Segmento': 'Por Segmento',
-  'Cross-Segmentos': 'Cross-Segmentos',
-  'Big Seller': 'Big Seller',
-  'Longtail': 'Longtail',
-
-  // Panel titles & headers
-  'Como cada segmento busca suporte': 'C\u00f3mo cada segmento busca soporte',
-  'O suporte que oferecemos hoje resolve o problema de cada perfil de seller?': '\u00bfEl soporte que ofrecemos hoy resuelve el problema de cada perfil de seller?',
-
-  // Section labels (uppercase & mixed)
-  'HELP RATE': 'HELP RATE',
-  'Help Rate': 'Help Rate',
-  'CANAIS': 'CANALES',
-  'Canais': 'Canales',
-  'QUALIDADE': 'CALIDAD',
-  'Qualidade': 'Calidad',
-  'FERRAMENTAS': 'HERRAMIENTAS',
-  'Ferramentas': 'Herramientas',
-  'PRINCIPAIS TEMAS \u2014 MAXWELL': 'TEMAS PRINCIPALES \u2014 MAXWELL',
-  'Principais Temas \u2014 Maxwell': 'Temas Principales \u2014 Maxwell',
-  'PRINCIPAL GAP': 'GAP PRINCIPAL',
-  'Principal Gap': 'Gap Principal',
-  'ESTRUTURA DA EXPLORA\u00c7\u00c3O': 'ESTRUCTURA DE EXPLORACI\u00d3N',
-  'FONTES E METODOLOGIA': 'FUENTES Y METODOLOG\u00cdA',
-  'Fontes & Queries BigQuery (clique para expandir)': 'Fuentes & Queries BigQuery (clic para expandir)',
-
-  // Cards
-  'Alcance Mensal': 'Alcance Mensual',
-  'Alcance Maxwell': 'Alcance Maxwell',
-
-  // Channel labels
-  'CX (escala\u00e7\u00e3o)': 'CX (escalaci\u00f3n)',
-  'CC FAST': 'CC FAST',
-  'Consultor CC': 'Consultor CC',
-  'KAM / Consultor': 'KAM / Consultor',
-
-  // Quality labels
-  'sem medi\u00e7\u00e3o': 'sin medici\u00f3n',
-  'sem CSAT': 'sin CSAT',
-  'sem NPS': 'sin NPS',
-  'N baixo': 'N bajo',
-  'por CDU': 'por CDU',
-  'por CDU/site': 'por CDU/sitio',
-  'one-shot': 'one-shot',
-  'CSAT': 'CSAT',
-  'NPS': 'NPS',
-
-  // Gaps
-  'Sem medi\u00e7\u00e3o \u2014 gap cr\u00edtico': 'Sin medici\u00f3n \u2014 gap cr\u00edtico',
-  'Em explora\u00e7\u00e3o': 'En exploraci\u00f3n',
-  'dados parciais': 'datos parciales',
-  'em desenvolvimento': 'en desarrollo',
-
-  // Units
-  'sellers/m\u00eas': 'sellers/mes',
-  'proativo': 'proactivo',
-  'escalação do Maxwell': 'escalaci\u00f3n de Maxwell',
-  'Seller não inicia': 'Seller no inicia',
-
-  // Site filter
-  'Site ativo \u2014 base LK_MP_SEGMENTATION_SELLERS': 'Sitio activo \u2014 base LK_MP_SEGMENTATION_SELLERS',
-  'Todos': 'Todos',
-
-  // Help Rate definition
-  '% de sellers ativos que contataram ao menos um canal de suporte medido no m\u00eas.': '% de sellers activos que contactaron al menos un canal de soporte medido en el mes.',
-  'Base:': 'Base:',
-  'Per\u00edodo:': 'Per\u00edodo:',
-  'Canais: Maxwell + CX (BT_CX_CONTACTS BU=MP) + KAM/CC': 'Canales: Maxwell + CX (BT_CX_CONTACTS BU=MP) + KAM/CC',
-
-  // Objetivo bullets
-  'Quais canais o seller tem dispon\u00edveis em cada segmento?': '\u00bfQu\u00e9 canales tiene disponibles el seller en cada segmento?',
-  'Que % dos sellers ativos contata algum canal por m\u00eas?': '\u00bfQu\u00e9 % de sellers activos contacta alg\u00fan canal por mes?',
-  'Quais s\u00e3o os temas de maior volume e pior experi\u00eancia?': '\u00bfCu\u00e1les son los temas de mayor volumen y peor experiencia?',
-  'Onde o Maxwell n\u00e3o resolve e o seller vai para CX humano?': '\u00bfD\u00f3nde Maxwell no resuelve y el seller va a CX humano?',
-
-  // OBJETIVO header
-  'OBJETIVO': 'OBJETIVO',
+var _dict_es = {
+  'Objetivo':'Objetivo','Modelo de Aten\u00e7\u00e3o':'Modelo de Atenci\u00f3n',
+  'Por Segmento':'Por Segmento','Cross-Segmentos':'Cross-Segmentos',
+  'Como cada segmento busca suporte':'C\u00f3mo cada segmento busca soporte',
+  'O suporte que oferecemos hoje resolve o problema de cada perfil de seller?':'\u00bfEl soporte que ofrecemos hoy resuelve el problema de cada perfil de seller?',
+  'Help Rate':'Help Rate','HELP RATE':'HELP RATE',
+  'Canais':'Canales','CANAIS':'CANALES',
+  'Qualidade':'Calidad','QUALIDADE':'CALIDAD',
+  'Ferramentas':'Herramientas','FERRAMENTAS':'HERRAMIENTAS',
+  'Principais Temas \u2014 Maxwell':'Temas Principales \u2014 Maxwell',
+  'PRINCIPAIS TEMAS \u2014 MAXWELL':'TEMAS PRINCIPALES \u2014 MAXWELL',
+  'Principal Gap':'Gap Principal','PRINCIPAL GAP':'GAP PRINCIPAL',
+  'Alcance Mensal':'Alcance Mensual','ALCANCE MENSAL':'ALCANCE MENSUAL',
+  'sellers/m\u00eas':'sellers/mes','proativo':'proactivo',
+  'sem medi\u00e7\u00e3o':'sin medici\u00f3n','sem CSAT':'sin CSAT','sem NPS':'sin NPS',
+  'N baixo':'N bajo','por CDU':'por CDU','por CDU/site':'por CDU/sitio',
+  'Em explora\u00e7\u00e3o':'En exploraci\u00f3n','dados parciais':'datos parciales',
+  'em desenvolvimento':'en desarrollo',
+  'Sem medi\u00e7\u00e3o \u2014 gap cr\u00edtico':'Sin medici\u00f3n \u2014 gap cr\u00edtico',
+  'Site ativo \u2014 base LK_MP_SEGMENTATION_SELLERS':'Sitio activo \u2014 base LK_MP_SEGMENTATION_SELLERS',
+  'Canais: Maxwell + CX (BT_CX_CONTACTS BU=MP) + KAM/CC':'Canales: Maxwell + CX (BT_CX_CONTACTS BU=MP) + KAM/CC',
+  'Quais canais o seller tem dispon\u00edveis em cada segmento?':'\u00bfQu\u00e9 canales tiene disponibles el seller en cada segmento?',
+  'Que % dos sellers ativos contata algum canal por m\u00eas?':'\u00bfQu\u00e9 % de sellers activos contacta alg\u00fan canal por mes?',
+  'Quais s\u00e3o os temas de maior volume e pior experi\u00eancia?':'\u00bfCu\u00e1les son los temas de mayor volumen y peor experiencia?',
+  'Onde o Maxwell n\u00e3o resolve e o seller vai para CX humano?':'\u00bfD\u00f3nde Maxwell no resuelve y el seller va a CX humano?',
+  'Fontes & Queries BigQuery (clique para expandir)':'Fuentes & Queries BigQuery (clic para expandir)',
+  'ESTRUTURA DA EXPLORA\u00c7\u00c3O':'ESTRUCTURA DE EXPLORACI\u00d3N',
+  'FONTES E METODOLOGIA':'FUENTES Y METODOLOG\u00cdA',
+  'OBJETIVO':'OBJETIVO',
+  '% de sellers ativos que contataram ao menos um canal de suporte medido no m\u00eas.':'% de sellers activos que contactaron al menos un canal de soporte medido en el mes.',
+  'Seller n\u00e3o inicia':'Seller no inicia','WA Outbound proativo':'WA Outbound proactivo',
+  'dos Big Sellers buscaram suporte (Help Rate m\xe9dio)':'de los Big Sellers buscaron soporte (Help Rate promedio)',
+  'dos SMBs buscaram suporte (Help Rate m\xe9dio)':'de los SMBs buscaron soporte (Help Rate promedio)',
+  'dos Longtails contataram suporte (Help Rate m\xe9dio)':'de los Longtails contactaron soporte (Help Rate promedio)',
 };
 
-// Build reverse dict (ES → PT) for toggling back
-var _dictReverse = {};
-for(var k in _dict) { if(_dict[k] !== k) _dictReverse[_dict[k]] = k; }
-
-function setLang(lang) {
-  if(lang === _lang) return;
-
-  // Button styles
-  var ptBtn = document.getElementById('lang-pt');
-  var esBtn = document.getElementById('lang-es');
-  if(ptBtn) { ptBtn.style.background=lang==='pt'?'#1A56DB':'white'; ptBtn.style.color=lang==='pt'?'white':'#374151'; ptBtn.style.borderColor=lang==='pt'?'#1A56DB':'#d1d5db'; }
-  if(esBtn) { esBtn.style.background=lang==='es'?'#c0392b':'white'; esBtn.style.color=lang==='es'?'white':'#374151'; esBtn.style.borderColor=lang==='es'?'#c0392b':'#d1d5db'; }
-
-  // Determine translation direction
-  var translate = lang === 'es' ? _dict : _dictReverse;
-
-  // Walk all text nodes in document and replace matching strings
-  function walkAndTranslate(node) {
-    if(!node) return;
-    if(node.nodeType === 3) { // TEXT_NODE
-      var txt = node.textContent;
-      if(txt && txt.trim().length > 1) {
-        var trimmed = txt.trim();
-        if(translate[trimmed] !== undefined) {
-          node.textContent = txt.replace(trimmed, translate[trimmed]);
-        }
-      }
-    } else if(node.nodeType === 1) {
-      // Skip scripts, styles, code
-      if(['SCRIPT','STYLE','CODE','PRE'].indexOf(node.tagName) >= 0) return;
-      for(var i = 0; i < node.childNodes.length; i++) {
-        walkAndTranslate(node.childNodes[i]);
+function _initI18n() {
+  // Store original PT text in data-pt attribute on all leaf elements
+  var all = document.querySelectorAll('*');
+  for(var i=0;i<all.length;i++) {
+    var el = all[i];
+    if(['SCRIPT','STYLE','CODE','PRE','INPUT','TEXTAREA'].indexOf(el.tagName)>=0) continue;
+    // Only leaf-like elements (1 text node child, optionally a few spans)
+    var hasOnlyText = el.childNodes.length===1 && el.childNodes[0].nodeType===3;
+    if(hasOnlyText) {
+      var t = el.textContent.trim();
+      if(t.length>1 && !el.hasAttribute('data-pt')) {
+        el.setAttribute('data-pt', t);
       }
     }
   }
+}
 
-  walkAndTranslate(document.body);
+function setLang(lang) {
+  if(lang===_lang) return;
+
+  // Update buttons
+  var ptB=document.getElementById('lang-pt'), esB=document.getElementById('lang-es');
+  if(ptB){ptB.style.background=lang==='pt'?'#1A56DB':'white';ptB.style.color=lang==='pt'?'white':'#374151';ptB.style.borderColor=lang==='pt'?'#1A56DB':'#d1d5db';}
+  if(esB){esB.style.background=lang==='es'?'#c0392b':'white';esB.style.color=lang==='es'?'white':'#374151';esB.style.borderColor=lang==='es'?'#c0392b':'#d1d5db';}
+
+  // Apply translations
+  var els = document.querySelectorAll('[data-pt]');
+  for(var i=0;i<els.length;i++) {
+    var el = els[i];
+    var pt = el.getAttribute('data-pt');
+    if(lang==='es') {
+      var es = _dict_es[pt];
+      if(es!==undefined && es!==pt) el.textContent = es;
+    } else {
+      // Restore PT
+      el.textContent = pt;
+    }
+  }
   _lang = lang;
+}
+
+// Init after page loads
+if(document.readyState==='loading') {
+  document.addEventListener('DOMContentLoaded', _initI18n);
+} else {
+  _initI18n();
 }
 // ── End i18n ──────────────────────────────────────────────────────────
 </script>
