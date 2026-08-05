@@ -502,7 +502,7 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <strong>Help Rate:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS (COUNT_IN_METRICS=TRUE, IS_DELETED=FALSE) · <strong>4.724 sellers/mês (16,6%)</strong> · 13.384 convs · CSAT 34% (N=50)<br>
       <strong>Alcance CX:</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>3.283 sellers/mês (10,9%)</strong> · 13.100 casos · NPS 74<br>
       <strong>KAM:</strong> DM_INCOMING_BIG_SELLERS_KAM · <strong>882 sellers/mês (3,1%)</strong> · 6.887 contatos · E-mail 82% / Reunião 18%<br>
-      <strong>Alcance total (união):</strong> mai 17,0% · jun 22,5% · jul 22,5% · <strong>média ~29%</strong><br><br>
+      <strong>Alcance total (união):</strong> mai USD 1,6bi · jun USD 1,7bi · jul USD 1,9bi · <strong>média ~29%</strong><br><br>
 
       <div style="background:#78350f;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🟠 SMB — SMB1+SMB2+SMB3</div>
       <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('SMB1','SMB2','SMB3') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
@@ -510,14 +510,14 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
       <strong>Help Rate:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>195K sellers/mês (22,9%)</strong> · 709K convs (3mo) · CSAT 62% (N=3.180)<br>
       <strong>Alcance CX:</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>108K sellers/mês (12,6%)</strong> · 157K casos (3mo) · NPS 68<br>
       <strong>CC FAST:</strong> estimativa a partir da taxa de alcance LK · <strong>85K sellers/mês (10,0%)</strong> · ~360K tarefas proativas (3mo) · <em>sem CSAT por contato</em><br>
-      <strong>Alcance total (união):</strong> mai 22,9% · jun 27,7% · jul 27,0% · <strong>média ~40%</strong><br><br>
+      <strong>Alcance total (união):</strong> mai USD 2,0bi · jun USD 2,5bi · jul USD 2,6bi · <strong>média ~40%</strong><br><br>
 
       <div style="background:#14532d;border-radius:6px;padding:4px 10px;font-size:9px;font-weight:700;color:white;margin:10px 0 5px">🟢 Longtail — LOLO+HILO+MILO</div>
       <strong>Base:</strong> <code style="background:#f4f5f9;padding:4px 8px;border-radius:4px;display:block;margin:4px 0;font-size:8px">SELECT COUNT(DISTINCT CUS_CUST_ID) FROM WHOWNER.LK_MP_SEGMENTATION_SELLERS WHERE SELL_ACTIVE_MTD_FLAG=1 AND CUST_SUB_SEGMENT_CROSS IN ('LOLO','HILO','MILO') AND DATE_TRUNC(TIM_DATE,MONTH) IN ('2026-05-01','2026-06-01','2026-07-01')</code>
       Resultado: <strong>mai 12.006.059 · jun 12.269.037 · jul 12.126.407 · média 7,5M sellers/mês</strong><br>
       <strong>Help Rate:</strong> LK join BT_MAXWELL_CONVERSATION_DETAILS · <strong>2M sellers/mês (~17%)</strong> · 44,8M convs (3mo) · CSAT 70% (N=425K)<br>
       <strong>Alcance CX (escalação):</strong> LK join BT_CX_CONTACTS BU_REPORTING='MP' · <strong>80K sellers/mês (0,6%)</strong> · 434K casos (3mo) · NPS 62<br>
-      <strong>Alcance total (Maxwell):</strong> mai 13,8% · jun 18,8% · jul 19,1% · <strong>média ~17%</strong> · <em>Em exploração — dados parciais</em><br><br>
+      <strong>Alcance total (Maxwell):</strong> mai USD 1,8bi · jun USD 2,4bi · jul USD 2,4bi · <strong>média ~17%</strong> · <em>Em exploração — dados parciais</em><br><br>
 
       <div style="background:#f0f9ff;border-radius:6px;padding:8px 10px;font-size:8px;color:#0369a1;margin-top:8px">
         <strong>Metodologia atual (base CX/MAS_FLAG):</strong><br>
@@ -1016,17 +1016,17 @@ html{overflow-y:scroll}body{font-family:'Inter',-apple-system,'Segoe UI',sans-se
     <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:3px solid #dc2626;text-align:center">
       <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Help Rate</div>
       <div style="font-size:52px;font-weight:900;color:#dc2626;line-height:1" id="cross-bs-alcance">~21%</div>
-      <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-bs-alcance-sub">mai 17,0% · jun 22,5% · jul 22,5%</div>
+      <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-bs-alcance-sub">mai USD 1,6bi · jun USD 1,7bi · jul USD 1,9bi</div>
     </div>
     <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:3px solid #d97706;text-align:center">
       <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Help Rate</div>
       <div style="font-size:52px;font-weight:900;color:#d97706;line-height:1" id="cross-smb-alcance">~26%</div>
-      <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-smb-alcance-sub">mai 22,9% · jun 27,7% · jul 27,0%</div>
+      <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-smb-alcance-sub">mai USD 2,0bi · jun USD 2,5bi · jul USD 2,6bi</div>
     </div>
     <div style="background:white;border-radius:12px;padding:16px;box-shadow:0 1px 4px rgba(0,0,0,.07);border-top:3px solid #16a34a;text-align:center">
       <div style="font-size:9px;font-weight:700;color:#9ca3af;text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Help Rate</div>
       <div style="font-size:52px;font-weight:900;color:#16a34a;line-height:1" id="cross-lt-alcance">~17%</div>
-      <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-lt-alcance-sub">mai 13,8% · jun 18,8% · jul 19,1%</div>
+      <div style="font-size:10px;color:#9ca3af;margin-top:5px" id="cross-lt-alcance-sub">mai USD 1,8bi · jun USD 2,4bi · jul USD 2,4bi</div>
     </div>
 
     <!-- ROW 3: Canais + Qualidade na mesma linha -->
@@ -5087,11 +5087,11 @@ function renderUnified() {
 // BS Mesa Senior filter
 // Per-site data: sellers unique, pct, bar%, vol contacts, share%
 var bsAlcanceData = {
-  TODOS: {pct:'~29%', sub:'mai 17,0% · jun 22,5% · jul 22,5% · média 28,9% · base 29K/mês'},
-  MLA:   {pct:'~75%', sub:'base 9.813 sellers · MX 74,5% · CX 24,7% · KAM 18,5%'},
-  MLB:   {pct:'~50%', sub:'base 4.204 sellers · MX 38,8% · CX 18,0% · KAM 12,7%'},
-  MLM:   {pct:'~43%', sub:'base 3.156 sellers · MX 29,8% · CX 13,6% · KAM 12,1%'},
-  MLC:   {pct:'~62%', sub:'base 2.971 sellers · MX 37,9% · CX 25,2% · KAM 17,8%'},
+  TODOS: {pct:'~29%', sub:'mai USD 1,6bi · jun USD 1,7bi · jul USD 1,9bi · média 28,9% · base 29K/mês'},
+  MLA:   {pct:'~75%', sub:'mai USD 860M · jun USD 999M · jul USD 823M'},
+  MLB:   {pct:'~50%', sub:'mai USD 348M · jun USD 384M · jul USD 686M'},
+  MLM:   {pct:'~43%', sub:'mai USD 203M · jun USD 158M · jul USD 197M'},
+  MLC:   {pct:'~62%', sub:'mai USD 166M · jun USD 192M · jul USD 193M'},
 };
 var bsKamData = {
   TODOS: {sellers:882,  pct:'3,1%',  bar:'3.1',  vol:'13.865', share:'24,3'},
@@ -5160,34 +5160,37 @@ function bsFilterSite(site, btn) {
 
 
 
-// Cross-segment site filter — per-site data (Mai-Jul/26, BASE CX: MAS_FLAG_SELL_TOOLS OR MAS_FLAG_TRS)
+
+// Cross-segment site filter — CX base (MAS_FLAG) + TPV reached per month
 var crossSiteData = {
   TODOS: {
-    bs:  {base:'27K sellers/m\u00eas',   alcance:'~21%', sub:'mai 17,0% \u00b7 jun 22,5% \u00b7 jul 22,5%', mx:'17,0%', mx_s:'4.692 sellers/m\u00eas', cx:'7,1%',  cx_s:'1.953 sellers/m\u00eas', kam:'3,2%',  kam_s:'882 sellers/m\u00eas',  csat_mx:'55%', csat_n:'N=31 baixo'},
-    smb: {base:'713K sellers/m\u00eas',  alcance:'~26%', sub:'mai 22,9% \u00b7 jun 27,7% \u00b7 jul 27,0%', mx:'24,5%', mx_s:'175K sellers/m\u00eas',   cx:'4,4%',  cx_s:'31K sellers/m\u00eas',   cc:'11,9%',               csat_mx:'62%', csat_n:'N=3.180'},
-    lt:  {base:'7,5M sellers/m\u00eas',  alcance:'~17%', sub:'mai 13,8% \u00b7 jun 18,8% \u00b7 jul 19,1%', mx:'17,1%', mx_s:'1,3M sellers/m\u00eas',    cx:'0,9%',  cx_s:'66K sellers/m\u00eas',                            csat_mx:'70%', csat_n:'N=425K'}
+    bs:  {base:'27K sellers/m\u00eas',  alcance:'~21%', sub:'mai USD 1,6bi \u00b7 jun USD 1,7bi \u00b7 jul USD 1,9bi', mx:'17,0%', mx_s:'4.692 sellers/m\u00eas', cx:'7,1%',  cx_s:'1.953 sellers/m\u00eas', kam:'3,2%',  kam_s:'882 sellers/m\u00eas',  csat_mx:'55%', csat_n:'N=31 baixo'},
+    smb: {base:'713K sellers/m\u00eas', alcance:'~26%', sub:'mai USD 2,0bi \u00b7 jun USD 2,5bi \u00b7 jul USD 2,6bi', mx:'24,5%', mx_s:'175K sellers/m\u00eas',  cx:'4,4%',  cx_s:'31K sellers/m\u00eas',   cc:'11,9%',               csat_mx:'62%', csat_n:'N=3.180'},
+    lt:  {base:'7,5M sellers/m\u00eas', alcance:'~17%', sub:'mai USD 1,8bi \u00b7 jun USD 2,4bi \u00b7 jul USD 2,4bi', mx:'17,1%', mx_s:'1,3M sellers/m\u00eas',   cx:'0,9%',  cx_s:'66K sellers/m\u00eas',                            csat_mx:'70%', csat_n:'N=425K'}
   },
   MLA: {
-    bs:  {base:'17K sellers/m\u00eas',   alcance:'~21%', sub:'MX 18,3% \u00b7 CX 6,1% \u00b7 KAM 10,7%',   mx:'18,3%', mx_s:'3K sellers',    cx:'6,1%',  cx_s:'1K sellers',   kam:'10,7%', kam_s:'1.814 sellers', csat_mx:'48%', csat_n:'N=23 baixo'},
-    smb: {base:'121K sellers/m\u00eas',  alcance:'~24%', sub:'MX 22,5% \u00b7 CX 2,9%',                    mx:'22,5%', mx_s:'27K sellers',   cx:'2,9%',  cx_s:'4K sellers',   cc:'11,9%',               csat_mx:'71%', csat_n:'N=330'},
-    lt:  {base:'3,9M sellers/m\u00eas',  alcance:'~16%', sub:'MX 16,3% \u00b7 CX 0,6%',                    mx:'16,3%', mx_s:'635K sellers',  cx:'0,6%',  cx_s:'22K sellers',                            csat_mx:'70%', csat_n:'N=164K'}
+    bs:  {base:'17K sellers/m\u00eas',  alcance:'~21%', sub:'mai USD 860M \u00b7 jun USD 999M \u00b7 jul USD 823M',   mx:'18,3%', mx_s:'3K sellers',    cx:'6,1%',  cx_s:'1K sellers',   kam:'10,7%', kam_s:'1.814 sellers', csat_mx:'48%', csat_n:'N=23 baixo'},
+    smb: {base:'121K sellers/m\u00eas', alcance:'~24%', sub:'mai USD 523M \u00b7 jun USD 779M \u00b7 jul USD 821M',   mx:'22,5%', mx_s:'27K sellers',   cx:'2,9%',  cx_s:'4K sellers',   cc:'11,9%',               csat_mx:'71%', csat_n:'N=330'},
+    lt:  {base:'3,9M sellers/m\u00eas', alcance:'~16%', sub:'mai USD 888M \u00b7 jun USD 1,4bi \u00b7 jul USD 1,4bi', mx:'16,3%', mx_s:'635K sellers',  cx:'0,6%',  cx_s:'22K sellers',                            csat_mx:'70%', csat_n:'N=164K'}
   },
   MLB: {
-    bs:  {base:'4K sellers/m\u00eas',    alcance:'~21%', sub:'MX 16,5% \u00b7 CX 8,2% \u00b7 KAM 13,4%',   mx:'16,5%', mx_s:'668 sellers',   cx:'8,2%',  cx_s:'330 sellers',  kam:'13,4%', kam_s:'535 sellers',   csat_mx:'75%', csat_n:'N=4 baixo'},
-    smb: {base:'448K sellers/m\u00eas',  alcance:'~27%', sub:'MX 25,7% \u00b7 CX 4,2%',                    mx:'25,7%', mx_s:'115K sellers',  cx:'4,2%',  cx_s:'19K sellers',  cc:'11,9%',               csat_mx:'61%', csat_n:'N=2.359'},
-    lt:  {base:'1,9M sellers/m\u00eas',  alcance:'~18%', sub:'MX 17,2% \u00b7 CX 1,4%',                    mx:'17,2%', mx_s:'332K sellers',  cx:'1,4%',  cx_s:'26K sellers',                            csat_mx:'68%', csat_n:'N=160K'}
+    bs:  {base:'4K sellers/m\u00eas',   alcance:'~21%', sub:'mai USD 348M \u00b7 jun USD 384M \u00b7 jul USD 686M',   mx:'16,5%', mx_s:'668 sellers',   cx:'8,2%',  cx_s:'330 sellers',  kam:'13,4%', kam_s:'535 sellers',   csat_mx:'75%', csat_n:'N=4 baixo'},
+    smb: {base:'448K sellers/m\u00eas', alcance:'~27%', sub:'mai USD 983M \u00b7 jun USD 1,2bi \u00b7 jul USD 1,3bi', mx:'25,7%', mx_s:'115K sellers',  cx:'4,2%',  cx_s:'19K sellers',  cc:'11,9%',               csat_mx:'61%', csat_n:'N=2.359'},
+    lt:  {base:'1,9M sellers/m\u00eas', alcance:'~18%', sub:'mai USD 479M \u00b7 jun USD 564M \u00b7 jul USD 596M',   mx:'17,2%', mx_s:'332K sellers',  cx:'1,4%',  cx_s:'26K sellers',                            csat_mx:'68%', csat_n:'N=160K'}
   },
   MLM: {
-    bs:  {base:'3K sellers/m\u00eas',    alcance:'~17%', sub:'MX 13,2% \u00b7 CX 7,4% \u00b7 KAM 12,7%',   mx:'13,2%', mx_s:'411 sellers',   cx:'7,4%',  cx_s:'231 sellers',  kam:'12,7%', kam_s:'382 sellers',   csat_mx:'100%',csat_n:'N=2 baixo'},
-    smb: {base:'98K sellers/m\u00eas',   alcance:'~26%', sub:'MX 23,7% \u00b7 CX 5,0%',                    mx:'23,7%', mx_s:'23K sellers',   cx:'5,0%',  cx_s:'5K sellers',   cc:'11,9%',               csat_mx:'71%', csat_n:'N=318'},
-    lt:  {base:'1,4M sellers/m\u00eas',  alcance:'~20%', sub:'MX 19,5% \u00b7 CX 1,0%',                    mx:'19,5%', mx_s:'278K sellers',  cx:'1,0%',  cx_s:'14K sellers',                            csat_mx:'75%', csat_n:'N=91K'}
+    bs:  {base:'3K sellers/m\u00eas',   alcance:'~17%', sub:'mai USD 203M \u00b7 jun USD 158M \u00b7 jul USD 197M',   mx:'13,2%', mx_s:'411 sellers',   cx:'7,4%',  cx_s:'231 sellers',  kam:'12,7%', kam_s:'382 sellers',   csat_mx:'100%',csat_n:'N=2 baixo'},
+    smb: {base:'98K sellers/m\u00eas',  alcance:'~26%', sub:'mai USD 356M \u00b7 jun USD 351M \u00b7 jul USD 357M',   mx:'23,7%', mx_s:'23K sellers',   cx:'5,0%',  cx_s:'5K sellers',   cc:'11,9%',               csat_mx:'71%', csat_n:'N=318'},
+    lt:  {base:'1,4M sellers/m\u00eas', alcance:'~20%', sub:'mai USD 397M \u00b7 jun USD 371M \u00b7 jul USD 393M',   mx:'19,5%', mx_s:'278K sellers',  cx:'1,0%',  cx_s:'14K sellers',                            csat_mx:'75%', csat_n:'N=91K'}
   },
   MLC: {
-    bs:  {base:'3K sellers/m\u00eas',    alcance:'~21%', sub:'MX 14,4% \u00b7 CX 10,9% \u00b7 KAM 17,6%',  mx:'14,4%', mx_s:'435 sellers',   cx:'10,9%', cx_s:'329 sellers',  kam:'17,6%', kam_s:'529 sellers',   csat_mx:'50%', csat_n:'N=2 baixo'},
-    smb: {base:'46K sellers/m\u00eas',   alcance:'~25%', sub:'MX 20,9% \u00b7 CX 8,5%',                    mx:'20,9%', mx_s:'10K sellers',   cx:'8,5%',  cx_s:'4K sellers',   cc:'11,9%',               csat_mx:'52%', csat_n:'N=173'},
-    lt:  {base:'219K sellers/m\u00eas',  alcance:'~15%', sub:'MX 15,0% \u00b7 CX 1,6%',                    mx:'15,0%', mx_s:'33K sellers',   cx:'1,6%',  cx_s:'3K sellers',                             csat_mx:'62%', csat_n:'N=10K'}
+    bs:  {base:'3K sellers/m\u00eas',   alcance:'~21%', sub:'mai USD 166M \u00b7 jun USD 192M \u00b7 jul USD 193M',   mx:'14,4%', mx_s:'435 sellers',   cx:'10,9%', cx_s:'329 sellers',  kam:'17,6%', kam_s:'529 sellers',   csat_mx:'50%', csat_n:'N=2 baixo'},
+    smb: {base:'46K sellers/m\u00eas',  alcance:'~25%', sub:'mai USD 174M \u00b7 jun USD 200M \u00b7 jul USD 169M',   mx:'20,9%', mx_s:'10K sellers',   cx:'8,5%',  cx_s:'4K sellers',   cc:'11,9%',               csat_mx:'52%', csat_n:'N=173'},
+    lt:  {base:'219K sellers/m\u00eas', alcance:'~15%', sub:'mai USD 56M \u00b7 jun USD 68M \u00b7 jul USD 69M',       mx:'15,0%', mx_s:'33K sellers',   cx:'1,6%',  cx_s:'3K sellers',                             csat_mx:'62%', csat_n:'N=10K'}
   }
 };
+
+
 
 
 
